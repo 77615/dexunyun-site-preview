@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>文档详情</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#FFFFFF;color:#1D2129;font-family:Inter,"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans SC",-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#165DFF;text-decoration:none;transition:color .2s}a:hover{color:#4080FF}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:128px;padding:0 28px;border-radius:2px;font-size:16px;font-weight:500;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap;box-sizing:border-box;transition:all .2s}
+.btn-p{background:linear-gradient(96deg,#165DFF 0%,#4E5BFF 100%);color:#FFFFFF;}.btn-p:hover{color:#FFFFFF;background:linear-gradient(96deg,#3C7EFF 0%,#6670FF 100%);}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#EAEDF1;}.btn-s:hover{color:#165DFF;border-color:#94BFFF}
+.btn-sm{height:34px;min-width:0;padding:0 16px;font-size:14px}
+.tag{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:2px;font-size:12px;background:transparent;border:1px solid rgba(161,161,161,0.5);color:#6B7380;white-space:nowrap;box-sizing:border-box}
+.card{background:#FFFFFF;border:1px solid #EAEDF1;border-radius:2px;box-sizing:border-box}
+div.card{background:#F7F8FB;border-color:transparent}
+.soft div.card,.hero-bg div.card,div.card.on-white{background:#FFFFFF;border-color:#EAEDF1}
+.lift{position:relative;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease,background .2s ease}a.lift:hover{transform:translateY(-4px);border-color:transparent;background:linear-gradient(#FFFFFF,#FFFFFF) padding-box,linear-gradient(135deg,#BEDAFF 0%,#165DFF 45%,#5CE1E6 100%) border-box;}
+.lift .t{transition:color .2s}a.lift:hover .t{color:#165DFF}
+.lift .go{display:inline-flex;transition:transform .25s,color .25s;color:#C9CDD4}a.lift:hover .go{transform:translateX(4px);color:#165DFF}
+.qn{transition:color .2s}.qn:hover{color:#165DFF}
+.lift .zoom{transition:transform .5s cubic-bezier(.2,.8,.2,1)}a.lift:hover .zoom{transform:scale(1.04)}
+.lift .reveal{opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}a.lift:hover .reveal{opacity:1;transform:none}
+.cells{display:grid;border-top:1px solid #E8EBF2;border-left:1px solid #E8EBF2;border-radius:2px;overflow:hidden;background:#FFFFFF}
+.cell{position:relative;display:flex;flex-direction:column;gap:6px;padding:26px 28px;min-height:120px;border-right:1px solid #E8EBF2;border-bottom:1px solid #E8EBF2;color:#1D2129;box-sizing:border-box;overflow:hidden;transition:background .3s,color .3s}
+.cell::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.2px) 0 0/10px 10px,radial-gradient(120% 140% at 100% 0%,#FFB98A 0%,rgba(255,185,138,0) 38%),linear-gradient(120deg,#0E42D2 0%,#165DFF 45%,#4D8BFF 100%);opacity:0;transition:opacity .3s}
+.cell>*{position:relative}.cell:hover::before{opacity:1}
+.cell .cd{font-size:14px;line-height:22px;color:#6B7380;transition:color .3s}
+.cell .cp{margin-top:auto;padding-top:10px;font-size:13px;color:#165DFF;font-weight:600;transition:color .3s}
+.cell .cb{position:absolute;right:24px;top:50%;margin-top:-17px;height:34px;padding:0 16px;border-radius:2px;background:#FFFFFF;color:#165DFF;font-size:13px;font-weight:500;display:inline-flex;align-items:center;opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s}.cell:hover .cb{opacity:1;transform:none}
+.badge{display:inline-flex;align-items:center;height:18px;padding:0 6px;border-radius:999px;border:1px solid currentColor;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:1}
+.b-hot{color:#F53F3F}.b-new{color:#165DFF}
+.ic{width:44px;height:44px;border-radius:2px;background:linear-gradient(135deg,#EAF2FF 0%,#F7FAFF 100%);box-shadow:inset 0 0 0 1px rgba(22,93,255,0.12);color:#165DFF;display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:22px;height:22px}
+.ph{background:linear-gradient(135deg,#F2F6FF 0%,#F7F8FA 100%);border:1px solid #EAECF0;border-radius:2px;color:#6B7380;font-size:13px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;box-sizing:border-box}
+.eyebrow{display:none;align-items:center;gap:6px;align-self:flex-start;height:28px;padding:0 12px;border-radius:999px;background:#EAF2FF;font-size:13px;font-weight:500;color:#165DFF;letter-spacing:.04em}
+.sec-t{margin:0;font-size:40px;line-height:52px;font-weight:600;text-wrap:balance;color:#1D2129}
+.sub-dash{display:flex;align-items:center;gap:16px;justify-content:center;color:#6B7380}.sub-dash::before,.sub-dash::after{content:"";flex:0 1 140px;border-top:1px dashed #C9CED6}
+.sec-d{margin:0;font-size:16px;line-height:28px;color:#4E5969}
+.grad{background:linear-gradient(90deg,#165DFF 0%,#3C7EFF 55%,#14C9C9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:14px 4px;font-size:16px;color:#4E5969;cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .2s}
+.tab:hover{color:#165DFF}
+.tab-on{color:#165DFF;border-bottom-color:#165DFF;font-weight:500}
+.num{font-variant-numeric:tabular-nums;font-family:Inter,"DIN Alternate","Bahnschrift","Helvetica Neue",Arial,sans-serif}
+.hero-bg{background:radial-gradient(60% 80% at 85% 0%,rgba(22,93,255,0.16) 0%,rgba(22,93,255,0) 60%),radial-gradient(40% 60% at 0% 100%,rgba(20,201,201,0.10) 0%,rgba(20,201,201,0) 60%),linear-gradient(180deg,#F3F7FF 0%,#FFFFFF 100%);position:relative;overflow:hidden}
+.ring{position:absolute;border:1px solid rgba(22,93,255,0.10);border-radius:50%;pointer-events:none}
+.gridline{position:absolute;inset:0;background-image:linear-gradient(rgba(22,93,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(22,93,255,0.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);pointer-events:none}
+.deep .gridline{background-image:radial-gradient(rgba(255,255,255,0.14) 1px,transparent 1.3px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
+.deep{background:radial-gradient(50% 70% at 80% 0%,rgba(22,93,255,0.35) 0%,rgba(22,93,255,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(20,201,201,0.15) 0%,rgba(20,201,201,0) 70%),#071028;color:#FFFFFF}
+.deep-card{background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.03) 100%);border:1px solid rgba(255,255,255,0.12);border-radius:2px;backdrop-filter:blur(8px)}
+.glass{background:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.9);border-radius:2px;backdrop-filter:blur(12px)}
+.soft{background:linear-gradient(180deg,#F7F9FC 0%,#F2F5FA 100%)}
+.crumb{font-size:13px;color:#6B7380}.crumb a{color:#6B7380}.crumb a:hover{color:#165DFF}
+.lbl{font-size:14px;color:#1D2129;font-weight:500}
+.field{height:40px;border:1px solid #E5E6EB;background:#FFFFFF;border-radius:2px;padding:0 12px;font:inherit;font-size:14px;color:#1D2129;box-sizing:border-box;width:100%;transition:border-color .2s,box-shadow .2s}
+.field:focus{outline:none;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:880px}
+.tbl th{background:#F7F9FC;color:#4E5969;font-weight:500;text-align:left;padding:14px 16px;border-bottom:1px solid #EAECF0;white-space:nowrap}
+.tbl td{padding:16px;border-bottom:1px solid #EAECF0;color:#1D2129}
+.tbl tr:hover td{background:#F7FAFF}
+.pg{min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;font-size:14px;color:#4E5969;border:1px solid #EAECF0}
+.chk{position:relative;display:inline-flex;align-items:center;padding-left:24px}
+.chk::before{content:"";position:absolute;left:0;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:999px;background:#E8FFEA}
+.chk::after{content:"";position:absolute;left:5px;top:50%;width:4px;height:7px;margin-top:-5px;border-right:1.6px solid #00B42A;border-bottom:1.6px solid #00B42A;transform:rotate(45deg)}
+button.tb{font:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;color:inherit;text-align:left}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 18px;border-radius:999px;font-size:14px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;cursor:pointer;font-family:inherit;transition:all .2s}.pill:hover{color:#165DFF;border-color:#94BFFF}
+.pill-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}.pill-on:hover{color:#FFFFFF;border-color:#165DFF}
+.side{display:block;width:100%;box-sizing:border-box;padding:10px 16px;border-radius:2px;font-size:14px;color:#4E5969;background:none;border:0;text-align:left;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}.side:hover{color:#165DFF;background:#F2F6FF}
+.side-on{background:#E8F3FF;color:#165DFF;font-weight:500}
+.pg{min-width:32px;height:32px;border-radius:2px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;font-size:14px;cursor:pointer;font-family:inherit}.pg:hover{color:#165DFF;border-color:#94BFFF}
+.btn-s-on{color:#165DFF;border-color:#165DFF}
+.pkg{transition:border-color .2s,box-shadow .2s}.pkg:hover{border-color:#94BFFF}.pkg-on,.pkg-on:hover{border-color:#165DFF;box-shadow:0 0 0 1px #165DFF,0 18px 40px -12px rgba(22,93,255,0.25)}
+.hc-on{background:#FFFFFF !important}.hcbar{position:absolute;left:0;top:0;height:3px;width:0;background:#165DFF;transition:width .3s}.hc-on .hcbar{width:60%}.hc-on .hct{color:#165DFF !important;font-weight:600}
+.ht{border:0;font:inherit;font-size:15px;cursor:pointer;height:38px;padding:0 20px;background:transparent;color:#4E5969}.ht-on{background:#FFFFFF;color:#165DFF;font-weight:600}
+.hs{border:1px solid rgba(255,255,255,0.16);font:inherit;font-size:14px;cursor:pointer;height:36px;padding:0 18px;background:rgba(255,255,255,0.04);color:#FFFFFF}.hs-on{background:#165DFF;border-color:#165DFF}
+.pg-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+@media (prefers-reduced-motion:reduce){.lift,.btn{transition:none}.lift:hover,.btn-p:hover{transform:none}}
+
+.spot{--mx:72%;--my:40%}
+.spot-cv,.spot-glow{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.spot:hover .spot-cv,.spot:hover .spot-glow{opacity:1}
+.spot-cv{width:100%;height:100%;-webkit-mask-image:radial-gradient(340px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.85) 30%,transparent 78%);mask-image:radial-gradient(340px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.85) 30%,transparent 78%)}
+.spot-glow{background:radial-gradient(360px circle at var(--mx) var(--my),rgba(48,84,170,0.32),rgba(22,40,90,0.12) 50%,transparent 80%)}
+
+
+/* ---- 火山引擎风格覆盖 ---- */
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1D2129}
+.btn{height:48px;padding:0 28px;border-radius:2px;font-size:14px;font-weight:400;min-width:0;transition:background .16s,color .16s,border-color .16s}
+.btn-p{background:#165DFF;color:#FFFFFF}.btn-p:hover{background:#0E42D2;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#C9CDD4}.btn-s:hover{color:#165DFF;border-color:#165DFF}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+.card{border-radius:2px;border-color:#EAEDF1}
+div.card{background:#F4F8FC}
+.sec-t{font-size:32px;line-height:44px;font-weight:400}
+.hero-bn h1{font-size:42px !important;line-height:58px !important;font-weight:400 !important}
+.lift{transition:color .2s}
+a.lift::before,div.lift::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s;pointer-events:none;z-index:0}
+a.lift::before{background:radial-gradient(rgba(255,255,255,0.28) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+div.lift::before{background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(120deg,#1664FF,#2C8AD8,#2EB2C3,#24B291,#1EA077)}
+a.lift>*:not([style*="position:absolute"]),div.lift>*:not([style*="position:absolute"]){position:relative;z-index:1}
+
+
+
+
+a.lift:hover .zoom{transform:none}
+.cells{border-radius:0;border-color:#EAEDF1}.cell{border-color:#EAEDF1}
+.cell::before{background:radial-gradient(rgba(255,255,255,0.26) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+.cell .cb{border-radius:2px}
+.tab-on{font-weight:500}
+.pill,.pg,.field,.side,.tag{border-radius:2px}
+
+/* ---- 卡片悬停：跟随鼠标的光斑（替代整块变色） ---- */
+.lift,.cell{transition:border-color .25s,background-color .25s}
+.spot-l{position:relative;isolation:isolate}
+.spot-l>.spot-cv,.spot-l>.spot-glow{position:absolute !important;inset:0;z-index:0 !important}
+.spot-l>.spot-cv{-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%);mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%)}
+.spot-l>.spot-glow{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,255,255,0.55),rgba(255,255,255,0.2) 50%,transparent 80%)}
+a.lift::before,div.lift::before,.cell::before{display:block !important;background:linear-gradient(115deg,#DCEBFF 0%,#E0F1F8 50%,#DCF5EA 100%) !important;opacity:0;transition:opacity .35s ease}
+a.lift:hover::before,div.lift:hover::before,.cell:hover::before{opacity:1}
+a.lift:hover,div.lift:hover{transform:none;box-shadow:none;border-color:#DFE3EA}a.lift:hover{background:#FFFFFF}
+.cell:hover{color:#1D2129;box-shadow:inset 0 0 0 1px #DFE3EA}
+.cell .cb{border:1px solid #165DFF;z-index:1}
+/* ---- v56 卡片悬停 ---- */
+.card{border-color:#F0F2F5}.cells{border-color:#F0F2F5;overflow:visible}.cell{border-color:#F0F2F5}
+a.lift::before,div.lift::before,.cell::before{background:linear-gradient(115deg,#C4DAFF 0%,#C9E7F7 50%,#C2EDD8 100%) !important;inset:-1px !important}
+.lift,.cell{transition:border-color .3s,background-color .3s,box-shadow .35s ease}
+a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.cell:hover{z-index:2;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+
+/* ---- v88 字阶：H1/H2 加粗放大，正文 14-16px，辅助文字加深 ---- */.hero-bn h1{font-size:52px !important;line-height:64px !important;font-weight:700 !important;letter-spacing:-.01em}.hero-bn p{font-size:17px !important;line-height:30px !important;color:#4E5969 !important}.sec-t{font-size:34px !important;line-height:46px !important;font-weight:600 !important;letter-spacing:-.005em}.sec-d{font-size:16px !important;line-height:28px !important;color:#4E5969 !important}.v88-big{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif !important;font-weight:700 !important;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* v88 AI assistant button */
+.qai{position:relative;width:56px;height:56px;border-radius:999px;background:linear-gradient(135deg,#3C7EFF 0%,#165DFF 55%,#4E5BFF 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(22,93,255,.28);transition:transform .2s,box-shadow .2s}
+.qai:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(22,93,255,.34)}
+.qai span{position:absolute;right:-2px;top:-2px;height:16px;padding:0 5px;border-radius:8px;background:#fff;color:#165DFF;font:600 10px/16px Inter,sans-serif;box-shadow:0 0 0 1px #DCE6FF}
+.qai::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(22,93,255,.35);animation:qaiP 2.8s ease-out infinite}
+@keyframes qaiP{0%{box-shadow:0 0 0 0 rgba(22,93,255,.35)}70%,100%{box-shadow:0 0 0 12px rgba(22,93,255,0)}}
+@media (prefers-reduced-motion:reduce){.qai::after{animation:none}}
+
+/* v90 semantic + stats */
+:root{--sem-threat:#F53F3F;--sem-risk:#FF7D00;--sem-safe:#00B42A;--sem-brand:#165DFF}
+.ax-hl ~ .ax-c{background:linear-gradient(90deg,#AFF0B5,#23C343)}
+.ax-hl ~ .ax-c::after{border-color:#23C343}
+.ax-hl ~ .ax-n{color:#00B42A}
+.v88-big{color:#165DFF!important}
+.deep .v88-big{color:#FFFFFF!important}
+.hh-n{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif!important;font-weight:700!important;font-size:40px!important;line-height:48px!important;color:#165DFF!important;letter-spacing:-.02em}
+.hh-n small{font-size:18px!important;font-weight:600;margin-left:2px;color:#165DFF!important}
+
+/* ---- v97 腾讯云式（.tcx 作用域，内容页通用） ---- */
+.tcx .sec-t{font-size:36px;line-height:48px;font-weight:600;color:#000000;letter-spacing:.01em}
+.tcx .deep .sec-t,.tcx .sec-t[style*="#FFFFFF"]{color:#FFFFFF}
+.tcx .grad{background:linear-gradient(90deg,#00A2ED 0%,#165DFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tcx .deep .grad{background:linear-gradient(90deg,#5CE1E6 0%,#94BFFF 100%);-webkit-background-clip:text;background-clip:text}
+.tcx .soft{background:linear-gradient(180deg,#F1F6FF 0%,#F8FAFF 55%,#FFFFFF 100%)}
+.tcx .tc-more{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:#1D2129;white-space:nowrap;transition:color .25s}
+.tcx .tc-more i{width:22px;height:22px;border-radius:999px;background:#1D2129;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;transition:background .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.tcx .tc-more:hover{color:#165DFF}.tcx .tc-more:hover i{background:#165DFF;transform:rotate(45deg)}
+.tcx .deep .tc-more{color:#FFFFFF}.tcx .deep .tc-more i{background:#FFFFFF;color:#071028}
+@property --tcA{syntax:'<angle>';inherits:false;initial-value:0deg}
+.tcx a.lift::before,.tcx div.lift::before,.tcx .cell::before{inset:-1px!important;padding:1px;box-sizing:border-box;z-index:2;background:conic-gradient(from var(--tcA),rgba(27,110,247,0) 0deg,rgba(27,110,247,0) 220deg,rgba(27,110,247,.55) 290deg,rgba(127,178,255,.75) 325deg,rgba(27,110,247,.6) 360deg)!important;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0!important;transition:opacity .35s;pointer-events:none}
+.tcx a.lift:hover::before,.tcx div.lift:hover::before,.tcx .cell:hover::before{opacity:1!important;animation:tcFlow 5s linear infinite}
+@keyframes tcFlow{to{--tcA:360deg}}
+.tcx .lift .spot-cv,.tcx .lift .spot-glow,.tcx .cell .spot-cv,.tcx .cell .spot-glow{display:none!important}
+.tcx a.lift:hover,.tcx div.lift:hover,.tcx .cell:hover{transform:none!important;background:#FFFFFF!important;border-color:transparent!important;box-shadow:0 18px 44px -14px rgba(0,58,140,.18),0 2px 8px rgba(0,58,140,.05)!important}
+.tcx .deep a.lift:hover,.tcx .deep div.lift:hover{background:rgba(255,255,255,.08)!important}
+.tcx .lift:hover .t,.tcx .cell:hover .t{color:#165DFF}
+.tcx div.lift .zoom{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.tcx div.lift:hover .zoom{transform:scale(1.04)}
+.tcx div.lift:hover .btn-s{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+.tcx .v88-big{white-space:nowrap}
+.tcx .rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.tcx .rv-wait{opacity:0;transform:translateY(36px)}
+@media (prefers-reduced-motion:reduce){.tcx .rv-wait{opacity:1;transform:none}.tcx .lift:hover::before,.tcx .cell:hover::before{animation:none}}
+</style>
+</helmet>
+<div class="tcx" data-pg="DocDetail" style="min-width:0">
+<div style="position:sticky;top:0;z-index:5"><dc-import name="Header" active="docs" hint-size="100%,60px"></dc-import></div>
+<section style="border-bottom:1px solid #E5E6EB;background:#F7F8FA">
+  <div class="wrap" style="max-width:1392px;padding-top:16px;padding-bottom:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+    <sc-if value="{{ doc0 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">入门指导</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">账户注册</span></nav></sc-if><sc-if value="{{ doc1 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">入门指导</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">实名认证</span></nav></sc-if><sc-if value="{{ doc2 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">入门指导</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">在线充值购买</span></nav></sc-if><sc-if value="{{ doc3 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">安全加速 SCDN</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">产品简介</span></nav></sc-if><sc-if value="{{ doc4 }}" hint-placeholder-val="{{ true }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">安全加速 SCDN</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">快速接入步骤</span></nav></sc-if><sc-if value="{{ doc5 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">安全加速 SCDN</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">域名配置</span></nav></sc-if><sc-if value="{{ doc6 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">安全加速 SCDN</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">防护策略</span></nav></sc-if><sc-if value="{{ doc7 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">安全加速 SCDN</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">常见问题</span></nav></sc-if><sc-if value="{{ doc8 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">DDoS 防护服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">产品简介</span></nav></sc-if><sc-if value="{{ doc9 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">DDoS 防护服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">端口接入</span></nav></sc-if><sc-if value="{{ doc10 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">DDoS 防护服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">添加端口转发</span></nav></sc-if><sc-if value="{{ doc11 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">DDoS 防护服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">攻击报表</span></nav></sc-if><sc-if value="{{ doc12 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">游戏盾</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">产品简介</span></nav></sc-if><sc-if value="{{ doc13 }}" hint-placeholder-val="{{ false }}"><nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">文档中心</a> <span aria-hidden="true">/</span> <a href="Docs.dc.html">游戏盾</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">SDK 接入</span></nav></sc-if>
+    <div style="display:flex;gap:8px"><label for="dq2" style="position:absolute;left:-9999px">搜索文档</label><input id="dq2" class="field" placeholder="搜索文档" style="width:240px;background:#FFFFFF"></div>
+  </div>
+</section>
+<section style="padding:32px 0 80px">
+  <div class="wrap" style="max-width:1392px;display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+    <nav aria-label="文档目录" style="flex:1 1 220px;max-width:260px;min-width:0;display:flex;flex-direction:column;gap:4px;border-right:1px solid #E5E6EB;padding-right:16px"><div style="display:flex;flex-direction:column"><button class="tb" onClick="{{ grpP0 }}" style="padding:8px 12px;font-size:14px;font-weight:500;color:#1D2129;display:flex;justify-content:space-between">入门指导<span style="color:#4E5969"><sc-if value="{{ grp0 }}" hint-placeholder-val="{{ false }}">▾</sc-if></span></button><sc-if value="{{ grp0 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px"><button class="side {{ docC0 }}" onClick="{{ docP0 }}" style="padding:7px 12px 7px 24px">账户注册</button><button class="side {{ docC1 }}" onClick="{{ docP1 }}" style="padding:7px 12px 7px 24px">实名认证</button><button class="side {{ docC2 }}" onClick="{{ docP2 }}" style="padding:7px 12px 7px 24px">在线充值购买</button></div></sc-if></div><div style="display:flex;flex-direction:column"><button class="tb" onClick="{{ grpP1 }}" style="padding:8px 12px;font-size:14px;font-weight:500;color:#1D2129;display:flex;justify-content:space-between">安全加速 SCDN<span style="color:#4E5969"><sc-if value="{{ grp1 }}" hint-placeholder-val="{{ true }}">▾</sc-if></span></button><sc-if value="{{ grp1 }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;gap:2px"><button class="side {{ docC3 }}" onClick="{{ docP3 }}" style="padding:7px 12px 7px 24px">产品简介</button><button class="side {{ docC4 }}" onClick="{{ docP4 }}" style="padding:7px 12px 7px 24px">快速接入步骤</button><button class="side {{ docC5 }}" onClick="{{ docP5 }}" style="padding:7px 12px 7px 24px">域名配置</button><button class="side {{ docC6 }}" onClick="{{ docP6 }}" style="padding:7px 12px 7px 24px">防护策略</button><button class="side {{ docC7 }}" onClick="{{ docP7 }}" style="padding:7px 12px 7px 24px">常见问题</button></div></sc-if></div><div style="display:flex;flex-direction:column"><button class="tb" onClick="{{ grpP2 }}" style="padding:8px 12px;font-size:14px;font-weight:500;color:#1D2129;display:flex;justify-content:space-between">DDoS 防护服务<span style="color:#4E5969"><sc-if value="{{ grp2 }}" hint-placeholder-val="{{ false }}">▾</sc-if></span></button><sc-if value="{{ grp2 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px"><button class="side {{ docC8 }}" onClick="{{ docP8 }}" style="padding:7px 12px 7px 24px">产品简介</button><button class="side {{ docC9 }}" onClick="{{ docP9 }}" style="padding:7px 12px 7px 24px">端口接入</button><button class="side {{ docC10 }}" onClick="{{ docP10 }}" style="padding:7px 12px 7px 24px">添加端口转发</button><button class="side {{ docC11 }}" onClick="{{ docP11 }}" style="padding:7px 12px 7px 24px">攻击报表</button></div></sc-if></div><div style="display:flex;flex-direction:column"><button class="tb" onClick="{{ grpP3 }}" style="padding:8px 12px;font-size:14px;font-weight:500;color:#1D2129;display:flex;justify-content:space-between">游戏盾<span style="color:#4E5969"><sc-if value="{{ grp3 }}" hint-placeholder-val="{{ false }}">▾</sc-if></span></button><sc-if value="{{ grp3 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px"><button class="side {{ docC12 }}" onClick="{{ docP12 }}" style="padding:7px 12px 7px 24px">产品简介</button><button class="side {{ docC13 }}" onClick="{{ docP13 }}" style="padding:7px 12px 7px 24px">SDK 接入</button></div></sc-if></div></nav>
+    <article style="flex:999 1 560px;min-width:0;max-width:800px;display:flex;flex-direction:column;gap:18px">
+      <sc-if value="{{ doc0 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">入门指导 账户注册</h1></sc-if><sc-if value="{{ doc1 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">入门指导 实名认证</h1></sc-if><sc-if value="{{ doc2 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">入门指导 在线充值购买</h1></sc-if><sc-if value="{{ doc3 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">安全加速 SCDN 产品简介</h1></sc-if><sc-if value="{{ doc4 }}" hint-placeholder-val="{{ true }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">安全加速 SCDN 快速接入步骤</h1></sc-if><sc-if value="{{ doc5 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">安全加速 SCDN 域名配置</h1></sc-if><sc-if value="{{ doc6 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">安全加速 SCDN 防护策略</h1></sc-if><sc-if value="{{ doc7 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">安全加速 SCDN 常见问题</h1></sc-if><sc-if value="{{ doc8 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">DDoS 防护服务 产品简介</h1></sc-if><sc-if value="{{ doc9 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">DDoS 防护服务 端口接入</h1></sc-if><sc-if value="{{ doc10 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">DDoS 防护服务 添加端口转发</h1></sc-if><sc-if value="{{ doc11 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">DDoS 防护服务 攻击报表</h1></sc-if><sc-if value="{{ doc12 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">游戏盾 产品简介</h1></sc-if><sc-if value="{{ doc13 }}" hint-placeholder-val="{{ false }}"><h1 style="margin:0;font-size:30px;line-height:40px;font-weight:600">游戏盾 SDK 接入</h1></sc-if>
+      <div style="font-size:13px;color:#4E5969">更新时间：2026-10-20 · 阅读约 5 分钟</div>
+      <div class="card" style="padding:14px 16px;background:#F2F6FF;border:0;font-size:15px;line-height:22px;color:#1D2129">提示：接入前请确认域名已完成 ICP 备案，并准备好源站 IP 或源站域名。</div>
+      <h2 id="d1" style="margin:12px 0 0;font-size:22px;font-weight:600">1. 接入前准备</h2>
+      <p style="margin:0;font-size:15px;line-height:28px;color:#1D2129">登录控制台，进入「安全加速 SCDN」。确认待接入域名已完成 ICP 备案，记录源站 IP（或源站域名）与业务使用的端口和协议。如源站有防火墙白名单，请提前放行 SCDN 回源节点的 IP 段。</p>
+      <h2 id="d2" style="margin:12px 0 0;font-size:22px;font-weight:600">2. 添加域名</h2>
+      <div class="ph" style="height:auto;padding:20px;display:block;background:#F7F8FA;text-align:left"><div style="background:#FFFFFF;border:1px solid #E5E6EB;border-radius:4px;padding:18px 20px;max-width:560px;font-size:13px;color:#4E5969"><div style="font-size:14px;font-weight:600;color:#1D2129;margin-bottom:14px">添加域名</div><div style="display:grid;grid-template-columns:96px 1fr;gap:12px 12px;align-items:center"><span>加速域名</span><span style="height:32px;border:1px solid #C9CDD4;border-radius:2px;display:flex;align-items:center;padding:0 10px;color:#1D2129">www.example.com</span><span>源站类型</span><span style="display:flex;gap:8px"><b style="height:28px;padding:0 12px;border:1px solid #165DFF;color:#165DFF;border-radius:2px;display:inline-flex;align-items:center;font-weight:500">IP</b><b style="height:28px;padding:0 12px;border:1px solid #E5E6EB;border-radius:2px;display:inline-flex;align-items:center;font-weight:400">域名</b></span><span>源站地址</span><span style="height:32px;border:1px solid #C9CDD4;border-radius:2px;display:flex;align-items:center;padding:0 10px;color:#1D2129">203.0.113.10</span><span>回源协议</span><span style="color:#1D2129">HTTP（80） · HTTPS（443）</span></div><div style="margin-top:16px;display:flex;justify-content:flex-end"><span style="height:32px;padding:0 16px;background:#165DFF;color:#FFFFFF;border-radius:2px;display:inline-flex;align-items:center">确定</span></div></div></div>
+      <h2 id="d3" style="margin:12px 0 0;font-size:22px;font-weight:600">3. 配置 CNAME</h2>
+      <pre style="margin:0;padding:16px;background:#0A1633;color:#E8F3FF;border-radius:2px;font-size:14px;line-height:22px;overflow-x:auto">www.example.com.  CNAME  （控制台分配的 CNAME 记录值）</pre>
+      <div style="overflow-x:auto" class="card"><table class="tbl" style="min-width:560px"><thead><tr><th>记录类型</th><th>主机记录</th><th>记录值</th></tr></thead><tbody><tr><td>CNAME</td><td>www</td><td>控制台分配的 CNAME 记录值</td></tr></tbody></table></div>
+      <h2 id="d4" style="margin:12px 0 0;font-size:22px;font-weight:600">4. 验证生效</h2>
+      <p style="margin:0;font-size:15px;line-height:28px;color:#1D2129">在域名服务商处将 CNAME 记录生效后，通常 10 分钟内全网生效。可在本地执行 <code>nslookup www.example.com</code>，返回结果包含分配的 CNAME 即表示接入成功；随后在控制台「概览」查看实时请求与缓存命中率。</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 0;border-top:1px solid #E5E6EB;margin-top:16px">
+        <div style="display:flex;gap:8px;align-items:center;font-size:14px;color:#4E5969"><sc-if value="{{ fb0 }}" hint-placeholder-val="{{ true }}">这篇文档有帮助吗？<button class="btn btn-s btn-sm" onClick="{{ fbP1 }}">有帮助</button><button class="btn btn-s btn-sm" onClick="{{ fbP2 }}">没帮助</button></sc-if><sc-if value="{{ fb1 }}" hint-placeholder-val="{{ false }}"><span style="color:#00B42A">✓ 感谢你的反馈</span></sc-if><sc-if value="{{ fb2 }}" hint-placeholder-val="{{ false }}"><span>感谢反馈，我们会改进这篇文档。<a href="Contact.dc.html">告诉我们哪里不清楚 →</a></span></sc-if></div>
+        <a href="Contact.dc.html" style="font-size:14px">仍有问题？提交工单 →</a>
+      </div>
+      <sc-if value="{{ doc0 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><span></span><button class="tb" style="color:#165DFF" onClick="{{ docP1 }}">下一篇：实名认证 ›</button></div></sc-if><sc-if value="{{ doc1 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP0 }}">‹ 上一篇：账户注册</button><button class="tb" style="color:#165DFF" onClick="{{ docP2 }}">下一篇：在线充值购买 ›</button></div></sc-if><sc-if value="{{ doc2 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP1 }}">‹ 上一篇：实名认证</button><button class="tb" style="color:#165DFF" onClick="{{ docP3 }}">下一篇：产品简介 ›</button></div></sc-if><sc-if value="{{ doc3 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP2 }}">‹ 上一篇：在线充值购买</button><button class="tb" style="color:#165DFF" onClick="{{ docP4 }}">下一篇：快速接入步骤 ›</button></div></sc-if><sc-if value="{{ doc4 }}" hint-placeholder-val="{{ true }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP3 }}">‹ 上一篇：产品简介</button><button class="tb" style="color:#165DFF" onClick="{{ docP5 }}">下一篇：域名配置 ›</button></div></sc-if><sc-if value="{{ doc5 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP4 }}">‹ 上一篇：快速接入步骤</button><button class="tb" style="color:#165DFF" onClick="{{ docP6 }}">下一篇：防护策略 ›</button></div></sc-if><sc-if value="{{ doc6 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP5 }}">‹ 上一篇：域名配置</button><button class="tb" style="color:#165DFF" onClick="{{ docP7 }}">下一篇：常见问题 ›</button></div></sc-if><sc-if value="{{ doc7 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP6 }}">‹ 上一篇：防护策略</button><button class="tb" style="color:#165DFF" onClick="{{ docP8 }}">下一篇：产品简介 ›</button></div></sc-if><sc-if value="{{ doc8 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP7 }}">‹ 上一篇：常见问题</button><button class="tb" style="color:#165DFF" onClick="{{ docP9 }}">下一篇：端口接入 ›</button></div></sc-if><sc-if value="{{ doc9 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP8 }}">‹ 上一篇：产品简介</button><button class="tb" style="color:#165DFF" onClick="{{ docP10 }}">下一篇：添加端口转发 ›</button></div></sc-if><sc-if value="{{ doc10 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP9 }}">‹ 上一篇：端口接入</button><button class="tb" style="color:#165DFF" onClick="{{ docP11 }}">下一篇：攻击报表 ›</button></div></sc-if><sc-if value="{{ doc11 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP10 }}">‹ 上一篇：添加端口转发</button><button class="tb" style="color:#165DFF" onClick="{{ docP12 }}">下一篇：产品简介 ›</button></div></sc-if><sc-if value="{{ doc12 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP11 }}">‹ 上一篇：攻击报表</button><button class="tb" style="color:#165DFF" onClick="{{ docP13 }}">下一篇：SDK 接入 ›</button></div></sc-if><sc-if value="{{ doc13 }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><button class="tb" style="color:#165DFF" onClick="{{ docP12 }}">‹ 上一篇：产品简介</button><span></span></div></sc-if>
+    </article>
+    <aside aria-label="本页目录" style="flex:1 1 180px;max-width:200px;min-width:0;display:flex;flex-direction:column;gap:8px;position:sticky;top:88px">
+      <div style="font-size:13px;color:#4E5969">本页目录</div>
+      <a href="#d1" style="font-size:13px;padding-left:10px;border-left:2px solid #165DFF;color:#165DFF">接入前准备</a><a href="#d2" style="font-size:13px;padding-left:10px;border-left:2px solid #E5E6EB;color:#4E5969">添加域名</a><a href="#d3" style="font-size:13px;padding-left:10px;border-left:2px solid #E5E6EB;color:#4E5969">配置 CNAME</a><a href="#d4" style="font-size:13px;padding-left:10px;border-left:2px solid #E5E6EB;color:#4E5969">验证生效</a>
+    </aside>
+  </div>
+</section>
+<dc-import name="Footer" hint-size="100%,480px"></dc-import>
+<aside class="qnav" aria-label="快捷咨询" style="position:fixed;right:16px;bottom:96px;z-index:6;display:flex;flex-direction:column;align-items:center;gap:10px"><a href="Contact.dc.html" title="AI 安全助手" class="qai" aria-label="AI 安全助手"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3.2c-.4.3-.8 0-.8-.4V17h.5A2.5 2.5 0 0 1 4 14.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 7.4l.9 2.2 2.2.9-2.2.9-.9 2.2-.9-2.2-2.2-.9 2.2-.9z" fill="#fff"/></svg><span>AI</span></a><div style="width:56px;display:flex;flex-direction:column;background:#FFFFFF;border-radius:999px;padding:10px 0"><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 17V10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10V17C20 19.7614 17.7614 22 15 22H11M9 13V14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14V13M1 10V17M23 10V17M11 21H15"></path></svg>售前</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 14H9M15 10H9M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.6624 3.04042 17.0817 4.73686 18.8737L3 22H12Z" stroke-linecap="square"></path></svg>咨询</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12Z"></path><path d="M16 11V9M8 11V9M8.54 15C9.23 16.2 10.52 17 12 17C13.48 17 14.77 16.2 15.47 15" stroke-linecap="square"></path></svg>反馈<span style="position:absolute;right:12px;top:12px;width:6px;height:6px;border-radius:2px;background:#F53F3F"></span></a></div></aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+_tcxReveal() {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return;
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const count = (el) => {
+    el.querySelectorAll('.num, .v88-big, .hh-n').forEach((n) => {
+      if (n._cu || /[×\-:\/]/.test(n.textContent) || n.textContent.trim().length > 9) return;
+      const w = document.createTreeWalker(n, NodeFilter.SHOW_TEXT); let t;
+      while ((t = w.nextNode()) && !/\d/.test(t.nodeValue)) {}
+      if (!t) return;
+      const m = t.nodeValue.match(/\d[\d,]*/); const goal = parseInt(m[0].replace(/,/g, ''), 10);
+      if (!(goal >= 2)) return;
+      n._cu = 1;
+      const pre = t.nodeValue.slice(0, m.index), post = t.nodeValue.slice(m.index + m[0].length), comma = m[0].indexOf(',') > -1;
+      const t0 = performance.now();
+      const step = (now) => { const k = Math.min(1, (now - t0) / 1400); const v = Math.round(goal * ease(k)); t.nodeValue = pre + (comma ? v.toLocaleString('en-US') : String(v)) + post; if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+  };
+  document.querySelectorAll('.tcx[data-pg="DocDetail"]').forEach((root) => {
+    if (root._tcx) return; root._tcx = 1;
+    const items = [];
+    root.querySelectorAll('section').forEach((sec, si) => {
+      if (si === 0 || sec.classList.contains('hero-bn') || sec.classList.contains('hero-bg')) return;
+      const wrap = sec.querySelector(':scope > .wrap'); if (!wrap) return;
+      let i = 0;
+      Array.from(wrap.children).forEach((ch) => {
+        const grid = getComputedStyle(ch).display === 'grid' && ch.children.length >= 3 && ch.children.length <= 24;
+        if (grid) Array.from(ch.children).forEach((g, k) => items.push([g, (i + k) * 70]));
+        else items.push([ch, i * 90]);
+        i++;
+      });
+    });
+    const vh = window.innerHeight || 900;
+    const io = window.IntersectionObserver ? new IntersectionObserver((es) => {
+      es.forEach((e) => { if (!e.isIntersecting) return; const el = e.target; io.unobserve(el); el.classList.remove('rv-wait'); count(el); });
+    }, { threshold: 0.12 }) : null;
+    items.forEach(([el, d]) => {
+      el.classList.add('rv'); el.style.transitionDelay = Math.min(d, 420) + 'ms';
+      const r = el.getBoundingClientRect();
+      if (!io || (r.top < vh && r.bottom > 0)) { count(el); return; }
+      el.classList.add('rv-wait'); io.observe(el);
+    });
+  });
+}
+componentDidMount() { this._tcxReveal(); }
+
+renderVals() {
+const G = {"doc": [14, 4, "side-on", ""], "grp": [4, 1, "", ""], "fb": [3, 0, "", ""]};
+const s = this.state || {};
+const o = {};
+for (const k in G) {
+  const [n, d, on, off] = G[k];
+  const cur = s[k] ?? d;
+  for (let i = 0; i < n; i++) {
+    o[k + i] = cur === i;
+    o[k + 'C' + i] = cur === i ? on : off;
+    o[k + 'N' + i] = cur !== i;
+    o[k + 'P' + i] = () => this.setState({ [k]: i });
+  }
+}
+// card spotlight (CTA banner): pointer-following glow + flickering pixel grid on a 2D canvas
+const spotState = (el) => el.__spot || (el.__spot = { cv: el.querySelector('.spot-cv'), raf: 0, on: false, x: 0, y: 0, ox: 0, oy: 0, t0: 0, off: 0 });
+const spotHash = (a, b, c) => { let n = (a * 374761393 + b * 668265263 + c * 1442695041) | 0; n = Math.imul(n ^ (n >>> 13), 1274126177); return ((n ^ (n >>> 16)) >>> 0) / 4294967295; };
+const spotOps = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1];
+const spotCols = ['59,130,246', '139,92,246', '22,93,255'];
+const spotGrey = ['255,255,255', '255,255,255', '255,255,255'];
+const spotCalm = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const spotLoop = (el, s) => {
+  const ctx = s.cv.getContext('2d');
+  const frame = (now) => {
+    const W = el.clientWidth, H = el.clientHeight;
+    if (s.cv.width !== W || s.cv.height !== H) { s.cv.width = W; s.cv.height = H; }
+    ctx.clearRect(0, 0, W, H);
+    const light = el.classList.contains('spot-l'), C = 4, D = 3, R = light ? 230 : 360, reveal = (now - s.t0) * 0.9;
+    const i0 = Math.max(0, Math.floor((s.x - R) / C)), i1 = Math.min(Math.ceil(W / C), Math.ceil((s.x + R) / C));
+    const j0 = Math.max(0, Math.floor((s.y - R) / C)), j1 = Math.min(Math.ceil(H / C), Math.ceil((s.y + R) / C));
+    for (let i = i0; i < i1; i++) {
+      for (let j = j0; j < j1; j++) {
+        const cx = i * C + 1.5, cy = j * C + 1.5;
+        const r0 = spotHash(i, j, 1);
+        if (Math.hypot(cx - s.ox, cy - s.oy) > reveal * (0.55 + 0.45 * r0)) continue;
+        if (Math.hypot(cx - s.x, cy - s.y) > R) continue;
+        const tick = spotCalm ? 0 : Math.floor((now + r0 * 997) / (90 + r0 * 160));
+        ctx.globalAlpha = spotOps[Math.floor(spotHash(i, j, tick + 7) * 10)] * (light ? 0.95 : 0.7);
+        ctx.fillStyle = 'rgb(' + (light ? spotGrey : spotCols)[Math.floor(spotHash(i, j, 3) * 3)] + ')';
+        ctx.fillRect(i * C, j * C, D, D);
+      }
+    }
+    ctx.globalAlpha = 1;
+    if (s.on || now - s.off < 450) s.raf = requestAnimationFrame(frame);
+    else { ctx.clearRect(0, 0, W, H); s.raf = 0; }
+  };
+  s.raf = requestAnimationFrame(frame);
+};
+const spotPos = (e) => {
+  const el = e && e.currentTarget;
+  if (!el || !el.getBoundingClientRect) return null;
+  const r = el.getBoundingClientRect(), s = spotState(el);
+  s.x = e.clientX - r.left; s.y = e.clientY - r.top;
+  el.style.setProperty('--mx', s.x + 'px'); el.style.setProperty('--my', s.y + 'px');
+  return [el, s];
+};
+o.spotIn = (e) => {
+  const p = spotPos(e); if (!p) return; const [el, s] = p;
+  if (!s.cv || !s.cv.getContext) return;
+  if (!s.on) { s.on = true; s.t0 = performance.now(); s.ox = s.x; s.oy = s.y; }
+  if (!s.raf) spotLoop(el, s);
+};
+o.spot = (e) => { const p = spotPos(e); if (p && !p[1].on) o.spotIn(e); };
+o.spotOut = (e) => { const el = e && e.currentTarget; if (el && el.__spot) { el.__spot.on = false; el.__spot.off = performance.now(); } };
+
+return o;
+}
+}
+</script>
+</body>
+</html>

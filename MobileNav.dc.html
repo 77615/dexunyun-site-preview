@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>手机端首页与导航</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#FFFFFF;color:#1D2129;font-family:Inter,"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans SC",-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#165DFF;text-decoration:none;transition:color .2s}a:hover{color:#4080FF}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:128px;padding:0 28px;border-radius:2px;font-size:16px;font-weight:500;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap;box-sizing:border-box;transition:all .2s}
+.btn-p{background:linear-gradient(96deg,#165DFF 0%,#4E5BFF 100%);color:#FFFFFF;}.btn-p:hover{color:#FFFFFF;background:linear-gradient(96deg,#3C7EFF 0%,#6670FF 100%);}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#EAEDF1;}.btn-s:hover{color:#165DFF;border-color:#94BFFF}
+.btn-sm{height:34px;min-width:0;padding:0 16px;font-size:14px}
+.tag{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:2px;font-size:12px;background:transparent;border:1px solid rgba(161,161,161,0.5);color:#6B7380;white-space:nowrap;box-sizing:border-box}
+.card{background:#FFFFFF;border:1px solid #EAEDF1;border-radius:2px;box-sizing:border-box}
+div.card{background:#F7F8FB;border-color:transparent}
+.soft div.card,.hero-bg div.card,div.card.on-white{background:#FFFFFF;border-color:#EAEDF1}
+.lift{position:relative;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease,background .2s ease}a.lift:hover{transform:translateY(-4px);border-color:transparent;background:linear-gradient(#FFFFFF,#FFFFFF) padding-box,linear-gradient(135deg,#BEDAFF 0%,#165DFF 45%,#5CE1E6 100%) border-box;}
+.lift .t{transition:color .2s}a.lift:hover .t{color:#165DFF}
+.lift .go{display:inline-flex;transition:transform .25s,color .25s;color:#C9CDD4}a.lift:hover .go{transform:translateX(4px);color:#165DFF}
+.qn{transition:color .2s}.qn:hover{color:#165DFF}
+.lift .zoom{transition:transform .5s cubic-bezier(.2,.8,.2,1)}a.lift:hover .zoom{transform:scale(1.04)}
+.lift .reveal{opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}a.lift:hover .reveal{opacity:1;transform:none}
+.cells{display:grid;border-top:1px solid #E8EBF2;border-left:1px solid #E8EBF2;border-radius:2px;overflow:hidden;background:#FFFFFF}
+.cell{position:relative;display:flex;flex-direction:column;gap:6px;padding:26px 28px;min-height:120px;border-right:1px solid #E8EBF2;border-bottom:1px solid #E8EBF2;color:#1D2129;box-sizing:border-box;overflow:hidden;transition:background .3s,color .3s}
+.cell::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.2px) 0 0/10px 10px,radial-gradient(120% 140% at 100% 0%,#FFB98A 0%,rgba(255,185,138,0) 38%),linear-gradient(120deg,#0E42D2 0%,#165DFF 45%,#4D8BFF 100%);opacity:0;transition:opacity .3s}
+.cell>*{position:relative}.cell:hover::before{opacity:1}
+.cell .cd{font-size:14px;line-height:22px;color:#6B7380;transition:color .3s}
+.cell .cp{margin-top:auto;padding-top:10px;font-size:13px;color:#165DFF;font-weight:600;transition:color .3s}
+.cell .cb{position:absolute;right:24px;top:50%;margin-top:-17px;height:34px;padding:0 16px;border-radius:2px;background:#FFFFFF;color:#165DFF;font-size:13px;font-weight:500;display:inline-flex;align-items:center;opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s}.cell:hover .cb{opacity:1;transform:none}
+.badge{display:inline-flex;align-items:center;height:18px;padding:0 6px;border-radius:999px;border:1px solid currentColor;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:1}
+.b-hot{color:#F53F3F}.b-new{color:#165DFF}
+.ic{width:44px;height:44px;border-radius:2px;background:linear-gradient(135deg,#EAF2FF 0%,#F7FAFF 100%);box-shadow:inset 0 0 0 1px rgba(22,93,255,0.12);color:#165DFF;display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:22px;height:22px}
+.ph{background:linear-gradient(135deg,#F2F6FF 0%,#F7F8FA 100%);border:1px solid #EAECF0;border-radius:2px;color:#6B7380;font-size:13px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;box-sizing:border-box}
+.eyebrow{display:none;align-items:center;gap:6px;align-self:flex-start;height:28px;padding:0 12px;border-radius:999px;background:#EAF2FF;font-size:13px;font-weight:500;color:#165DFF;letter-spacing:.04em}
+.sec-t{margin:0;font-size:40px;line-height:52px;font-weight:600;text-wrap:balance;color:#1D2129}
+.sub-dash{display:flex;align-items:center;gap:16px;justify-content:center;color:#6B7380}.sub-dash::before,.sub-dash::after{content:"";flex:0 1 140px;border-top:1px dashed #C9CED6}
+.sec-d{margin:0;font-size:16px;line-height:28px;color:#4E5969}
+.grad{background:linear-gradient(90deg,#165DFF 0%,#3C7EFF 55%,#14C9C9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:14px 4px;font-size:16px;color:#4E5969;cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .2s}
+.tab:hover{color:#165DFF}
+.tab-on{color:#165DFF;border-bottom-color:#165DFF;font-weight:500}
+.num{font-variant-numeric:tabular-nums;font-family:Inter,"DIN Alternate","Bahnschrift","Helvetica Neue",Arial,sans-serif}
+.hero-bg{background:radial-gradient(60% 80% at 85% 0%,rgba(22,93,255,0.16) 0%,rgba(22,93,255,0) 60%),radial-gradient(40% 60% at 0% 100%,rgba(20,201,201,0.10) 0%,rgba(20,201,201,0) 60%),linear-gradient(180deg,#F3F7FF 0%,#FFFFFF 100%);position:relative;overflow:hidden}
+.ring{position:absolute;border:1px solid rgba(22,93,255,0.10);border-radius:50%;pointer-events:none}
+.gridline{position:absolute;inset:0;background-image:linear-gradient(rgba(22,93,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(22,93,255,0.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);pointer-events:none}
+.deep .gridline{background-image:radial-gradient(rgba(255,255,255,0.14) 1px,transparent 1.3px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
+.deep{background:radial-gradient(50% 70% at 80% 0%,rgba(22,93,255,0.35) 0%,rgba(22,93,255,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(20,201,201,0.15) 0%,rgba(20,201,201,0) 70%),#071028;color:#FFFFFF}
+.deep-card{background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.03) 100%);border:1px solid rgba(255,255,255,0.12);border-radius:2px;backdrop-filter:blur(8px)}
+.glass{background:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.9);border-radius:2px;backdrop-filter:blur(12px)}
+.soft{background:linear-gradient(180deg,#F7F9FC 0%,#F2F5FA 100%)}
+.crumb{font-size:13px;color:#6B7380}.crumb a{color:#6B7380}.crumb a:hover{color:#165DFF}
+.lbl{font-size:14px;color:#1D2129;font-weight:500}
+.field{height:40px;border:1px solid #E5E6EB;background:#FFFFFF;border-radius:2px;padding:0 12px;font:inherit;font-size:14px;color:#1D2129;box-sizing:border-box;width:100%;transition:border-color .2s,box-shadow .2s}
+.field:focus{outline:none;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:880px}
+.tbl th{background:#F7F9FC;color:#4E5969;font-weight:500;text-align:left;padding:14px 16px;border-bottom:1px solid #EAECF0;white-space:nowrap}
+.tbl td{padding:16px;border-bottom:1px solid #EAECF0;color:#1D2129}
+.tbl tr:hover td{background:#F7FAFF}
+.pg{min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;font-size:14px;color:#4E5969;border:1px solid #EAECF0}
+.chk{position:relative;display:inline-flex;align-items:center;padding-left:24px}
+.chk::before{content:"";position:absolute;left:0;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:999px;background:#E8FFEA}
+.chk::after{content:"";position:absolute;left:5px;top:50%;width:4px;height:7px;margin-top:-5px;border-right:1.6px solid #00B42A;border-bottom:1.6px solid #00B42A;transform:rotate(45deg)}
+button.tb{font:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;color:inherit;text-align:left}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 18px;border-radius:999px;font-size:14px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;cursor:pointer;font-family:inherit;transition:all .2s}.pill:hover{color:#165DFF;border-color:#94BFFF}
+.pill-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}.pill-on:hover{color:#FFFFFF;border-color:#165DFF}
+.side{display:block;width:100%;box-sizing:border-box;padding:10px 16px;border-radius:2px;font-size:14px;color:#4E5969;background:none;border:0;text-align:left;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}.side:hover{color:#165DFF;background:#F2F6FF}
+.side-on{background:#E8F3FF;color:#165DFF;font-weight:500}
+.pg{min-width:32px;height:32px;border-radius:2px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;font-size:14px;cursor:pointer;font-family:inherit}.pg:hover{color:#165DFF;border-color:#94BFFF}
+.btn-s-on{color:#165DFF;border-color:#165DFF}
+.pkg{transition:border-color .2s,box-shadow .2s}.pkg:hover{border-color:#94BFFF}.pkg-on,.pkg-on:hover{border-color:#165DFF;box-shadow:0 0 0 1px #165DFF,0 18px 40px -12px rgba(22,93,255,0.25)}
+.hc-on{background:#FFFFFF !important}.hcbar{position:absolute;left:0;top:0;height:3px;width:0;background:#165DFF;transition:width .3s}.hc-on .hcbar{width:60%}.hc-on .hct{color:#165DFF !important;font-weight:600}
+.ht{border:0;font:inherit;font-size:15px;cursor:pointer;height:38px;padding:0 20px;background:transparent;color:#4E5969}.ht-on{background:#FFFFFF;color:#165DFF;font-weight:600}
+.hs{border:1px solid rgba(255,255,255,0.16);font:inherit;font-size:14px;cursor:pointer;height:36px;padding:0 18px;background:rgba(255,255,255,0.04);color:#FFFFFF}.hs-on{background:#165DFF;border-color:#165DFF}
+.pg-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+@media (prefers-reduced-motion:reduce){.lift,.btn{transition:none}.lift:hover,.btn-p:hover{transform:none}}
+
+/* ---- 火山引擎风格覆盖 ---- */
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1D2129}
+.btn{height:48px;padding:0 28px;border-radius:2px;font-size:14px;font-weight:400;min-width:0;transition:background .16s,color .16s,border-color .16s}
+.btn-p{background:#165DFF;color:#FFFFFF}.btn-p:hover{background:#0E42D2;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#C9CDD4}.btn-s:hover{color:#165DFF;border-color:#165DFF}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+.card{border-radius:2px;border-color:#EAEDF1}
+div.card{background:#F4F8FC}
+.sec-t{font-size:32px;line-height:44px;font-weight:400}
+.hero-bn h1{font-size:42px !important;line-height:58px !important;font-weight:400 !important}
+.lift{transition:color .2s}
+a.lift::before,div.lift::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s;pointer-events:none;z-index:0}
+a.lift::before{background:radial-gradient(rgba(255,255,255,0.28) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+div.lift::before{background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(120deg,#1664FF,#2C8AD8,#2EB2C3,#24B291,#1EA077)}
+a.lift>*:not([style*="position:absolute"]),div.lift>*:not([style*="position:absolute"]){position:relative;z-index:1}
+
+
+
+
+a.lift:hover .zoom{transform:none}
+.cells{border-radius:0;border-color:#EAEDF1}.cell{border-color:#EAEDF1}
+.cell::before{background:radial-gradient(rgba(255,255,255,0.26) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+.cell .cb{border-radius:2px}
+.tab-on{font-weight:500}
+.pill,.pg,.field,.side,.tag{border-radius:2px}
+
+/* ---- 卡片悬停：跟随鼠标的光斑（替代整块变色） ---- */
+.lift,.cell{transition:border-color .25s,background-color .25s}
+.spot-l{position:relative;isolation:isolate}
+.spot-l>.spot-cv,.spot-l>.spot-glow{position:absolute !important;inset:0;z-index:0 !important}
+.spot-l>.spot-cv{-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%);mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%)}
+.spot-l>.spot-glow{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,255,255,0.55),rgba(255,255,255,0.2) 50%,transparent 80%)}
+a.lift::before,div.lift::before,.cell::before{display:block !important;background:linear-gradient(115deg,#DCEBFF 0%,#E0F1F8 50%,#DCF5EA 100%) !important;opacity:0;transition:opacity .35s ease}
+a.lift:hover::before,div.lift:hover::before,.cell:hover::before{opacity:1}
+a.lift:hover,div.lift:hover{transform:none;box-shadow:none;border-color:#DFE3EA}a.lift:hover{background:#FFFFFF}
+.cell:hover{color:#1D2129;box-shadow:inset 0 0 0 1px #DFE3EA}
+.cell .cb{border:1px solid #165DFF;z-index:1}
+/* ---- v56 卡片悬停 ---- */
+.card{border-color:#F0F2F5}.cells{border-color:#F0F2F5;overflow:visible}.cell{border-color:#F0F2F5}
+a.lift::before,div.lift::before,.cell::before{background:linear-gradient(115deg,#C4DAFF 0%,#C9E7F7 50%,#C2EDD8 100%) !important;inset:-1px !important}
+.lift,.cell{transition:border-color .3s,background-color .3s,box-shadow .35s ease}
+a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.cell:hover{z-index:2;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+
+/* ---- v88 字阶：H1/H2 加粗放大，正文 14-16px，辅助文字加深 ---- */.hero-bn h1{font-size:52px !important;line-height:64px !important;font-weight:700 !important;letter-spacing:-.01em}.hero-bn p{font-size:17px !important;line-height:30px !important;color:#4E5969 !important}.sec-t{font-size:34px !important;line-height:46px !important;font-weight:600 !important;letter-spacing:-.005em}.sec-d{font-size:16px !important;line-height:28px !important;color:#4E5969 !important}.v88-big{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif !important;font-weight:700 !important;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* v90 semantic + stats */
+:root{--sem-threat:#F53F3F;--sem-risk:#FF7D00;--sem-safe:#00B42A;--sem-brand:#165DFF}
+.ax-hl ~ .ax-c{background:linear-gradient(90deg,#AFF0B5,#23C343)}
+.ax-hl ~ .ax-c::after{border-color:#23C343}
+.ax-hl ~ .ax-n{color:#00B42A}
+.v88-big{color:#165DFF!important}
+.deep .v88-big{color:#FFFFFF!important}
+.hh-n{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif!important;font-weight:700!important;font-size:40px!important;line-height:48px!important;color:#165DFF!important;letter-spacing:-.02em}
+.hh-n small{font-size:18px!important;font-weight:600;margin-left:2px;color:#165DFF!important}
+</style>
+</helmet>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;background:#FFFFFF">
+  <header style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #E5E6EB;background:#FFFFFF">
+    <a href="Main.dc.html"><img src="img/logo.png" alt="德迅云安全 首页" style="height:24px;width:auto;display:block"></a>
+    <div style="display:flex;gap:4px">
+      <a href="Docs.dc.html" aria-label="搜索" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
+      <button type="button" aria-label="打开菜单" onClick="{{toggle}}" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center;color:#1D2129;cursor:pointer"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    </div>
+  </header>
+  <section class="hero-bg" style="padding:32px 16px 24px">
+    <div class="gridline"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:14px">
+      <span class="eyebrow" style="font-size:13px">德迅云安全 · DDoS 高防 IP</span>
+      <h1 style="margin:0;font-size:30px;line-height:38px;font-weight:600">T 级 DDoS 防护<br>业务在线不中断</h1>
+      <p style="margin:0;font-size:14px;line-height:22px;color:#4E5969">近源清洗，5 秒发现恶意请求，10 秒阻断攻击，事后可溯源。</p>
+      <div style="display:flex;gap:12px"><a href="Contact.dc.html" class="btn btn-p" style="flex:1;height:44px">免费试用</a><a href="Contact.dc.html" class="btn btn-s" style="flex:1;height:44px">联系专家</a></div>
+    </div>
+  </section>
+  <section style="padding:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+    <a href="Products.dc.html" class="card" style="padding:14px;display:flex;flex-direction:column;gap:8px;color:#1D2129"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg></div><span style="font-size:14px;font-weight:500">DDoS 高防 IP</span></a><a href="Products.dc.html" class="card" style="padding:14px;display:flex;flex-direction:column;gap:8px;color:#1D2129"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="10" rx="4"></rect><path d="M8 11v4M6 13h4M15 12h.01M17 14h.01"></path></svg></div><span style="font-size:14px;font-weight:500">游戏盾</span></a><a href="Products.dc.html" class="card" style="padding:14px;display:flex;flex-direction:column;gap:8px;color:#1D2129"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></div><span style="font-size:14px;font-weight:500">安全加速 SCDN</span></a><a href="Products.dc.html" class="card" style="padding:14px;display:flex;flex-direction:column;gap:8px;color:#1D2129"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="7" rx="1.5"></rect><rect x="4" y="13" width="16" height="7" rx="1.5"></rect><path d="M8 7.5h.01M8 16.5h.01"></path></svg></div><span style="font-size:14px;font-weight:500">德迅卫士</span></a>
+  </section>
+  <div style="padding:0 16px"><a href="Services.dc.html#emergency" class="card" style="padding:14px 16px;display:flex;gap:12px;align-items:center;color:#1D2129"><div class="ic" style="background:linear-gradient(135deg,#FFECE8 0%,#FFF7F5 100%);color:#F53F3F;box-shadow:inset 0 0 0 1px rgba(245,63,63,0.14)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg></div><span><span style="display:block;font-size:14px;font-weight:500">正在被攻击？</span><span style="font-size:12px;color:#6B7380">应急热线 0577-26676666</span></span></a></div>
+  <nav aria-label="底部快捷" style="position:absolute;left:0;right:0;bottom:0;height:64px;border-top:1px solid #E5E6EB;background:#FFFFFF;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))">
+    <a href="Contact.dc.html" style="display:flex;align-items:center;justify-content:center;gap:6px;font-size:15px;color:#1D2129"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg>电话咨询</a>
+    <a href="Register.dc.html" style="display:flex;align-items:center;justify-content:center;font-size:15px;background:#165DFF;color:#FFFFFF">免费注册</a>
+  </nav>
+  <sc-if value="{{open}}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;inset:0;background:rgba(29,33,41,0.45)"></div>
+    <div role="dialog" aria-label="网站导航" style="position:absolute;top:0;right:0;bottom:0;width:100%;background:#FFFFFF;display:flex;flex-direction:column">
+      <div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #E5E6EB;flex:none">
+        <img src="img/logo.png" alt="德迅云安全" style="height:24px;width:auto">
+        <button type="button" aria-label="关闭菜单" onClick="{{toggle}}" style="width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center;color:#1D2129;cursor:pointer"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="padding:12px 16px;flex:none"><label for="mq" style="position:absolute;left:-9999px">搜索</label><input id="mq" class="field" placeholder="搜索产品、文档" style="height:40px"></div>
+      <div style="flex:1;overflow-y:auto;padding:0 16px">
+        <div style="border-bottom:1px solid #E5E6EB"><div style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:500;color:#165DFF">产品<span aria-hidden="true">▴</span></div><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding-bottom:12px"><a href="Products.dc.html" style="padding:10px 12px;border-radius:2px;background:#F7F8FA;font-size:14px;color:#1D2129">DDoS 高防 IP</a><a href="Products.dc.html" style="padding:10px 12px;border-radius:2px;background:#F7F8FA;font-size:14px;color:#1D2129">游戏盾</a><a href="Products.dc.html" style="padding:10px 12px;border-radius:2px;background:#F7F8FA;font-size:14px;color:#1D2129">安全加速 SCDN</a><a href="Products.dc.html" style="padding:10px 12px;border-radius:2px;background:#F7F8FA;font-size:14px;color:#1D2129">德迅卫士</a><a href="Products.dc.html" style="padding:10px 12px;border-radius:2px;background:#F7F8FA;font-size:14px;color:#1D2129">查看全部产品</a></div></div><a href="Solutions.dc.html" style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#1D2129;border-bottom:1px solid #E5E6EB">解决方案<span aria-hidden="true" style="color:#6B7380">▾</span></a><a href="Services.dc.html" style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#1D2129;border-bottom:1px solid #E5E6EB">安全服务<span aria-hidden="true" style="color:#6B7380">›</span></a><a href="Trust.dc.html" style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#1D2129;border-bottom:1px solid #E5E6EB">客户与资质<span aria-hidden="true" style="color:#6B7380">›</span></a><a href="News.dc.html" style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#1D2129;border-bottom:1px solid #E5E6EB">安全资讯<span aria-hidden="true" style="color:#6B7380">›</span></a><a href="Docs.dc.html" style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#1D2129;border-bottom:1px solid #E5E6EB">文档中心<span aria-hidden="true" style="color:#6B7380">›</span></a><a href="About.dc.html" style="height:52px;display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#1D2129;border-bottom:1px solid #E5E6EB">关于我们<span aria-hidden="true" style="color:#6B7380">›</span></a>
+      </div>
+      <div style="padding:16px;display:flex;gap:12px;border-top:1px solid #E5E6EB;flex:none"><a href="Login.dc.html" class="btn btn-s" style="flex:1;height:44px">登录</a><a href="Register.dc.html" class="btn btn-p" style="flex:1;height:44px">免费注册</a></div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+state = { open: true };
+renderVals() {
+return { open: this.state.open, toggle: () => this.setState({ open: !this.state.open }) };
+}
+}
+</script>
+</body>
+</html>

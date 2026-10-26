@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>页头导航</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.nv{white-space:nowrap;flex:none;position:relative;display:inline-flex;align-items:center;gap:6px;height:60px;padding:0 2px;color:#1D2129;text-decoration:none;transition:color .2s}
+.nv::after{content:"";position:absolute;left:50%;right:50%;bottom:-1px;height:2px;border-radius:2px;background:#165DFF;transition:left .25s cubic-bezier(.2,.8,.2,1),right .25s cubic-bezier(.2,.8,.2,1)}
+.nv:hover{color:#165DFF}.nv:hover::after{left:0;right:0}
+.nv-on{color:#165DFF;font-weight:500}.nv-on::after{left:0;right:0}
+.chev{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);opacity:.55;transition:transform .25s,opacity .2s}
+.nv:hover .chev{transform:translateY(1px) rotate(225deg);opacity:1}
+.nochev{display:none}
+.hl{white-space:nowrap}
+.sbtn{width:36px;height:36px;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#4E5969;transition:background .2s,color .2s}.sbtn:hover{background:#F2F3F5;color:#165DFF}
+@media (max-width:1180px){.navs{gap:20px !important}.hdr{gap:24px !important}}
+.hl{color:#4E5969;text-decoration:none;transition:color .2s}.hl:hover{color:#165DFF}
+#hq{transition:width .3s,border-color .2s,background .2s,box-shadow .2s}#hq:hover{border-color:#BEDAFF}#hq:focus{outline:none;width:260px;background:#FFFFFF;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.fl{color:#6B7380;text-decoration:none}.fl:hover{color:#165DFF}
+.reg{transition:background .1s linear}.reg:hover{background:#0E42D2 !important}
+.cat{display:flex;align-items:center;justify-content:space-between;height:40px;padding:0 16px;border-radius:2px;font-size:14px;color:#4E5969;cursor:pointer;transition:background .2s,color .2s}
+.cat:hover{background:rgba(255,255,255,0.7);color:#1D2129}
+.cat-on{background:#FFFFFF;color:#165DFF;font-weight:500;}
+.cat-on:hover{background:#FFFFFF;color:#165DFF}
+.cat .ar{width:5px;height:5px;border-right:1.5px solid currentColor;border-top:1.5px solid currentColor;transform:rotate(45deg);opacity:0;transition:opacity .2s}
+.cat-on .ar{opacity:1}
+.gt{font-size:15px;font-weight:600;color:#1D2129;margin:0 0 8px;padding:0 14px}
+.mi{position:relative;display:flex;flex-direction:column;gap:4px;padding:12px 40px 12px 14px;border-radius:2px;transition:background .2s}
+.mi b{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#1D2129;transition:color .2s}
+.mi span.d{font-size:12px;line-height:18px;color:#6B7380}
+.mi::after{content:"";position:absolute;right:16px;top:50%;width:6px;height:6px;margin-top:-3px;border-right:1.5px solid #165DFF;border-top:1.5px solid #165DFF;transform:translateX(-6px) rotate(45deg);opacity:0;transition:opacity .2s,transform .2s}
+.mi:hover{background:linear-gradient(90deg,#F2F6FF 0%,#F7F9FD 100%)}
+.mi:hover b{color:#165DFF}.mi:hover::after{opacity:1;transform:rotate(45deg)}
+.badge{display:inline-flex;align-items:center;height:16px;padding:0 5px;border-radius:999px;border:1px solid currentColor;font-size:9px;font-weight:600;letter-spacing:.04em;line-height:1}
+.b-hot{color:#F53F3F}.b-new{color:#165DFF}
+.sep{height:1px;background:#EEF0F4;margin:20px 14px}
+.x{position:absolute;right:28px;top:20px;width:32px;height:32px;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#6B7380;transition:background .2s,color .2s;cursor:pointer;border:0;background:none}
+.x:hover{background:#F2F3F5;color:#1D2129}
+.allbtn{display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border:1px solid #1D2129;border-radius:2px;font-size:14px;font-weight:500;color:#1D2129;transition:background .2s,color .2s}
+.allbtn:hover{background:#1D2129;color:#FFFFFF}
+.kw{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#F2F3F5;font-size:12px;color:#4E5969;transition:background .2s,color .2s}.kw:hover{background:#E8F3FF;color:#165DFF}
+.promo{transition:transform .3s,box-shadow .3s}.promo:hover{transform:translateY(-2px);}
+.search{height:36px;width:320px;border:1px solid #E5E6EB;border-radius:2px;padding:0 12px 0 34px;font:inherit;font-size:13px;box-sizing:border-box;transition:border-color .2s,box-shadow .2s}.search:focus{outline:none;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.dd a{text-decoration:none;color:inherit}
+.nv-open{color:#165DFF}.nv-open::after{left:0;right:0}.nv-open .chev{transform:translateY(1px) rotate(225deg);opacity:1}
+.dd{position:absolute;left:0;right:0;top:60px;z-index:20}
+.ddp{background:#FFFFFF;border-top:1px solid #EEF0F4;position:relative;z-index:1}
+.ddin{max-width:1392px;margin:0 auto;box-sizing:border-box}
+.ddmask{position:absolute;left:0;right:0;top:100%;height:100vh;background:rgba(15,23,41,0.28);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+/* ---- 火山引擎风格覆盖 ---- */
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1D2129}
+.btn{height:48px;padding:0 28px;border-radius:2px;font-size:14px;font-weight:400;min-width:0;transition:background .16s,color .16s,border-color .16s}
+.btn-p{background:#165DFF;color:#FFFFFF}.btn-p:hover{background:#0E42D2;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#C9CDD4}.btn-s:hover{color:#165DFF;border-color:#165DFF}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+.card{border-radius:2px;border-color:#EAEDF1}
+div.card{background:#F4F8FC}
+.sec-t{font-size:32px;line-height:44px;font-weight:400}
+.hero-bn h1{font-size:42px !important;line-height:58px !important;font-weight:400 !important}
+.lift{transition:color .2s}
+a.lift::before,div.lift::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s;pointer-events:none;z-index:0}
+a.lift::before{background:radial-gradient(rgba(255,255,255,0.28) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+div.lift::before{background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(120deg,#1664FF,#2C8AD8,#2EB2C3,#24B291,#1EA077)}
+a.lift>*:not([style*="position:absolute"]),div.lift>*:not([style*="position:absolute"]){position:relative;z-index:1}
+
+
+
+
+a.lift:hover .zoom{transform:none}
+.cells{border-radius:0;border-color:#EAEDF1}.cell{border-color:#EAEDF1}
+.cell::before{background:radial-gradient(rgba(255,255,255,0.26) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+.cell .cb{border-radius:2px}
+.tab-on{font-weight:500}
+.pill,.pg,.field,.side,.tag{border-radius:2px}
+
+/* ---- 卡片悬停：跟随鼠标的光斑（替代整块变色） ---- */
+.lift,.cell{transition:border-color .25s,background-color .25s}
+.spot-l{position:relative;isolation:isolate}
+.spot-l>.spot-cv,.spot-l>.spot-glow{position:absolute !important;inset:0;z-index:0 !important}
+.spot-l>.spot-cv{-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%);mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%)}
+.spot-l>.spot-glow{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,255,255,0.55),rgba(255,255,255,0.2) 50%,transparent 80%)}
+a.lift::before,div.lift::before,.cell::before{display:block !important;background:linear-gradient(115deg,#DCEBFF 0%,#E0F1F8 50%,#DCF5EA 100%) !important;opacity:0;transition:opacity .35s ease}
+a.lift:hover::before,div.lift:hover::before,.cell:hover::before{opacity:1}
+a.lift:hover,div.lift:hover{transform:none;box-shadow:none;border-color:#DFE3EA}a.lift:hover{background:#FFFFFF}
+.cell:hover{color:#1D2129;box-shadow:inset 0 0 0 1px #DFE3EA}
+.cell .cb{border:1px solid #165DFF;z-index:1}
+/* ---- v56 卡片悬停 ---- */
+.card{border-color:#F0F2F5}.cells{border-color:#F0F2F5;overflow:visible}.cell{border-color:#F0F2F5}
+a.lift::before,div.lift::before,.cell::before{background:linear-gradient(115deg,#C4DAFF 0%,#C9E7F7 50%,#C2EDD8 100%) !important;inset:-1px !important}
+.lift,.cell{transition:border-color .3s,background-color .3s,box-shadow .35s ease}
+a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.cell:hover{z-index:2;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+
+/* ---- v88 字阶：H1/H2 加粗放大，正文 14-16px，辅助文字加深 ---- */.hero-bn h1{font-size:52px !important;line-height:64px !important;font-weight:700 !important;letter-spacing:-.01em}.hero-bn p{font-size:17px !important;line-height:30px !important;color:#4E5969 !important}.sec-t{font-size:34px !important;line-height:46px !important;font-weight:600 !important;letter-spacing:-.005em}.sec-d{font-size:16px !important;line-height:28px !important;color:#4E5969 !important}.v88-big{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif !important;font-weight:700 !important;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* v90 semantic + stats */
+:root{--sem-threat:#F53F3F;--sem-risk:#FF7D00;--sem-safe:#00B42A;--sem-brand:#165DFF}
+.ax-hl ~ .ax-c{background:linear-gradient(90deg,#AFF0B5,#23C343)}
+.ax-hl ~ .ax-c::after{border-color:#23C343}
+.ax-hl ~ .ax-n{color:#00B42A}
+.v88-big{color:#165DFF!important}
+.deep .v88-big{color:#FFFFFF!important}
+.hh-n{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif!important;font-weight:700!important;font-size:40px!important;line-height:48px!important;color:#165DFF!important;letter-spacing:-.02em}
+.hh-n small{font-size:18px!important;font-weight:600;margin-left:2px;color:#165DFF!important}
+</style>
+</helmet>
+<header onMouseLeave="{{close}}" style="position:relative;background:rgba(255,255,255,0.86);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid rgba(229,230,235,0.7);font-family:&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;,&quot;Noto Sans SC&quot;,-apple-system,&quot;Segoe UI&quot;,Arial,sans-serif;color:#1D2129">
+  <div style="max-width:1392px;margin:0 auto;padding:0 24px;box-sizing:border-box;height:60px;display:flex;align-items:center;gap:48px" class="hdr">
+    <a href="Main.dc.html" onMouseEnter="{{close}}" style="display:flex;align-items:center"><img src="img/logo.png" alt="德迅云安全 首页" style="height:28px;width:auto"></a>
+    <nav aria-label="主导航" class="navs" style="display:flex;gap:40px;font-size:15px;flex:1 1 auto;align-items:center;min-width:0">
+      <sc-for list="{{items}}" as="item" hint-placeholder-count="4">
+        <a href="{{item.href}}" class="{{item.cls}}" onMouseEnter="{{item.enter}}" onFocus="{{item.enter}}">{{item.label}}<span class="{{item.chev}}"></span></a>
+      </sc-for>
+    </nav>
+    <div onMouseEnter="{{close}}" style="display:flex;align-items:center;gap:24px;font-size:14px;flex:none">
+      <a href="Docs.dc.html" class="sbtn" aria-label="搜索"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
+      <a href="Login.dc.html" class="hl">控制台</a>
+      <a href="Login.dc.html" class="hl">登录</a>
+      <a href="Register.dc.html" class="reg" style="display:inline-flex;align-items:center;height:40px;padding:0 24px;border-radius:2px;background:#165DFF;color:#FFFFFF;text-decoration:none;font-weight:500">免费注册</a>
+    </div>
+  </div>
+  <sc-if value="{{m0}}" hint-placeholder-val="{{ false }}"><div class="dd"><div class="ddp"><div class="ddin" style="position:relative"><div style="display:flex;height:520px">
+  <aside aria-label="产品分类" style="width:264px;flex:none;background:#F7F8FA;padding:24px 20px;box-sizing:border-box;display:flex;flex-direction:column;gap:4px">
+    <sc-for list="{{cats}}" as="c" hint-placeholder-count="7"><div class="{{c.cls}}" onMouseEnter="{{c.enter}}" onClick="{{c.enter}}">{{c.label}}<span class="ar"></span></div></sc-for>
+    <a href="Products.dc.html" class="allbtn" style="margin-top:auto">查看全部产品<span style="display:flex"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+  </aside>
+  <div style="flex:1;min-width:0;padding:24px 48px 24px 34px;box-sizing:border-box;position:relative;overflow:hidden">
+    <button type="button" class="x" onClick="{{close}}" aria-label="关闭菜单"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <div style="display:flex;align-items:center;gap:16px;margin:0 56px 22px 14px">
+      <div style="position:relative"><span style="position:absolute;left:11px;top:9px;color:#6B7380;display:flex"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></span><label for="ms" style="position:absolute;left:-9999px">搜索产品</label><input id="ms" class="search" placeholder="搜索产品，如：高防、主机安全"></div>
+      <span style="font-size:12px;color:#6B7380">热门：</span><div style="display:flex;gap:8px"><a href="ProductDDoS.dc.html" class="kw">DDoS 高防 IP</a><a href="ProductHost.dc.html" class="kw">德迅卫士</a><a href="ProductGame.dc.html" class="kw">游戏盾</a><a href="Services.dc.html#djbh" class="kw">等保合规</a></div>
+    </div>
+    <sc-if value="{{show0}}" hint-placeholder-val="{{ true }}"><div><div class="gt">热门产品</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductDDoS.dc.html" class="mi"><b>DDoS 高防 IP<span class="badge b-hot">HOT</span></b><span class="d">T 级防护，近源清洗，业务不中断</span></a><a href="ProductGame.dc.html" class="mi"><b>游戏盾<span class="badge b-hot">HOT</span></b><span class="d">分布式接入，隐藏源 IP，抗 TCP CC</span></a><a href="ProductSCDN.dc.html" class="mi"><b>安全加速 SCDN</b><span class="d">加速与 DDoS / CC / WAF 一体</span></a><a href="ProductHost.dc.html" class="mi"><b>德迅卫士<span class="badge b-new">NEW</span></b><span class="d">主机安全，AI 研判与威胁狩猎</span></a></div><div class="sep"></div><div class="gt">推荐组合</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductDDoS.dc.html" class="mi"><b>高防服务器</b><span class="d">1000Gbps 以上定制防御</span></a><a href="ProductVSS.dc.html" class="mi"><b>漏洞扫描 VSS</b><span class="d">Web 与系统漏洞检测</span></a><a href="ProductSSL.dc.html" class="mi"><b>SSL 证书</b><span class="d">HTTPS 加密，防劫持防篡改</span></a><a href="ProductHost.dc.html" class="mi"><b>德迅蜂巢</b><span class="d">容器安全，从镜像到运行时</span></a></div></div></sc-if><sc-if value="{{show1}}" hint-placeholder-val="{{ false }}"><div><div class="gt">抗 DDoS</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductDDoS.dc.html" class="mi"><b>DDoS 高防 IP<span class="badge b-hot">HOT</span></b><span class="d">T 级防护，近源清洗，业务不中断</span></a><a href="ProductGame.dc.html" class="mi"><b>游戏盾<span class="badge b-hot">HOT</span></b><span class="d">分布式接入，隐藏源 IP，抗 TCP CC</span></a><a href="ProductSCDN.dc.html" class="mi"><b>应用加速</b><span class="d">跨地域、跨运营商加速，切换不断连</span></a></div><div class="sep"></div><div class="gt">Web 与应用安全</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductSCDN.dc.html" class="mi"><b>安全加速 SCDN</b><span class="d">加速与 DDoS / CC / WAF 一体</span></a><a href="ProductSCDN.dc.html" class="mi"><b>Web 应用防火墙 WAF</b><span class="d">防注入、防篡改、防爬虫</span></a><a href="ProductSCDN.dc.html" class="mi"><b>WAAP</b><span class="d">Web 应用与 API 一体防护</span></a><a href="ProductVSS.dc.html" class="mi"><b>漏洞扫描 VSS</b><span class="d">Web 与系统漏洞检测</span></a><a href="ProductSSL.dc.html" class="mi"><b>SSL 证书</b><span class="d">HTTPS 加密，防劫持防篡改</span></a></div></div></sc-if><sc-if value="{{show2}}" hint-placeholder-val="{{ false }}"><div><div class="gt">主机安全</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductHost.dc.html" class="mi"><b>德迅卫士<span class="badge b-new">NEW</span></b><span class="d">主机安全，AI 研判与威胁狩猎</span></a><a href="ProductHost.dc.html" class="mi"><b>德迅零域</b><span class="d">隔离失陷主机，阻断横向渗透</span></a><a href="ProductHost.dc.html" class="mi"><b>德迅猎鹰</b><span class="d">攻击溯源，提升主动防御</span></a></div><div class="sep"></div><div class="gt">容器与资产</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductHost.dc.html" class="mi"><b>德迅蜂巢</b><span class="d">容器安全，从镜像到运行时</span></a><a href="ProductEye.dc.html" class="mi"><b>德迅云眼</b><span class="d">云资产风险持续监测</span></a><a href="ProductEye.dc.html" class="mi"><b>德迅云图</b><span class="d">威胁情报检测与分析</span></a><a href="ProductEye.dc.html" class="mi"><b>态势感知</b><span class="d">全网安全态势统一呈现</span></a></div></div></sc-if><sc-if value="{{show3}}" hint-placeholder-val="{{ false }}"><div><div class="gt">移动应用加固</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Contact.dc.html" class="mi"><b>Android 加固</b><span class="d">防逆向、防篡改、防二次打包</span></a><a href="Contact.dc.html" class="mi"><b>iOS 加固</b><span class="d">代码混淆与运行时保护</span></a><a href="Contact.dc.html" class="mi"><b>H5 加固</b><span class="d">前端代码混淆与保护</span></a><a href="Contact.dc.html" class="mi"><b>SDK 加固</b><span class="d">SDK 代码与接口保护</span></a></div><div class="sep"></div><div class="gt">一站式服务</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Contact.dc.html" class="mi"><b>应用安全产品链</b><span class="d">检测、加固、监测一站完成</span></a></div></div></sc-if><sc-if value="{{show4}}" hint-placeholder-val="{{ false }}"><div><div class="gt">审计与合规</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Contact.dc.html" class="mi"><b>日志审计</b><span class="d">日志集中采集与合规留存</span></a><a href="Contact.dc.html" class="mi"><b>数据库审计</b><span class="d">数据库操作行为审计</span></a><a href="Contact.dc.html" class="mi"><b>数据安全网关（堡垒机）</b><span class="d">身份鉴别、访问控制与运维审计</span></a></div></div></sc-if><sc-if value="{{show5}}" hint-placeholder-val="{{ false }}"><div><div class="gt">核验 API</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Contact.dc.html" class="mi"><b>实名认证</b><span class="d">个人身份信息核验</span></a><a href="Contact.dc.html" class="mi"><b>企业四要素核验</b><span class="d">企业工商信息一致性核验</span></a></div></div></sc-if><sc-if value="{{show6}}" hint-placeholder-val="{{ false }}"><div><div class="gt">专家服务</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Services.dc.html" class="mi"><b>安全代维</b><span class="d">接入、配置、策略优化与主动预警</span></a><a href="Services.dc.html#emergency" class="mi"><b>应急响应<span class="badge b-hot">HOT</span></b><span class="d">7×24 远程处置入侵与病毒事件</span></a><a href="Services.dc.html#djbh" class="mi"><b>等保合规咨询</b><span class="d">从定级到测评全程陪跑</span></a><a href="Services.dc.html" class="mi"><b>渗透测试</b><span class="d">发掘系统与业务漏洞</span></a></div><div class="sep"></div><div class="gt">保障服务</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Services.dc.html" class="mi"><b>安全重保</b><span class="d">重大活动前预检、期间值守</span></a><a href="Services.dc.html" class="mi"><b>日志分析</b><span class="d">访客与威胁情报分析</span></a><a href="Services.dc.html" class="mi"><b>专家报告</b><span class="d">人工出具安全态势报告</span></a><a href="Services.dc.html" class="mi"><b>驻场支撑</b><span class="d">工程师现场支撑</span></a></div></div></sc-if><sc-if value="{{show7}}" hint-placeholder-val="{{ false }}"><div><div class="gt">服务器</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="ProductDDoS.dc.html" class="mi"><b>高防服务器</b><span class="d">1000Gbps 以上定制防御</span></a><a href="Contact.dc.html" class="mi"><b>裸金属服务器</b><span class="d">高性能安全隔离物理集群</span></a><a href="Contact.dc.html" class="mi"><b>服务器租用</b><span class="d">T 级数据中心，赠主机安全防护</span></a></div></div></sc-if>
+  </div>
+</div></div></div><div class="ddmask" onMouseEnter="{{close}}"></div></div></sc-if><sc-if value="{{m1}}" hint-placeholder-val="{{ false }}"><div class="dd"><div class="ddp"><div class="ddin" style="position:relative"><div style="display:flex;gap:40px;padding:28px 48px 32px 34px;box-sizing:border-box;position:relative"><button type="button" class="x" onClick="{{close}}" aria-label="关闭菜单"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><div style="flex:1;min-width:0"><div class="gt">行业解决方案</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="SolutionGame.dc.html" class="mi"><b>游戏<span class="badge b-hot">HOT</span></b><span class="d">抵御大流量与 CC 攻击，保障开服</span></a><a href="SolutionShop.dc.html" class="mi"><b>电商</b><span class="d">大促活动交易安全</span></a><a href="SolutionLive.dc.html" class="mi"><b>直播</b><span class="d">立体防护，保障平台可用</span></a><a href="SolutionFinance.dc.html" class="mi"><b>金融</b><span class="d">网络资产治理与风险控制</span></a><a href="SolutionGov.dc.html" class="mi"><b>政府系统集约化</b><span class="d">统一防护、统一运维监管</span></a><a href="SolutionEdu.dc.html" class="mi"><b>教育</b><span class="d">查分、志愿填报网站防护</span></a><a href="Solutions.dc.html" class="mi"><b>新闻媒体</b><span class="d">防网页篡改、挂马与暗链</span></a><a href="Solutions.dc.html" class="mi"><b>元宇宙</b><span class="d">数据合规检测与防爬取</span></a></div><div class="sep"></div><div class="gt">通用与合规方案</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Services.dc.html#djbh" class="mi"><b>等保 2.0 合规<span class="badge b-hot">HOT</span></b><span class="d">二级、三级合规全程陪跑</span></a><a href="Solutions.dc.html" class="mi"><b>SASE 安全接入</b><span class="d">云化交付的网络与安全服务</span></a><a href="Solutions.dc.html" class="mi"><b>办公网络安全</b><span class="d">防数据泄露与 APT 攻击</span></a><a href="Solutions.dc.html" class="mi"><b>网络空间资产</b><span class="d">资产梳理与 1DAY 漏洞响应</span></a><a href="Solutions.dc.html" class="mi"><b>公安监督检查</b><span class="d">151 号令合规自查与整改</span></a></div></div><div style="display:flex;padding-top:40px"><a href="Services.dc.html#djbh" class="promo" style="width:300px;flex:none;border-radius:2px;background:radial-gradient(120% 120% at 100% 0%,#5CE1E6 0%,rgba(92,225,230,0) 45%),linear-gradient(150deg,#165DFF 0%,#0E42D2 60%,#072CA6 100%);color:#FFFFFF;padding:24px;display:flex;flex-direction:column;gap:10px;box-sizing:border-box;position:relative;overflow:hidden"><span style="font-size:12px;color:#BEDAFF;letter-spacing:.06em">热门方案</span><span style="font-size:20px;line-height:28px;font-weight:600">等保 2.0 合规解决方案</span><span style="font-size:14px;line-height:22px;color:rgba(255,255,255,0.85)">携手各地测评机构，从定级到测评全程陪跑。</span><span style="margin-top:auto;align-self:flex-start;background:#FFFFFF;color:#165DFF;height:34px;padding:0 16px;border-radius:2px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500">了解方案<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div></div></div><div class="ddmask" onMouseEnter="{{close}}"></div></div></sc-if><sc-if value="{{m2}}" hint-placeholder-val="{{ false }}"><div class="dd"><div class="ddp"><div class="ddin" style="position:relative"><div style="display:flex;gap:40px;padding:28px 48px 32px 34px;box-sizing:border-box;position:relative"><button type="button" class="x" onClick="{{close}}" aria-label="关闭菜单"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><div style="flex:1;min-width:0"><div class="gt">文档与学习</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Docs.dc.html" class="mi"><b>文档中心<span class="badge b-hot">HOT</span></b><span class="d">产品文档、快速入门与 API</span></a><a href="DocDetail.dc.html" class="mi"><b>快速入门</b><span class="d">账户注册、实名认证、充值购买</span></a><a href="Docs.dc.html" class="mi"><b>常见问题</b><span class="d">接入、计费与售后问题</span></a><a href="Docs.dc.html" class="mi"><b>行业白皮书</b><span class="d">洞悉安全痛点</span></a></div><div class="sep"></div><div class="gt">服务与支持</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="Contact.dc.html" class="mi"><b>联系我们</b><span class="d">电话、在线客服、微信</span></a><a href="Login.dc.html" class="mi"><b>提交工单</b><span class="d">登录控制台提交，全程可追踪</span></a><a href="Docs.dc.html" class="mi"><b>备案中心</b><span class="d">ICP 备案指引与服务</span></a><a href="Contact.dc.html" class="mi"><b>意见反馈</b><span class="d">投诉与建议</span></a></div></div><div style="display:flex;padding-top:40px"><a href="Services.dc.html#emergency" class="promo" style="width:300px;flex:none;background:#0C0D0E;color:#FFFFFF;padding:24px;display:flex;flex-direction:column;gap:10px;box-sizing:border-box"><span style="font-size:12px;color:#6B7380;letter-spacing:.06em">正在被攻击？</span><span class="num" style="font-size:26px;font-weight:600;font-family:'DIN Alternate',Bahnschrift,Arial,sans-serif">0577-26676666</span><span style="font-size:14px;line-height:22px;color:rgba(255,255,255,0.75)">应急响应 7×24 小时，工程师远程处置</span><span style="margin-top:auto;align-self:flex-start;background:#165DFF;color:#FFFFFF;height:40px;padding:0 20px;display:inline-flex;align-items:center;gap:6px;font-size:14px">应急响应<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div></div></div><div class="ddmask" onMouseEnter="{{close}}"></div></div></sc-if><sc-if value="{{m3}}" hint-placeholder-val="{{ false }}"><div class="dd"><div class="ddp"><div class="ddin" style="position:relative"><div style="display:flex;gap:40px;padding:28px 48px 32px 34px;box-sizing:border-box;position:relative"><button type="button" class="x" onClick="{{close}}" aria-label="关闭菜单"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button><div style="flex:1;min-width:0"><div class="gt">了解德迅</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="About.dc.html" class="mi"><b>公司简介</b><span class="d">创新实战型网络安全公司</span></a><a href="About.dc.html#history" class="mi"><b>发展历程</b><span class="d">2015 年成立于温州</span></a><a href="Trust.dc.html#certs" class="mi"><b>资质荣誉</b><span class="d">权威认证，合规可信</span></a><a href="Trust.dc.html#clients" class="mi"><b>服务客户</b><span class="d">运营商、政企与互联网客户</span></a></div><div class="sep"></div><div class="gt">动态与合作</div><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 8px"><a href="News.dc.html" class="mi"><b>新闻公告</b><span class="d">公司动态与安全通告</span></a><a href="News.dc.html" class="mi"><b>安全资讯</b><span class="d">威胁分析与安全知识</span></a><a href="About.dc.html#join" class="mi"><b>加入我们</b><span class="d">与实战派团队一起成长</span></a><a href="Contact.dc.html" class="mi"><b>推广合作</b><span class="d">加入 CPS 推广计划</span></a></div></div><div style="display:flex;padding-top:40px"><a href="Contact.dc.html" class="promo" style="width:300px;flex:none;border-radius:2px;background:linear-gradient(160deg,#F2F6FF 0%,#F7F8FA 100%);border:1px solid #E5ECF8;padding:24px;display:flex;flex-direction:column;gap:10px;box-sizing:border-box"><span style="font-size:12px;color:#6B7380;letter-spacing:.06em">联系我们</span><span class="num" style="font-size:26px;font-weight:600;color:#165DFF;font-family:'DIN Alternate',Bahnschrift,Arial,sans-serif">0577-26676666</span><span style="font-size:14px;line-height:22px;color:#4E5969">浙江省龙港市康鑫大厦 4 楼</span><span style="margin-top:auto;align-self:flex-start;background:#165DFF;color:#FFFFFF;height:34px;padding:0 16px;border-radius:2px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500">在线咨询<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></div></div></div></div><div class="ddmask" onMouseEnter="{{close}}"></div></div></sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","products","solutions","services","trust","news","docs","about","contact"],"default":"home"},"$preview":{"width":1440,"height":60}}'>
+class Component extends DCLogic {
+state = { open: -1, cat: 0 };
+renderVals() {
+const a = this.props.active ?? 'home';
+// 4 top entries (77, 2026-10-22): services merged into products; trust/news under about; docs/contact under support
+const alias = { services: 'products', trust: 'about', news: 'about', docs: 'support', contact: 'support' };
+const cur = alias[a] ?? a;
+const nav = [
+  ['products', '产品与服务', 'Products.dc.html'],
+  ['solutions', '解决方案', 'Solutions.dc.html'],
+  ['support', '帮助与支持', 'Docs.dc.html'],
+  ['about', '关于德迅云', 'About.dc.html']
+];
+const dd = ['products', 'solutions', 'support', 'about'];
+const op = this.state.open;
+const cat = this.state.cat;
+const names = ["精选产品", "云安全", "主机与容器安全", "应用加固", "数据与审计", "身份核验", "安全服务", "IDC 服务"];
+const v = {
+  close: () => this.setState({ open: -1 }),
+  items: nav.map(([k, label, href], i) => ({
+    label, href,
+    cls: i === op ? 'nv nv-open' : (k === cur ? 'nv nv-on' : 'nv'),
+    chev: dd.includes(k) ? 'chev' : 'nochev',
+    enter: () => this.setState({ open: i })
+  })),
+  cats: names.map((label, i) => ({ label, cls: i === cat ? 'cat cat-on' : 'cat', enter: () => this.setState({ cat: i }) }))
+};
+names.forEach((_, i) => { v['show' + i] = i === cat; });
+[0, 1, 2, 3].forEach(i => { v['m' + i] = i === op; });
+return v;
+}
+}
+</script>
+</body>
+</html>

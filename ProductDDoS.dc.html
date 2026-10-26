@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>DDoS 高防 IP</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#FFFFFF;color:#1D2129;font-family:Inter,"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans SC",-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#165DFF;text-decoration:none;transition:color .2s}a:hover{color:#4080FF}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:128px;padding:0 28px;border-radius:2px;font-size:16px;font-weight:500;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap;box-sizing:border-box;transition:all .2s}
+.btn-p{background:linear-gradient(96deg,#165DFF 0%,#4E5BFF 100%);color:#FFFFFF;}.btn-p:hover{color:#FFFFFF;background:linear-gradient(96deg,#3C7EFF 0%,#6670FF 100%);}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#EAEDF1;}.btn-s:hover{color:#165DFF;border-color:#94BFFF}
+.btn-sm{height:34px;min-width:0;padding:0 16px;font-size:14px}
+.tag{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:2px;font-size:12px;background:transparent;border:1px solid rgba(161,161,161,0.5);color:#6B7380;white-space:nowrap;box-sizing:border-box}
+.card{background:#FFFFFF;border:1px solid #EAEDF1;border-radius:2px;box-sizing:border-box}
+div.card{background:#F7F8FB;border-color:transparent}
+.soft div.card,.hero-bg div.card,div.card.on-white{background:#FFFFFF;border-color:#EAEDF1}
+.lift{position:relative;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease,background .2s ease}a.lift:hover{transform:translateY(-4px);border-color:transparent;background:linear-gradient(#FFFFFF,#FFFFFF) padding-box,linear-gradient(135deg,#BEDAFF 0%,#165DFF 45%,#5CE1E6 100%) border-box;}
+.lift .t{transition:color .2s}a.lift:hover .t{color:#165DFF}
+.lift .go{display:inline-flex;transition:transform .25s,color .25s;color:#C9CDD4}a.lift:hover .go{transform:translateX(4px);color:#165DFF}
+.qn{transition:color .2s}.qn:hover{color:#165DFF}
+.lift .zoom{transition:transform .5s cubic-bezier(.2,.8,.2,1)}a.lift:hover .zoom{transform:scale(1.04)}
+.lift .reveal{opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}a.lift:hover .reveal{opacity:1;transform:none}
+.cells{display:grid;border-top:1px solid #E8EBF2;border-left:1px solid #E8EBF2;border-radius:2px;overflow:hidden;background:#FFFFFF}
+.cell{position:relative;display:flex;flex-direction:column;gap:6px;padding:26px 28px;min-height:120px;border-right:1px solid #E8EBF2;border-bottom:1px solid #E8EBF2;color:#1D2129;box-sizing:border-box;overflow:hidden;transition:background .3s,color .3s}
+.cell::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.2px) 0 0/10px 10px,radial-gradient(120% 140% at 100% 0%,#FFB98A 0%,rgba(255,185,138,0) 38%),linear-gradient(120deg,#0E42D2 0%,#165DFF 45%,#4D8BFF 100%);opacity:0;transition:opacity .3s}
+.cell>*{position:relative}.cell:hover::before{opacity:1}
+.cell .cd{font-size:14px;line-height:22px;color:#6B7380;transition:color .3s}
+.cell .cp{margin-top:auto;padding-top:10px;font-size:13px;color:#165DFF;font-weight:600;transition:color .3s}
+.cell .cb{position:absolute;right:24px;top:50%;margin-top:-17px;height:34px;padding:0 16px;border-radius:2px;background:#FFFFFF;color:#165DFF;font-size:13px;font-weight:500;display:inline-flex;align-items:center;opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s}.cell:hover .cb{opacity:1;transform:none}
+.badge{display:inline-flex;align-items:center;height:18px;padding:0 6px;border-radius:999px;border:1px solid currentColor;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:1}
+.b-hot{color:#F53F3F}.b-new{color:#165DFF}
+.ic{width:44px;height:44px;border-radius:2px;background:linear-gradient(135deg,#EAF2FF 0%,#F7FAFF 100%);box-shadow:inset 0 0 0 1px rgba(22,93,255,0.12);color:#165DFF;display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:22px;height:22px}
+.ph{background:linear-gradient(135deg,#F2F6FF 0%,#F7F8FA 100%);border:1px solid #EAECF0;border-radius:2px;color:#6B7380;font-size:13px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;box-sizing:border-box}
+.eyebrow{display:none;align-items:center;gap:6px;align-self:flex-start;height:28px;padding:0 12px;border-radius:999px;background:#EAF2FF;font-size:13px;font-weight:500;color:#165DFF;letter-spacing:.04em}
+.sec-t{margin:0;font-size:40px;line-height:52px;font-weight:600;text-wrap:balance;color:#1D2129}
+.sub-dash{display:flex;align-items:center;gap:16px;justify-content:center;color:#6B7380}.sub-dash::before,.sub-dash::after{content:"";flex:0 1 140px;border-top:1px dashed #C9CED6}
+.sec-d{margin:0;font-size:16px;line-height:28px;color:#4E5969}
+.grad{background:linear-gradient(90deg,#165DFF 0%,#3C7EFF 55%,#14C9C9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:14px 4px;font-size:16px;color:#4E5969;cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .2s}
+.tab:hover{color:#165DFF}
+.tab-on{color:#165DFF;border-bottom-color:#165DFF;font-weight:500}
+.num{font-variant-numeric:tabular-nums;font-family:Inter,"DIN Alternate","Bahnschrift","Helvetica Neue",Arial,sans-serif}
+.hero-bg{background:radial-gradient(60% 80% at 85% 0%,rgba(22,93,255,0.16) 0%,rgba(22,93,255,0) 60%),radial-gradient(40% 60% at 0% 100%,rgba(20,201,201,0.10) 0%,rgba(20,201,201,0) 60%),linear-gradient(180deg,#F3F7FF 0%,#FFFFFF 100%);position:relative;overflow:hidden}
+.ring{position:absolute;border:1px solid rgba(22,93,255,0.10);border-radius:50%;pointer-events:none}
+.gridline{position:absolute;inset:0;background-image:linear-gradient(rgba(22,93,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(22,93,255,0.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);pointer-events:none}
+.deep .gridline{background-image:radial-gradient(rgba(255,255,255,0.14) 1px,transparent 1.3px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
+.deep{background:radial-gradient(50% 70% at 80% 0%,rgba(22,93,255,0.35) 0%,rgba(22,93,255,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(20,201,201,0.15) 0%,rgba(20,201,201,0) 70%),#071028;color:#FFFFFF}
+.deep-card{background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.03) 100%);border:1px solid rgba(255,255,255,0.12);border-radius:2px;backdrop-filter:blur(8px)}
+.glass{background:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.9);border-radius:2px;backdrop-filter:blur(12px)}
+.soft{background:linear-gradient(180deg,#F7F9FC 0%,#F2F5FA 100%)}
+.crumb{font-size:13px;color:#6B7380}.crumb a{color:#6B7380}.crumb a:hover{color:#165DFF}
+.lbl{font-size:14px;color:#1D2129;font-weight:500}
+.field{height:40px;border:1px solid #E5E6EB;background:#FFFFFF;border-radius:2px;padding:0 12px;font:inherit;font-size:14px;color:#1D2129;box-sizing:border-box;width:100%;transition:border-color .2s,box-shadow .2s}
+.field:focus{outline:none;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:880px}
+.tbl th{background:#F7F9FC;color:#4E5969;font-weight:500;text-align:left;padding:14px 16px;border-bottom:1px solid #EAECF0;white-space:nowrap}
+.tbl td{padding:16px;border-bottom:1px solid #EAECF0;color:#1D2129}
+.tbl tr:hover td{background:#F7FAFF}
+.pg{min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;font-size:14px;color:#4E5969;border:1px solid #EAECF0}
+.chk{position:relative;display:inline-flex;align-items:center;padding-left:24px}
+.chk::before{content:"";position:absolute;left:0;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:999px;background:#E8FFEA}
+.chk::after{content:"";position:absolute;left:5px;top:50%;width:4px;height:7px;margin-top:-5px;border-right:1.6px solid #00B42A;border-bottom:1.6px solid #00B42A;transform:rotate(45deg)}
+button.tb{font:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;color:inherit;text-align:left}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 18px;border-radius:999px;font-size:14px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;cursor:pointer;font-family:inherit;transition:all .2s}.pill:hover{color:#165DFF;border-color:#94BFFF}
+.pill-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}.pill-on:hover{color:#FFFFFF;border-color:#165DFF}
+.side{display:block;width:100%;box-sizing:border-box;padding:10px 16px;border-radius:2px;font-size:14px;color:#4E5969;background:none;border:0;text-align:left;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}.side:hover{color:#165DFF;background:#F2F6FF}
+.side-on{background:#E8F3FF;color:#165DFF;font-weight:500}
+.pg{min-width:32px;height:32px;border-radius:2px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;font-size:14px;cursor:pointer;font-family:inherit}.pg:hover{color:#165DFF;border-color:#94BFFF}
+.btn-s-on{color:#165DFF;border-color:#165DFF}
+.pkg{transition:border-color .2s,box-shadow .2s}.pkg:hover{border-color:#94BFFF}.pkg-on,.pkg-on:hover{border-color:#165DFF;box-shadow:0 0 0 1px #165DFF,0 18px 40px -12px rgba(22,93,255,0.25)}
+.hc-on{background:#FFFFFF !important}.hcbar{position:absolute;left:0;top:0;height:3px;width:0;background:#165DFF;transition:width .3s}.hc-on .hcbar{width:60%}.hc-on .hct{color:#165DFF !important;font-weight:600}
+.ht{border:0;font:inherit;font-size:15px;cursor:pointer;height:38px;padding:0 20px;background:transparent;color:#4E5969}.ht-on{background:#FFFFFF;color:#165DFF;font-weight:600}
+.hs{border:1px solid rgba(255,255,255,0.16);font:inherit;font-size:14px;cursor:pointer;height:36px;padding:0 18px;background:rgba(255,255,255,0.04);color:#FFFFFF}.hs-on{background:#165DFF;border-color:#165DFF}
+.pg-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+@media (prefers-reduced-motion:reduce){.lift,.btn{transition:none}.lift:hover,.btn-p:hover{transform:none}}
+
+.spot{--mx:72%;--my:40%}
+.spot-cv,.spot-glow{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.spot:hover .spot-cv,.spot:hover .spot-glow{opacity:1}
+.spot-cv{width:100%;height:100%;-webkit-mask-image:radial-gradient(340px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.85) 30%,transparent 78%);mask-image:radial-gradient(340px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.85) 30%,transparent 78%)}
+.spot-glow{background:radial-gradient(360px circle at var(--mx) var(--my),rgba(48,84,170,0.32),rgba(22,40,90,0.12) 50%,transparent 80%)}
+
+
+.ax{display:flex;align-items:center;gap:0;flex-wrap:nowrap}
+.ax-row2{flex-direction:row-reverse;margin-top:0}
+.ax-n{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;color:#4E5969;width:84px;flex:none}
+.ax-g{display:flex;flex-direction:column;background:#F2F6FF;border:1px solid #D6E4FF;flex:none}
+.ax-g>div:first-child{display:flex;gap:4px;padding:10px 8px 6px}
+.ax-gl{height:28px;display:flex;align-items:center;justify-content:center;background:#D6E4FF;color:#0E42D2;font-size:13px;font-weight:500}
+.ax-hl{background:#165DFF;border-color:#165DFF}.ax-hl .ax-gl{background:#0E42D2;color:#FFFFFF}.ax-hl .ax-n{color:#FFFFFF}
+.ax-c{flex:1 1 24px;min-width:24px;height:6px;margin:0 6px;border-radius:2px;background:linear-gradient(90deg,#D6E4FF,#94BFFF);position:relative;align-self:center;margin-bottom:28px}
+.ax-c::after{content:"";position:absolute;right:-2px;top:50%;width:7px;height:7px;margin-top:-4px;border-right:2px solid #6AA1FF;border-top:2px solid #6AA1FF;transform:rotate(45deg)}
+.ax-row2 .ax-c::after{right:auto;left:-2px;transform:rotate(-135deg)}
+.ax-v{width:6px;height:40px;border-radius:2px;background:linear-gradient(180deg,#D6E4FF,#94BFFF);margin:6px 0}
+.ax-atk{display:flex;align-items:center;gap:8px;font-size:12px;color:#F53F3F;margin-bottom:14px}
+.ax-atk i{flex:1;height:0;border-top:2px dashed #F76560;position:relative}
+.ax-atk b{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#FFECE8;color:#F53F3F;font-weight:600}
+.sc-panel{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);border:1px solid #EAEDF1;background:#FFFFFF;margin-top:32px}
+.sc-l{padding:40px 32px;display:flex;flex-direction:column;justify-content:center;min-width:0;overflow-x:auto}
+.sc-r{padding:36px 36px;background:linear-gradient(160deg,#F7F9FD 0%,#F2F5FA 100%);display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:22px;color:#4E5969}
+.sc-r h3{margin:0;font-size:16px;font-weight:600;color:#1D2129}
+.sc-r .rule{height:1px;background:#E5E8EF;margin:8px 0}
+.sc-r ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.sc-tabs{display:flex;justify-content:center;gap:48px;border-bottom:1px solid #EAEDF1;margin-top:40px}
+.sc-rec{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;background:#FFFFFF;border:1px solid #E5E8EF;color:#1D2129;font-size:13px;transition:border-color .2s,color .2s}
+.sc-rec:hover{border-color:#165DFF;color:#165DFF}
+@media (max-width:900px){.sc-panel{grid-template-columns:1fr}.sc-tabs{gap:24px;overflow-x:auto;justify-content:flex-start}}
+
+/* ---- 火山引擎风格覆盖 ---- */
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1D2129}
+.btn{height:48px;padding:0 28px;border-radius:2px;font-size:14px;font-weight:400;min-width:0;transition:background .16s,color .16s,border-color .16s}
+.btn-p{background:#165DFF;color:#FFFFFF}.btn-p:hover{background:#0E42D2;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#C9CDD4}.btn-s:hover{color:#165DFF;border-color:#165DFF}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+.card{border-radius:2px;border-color:#EAEDF1}
+div.card{background:#F4F8FC}
+.sec-t{font-size:32px;line-height:44px;font-weight:400}
+.hero-bn h1{font-size:42px !important;line-height:58px !important;font-weight:400 !important}
+.lift{transition:color .2s}
+a.lift::before,div.lift::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s;pointer-events:none;z-index:0}
+a.lift::before{background:radial-gradient(rgba(255,255,255,0.28) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+div.lift::before{background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(120deg,#1664FF,#2C8AD8,#2EB2C3,#24B291,#1EA077)}
+a.lift>*:not([style*="position:absolute"]),div.lift>*:not([style*="position:absolute"]){position:relative;z-index:1}
+
+
+
+
+a.lift:hover .zoom{transform:none}
+.cells{border-radius:0;border-color:#EAEDF1}.cell{border-color:#EAEDF1}
+.cell::before{background:radial-gradient(rgba(255,255,255,0.26) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+.cell .cb{border-radius:2px}
+.tab-on{font-weight:500}
+.pill,.pg,.field,.side,.tag{border-radius:2px}
+
+/* ---- 卡片悬停：跟随鼠标的光斑（替代整块变色） ---- */
+.lift,.cell{transition:border-color .25s,background-color .25s}
+.spot-l{position:relative;isolation:isolate}
+.spot-l>.spot-cv,.spot-l>.spot-glow{position:absolute !important;inset:0;z-index:0 !important}
+.spot-l>.spot-cv{-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%);mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%)}
+.spot-l>.spot-glow{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,255,255,0.55),rgba(255,255,255,0.2) 50%,transparent 80%)}
+a.lift::before,div.lift::before,.cell::before{display:block !important;background:linear-gradient(115deg,#DCEBFF 0%,#E0F1F8 50%,#DCF5EA 100%) !important;opacity:0;transition:opacity .35s ease}
+a.lift:hover::before,div.lift:hover::before,.cell:hover::before{opacity:1}
+a.lift:hover,div.lift:hover{transform:none;box-shadow:none;border-color:#DFE3EA}a.lift:hover{background:#FFFFFF}
+.cell:hover{color:#1D2129;box-shadow:inset 0 0 0 1px #DFE3EA}
+.cell .cb{border:1px solid #165DFF;z-index:1}
+.ax-n>img.tpi{display:block;height:56px;width:76px;object-fit:contain;object-position:center bottom;margin:4px 0 8px}
+/* ---- v56 卡片悬停 ---- */
+.card{border-color:#F0F2F5}.cells{border-color:#F0F2F5;overflow:visible}.cell{border-color:#F0F2F5}
+a.lift::before,div.lift::before,.cell::before{background:linear-gradient(115deg,#C4DAFF 0%,#C9E7F7 50%,#C2EDD8 100%) !important;inset:-1px !important}
+.lift,.cell{transition:border-color .3s,background-color .3s,box-shadow .35s ease}
+a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.cell:hover{z-index:2;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+
+/* v69 DDoS 首屏：在统一的 3D 玻璃横幅上叠加动效（攻击线撞环、扫描环、护盾脉冲、干净回源） */
+.bfx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.bfx-pl{transform-box:fill-box;transform-origin:center;opacity:0;animation:bfxPl 3.6s ease-out infinite;animation-delay:calc(var(--i) * 1.2s)}
+@keyframes bfxPl{0%{transform:scale(.7);opacity:0}15%{opacity:.55}100%{transform:scale(1.9);opacity:0}}
+.bfx-scan,.bfx-scan2{transform-origin:1400px 288px}
+.bfx-scan{animation:bfxRot 7s linear infinite}.bfx-scan2{animation:bfxRot 30s linear infinite reverse}
+@keyframes bfxRot{to{transform:rotate(360deg)}}
+.bfx-atk{stroke:#F53F3F;stroke-width:2.5;stroke-linecap:round;opacity:.85;animation:bfxAtk 3.2s cubic-bezier(.55,0,.9,.6) infinite;animation-delay:calc(var(--i) * -.53s)}
+@keyframes bfxAtk{0%{stroke-dashoffset:calc(var(--L) * 1px + 26px)}70%,100%{stroke-dashoffset:0}}
+.bfx-hit{fill:#FF7D7D;opacity:0;transform-box:fill-box;transform-origin:center;animation:bfxHit 3.2s linear infinite;animation-delay:calc(var(--i) * -.53s)}
+@keyframes bfxHit{0%,66%{opacity:0;transform:scale(.4)}71%{opacity:1;transform:scale(1.4)}85%{opacity:0;transform:scale(3)}100%{opacity:0}}
+.bfx-ok{fill:none;stroke:#14C9C9;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:8 22;opacity:.8;animation:bfxOk 1.3s linear infinite}
+@keyframes bfxOk{to{stroke-dashoffset:-30}}
+@media (prefers-reduced-motion:reduce){.bfx *{animation:none !important}}
+
+/* v74 头图动效：主体悬浮 + 玻璃流光 + 背景光带（参考 77 提供的视频） */
+@property --bna{syntax:'<angle>';inherits:false;initial-value:0deg}
+.bnl{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bnl-f{position:absolute;inset:0;animation:bnF 6.5s ease-in-out infinite;will-change:transform}
+.bnl-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.bnl-sh,.bnl-gl{position:absolute;inset:0;-webkit-mask-size:cover;mask-size:cover;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;mix-blend-mode:screen}
+.bnl-sh{background:linear-gradient(105deg,transparent 44%,rgba(255,255,255,.75) 50%,transparent 56%) 0 0/300% 100% no-repeat;animation:bnSh 6s cubic-bezier(.45,0,.25,1) infinite;opacity:.85}
+.bnl-gl{background:conic-gradient(from var(--bna) at 71% 56%,transparent 0deg 300deg,rgba(190,235,255,.0) 300deg,rgba(220,245,255,.9) 345deg,transparent 360deg);animation:bnGl 9s linear infinite;opacity:.6}
+.bnl-st{position:absolute;width:280px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95) 55%,rgba(170,205,255,.0));transform-origin:0 50%;opacity:0;animation:bnSt 8s linear infinite;animation-delay:var(--d);filter:drop-shadow(0 0 4px rgba(255,255,255,.9))}
+@keyframes bnF{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes bnSh{0%,18%{background-position:100% 0}62%,100%{background-position:0% 0}}
+@keyframes bnGl{to{--bna:360deg}}
+@keyframes bnSt{0%{opacity:0;transform:rotate(-27deg) translateX(-160px)}12%{opacity:.9}55%{opacity:.9}70%,100%{opacity:0;transform:rotate(-27deg) translateX(520px)}}
+@media (prefers-reduced-motion:reduce){.bnl *{animation:none !important}}
+
+/* v75 深色区块动态点阵背景（WebGL 着色器） */
+.deep{isolation:isolate}
+@property --fxr{syntax:"<length>";inherits:false;initial-value:0px}.deep>i.fxbg{position:absolute;inset:0;z-index:-1;pointer-events:none;display:block;-webkit-mask:radial-gradient(circle,#000 1.1px,transparent 1.8px) 0 0/13px 13px;mask:radial-gradient(circle,#000 1.1px,transparent 1.8px) 0 0/13px 13px;background:linear-gradient(112deg,transparent 42%,rgba(92,225,230,.85) 50%,transparent 58%) 0 0/320% 100% no-repeat,radial-gradient(70% 90% at 85% 15%,rgba(64,128,255,.55),transparent 70%),rgba(64,128,255,.16);animation:fxSw 11s linear infinite}.deep>i.fxbg::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 82% 28%,transparent var(--fxr),rgba(120,170,255,.7) calc(var(--fxr) + 10px),transparent calc(var(--fxr) + 20px),transparent calc(var(--fxr) + 56px));-webkit-mask:radial-gradient(circle at 82% 28%,#000,transparent 60%);mask:radial-gradient(circle at 82% 28%,#000,transparent 60%);animation:fxRp 3.2s linear infinite}@keyframes fxSw{from{background-position:130% 0,0 0,0 0}to{background-position:-30% 0,0 0,0 0}}@keyframes fxRp{from{--fxr:0px}to{--fxr:56px}}@media (prefers-reduced-motion:reduce){.deep>i.fxbg,.deep>i.fxbg::after{animation:none}}
+
+/* ---- v88 字阶：H1/H2 加粗放大，正文 14-16px，辅助文字加深 ---- */.hero-bn h1{font-size:52px !important;line-height:64px !important;font-weight:700 !important;letter-spacing:-.01em}.hero-bn p{font-size:17px !important;line-height:30px !important;color:#4E5969 !important}.sec-t{font-size:34px !important;line-height:46px !important;font-weight:600 !important;letter-spacing:-.005em}.sec-d{font-size:16px !important;line-height:28px !important;color:#4E5969 !important}.v88-big{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif !important;font-weight:700 !important;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* v88 pricing table */
+.pt-incl{margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:14px;color:#4E5969}
+.pt-incl b{font-weight:600;color:#1D2129;margin-right:4px}
+.pt-incl span{display:inline-flex;align-items:center;gap:6px}
+.pt-incl span::before{content:"";width:14px;height:14px;border-radius:999px;background:#E8F3FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M4 7.2l2 2 4-4.2' fill='none' stroke='%23165DFF' stroke-width='1.6'/%3E%3C/svg%3E") center/14px no-repeat}
+.pt88 td,.pt88 th{white-space:nowrap}
+.pt88 tbody td{background:#fff}
+.pt88{font-size:15px;min-width:760px}
+.pt88 th{padding:18px 20px;font-size:14px}
+.pt88 td{padding:20px;font-size:15px;vertical-align:middle}
+.pt88 thead th:last-child{text-align:right;padding-right:28px}
+.pt88 tbody th[scope=row]{font-size:16px;font-weight:600!important;white-space:nowrap}
+.pt88 .pt-pc{text-align:right;white-space:nowrap;padding-right:28px}
+.pt88 .pt-pc>div{display:inline-flex;align-items:center;gap:20px;justify-content:flex-end}
+.pt88 .pt-p{display:inline-flex;align-items:baseline;gap:4px;min-width:96px;justify-content:flex-end}
+.pt88 .pt-p b{font-family:"DIN Alternate","DIN",Inter,sans-serif;font-size:26px;font-weight:700;color:#1D2129;letter-spacing:-.01em}
+.pt88 .pt-p small{font-size:13px;color:#6B7380}
+.pt88 .pt-p b.pt-talk{font-size:20px;font-family:inherit;font-weight:600}
+.pt88 .pt-buy{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 18px;border-radius:4px;font-size:14px;font-weight:500;border:1px solid #165DFF;color:#165DFF;background:#fff;text-decoration:none;transition:background .2s,color .2s}
+.pt88 .pt-buy:hover{background:#165DFF;color:#fff}
+.pt88 tr.pt-rec td,.pt88 tr.pt-rec th[scope=row]{background:#F2F7FF!important}
+.pt88 tr.pt-rec th[scope=row]{box-shadow:inset 3px 0 0 #165DFF}
+.pt88 tr.pt-rec .pt-buy{background:linear-gradient(96deg,#165DFF,#4E5BFF);color:#fff;border-color:transparent}
+.pt88 .pt-tag{display:inline-block;margin-left:8px;padding:0 6px;height:20px;line-height:20px;border-radius:2px;background:#165DFF;color:#fff;font-size:12px;font-weight:500;vertical-align:2px}
+.pt88 .pt-pc .pt-p b{color:#1D2129}
+.pt88 tr.pt-rec .pt-p b{color:#165DFF}
+
+/* v88 AI assistant button */
+.qai{position:relative;width:56px;height:56px;border-radius:999px;background:linear-gradient(135deg,#3C7EFF 0%,#165DFF 55%,#4E5BFF 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(22,93,255,.28);transition:transform .2s,box-shadow .2s}
+.qai:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(22,93,255,.34)}
+.qai span{position:absolute;right:-2px;top:-2px;height:16px;padding:0 5px;border-radius:8px;background:#fff;color:#165DFF;font:600 10px/16px Inter,sans-serif;box-shadow:0 0 0 1px #DCE6FF}
+.qai::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(22,93,255,.35);animation:qaiP 2.8s ease-out infinite}
+@keyframes qaiP{0%{box-shadow:0 0 0 0 rgba(22,93,255,.35)}70%,100%{box-shadow:0 0 0 12px rgba(22,93,255,0)}}
+@media (prefers-reduced-motion:reduce){.qai::after{animation:none}}
+
+/* v90 semantic + stats */
+:root{--sem-threat:#F53F3F;--sem-risk:#FF7D00;--sem-safe:#00B42A;--sem-brand:#165DFF}
+.ax-hl ~ .ax-c{background:linear-gradient(90deg,#AFF0B5,#23C343)}
+.ax-hl ~ .ax-c::after{border-color:#23C343}
+.ax-hl ~ .ax-n{color:#00B42A}
+.v88-big{color:#165DFF!important}
+.deep .v88-big{color:#FFFFFF!important}
+.hh-n{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif!important;font-weight:700!important;font-size:40px!important;line-height:48px!important;color:#165DFF!important;letter-spacing:-.02em}
+.hh-n small{font-size:18px!important;font-weight:600;margin-left:2px;color:#165DFF!important}
+
+/* v91 editorial feature list */
+.ed{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:72px;align-items:start}
+.ed-l{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px}
+.ed-l .sec-t{text-align:left;margin:0}
+.ed-l p{margin:0;font-size:16px;line-height:28px;color:#4E5969}
+.ed-n{font-family:"DIN Alternate",Bahnschrift,Inter,sans-serif;font-weight:700;font-size:96px;line-height:1;color:#165DFF;letter-spacing:-.03em}
+.ed-n small{font-size:20px;font-weight:600;color:#1D2129;margin-left:8px;letter-spacing:0;font-family:inherit}
+.ed-r{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.ed-i{display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto 1fr;align-content:start;align-items:start;gap:4px 16px;padding:28px 0;border-top:1px solid #DDE3EC}
+.ed-i .ic{grid-row:span 2;width:40px;height:40px}
+.ed-i b{font-size:18px;line-height:28px;font-weight:600;color:#1D2129;display:flex;align-items:baseline;gap:10px}
+.ed-i b i{font-style:normal;font-family:"DIN Alternate",Bahnschrift,Inter,sans-serif;font-size:13px;color:#94BFFF;font-weight:700}
+.ed-i p{margin:0;font-size:15px;line-height:24px;color:#4E5969}
+@media (max-width:1000px){.ed{grid-template-columns:1fr;gap:32px}.ed-l{position:static}.ed-r{grid-template-columns:1fr}}
+
+/* v93 hero: one Blender render family, subject right, title left */
+.hb93::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,241,246,.92) 0%,rgba(238,241,246,.6) 38%,rgba(238,241,246,0) 58%);pointer-events:none}
+
+/* ---- v97 腾讯云式（.tcx 作用域，内容页通用） ---- */
+.tcx .sec-t{font-size:36px;line-height:48px;font-weight:600;color:#000000;letter-spacing:.01em}
+.tcx .deep .sec-t,.tcx .sec-t[style*="#FFFFFF"]{color:#FFFFFF}
+.tcx .grad{background:linear-gradient(90deg,#00A2ED 0%,#165DFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tcx .deep .grad{background:linear-gradient(90deg,#5CE1E6 0%,#94BFFF 100%);-webkit-background-clip:text;background-clip:text}
+.tcx .soft{background:linear-gradient(180deg,#F1F6FF 0%,#F8FAFF 55%,#FFFFFF 100%)}
+.tcx .tc-more{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:#1D2129;white-space:nowrap;transition:color .25s}
+.tcx .tc-more i{width:22px;height:22px;border-radius:999px;background:#1D2129;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;transition:background .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.tcx .tc-more:hover{color:#165DFF}.tcx .tc-more:hover i{background:#165DFF;transform:rotate(45deg)}
+.tcx .deep .tc-more{color:#FFFFFF}.tcx .deep .tc-more i{background:#FFFFFF;color:#071028}
+@property --tcA{syntax:'<angle>';inherits:false;initial-value:0deg}
+.tcx a.lift::before,.tcx div.lift::before,.tcx .cell::before{inset:-1px!important;padding:1px;box-sizing:border-box;z-index:2;background:conic-gradient(from var(--tcA),rgba(27,110,247,0) 0deg,rgba(27,110,247,0) 220deg,rgba(27,110,247,.55) 290deg,rgba(127,178,255,.75) 325deg,rgba(27,110,247,.6) 360deg)!important;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0!important;transition:opacity .35s;pointer-events:none}
+.tcx a.lift:hover::before,.tcx div.lift:hover::before,.tcx .cell:hover::before{opacity:1!important;animation:tcFlow 5s linear infinite}
+@keyframes tcFlow{to{--tcA:360deg}}
+.tcx .lift .spot-cv,.tcx .lift .spot-glow,.tcx .cell .spot-cv,.tcx .cell .spot-glow{display:none!important}
+.tcx a.lift:hover,.tcx div.lift:hover,.tcx .cell:hover{transform:none!important;background:#FFFFFF!important;border-color:transparent!important;box-shadow:0 18px 44px -14px rgba(0,58,140,.18),0 2px 8px rgba(0,58,140,.05)!important}
+.tcx .deep a.lift:hover,.tcx .deep div.lift:hover{background:rgba(255,255,255,.08)!important}
+.tcx .lift:hover .t,.tcx .cell:hover .t{color:#165DFF}
+.tcx div.lift .zoom{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.tcx div.lift:hover .zoom{transform:scale(1.04)}
+.tcx div.lift:hover .btn-s{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+.tcx .v88-big{white-space:nowrap}
+.tcx .rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.tcx .rv-wait{opacity:0;transform:translateY(36px)}
+@media (prefers-reduced-motion:reduce){.tcx .rv-wait{opacity:1;transform:none}.tcx .lift:hover::before,.tcx .cell:hover::before{animation:none}}
+
+/* v99 子页 Banner 文案排版 */
+.tcx .hb93 .wrap > div[style*="flex:1"]{gap:0!important;max-width:680px!important}
+.tcx .hb93 h1{font-size:44px!important;line-height:56px!important;font-weight:600!important;letter-spacing:.01em;text-wrap:wrap!important;color:#1D2129}
+.tcx .hb93 h1 + p,.tcx .hb93 h1 ~ p{margin-top:16px!important;font-size:16px!important;line-height:28px!important;color:#4E5969!important;max-width:32em!important;text-wrap:pretty;word-break:keep-all;overflow-wrap:anywhere}
+.tcx .hb93 .wrap > div[style*="flex:1"] > p + div{margin-top:36px!important}
+.tcx .hb93 .wrap > div[style*="flex:1"] > div + div{margin-top:20px!important;font-size:13px!important;color:#6B7380!important}
+.tcx .hb93 .crumb{font-size:13px;color:#86909C}
+</style>
+</helmet>
+<div class="tcx" data-pg="ProductDDoS" style="min-width:0">
+<div style="position:sticky;top:0;z-index:5"><dc-import name="Header" active="products" hint-size="100%,60px"></dc-import></div>
+<section class="hero-bn hb93" style="background:#EEF1F6 url(img/hba-shield.webp) 72% center/cover no-repeat;position:relative;overflow:hidden">
+  <div class="wrap" style="position:relative;min-height:460px;box-sizing:border-box;padding-top:24px;padding-bottom:56px;display:flex;flex-direction:column">
+    <nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Products.dc.html">产品与服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">DDoS 高防 IP</span></nav>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px;max-width:600px;margin-top:28px">
+      <h1 style="margin:0;font-size:48px;line-height:58px;font-weight:600;text-wrap:balance;color:#1D2129">DDoS 高防 IP</h1>
+      <p style="margin:0;font-size:17px;line-height:30px;color:#4E5969">以省骨干网的 DDoS 防护网络为基础，结合德迅自研的 DDoS 攻击检测和智能防护体系，自动快速缓解网络攻击带来的延迟增加、访问受限和业务中断，降低潜在 DDoS 攻击风险。</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:4px"><a href="Contact.dc.html" class="btn btn-p">免费测试</a><a href="#price" class="btn btn-s">查看套餐</a><a href="Docs.dc.html" class="btn" style="color:#165DFF;padding:0 8px">产品文档 →</a></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="font-size:13px;color:#4E5969">相关荣誉</span><span class="tag" style="background:#FFFFFF;border:1px solid #E5E6EB">高新技术企业</span><span class="tag" style="background:#FFFFFF;border:1px solid #E5E6EB">安全等级保护</span><span class="tag" style="background:#FFFFFF;border:1px solid #E5E6EB">网信办支撑单位</span><span class="tag" style="background:#FFFFFF;border:1px solid #E5E6EB">CNNVD 技术支撑单位</span></div>
+    </div>
+  </div>
+</section><div style="background:rgba(255,255,255,0.92);border-bottom:1px solid #EAECF0;"><div class="wrap"><nav aria-label="页内导航" style="display:flex;gap:40px;flex-wrap:wrap"><a href="#intro" class="tab tab-on" style="display:inline-block">产品介绍</a><a href="#feat" class="tab" style="display:inline-block">产品特色</a><a href="#steps" class="tab" style="display:inline-block">接入步骤</a><a href="#price" class="tab" style="display:inline-block">套餐价格</a><a href="#scene" class="tab" style="display:inline-block">应用场景</a><a href="#faq" class="tab" style="display:inline-block">常见问题</a></nav></div></div>
+<section id="intro" style="padding:80px 0">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+    <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:16px">
+      <span class="eyebrow">产品介绍</span>
+      <h2 class="sec-t">分布式云防护节点，<span class="grad">超大流量也能分摊</span></h2>
+      
+      
+    <p class="sec-d">提供可弹性扩缩的分布式云防护节点。发生超大流量攻击时，可根据影响范围迅速将业务分摊到未受影响的节点。</p><p class="sec-d">通过创新的报文基因技术，在用户与防护节点之间建立加密的 IP 隧道，准确识别合法报文、阻止非法流量进入，可彻底防御 CC 攻击等资源消耗型攻击。</p></div>
+    <div class="card" style="flex:1 1 520px;min-width:0;padding:28px;display:flex;flex-direction:column;gap:16px;background:#F7F8FA;border:0">
+      <div style="font-size:13px;color:#4E5969">防护原理</div>
+      <div style="display:flex;gap:10px;align-items:stretch;flex-wrap:wrap">
+        <div class="card" style="flex:1 1 100px;padding:14px 10px;text-align:center;font-size:13px">用户 / 攻击流量</div>
+        <div style="align-self:center;color:#165DFF">→</div>
+        <div style="flex:2 1 200px;background:#165DFF;color:#FFFFFF;border-radius:2px;padding:14px 10px;text-align:center;font-size:13px;display:flex;flex-direction:column;gap:6px"><span style="font-weight:500">德迅高防清洗节点</span><span style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap"><span class="tag" style="background:rgba(255,255,255,0.18);color:#FFFFFF">流量清洗</span><span class="tag" style="background:rgba(255,255,255,0.18);color:#FFFFFF">指纹识别</span><span class="tag" style="background:rgba(255,255,255,0.18);color:#FFFFFF">CC 拦截</span></span></div>
+        <div style="align-self:center;color:#165DFF">→</div>
+        <div class="card" style="flex:1 1 100px;padding:14px 10px;text-align:center;font-size:13px">业务源站<br><span style="font-size:12px;color:#4E5969">真实 IP 隐藏</span></div>
+      </div>
+      <div style="font-size:12px;color:#4E5969">加密 IP 隧道仅放行合法报文，清洗后的干净流量回源</div>
+    </div>
+  </div>
+</section>
+<section id="feat" style="padding:96px 0;background:#FFFFFF"><div class="wrap"><div class="ed"><div class="ed-l"><div class="ed-n">06<small>项核心能力</small></div><h2 class="sec-t">精准识别，<span class="grad">秒级拦截</span></h2><p>近源清洗 + 智能识别，攻击在到达源站前就被拦下。</p></div><div class="ed-r"><div class="ed-i"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="6" height="5" rx="1"></rect><rect x="15" y="15" width="6" height="5" rx="1"></rect><path d="M6 9v4a2 2 0 0 0 2 2h7"></path></svg></div><b><i>01</i>自定义清洗策略</b><p>支持从结果、交互、时间、地域等维度对流量进行画像，构建数千种可自定义拦截策略，同时防御不同业务、不同类型的 CC 攻击。</p></div><div class="ed-i"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10a6 6 0 0 1 12 0v3M9 20c-.6-2-1-4-1-7a4 4 0 0 1 8 0v2M12 13v3c0 2 .5 3.5 1.5 5M15.5 19c.4-1 .5-2 .5-3"></path></svg></div><b><i>02</i>指纹识别拦截</b><p>根据报文的特定内容生成独有的指纹，并以此判断流量的合法性，精准拦截恶意流量。</p></div><div class="ed-i"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></div><b><i>03</i>四层 CC 防护</b><p>德迅引擎根据用户的连接、频率、行为等特征实时分析请求，智能识别攻击，实现秒级拦截。</p></div><div class="ed-i"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"></path></svg></div><b><i>04</i>支持多协议转发</b><p>支持 TCP、HTTP、HTTPS、WebSocket 等协议，能很好地维持业务长连接，并隐藏服务器真实 IP。</p></div><div class="ed-i"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V7M17 16v-8"></path></svg></div><b><i>05</i>丰富的攻击详情报表</b><p>秒级即时报表，实时展示访问、流量转发和攻击防御情况，动态调整防御策略。</p></div><div class="ed-i"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="7" rx="1.5"></rect><rect x="4" y="13" width="16" height="7" rx="1.5"></rect><path d="M8 7.5h.01M8 16.5h.01"></path></svg></div><b><i>06</i>源站保护</b><p>通过反向代理接入防护服务，隐藏真实源站地址，将清洗后的干净流量回送到源站。</p></div></div></div></div>
+</section>
+<section id="steps" style="padding:80px 0">
+  <div class="wrap"><div style="display:flex;flex-direction:column;gap:16px"><h2 class="sec-t">五步完成接入</h2></div>
+    <ol style="list-style:none;margin:48px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:24px"><li style="flex:1 1 160px;min-width:0;display:flex;flex-direction:column;gap:10px;position:relative">
+  <div style="display:flex;align-items:center;gap:8px"><span class="num" style="width:32px;height:32px;border-radius:999px;background:#165DFF;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none">1</span><span style="flex:1;height:1px;background:#E5E6EB"></span></div>
+  <div style="font-size:15px;font-weight:500">购买 DDoS 防护</div></li><li style="flex:1 1 160px;min-width:0;display:flex;flex-direction:column;gap:10px;position:relative">
+  <div style="display:flex;align-items:center;gap:8px"><span class="num" style="width:32px;height:32px;border-radius:999px;background:#E8F3FF;color:#165DFF;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none">2</span><span style="flex:1;height:1px;background:#E5E6EB"></span></div>
+  <div style="font-size:15px;font-weight:500">端口接入</div></li><li style="flex:1 1 160px;min-width:0;display:flex;flex-direction:column;gap:10px;position:relative">
+  <div style="display:flex;align-items:center;gap:8px"><span class="num" style="width:32px;height:32px;border-radius:999px;background:#E8F3FF;color:#165DFF;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none">3</span><span style="flex:1;height:1px;background:#E5E6EB"></span></div>
+  <div style="font-size:15px;font-weight:500">添加端口转发</div></li><li style="flex:1 1 160px;min-width:0;display:flex;flex-direction:column;gap:10px;position:relative">
+  <div style="display:flex;align-items:center;gap:8px"><span class="num" style="width:32px;height:32px;border-radius:999px;background:#E8F3FF;color:#165DFF;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none">4</span><span style="flex:1;height:1px;background:#E5E6EB"></span></div>
+  <div style="font-size:15px;font-weight:500">客户端 / 服务端 IP 配置</div></li><li style="flex:1 1 160px;min-width:0;display:flex;flex-direction:column;gap:10px;position:relative">
+  <div style="display:flex;align-items:center;gap:8px"><span class="num" style="width:32px;height:32px;border-radius:999px;background:#E8F3FF;color:#165DFF;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none">5</span><span style="flex:1;height:1px;background:transparent"></span></div>
+  <div style="font-size:15px;font-weight:500">完成接入</div></li></ol>
+  </div>
+</section>
+<section id="price" style="padding:80px 0;background:#F7F8FA">
+  <div class="wrap"><div style="display:flex;flex-direction:column;gap:16px"><h2 class="sec-t">按业务规模选择套餐</h2></div>
+    <div class="card" style="margin-top:40px;overflow-x:auto">
+      <table class="tbl pt88"><thead><tr><th scope="col">套餐</th><th scope="col">DDoS 防御</th><th scope="col">CC 防御</th><th scope="col">价格</th></tr></thead><tbody><tr><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">基础型</th><td>100GB 峰值</td><td>20 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="num">1,999</b><small>元/月</small></span><a class="pt-buy" href="Register.dc.html">立即购买</a></div></td></tr><tr><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">专业型</th><td>200GB 峰值</td><td>30 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="num">2,999</b><small>元/月</small></span><a class="pt-buy" href="Register.dc.html">立即购买</a></div></td></tr><tr class="pt-rec"><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">企业型<span class="pt-tag">推荐</span></th><td>300GB 峰值</td><td>50 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="num">3,999</b><small>元/月</small></span><a class="pt-buy" href="Register.dc.html">立即购买</a></div></td></tr><tr><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">商务型</th><td>400GB 峰值</td><td>80 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="num">5,999</b><small>元/月</small></span><a class="pt-buy" href="Register.dc.html">立即购买</a></div></td></tr><tr><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">旗舰型-01</th><td>600GB 峰值</td><td>100 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="num">9,999</b><small>元/月</small></span><a class="pt-buy" href="Register.dc.html">立即购买</a></div></td></tr><tr><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">旗舰型-02</th><td>800GB 峰值</td><td>200 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="num">19,999</b><small>元/月</small></span><a class="pt-buy" href="Register.dc.html">立即购买</a></div></td></tr><tr><th scope="row" style="background:#FFFFFF;color:#1D2129;font-weight:500">全力防护</th><td>1000GB 峰值</td><td>100 万 QPS</td><td class="pt-pc"><div><span class="pt-p"><b class="pt-talk">面谈</b></span><a class="pt-buy" href="Contact.dc.html">咨询专家</a></div></td></tr></tbody></table>
+    </div><p class="pt-incl"><b>所有套餐均含</b><span>线路 BGP 多线</span><span>转发端口 100</span><span>防护域名 50</span><span>Web 应用防火墙</span><span>业务带宽 100Mb</span><span>专家服务</span></p>
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:24px;flex-wrap:wrap"><a href="Register.dc.html" class="btn btn-p">立即购买</a><a href="Register.dc.html" class="btn btn-s">申请免费测试</a></div>
+  </div>
+</section>
+<section id="scene" style="padding:80px 0">
+  <div class="wrap"><div style="display:flex;flex-direction:column;gap:16px"><h2 class="sec-t">高风险业务的首选防护</h2></div>
+    <div class="sc-tabs" role="tablist"><button type="button" class="tab {{ scC0 }}" onClick="{{ scP0 }}">游戏业务</button><button type="button" class="tab {{ scC1 }}" onClick="{{ scP1 }}">电商与金融</button><button type="button" class="tab {{ scC2 }}" onClick="{{ scP2 }}">政企门户</button></div><sc-if value="{{ sc0 }}" hint-placeholder-val="{{ true }}"><div class="sc-panel">
+  <div class="sc-l"><div role="img" aria-label="方案架构示意图" style="min-width:560px"><div class="ax-atk"><span>DDoS 攻击流量</span><i></i><b>✕</b><span style="color:#4E5969">在清洗节点被拦截</span></div><div class="ax"><div class="ax-n"><img class="tpi" src="img/tp-client.webp" alt=""><span>用户</span></div><div class="ax-c"></div><div class="ax-n"><img class="tpi" src="img/tp-cloud.webp" alt=""><span>互联网</span></div><div class="ax-c"></div><div class="ax-g ax-hl"><div><div class="ax-n"><img class="tpi" src="img/tp-pfw.webp" alt=""><span>高防 IP</span></div><div class="ax-n"><img class="tpi" src="img/tp-firewall.webp" alt=""><span>流量清洗</span></div></div><div class="ax-gl">德迅高防清洗集群</div></div></div><div style="display:flex;justify-content:flex-end;padding-right:60px"><div class="ax-v"></div></div><div class="ax ax-row2"><div class="ax-g"><div><div class="ax-n"><img class="tpi" src="img/tp-core-switch.webp" alt=""><span>源站隐藏</span></div></div><div class="ax-gl">回源</div></div><div class="ax-c"></div><div class="ax-g"><div><div class="ax-n"><img class="tpi" src="img/tp-server.webp" alt=""><span>游戏服</span></div><div class="ax-n"><img class="tpi" src="img/tp-host.webp" alt=""><span>登录服</span></div></div><div class="ax-gl">游戏服务器集群</div></div></div></div></div>
+  <div class="sc-r">
+    <h3>游戏业务</h3><p style="margin:0">开服、版本更新与活动期间是 DDoS 攻击高发期，需要在大流量攻击下保证玩家不掉线。</p><div class="rule"></div>
+    <h3>场景痛点</h3><ul><li>攻击集中在开服与活动时段，单机房带宽很快被打满</li><li>源站 IP 暴露后，换 IP 也很快被重新攻击</li><li>玩家掉线直接造成流失与差评</li></ul>
+    <h3 style="margin-top:8px">方案优势</h3><ul><li><span class="chk">T 级清洗能力，近源清洗不影响正常玩家</span></li><li><span class="chk">源站 IP 隐藏，攻击无法直达游戏服务器</span></li><li><span class="chk">攻击期间业务不中断，按需弹性升级防护</span></li></ul>
+    <h3 style="margin-top:8px">推荐搭配</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="ProductGame.dc.html" class="sc-rec"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg>游戏盾</a><a href="ProductHost.dc.html" class="sc-rec"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg>德迅卫士</a></div>
+  </div>
+</div></sc-if><sc-if value="{{ sc1 }}" hint-placeholder-val="{{ false }}"><div class="sc-panel">
+  <div class="sc-l"><div role="img" aria-label="方案架构示意图" style="min-width:560px"><div class="ax-atk"><span>DDoS / CC 攻击</span><i></i><b>✕</b><span style="color:#4E5969">在清洗节点被拦截</span></div><div class="ax"><div class="ax-n"><img class="tpi" src="img/tp-client.webp" alt=""><span>用户</span></div><div class="ax-c"></div><div class="ax-n"><img class="tpi" src="img/tp-cloud.webp" alt=""><span>互联网</span></div><div class="ax-c"></div><div class="ax-g ax-hl"><div><div class="ax-n"><img class="tpi" src="img/tp-pfw.webp" alt=""><span>高防 IP</span></div><div class="ax-n"><img class="tpi" src="img/tp-vm-router.webp" alt=""><span>CC 防护</span></div></div><div class="ax-gl">德迅高防清洗集群</div></div></div><div style="display:flex;justify-content:flex-end;padding-right:60px"><div class="ax-v"></div></div><div class="ax ax-row2"><div class="ax-g"><div><div class="ax-n"><img class="tpi" src="img/tp-lb.webp" alt=""><span>SLB</span></div></div><div class="ax-gl">负载均衡</div></div><div class="ax-c"></div><div class="ax-g"><div><div class="ax-n"><img class="tpi" src="img/tp-web.webp" alt=""><span>商城</span></div><div class="ax-n"><img class="tpi" src="img/tp-storage.webp" alt=""><span>支付</span></div></div><div class="ax-gl">交易系统</div></div></div></div></div>
+  <div class="sc-r">
+    <h3>电商与金融</h3><p style="margin:0">大促、秒杀与交易接口是攻击者重点目标，需要同时扛住流量攻击与 CC 攻击。</p><div class="rule"></div>
+    <h3>场景痛点</h3><ul><li>大促期间流量峰值与攻击流量叠加，难以区分</li><li>支付与登录接口被 CC 攻击，交易成功率下降</li><li>停服一小时损失可达数百万</li></ul>
+    <h3 style="margin-top:8px">方案优势</h3><ul><li><span class="chk">网络层与应用层攻击一并清洗</span></li><li><span class="chk">精准识别恶意请求，正常用户无感知</span></li><li><span class="chk">7×24 小时安全专家值守重大活动</span></li></ul>
+    <h3 style="margin-top:8px">推荐搭配</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="ProductSCDN.dc.html" class="sc-rec"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg>安全加速 SCDN</a><a href="ProductSSL.dc.html" class="sc-rec"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg>SSL 证书</a></div>
+  </div>
+</div></sc-if><sc-if value="{{ sc2 }}" hint-placeholder-val="{{ false }}"><div class="sc-panel">
+  <div class="sc-l"><div role="img" aria-label="方案架构示意图" style="min-width:560px"><div class="ax-atk"><span>DDoS 攻击流量</span><i></i><b>✕</b><span style="color:#4E5969">在清洗节点被拦截</span></div><div class="ax"><div class="ax-n"><img class="tpi" src="img/tp-client.webp" alt=""><span>用户</span></div><div class="ax-c"></div><div class="ax-n"><img class="tpi" src="img/tp-cloud.webp" alt=""><span>互联网</span></div><div class="ax-c"></div><div class="ax-g ax-hl"><div><div class="ax-n"><img class="tpi" src="img/tp-pfw.webp" alt=""><span>高防 IP</span></div><div class="ax-n"><img class="tpi" src="img/tp-vhost.webp" alt=""><span>监测告警</span></div></div><div class="ax-gl">德迅高防清洗集群</div></div><div class="ax-c"></div><div class="ax-g"><div><div class="ax-n"><img class="tpi" src="img/tp-house.webp" alt=""><span>政务门户</span></div></div><div class="ax-gl">门户网站</div></div></div></div></div>
+  <div class="sc-r">
+    <h3>政企门户</h3><p style="margin:0">政府与企业门户需要在重要时期保持可访问，同时满足等保合规要求。</p><div class="rule"></div>
+    <h3>场景痛点</h3><ul><li>重要时期攻击频繁，门户被打瘫影响公信力</li><li>自建防护成本高，缺乏专业运维</li><li>需要满足等保 2.0 对边界防护的要求</li></ul>
+    <h3 style="margin-top:8px">方案优势</h3><ul><li><span class="chk">接入即防护，无需采购硬件</span></li><li><span class="chk">重保期间专家值守，主动预警</span></li><li><span class="chk">防护报表可用于等保测评材料</span></li></ul>
+    <h3 style="margin-top:8px">推荐搭配</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="ProductEye.dc.html" class="sc-rec"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg>德迅云眼</a><a href="ProductVSS.dc.html" class="sc-rec"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path></svg>漏洞扫描 VSS</a></div>
+  </div>
+</div></sc-if>
+  </div>
+</section>
+<section id="faq" style="padding:80px 0;background:#F7F8FA">
+  <div class="wrap" style="max-width:880px"><div style="display:flex;flex-direction:column;gap:16px"><h2 class="sec-t">关于 DDoS 高防 IP</h2></div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:40px"><details class="card" style="padding:16px 20px" open=""><summary style="font-size:15px;font-weight:500;cursor:pointer">什么场景需要 DDoS 高防 IP？</summary><p style="margin:12px 0 0;font-size:15px;line-height:22px;color:#4E5969">游戏开服、电商大促、金融交易、直播等对在线时长敏感的业务，以及曾遭受过流量攻击或勒索攻击的网站与应用，都建议接入 DDoS 高防 IP，把攻击挡在源站之外。</p></details><details class="card" style="padding:16px 20px"><summary style="font-size:15px;font-weight:500;cursor:pointer">接入后会影响业务访问速度吗？</summary><p style="margin:12px 0 0;font-size:15px;line-height:22px;color:#4E5969">正常访问基本无感。高防 IP 采用 BGP 多线接入并就近清洗，只有攻击流量会被拦截，干净流量直接回源；接入后可在控制台查看实时延迟与回源质量。</p></details><details class="card" style="padding:16px 20px"><summary style="font-size:15px;font-weight:500;cursor:pointer">是否支持免费测试？</summary><p style="margin:12px 0 0;font-size:15px;line-height:22px;color:#4E5969">支持。新用户完成账户认证后可申请免费测试，七天无理由按天退款。</p></details><details class="card" style="padding:16px 20px"><summary style="font-size:15px;font-weight:500;cursor:pointer">被攻击时如何获得支持？</summary><p style="margin:12px 0 0;font-size:15px;line-height:22px;color:#4E5969">7×24 小时技术支持，售后电话 0577-26670700。</p></details></div>
+  </div>
+</section>
+<section style="padding:0 0 96px;background:#FFFFFF">
+  <div class="wrap">
+    <div class="deep spot" onMouseEnter="{{ spotIn }}" onMouseMove="{{ spot }}" onMouseLeave="{{ spotOut }}" style="border-radius:2px;position:relative;overflow:hidden;padding:56px;display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between"><i class="fxbg" aria-hidden="true"></i>
+      <div class="gridline" style="opacity:.6"></div>
+      <canvas class="spot-cv" aria-hidden="true"></canvas><div class="spot-glow" aria-hidden="true"></div>
+      <div class="ring" style="width:520px;height:520px;right:-140px;top:-240px;border-color:rgba(255,255,255,0.12)"></div>
+      <div class="ring" style="width:340px;height:340px;right:-50px;top:-150px;border-color:rgba(255,255,255,0.16)"></div>
+      <div style="min-width:0;flex:1 1 480px;position:relative">
+        <h2 style="margin:0;font-size:34px;line-height:46px;font-weight:600;color:#FFFFFF">正在遭受 DDoS 攻击？</h2>
+        <p style="margin:12px 0 0;font-size:16px;line-height:28px;color:rgba(255,255,255,0.78)">应急热线 0577-26676666，安全专家 7×24 小时在线处置。</p>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;position:relative">
+        <a href="Contact.dc.html" class="btn btn-p">立即咨询</a>
+        <a href="Contact.dc.html" class="btn" style="border-color:rgba(255,255,255,0.35);color:#FFFFFF;background:rgba(255,255,255,0.06)">申请免费测试</a>
+      </div>
+    </div>
+  </div>
+</section>
+<dc-import name="Footer" hint-size="100%,480px"></dc-import>
+<aside class="qnav" aria-label="快捷咨询" style="position:fixed;right:16px;bottom:96px;z-index:6;display:flex;flex-direction:column;align-items:center;gap:10px"><a href="Contact.dc.html" title="AI 安全助手" class="qai" aria-label="AI 安全助手"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3.2c-.4.3-.8 0-.8-.4V17h.5A2.5 2.5 0 0 1 4 14.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 7.4l.9 2.2 2.2.9-2.2.9-.9 2.2-.9-2.2-2.2-.9 2.2-.9z" fill="#fff"/></svg><span>AI</span></a><div style="width:56px;display:flex;flex-direction:column;background:#FFFFFF;border-radius:999px;padding:10px 0"><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 17V10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10V17C20 19.7614 17.7614 22 15 22H11M9 13V14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14V13M1 10V17M23 10V17M11 21H15"></path></svg>售前</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 14H9M15 10H9M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.6624 3.04042 17.0817 4.73686 18.8737L3 22H12Z" stroke-linecap="square"></path></svg>咨询</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12Z"></path><path d="M16 11V9M8 11V9M8.54 15C9.23 16.2 10.52 17 12 17C13.48 17 14.77 16.2 15.47 15" stroke-linecap="square"></path></svg>反馈<span style="position:absolute;right:12px;top:12px;width:6px;height:6px;border-radius:2px;background:#F53F3F"></span></a></div></aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4900}}'>
+class Component extends DCLogic {
+_tcxReveal() {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return;
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const count = (el) => {
+    el.querySelectorAll('.num, .v88-big, .hh-n').forEach((n) => {
+      if (n._cu || /[×\-:\/]/.test(n.textContent) || n.textContent.trim().length > 9) return;
+      const w = document.createTreeWalker(n, NodeFilter.SHOW_TEXT); let t;
+      while ((t = w.nextNode()) && !/\d/.test(t.nodeValue)) {}
+      if (!t) return;
+      const m = t.nodeValue.match(/\d[\d,]*/); const goal = parseInt(m[0].replace(/,/g, ''), 10);
+      if (!(goal >= 2)) return;
+      n._cu = 1;
+      const pre = t.nodeValue.slice(0, m.index), post = t.nodeValue.slice(m.index + m[0].length), comma = m[0].indexOf(',') > -1;
+      const t0 = performance.now();
+      const step = (now) => { const k = Math.min(1, (now - t0) / 1400); const v = Math.round(goal * ease(k)); t.nodeValue = pre + (comma ? v.toLocaleString('en-US') : String(v)) + post; if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+  };
+  document.querySelectorAll('.tcx[data-pg="ProductDDoS"]').forEach((root) => {
+    if (root._tcx) return; root._tcx = 1;
+    const items = [];
+    root.querySelectorAll('section').forEach((sec, si) => {
+      if (si === 0 || sec.classList.contains('hero-bn') || sec.classList.contains('hero-bg')) return;
+      const wrap = sec.querySelector(':scope > .wrap'); if (!wrap) return;
+      let i = 0;
+      Array.from(wrap.children).forEach((ch) => {
+        const grid = getComputedStyle(ch).display === 'grid' && ch.children.length >= 3 && ch.children.length <= 24;
+        if (grid) Array.from(ch.children).forEach((g, k) => items.push([g, (i + k) * 70]));
+        else items.push([ch, i * 90]);
+        i++;
+      });
+    });
+    const vh = window.innerHeight || 900;
+    const io = window.IntersectionObserver ? new IntersectionObserver((es) => {
+      es.forEach((e) => { if (!e.isIntersecting) return; const el = e.target; io.unobserve(el); el.classList.remove('rv-wait'); count(el); });
+    }, { threshold: 0.12 }) : null;
+    items.forEach(([el, d]) => {
+      el.classList.add('rv'); el.style.transitionDelay = Math.min(d, 420) + 'ms';
+      const r = el.getBoundingClientRect();
+      if (!io || (r.top < vh && r.bottom > 0)) { count(el); return; }
+      el.classList.add('rv-wait'); io.observe(el);
+    });
+  });
+}
+componentDidMount() { this._tcxReveal(); }
+
+
+
+
+
+renderVals() {
+const G = {"sc": [3, 0, "tab-on", ""]};
+const s = this.state || {};
+const o = {};
+for (const k in G) {
+  const [n, d, on, off] = G[k];
+  const cur = s[k] ?? d;
+  for (let i = 0; i < n; i++) {
+    o[k + i] = cur === i;
+    o[k + 'C' + i] = cur === i ? on : off;
+    o[k + 'N' + i] = cur !== i;
+    o[k + 'P' + i] = () => this.setState({ [k]: i });
+  }
+}
+// card spotlight (CTA banner): pointer-following glow + flickering pixel grid on a 2D canvas
+const spotState = (el) => el.__spot || (el.__spot = { cv: el.querySelector('.spot-cv'), raf: 0, on: false, x: 0, y: 0, ox: 0, oy: 0, t0: 0, off: 0 });
+const spotHash = (a, b, c) => { let n = (a * 374761393 + b * 668265263 + c * 1442695041) | 0; n = Math.imul(n ^ (n >>> 13), 1274126177); return ((n ^ (n >>> 16)) >>> 0) / 4294967295; };
+const spotOps = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1];
+const spotCols = ['59,130,246', '139,92,246', '22,93,255'];
+const spotGrey = ['255,255,255', '255,255,255', '255,255,255'];
+const spotCalm = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const spotLoop = (el, s) => {
+  const ctx = s.cv.getContext('2d');
+  const frame = (now) => {
+    const W = el.clientWidth, H = el.clientHeight;
+    if (s.cv.width !== W || s.cv.height !== H) { s.cv.width = W; s.cv.height = H; }
+    ctx.clearRect(0, 0, W, H);
+    const light = el.classList.contains('spot-l'), C = 4, D = 3, R = light ? 230 : 360, reveal = (now - s.t0) * 0.9;
+    const i0 = Math.max(0, Math.floor((s.x - R) / C)), i1 = Math.min(Math.ceil(W / C), Math.ceil((s.x + R) / C));
+    const j0 = Math.max(0, Math.floor((s.y - R) / C)), j1 = Math.min(Math.ceil(H / C), Math.ceil((s.y + R) / C));
+    for (let i = i0; i < i1; i++) {
+      for (let j = j0; j < j1; j++) {
+        const cx = i * C + 1.5, cy = j * C + 1.5;
+        const r0 = spotHash(i, j, 1);
+        if (Math.hypot(cx - s.ox, cy - s.oy) > reveal * (0.55 + 0.45 * r0)) continue;
+        if (Math.hypot(cx - s.x, cy - s.y) > R) continue;
+        const tick = spotCalm ? 0 : Math.floor((now + r0 * 997) / (90 + r0 * 160));
+        ctx.globalAlpha = spotOps[Math.floor(spotHash(i, j, tick + 7) * 10)] * (light ? 0.95 : 0.7);
+        ctx.fillStyle = 'rgb(' + (light ? spotGrey : spotCols)[Math.floor(spotHash(i, j, 3) * 3)] + ')';
+        ctx.fillRect(i * C, j * C, D, D);
+      }
+    }
+    ctx.globalAlpha = 1;
+    if (s.on || now - s.off < 450) s.raf = requestAnimationFrame(frame);
+    else { ctx.clearRect(0, 0, W, H); s.raf = 0; }
+  };
+  s.raf = requestAnimationFrame(frame);
+};
+const spotPos = (e) => {
+  const el = e && e.currentTarget;
+  if (!el || !el.getBoundingClientRect) return null;
+  const r = el.getBoundingClientRect(), s = spotState(el);
+  s.x = e.clientX - r.left; s.y = e.clientY - r.top;
+  el.style.setProperty('--mx', s.x + 'px'); el.style.setProperty('--my', s.y + 'px');
+  return [el, s];
+};
+o.spotIn = (e) => {
+  const p = spotPos(e); if (!p) return; const [el, s] = p;
+  if (!s.cv || !s.cv.getContext) return;
+  if (!s.on) { s.on = true; s.t0 = performance.now(); s.ox = s.x; s.oy = s.y; }
+  if (!s.raf) spotLoop(el, s);
+};
+o.spot = (e) => { const p = spotPos(e); if (p && !p[1].on) o.spotIn(e); };
+o.spotOut = (e) => { const el = e && e.currentTarget; if (el && el.__spot) { el.__spot.on = false; el.__spot.off = performance.now(); } };
+
+return o;
+}
+}
+</script>
+</body>
+</html>

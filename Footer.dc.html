@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>页脚</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.nv{white-space:nowrap;flex:none;position:relative;display:inline-flex;align-items:center;gap:6px;height:60px;padding:0 2px;color:#1D2129;text-decoration:none;transition:color .2s}
+.nv::after{content:"";position:absolute;left:50%;right:50%;bottom:-1px;height:2px;border-radius:2px;background:#165DFF;transition:left .25s cubic-bezier(.2,.8,.2,1),right .25s cubic-bezier(.2,.8,.2,1)}
+.nv:hover{color:#165DFF}.nv:hover::after{left:0;right:0}
+.nv-on{color:#165DFF;font-weight:500}.nv-on::after{left:0;right:0}
+.chev{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);opacity:.55;transition:transform .25s,opacity .2s}
+.nv:hover .chev{transform:translateY(1px) rotate(225deg);opacity:1}
+.nochev{display:none}
+.hl{white-space:nowrap}
+.sbtn{width:36px;height:36px;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#4E5969;transition:background .2s,color .2s}.sbtn:hover{background:#F2F3F5;color:#165DFF}
+@media (max-width:1180px){.navs{gap:20px !important}.hdr{gap:24px !important}}
+.hl{color:#4E5969;text-decoration:none;transition:color .2s}.hl:hover{color:#165DFF}
+#hq{transition:width .3s,border-color .2s,background .2s,box-shadow .2s}#hq:hover{border-color:#BEDAFF}#hq:focus{outline:none;width:260px;background:#FFFFFF;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.fl{color:#6B7380;text-decoration:none}.fl:hover{color:#165DFF}
+.reg{transition:background .1s linear}.reg:hover{background:#0E42D2 !important}
+
+/* ---- 火山引擎风格覆盖 ---- */
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1D2129}
+.btn{height:48px;padding:0 28px;border-radius:2px;font-size:14px;font-weight:400;min-width:0;transition:background .16s,color .16s,border-color .16s}
+.btn-p{background:#165DFF;color:#FFFFFF}.btn-p:hover{background:#0E42D2;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#C9CDD4}.btn-s:hover{color:#165DFF;border-color:#165DFF}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+.card{border-radius:2px;border-color:#EAEDF1}
+div.card{background:#F4F8FC}
+.sec-t{font-size:32px;line-height:44px;font-weight:400}
+.hero-bn h1{font-size:42px !important;line-height:58px !important;font-weight:400 !important}
+.lift{transition:color .2s}
+a.lift::before,div.lift::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s;pointer-events:none;z-index:0}
+a.lift::before{background:radial-gradient(rgba(255,255,255,0.28) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+div.lift::before{background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(120deg,#1664FF,#2C8AD8,#2EB2C3,#24B291,#1EA077)}
+a.lift>*:not([style*="position:absolute"]),div.lift>*:not([style*="position:absolute"]){position:relative;z-index:1}
+
+
+
+
+a.lift:hover .zoom{transform:none}
+.cells{border-radius:0;border-color:#EAEDF1}.cell{border-color:#EAEDF1}
+.cell::before{background:radial-gradient(rgba(255,255,255,0.26) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+.cell .cb{border-radius:2px}
+.tab-on{font-weight:500}
+.pill,.pg,.field,.side,.tag{border-radius:2px}
+
+/* ---- 卡片悬停：跟随鼠标的光斑（替代整块变色） ---- */
+.lift,.cell{transition:border-color .25s,background-color .25s}
+.spot-l{position:relative;isolation:isolate}
+.spot-l>.spot-cv,.spot-l>.spot-glow{position:absolute !important;inset:0;z-index:0 !important}
+.spot-l>.spot-cv{-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%);mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%)}
+.spot-l>.spot-glow{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,255,255,0.55),rgba(255,255,255,0.2) 50%,transparent 80%)}
+a.lift::before,div.lift::before,.cell::before{display:block !important;background:linear-gradient(115deg,#DCEBFF 0%,#E0F1F8 50%,#DCF5EA 100%) !important;opacity:0;transition:opacity .35s ease}
+a.lift:hover::before,div.lift:hover::before,.cell:hover::before{opacity:1}
+a.lift:hover,div.lift:hover{transform:none;box-shadow:none;border-color:#DFE3EA}a.lift:hover{background:#FFFFFF}
+.cell:hover{color:#1D2129;box-shadow:inset 0 0 0 1px #DFE3EA}
+.cell .cb{border:1px solid #165DFF;z-index:1}
+/* ---- v56 卡片悬停 ---- */
+.card{border-color:#F0F2F5}.cells{border-color:#F0F2F5;overflow:visible}.cell{border-color:#F0F2F5}
+a.lift::before,div.lift::before,.cell::before{background:linear-gradient(115deg,#C4DAFF 0%,#C9E7F7 50%,#C2EDD8 100%) !important;inset:-1px !important}
+.lift,.cell{transition:border-color .3s,background-color .3s,box-shadow .35s ease}
+a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.cell:hover{z-index:2;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+
+/* ---- v88 字阶：H1/H2 加粗放大，正文 14-16px，辅助文字加深 ---- */.hero-bn h1{font-size:52px !important;line-height:64px !important;font-weight:700 !important;letter-spacing:-.01em}.hero-bn p{font-size:17px !important;line-height:30px !important;color:#4E5969 !important}.sec-t{font-size:34px !important;line-height:46px !important;font-weight:600 !important;letter-spacing:-.005em}.sec-d{font-size:16px !important;line-height:28px !important;color:#4E5969 !important}.v88-big{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif !important;font-weight:700 !important;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* v90 semantic + stats */
+:root{--sem-threat:#F53F3F;--sem-risk:#FF7D00;--sem-safe:#00B42A;--sem-brand:#165DFF}
+.ax-hl ~ .ax-c{background:linear-gradient(90deg,#AFF0B5,#23C343)}
+.ax-hl ~ .ax-c::after{border-color:#23C343}
+.ax-hl ~ .ax-n{color:#00B42A}
+.v88-big{color:#165DFF!important}
+.deep .v88-big{color:#FFFFFF!important}
+.hh-n{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif!important;font-weight:700!important;font-size:40px!important;line-height:48px!important;color:#165DFF!important;letter-spacing:-.02em}
+.hh-n small{font-size:18px!important;font-weight:600;margin-left:2px;color:#165DFF!important}
+</style>
+</helmet>
+<footer style="background:#F4F8FC;color:#1D2129;font-family:&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,&quot;Hiragino Sans GB&quot;,&quot;Noto Sans SC&quot;,-apple-system,&quot;Segoe UI&quot;,Arial,sans-serif">
+  <div style="max-width:1200px;margin:0 auto;padding:36px 24px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;border-bottom:1px solid #E3E8EF">
+    <div style="display:flex;gap:14px;align-items:center"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#41464F" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg><div><div style="font-size:15px;font-weight:600">7×24 小时应急响应</div><div style="font-size:13px;color:#4E5969;margin-top:2px">安全专家全天候值守</div></div></div><div style="display:flex;gap:14px;align-items:center"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#41464F" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg><div><div style="font-size:15px;font-weight:600">10 秒阻断攻击</div><div style="font-size:13px;color:#4E5969;margin-top:2px">5 秒识别恶意请求</div></div></div><div style="display:flex;gap:14px;align-items:center"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#41464F" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .7 3.2 2.6 3.5 5.5"></path></svg><div><div style="font-size:15px;font-weight:600">工程师一对一接入</div><div style="font-size:13px;color:#4E5969;margin-top:2px">从咨询到上线全程协助</div></div></div><div style="display:flex;gap:14px;align-items:center"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#41464F" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><div><div style="font-size:15px;font-weight:600">权威资质认证</div><div style="font-size:13px;color:#4E5969;margin-top:2px">ISO27001 · ISO9001 · 增值电信许可</div></div></div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:44px 24px 32px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:48px">
+    <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:10px;min-width:0">
+      <img src="img/logo.png" alt="德迅云安全" style="height:30px;width:auto;align-self:flex-start">
+      <div style="font-size:13px;color:#4E5969;margin-top:14px">咨询热线</div>
+      <div style="font-size:24px;font-weight:600;font-family:Inter,'DIN Alternate',Arial,sans-serif;font-variant-numeric:tabular-nums">0577-26676666</div>
+      <div style="font-size:13px;color:#4E5969">浙江省龙港市康鑫大厦 4 楼</div>
+    </div>
+    <div style="flex:3 1 560px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:24px;font-size:15px;line-height:30px">
+      <div><div style="font-weight:600;margin-bottom:8px;color:#1D2129">产品与服务</div><div style="display:flex;flex-direction:column"><a href="ProductDDoS.dc.html" style="color:#4E5969;text-decoration:none">DDoS 高防 IP</a><a href="ProductGame.dc.html" style="color:#4E5969;text-decoration:none">游戏盾</a><a href="ProductSCDN.dc.html" style="color:#4E5969;text-decoration:none">安全加速 SCDN</a><a href="ProductHost.dc.html" style="color:#4E5969;text-decoration:none">德迅卫士</a><a href="ProductEye.dc.html" style="color:#4E5969;text-decoration:none">德迅云眼</a><a href="Services.dc.html" style="color:#4E5969;text-decoration:none">安全服务</a></div></div>
+      <div><div style="font-weight:600;margin-bottom:8px;color:#1D2129">解决方案</div><div style="display:flex;flex-direction:column"><a href="SolutionGame.dc.html" style="color:#4E5969;text-decoration:none">游戏</a><a href="SolutionShop.dc.html" style="color:#4E5969;text-decoration:none">电商</a><a href="SolutionFinance.dc.html" style="color:#4E5969;text-decoration:none">金融</a><a href="SolutionEdu.dc.html" style="color:#4E5969;text-decoration:none">教育</a><a href="SolutionLive.dc.html" style="color:#4E5969;text-decoration:none">直播</a><a href="SolutionGov.dc.html" style="color:#4E5969;text-decoration:none">政务</a></div></div>
+      <div><div style="font-weight:600;margin-bottom:8px;color:#1D2129">帮助与支持</div><div style="display:flex;flex-direction:column"><a href="Docs.dc.html" style="color:#4E5969;text-decoration:none">文档中心</a><a href="Docs.dc.html" style="color:#4E5969;text-decoration:none">帮助中心</a><a href="Docs.dc.html" style="color:#4E5969;text-decoration:none">备案中心</a><a href="Contact.dc.html" style="color:#4E5969;text-decoration:none">联系我们</a><a href="Contact.dc.html" style="color:#4E5969;text-decoration:none">意见反馈</a></div></div>
+      <div><div style="font-weight:600;margin-bottom:8px;color:#1D2129">关于德迅云</div><div style="display:flex;flex-direction:column"><a href="About.dc.html" style="color:#4E5969;text-decoration:none">公司简介</a><a href="Trust.dc.html" style="color:#4E5969;text-decoration:none">资质荣誉</a><a href="News.dc.html" style="color:#4E5969;text-decoration:none">新闻公告</a><a href="About.dc.html#join" style="color:#4E5969;text-decoration:none">加入我们</a><a href="Legal.dc.html" style="color:#4E5969;text-decoration:none">法律声明</a></div></div>
+      <div><div style="font-weight:600;margin-bottom:8px">关注我们</div><div style="display:flex;gap:10px"><div style="width:84px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:84px;height:84px;background:#FFFFFF;border:1px solid #E3E8EF;border-radius:2px;overflow:hidden"><img src="img/qr-mp.png" alt="德迅云安全公众号二维码" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><span style="font-size:13px;color:#4E5969;line-height:16px">公众号</span></div><div style="width:84px;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:84px;height:84px;background:#FFFFFF;border:1px solid #E3E8EF;border-radius:2px;overflow:hidden"><img src="img/qr-mini.png" alt="德迅云安全小程序二维码" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div><span style="font-size:13px;color:#4E5969;line-height:16px">小程序</span></div></div></div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:18px 24px 26px;box-sizing:border-box;border-top:1px solid #E3E8EF;font-size:14px;line-height:22px;color:#4E5969;text-align:center">Copyright © 2015-2026 浙江德迅网络安全技术有限公司 · 浙ICP备14014555号 · 浙公网安备 33038302330637号 · 增值电信业务经营许可证 B1-20171400 · 律师顾问：浙江海昌律师所 · <a href="Legal.dc.html" class="fl">法律声明</a> · <a href="Legal.dc.html" class="fl">隐私政策</a></div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":480}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
