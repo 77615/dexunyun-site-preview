@@ -222,6 +222,358 @@ button.ac-st:hover{border-color:#bedaff}
 .tm-grid p{margin:0 0 14px;font-size:13px;color:#86909c;line-height:1.6;min-height:42px}
 /* /acct62 */
 
+/* flow64：确认订单 / 付款 / 订单详情 */
+.fl-steps{display:flex;align-items:center;gap:0;padding:18px 24px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.fl-steps li{list-style:none;display:flex;align-items:center;gap:10px;flex:1;font-size:14px;color:#86909c;min-width:0}
+.fl-steps li:last-child{flex:0 0 auto}
+.fl-steps li > i{width:24px;height:24px;border-radius:50%;border:1px solid #c9cdd4;display:flex;align-items:center;justify-content:center;font:600 12px/1 Inter,sans-serif;font-style:normal;flex-shrink:0;background:#fff}
+.fl-steps li > div{white-space:nowrap}
+.fl-steps li > div small{display:block;font-size:12px;color:#86909c;margin-top:2px}
+.fl-steps li::after{content:"";flex:1;height:1px;background:#e5e6eb;margin:0 12px}
+.fl-steps li:last-child::after{display:none}
+.fl-steps li.done{color:#1d2129}.fl-steps li.done > i{border-color:#165dff;color:#165dff}
+.fl-steps li.done::after{background:#165dff}
+.fl-steps li.cur{color:#1d2129;font-weight:500}.fl-steps li.cur > i{background:#165dff;border-color:#165dff;color:#fff}
+.fl-steps li.bad{color:#cb2634}.fl-steps li.bad > i{border-color:#f53f3f;background:#f53f3f;color:#fff}
+.fl-seg{display:inline-flex;border:1px solid #e5e6eb;border-radius:2px;overflow:hidden}
+.fl-seg button{height:32px;min-width:72px;padding:0 14px;border:0;border-left:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.fl-seg button:first-child{border-left:0}
+.fl-seg button.on{background:#f2f7ff;color:#165dff;box-shadow:inset 0 0 0 1px #165dff;position:relative}
+.fl-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:14px}
+.fl-row:first-child{border-top:0}
+.fl-row > span{color:#4e5969}
+.fl-row .kc-in{height:32px;width:320px;font-size:14px}
+.fl-row .kc-hint{margin:6px 0 0}
+.fl-sum{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:20px;justify-content:flex-end;padding:14px 24px;margin-top:16px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;box-shadow:0 -4px 16px rgba(29,33,41,.05);font-size:14px}
+.fl-sum .agree{margin-right:auto;display:flex;align-items:center;gap:8px;color:#4e5969;font-size:13px}
+.fl-sum .agree a{text-decoration:none}
+.fl-sum small{color:#86909c;font-size:13px}
+.fl-sum b{font:600 24px/1 Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-sum .kc-btn{height:40px;padding:0 28px;font-size:15px}
+.fl-acct{display:grid;grid-template-columns:auto 1fr auto;gap:0 16px;align-items:center;font-size:14px}
+.fl-acct > span{color:#86909c;line-height:40px}
+.fl-acct > b{font-weight:500;font-variant-numeric:tabular-nums}
+.fl-acct > a{text-decoration:none;font-size:13px}
+.fl-acct > b.hl{color:#165dff;font:600 16px Inter,"PingFang SC",sans-serif}
+.fl-acct > div{grid-column:1/-1;border-top:1px solid #f2f3f5}
+.fl-drop{display:flex;align-items:center;justify-content:center;gap:10px;height:96px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;color:#86909c;font:inherit;font-size:13px;cursor:pointer;width:100%}
+.fl-drop:hover{border-color:#165dff;color:#165dff}
+.fl-file{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;font-size:13px}
+.fl-file > i{width:36px;height:36px;border-radius:2px;background:#f2f7ff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fl-file > i .kc-ic{background:#165dff}
+.fl-file div{flex:1;min-width:0}.fl-file small{display:block;color:#86909c;font-size:12px}
+.fl-file button{border:0;background:none;color:#86909c;font:inherit;font-size:13px;cursor:pointer}
+.fl-ok{display:flex;flex-direction:column;align-items:center;gap:10px;padding:48px 20px;text-align:center}
+.fl-ok > i{width:56px;height:56px;border-radius:50%;background:#e8ffea;display:flex;align-items:center;justify-content:center}
+.fl-ok > i .kc-ic{width:28px;height:28px;-webkit-mask-size:28px 28px;mask-size:28px 28px;background:#00b42a}
+.fl-ok h2{margin:6px 0 0;font-size:18px;font-weight:600}
+.fl-ok p{margin:0;font-size:14px;color:#4e5969}
+.fl-ok .kc-btns{margin-top:12px}
+.fl-tot{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding:14px 20px;border-top:1px solid #e5e6eb;font-size:13px;color:#4e5969}
+.fl-tot div{display:flex;gap:24px}.fl-tot div b{min-width:110px;text-align:right;font-weight:400;color:#1d2129;font-variant-numeric:tabular-nums}
+.fl-tot div.big b{font:600 20px Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-radio{display:flex;flex-direction:column;gap:8px}
+.fl-radio button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;text-align:left;cursor:pointer}
+.fl-radio button > i{width:16px;height:16px;border-radius:50%;border:1px solid #c9cdd4;flex-shrink:0}
+.fl-radio button.on{border-color:#165dff;background:#f2f7ff}.fl-radio button.on > i{border:5px solid #165dff}
+.fl-radio button small{margin-left:auto;color:#86909c;font-size:12px}
+/* /flow64 */
+
+/* flow65：表单与验证弹窗 */
+.fm-ta{width:100%;max-width:640px;height:120px;border:1px solid #e5e6eb;border-radius:2px;padding:8px 10px;font:inherit;font-size:14px;resize:vertical;box-sizing:border-box}
+.fm-types{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:860px}
+.fm-types button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;text-align:left;cursor:pointer}
+.fm-types button small{font-size:12px;color:#86909c}
+.fm-types button.on{border-color:#165dff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #165dff}
+.fm-types button.r small{color:#cb2634}
+.fm-help{margin-top:8px;padding:10px 12px;background:#f7f8fa;border-radius:2px;font-size:13px;max-width:640px}
+.fm-help b{font-weight:500;margin-right:8px}
+.fm-help a{margin-right:14px;text-decoration:none}
+.fm-chk{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}
+.fm-chk label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.ac-drw .fl-row{grid-template-columns:96px minmax(0,1fr);padding:12px 0}
+.ac-drw .fl-row .kc-in{width:100%}
+.ac-drw .fl-radio button{padding:8px 12px}
+.vf-mask{position:absolute;inset:0;z-index:30;background:rgba(29,33,41,.45);display:flex;align-items:flex-start;justify-content:center;padding-top:200px}
+.vf-dlg{width:420px;background:#fff;border-radius:4px;box-shadow:0 12px 32px rgba(29,33,41,.18)}
+.vf-dlg header{display:flex;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e6eb}
+.vf-dlg header b{flex:1;font-size:16px;font-weight:600}
+.vf-dlg header button{border:0;background:none;font-size:20px;color:#86909c;cursor:pointer}
+.vf-dlg .bd{padding:20px;font-size:14px;color:#4e5969;display:flex;flex-direction:column;gap:14px}
+.vf-dlg .bd p{margin:0}
+.vf-code{display:flex;gap:8px}.vf-code .kc-in{flex:1;height:36px;font-size:15px;letter-spacing:4px}
+.vf-code .kc-btn{height:36px}
+.vf-dlg footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid #e5e6eb}
+.fm-new{background:#f2fff4}
+/* /flow65 */
+
+/* flow66 */
+.pu-cmp{width:100%;border-collapse:collapse;font-size:14px}
+.pu-cmp th,.pu-cmp td{padding:11px 16px;border-bottom:1px solid #f2f3f5;text-align:left}
+.pu-cmp th{font-weight:500;color:#4e5969;background:#f7f8fa}
+.pu-cmp td.e,.pu-cmp th.e{background:#f2f7ff;color:#165dff}
+.pu-cmp th.e{font-weight:600}
+.pu-step{display:inline-flex;align-items:center;border:1px solid #e5e6eb;border-radius:2px}
+.pu-step button{width:32px;height:32px;border:0;background:#f7f8fa;font-size:16px;color:#4e5969;cursor:pointer}
+.pu-step b{min-width:48px;text-align:center;font:500 14px Inter,sans-serif}
+.pu-formula{font-size:13px;color:#86909c}
+.on-hero{display:flex;align-items:center;gap:24px;padding:28px 28px;background:linear-gradient(90deg,#f2f7ff,#fff);border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.on-hero h2{margin:0 0 6px;font-size:20px;font-weight:600}.on-hero p{margin:0;color:#4e5969;font-size:14px}
+.on-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.on-step{display:flex;flex-direction:column;gap:8px;padding:20px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.on-step > i{width:28px;height:28px;border-radius:50%;background:#165dff;color:#fff;font:600 13px/28px Inter,sans-serif;text-align:center;font-style:normal}
+.on-step.done > i{background:#e8ffea;color:#00b42a}
+.on-step b{font-size:15px;font-weight:600}.on-step p{margin:0;font-size:13px;color:#86909c;line-height:1.6;flex:1}
+.on-step .kc-btn{align-self:flex-start}
+.on-prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.on-prods a{display:block;padding:16px 20px;border-right:1px solid #f2f3f5;border-bottom:1px solid #f2f3f5;text-decoration:none;color:#1d2129}
+.on-prods a:nth-child(3n){border-right:0}
+.on-prods a b{font-size:14px;font-weight:600}.on-prods a p{margin:6px 0 0;font-size:13px;color:#86909c}
+.on-prods a:hover b{color:#165dff}
+.nt-list{list-style:none;margin:0;padding:0}
+.nt-list li{display:grid;grid-template-columns:10px 72px minmax(0,1fr) 120px 80px;gap:12px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:14px}
+.nt-list li > i{width:8px;height:8px;border-radius:50%;background:#f53f3f}
+.nt-list li > i.r{background:transparent}
+.nt-list li div b{font-weight:500}.nt-list li div b.r{font-weight:400;color:#4e5969}
+.nt-list li div p{margin:4px 0 0;font-size:13px;color:#86909c}
+.nt-list li time{font-size:13px;color:#86909c}
+.nt-list li > a{text-decoration:none;font-size:13px;text-align:right}
+.nt-mx td{text-align:center}.nt-mx td:first-child{text-align:left}
+.vf-up{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
+.vf-lic{height:130px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#86909c}
+.vf-lic.on{border-style:solid;border-color:#bedaff;background:#f2f7ff;color:#165dff}
+/* /flow66 */
+
+/* idc67：服务器控制台 */
+.sv-hd{display:flex;align-items:center;gap:12px}
+.sv-hd h1{margin:0}
+.sv-hd .kc-tag{width:auto}
+.sv-desc{margin:4px 0 0;font-size:13px;color:#86909c}
+.sv-tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.sv-task{display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;min-width:0}
+.sv-task > header{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#1d2129}
+.sv-task > header i{width:28px;height:28px;border-radius:4px;background:#f2f7ff;display:flex;align-items:center;justify-content:center}
+.sv-task > header i .kc-ic{background:#165dff}
+.sv-task > header a,.sv-task > header button{margin-left:auto;font-size:13px;font-weight:400;text-decoration:none;color:#165dff;background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+.sv-big{font:600 22px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129}
+.sv-big small{font-size:13px;font-weight:400;color:#86909c;margin-left:8px}
+.sv-big.o small{color:#d25f00}
+.sv-line{font-size:13px;color:#4e5969}
+.sv-act{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
+.sv-act .kc-btn{min-width:84px;justify-content:center}
+.sv-prog{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#4e5969}
+.sv-prog .ac-bar{width:100%;height:8px;margin:0}
+.sv-prog > div{display:flex;justify-content:space-between;align-items:center}
+.sv-prog button{background:none;border:0;color:#165dff;font:inherit;font-size:13px;cursor:pointer;padding:0}
+.sv-mets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-mets div{display:flex;flex-direction:column;gap:2px;font-size:12px;color:#86909c}
+.sv-mets b{font:600 20px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129}
+.sv-mets b small{font-size:12px;font-weight:400;color:#86909c;margin-left:2px}
+.sv-mets b.r{color:#cb2634}
+.sv-rng{display:flex;gap:0;margin-left:auto}
+.sv-rng button{height:28px;padding:0 12px;border:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer;margin-left:-1px}
+.sv-rng button:first-child{border-radius:2px 0 0 2px;margin-left:0}
+.sv-rng button:last-child{border-radius:0 2px 2px 0}
+.sv-rng button.on{border-color:#165dff;color:#165dff;background:#f2f7ff;position:relative;z-index:1}
+.sv-bar{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid #f2f3f5}
+.sv-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.sv-ch{padding:16px 20px 18px;border-bottom:1px solid #f2f3f5;min-width:0}
+.sv-ch:nth-child(odd){border-right:1px solid #f2f3f5}
+.sv-ch > div:first-child{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;font-size:14px;color:#1d2129}
+.sv-ch > div:first-child b{font:600 18px/1 Inter,"PingFang SC",sans-serif}
+.sv-ch > div:first-child em{font-style:normal;font-size:12px;color:#86909c;margin-left:auto}
+.sv-cols{display:flex;align-items:flex-end;gap:3px;height:120px;border-bottom:1px solid #e5e6eb;background:repeating-linear-gradient(0deg,#f2f3f5 0 1px,transparent 1px 30px)}
+.sv-cols i{flex:1;background:#165dff;border-radius:1px 1px 0 0;opacity:.85;min-height:1px}
+.sv-cols.g i{background:#14c9c9}.sv-cols.o i{background:#ff7d00}.sv-cols.r i{background:#f53f3f}
+.sv-ax{display:flex;justify-content:space-between;font-size:11px;color:#86909c;margin-top:6px}
+.sv-dlg{width:600px}
+.sv-dlg .bd{gap:16px}
+.sv-dlg .fl-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:start;padding:0;border:0}
+.sv-dlg .fl-row > span{padding-top:6px;color:#4e5969}
+.sv-os{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-os button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:9px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;cursor:pointer;text-align:left}
+.sv-os button small{font-size:12px;color:#86909c}
+.sv-os button.on{border-color:#165dff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #165dff}
+.sv-seg{display:flex;gap:8px;flex-wrap:wrap}
+.sv-seg button{height:32px;padding:0 14px;border:1px solid #e5e6eb;border-radius:2px;background:#fff;font:inherit;font-size:14px;color:#4e5969;cursor:pointer}
+.sv-seg button.on{border-color:#165dff;color:#165dff;background:#f2f7ff}
+.sv-ck{display:flex;align-items:center;gap:8px;font-size:14px;color:#1d2129;cursor:pointer;background:none;border:0;padding:0;font-family:inherit;text-align:left}
+.sv-warn{padding:10px 12px;border-radius:2px;background:#fff5f3;border:1px solid #ffd8d2;font-size:13px;color:#1d2129;line-height:1.6}
+.sv-warn b{color:#cb2634;font-weight:500}
+.sv-rb{display:flex;flex-direction:column;gap:8px}
+.sv-dlg .fl-row > div > .sv-ck{margin-top:6px}
+.kc-t td .sv-ops a,.kc-t td .sv-ops button{margin-right:12px;background:none;border:0;padding:0;font:inherit;font-size:14px;color:#165dff;cursor:pointer;text-decoration:none}
+/* /idc67 */
+
+/* bill72：账务概览 */
+.bo-todo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.bo-td{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;background:#fff;border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04);position:relative;overflow:hidden}
+.bo-td::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#ff7d00}
+.bo-td.e::before{background:#f53f3f}
+.bo-td > i{width:36px;height:36px;border-radius:6px;background:#fff7e8;display:flex;align-items:center;justify-content:center}
+.bo-td.e > i{background:#ffece8}
+.bo-td > i .fi-i{background:#ff7d00}
+.bo-td.e > i .fi-i{background:#f53f3f}
+.bo-td b{display:block;font-size:14px;font-weight:600;color:#1d2129}
+.bo-td p{margin:2px 0 0;font-size:12px;color:#86909c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bo-g{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(320px,1fr);gap:16px;margin-bottom:16px;align-items:stretch}
+.bo-g > .kc-card{margin:0}
+.bo-pay{display:flex;flex-direction:column}
+.bo-pay .kc-cb{flex:1;display:flex;flex-direction:column}
+.bo-amt{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px dashed #e5e6eb}
+.bo-amt small{display:block;font-size:13px;color:#4e5969}
+.bo-amt b{display:block;font:600 34px/1.2 Inter,"PingFang SC",sans-serif;color:#1d2129;letter-spacing:-.5px;margin-top:4px}
+.bo-amt b em{font-style:normal;font-size:16px;margin-right:4px;color:#4e5969;font-weight:500}
+.bo-amt > span{font-size:12px;color:#86909c}
+.bo-pf .kc-btn,.bo-only{gap:0}
+.bo-ol{list-style:none;margin:8px 0 0;padding:0}
+.bo-ol li{display:grid;grid-template-columns:20px minmax(0,1fr) auto 96px;gap:12px;align-items:center;padding:10px 8px;border-radius:6px;cursor:pointer}
+.bo-ol li:hover{background:#f7f9fd}
+.bo-ol li.on{background:#f2f7ff}
+.bo-ol li b{font-size:14px;font-weight:500;color:#1d2129}
+.bo-ol li p{margin:2px 0 0;font-size:12px;color:#86909c}
+.bo-ol li strong{text-align:right;font:600 14px Inter,"PingFang SC",sans-serif;color:#1d2129}
+.bo-pf{margin-top:auto;padding-top:12px;display:flex;align-items:center;gap:12px;font-size:13px;color:#4e5969}
+.bo-pf b{font:600 16px Inter,"PingFang SC",sans-serif;color:#165dff}
+.bo-pf .kc-btn:first-of-type{margin-left:auto}
+.bo-acc{list-style:none;margin:0;padding:0}
+.bo-acc li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border-radius:6px;background:#f7f8fa;margin-bottom:8px}
+.bo-acc li span{font-size:13px;color:#86909c}
+.bo-acc li b{font-size:14px;font-weight:500;color:#1d2129;word-break:break-all}
+.bo-acc li b.mono{font:500 15px/1.4 Inter,"PingFang SC",sans-serif;letter-spacing:.5px}
+.bo-cp{height:24px;padding:0 8px;border:1px solid #e4eaf0;border-radius:4px;background:#fff;font:inherit;font-size:12px;color:#4e5969;cursor:pointer;white-space:nowrap}
+.bo-cp:hover{border-color:#165dff;color:#165dff}
+.bo-cp.ok{border-color:#b7eb8f;background:#f6ffed;color:#00b42a}
+.bo-tip{font-size:12px;color:#86909c;line-height:1.7;margin:4px 0 0}
+.bo-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.bo-k{display:block;padding:14px 16px 10px;background:#fff;border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04);text-decoration:none;color:#1d2129;position:relative}
+.bo-k:hover{border-color:#bedaff}
+.bo-k > span{font-size:13px;color:#4e5969}
+.bo-k > b{display:block;font:600 24px/1.3 Inter,"PingFang SC",sans-serif;margin-top:6px}
+.bo-k > b small{font-size:13px;font-weight:400;color:#86909c;margin-left:4px}
+.bo-k > em{display:block;font-style:normal;font-size:12px;color:#86909c;margin-top:2px}
+.bo-k > em i{font-style:normal;font-weight:500}
+.bo-k > em i.up{color:#f53f3f}
+.bo-k > em i.dn{color:#00b42a}
+.bo-k:nth-child(n+3) svg{display:none}
+.bo-k svg{position:absolute;right:14px;top:16px;width:96px;height:36px}
+.bo-an{margin-bottom:16px}
+.bo-ah{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bo-ah h2{margin-right:auto}
+.bo-seg{display:inline-flex;padding:2px;background:#f2f3f5;border-radius:6px}
+.bo-seg button{height:26px;padding:0 12px;border:0;border-radius:4px;background:none;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.bo-seg button.on{background:#fff;color:#165dff;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.bo-only{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 6px 0 10px;border-radius:13px;background:#eaf2ff;color:#165dff;font-size:12px}
+.bo-only button{border:0;background:none;color:#165dff;cursor:pointer;font-size:14px;line-height:1;padding:0 2px}
+.bo-ab{display:grid;grid-template-columns:minmax(0,1fr) 320px;border-top:1px solid #f2f3f5}
+.bo-cw{padding:16px 24px 18px}
+.bo-sum{display:flex;gap:28px;font-size:13px;color:#86909c;margin-bottom:6px}
+.bo-sum b{font:600 18px Inter,"PingFang SC",sans-serif;color:#1d2129;margin-left:6px}
+.bo-lg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 4px}
+.bo-lg button{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:2px 0;font:inherit;font-size:12px;color:#4e5969;cursor:pointer}
+.bo-lg button i{width:10px;height:10px;border-radius:2px}
+.bo-lg button.off{color:#c9cdd4}
+.bo-lg button.off i{background:#e5e6eb !important}
+.bo-ch{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);height:280px;margin:10px 0 26px}
+.bo-ya{position:relative;font:11px Inter,sans-serif;color:#86909c}
+.bo-ya > span{position:absolute;right:10px;transform:translateY(50%);white-space:nowrap}
+.bo-pl{position:relative;border-bottom:1px solid #e5e6eb}
+.bo-gl{position:absolute;left:0;right:0;border-top:1px dashed #edf0f5}
+.bo-avg{position:absolute;left:0;right:0;border-top:1px dashed #ff7d00;z-index:2;pointer-events:none}
+.bo-avg span{position:absolute;right:0;top:-20px;font-size:11px;color:#ff7d00;background:rgba(255,255,255,.9);padding:0 4px;border-radius:3px}
+.bo-cols{position:absolute;inset:0;display:flex}
+.bo-col{position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;cursor:pointer;border-radius:6px 6px 0 0}
+.bo-col:hover,.bo-col.hov{background:rgba(22,93,255,.04)}
+.bo-col.on{background:rgba(22,93,255,.07)}
+.bo-bar{display:flex;flex-direction:column-reverse;width:46%;max-width:34px;border-radius:3px 3px 0 0;overflow:hidden;transition:height .3s cubic-bezier(.2,.8,.2,1)}
+.bo-bar > i{display:block;flex-shrink:0;transition:height .3s cubic-bezier(.2,.8,.2,1),opacity .15s}
+.bo-col.dim .bo-bar{opacity:.45}
+.bo-col > em{position:absolute;bottom:-24px;font-style:normal;font-size:12px;color:#86909c;white-space:nowrap}
+.bo-col.on > em{color:#165dff;font-weight:600}
+.bo-col > small{font:11px Inter,sans-serif;color:#4e5969;margin-bottom:4px;white-space:nowrap}
+.bo-tt{position:absolute;z-index:5;left:calc(50% + 22px);transform:translateY(50%);min-width:188px;padding:10px 12px;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 8px 24px rgba(31,35,41,.12);pointer-events:none;animation:mo-drop .14s cubic-bezier(.2,.8,.2,1) both}
+.bo-col:nth-last-child(-n+3) .bo-tt{left:auto;right:calc(50% + 22px)}
+.bo-tt b{display:flex;justify-content:space-between;font-size:13px;color:#1d2129;margin-bottom:6px}
+.bo-tt b span{font-family:Inter,sans-serif}
+.bo-tt p{display:flex;align-items:center;gap:6px;margin:3px 0 0;font-size:12px;color:#4e5969}
+.bo-tt p i{width:8px;height:8px;border-radius:2px}
+.bo-tt p span{margin-left:auto;font-family:Inter,sans-serif;color:#1d2129}
+.bo-tt small{display:block;margin-top:8px;padding-top:6px;border-top:1px solid #f2f3f5;font-size:11px;color:#86909c}
+.bo-md{border-left:1px solid #f2f3f5;padding:16px 20px;background:linear-gradient(180deg,#fafbfd 0%,#fff 60%);display:flex;flex-direction:column}
+.bo-md h3{margin:0;font-size:14px;font-weight:600;color:#1d2129;display:flex;align-items:center;gap:8px}
+.bo-md h3 span{font-size:12px;font-weight:400;color:#86909c}
+.bo-mt{font:600 26px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129;margin-top:8px}
+.bo-mt small{font-size:12px;font-weight:500;margin-left:8px}
+.bo-mt small.up{color:#f53f3f}
+.bo-mt small.dn{color:#00b42a}
+.bo-mm{display:flex;gap:16px;font-size:12px;color:#86909c;margin:2px 0 10px}
+.bo-mo{list-style:none;margin:0;padding:0;flex:1}
+.bo-mo li{display:grid;grid-template-columns:8px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #f2f3f5;animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.bo-mo li > i{width:8px;height:8px;border-radius:2px}
+.bo-mo li a{font-size:13px;font-weight:500;text-decoration:none}
+.bo-mo li p{margin:1px 0 0;font-size:12px;color:#86909c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bo-mo li strong{font:500 13px Inter,"PingFang SC",sans-serif;color:#1d2129}
+.bo-mo .rf strong{color:#00b42a}
+.bo-me{padding:24px 0;text-align:center;font-size:13px;color:#86909c}
+.bo-mb{display:flex;gap:8px;margin-top:12px}
+.bo-mb .kc-btn{flex:1;justify-content:center}
+.bo-g3{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:16px}
+.bo-g3 > .kc-card{margin:0}
+.bo-dn{display:grid;grid-template-columns:140px minmax(0,1fr);gap:20px;align-items:center}
+.bo-ring{position:relative;width:140px;height:140px;border-radius:50%;transition:background .2s}
+.bo-ring::after{content:"";position:absolute;inset:22px;border-radius:50%;background:#fff}
+.bo-rc{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.bo-rc > span{font-size:12px;color:#86909c;max-width:96px}
+.bo-rc > b{font:600 17px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129;margin-top:2px}
+.bo-rc > em{font-style:normal;font-size:12px;color:#165dff;font-weight:500}
+.bo-pl2{list-style:none;margin:0;padding:0}
+.bo-pl2 li{display:grid;grid-template-columns:10px minmax(0,1fr) auto 44px;white-space:nowrap;gap:8px;align-items:center;padding:6px 8px;margin:0 -8px;border-radius:4px;font-size:13px;color:#4e5969;cursor:pointer}
+.bo-pl2 li:hover,.bo-pl2 li.hov{background:#f7f8fa;color:#1d2129}
+.bo-pl2 li.on{background:#eaf2ff;color:#165dff}
+.bo-pl2 li > i{width:10px;height:10px;border-radius:2px}
+.bo-pl2 li strong{font:500 13px Inter,"PingFang SC",sans-serif;color:#1d2129}
+.bo-pl2 li em{font-style:normal;text-align:right;font:12px Inter,sans-serif;color:#86909c}
+.bo-hint{font-size:12px;color:#86909c;margin:12px 0 0}
+.bo-tl{position:relative;height:46px;margin:6px 6px 8px}
+.bo-tl::before{content:"";position:absolute;left:0;right:0;top:18px;height:4px;border-radius:2px;background:linear-gradient(90deg,#ffece8 0%,#fff7e8 35%,#f2f3f5 100%)}
+.bo-tl > em{position:absolute;top:30px;white-space:nowrap;font-style:normal;font-size:11px;color:#86909c;transform:translateX(-50%)}
+.bo-tl > em:first-of-type{transform:none}
+.bo-tl > em:last-of-type{transform:translateX(-100%)}
+.bo-dot{position:absolute;top:12px;width:16px;height:16px;margin-left:-8px;border-radius:50%;border:3px solid #fff;background:#ff7d00;box-shadow:0 1px 4px rgba(0,0,0,.18);cursor:pointer;transition:transform .15s}
+.bo-dot.e{background:#f53f3f}
+.bo-dot.n{background:#165dff}
+.bo-dot.hov{transform:scale(1.35);z-index:2}
+.bo-ex{list-style:none;margin:0;padding:0}
+.bo-ex li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:8px 8px;margin:0 -8px;border-radius:4px}
+.bo-ex li.hov{background:#fff7e8}
+.bo-ex li b{display:block;font-size:13px;font-weight:500;color:#1d2129}
+.bo-ex li p{margin:1px 0 0;font-size:12px;color:#86909c}
+.bo-ex li > span{font-size:12px;font-weight:500;color:#ff7d00;white-space:nowrap}
+.bo-ex li > span.e{color:#f53f3f}
+.bo-ex li > span.n{color:#4e5969}
+.bo-iv{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.bo-iv small{display:block;font-size:13px;color:#4e5969}
+.bo-iv b{display:block;font:600 24px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129;margin-top:4px}
+.bo-iv em{font-style:normal;font-size:12px;color:#86909c}
+.bo-st{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:16px 0 8px;background:#f2f3f5}
+.bo-st i{display:block;height:100%}
+.bo-sl{display:flex;justify-content:space-between;font-size:12px;color:#86909c}
+.bo-sl span{display:inline-flex;align-items:center;gap:5px}
+.bo-sl span i{width:8px;height:8px;border-radius:2px}
+.bo-sl b{color:#1d2129;font-weight:600;margin-left:2px}
+.bo-il{list-style:none;margin:14px 0 0;padding:0}
+.bo-il li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 0;border-top:1px solid #f2f3f5}
+.bo-il li b{display:block;font-size:13px;font-weight:500;color:#1d2129}
+.bo-il li p{margin:1px 0 0;font-size:12px;color:#86909c}
+.bo-flow{display:flex;align-items:flex-start;margin-top:14px;padding-top:14px;border-top:1px dashed #e5e6eb}
+.bo-flow > div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:12px;color:#4e5969;text-align:center}
+.bo-flow > div::before{content:"";position:absolute;top:11px;left:calc(-50% + 16px);right:calc(50% + 16px);height:1px;background:#c9d2df}
+.bo-flow > div:first-child::before{display:none}
+.bo-flow b{width:22px;height:22px;border-radius:50%;background:#eaf2ff;color:#165dff;font:600 12px/22px Inter,sans-serif;text-align:center}
+.bo-flow small{font-size:11px;color:#86909c}
+/* /bill72 */
+
+
 /* ux56：总览、全局搜索、加载规范 */
 .ux-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .ux-tile{position:relative;display:flex;align-items:center;gap:12px;height:64px;padding:0 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;color:#1d2129;text-decoration:none;transition:border-color .2s,background .2s}
@@ -944,46 +1296,6 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
-
-/* motion68：页面与交互过渡 */
-@view-transition{navigation:auto}
-.kc-top{view-transition-name:kc-top}
-.kc-side{view-transition-name:kc-side}
-.kc-main{view-transition-name:kc-main}
-::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
-::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
-::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
-@keyframes mo-fade-in{from{opacity:0}}
-@keyframes mo-fade-out{to{opacity:0}}
-@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
-@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
-@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
-@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
-@keyframes mo-slide{from{transform:translateX(100%)}}
-@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
-.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
-.kc-main > :nth-child(2){animation-delay:.04s}
-.kc-main > :nth-child(3){animation-delay:.08s}
-.kc-main > :nth-child(4){animation-delay:.12s}
-.kc-main > :nth-child(n+5){animation-delay:.16s}
-.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
-.ac-mask{animation:mo-fade-in .12s ease-out both}
-.vf-mask{animation:mo-fade-in .18s ease-out both}
-.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
-.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
-.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
-.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
-.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
-.kc-btn:active{transform:scale(.98)}
-.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.fm-new{animation:mo-new 1.6s ease-out both}
-@keyframes mo-new{from{background:#e8ffea}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
-/* /motion68 */
-
 /* kit71：组件对齐 5180 */
 .kc-body{background:#f5f7fb}
 .kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
@@ -1036,6 +1348,45 @@ a{color:#165dff}a:hover{color:#0e4edb}
   background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
 .kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
 /* /kit71 */
+
+/* motion68：页面与交互过渡 */
+@view-transition{navigation:auto}
+.kc-top{view-transition-name:kc-top}
+.kc-side{view-transition-name:kc-side}
+.kc-main{view-transition-name:kc-main}
+::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
+::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
+::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@keyframes mo-fade-in{from{opacity:0}}
+@keyframes mo-fade-out{to{opacity:0}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes mo-slide{from{transform:translateX(100%)}}
+@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
+.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
+.kc-main > :nth-child(2){animation-delay:.04s}
+.kc-main > :nth-child(3){animation-delay:.08s}
+.kc-main > :nth-child(4){animation-delay:.12s}
+.kc-main > :nth-child(n+5){animation-delay:.16s}
+.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
+.ac-mask{animation:mo-fade-in .12s ease-out both}
+.vf-mask{animation:mo-fade-in .18s ease-out both}
+.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
+.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
+.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
+.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
+.kc-btn:active{transform:scale(.98)}
+.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fm-new{animation:mo-new 1.6s ease-out both}
+@keyframes mo-new{from{background:#e8ffea}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+/* /motion68 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1136,47 +1487,97 @@ a{color:#165dff}a:hover{color:#0e4edb}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">账务概览</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="BillOrders.dc.html">我的订单</a><a class="kc-btn" href="BillInvoice.dc.html">申请开票</a></div>
+        <div class="kc-btns"><a class="kc-btn" href="BillOrders.dc.html">我的订单</a><a class="kc-btn" href="BillInvoice.dc.html">发票管理</a><a class="kc-btn pri" href="BillPay.dc.html">付款管理</a></div>
       </div>
-      <div class="ac-al e"><i>!</i><span>1 笔付款核验未匹配：订单 DX20261024001 的汇款户名与认证企业不一致<em>请补充付款凭证或说明</em></span><a class="kc-btn sm" href="BillPay.dc.html">去处理</a></div>
-      <div class="ac-g2">
-        <div class="ac-col">
-          <section class="kc-card">
-            <div class="kc-cb">
-              <div class="ac-big"><div><small>待付款（2 笔）</small><b>¥ 560.00</b><em>付款方式仅支持对公转账，财务 1–2 个工作日内核验</em></div><div class="kc-btns"><a class="kc-btn" href="BillOrders.dc.html">待付款订单</a><a class="kc-btn pri" href="BillPayment.dc.html">合并付款（2）</a></div></div>
-            </div>
-          </section>
-          <div class="ac-stats" style="margin:0">
-            <a class="ac-st" href="BillPay.dc.html"><span>付款核验中</span><b>1 <small>笔</small></b><em>合计 ¥4,200.00<span>›</span></em></a>
-            <a class="ac-st o" href="AcctSubs.dc.html"><span>30 天内到期</span><b>5 <small>项</small></b><em>1 项已到期<span>›</span></em></a>
-            <a class="ac-st" href="BillInvoice.dc.html"><span>可开票金额</span><b>¥1,169.84</b><em>4 笔订单<span>›</span></em></a>
-            <a class="ac-st" href="BillInvoice.dc.html"><span>开票记录</span><b>10 <small>张</small></b><em>近 12 个月<span>›</span></em></a>
+      <div class="bo-todo">
+        <div class="bo-td e"><i><i class="fi-i fi-wallet"></i></i><div><b>付款核验未匹配</b><p>DX20261024001：汇款户名与认证企业不一致</p></div><a class="kc-btn sm" href="BillPay.dc.html">补充信息</a></div>
+        <div class="bo-td"><i><i class="fi-i fi-receipt"></i></i><div><b>2 项财务申请被驳回</b><p>发票抬头与订单企业不符；合同甲方信息不符</p></div><a class="kc-btn sm" href="BillInvoice.dc.html">去修改</a></div>
+        <div class="bo-td"><i><i class="fi-i fi-hist"></i></i><div><b>5 项 30 天内到期</b><p>最近：游戏盾-001 还有 6 天到期</p></div><a class="kc-btn sm" href="AcctSubs.dc.html">去续费</a></div>
+      </div>
+      <div class="bo-g">
+        <section class="kc-card bo-pay">
+          <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>待付款</h2><a href="BillOrders.dc.html">全部订单</a></div>
+          <div class="kc-cb">
+            <div class="bo-amt"><div><small>待付款合计（{{payN}} 笔）</small><b><em>¥</em>{{payTot}}</b></div><span>仅支持对公转账 · 财务 1–2 个工作日内核验</span></div>
+            <ul class="bo-ol"><sc-for list="{{pays}}" as="p" hint-placeholder-count="2"><li class="{{p.cls}}" onClick="{{p.tog}}"><span class="{{p.cbx}}"></span><div><b>{{p.id}}</b><p>{{p.d}}</p></div><span class="{{p.tc}}">{{p.st}}</span><strong>¥{{p.amt}}</strong></li></sc-for></ul>
+            <div class="bo-pf">已选 {{selN}} 笔，合计 <b>¥{{selTot}}</b><a class="kc-btn" href="BillOrders.dc.html">待付款订单</a><a class="{{mergeCls}}" href="BillPayment.dc.html">合并付款（{{selN}}）</a></div>
           </div>
-          <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-chart"></i>近 6 个月付款</h2><span class="kc-sub">合计 ¥38,145.00</span></div>
-            <div class="kc-cb"><div class="ac-chart">
-              <div><b>¥4,820</b><i style="height:38%"></i>05 月</div><div><b>¥9,600</b><i style="height:76%"></i>06 月</div><div><b>¥3,240</b><i style="height:26%"></i>07 月</div>
-              <div><b>¥12,600</b><i style="height:100%"></i>08 月</div><div><b>¥6,580</b><i style="height:52%"></i>09 月</div><div><b>¥1,305</b><i style="height:10%;background:#94bfff"></i>10 月</div>
-            </div></div>
-          </section>
+        </section>
+        <section class="kc-card">
+          <div class="kc-ch"><h2><i class="fi-i fi-bank"></i>对公转账账户</h2><button class="{{cpAll}}" type="button" onClick="{{copyAll}}">{{cpAllT}}</button></div>
+          <div class="kc-cb">
+            <ul class="bo-acc"><sc-for list="{{acc}}" as="a" hint-placeholder-count="3"><li><span>{{a.k}}</span><b class="{{a.bc}}">{{a.v}}</b><button class="{{a.cls}}" type="button" onClick="{{a.cp}}">{{a.t}}</button></li></sc-for></ul>
+            <p class="bo-tip">汇款备注填写订单号；合并付款时填写合并付款单号。</p>
+            <div class="bo-flow"><div><b>1</b>提交订单</div><div><b>2</b>对公转账<small>备注订单号</small></div><div><b>3</b>财务核验<small>1–2 个工作日</small></div><div><b>4</b>开通 / 生效</div></div>
+          </div>
+        </section>
+      </div>
+      <div class="bo-kpi">
+        <sc-for list="{{kpis}}" as="k" hint-placeholder-count="4"><a class="bo-k" href="{{k.href}}"><span>{{k.n}}</span><b>{{k.v}}<small>{{k.u}}</small></b><em><i class="{{k.dc}}">{{k.d}}</i> {{k.s}}</em><svg viewBox="0 0 96 36" aria-hidden="true"><polyline points="2.0,25.8 10.4,24.8 18.7,25.6 27.1,27.7 35.5,16.2 43.8,15.8 52.2,21.5 60.5,10.1 68.9,25.3 77.3,3.0 85.6,12.8 94.0,29.9" fill="none" stroke="#165dff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".55"/></svg></a></sc-for>
+      </div>
+      <section class="kc-card bo-an">
+        <div class="kc-ch bo-ah"><h2><i class="fi-i fi-chart"></i>付款分析</h2>
+          <sc-if value="{{hasOnly}}" hint-placeholder-val="{{false}}"><span class="bo-only">仅看 {{onlyN}}<button type="button" aria-label="清除" onClick="{{clrOnly}}">×</button></span></sc-if>
+          <div class="bo-seg"><sc-for list="{{mets}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.pick}}">{{m.n}}</button></sc-for></div>
+          <div class="bo-seg"><sc-for list="{{rngs}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.pick}}">{{m.n}}</button></sc-for></div>
         </div>
-        <div class="ac-col">
-          <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-bank"></i>对公转账账户</h2><a href="#">复制全部</a></div>
-            <div class="kc-cb"><div class="ac-acct"><span>户名</span><b>浙江德迅网络安全技术有限公司</b><span>开户行</span><b>[ 开户行待补充 ]</b><span>账号</span><b>[ 账号待补充 ]</b></div>
-              <p class="kc-hint" style="margin-top:10px">汇款备注请填写订单号；多笔订单合并付款时填写合并付款单号。</p></div>
-          </section>
-          <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-pie"></i>近 6 个月支出构成</h2></div>
-            <div class="kc-cb"><ul class="ac-hb">
-              <li>DDoS 高防 IP<span><i style="width:100%"></i></span><em>¥15,980</em></li>
-              <li>SCDN<span><i style="width:52%"></i></span><em>¥8,300</em></li>
-              <li>游戏盾<span><i style="width:30%"></i></span><em>¥4,800</em></li>
-              <li>德迅卫士<span><i style="width:28%"></i></span><em>¥4,420</em></li>
-              <li>其他<span><i style="width:29%"></i></span><em>¥4,645</em></li>
-            </ul></div>
-          </section>
+        <div class="bo-ab">
+          <div class="bo-cw">
+            <div class="bo-sum"><span>合计<b>{{sumV}}</b></span><span>月均<b>{{avgV}}</b></span><span>最高<b>{{maxV}}</b></span></div>
+            <div class="bo-lg"><sc-for list="{{legend}}" as="l" hint-placeholder-count="6"><button class="{{l.cls}}" type="button" onClick="{{l.tog}}"><i style="{{l.sw}}"></i>{{l.n}}</button></sc-for></div>
+            <div class="bo-ch">
+              <div class="bo-ya"><sc-for list="{{ticks}}" as="t" hint-placeholder-count="4"><span style="{{t.st}}">{{t.v}}</span></sc-for></div>
+              <div class="bo-pl">
+                <sc-for list="{{ticks}}" as="t" hint-placeholder-count="4"><div class="bo-gl" style="{{t.st}}"></div></sc-for>
+                <div class="bo-avg" style="{{avgSt}}"><span>月均 {{avgV}}</span></div>
+                <div class="bo-cols"><sc-for list="{{cols}}" as="c" hint-placeholder-count="12"><div class="{{c.cls}}" onClick="{{c.pick}}" onMouseEnter="{{c.in}}" onMouseLeave="{{c.out}}">
+                  <small>{{c.top}}</small><div class="bo-bar" style="{{c.bh}}"><sc-for list="{{c.segs}}" as="s" hint-placeholder-count="3"><i style="{{s.st}}"></i></sc-for></div><em>{{c.m}}</em>
+                  <sc-if value="{{c.hov}}" hint-placeholder-val="{{false}}"><div class="bo-tt" style="{{c.tp}}"><b>{{c.ym}}<span>{{c.tv}}</span></b><sc-for list="{{c.tips}}" as="p" hint-placeholder-count="3"><p><i style="{{p.sw}}"></i>{{p.n}}<span>{{p.v}}</span></p></sc-for><small>{{c.tn}} · 点击查看当月明细</small></div></sc-if>
+                </div></sc-for></div>
+              </div>
+            </div>
+          </div>
+          <div class="bo-md">
+            <h3>{{mYm}} 付款明细 <span>{{mN}} 笔</span></h3>
+            <div class="bo-mt">¥{{mTot}}<small class="{{mDc}}">{{mD}}</small></div>
+            <div class="bo-mm"><span>较上月 {{mDiff}}</span><sc-if value="{{mHasRf}}" hint-placeholder-val="{{false}}"><span>退款 ¥{{mRf}}</span></sc-if></div>
+            <sc-if value="{{mEmpty}}" hint-placeholder-val="{{false}}"><div class="bo-me">当月没有付款</div></sc-if>
+            <ul class="bo-mo"><sc-for list="{{mList}}" as="o" hint-placeholder-count="3"><li class="{{o.cls}}"><i style="{{o.sw}}"></i><div><a href="BillOrderDetail.dc.html">{{o.id}}</a><p>{{o.d}}</p></div><strong>{{o.v}}</strong></li></sc-for></ul>
+            <div class="bo-mb"><button class="kc-btn sm" type="button" onClick="{{exp}}">{{expT}}</button><a class="kc-btn sm" href="BillOrders.dc.html">查看订单</a></div>
+          </div>
         </div>
+      </section>
+      <div class="bo-g3">
+        <section class="kc-card">
+          <div class="kc-ch"><h2><i class="fi-i fi-pie"></i>支出构成</h2><span class="kc-sub">{{rngN}}</span></div>
+          <div class="kc-cb">
+            <div class="bo-dn">
+              <div class="bo-ring" style="{{ring}}"><div class="bo-rc"><span>{{rcN}}</span><b>¥{{rcV}}</b><em>{{rcP}}</em></div></div>
+              <ul class="bo-pl2"><sc-for list="{{share}}" as="s" hint-placeholder-count="6"><li class="{{s.cls}}" onMouseEnter="{{s.in}}" onMouseLeave="{{s.out}}" onClick="{{s.pick}}"><i style="{{s.sw}}"></i>{{s.n}}<strong>{{s.v}}</strong><em>{{s.p}}</em></li></sc-for></ul>
+            </div>
+            <p class="bo-hint">点产品可在付款分析中只看该产品</p>
+          </div>
+        </section>
+        <section class="kc-card">
+          <div class="kc-ch"><h2><i class="fi-i fi-hist"></i>30 天内到期</h2><a href="AcctSubs.dc.html">订阅与资源</a></div>
+          <div class="kc-cb">
+            <div class="bo-tl"><sc-for list="{{exp30}}" as="x" hint-placeholder-count="5"><span class="{{x.dc}}" style="{{x.pos}}" onMouseEnter="{{x.in}}" onMouseLeave="{{x.out}}"></span></sc-for><em style="left:0">今天</em><em style="left:50%">15 天</em><em style="left:100%">30 天</em></div>
+            <ul class="bo-ex"><sc-for list="{{exp30}}" as="x" hint-placeholder-count="5"><li class="{{x.cls}}" onMouseEnter="{{x.in}}" onMouseLeave="{{x.out}}"><div><b>{{x.n}}</b><p>{{x.d}}</p></div><span class="{{x.lc}}">{{x.left}}</span><a class="kc-btn sm" href="{{x.href}}">续费</a></li></sc-for></ul>
+          </div>
+        </section>
+        <section class="kc-card">
+          <div class="kc-ch"><h2><i class="fi-i fi-receipt"></i>发票</h2><a href="BillInvoice.dc.html">发票管理</a></div>
+          <div class="kc-cb">
+            <div class="bo-iv"><div><small>可开票金额</small><b>¥1,169.84</b><em>4 笔已完成订单</em></div><a class="kc-btn pri sm" href="BillInvoiceApply.dc.html">申请开票</a></div>
+            <div class="bo-st"><i style="width:76%;background:#00b42a"></i><i style="width:8%;background:#165dff"></i><i style="width:8%;background:#f53f3f"></i></div>
+            <div class="bo-sl"><span><i style="background:#00b42a"></i>已开具<b>10</b></span><span><i style="background:#165dff"></i>审核中<b>1</b></span><span><i style="background:#f53f3f"></i>被驳回<b>1</b></span></div>
+            <ul class="bo-il">
+              <li><div><b>FP202610200003 · ¥8,300.00</b><p>SCDN 企业版 · 抬头与订单企业不符</p></div><span class="kc-tag err">被驳回</span></li>
+              <li><div><b>FP202610150002 · ¥1,280.00</b><p>DDoS 高防 IP · 电子普票</p></div><span class="kc-tag info">审核中</span></li>
+              <li><div><b>FP202609280001 · ¥204.00</b><p>SSL 证书 · 电子专票</p></div><span class="kc-tag ok">已开具</span></li>
+            </ul>
+          </div>
+        </section>
       </div>
     </main>
   </div>
@@ -1283,7 +1684,86 @@ class Component extends DCLogic {
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
-    return Object.assign({ nav }, {});
+    const fm = (n) => Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const fk = (n) => n >= 10000 ? (n / 10000).toFixed(n % 10000 ? 1 : 0) + ' 万' : Math.round(n).toLocaleString('en-US');
+    const S = [['DDoS 高防 IP', '#165dff'], ['SCDN', '#0fc6c2'], ['游戏盾', '#722ed1'], ['德迅卫士', '#ff7d00'], ['服务器租用', '#f7ba1e'], ['其他', '#a9aeb8']];
+    const YM = ['2025-11', '2025-12', '2026-01', '2026-02', '2026-03', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09', '2026-10'];
+    const V = [[1999, 0, 799, 0, 240, 0], [1999, 0, 799, 420, 240, 0], [1999, 0, 799, 0, 240, 68], [1999, 0, 0, 0, 240, 0], [5998, 0, 799, 0, 240, 0], [1999, 0, 799, 4200, 240, 0],
+      [1999, 0, 799, 0, 240, 1782], [5998, 0, 1599, 1200, 240, 563], [1999, 0, 799, 0, 240, 202], [5998, 0, 4800, 1200, 240, 362], [0, 8300, 0, 0, 0, 204], [1280, 0, 0, 25, 0, 0]];
+    const RF = { '2026-06': 142.22 };
+    const DESC = ['高防-002 · 续费', 'SCDN-001 · 企业版新购 1 年', '游戏盾-001 · 续费', 'dx-guard-01 · 授权', 'web-prod-01 · 续费 1 个月', 'SSL 证书 / 云备份'];
+    const REAL = { '2026-10': [['DX20261018006', 0, '高防-002 · 保底 50→80 Gbps 升级'], ['DX20261007003', 3, 'dx-guard-01 · 授权 +25 台']],
+      '2026-09': [['DX20260926008', 1, 'SCDN-001 · 企业版新购 1 年'], ['DX20260920007', 5, 'SSL 证书 DV × 3 · 新购 1 年']] };
+    // 待付款
+    const PD = [['DX20261024001', '服务器租用 · web-prod-01 续费 3 个月', 240, '核验未匹配', 'kc-tag err'], ['DX20261022002', '游戏盾 · 游戏盾-001 专业版续费', 320, '待付款', 'kc-tag warn']];
+    const sel = st.psel || { 0: 1, 1: 1 };
+    let selN = 0, selTot = 0;
+    const pays = PD.map(([id, d, amt, s, tc], i) => { const on = !!sel[i]; if (on) { selN++; selTot += amt; }
+      return { id, d, amt: fm(amt), st: s, tc, cls: on ? 'on' : '', cbx: on ? 'ac-cbx on' : 'ac-cbx', tog: () => this.setState({ psel: Object.assign({}, sel, { [i]: !on }) }) }; });
+    // 账户复制
+    const cp = st.cp || '';
+    const doCp = (k) => { this.setState({ cp: k }); clearTimeout(this._cpT); this._cpT = setTimeout(() => this.setState({ cp: '' }), 1600); };
+    const acc = [['户名', '浙江德迅网络安全技术有限公司', ''], ['开户行', '中国工商银行温州龙湾支行', ''], ['账号', '1109 0212 0910 0601', 'mono']].map(([k, v, bc]) =>
+      ({ k, v, bc, t: cp === k ? '已复制' : '复制', cls: cp === k ? 'bo-cp ok' : 'bo-cp', cp: () => doCp(k) }));
+    // 付款分析
+    const rng = st.rng || 12, met = st.met || 'amt', hid = st.hid || {}, only = st.only === undefined ? -1 : st.only;
+    const vis = (j) => only >= 0 ? j === only : !hid[j];
+    const off = YM.length - rng;
+    const idx = YM.map((_, i) => i).slice(off);
+    const val = (i, j) => met === 'amt' ? V[i][j] : (V[i][j] ? 1 : 0);
+    const tot = (i) => S.reduce((a, _, j) => a + (vis(j) ? val(i, j) : 0), 0);
+    const tots = idx.map(tot);
+    const mx = Math.max.apply(null, tots.concat([met === 'amt' ? 1000 : 3]));
+    const raw = mx / 4, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const step = [1, 2, 2.5, 5, 10].map((k) => k * mag).find((k) => k >= raw);
+    const top = Math.ceil(mx / step) * step, nt = Math.round(top / step);
+    const fv = (n) => met === 'amt' ? '¥' + fk(n) : n + ' 笔';
+    const ticks = Array.from({ length: nt + 1 }, (_, k) => ({ v: met === 'amt' ? fk(step * k) : String(step * k), st: 'bottom:' + (k * 100 / nt) + '%' }));
+    const sum = tots.reduce((a, b) => a + b, 0), avg = sum / rng;
+    const sm = st.sm === undefined ? YM.length - 1 : st.sm, hv = st.hv === undefined ? -1 : st.hv;
+    const cols = idx.map((i, n) => { const t = tots[n];
+      const segs = S.map((s, j) => ({ j, v: vis(j) ? val(i, j) : 0 })).filter((x) => x.v > 0).map((x) => ({ st: 'height:' + (x.v / (t || 1) * 100) + '%;background:' + S[x.j][1] }));
+      const tips = S.map((s, j) => ({ j, v: V[i][j] })).filter((x) => x.v > 0 && vis(x.j)).map((x) => ({ n: S[x.j][0], sw: 'background:' + S[x.j][1], v: met === 'amt' ? '¥' + fm(x.v) : '1 笔' }));
+      const cnt = V[i].filter((x, j) => x > 0 && vis(j)).length;
+      return { m: YM[i].slice(5).replace(/^0/, '') + '月', ym: YM[i].replace('-', ' 年 ') + ' 月', top: t ? fv(t) : '', tv: met === 'amt' ? '¥' + fm(t) : t + ' 笔', tn: cnt + ' 笔订单',
+        bh: 'height:' + (t / top * 100) + '%', tp: 'bottom:' + Math.min(t / top * 100, 62) + '%', segs, tips, hov: hv === i,
+        cls: 'bo-col' + (sm === i ? ' on' : '') + (hv === i ? ' hov' : '') + (sm !== i && hv >= 0 && hv !== i ? ' dim' : ''),
+        pick: () => this.setState({ sm: i, ex: false }), in: () => this.setState({ hv: i }), out: () => this.setState({ hv: -1 }) }; });
+    const legend = S.map(([n, c], j) => ({ n, sw: 'background:' + c, cls: vis(j) ? '' : 'off',
+      tog: () => only >= 0 ? this.setState({ only: -1, hid: {} }) : this.setState({ hid: Object.assign({}, hid, { [j]: !hid[j] }) }) }));
+    const mets = [['amt', '付款金额'], ['cnt', '订单笔数']].map(([k, n]) => ({ n, cls: met === k ? 'on' : '', pick: () => this.setState({ met: k }) }));
+    const rngs = [[6, '近 6 个月'], [12, '近 12 个月']].map(([k, n]) => ({ n, cls: rng === k ? 'on' : '', pick: () => this.setState({ rng: k, sm: sm < YM.length - k ? YM.length - 1 : sm }) }));
+    // 当月明细
+    const mt = V[sm].reduce((a, b) => a + b, 0), pt = sm > 0 ? V[sm - 1].reduce((a, b) => a + b, 0) : 0;
+    const dd = pt ? (mt - pt) / pt * 100 : 0;
+    const mList = (REAL[YM[sm]] || V[sm].map((v, j) => v ? ['DX' + YM[sm].replace('-', '') + String(3 + j * 4).padStart(2, '0') + '00' + (j + 1), j, DESC[j]] : null).filter(Boolean))
+      .map(([id, j, d]) => ({ id, d: S[j][0] + ' · ' + d.replace(/^.*? · /, ''), v: '¥' + fm(V[sm][j]), sw: 'background:' + S[j][1], cls: '' }));
+    if (RF[YM[sm]]) mList.push({ id: 'RF' + YM[sm].replace('-', '') + '01', d: '退款 · 游戏盾 降配差额', v: '-¥' + fm(RF[YM[sm]]), sw: 'background:#00b42a', cls: 'rf' });
+    // 构成
+    const shareT = idx.reduce((a, i) => a + V[i].reduce((x, y) => x + y, 0), 0);
+    const sv = S.map((s, j) => idx.reduce((a, i) => a + V[i][j], 0));
+    const hs = st.hs === undefined ? -1 : st.hs, fs = hs >= 0 ? hs : only;
+    let acc0 = 0;
+    const ring = 'background:conic-gradient(' + S.map(([n, c], j) => { const a = acc0, b = acc0 + sv[j] / shareT * 100; acc0 = b;
+      return (fs >= 0 && fs !== j ? c + '33' : c) + ' ' + a + '% ' + b + '%'; }).join(',') + ')';
+    const share = S.map(([n, c], j) => ({ n, sw: 'background:' + c, v: fk(sv[j]), p: (sv[j] / shareT * 100).toFixed(1) + '%',
+      cls: only === j ? 'on' : (hs === j ? 'hov' : ''), in: () => this.setState({ hs: j }), out: () => this.setState({ hs: -1 }),
+      pick: () => this.setState({ only: only === j ? -1 : j, hid: {} }) })).filter((x, j) => sv[j] > 0);
+    // 到期
+    const E = [['游戏盾-001', '游戏盾 · 专业版 · 2026-11-02 到期', 6, 'AcctSubs.dc.html'], ['SSL 证书 DV × 3', 'www / api / m · 2026-11-08 到期', 12, 'AcctSubs.dc.html'],
+      ['高防-002', 'DDoS 高防 IP · 2026-11-15 到期', 19, 'AcctSubs.dc.html'], ['web-prod-01', '服务器租用 · 2026-11-20 到期', 24, 'IdcServerDetail.dc.html'], ['backup-cloud-01', '云备份 · 10-25 已到期，数据保留至 11-01', -2, 'AcctSubs.dc.html']];
+    const he = st.he === undefined ? -1 : st.he;
+    const exp30 = E.map(([n, d, dl, href], i) => { const k = dl < 0 ? 'e' : (dl <= 14 ? '' : 'n');
+      return { n, d, href, left: dl < 0 ? '已到期' : dl + ' 天', lc: k, pos: 'left:' + Math.max(0, dl) / 30 * 100 + '%', dc: 'bo-dot ' + k + (he === i ? ' hov' : ''), cls: he === i ? 'hov' : '',
+        in: () => this.setState({ he: i }), out: () => this.setState({ he: -1 }) }; });
+    const lastT = V[11].reduce((a, b) => a + b, 0), prevT = V[10].reduce((a, b) => a + b, 0);
+    const kpis = [
+      { n: '本月已付款', v: '¥' + fm(lastT), u: '', d: '↓ ' + Math.abs((lastT - prevT) / prevT * 100).toFixed(1) + '%', dc: 'dn', s: '较上月', href: 'BillPay.dc.html' },
+      { n: '近 12 个月累计', v: '¥' + fm(V.reduce((a, r) => a + r.reduce((x, y) => x + y, 0), 0)), u: '', d: '', dc: '', s: '退款另计', href: 'BillOrders.dc.html' },
+      { n: '付款核验中', v: '¥4,200.00', u: '1 笔', d: '', dc: '', s: '财务 1–2 个工作日内核验', href: 'BillPay.dc.html' },
+      { n: '可开票金额', v: '¥1,169.84', u: '4 笔', d: '', dc: '', s: '订单完成后可开票', href: 'BillInvoice.dc.html' }];
+
+    return Object.assign({ nav }, { pays, payN: PD.length, payTot: fm(PD.reduce((a, p) => a + p[2], 0)), selN, selTot: fm(selTot), mergeCls: selN ? 'kc-btn pri' : 'kc-btn pri dis', acc, cpAll: cp === 'all' ? 'bo-cp ok' : 'bo-cp', cpAllT: cp === 'all' ? '已复制全部' : '复制全部', copyAll: () => doCp('all'), kpis, mets, rngs, legend, ticks, cols, sumV: fv(sum), avgV: fv(Math.round(avg * 100) / 100), maxV: fv(Math.max.apply(null, tots)), avgSt: 'bottom:' + (avg / top * 100) + '%', hasOnly: only >= 0, onlyN: only >= 0 ? S[only][0] : '', clrOnly: () => this.setState({ only: -1 }), mYm: YM[sm].replace('-', ' 年 ') + ' 月', mN: mList.filter((o) => !o.cls).length, mTot: fm(mt), mD: pt ? (dd >= 0 ? '↑ ' : '↓ ') + Math.abs(dd).toFixed(1) + '%' : '', mDc: dd >= 0 ? 'up' : 'dn', mDiff: pt ? (mt >= pt ? '+' : '-') + '¥' + fm(Math.abs(mt - pt)) : '—', mHasRf: !!RF[YM[sm]], mRf: fm(RF[YM[sm]] || 0), mEmpty: !mList.length, mList, exp: () => this.setState({ ex: true }), expT: st.ex ? '已生成，去下载' : '导出本月明细', rngN: '近 ' + rng + ' 个月', ring, share, rcN: fs >= 0 ? S[fs][0] : '合计', rcV: fk(fs >= 0 ? sv[fs] : shareT), rcP: fs >= 0 ? (sv[fs] / shareT * 100).toFixed(1) + '%' : rng + ' 个月', exp30 });
   }
 }
 </script>
