@@ -1349,6 +1349,16 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
 /* /kit71 */
 
+/* opfix73：操作列固定 */
+.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:-10px 0 10px -10px rgba(31,35,41,.18)}
+.op-fix thead tr > :last-child{background:#f7f8fa;z-index:2}
+.op-fix tbody tr > td:last-child{background:#fff}
+.op-fix tbody tr.kc-row-hot > td:last-child{background:#fffafa}
+.op-fix tbody tr:hover > td:last-child{background:#f7f9fd}
+.op-fix tbody tr.sel > td:last-child,.op-fix tbody tr.sel:hover > td:last-child{background:#eaf2ff}
+.op-fix tr > :last-child::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #f0f2f5}
+/* /opfix73 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -1677,7 +1687,7 @@ class Component extends DCLogic {
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
-    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
     const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
       const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];

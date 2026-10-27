@@ -904,6 +904,69 @@ a{color:#165dff}a:hover{color:#0e4edb}
 
 
 
+/* detail74：详情与表单 */
+.dt-mask{position:absolute;left:0;right:0;top:56px;bottom:0;z-index:11;background:rgba(29,33,41,.18);animation:mo-fade-in .18s ease-out both}
+.dt-file{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #f0f2f5;border-radius:6px;background:#fafbfc}
+.dt-file > i{width:36px;height:40px;border-radius:4px;background:linear-gradient(180deg,#ff7d7d,#f53f3f);color:#fff;font:600 10px/40px Inter,sans-serif;text-align:center;font-style:normal;flex-shrink:0}
+.dt-file > i.o{background:linear-gradient(180deg,#6aa1ff,#165dff)}
+.dt-file > div{flex:1;min-width:0}
+.dt-file b{display:block;font-size:13px;font-weight:500;color:#1d2129;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dt-file small{font-size:12px;color:#86909c}
+.dt-file + .dt-file{margin-top:8px}
+.dt-empty{padding:28px 16px;text-align:center;border:1px dashed #e5e6eb;border-radius:6px;font-size:13px;color:#86909c;background:#fafbfc}
+.dt-empty b{display:block;font-size:14px;color:#4e5969;font-weight:500;margin-bottom:4px}
+.dt-mini{width:100%;border-collapse:collapse;font-size:13px}
+.dt-mini th{text-align:left;font-weight:600;color:#4e5969;background:#f7f8fa;padding:8px 12px;border-bottom:1px solid #f0f2f5}
+.dt-mini td{padding:10px 12px;border-bottom:1px solid #f0f2f5;color:#1d2129}
+.dt-mini .num{text-align:right;font-family:Inter,"PingFang SC",sans-serif}
+.dt-mini tfoot td{border-bottom:0;font-weight:600}
+.dt-chat{display:flex;flex-direction:column;gap:18px;padding:20px 24px}
+.dt-msg{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;max-width:760px}
+.dt-msg > i{width:36px;height:36px;border-radius:50%;background:#e8f3ff;color:#165dff;font:600 14px/36px "PingFang SC",sans-serif;text-align:center;font-style:normal}
+.dt-msg.me{margin-left:auto;grid-template-columns:minmax(0,1fr) 36px}
+.dt-msg.me > i{order:2;background:#165dff;color:#fff}
+.dt-msg header{display:flex;gap:8px;align-items:baseline;font-size:12px;color:#86909c;margin-bottom:6px}
+.dt-msg.me header{justify-content:flex-end}
+.dt-msg header b{font-size:13px;color:#1d2129;font-weight:600}
+.dt-msg .bb{padding:12px 14px;border-radius:2px 8px 8px 8px;background:#f7f8fa;font-size:14px;line-height:1.75;color:#1d2129;white-space:pre-line}
+.dt-msg.me .bb{border-radius:8px 2px 8px 8px;background:#eaf2ff}
+.dt-msg .att{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font-size:12px;color:#4e5969}
+.dt-sys{align-self:center;font-size:12px;color:#86909c;background:#f7f8fa;border-radius:12px;padding:3px 12px}
+.dt-reply{border-top:1px solid #f2f3f5;padding:16px 24px 20px;background:#fcfcfd}
+.dt-reply textarea{width:100%;min-height:96px;padding:10px 12px;border:1px solid #e4eaf0;border-radius:6px;font:inherit;font-size:14px;resize:vertical;box-sizing:border-box;background:#fff}
+.dt-reply textarea:focus{outline:0;border-color:#165dff;box-shadow:0 0 0 2px rgba(22,93,255,.1)}
+.dt-rb{display:flex;align-items:center;gap:8px;margin-top:10px}
+.dt-rb .kc-sub{margin-right:auto}
+.dt-stars{display:flex;gap:6px;justify-content:center;margin:8px 0 4px}
+.dt-stars button{width:36px;height:36px;border:0;background:none;font-size:30px;line-height:1;color:#e5e6eb;cursor:pointer;padding:0}
+.dt-stars button.on{color:#ff9a2e}
+.dt-closed{display:flex;align-items:center;gap:10px;padding:16px 24px;border-top:1px solid #f2f3f5;font-size:13px;color:#4e5969;background:#f6ffed}
+.dt-closed b{color:#00b42a}
+.dt-pw{display:flex;gap:4px;margin-top:6px}
+.dt-pw i{flex:1;height:4px;border-radius:2px;background:#e5e6eb}
+.dt-pw i.on{background:#00b42a}
+.dt-pw i.mid{background:#ff7d00}
+.dt-pwt{font-size:12px;color:#86909c;margin-top:4px}
+.dt-f{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:center;margin-bottom:14px}
+.dt-f > span{font-size:14px;color:#4e5969}
+.dt-f > span.req::before{content:"*";color:#f53f3f;margin-right:3px}
+.dt-f .kc-in{width:100%;height:34px;padding:0 10px;box-sizing:border-box;font:inherit;font-size:14px}
+.dt-f .kc-hint{grid-column:2;margin:-4px 0 0}
+.dt-f .fl-radio{flex-wrap:wrap}
+.dt-seg{display:inline-flex;border:1px solid #e4eaf0;border-radius:6px;overflow:hidden}
+.dt-seg button{height:32px;padding:0 14px;border:0;border-left:1px solid #e4eaf0;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.dt-seg button:first-child{border-left:0}
+.dt-seg button.on{background:#eaf2ff;color:#165dff;font-weight:500}
+.dt-pick{display:flex;flex-direction:column;gap:8px}
+.dt-pick button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e4eaf0;border-radius:6px;background:#fff;font:inherit;font-size:13px;color:#1d2129;text-align:left;cursor:pointer}
+.dt-pick button small{margin-left:auto;font-size:12px;color:#86909c}
+.dt-pick button i{width:14px;height:14px;border-radius:50%;border:1px solid #c9d2df;flex-shrink:0}
+.dt-pick button.on{border-color:#165dff;background:#f2f7ff}
+.dt-pick button.on i{border:4px solid #165dff}
+.dt-dl{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.ac-drw .bd .dt-f:last-child{margin-bottom:0}
+/* /detail74 */
+
 /* top70：产品切换与全局搜索 */
 .kc-top{position:relative;z-index:50}
 .tp-dw{display:inline-flex}
@@ -1152,46 +1215,6 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
-
-/* motion68：页面与交互过渡 */
-@view-transition{navigation:auto}
-.kc-top{view-transition-name:kc-top}
-.kc-side{view-transition-name:kc-side}
-.kc-main{view-transition-name:kc-main}
-::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
-::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
-::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
-@keyframes mo-fade-in{from{opacity:0}}
-@keyframes mo-fade-out{to{opacity:0}}
-@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
-@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
-@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
-@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
-@keyframes mo-slide{from{transform:translateX(100%)}}
-@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
-.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
-.kc-main > :nth-child(2){animation-delay:.04s}
-.kc-main > :nth-child(3){animation-delay:.08s}
-.kc-main > :nth-child(4){animation-delay:.12s}
-.kc-main > :nth-child(n+5){animation-delay:.16s}
-.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
-.ac-mask{animation:mo-fade-in .12s ease-out both}
-.vf-mask{animation:mo-fade-in .18s ease-out both}
-.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
-.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
-.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
-.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
-.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
-.kc-btn:active{transform:scale(.98)}
-.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.fm-new{animation:mo-new 1.6s ease-out both}
-@keyframes mo-new{from{background:#e8ffea}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
-/* /motion68 */
-
 /* kit71：组件对齐 5180 */
 .kc-body{background:#f5f7fb}
 .kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
@@ -1244,6 +1267,55 @@ a{color:#165dff}a:hover{color:#0e4edb}
   background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
 .kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
 /* /kit71 */
+
+/* opfix73：操作列固定 */
+.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:-10px 0 10px -10px rgba(31,35,41,.18)}
+.op-fix thead tr > :last-child{background:#f7f8fa;z-index:2}
+.op-fix tbody tr > td:last-child{background:#fff}
+.op-fix tbody tr.kc-row-hot > td:last-child{background:#fffafa}
+.op-fix tbody tr:hover > td:last-child{background:#f7f9fd}
+.op-fix tbody tr.sel > td:last-child,.op-fix tbody tr.sel:hover > td:last-child{background:#eaf2ff}
+.op-fix tr > :last-child::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #f0f2f5}
+/* /opfix73 */
+
+/* motion68：页面与交互过渡 */
+@view-transition{navigation:auto}
+.kc-top{view-transition-name:kc-top}
+.kc-side{view-transition-name:kc-side}
+.kc-main{view-transition-name:kc-main}
+::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
+::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
+::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@keyframes mo-fade-in{from{opacity:0}}
+@keyframes mo-fade-out{to{opacity:0}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes mo-slide{from{transform:translateX(100%)}}
+@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
+.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
+.kc-main > :nth-child(2){animation-delay:.04s}
+.kc-main > :nth-child(3){animation-delay:.08s}
+.kc-main > :nth-child(4){animation-delay:.12s}
+.kc-main > :nth-child(n+5){animation-delay:.16s}
+.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
+.ac-mask{animation:mo-fade-in .12s ease-out both}
+.vf-mask{animation:mo-fade-in .18s ease-out both}
+.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
+.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
+.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
+.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
+.kc-btn:active{transform:scale(.98)}
+.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fm-new{animation:mo-new 1.6s ease-out both}
+@keyframes mo-new{from{background:#e8ffea}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+/* /motion68 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1370,6 +1442,59 @@ a{color:#165dff}a:hover{color:#0e4edb}
         </tbody></table></div></section>
     </main>
   </div>
+  <sc-if value="{{dPw}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="修改登录密码" style="width:480px">
+    <header><b>修改登录密码</b><button type="button" aria-label="关闭" onClick="{{dPw_x}}">×</button></header>
+    <div class="bd">
+      <div class="dt-f"><span class="req">当前密码</span><div><input class="kc-in" type="password" aria-label="当前密码" value="........"></div></div>
+      <div class="dt-f"><span class="req">新密码</span><div><input class="kc-in" type="password" aria-label="新密码" value="{{pw}}" onChange="{{pwc}}" placeholder="8–20 位，包含字母和数字"><div class="dt-pw"><sc-for list="{{pwb}}" as="b" hint-placeholder-count="3"><i class="{{b.c}}"></i></sc-for></div><div class="dt-pwt">{{pwt}}</div></div></div>
+      <div class="dt-f"><span class="req">确认新密码</span><div><input class="kc-in" type="password" aria-label="确认新密码" placeholder="再次输入新密码"></div></div>
+      <p class="kc-hint" style="margin:0">修改后其他设备会退出登录</p>
+    </div>
+    <footer><button class="kc-btn" type="button" onClick="{{dPw_x}}">取消</button><button class="{{pwOk}}" type="button" onClick="{{doPw}}">确认修改</button></footer>
+  </div></div>
+  </sc-if>
+  <sc-if value="{{dPh}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="换绑手机" style="width:480px">
+    <header><b>换绑手机</b><button type="button" aria-label="关闭" onClick="{{dPh_x}}">×</button></header>
+    <div class="bd">
+      <p style="margin:0 0 14px;font-size:13px;color:#4e5969">先验证当前手机 177****1234，再绑定新手机。换绑后用新手机号登录和接收验证码。</p>
+      <div class="dt-f"><span class="req">新手机号</span><div><input class="kc-in" type="text" aria-label="新手机号" placeholder="新手机号" value=""></div></div>
+      <div class="dt-f"><span class="req">验证码</span><div><div class="vf-code" style="margin:0"><input class="kc-in" type="text" aria-label="验证码" value="{{code}}" placeholder="6 位验证码"><button class="{{sendCls}}" type="button" onClick="{{send}}">{{sendTxt}}</button></div></div></div>
+    </div>
+    <footer><button class="kc-btn" type="button" onClick="{{dPh_x}}">取消</button><button class="{{okCls}}" type="button" onClick="{{doDone}}">确认换绑</button></footer>
+  </div></div>
+  </sc-if>
+  <sc-if value="{{dMl}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="修改邮箱" style="width:480px">
+    <header><b>修改邮箱</b><button type="button" aria-label="关闭" onClick="{{dMl_x}}">×</button></header>
+    <div class="bd">
+      <div class="dt-f"><span class="req">新邮箱</span><div><input class="kc-in" type="text" aria-label="name@company.com" placeholder="name@company.com" value=""></div></div>
+      <div class="dt-f"><span class="req">验证码</span><div><div class="vf-code" style="margin:0"><input class="kc-in" type="text" aria-label="验证码" value="{{code}}" placeholder="发送到新邮箱"><button class="{{sendCls}}" type="button" onClick="{{send}}">{{sendTxt}}</button></div></div></div>
+      <p class="kc-hint" style="margin:0">账单、发票等邮件会改发到新邮箱</p>
+    </div>
+    <footer><button class="kc-btn" type="button" onClick="{{dMl_x}}">取消</button><button class="{{okCls}}" type="button" onClick="{{doDone}}">确认修改</button></footer>
+  </div></div>
+  </sc-if>
+  <sc-if value="{{dWx}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="解绑微信" style="width:440px">
+    <header><b>解绑微信</b><button type="button" aria-label="关闭" onClick="{{dWx_x}}">×</button></header>
+    <div class="bd">
+      <p style="margin:0">解绑后不能再用微信扫码登录，也不会在微信收到安全与到期通知。确定解绑吗？</p>
+    </div>
+    <footer><button class="kc-btn" type="button" onClick="{{dWx_x}}">取消</button><button class="kc-btn pri" type="button" onClick="{{doDone}}">解绑</button></footer>
+  </div></div>
+  </sc-if>
+  <sc-if value="{{dRm}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="异地登录提醒" style="width:440px">
+    <header><b>异地登录提醒</b><button type="button" aria-label="关闭" onClick="{{dRm_x}}">×</button></header>
+    <div class="bd">
+      <div class="dt-f"><span>提醒方式</span><div class="fm-chk" style="display:flex;gap:16px"><sc-for list="{{rms}}" as="r" hint-placeholder-count="3"><label><button type="button" class="{{r.cls}}" aria-label="{{r.n}}" onClick="{{r.go}}"></button>{{r.n}}</label></sc-for></div></div>
+      <div class="dt-f"><span>常用城市</span><div style="font-size:14px">浙江 温州、浙江 杭州</div></div>
+    </div>
+    <footer><button class="kc-btn" type="button" onClick="{{dRm_x}}">取消</button><button class="kc-btn pri" type="button" onClick="{{doRm}}">保存</button></footer>
+  </div></div>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
@@ -1466,7 +1591,7 @@ class Component extends DCLogic {
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
-    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
     const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
       const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
@@ -1486,12 +1611,20 @@ class Component extends DCLogic {
     const items = I.map(([n, ic, ok0, s1, s0, d, a1, a0, plus, lock], i) => { const ok = ok0 || on[i]; if (ok) done++; if (!ok0 && on[i]) score += plus;
       if (!ok && (!best || plus > best[1])) best = [n, plus];
       return { n, d, ic: 'fi-i fi-' + ic, st: ok ? s1 : s0, tc: ok ? 'kc-tag ok' : 'kc-tag mut', plus: !ok && plus ? '+' + plus + ' 分' : '', a: ok ? a1 : a0,
-        bc: lock ? 'kc-btn dis' : ok ? 'kc-btn' : 'kc-btn pri', go: () => { if (!ok0 && !lock) this.setState({ on: Object.assign({}, on, { [i]: !on[i] }) }); } }; });
+        bc: lock ? 'kc-btn dis' : ok ? 'kc-btn' : 'kc-btn pri', go: () => { if (lock) return; const dl = { '登录密码': 'dPw', '登录手机': 'dPh', '邮箱': 'dMl', '绑定微信': 'dWx', '异地登录提醒': 'dRm' }[n]; if (dl && (ok0 || n === '异地登录提醒')) this.setState({ dlg: dl, sent: false, pw: '' }); else this.setState({ on: Object.assign({}, on, { [i]: !on[i] }) }); } }; });
     score = Math.min(100, score);
     const lv = score >= 90 ? '优秀' : score >= 75 ? '良好' : '较弱';
     const pct = score * 0.75;
 
-    return Object.assign({ nav }, { items, score, done, lv, lvCls: score >= 90 ? 'fi-pill ok' : 'fi-pill', lvTxtCls: score >= 90 ? 'ok' : '', tip: best ? '建议' + (best[0] === '绑定微信' ? '' : '开启') + best[0] + '（+' + best[1] + ' 分）' : '全部安全配置已完成', arc: 'background:conic-gradient(from 225deg,' + (score >= 90 ? '#00b42a' : '#165dff') + ' 0 ' + pct + '%,#e5e6eb ' + pct + '% 75%,transparent 75% 100%)' });
+
+    const dlg = st.dlg || ''; const sent = !!st.sent; const pw = st.pw || '';
+    const lvl = !pw ? 0 : pw.length < 8 ? 1 : (/[a-zA-Z]/.test(pw) && /\d/.test(pw) && /[^a-zA-Z\d]/.test(pw) && pw.length >= 10) ? 3 : (/[a-zA-Z]/.test(pw) && /\d/.test(pw)) ? 2 : 1;
+    const pwb = [1, 2, 3].map((k) => ({ c: k <= lvl ? (lvl === 1 ? 'mid' : 'on') : '' }));
+    const rm = st.rm || { 短信: 1, 站内信: 1 };
+    const rms = ['短信', '站内信', '邮件'].map((n) => ({ n, cls: rm[n] ? 'ac-cbx on' : 'ac-cbx', go: () => this.setState({ rm: Object.assign({}, rm, { [n]: !rm[n] }) }) }));
+    const shut = () => this.setState({ dlg: '', sent: false });
+
+    return Object.assign({ nav }, { dPw: dlg === 'dPw', dPh: dlg === 'dPh', dMl: dlg === 'dMl', dWx: dlg === 'dWx', dRm: dlg === 'dRm', dPw_x: shut, dPh_x: shut, dMl_x: shut, dWx_x: shut, dRm_x: shut, pw, pwc: (e) => this.setState({ pw: e.target.value }), pwb, pwt: ['输入新密码', '强度：弱', '强度：中', '强度：强'][lvl], pwOk: lvl >= 2 ? 'kc-btn pri' : 'kc-btn pri dis', doPw: () => { if (lvl >= 2) shut(); }, send: () => this.setState({ sent: true }), sendTxt: sent ? '59 秒后重发' : '获取验证码', sendCls: sent ? 'kc-btn dis' : 'kc-btn', code: sent ? '382916' : '', okCls: sent ? 'kc-btn pri' : 'kc-btn pri dis', doDone: () => { if (dlg === 'dWx' || sent) shut(); }, rms, doRm: () => this.setState({ dlg: '', on: Object.assign({}, on, { 6: true }) }) }, { items, score, done, lv, lvCls: score >= 90 ? 'fi-pill ok' : 'fi-pill', lvTxtCls: score >= 90 ? 'ok' : '', tip: best ? '建议' + (best[0] === '绑定微信' ? '' : '开启') + best[0] + '（+' + best[1] + ' 分）' : '全部安全配置已完成', arc: 'background:conic-gradient(from 225deg,' + (score >= 90 ? '#00b42a' : '#165dff') + ' 0 ' + pct + '%,#e5e6eb ' + pct + '% 75%,transparent 75% 100%)' });
   }
 }
 </script>

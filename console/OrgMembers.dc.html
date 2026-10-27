@@ -782,6 +782,69 @@ a{color:#165dff}a:hover{color:#0e4edb}
 
 
 
+/* detail74：详情与表单 */
+.dt-mask{position:absolute;left:0;right:0;top:56px;bottom:0;z-index:11;background:rgba(29,33,41,.18);animation:mo-fade-in .18s ease-out both}
+.dt-file{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #f0f2f5;border-radius:6px;background:#fafbfc}
+.dt-file > i{width:36px;height:40px;border-radius:4px;background:linear-gradient(180deg,#ff7d7d,#f53f3f);color:#fff;font:600 10px/40px Inter,sans-serif;text-align:center;font-style:normal;flex-shrink:0}
+.dt-file > i.o{background:linear-gradient(180deg,#6aa1ff,#165dff)}
+.dt-file > div{flex:1;min-width:0}
+.dt-file b{display:block;font-size:13px;font-weight:500;color:#1d2129;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dt-file small{font-size:12px;color:#86909c}
+.dt-file + .dt-file{margin-top:8px}
+.dt-empty{padding:28px 16px;text-align:center;border:1px dashed #e5e6eb;border-radius:6px;font-size:13px;color:#86909c;background:#fafbfc}
+.dt-empty b{display:block;font-size:14px;color:#4e5969;font-weight:500;margin-bottom:4px}
+.dt-mini{width:100%;border-collapse:collapse;font-size:13px}
+.dt-mini th{text-align:left;font-weight:600;color:#4e5969;background:#f7f8fa;padding:8px 12px;border-bottom:1px solid #f0f2f5}
+.dt-mini td{padding:10px 12px;border-bottom:1px solid #f0f2f5;color:#1d2129}
+.dt-mini .num{text-align:right;font-family:Inter,"PingFang SC",sans-serif}
+.dt-mini tfoot td{border-bottom:0;font-weight:600}
+.dt-chat{display:flex;flex-direction:column;gap:18px;padding:20px 24px}
+.dt-msg{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;max-width:760px}
+.dt-msg > i{width:36px;height:36px;border-radius:50%;background:#e8f3ff;color:#165dff;font:600 14px/36px "PingFang SC",sans-serif;text-align:center;font-style:normal}
+.dt-msg.me{margin-left:auto;grid-template-columns:minmax(0,1fr) 36px}
+.dt-msg.me > i{order:2;background:#165dff;color:#fff}
+.dt-msg header{display:flex;gap:8px;align-items:baseline;font-size:12px;color:#86909c;margin-bottom:6px}
+.dt-msg.me header{justify-content:flex-end}
+.dt-msg header b{font-size:13px;color:#1d2129;font-weight:600}
+.dt-msg .bb{padding:12px 14px;border-radius:2px 8px 8px 8px;background:#f7f8fa;font-size:14px;line-height:1.75;color:#1d2129;white-space:pre-line}
+.dt-msg.me .bb{border-radius:8px 2px 8px 8px;background:#eaf2ff}
+.dt-msg .att{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font-size:12px;color:#4e5969}
+.dt-sys{align-self:center;font-size:12px;color:#86909c;background:#f7f8fa;border-radius:12px;padding:3px 12px}
+.dt-reply{border-top:1px solid #f2f3f5;padding:16px 24px 20px;background:#fcfcfd}
+.dt-reply textarea{width:100%;min-height:96px;padding:10px 12px;border:1px solid #e4eaf0;border-radius:6px;font:inherit;font-size:14px;resize:vertical;box-sizing:border-box;background:#fff}
+.dt-reply textarea:focus{outline:0;border-color:#165dff;box-shadow:0 0 0 2px rgba(22,93,255,.1)}
+.dt-rb{display:flex;align-items:center;gap:8px;margin-top:10px}
+.dt-rb .kc-sub{margin-right:auto}
+.dt-stars{display:flex;gap:6px;justify-content:center;margin:8px 0 4px}
+.dt-stars button{width:36px;height:36px;border:0;background:none;font-size:30px;line-height:1;color:#e5e6eb;cursor:pointer;padding:0}
+.dt-stars button.on{color:#ff9a2e}
+.dt-closed{display:flex;align-items:center;gap:10px;padding:16px 24px;border-top:1px solid #f2f3f5;font-size:13px;color:#4e5969;background:#f6ffed}
+.dt-closed b{color:#00b42a}
+.dt-pw{display:flex;gap:4px;margin-top:6px}
+.dt-pw i{flex:1;height:4px;border-radius:2px;background:#e5e6eb}
+.dt-pw i.on{background:#00b42a}
+.dt-pw i.mid{background:#ff7d00}
+.dt-pwt{font-size:12px;color:#86909c;margin-top:4px}
+.dt-f{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:center;margin-bottom:14px}
+.dt-f > span{font-size:14px;color:#4e5969}
+.dt-f > span.req::before{content:"*";color:#f53f3f;margin-right:3px}
+.dt-f .kc-in{width:100%;height:34px;padding:0 10px;box-sizing:border-box;font:inherit;font-size:14px}
+.dt-f .kc-hint{grid-column:2;margin:-4px 0 0}
+.dt-f .fl-radio{flex-wrap:wrap}
+.dt-seg{display:inline-flex;border:1px solid #e4eaf0;border-radius:6px;overflow:hidden}
+.dt-seg button{height:32px;padding:0 14px;border:0;border-left:1px solid #e4eaf0;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.dt-seg button:first-child{border-left:0}
+.dt-seg button.on{background:#eaf2ff;color:#165dff;font-weight:500}
+.dt-pick{display:flex;flex-direction:column;gap:8px}
+.dt-pick button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e4eaf0;border-radius:6px;background:#fff;font:inherit;font-size:13px;color:#1d2129;text-align:left;cursor:pointer}
+.dt-pick button small{margin-left:auto;font-size:12px;color:#86909c}
+.dt-pick button i{width:14px;height:14px;border-radius:50%;border:1px solid #c9d2df;flex-shrink:0}
+.dt-pick button.on{border-color:#165dff;background:#f2f7ff}
+.dt-pick button.on i{border:4px solid #165dff}
+.dt-dl{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.ac-drw .bd .dt-f:last-child{margin-bottom:0}
+/* /detail74 */
+
 /* top70：产品切换与全局搜索 */
 .kc-top{position:relative;z-index:50}
 .tp-dw{display:inline-flex}
@@ -1030,46 +1093,6 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
-
-/* motion68：页面与交互过渡 */
-@view-transition{navigation:auto}
-.kc-top{view-transition-name:kc-top}
-.kc-side{view-transition-name:kc-side}
-.kc-main{view-transition-name:kc-main}
-::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
-::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
-::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
-@keyframes mo-fade-in{from{opacity:0}}
-@keyframes mo-fade-out{to{opacity:0}}
-@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
-@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
-@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
-@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
-@keyframes mo-slide{from{transform:translateX(100%)}}
-@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
-.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
-.kc-main > :nth-child(2){animation-delay:.04s}
-.kc-main > :nth-child(3){animation-delay:.08s}
-.kc-main > :nth-child(4){animation-delay:.12s}
-.kc-main > :nth-child(n+5){animation-delay:.16s}
-.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
-.ac-mask{animation:mo-fade-in .12s ease-out both}
-.vf-mask{animation:mo-fade-in .18s ease-out both}
-.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
-.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
-.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
-.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
-.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
-.kc-btn:active{transform:scale(.98)}
-.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.fm-new{animation:mo-new 1.6s ease-out both}
-@keyframes mo-new{from{background:#e8ffea}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
-/* /motion68 */
-
 /* kit71：组件对齐 5180 */
 .kc-body{background:#f5f7fb}
 .kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
@@ -1122,6 +1145,55 @@ a{color:#165dff}a:hover{color:#0e4edb}
   background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
 .kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
 /* /kit71 */
+
+/* opfix73：操作列固定 */
+.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:-10px 0 10px -10px rgba(31,35,41,.18)}
+.op-fix thead tr > :last-child{background:#f7f8fa;z-index:2}
+.op-fix tbody tr > td:last-child{background:#fff}
+.op-fix tbody tr.kc-row-hot > td:last-child{background:#fffafa}
+.op-fix tbody tr:hover > td:last-child{background:#f7f9fd}
+.op-fix tbody tr.sel > td:last-child,.op-fix tbody tr.sel:hover > td:last-child{background:#eaf2ff}
+.op-fix tr > :last-child::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #f0f2f5}
+/* /opfix73 */
+
+/* motion68：页面与交互过渡 */
+@view-transition{navigation:auto}
+.kc-top{view-transition-name:kc-top}
+.kc-side{view-transition-name:kc-side}
+.kc-main{view-transition-name:kc-main}
+::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
+::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
+::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@keyframes mo-fade-in{from{opacity:0}}
+@keyframes mo-fade-out{to{opacity:0}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes mo-slide{from{transform:translateX(100%)}}
+@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
+.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
+.kc-main > :nth-child(2){animation-delay:.04s}
+.kc-main > :nth-child(3){animation-delay:.08s}
+.kc-main > :nth-child(4){animation-delay:.12s}
+.kc-main > :nth-child(n+5){animation-delay:.16s}
+.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
+.ac-mask{animation:mo-fade-in .12s ease-out both}
+.vf-mask{animation:mo-fade-in .18s ease-out both}
+.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
+.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
+.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
+.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
+.kc-btn:active{transform:scale(.98)}
+.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fm-new{animation:mo-new 1.6s ease-out both}
+@keyframes mo-new{from{background:#e8ffea}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+/* /motion68 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1228,9 +1300,9 @@ a{color:#165dff}a:hover{color:#0e4edb}
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <div class="kc-bar"><button class="kc-dd" type="button" aria-haspopup="listbox"><span>角色</span><b>全部</b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><input class="kc-in" style="width:260px" type="search" aria-label="姓名 / 登录名 / 手机号" placeholder="姓名 / 登录名 / 手机号"></div>
-        <div class="kc-tw"><table class="kc-t">
+        <div class="kc-tw"><table class="kc-t op-fix">
           <thead><tr><th>姓名</th><th>登录名</th><th>手机号</th><th>角色</th><th>状态</th><th>最近登录</th><th>操作</th></tr></thead>
-          <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
+          <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}" onClick="{{o.go}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
         </table></div>
         <div class="kc-foot"><span>共 {{total}} 人 · 已创建 {{cnt}} / 50</span><div class="kc-pg"><button type="button" aria-label="上一页">‹</button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页">›</button></div></div>
       </section>
@@ -1255,6 +1327,29 @@ a{color:#165dff}a:hover{color:#0e4edb}
     <div class="bd"><p>新增成员「孙七 · {{role}}」需要验证主账号手机 177****1234</p>
       <div class="vf-code"><input class="kc-in" type="text" aria-label="验证码" value="{{code}}" placeholder="6 位验证码"><button class="{{sendCls}}" type="button" onClick="{{send}}">{{sendTxt}}</button></div></div>
     <footer><button class="kc-btn" type="button" onClick="{{closeV}}">取消</button><button class="{{okCls}}" type="button" onClick="{{confirm}}">确认</button></footer>
+  </div></div>
+  </sc-if>
+  <sc-if value="{{ed}}" hint-placeholder-val="{{false}}">
+  <div class="dt-mask" onClick="{{ed_x}}"></div>
+  <div class="ac-drw" role="dialog" aria-label="编辑成员 · {{edN}}" style="width:520px">
+    <header><b>编辑成员 · {{edN}}</b><button type="button" aria-label="关闭" onClick="{{ed_x}}">×</button></header>
+    <div class="bd">
+      <div class="dt-f"><span>登录名</span><div style="font-size:14px">{{edL}}</div></div>
+      <div class="dt-f"><span class="req">姓名</span><div><input class="kc-in" type="text" aria-label="姓名" value="{{edN}}"></div></div>
+      <div class="dt-f"><span class="req">手机号</span><div><input class="kc-in" type="text" aria-label="手机号" value="{{edP}}"></div><p class="kc-hint">修改后需要成员用新手机号验证一次</p></div>
+      <div class="dt-f" style="align-items:start"><span class="req" style="padding-top:8px">角色</span><div class="fl-radio"><sc-for list="{{eroles}}" as="r" hint-placeholder-count="4"><button type="button" class="{{r.cls}}" onClick="{{r.go}}"><i></i>{{r.n}}<small>{{r.s}}</small></button></sc-for></div></div>
+      <div class="dt-f"><span>登录密码</span><div><button class="kc-btn sm" type="button" onClick="{{rst}}">{{rstT}}</button></div></div>
+    </div>
+    <footer style="justify-content:flex-end"><button class="kc-btn" type="button" onClick="{{ed_x}}">取消</button><button class="kc-btn pri" type="button" onClick="{{saveE}}">保存</button></footer>
+  </div>
+  </sc-if>
+  <sc-if value="{{sp}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="{{spT}}成员" style="width:440px">
+    <header><b>{{spT}}成员</b><button type="button" aria-label="关闭" onClick="{{sp_x}}">×</button></header>
+    <div class="bd">
+      <p style="margin:0">{{spD}}</p>
+    </div>
+    <footer><button class="kc-btn" type="button" onClick="{{sp_x}}">取消</button><button class="{{spCls}}" type="button" onClick="{{doSp}}">{{spT}}</button></footer>
   </div></div>
   </sc-if>
 </div>
@@ -1353,7 +1448,7 @@ class Component extends DCLogic {
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
-    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
     const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
       const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
@@ -1375,11 +1470,22 @@ class Component extends DCLogic {
     const ps = st.ps || ['SCDN', '游戏盾'];
     const prods = ['SCDN', 'DDoS 高防 IP', '游戏盾', '德迅云眼', '德迅卫士'].map((n) => { const on = ps.indexOf(n) >= 0; return { n, cls: on ? 'ac-cbx on' : 'ac-cbx', go: () => this.setState({ ps: on ? ps.filter((x) => x !== n) : ps.concat([n]) }) }; });
     if (added) R.unshift([[{ t: '孙七', a: '#', s: '新成员 · 待首次登录' }, 'sunqi', '186****7788', { t: role, tag: 'info', s: scoped ? ps.join('、') : '' }, { t: '已启用', tag: 'ok' }, { t: '从未登录', c: 'm' }], [['编辑'], ['停用']], 'on']);
-    const T = TABS([['全部成员', ''], ['已启用', 'on'], ['已停用', 'off']], R.map((r) => ROW(r[0], r[1], r[2])), 'ft');
+
+    const offs = st.offs || {}; const edits = st.edits || {};
+    R.forEach((r, i) => { const lg = r[0][1]; if (edits[lg]) { r[0][3] = Object.assign({}, r[0][3], { t: edits[lg] }); r.rc = 'fm-new'; }
+      if (offs[lg]) { const wasOn = r[2] === 'on'; r[0][4] = wasOn ? { t: '已停用', tag: 'mut' } : { t: '已启用', tag: 'ok' }; r[1] = [['编辑'], [wasOn ? '启用' : '停用']]; r[2] = wasOn ? 'off' : 'on'; }
+      r[1] = r[1].map((o) => o[0] === '编辑' ? ['编辑', '#', '', (e) => { ev(e); this.setState({ ed: lg, erole: null, rst: false }); }]
+        : (o[0] === '停用' || o[0] === '启用') ? [o[0], '#', o[0] === '停用' ? 'r' : '', (e) => { ev(e); this.setState({ sp: lg }); }] : o); });
+    const edRow = R.find((r) => r[0][1] === st.ed); const spRow = R.find((r) => r[0][1] === st.sp);
+    const erole = st.erole || (edRow ? edRow[0][3].t : '');
+    const eroles = RL.map(([n, s]) => ({ n, s, cls: n === erole ? 'on' : '', go: () => this.setState({ erole: n }) }));
+    const spOn = spRow ? spRow[2] === 'on' : true;
+    const T = TABS([['全部成员', ''], ['已启用', 'on'], ['已停用', 'off']], R.map((r) => ROW(r[0], r[1], r[2], { rc: r.rc || '' })), 'ft');
     if (added) T.rows[0].rc = 'fm-new';
     const sent = !!st.sent; const vOpen = !!st.v;
 
-    return Object.assign({ nav }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, cnt: added ? 6 : 5, dOpen: !!st.d && !vOpen, closeD: () => this.setState({ d: false }), openD: (e) => { ev(e); this.setState({ d: true, added: false }); }, roles, role, scoped, prods, ask: () => this.setState({ v: true }), vOpen, closeV: () => this.setState({ v: false, sent: false }), send: () => this.setState({ sent: true }), sendTxt: sent ? '59 秒后重发' : '获取验证码', sendCls: sent ? 'kc-btn dis' : 'kc-btn', code: sent ? '382916' : '', okCls: sent ? 'kc-btn pri' : 'kc-btn pri dis', confirm: () => this.setState({ v: false, d: false, sent: false, added: true }) });
+
+    return Object.assign({ nav }, { ed: !!edRow, ed_x: () => this.setState({ ed: null }), edN: edRow ? edRow[0][0].t : '', edL: edRow ? edRow[0][1] : '', edP: edRow ? edRow[0][2] : '', eroles, rstT: st.rst ? '已发送新密码短信' : '重置并短信发送', rst: () => this.setState({ rst: true }), saveE: () => edRow && this.setState({ ed: null, edits: Object.assign({}, edits, { [edRow[0][1]]: erole }) }), sp: !!spRow, sp_x: () => this.setState({ sp: null }), spT: spOn ? '停用' : '启用', spCls: spOn ? 'kc-btn pri' : 'kc-btn pri', spD: spRow ? (spOn ? '停用后「' + spRow[0][0].t + '」立即退出登录且不能再登录，已创建的订单和工单保留。可以随时重新启用。' : '启用后「' + spRow[0][0].t + '」可以用原登录名和密码登录。') : '', doSp: () => spRow && this.setState({ sp: null, offs: Object.assign({}, offs, { [spRow[0][1]]: !offs[spRow[0][1]] }) }) }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, cnt: added ? 6 : 5, dOpen: !!st.d && !vOpen, closeD: () => this.setState({ d: false }), openD: (e) => { ev(e); this.setState({ d: true, added: false }); }, roles, role, scoped, prods, ask: () => this.setState({ v: true }), vOpen, closeV: () => this.setState({ v: false, sent: false }), send: () => this.setState({ sent: true }), sendTxt: sent ? '59 秒后重发' : '获取验证码', sendCls: sent ? 'kc-btn dis' : 'kc-btn', code: sent ? '382916' : '', okCls: sent ? 'kc-btn pri' : 'kc-btn pri dis', confirm: () => this.setState({ v: false, d: false, sent: false, added: true }) });
   }
 }
 </script>

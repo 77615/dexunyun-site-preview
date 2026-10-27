@@ -944,46 +944,6 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
-
-/* motion68：页面与交互过渡 */
-@view-transition{navigation:auto}
-.kc-top{view-transition-name:kc-top}
-.kc-side{view-transition-name:kc-side}
-.kc-main{view-transition-name:kc-main}
-::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
-::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
-::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
-@keyframes mo-fade-in{from{opacity:0}}
-@keyframes mo-fade-out{to{opacity:0}}
-@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
-@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
-@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
-@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
-@keyframes mo-slide{from{transform:translateX(100%)}}
-@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
-.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
-.kc-main > :nth-child(2){animation-delay:.04s}
-.kc-main > :nth-child(3){animation-delay:.08s}
-.kc-main > :nth-child(4){animation-delay:.12s}
-.kc-main > :nth-child(n+5){animation-delay:.16s}
-.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
-.ac-mask{animation:mo-fade-in .12s ease-out both}
-.vf-mask{animation:mo-fade-in .18s ease-out both}
-.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
-.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
-.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
-.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
-.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
-.kc-btn:active{transform:scale(.98)}
-.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.fm-new{animation:mo-new 1.6s ease-out both}
-@keyframes mo-new{from{background:#e8ffea}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
-/* /motion68 */
-
 /* kit71：组件对齐 5180 */
 .kc-body{background:#f5f7fb}
 .kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
@@ -1036,6 +996,55 @@ a{color:#165dff}a:hover{color:#0e4edb}
   background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
 .kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
 /* /kit71 */
+
+/* opfix73：操作列固定 */
+.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:-10px 0 10px -10px rgba(31,35,41,.18)}
+.op-fix thead tr > :last-child{background:#f7f8fa;z-index:2}
+.op-fix tbody tr > td:last-child{background:#fff}
+.op-fix tbody tr.kc-row-hot > td:last-child{background:#fffafa}
+.op-fix tbody tr:hover > td:last-child{background:#f7f9fd}
+.op-fix tbody tr.sel > td:last-child,.op-fix tbody tr.sel:hover > td:last-child{background:#eaf2ff}
+.op-fix tr > :last-child::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #f0f2f5}
+/* /opfix73 */
+
+/* motion68：页面与交互过渡 */
+@view-transition{navigation:auto}
+.kc-top{view-transition-name:kc-top}
+.kc-side{view-transition-name:kc-side}
+.kc-main{view-transition-name:kc-main}
+::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
+::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
+::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@keyframes mo-fade-in{from{opacity:0}}
+@keyframes mo-fade-out{to{opacity:0}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes mo-slide{from{transform:translateX(100%)}}
+@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
+.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
+.kc-main > :nth-child(2){animation-delay:.04s}
+.kc-main > :nth-child(3){animation-delay:.08s}
+.kc-main > :nth-child(4){animation-delay:.12s}
+.kc-main > :nth-child(n+5){animation-delay:.16s}
+.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
+.ac-mask{animation:mo-fade-in .12s ease-out both}
+.vf-mask{animation:mo-fade-in .18s ease-out both}
+.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
+.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
+.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
+.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
+.kc-btn:active{transform:scale(.98)}
+.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fm-new{animation:mo-new 1.6s ease-out both}
+@keyframes mo-new{from{background:#e8ffea}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+/* /motion68 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1141,9 +1150,9 @@ a{color:#165dff}a:hover{color:#0e4edb}
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="5"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <div class="kc-bar"><button class="kc-dd" type="button" aria-haspopup="listbox"><span>问题类型</span><b>全部</b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><button class="kc-dd" type="button" aria-haspopup="listbox"><span>时间</span><b>近 3 个月</b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><input class="kc-in" style="width:260px" type="search" aria-label="工单号 / 标题 / 关联产品" placeholder="工单号 / 标题 / 关联产品"></div>
-        <div class="kc-tw"><table class="kc-t">
+        <div class="kc-tw"><table class="kc-t op-fix">
           <thead><tr><th>工单</th><th>问题类型</th><th>关联产品</th><th>提交人</th><th>最近更新</th><th>状态</th><th>操作</th></tr></thead>
-          <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
+          <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}" onClick="{{o.go}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
         </table></div>
         <div class="kc-foot"><span>共 {{total}} 条 · 紧急问题请直接拨打 0577-26676666</span><div class="kc-pg"><button type="button" aria-label="上一页">‹</button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页">›</button></div></div>
       </section>
@@ -1260,7 +1269,7 @@ class Component extends DCLogic {
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
-    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
     const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
       const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
@@ -1269,13 +1278,13 @@ class Component extends DCLogic {
 
     const op = (e) => { ev(e); this.setState({ d: true }); };
     const R = [
-      [[{ t: '回源 502 偶发，请排查', a: '#', s: 'TK-20261025-0005' }, '产品使用', 'SCDN · shop.example.com', '张三', { t: '2026-10-26 10:00', s: '技术支持已回复' }, { t: '待你确认', tag: 'warn' }], 'open confirm', 1],
+      [[{ t: '回源 502 偶发，请排查', a: 'SupTicketDetail.dc.html', s: 'TK-20261025-0005' }, '产品使用', 'SCDN · shop.example.com', '张三', { t: '2026-10-26 10:00', s: '技术支持已回复' }, { t: '待你确认', tag: 'warn' }], 'open confirm', 1],
       [[{ t: 'Web 安全升级后新增站点失败', a: '#', s: 'TK-20261023-0004' }, '产品使用', '德迅云眼 · 云眼-001', '李四', { t: '2026-10-23 10:15', s: '处理中' }, { t: '处理中', tag: 'info' }], 'open', 0],
       [[{ t: '对公汇款未到账', a: '#', s: 'TK-20261022-0002' }, '财务问题', '—', 'wangqi', { t: '2026-10-22 16:00', s: '已转财务' }, { t: '等待处理', tag: 'mut' }], 'open', 0],
       [[{ t: 'web-prod-01 网络不通', a: '#', s: 'TK-20261019-0003' }, '故障报修', '服务器租用 · web-prod-01', 'wangqi', { t: '2026-10-19 09:10', s: '已恢复' }, { t: '已解决', tag: 'ok' }], 'open done', 0],
       [[{ t: '发票抬头修改', a: '#', s: 'TK-20260930-0001' }, '财务问题', '—', 'wangqi', '2026-09-30 11:00', { t: '已关闭', tag: 'mut' }], 'closed', 0]
     ];
-    const rows0 = R.map((r) => { const row = ROW(r[0], r[2] ? [['查看并确认']] : [['查看']], r[1]); return row; });
+    const rows0 = R.map((r) => { const row = ROW(r[0], r[2] ? [['查看并确认']] : [['查看', 'SupTicketDetail.dc.html']], r[1]); return row; });
     const T = TABS([['未关闭', 'open'], ['待我确认', 'confirm'], ['已解决', 'done'], ['已关闭', 'closed'], ['全部', '']], rows0, 'ft');
 
     return Object.assign({ nav }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, dOpen: st.d !== false, closeD: () => this.setState({ d: false }) });

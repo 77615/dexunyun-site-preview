@@ -493,46 +493,6 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
-
-/* motion68：页面与交互过渡 */
-@view-transition{navigation:auto}
-.kc-top{view-transition-name:kc-top}
-.kc-side{view-transition-name:kc-side}
-.kc-main{view-transition-name:kc-main}
-::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
-::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
-::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
-@keyframes mo-fade-in{from{opacity:0}}
-@keyframes mo-fade-out{to{opacity:0}}
-@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
-@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
-@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
-@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
-@keyframes mo-slide{from{transform:translateX(100%)}}
-@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
-.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
-.kc-main > :nth-child(2){animation-delay:.04s}
-.kc-main > :nth-child(3){animation-delay:.08s}
-.kc-main > :nth-child(4){animation-delay:.12s}
-.kc-main > :nth-child(n+5){animation-delay:.16s}
-.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
-.ac-mask{animation:mo-fade-in .12s ease-out both}
-.vf-mask{animation:mo-fade-in .18s ease-out both}
-.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
-.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
-.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
-.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
-.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
-.kc-btn:active{transform:scale(.98)}
-.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.fm-new{animation:mo-new 1.6s ease-out both}
-@keyframes mo-new{from{background:#e8ffea}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
-/* /motion68 */
-
 /* kit71：组件对齐 5180 */
 .kc-body{background:#f5f7fb}
 .kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
@@ -585,6 +545,55 @@ a{color:#165dff}a:hover{color:#0e4edb}
   background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
 .kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
 /* /kit71 */
+
+/* opfix73：操作列固定 */
+.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:-10px 0 10px -10px rgba(31,35,41,.18)}
+.op-fix thead tr > :last-child{background:#f7f8fa;z-index:2}
+.op-fix tbody tr > td:last-child{background:#fff}
+.op-fix tbody tr.kc-row-hot > td:last-child{background:#fffafa}
+.op-fix tbody tr:hover > td:last-child{background:#f7f9fd}
+.op-fix tbody tr.sel > td:last-child,.op-fix tbody tr.sel:hover > td:last-child{background:#eaf2ff}
+.op-fix tr > :last-child::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #f0f2f5}
+/* /opfix73 */
+
+/* motion68：页面与交互过渡 */
+@view-transition{navigation:auto}
+.kc-top{view-transition-name:kc-top}
+.kc-side{view-transition-name:kc-side}
+.kc-main{view-transition-name:kc-main}
+::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
+::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
+::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@keyframes mo-fade-in{from{opacity:0}}
+@keyframes mo-fade-out{to{opacity:0}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes mo-slide{from{transform:translateX(100%)}}
+@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
+.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
+.kc-main > :nth-child(2){animation-delay:.04s}
+.kc-main > :nth-child(3){animation-delay:.08s}
+.kc-main > :nth-child(4){animation-delay:.12s}
+.kc-main > :nth-child(n+5){animation-delay:.16s}
+.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
+.ac-mask{animation:mo-fade-in .12s ease-out both}
+.vf-mask{animation:mo-fade-in .18s ease-out both}
+.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
+.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
+.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
+.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
+.kc-btn:active{transform:scale(.98)}
+.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fm-new{animation:mo-new 1.6s ease-out both}
+@keyframes mo-new{from{background:#e8ffea}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+/* /motion68 */
 </style>
 </helmet>
 <div class="kc">
@@ -692,7 +701,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
       </div>
       <section class="kc-card">
         <div class="kc-bar"><input class="kc-in" style="width:260px" type="search" aria-label="搜索规则" placeholder="搜索端口或源服务器 IP"><button class="kc-dd" type="button" aria-haspopup="listbox"><span>客户端类型</span><b>全部</b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><button class="kc-dd" type="button" aria-haspopup="listbox"><span>负载模式</span><b>全部</b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><span class="kc-sub" style="margin-left:auto">已添加 6 个端口 · 可添加 20 个</span></div>
-        <div class="kc-tw"><table class="kc-t">
+        <div class="kc-tw"><table class="kc-t op-fix">
           <thead><tr><th>虚拟 IP : 客户端端口</th><th>源服务器</th><th>负载模式</th><th>客户端类型</th><th>显示真实 IP</th><th>状态</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{rules}}" as="r" hint-placeholder-count="4"><tr>
             <td class="kc-key">{{r.vp}}</td><td>{{r.src}}<div class="kc-sub">{{r.src2}}</div></td><td>{{r.lb}}</td><td>{{r.ct}}</td>
