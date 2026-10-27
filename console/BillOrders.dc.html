@@ -696,6 +696,93 @@ a{color:#165dff}a:hover{color:#0e4edb}
 
 
 
+/* top70：产品切换与全局搜索 */
+.kc-top{position:relative;z-index:50}
+.tp-dw{display:inline-flex}
+.kc-prod.on{border-color:#165dff;color:#165dff;background:#f2f7ff}
+.kc-prod.on svg{transform:rotate(180deg)}
+.kc-prod svg{transition:transform .2s}
+.tp-dim{position:fixed;left:0;right:0;top:56px;bottom:0;z-index:38;background:rgba(29,33,41,.32);animation:mo-fade-in .16s ease-out both}
+.tp-dim.all{top:0}
+.tp-pp{position:absolute;left:0;right:0;top:56px;z-index:40;display:grid;grid-template-columns:240px minmax(0,1fr);background:#fff;border-bottom:1px solid #e5e6eb;box-shadow:0 12px 24px rgba(29,33,41,.12);text-align:left;color:#1d2129;white-space:normal;animation:mo-drop .18s cubic-bezier(.2,.8,.2,1) both;transform-origin:top center}
+.tp-l{background:#f7f8fa;border-right:1px solid #e5e6eb;padding:16px 12px}
+.tp-l h4{margin:4px 8px 6px;font-size:12px;font-weight:400;color:#86909c}
+.tp-l h4 + ul{margin-bottom:14px}
+.tp-l ul{list-style:none;margin:0;padding:0}
+.tp-l li a{display:flex;align-items:center;justify-content:space-between;gap:8px;height:34px;padding:0 10px;border-radius:2px;color:#1d2129;text-decoration:none;font-size:14px}
+.tp-l li a:hover{background:#e8f0ff;color:#165dff}
+.tp-l li a small{font-size:12px;color:#86909c}
+.tp-l p{margin:2px 10px 12px;font-size:12px;color:#c9cdd4}
+.tp-r{padding:20px 24px 8px;min-width:0}
+.tp-q{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border:1px solid #e5e6eb;border-radius:2px;background:#fff}
+.tp-q:focus-within{border-color:#165dff;box-shadow:0 0 0 2px rgba(22,93,255,.12)}
+.tp-q input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:14px;background:none;color:#1d2129}
+.tp-q small{font-size:12px;color:#86909c;white-space:nowrap}
+.tp-q i{width:16px;height:16px;flex-shrink:0;background:#86909c;-webkit-mask:var(--m) center/16px no-repeat;mask:var(--m) center/16px no-repeat}
+.tp-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;margin-top:16px}
+.tp-cols h5{margin:0 0 6px;padding-bottom:8px;border-bottom:1px solid #e5e6eb;font-size:14px;font-weight:600}
+.tp-cols ul{list-style:none;margin:0 0 16px;padding:0}
+.tp-cols li{display:grid;grid-template-columns:minmax(0,1fr) auto 24px;align-items:center;gap:6px;border-radius:2px}
+.tp-cols li:hover{background:#f7f8fa}
+.tp-cols li a{display:flex;flex-direction:column;justify-content:center;min-height:44px;padding:4px 8px;color:#1d2129;text-decoration:none;font-size:14px;min-width:0}
+.tp-cols li a:hover b{color:#165dff}
+.tp-cols li a b{font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-cols li a small{font-size:12px;color:#86909c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-cols li button{width:24px;height:24px;border:0;background:none;cursor:pointer;color:#c9cdd4;font-size:15px;padding:0;line-height:24px}
+.tp-cols li button.on{color:#ff7d00}
+.tp-cols li button:hover{color:#ff7d00}
+.tp-none{padding:40px 0;text-align:center;color:#86909c;font-size:14px}
+.tp-none a{text-decoration:none}
+.tp-ft{grid-column:1 / 3;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;border-top:1px solid #e5e6eb;font-size:12px;color:#86909c}
+.tp-ft a{font-size:13px;text-decoration:none}
+.tp-sb{display:flex !important;align-items:center;gap:8px;cursor:text;text-align:left;color:#86909c;font-size:14px}
+.tp-sb > span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-sb kbd,.tp-sp kbd{font:11px/18px Inter,monospace;padding:0 6px;border:1px solid #e5e6eb;border-radius:2px;background:#fff;color:#86909c}
+.tp-sb:hover{background:#e5e6eb}
+.tp-sp{position:absolute;left:50%;top:72px;width:680px;margin-left:-340px;z-index:40;background:#fff;border-radius:4px;box-shadow:0 16px 40px rgba(29,33,41,.22);text-align:left;color:#1d2129;white-space:normal;animation:mo-pop .2s cubic-bezier(.2,.8,.2,1) both}
+.tp-sh{display:flex;align-items:center;gap:10px;height:56px;padding:0 16px;border-bottom:1px solid #e5e6eb}
+.tp-sh input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:16px;color:#1d2129;background:none}
+.tp-sh i{width:18px;height:18px;background:#86909c;-webkit-mask:var(--m) center/18px no-repeat;mask:var(--m) center/18px no-repeat}
+.tp-st{display:flex;gap:4px;padding:8px 12px 0}
+.tp-st button{height:30px;padding:0 10px;border:0;border-radius:2px;background:none;font:inherit;font-size:14px;color:#4e5969;cursor:pointer}
+.tp-st button.on{background:#e8f0ff;color:#165dff}
+.tp-st button span{font-size:12px;color:#86909c;margin-left:4px}
+.tp-sbd{max-height:420px;overflow:auto;padding:4px 8px 8px}
+.tp-sbd h6{margin:12px 8px 6px;font-size:12px;font-weight:400;color:#86909c;display:flex;justify-content:space-between}
+.tp-chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 8px}
+.tp-chips button{height:30px;padding:0 12px;border:1px solid #e5e6eb;border-radius:2px;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.tp-chips button:hover{border-color:#165dff;color:#165dff}
+.tp-rs{list-style:none;margin:0;padding:0}
+.tp-rs li a{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 8px;border-radius:2px;color:#1d2129;text-decoration:none}
+.tp-rs li a:hover,.tp-rs li.on a{background:#f2f7ff}
+.tp-rs li a > i{width:32px;height:32px;border-radius:4px;background:#f2f3f5;display:flex;align-items:center;justify-content:center}
+.tp-rs li a > i span{width:16px;height:16px;background:#4e5969;-webkit-mask:var(--m) center/16px no-repeat;mask:var(--m) center/16px no-repeat}
+.tp-rs li a:hover > i,.tp-rs li.on a > i{background:#e8f0ff}
+.tp-rs li a:hover > i span,.tp-rs li.on a > i span{background:#165dff}
+.tp-rs li a b{display:block;font-weight:400;font-size:14px}
+.tp-rs li a small{display:block;font-size:12px;color:#86909c;margin-top:1px}
+.tp-rs li a em{font-style:normal;font-size:12px;color:#86909c}
+.tp-rs li a em.go{color:#165dff}
+.tp-sf{display:flex;align-items:center;gap:14px;padding:10px 16px;border-top:1px solid #e5e6eb;font-size:12px;color:#86909c}
+.tp-sf a{margin-left:auto;font-size:13px;text-decoration:none}
+.tp-empty{padding:28px 16px 20px;text-align:center}
+.tp-empty b{display:block;font-size:15px;font-weight:500;margin-bottom:6px}
+.tp-empty p{margin:0 0 14px;font-size:13px;color:#86909c}
+.tp-empty div{display:flex;gap:8px;justify-content:center}
+.fi-srch{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2211%22 cy=%2211%22 r=%228%22 /%3E %3Cpath d=%22m21 21-4.3-4.3%22 /%3E%3C/svg%3E")}
+.fi-slink{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71%22 /%3E %3Cpath d=%22M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71%22 /%3E%3C/svg%3E")}
+.fi-slock{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect width=%2218%22 height=%2211%22 x=%223%22 y=%2211%22 rx=%222%22 ry=%222%22 /%3E %3Cpath d=%22M7 11V7a5 5 0 0 1 10 0v4%22 /%3E%3C/svg%3E")}
+.fi-sshield{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z%22 /%3E%3C/svg%3E")}
+.fi-sbox{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z%22 /%3E %3Cpath d=%22M12 22V12%22 /%3E %3Cpath d=%22m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7%22 /%3E %3Cpath d=%22m7.5 4.27 9 5.15%22 /%3E%3C/svg%3E")}
+.fi-schart{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 3v16a2 2 0 0 0 2 2h16%22 /%3E %3Cpath d=%22M18 17V9%22 /%3E %3Cpath d=%22M13 17V5%22 /%3E %3Cpath d=%22M8 17v-3%22 /%3E%3C/svg%3E")}
+.fi-slayers{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z%22 /%3E %3Cpath d=%22M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12%22 /%3E %3Cpath d=%22M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17%22 /%3E%3C/svg%3E")}
+.fi-sgear{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z%22 /%3E %3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22 /%3E%3C/svg%3E")}
+.fi-sdoc{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z%22 /%3E %3Cpath d=%22M14 2v4a2 2 0 0 0 2 2h4%22 /%3E %3Cpath d=%22M10 9H8%22 /%3E %3Cpath d=%22M16 13H8%22 /%3E %3Cpath d=%22M16 17H8%22 /%3E%3C/svg%3E")}
+.fi-shelp{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22 /%3E %3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22 /%3E %3Cpath d=%22M12 17h.01%22 /%3E%3C/svg%3E")}
+.fi-susers{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2%22 /%3E %3Ccircle cx=%229%22 cy=%227%22 r=%224%22 /%3E %3Cpath d=%22M22 21v-2a4 4 0 0 0-3-3.87%22 /%3E %3Cpath d=%22M16 3.13a4 4 0 0 1 0 7.75%22 /%3E%3C/svg%3E")}
+.fi-sbell{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M10.268 21a2 2 0 0 0 3.464 0%22 /%3E %3Cpath d=%22M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326%22 /%3E%3C/svg%3E")}
+/* /top70 */
+
 /* side54：侧栏统一 */
 .kc-side{flex:0 0 220px;display:flex;flex-direction:column;padding:12px 10px 0;border-right:1px solid #e5e9f0;background:radial-gradient(70% 16% at 90% 70%,rgba(186,215,246,.75),rgba(186,215,246,0) 70%),radial-gradient(80% 18% at 10% 74%,rgba(210,232,250,.7),rgba(210,232,250,0) 70%),linear-gradient(180deg,#fbfcfe 0%,#f5f7fb 42%,#edf3fb 72%,#f2f5fa 100%)}
 .kc-side .kc-sh{padding:6px 10px 14px;margin:0 0 4px;border-bottom:1px solid rgba(229,233,240,.9)}
@@ -857,6 +944,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -895,16 +983,98 @@ a{color:#165dff}a:hover{color:#0e4edb}
 @keyframes mo-new{from{background:#e8ffea}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
 /* /motion68 */
+
+/* kit71：组件对齐 5180 */
+.kc-body{background:#f5f7fb}
+.kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
+.kc-ch h2{font-size:16px}
+.kc-btn{height:34px;padding:0 16px;border:1px solid #e4eaf0;border-radius:6px;background:#fff;color:#1d2129;font-weight:500;box-shadow:0 2px 0 rgba(0,0,0,.02)}
+.kc-btn:hover{border-color:#6694ff;color:#165dff}
+.kc-btn.pri{background:#165dff;border-color:#165dff;color:#fff;box-shadow:0 4px 10px rgba(22,93,255,.16)}
+.kc-btn.pri:hover{background:#4080ff;border-color:#4080ff;color:#fff}
+.kc-btn.sm{height:28px;padding:0 12px;font-size:13px;border-radius:6px}
+.kc-btn.dis,.kc-btn[disabled]{opacity:1;background:#f7f8fa;border-color:#e4eaf0;color:#c9cdd4;box-shadow:none}
+.kc-in,.kc-dd,.kc-search{border:1px solid #e4eaf0;border-radius:6px;background:#fff}
+.kc-in:hover,.kc-dd:hover{border-color:#6694ff}
+.kc-in:focus{outline:0;border-color:#165dff;box-shadow:0 0 0 2px rgba(22,93,255,.1)}
+.kc-top .kc-search.tp-sb{height:32px;padding:0 8px 0 12px;margin-left:auto;flex:0 1 300px;justify-content:flex-start;background:#f7f8fa;border-color:#f0f2f5;font:inherit;font-size:14px;color:#86909c;letter-spacing:0}
+.kc-top .tp-sb kbd{margin-left:auto;font:11px/18px Inter,monospace;padding:0 6px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;color:#86909c}
+.kc-card > .kc-tw{margin:0 14px}
+.kc-card > .kc-bar + .kc-tw,.kc-card > .kc-tabs + .kc-tw{margin-top:0}
+.kc-t{border-collapse:separate;border-spacing:0}
+.kc-t th{background:#f7f8fa;color:#4e5969;font-weight:600;height:39px;padding:8px 12px;border-bottom:1px solid #f0f2f5;border-top:0}
+.kc-t thead th:first-child{border-top-left-radius:4px}
+.kc-t thead th:last-child{border-top-right-radius:4px}
+.kc-t td{height:39px;padding:8px 12px;border-top:0;border-bottom:1px solid #f0f2f5}
+.kc-t tbody tr:hover td{background:#f7f9fd}
+.kc-t tbody tr.sel td,.kc-t tbody tr.sel:hover td{background:#eaf2ff}
+.kc-t td a{font-weight:500}
+.kc-foot{border-top:0;padding:12px 14px}
+.ac-cbx{position:relative;width:16px;height:16px;border:1px solid #c9d2df;border-radius:4px;background:#fff;box-shadow:none;vertical-align:middle;transition:background-color .15s,border-color .15s}
+.ac-cbx:hover{border-color:#165dff}
+.ac-cbx.on{background:#165dff;border-color:#165dff;box-shadow:none}
+.ac-cbx.on::after{content:"";position:absolute;left:4.5px;top:1.5px;width:4px;height:8px;border:2px solid #fff;border-top:0;border-left:0;transform:rotate(45deg)}
+.ac-cbx.half{border-color:#c9d2df;background:#fff}
+.ac-cbx.half::after{content:"";position:absolute;left:3px;top:3px;width:8px;height:8px;border-radius:1px;background:#165dff}
+.kc-tabs{gap:28px;padding:0 16px}
+.kc-tab{height:44px;font-weight:500;color:#1d2129}
+.kc-tab.on{color:#165dff;font-weight:500}
+.kc-tab .kc-cnt,.kc-tab.on .kc-cnt{background:none;padding:0;margin-left:2px;color:inherit;font-size:14px;font-weight:500}
+.kc-tab .kc-cnt.r{color:#f53f3f}
+.kc-dtabs button{font-weight:500;color:#1d2129}
+.ac-al{padding:12px 16px;border-radius:8px;background:#fff7e8;border-color:#ffe4ba}
+.ac-al.i{background:#eaf2ff;border-color:#b5d0ff;color:#0e4edb}
+.ac-al.e{background:#fff2f0;border-color:#ffccc7}
+.kc-pg button,.kc-pg input{border-radius:6px;border-color:#e4eaf0;min-width:32px;height:32px}
+.kc-pg button.on{border-color:#165dff;color:#165dff;background:#fff}
+.ac-chips button,.sv-seg button,.sv-os button,.fl-radio button,.fm-types button{border-radius:6px}
+.ac-st,.sv-task,.sx-score{border-radius:6px;border-color:#f0f2f5}
+.ac-st,.sv-task{box-shadow:0 2px 8px rgba(31,35,41,.04)}
+.kc-tag{border-radius:4px}
+.vf-dlg,.ac-pop,.tp-sp{border-radius:8px}
+.kc-main > .kc-hd:not(:has(+ .kc-dtabs)){margin:16px 24px;padding:18px 20px;border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04);
+  background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
+.kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
+/* /kit71 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
     <div class="kc-logo"><span class="kc-mark">德</span>德迅云控制台</div>
-    <button class="kc-prod" type="button">产品与服务
+    <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}">产品与服务
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
     </button>
+    <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
+      <div class="tp-l">
+        <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}">{{r.n}}<small>{{r.s}}</small></a></li></sc-for></ul>
+        <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}">{{r.n}}<small>{{r.cat}}</small></a></li></sc-for></ul>
+        <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
+        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">订单与账务</a></li></ul>
+      </div>
+      <div class="tp-r">
+        <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>已开通 {{hd.openN}} / 共 {{hd.allN}} 个</small></label>
+        <div class="tp-cols"><sc-for list="{{hd.cats}}" as="c" hint-placeholder-count="4"><div><h5>{{c.n}}</h5><ul><sc-for list="{{c.items}}" as="p" hint-placeholder-count="5"><li><a href="{{p.href}}"><b>{{p.n}}</b><small>{{p.s}}</small></a><span class="{{p.tc}}">{{p.st}}</span><button type="button" class="{{p.fc}}" aria-label="{{p.fl}}" onClick="{{p.fav}}">{{p.star}}</button></li></sc-for></ul></div></sc-for></div>
+        <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
+      </div>
+      <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品 ›</a></div>
+    </div></sc-if></span>
     <nav class="kc-crumb" aria-label="面包屑">订单与账务<i>›</i><b>我的订单</b></nav>
-    <div class="ux-search"><input class="kc-search" type="search" aria-label="全局搜索" placeholder="搜索功能、域名、IP、实例或文档"><kbd>Ctrl K</kbd></div>
+    <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
+    <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
+      <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
+      <sc-if value="{{hd.hasQ}}" hint-placeholder-val="{{false}}"><div class="tp-st"><sc-for list="{{hd.stabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}<span>{{t.c}}</span></button></sc-for></div></sc-if>
+      <div class="tp-sbd">
+        <sc-if value="{{hd.noQ}}" hint-placeholder-val="{{true}}">
+          <h6>试试搜</h6><div class="tp-chips"><sc-for list="{{hd.tries}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
+          <h6>最近访问</h6><ul class="tp-rs"><sc-for list="{{hd.sRecent}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+          <h6>快捷操作</h6><ul class="tp-rs"><sc-for list="{{hd.quick}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+        </sc-if>
+        <sc-if value="{{hd.isIp}}" hint-placeholder-val="{{false}}"><h6><span>对 IP {{hd.q}} 可以</span></h6><ul class="tp-rs"><sc-for list="{{hd.ipActs}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em class="go">{{r.e}}</em></a></li></sc-for></ul></sc-if>
+        <sc-for list="{{hd.groups}}" as="g" hint-placeholder-count="0"><h6>{{g.n}}<span>{{g.c}} 条</span></h6><ul class="tp-rs"><sc-for list="{{g.items}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul></sc-for>
+        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="SupDocs.dc.html">搜帮助文档</a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
+      </div>
+      <div class="tp-sf"><span>Ctrl K 随时打开</span><span>Esc 关闭</span><a href="#" onClick="{{hd.toProd}}">按产品浏览 ›</a></div>
+    </div></sc-if>
     <nav class="kc-tl ac-tl" aria-label="快捷入口">
       <a href="SupTickets.dc.html">工单</a><a href="SupDocs.dc.html">文档</a>
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
@@ -984,8 +1154,62 @@ a{color:#165dff}a:hover{color:#0e4edb}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
+  /* top70 */
+  componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
+  componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
+  _top() {
+    const st = this.state || {}; const dd = st.dd || ''; const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const tog = (v) => (e) => { ev(e); this.setState({ dd: dd === v ? '' : v, gq: '', gpq: '' }); };
+    // 产品切换
+    const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
+        ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
+      ['主机与容器', [['德迅卫士', '主机安全', 'AcctProducts.dc.html', 1, '主机 hids'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
+      ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
+    const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
+    let openN = 0, allN = 0; const favList = [];
+    const cats = P.map(([cn, ps]) => ({ n: cn, items: ps.filter(([n, s, href, op, al]) => { allN++; if (op) openN++; if (favs.indexOf(n) >= 0) favList.push({ n, cat: cn, href: op ? href : '#' }); return !pq || (n + ' ' + s + ' ' + al).toLowerCase().indexOf(pq) >= 0; })
+      .map(([n, s, href, op]) => { const on = favs.indexOf(n) >= 0; return { n, s: s || cn, href: op ? href : '#', st: op ? '已开通' : '未开通', tc: op ? 'kc-tag ok' : 'kc-tag mut', fc: on ? 'on' : '', star: on ? '★' : '☆', fl: on ? '取消收藏' : '收藏',
+        fav: (e) => { ev(e); this.setState({ pfav: on ? favs.filter((x) => x !== n) : favs.concat([n]) }); } }; }) })).filter((c) => c.items.length);
+    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, s, href }));
+    // 全局搜索
+    const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
+    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', '#', 'lock', '证书 ssl https'],
+      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', '#', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
+      ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
+      ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
+      ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
+      ['我的订单', '订单与账务', 'BillOrders.dc.html', 'doc', '订单'], ['合并付款', '订单与账务', 'BillPayment.dc.html', 'doc', '付款 转账 对公'], ['申请开票', '订单与账务 › 发票管理', 'BillInvoiceApply.dc.html', 'doc', '发票 开票 专票'],
+      ['续费', '我的产品 › 订阅与资源', 'AcctSubs.dc.html', 'box', '续费 到期'], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', '工单 客服 报障'], ['成员管理', '企业管理', 'OrgMembers.dc.html', 'users', '成员 子用户 权限'],
+      ['安全设置', '企业管理', 'OrgSecurity.dc.html', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业管理', 'OrgVerify.dc.html', 'users', '认证 营业执照'], ['消息', '消息中心', 'Notifications.dc.html', 'bell', '消息 通知 告警']];
+    const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.13 ddos-1e8d07'],
+      ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
+      ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
+      ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillOrderDetail.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
+    const DC = [['回源 502 怎么排查', 'SCDN 文档', 'SupDocs.dc.html', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', 'SupDocs.dc.html', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', 'SupDocs.dc.html', 'doc', '重装 数据'],
+      ['如何封禁 IP', '防护策略文档', 'SupDocs.dc.html', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', 'SupDocs.dc.html', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', 'SupDocs.dc.html', 'doc', '发票 专票']];
+    const hit = (x) => !ql || (x[0] + ' ' + x[1] + ' ' + x[4]).toLowerCase().indexOf(ql) >= 0;
+    const mk = (e) => ([n, p, href, ic]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: '' });
+    const G0 = [['功能', F.filter(hit).map(mk('功能'))], ['资源', R.filter(hit).map(mk('资源'))], ['文档', DC.filter(hit).map(mk('文档'))]];
+    const isIp = /^\d{1,3}(\.\d{1,3}){1,3}\.?$/.test(q.trim());
+    const total = G0.reduce((a, g) => a + g[1].length, 0);
+    const stabs = ['全部', '功能', '资源', '文档'].map((n) => ({ n, c: n === '全部' ? total : (G0.find((g) => g[0] === n) || ['', []])[1].length, cls: n === stab ? 'on' : '', go: () => this.setState({ gstab: n }) }));
+    const groups = ql ? G0.filter((g) => g[1].length && (stab === '全部' || g[0] === stab)).map(([n, items]) => ({ n, c: items.length, items: stab === '全部' ? items.slice(0, 4) : items })) : [];
+    if (groups[0] && groups[0].items[0]) groups[0].items[0].lc = 'on';
+    const ipActs = isIp ? [['查拦截记录', '在 SCDN 和 DDoS 高防日志里查这个 IP', 'DdosLogs.dc.html', 'chart', '查看'], ['加入黑名单', '在访问控制里封禁这个 IP', '#', 'shield', '封禁'], ['查看所属实例', '如果是你的高防 IP 或服务器 IP', 'DdosInstances.dc.html', 'box', '打开']]
+      .map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e })) : [];
+    const tries = ['封 IP', '发票', '203.0.113.12', '重装'].map((n) => ({ n, go: () => this.setState({ gq: n, gstab: '全部' }) }));
+    const sRecent = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '10 分钟前'], ['攻击报表', 'DDoS 高防 IP', 'DdosReport.dc.html', 'chart', '1 小时前'], ['web-prod-01', '服务器租用', 'IdcServerDetail.dc.html', 'box', '昨天']]
+      .map(([n, p, href, ic, e], i) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: i ? '' : 'on' }));
+    const quick = [['添加域名', 'SCDN', 'Main.dc.html', 'link', ''], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', ''], ['续费到期资源', '5 项 30 天内到期', 'AcctSubs.dc.html', 'box', '']].map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e }));
+    return { prodOn: dd === 'prod', prodEx: dd === 'prod' ? 'true' : 'false', prodCls: dd === 'prod' ? 'kc-prod on' : 'kc-prod', prod: tog('prod'),
+      cats, recent, favList, noFav: !favList.length, pq: st.gpq || '', onPq: (e) => this.setState({ gpq: e && e.target ? e.target.value : '' }), openN, allN, pNone: !cats.length,
+      srchOn: dd === 'srch', srch: tog('srch'), q, onQ: (e) => this.setState({ gq: e && e.target ? e.target.value : '', gstab: '全部' }), hasQ: !!ql && !isIp, noQ: !ql, isIp, ipActs, stabs, groups,
+      sNone: !!ql && !isIp && !total, tries, sRecent, quick, toProd: (e) => { ev(e); this.setState({ dd: 'prod', gq: '' }); } };
+  }
+  /* /top70 */
   /* hdr62 */
-  renderVals() { const o = this._rv(); o.hd = this._hdr(); return o; }
+  renderVals() { const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
     const M = [

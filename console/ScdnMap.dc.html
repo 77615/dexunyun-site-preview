@@ -278,6 +278,7 @@ body{margin:0;background:#f5f7fb}
 .fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
 /* /fine69 */
 
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -316,6 +317,59 @@ body{margin:0;background:#f5f7fb}
 @keyframes mo-new{from{background:#e8ffea}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
 /* /motion68 */
+
+/* kit71：组件对齐 5180 */
+.kc-body{background:#f5f7fb}
+.kc-card{border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04)}
+.kc-ch h2{font-size:16px}
+.kc-btn{height:34px;padding:0 16px;border:1px solid #e4eaf0;border-radius:6px;background:#fff;color:#1d2129;font-weight:500;box-shadow:0 2px 0 rgba(0,0,0,.02)}
+.kc-btn:hover{border-color:#6694ff;color:#165dff}
+.kc-btn.pri{background:#165dff;border-color:#165dff;color:#fff;box-shadow:0 4px 10px rgba(22,93,255,.16)}
+.kc-btn.pri:hover{background:#4080ff;border-color:#4080ff;color:#fff}
+.kc-btn.sm{height:28px;padding:0 12px;font-size:13px;border-radius:6px}
+.kc-btn.dis,.kc-btn[disabled]{opacity:1;background:#f7f8fa;border-color:#e4eaf0;color:#c9cdd4;box-shadow:none}
+.kc-in,.kc-dd,.kc-search{border:1px solid #e4eaf0;border-radius:6px;background:#fff}
+.kc-in:hover,.kc-dd:hover{border-color:#6694ff}
+.kc-in:focus{outline:0;border-color:#165dff;box-shadow:0 0 0 2px rgba(22,93,255,.1)}
+.kc-top .kc-search.tp-sb{height:32px;padding:0 8px 0 12px;margin-left:auto;flex:0 1 300px;justify-content:flex-start;background:#f7f8fa;border-color:#f0f2f5;font:inherit;font-size:14px;color:#86909c;letter-spacing:0}
+.kc-top .tp-sb kbd{margin-left:auto;font:11px/18px Inter,monospace;padding:0 6px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;color:#86909c}
+.kc-card > .kc-tw{margin:0 14px}
+.kc-card > .kc-bar + .kc-tw,.kc-card > .kc-tabs + .kc-tw{margin-top:0}
+.kc-t{border-collapse:separate;border-spacing:0}
+.kc-t th{background:#f7f8fa;color:#4e5969;font-weight:600;height:39px;padding:8px 12px;border-bottom:1px solid #f0f2f5;border-top:0}
+.kc-t thead th:first-child{border-top-left-radius:4px}
+.kc-t thead th:last-child{border-top-right-radius:4px}
+.kc-t td{height:39px;padding:8px 12px;border-top:0;border-bottom:1px solid #f0f2f5}
+.kc-t tbody tr:hover td{background:#f7f9fd}
+.kc-t tbody tr.sel td,.kc-t tbody tr.sel:hover td{background:#eaf2ff}
+.kc-t td a{font-weight:500}
+.kc-foot{border-top:0;padding:12px 14px}
+.ac-cbx{position:relative;width:16px;height:16px;border:1px solid #c9d2df;border-radius:4px;background:#fff;box-shadow:none;vertical-align:middle;transition:background-color .15s,border-color .15s}
+.ac-cbx:hover{border-color:#165dff}
+.ac-cbx.on{background:#165dff;border-color:#165dff;box-shadow:none}
+.ac-cbx.on::after{content:"";position:absolute;left:4.5px;top:1.5px;width:4px;height:8px;border:2px solid #fff;border-top:0;border-left:0;transform:rotate(45deg)}
+.ac-cbx.half{border-color:#c9d2df;background:#fff}
+.ac-cbx.half::after{content:"";position:absolute;left:3px;top:3px;width:8px;height:8px;border-radius:1px;background:#165dff}
+.kc-tabs{gap:28px;padding:0 16px}
+.kc-tab{height:44px;font-weight:500;color:#1d2129}
+.kc-tab.on{color:#165dff;font-weight:500}
+.kc-tab .kc-cnt,.kc-tab.on .kc-cnt{background:none;padding:0;margin-left:2px;color:inherit;font-size:14px;font-weight:500}
+.kc-tab .kc-cnt.r{color:#f53f3f}
+.kc-dtabs button{font-weight:500;color:#1d2129}
+.ac-al{padding:12px 16px;border-radius:8px;background:#fff7e8;border-color:#ffe4ba}
+.ac-al.i{background:#eaf2ff;border-color:#b5d0ff;color:#0e4edb}
+.ac-al.e{background:#fff2f0;border-color:#ffccc7}
+.kc-pg button,.kc-pg input{border-radius:6px;border-color:#e4eaf0;min-width:32px;height:32px}
+.kc-pg button.on{border-color:#165dff;color:#165dff;background:#fff}
+.ac-chips button,.sv-seg button,.sv-os button,.fl-radio button,.fm-types button{border-radius:6px}
+.ac-st,.sv-task,.sx-score{border-radius:6px;border-color:#f0f2f5}
+.ac-st,.sv-task{box-shadow:0 2px 8px rgba(31,35,41,.04)}
+.kc-tag{border-radius:4px}
+.vf-dlg,.ac-pop,.tp-sp{border-radius:8px}
+.kc-main > .kc-hd:not(:has(+ .kc-dtabs)){margin:16px 24px;padding:18px 20px;border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04);
+  background:linear-gradient(112deg,transparent 64%,rgba(255,255,255,.75) 64.4%,transparent 66%),linear-gradient(118deg,transparent 76%,rgba(255,255,255,.6) 76.3%,transparent 78%),linear-gradient(90deg,#fff 42%,#eef5ff 72%,#ddebfd 100%)}
+.kc-main > .kc-hd:not(:has(+ .kc-dtabs)) .kc-h1{font-size:22px;font-weight:600}
+/* /kit71 */
 </style>
 </helmet>
 <div class="kc-map" style="width: 1440px; height: 1240px; background: #f5f7fb; padding: 40px 48px; display: flex; gap: 24px; align-items: flex-start;">
