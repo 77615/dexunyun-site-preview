@@ -222,6 +222,92 @@ button.ac-st:hover{border-color:#bedaff}
 .tm-grid p{margin:0 0 14px;font-size:13px;color:#86909c;line-height:1.6;min-height:42px}
 /* /acct62 */
 
+/* flow64：确认订单 / 付款 / 订单详情 */
+.fl-steps{display:flex;align-items:center;gap:0;padding:18px 24px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.fl-steps li{list-style:none;display:flex;align-items:center;gap:10px;flex:1;font-size:14px;color:#86909c;min-width:0}
+.fl-steps li:last-child{flex:0 0 auto}
+.fl-steps li > i{width:24px;height:24px;border-radius:50%;border:1px solid #c9cdd4;display:flex;align-items:center;justify-content:center;font:600 12px/1 Inter,sans-serif;font-style:normal;flex-shrink:0;background:#fff}
+.fl-steps li > div{white-space:nowrap}
+.fl-steps li > div small{display:block;font-size:12px;color:#86909c;margin-top:2px}
+.fl-steps li::after{content:"";flex:1;height:1px;background:#e5e6eb;margin:0 12px}
+.fl-steps li:last-child::after{display:none}
+.fl-steps li.done{color:#1d2129}.fl-steps li.done > i{border-color:#165dff;color:#165dff}
+.fl-steps li.done::after{background:#165dff}
+.fl-steps li.cur{color:#1d2129;font-weight:500}.fl-steps li.cur > i{background:#165dff;border-color:#165dff;color:#fff}
+.fl-steps li.bad{color:#cb2634}.fl-steps li.bad > i{border-color:#f53f3f;background:#f53f3f;color:#fff}
+.fl-seg{display:inline-flex;border:1px solid #e5e6eb;border-radius:2px;overflow:hidden}
+.fl-seg button{height:32px;min-width:72px;padding:0 14px;border:0;border-left:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.fl-seg button:first-child{border-left:0}
+.fl-seg button.on{background:#f2f7ff;color:#165dff;box-shadow:inset 0 0 0 1px #165dff;position:relative}
+.fl-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:14px}
+.fl-row:first-child{border-top:0}
+.fl-row > span{color:#4e5969}
+.fl-row .kc-in{height:32px;width:320px;font-size:14px}
+.fl-row .kc-hint{margin:6px 0 0}
+.fl-sum{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:20px;justify-content:flex-end;padding:14px 24px;margin-top:16px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;box-shadow:0 -4px 16px rgba(29,33,41,.05);font-size:14px}
+.fl-sum .agree{margin-right:auto;display:flex;align-items:center;gap:8px;color:#4e5969;font-size:13px}
+.fl-sum .agree a{text-decoration:none}
+.fl-sum small{color:#86909c;font-size:13px}
+.fl-sum b{font:600 24px/1 Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-sum .kc-btn{height:40px;padding:0 28px;font-size:15px}
+.fl-acct{display:grid;grid-template-columns:auto 1fr auto;gap:0 16px;align-items:center;font-size:14px}
+.fl-acct > span{color:#86909c;line-height:40px}
+.fl-acct > b{font-weight:500;font-variant-numeric:tabular-nums}
+.fl-acct > a{text-decoration:none;font-size:13px}
+.fl-acct > b.hl{color:#165dff;font:600 16px Inter,"PingFang SC",sans-serif}
+.fl-acct > div{grid-column:1/-1;border-top:1px solid #f2f3f5}
+.fl-drop{display:flex;align-items:center;justify-content:center;gap:10px;height:96px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;color:#86909c;font:inherit;font-size:13px;cursor:pointer;width:100%}
+.fl-drop:hover{border-color:#165dff;color:#165dff}
+.fl-file{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;font-size:13px}
+.fl-file > i{width:36px;height:36px;border-radius:2px;background:#f2f7ff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fl-file > i .kc-ic{background:#165dff}
+.fl-file div{flex:1;min-width:0}.fl-file small{display:block;color:#86909c;font-size:12px}
+.fl-file button{border:0;background:none;color:#86909c;font:inherit;font-size:13px;cursor:pointer}
+.fl-ok{display:flex;flex-direction:column;align-items:center;gap:10px;padding:48px 20px;text-align:center}
+.fl-ok > i{width:56px;height:56px;border-radius:50%;background:#e8ffea;display:flex;align-items:center;justify-content:center}
+.fl-ok > i .kc-ic{width:28px;height:28px;-webkit-mask-size:28px 28px;mask-size:28px 28px;background:#00b42a}
+.fl-ok h2{margin:6px 0 0;font-size:18px;font-weight:600}
+.fl-ok p{margin:0;font-size:14px;color:#4e5969}
+.fl-ok .kc-btns{margin-top:12px}
+.fl-tot{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding:14px 20px;border-top:1px solid #e5e6eb;font-size:13px;color:#4e5969}
+.fl-tot div{display:flex;gap:24px}.fl-tot div b{min-width:110px;text-align:right;font-weight:400;color:#1d2129;font-variant-numeric:tabular-nums}
+.fl-tot div.big b{font:600 20px Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-radio{display:flex;flex-direction:column;gap:8px}
+.fl-radio button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;text-align:left;cursor:pointer}
+.fl-radio button > i{width:16px;height:16px;border-radius:50%;border:1px solid #c9cdd4;flex-shrink:0}
+.fl-radio button.on{border-color:#165dff;background:#f2f7ff}.fl-radio button.on > i{border:5px solid #165dff}
+.fl-radio button small{margin-left:auto;color:#86909c;font-size:12px}
+/* /flow64 */
+
+/* flow65：表单与验证弹窗 */
+.fm-ta{width:100%;max-width:640px;height:120px;border:1px solid #e5e6eb;border-radius:2px;padding:8px 10px;font:inherit;font-size:14px;resize:vertical;box-sizing:border-box}
+.fm-types{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:860px}
+.fm-types button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;text-align:left;cursor:pointer}
+.fm-types button small{font-size:12px;color:#86909c}
+.fm-types button.on{border-color:#165dff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #165dff}
+.fm-types button.r small{color:#cb2634}
+.fm-help{margin-top:8px;padding:10px 12px;background:#f7f8fa;border-radius:2px;font-size:13px;max-width:640px}
+.fm-help b{font-weight:500;margin-right:8px}
+.fm-help a{margin-right:14px;text-decoration:none}
+.fm-chk{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}
+.fm-chk label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.ac-drw .fl-row{grid-template-columns:96px minmax(0,1fr);padding:12px 0}
+.ac-drw .fl-row .kc-in{width:100%}
+.ac-drw .fl-radio button{padding:8px 12px}
+.vf-mask{position:absolute;inset:0;z-index:30;background:rgba(29,33,41,.45);display:flex;align-items:flex-start;justify-content:center;padding-top:200px}
+.vf-dlg{width:420px;background:#fff;border-radius:4px;box-shadow:0 12px 32px rgba(29,33,41,.18)}
+.vf-dlg header{display:flex;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e6eb}
+.vf-dlg header b{flex:1;font-size:16px;font-weight:600}
+.vf-dlg header button{border:0;background:none;font-size:20px;color:#86909c;cursor:pointer}
+.vf-dlg .bd{padding:20px;font-size:14px;color:#4e5969;display:flex;flex-direction:column;gap:14px}
+.vf-dlg .bd p{margin:0}
+.vf-code{display:flex;gap:8px}.vf-code .kc-in{flex:1;height:36px;font-size:15px;letter-spacing:4px}
+.vf-code .kc-btn{height:36px}
+.vf-dlg footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid #e5e6eb}
+.fm-new{background:#f2fff4}
+/* /flow65 */
+
+
 /* ux56：总览、全局搜索、加载规范 */
 .ux-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .ux-tile{position:relative;display:flex;align-items:center;gap:12px;height:64px;padding:0 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;color:#1d2129;text-decoration:none;transition:border-color .2s,background .2s}
@@ -807,6 +893,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .i-pulse{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2%22/%3E%3C/svg%3E")}
 .i-help{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22/%3E%3Cpath d=%22M12 17h.01%22/%3E%3C/svg%3E")}
 .i-gear{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
+.i-check{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22/%3E%3C/svg%3E")}
 /* /lucide63 */
 </style>
 </helmet>
@@ -823,7 +910,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
           <div class="ac-ph"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>对公转账 · 本月已付款 ¥1,305.00 · 1 笔核验未匹配</em>
-            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPay.dc.html">合并付款</a></div></div>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a></div></div>
           <ul class="ac-rows">
             <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i>›</i></a></li>
             <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i>›</i></a></li>
@@ -835,10 +922,10 @@ a{color:#165dff}a:hover{color:#0e4edb}
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
-          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="#">消息设置</a></div>
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
           <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
           <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
-          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="#">查看全部消息 ›</a></div>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息 ›</a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
@@ -879,7 +966,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">成员管理</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="OrgRoles.dc.html">角色权限</a><a class="kc-btn pri" href="#">新增成员</a></div>
+        <div class="kc-btns"><a class="kc-btn" href="OrgRoles.dc.html">角色权限</a><a class="kc-btn pri" href="#" onClick="{{openD}}">新增成员</a></div>
       </div>
       <div class="ac-url" style="margin-bottom:16px"><span>成员登录地址</span><code>https://uc.dexunyun.com/sub-login?ent=100014655316</code><a href="#">复制</a></div>
       <section class="kc-card">
@@ -889,10 +976,31 @@ a{color:#165dff}a:hover{color:#0e4edb}
           <thead><tr><th>姓名</th><th>登录名</th><th>手机号</th><th>角色</th><th>状态</th><th>最近登录</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
         </table></div>
-        <div class="kc-foot"><span>共 {{total}} 人 · 已创建 5 / 50</span><div class="kc-pg"><button type="button" aria-label="上一页">‹</button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页">›</button></div></div>
+        <div class="kc-foot"><span>共 {{total}} 人 · 已创建 {{cnt}} / 50</span><div class="kc-pg"><button type="button" aria-label="上一页">‹</button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页">›</button></div></div>
       </section>
     </main>
   </div>
+  <sc-if value="{{dOpen}}" hint-placeholder-val="{{false}}">
+  <div class="ac-drw" role="dialog" aria-label="新增成员">
+    <header><b>新增成员</b><button type="button" aria-label="关闭" onClick="{{closeD}}">×</button></header>
+    <div class="bd">
+      <div class="fl-row" style="padding-top:0"><span>姓名</span><input class="kc-in" type="text" aria-label="姓名" value="孙七"></div>
+      <div class="fl-row"><span>登录名</span><div><input class="kc-in" type="text" aria-label="登录名" value="sunqi"><p class="kc-hint">成员用「登录名 + 企业 ID」在成员登录地址登录</p></div></div>
+      <div class="fl-row"><span>手机号</span><div><input class="kc-in" type="text" aria-label="手机号" value="186****7788"><p class="kc-hint">初始密码通过短信发送，首次登录需修改</p></div></div>
+      <div class="fl-row" style="align-items:start"><span style="padding-top:8px">角色</span><div class="fl-radio"><sc-for list="{{roles}}" as="r" hint-placeholder-count="4"><button type="button" class="{{r.cls}}" onClick="{{r.go}}"><i></i>{{r.n}}<small>{{r.s}}</small></button></sc-for></div></div>
+      <sc-if value="{{scoped}}" hint-placeholder-val="{{true}}"><div class="fl-row" style="align-items:start"><span>可管理产品</span><div class="fm-chk"><sc-for list="{{prods}}" as="p" hint-placeholder-count="5"><label><button type="button" class="{{p.cls}}" aria-label="{{p.n}}" onClick="{{p.go}}"></button>{{p.n}}</label></sc-for></div></div></sc-if>
+    </div>
+    <footer style="justify-content:flex-end"><button class="kc-btn" type="button" onClick="{{closeD}}">取消</button><button class="kc-btn pri" type="button" onClick="{{ask}}">确定</button></footer>
+  </div>
+  </sc-if>
+  <sc-if value="{{vOpen}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="敏感操作验证">
+    <header><b>敏感操作验证</b><button type="button" aria-label="关闭" onClick="{{closeV}}">×</button></header>
+    <div class="bd"><p>新增成员「孙七 · {{role}}」需要验证主账号手机 177****1234</p>
+      <div class="vf-code"><input class="kc-in" type="text" aria-label="验证码" value="{{code}}" placeholder="6 位验证码"><button class="{{sendCls}}" type="button" onClick="{{send}}">{{sendTxt}}</button></div></div>
+    <footer><button class="kc-btn" type="button" onClick="{{closeV}}">取消</button><button class="{{okCls}}" type="button" onClick="{{confirm}}">确认</button></footer>
+  </div></div>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
@@ -942,16 +1050,26 @@ class Component extends DCLogic {
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
+    const added = !!st.added;
     const R = [
       [[{ t: '赵敏', a: '#' }, 'zhaomin', '137****2266', { t: '管理员', tag: 'info' }, { t: '已启用', tag: 'ok' }, '2026-10-26 18:20'], [['编辑'], ['停用']], 'on'],
       [[{ t: '李四', a: '#' }, 'lisi', '139****4321', { t: '财务管理员', tag: 'warn' }, { t: '已启用', tag: 'ok' }, '2026-10-26 15:20'], [['编辑'], ['停用']], 'on'],
-      [[{ t: '张三', a: '#' }, 'zhangsan', '138****5678', { t: '运维工程师', tag: 'info' }, { t: '已启用', tag: 'ok' }, '2026-10-27 08:05'], [['编辑'], ['停用']], 'on'],
+      [[{ t: '张三', a: '#' }, 'zhangsan', '138****5678', { t: '运维工程师', tag: 'info', s: 'SCDN、DDoS 高防 IP' }, { t: '已启用', tag: 'ok' }, '2026-10-27 08:05'], [['编辑'], ['停用']], 'on'],
       [[{ t: '王五', a: '#' }, 'wangwu', '136****8888', { t: '普通成员', tag: 'mut' }, { t: '已启用', tag: 'ok' }, '2026-10-18 11:02'], [['编辑'], ['停用']], 'on'],
       [[{ t: '赵六', a: '#' }, 'zhaoliu', '135****0909', { t: '普通成员', tag: 'mut' }, { t: '已停用', tag: 'mut' }, { t: '从未登录', c: 'm' }], [['编辑'], ['启用']], 'off']
     ];
+    const RL = [['管理员', '管理成员、下单、付款'], ['财务管理员', '付款、发票、合同'], ['运维工程师', '指定产品的配置与续费'], ['普通成员', '只读查看、提交工单']];
+    const role = st.role || '运维工程师';
+    const roles = RL.map(([n, s]) => ({ n, s, cls: n === role ? 'on' : '', go: () => this.setState({ role: n }) }));
+    const scoped = role === '运维工程师' || role === '普通成员';
+    const ps = st.ps || ['SCDN', '游戏盾'];
+    const prods = ['SCDN', 'DDoS 高防 IP', '游戏盾', '德迅云眼', '德迅卫士'].map((n) => { const on = ps.indexOf(n) >= 0; return { n, cls: on ? 'ac-cbx on' : 'ac-cbx', go: () => this.setState({ ps: on ? ps.filter((x) => x !== n) : ps.concat([n]) }) }; });
+    if (added) R.unshift([[{ t: '孙七', a: '#', s: '新成员 · 待首次登录' }, 'sunqi', '186****7788', { t: role, tag: 'info', s: scoped ? ps.join('、') : '' }, { t: '已启用', tag: 'ok' }, { t: '从未登录', c: 'm' }], [['编辑'], ['停用']], 'on']);
     const T = TABS([['全部成员', ''], ['已启用', 'on'], ['已停用', 'off']], R.map((r) => ROW(r[0], r[1], r[2])), 'ft');
+    if (added) T.rows[0].rc = 'fm-new';
+    const sent = !!st.sent; const vOpen = !!st.v;
 
-    return Object.assign({ nav }, { tabs: T.tabs, rows: T.rows, total: T.rows.length });
+    return Object.assign({ nav }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, cnt: added ? 6 : 5, dOpen: !!st.d && !vOpen, closeD: () => this.setState({ d: false }), openD: (e) => { ev(e); this.setState({ d: true, added: false }); }, roles, role, scoped, prods, ask: () => this.setState({ v: true }), vOpen, closeV: () => this.setState({ v: false, sent: false }), send: () => this.setState({ sent: true }), sendTxt: sent ? '59 秒后重发' : '获取验证码', sendCls: sent ? 'kc-btn dis' : 'kc-btn', code: sent ? '382916' : '', okCls: sent ? 'kc-btn pri' : 'kc-btn pri dis', confirm: () => this.setState({ v: false, d: false, sent: false, added: true }) });
   }
 }
 </script>

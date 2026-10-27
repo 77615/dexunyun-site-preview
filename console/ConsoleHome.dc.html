@@ -807,6 +807,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .i-pulse{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2%22/%3E%3C/svg%3E")}
 .i-help{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22/%3E%3Cpath d=%22M12 17h.01%22/%3E%3C/svg%3E")}
 .i-gear{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
+.i-check{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22/%3E%3C/svg%3E")}
 /* /lucide63 */
 </style>
 </helmet>
@@ -823,7 +824,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
           <div class="ac-ph"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>对公转账 · 本月已付款 ¥1,305.00 · 1 笔核验未匹配</em>
-            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPay.dc.html">合并付款</a></div></div>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a></div></div>
           <ul class="ac-rows">
             <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i>›</i></a></li>
             <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i>›</i></a></li>
@@ -835,10 +836,10 @@ a{color:#165dff}a:hover{color:#0e4edb}
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
-          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="#">消息设置</a></div>
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
           <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
           <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
-          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="#">查看全部消息 ›</a></div>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息 ›</a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
@@ -879,12 +880,12 @@ a{color:#165dff}a:hover{color:#0e4edb}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="SupTickets.dc.html">提交工单</a><a class="kc-btn pri" href="#">购买产品</a></div>
+        <div class="kc-btns"><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
       </div>
       <div class="ac-g2">
         <div class="ac-col">
           <section class="kc-card">
-            <div class="kc-ch"><h2>待处理 <span class="kc-tag err" style="margin-left:6px">{{todoN}}</span></h2><a href="#">全部消息</a></div>
+            <div class="kc-ch"><h2>待处理 <span class="kc-tag err" style="margin-left:6px">{{todoN}}</span></h2><a href="Notifications.dc.html">全部消息</a></div>
             <div class="kc-tabs" role="tablist"><sc-for list="{{ttabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
             <ul class="ov-todo"><sc-for list="{{todo}}" as="t" hint-placeholder-count="6"><li><i class="{{t.dot}}"></i><small>{{t.c}}</small><span>{{t.t}}<em>{{t.s}}</em></span><a href="{{t.href}}">{{t.a}}</a></li></sc-for></ul>
           </section>
@@ -914,7 +915,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
           <section class="kc-card">
             <div class="kc-ch"><h2>费用</h2><a href="BillOverview.dc.html">账务概览</a></div>
             <div class="ov-fee"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>1 笔付款核验中 · 1 笔核验未匹配</em>
-              <div class="ac-pbtn"><a class="kc-btn pri" href="BillPay.dc.html">合并付款</a><a class="kc-btn" href="BillInvoice.dc.html">申请开票</a></div>
+              <div class="ac-pbtn"><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a><a class="kc-btn" href="BillInvoice.dc.html">申请开票</a></div>
               <ul><li>本月已付款<b>¥1,305.00</b></li><li>30 天内到期<b style="color:#d25f00">5 项</b></li><li>可开票金额<b>¥1,169.84</b></li><li>代金券<b>1 张</b></li></ul></div>
           </section>
           <section class="kc-card">
@@ -929,7 +930,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
               <li><a href="SupDocs.dc.html">对公转账后多久能核验到账？</a></li>
               <li><a href="SupDocs.dc.html">成员如何登录？</a></li>
             </ul>
-            <div class="ac-pf" style="border-top:1px solid #f2f3f5"><a href="SupTickets.dc.html">提交工单</a><span style="color:#86909c">7×24 热线 0577-26676666</span></div>
+            <div class="ac-pf" style="border-top:1px solid #f2f3f5"><a href="SupTicketNew.dc.html">提交工单</a><span style="color:#86909c">7×24 热线 0577-26676666</span></div>
           </section>
         </div>
       </div>
@@ -988,22 +989,22 @@ class Component extends DCLogic {
       ['r', '安全', '高防-002 正遭受 UDP Flood 攻击', '峰值 86 Gbps，超过保底 80 Gbps', '处理', 'DdosInstances.dc.html', 'sec'],
       ['r', '安全', '德迅云眼发现 3 个高危风险', 'www.example.com 首页被植入暗链', '处理', 'EyeRisk.dc.html', 'sec'],
       ['o', '产品', '德迅卫士授权超出 18 台', '超出的主机不受保护', '扩容', 'AcctUsage.dc.html', 'prod'],
-      ['o', '续费', '5 项服务 30 天内到期', '最早：德迅卫士 dx-guard-01 已到期，保留至 11-08', '续费', 'AcctSubs.dc.html', 'fee'],
+      ['o', '续费', '5 项服务 30 天内到期', '最早：德迅卫士 dx-guard-01 已到期，保留至 11-08', '续费', 'BillConfirm.dc.html', 'fee'],
       ['o', '费用', '1 笔付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '补充', 'BillPay.dc.html', 'fee'],
-      ['b', '费用', '1 笔订单待对公转账', '游戏盾 · 专业版续费 ¥320.00', '付款', 'BillPay.dc.html', 'fee'],
+      ['b', '费用', '1 笔订单待对公转账', '游戏盾 · 专业版续费 ¥320.00', '付款', 'BillPayment.dc.html', 'fee'],
       ['b', '工单', '工单「回源 502」待你确认', '技术支持已回复解决方案', '确认', 'SupTickets.dc.html', 'tk'],
-      ['g', '账号', '权益转移待确认', '139****4321 转入「云备份 · 标准版」', '查看', '#', 'tk']
+      ['g', '账号', '权益转移待确认', '139****4321 转入「云备份 · 标准版」', '查看', 'AcctTransfer.dc.html', 'tk']
     ];
     const tdRows = TD.map(([dot, c, t, s, a, href, k]) => ({ dot, c, t, s, a, href, k }));
     const TT = TABS([['全部', ''], ['安全', 'sec'], ['费用与续费', 'fee'], ['工单与其他', 'tk']], tdRows, 'tt');
     const favs = st.favs || ['SCDN', 'DDoS 高防 IP'];
     const PR = [
-      ['SCDN', 'warn', '需处理 4', 'w', 'CC 规则只记录不拦截', 'api.example.com 正被 CC 攻击；另有证书到期。', 'Main.dc.html', '进入控制台', 'AcctSubs.dc.html', '续费'],
+      ['SCDN', 'warn', '需处理 4', 'w', 'CC 规则只记录不拦截', 'api.example.com 正被 CC 攻击；另有证书到期。', 'Main.dc.html', '进入控制台', 'BillConfirm.dc.html', '续费'],
       ['DDoS 高防 IP', 'err', '攻击中', 'e', '攻击超过保底防护', '高防-002 峰值 86 Gbps，业务访问正常。', 'DdosInstances.dc.html', '进入控制台', 'DdosReport.dc.html', '攻击报表'],
       ['德迅云眼', 'err', '需处理 3', 'e', '首页被植入暗链', '另有 1 个 SQL 注入高危漏洞。', 'EyeRisk.dc.html', '进入控制台', 'EyeAssets.dc.html', '监测资产'],
       ['游戏盾', 'warn', '接近上限', 'w', '并发已用 85%', '周六活动可能超出套餐。', 'GameAccess.dc.html', '进入控制台', 'AcctUsage.dc.html', '升级'],
-      ['德迅卫士', 'err', '已到期', 'e', '已到期 · 保留至 11-08', '续费后防护立即恢复，68 台主机待保护。', 'AcctSubs.dc.html', '去续费', 'AcctProducts.dc.html', '详情'],
-      ['SSL 证书', 'ok', '正常', 'ok', '3 张证书正常', '最近一张 11-04 到期，已开启提醒。', 'AcctProducts.dc.html', '管理', 'AcctSubs.dc.html', '续费']
+      ['德迅卫士', 'err', '已到期', 'e', '已到期 · 保留至 11-08', '续费后防护立即恢复，68 台主机待保护。', 'BillConfirm.dc.html', '去续费', 'AcctProductDetail.dc.html', '详情'],
+      ['SSL 证书', 'ok', '正常', 'ok', '3 张证书正常', '最近一张 11-04 到期，已开启提醒。', 'AcctProducts.dc.html', '管理', 'BillConfirm.dc.html', '续费']
     ];
     const prods = PR.map(([n, tc, tag, vc, v, d, href, go, h2, l2]) => { const on = favs.indexOf(n) >= 0; return { n, tc: 'kc-tag ' + tc, tag, vc: 'n ' + vc, v, d, href, go, h2, l2,
       cls: 'ov-pc', sc: on ? 'on' : '', sl: on ? '取消收藏' : '收藏，置顶到顶栏', star: () => this.setState({ favs: on ? favs.filter((x) => x !== n) : favs.concat([n]) }) }; })

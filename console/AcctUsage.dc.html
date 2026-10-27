@@ -807,6 +807,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .i-pulse{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2%22/%3E%3C/svg%3E")}
 .i-help{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22/%3E%3Cpath d=%22M12 17h.01%22/%3E%3C/svg%3E")}
 .i-gear{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
+.i-check{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22/%3E%3C/svg%3E")}
 /* /lucide63 */
 </style>
 </helmet>
@@ -823,7 +824,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
           <div class="ac-ph"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>对公转账 · 本月已付款 ¥1,305.00 · 1 笔核验未匹配</em>
-            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPay.dc.html">合并付款</a></div></div>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a></div></div>
           <ul class="ac-rows">
             <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i>›</i></a></li>
             <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i>›</i></a></li>
@@ -835,10 +836,10 @@ a{color:#165dff}a:hover{color:#0e4edb}
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
-          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="#">消息设置</a></div>
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
           <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
           <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
-          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="#">查看全部消息 ›</a></div>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息 ›</a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
@@ -882,7 +883,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
         <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">订阅与资源</a></div>
       </div>
       <div class="ac-stats c3"><sc-for list="{{cards}}" as="s" hint-placeholder-count="3"><button type="button" class="{{s.cls}}" onClick="{{s.go}}"><span>{{s.n}}</span><b>{{s.v}}</b><em>{{s.d}}<a>{{s.l}}</a></em></button></sc-for></div>
-      <div class="ac-al e"><i>!</i><span>dx-guard-01 授权超出 18 台：超出的主机不会安装防护<em>扩容后立即生效，按剩余天数补差价</em></span><a class="kc-btn pri sm" href="#">扩容</a></div>
+      <div class="ac-al e"><i>!</i><span>dx-guard-01 授权超出 18 台：超出的主机不会安装防护<em>扩容后立即生效，按剩余天数补差价</em></span><a class="kc-btn pri sm" href="BillConfirm.dc.html">扩容</a></div>
       <section class="kc-card">
         <div class="kc-ch"><h2>授权使用情况</h2><span class="kc-sub">{{fl}}</span></div>
         <div class="kc-bar"><button class="kc-dd" type="button" aria-haspopup="listbox"><span>产品</span><b>全部</b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><input class="kc-in" style="width:260px" type="search" aria-label="搜索资源 ID" placeholder="搜索资源 ID"></div>
@@ -944,12 +945,12 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const R = [
-      [[{ t: 'dx-guard-01', a: '#' }, { t: '德迅卫士', s: '企业版' }, { t: '50 台', c: 'ac-n' }, { t: '68 台', c: 'ac-n r' }, { t: '136%', bar: 100, bc: 'r', c: 'r' }, { t: '超出 18 台', tag: 'err' }], [['扩容']], 'over'],
-      [[{ t: '游戏盾-001', a: 'GameAccess.dc.html' }, { t: '游戏盾', s: '专业版' }, { t: '2,000 并发', c: 'ac-n' }, { t: '1,700', c: 'ac-n o' }, { t: '85%', bar: 85, bc: 'o', c: 'o' }, { t: '接近上限', tag: 'warn' }], [['升级']], 'near'],
+      [[{ t: 'dx-guard-01', a: '#' }, { t: '德迅卫士', s: '企业版' }, { t: '50 台', c: 'ac-n' }, { t: '68 台', c: 'ac-n r' }, { t: '136%', bar: 100, bc: 'r', c: 'r' }, { t: '超出 18 台', tag: 'err' }], [['扩容', 'BillConfirm.dc.html']], 'over'],
+      [[{ t: '游戏盾-001', a: 'GameAccess.dc.html' }, { t: '游戏盾', s: '专业版' }, { t: '2,000 并发', c: 'ac-n' }, { t: '1,700', c: 'ac-n o' }, { t: '85%', bar: 85, bc: 'o', c: 'o' }, { t: '接近上限', tag: 'warn' }], [['升级', 'BillConfirm.dc.html']], 'near'],
       [[{ t: 'web-prod-01', a: '#' }, { t: '服务器租用', s: 'E5-2680×2 / 64G' }, { t: '1 台', c: 'ac-n' }, { t: '1 台', c: 'ac-n' }, { t: '100%', bar: 100, bc: '' }, { t: '已用满', tag: 'info' }], [['查看资源']], 'near'],
-      [[{ t: 'SCDN-001', a: 'Main.dc.html' }, { t: 'SCDN', s: '企业版' }, { t: '10 域名', c: 'ac-n' }, { t: '6', c: 'ac-n' }, { t: '60%', bar: 60, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容']], ''],
-      [[{ t: '云眼-001', a: 'EyeAssets.dc.html' }, { t: '德迅云眼', s: '标准版' }, { t: '20 资产', c: 'ac-n' }, { t: '12', c: 'ac-n' }, { t: '60%', bar: 60, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容']], ''],
-      [[{ t: 'VSS-001', a: '#' }, { t: '漏洞扫描 VSS', s: '基础版' }, { t: '5 站点', c: 'ac-n' }, { t: '2', c: 'ac-n' }, { t: '40%', bar: 40, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容']], '']
+      [[{ t: 'SCDN-001', a: 'Main.dc.html' }, { t: 'SCDN', s: '企业版' }, { t: '10 域名', c: 'ac-n' }, { t: '6', c: 'ac-n' }, { t: '60%', bar: 60, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容', 'BillConfirm.dc.html']], ''],
+      [[{ t: '云眼-001', a: 'EyeAssets.dc.html' }, { t: '德迅云眼', s: '标准版' }, { t: '20 资产', c: 'ac-n' }, { t: '12', c: 'ac-n' }, { t: '60%', bar: 60, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容', 'BillConfirm.dc.html']], ''],
+      [[{ t: 'VSS-001', a: '#' }, { t: '漏洞扫描 VSS', s: '基础版' }, { t: '5 站点', c: 'ac-n' }, { t: '2', c: 'ac-n' }, { t: '40%', bar: 40, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容', 'BillConfirm.dc.html']], '']
     ];
     const all = R.map((r) => ROW(r[0], r[1], r[2]));
     const f = st.f || '';

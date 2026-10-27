@@ -807,6 +807,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .i-pulse{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2%22/%3E%3C/svg%3E")}
 .i-help{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22/%3E%3Cpath d=%22M12 17h.01%22/%3E%3C/svg%3E")}
 .i-gear{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
+.i-check{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22/%3E%3C/svg%3E")}
 /* /lucide63 */
 </style>
 </helmet>
@@ -823,7 +824,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
           <div class="ac-ph"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>对公转账 · 本月已付款 ¥1,305.00 · 1 笔核验未匹配</em>
-            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPay.dc.html">合并付款</a></div></div>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a></div></div>
           <ul class="ac-rows">
             <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i>›</i></a></li>
             <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i>›</i></a></li>
@@ -835,10 +836,10 @@ a{color:#165dff}a:hover{color:#0e4edb}
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
-          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="#">消息设置</a></div>
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
           <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
           <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
-          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="#">查看全部消息 ›</a></div>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息 ›</a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
@@ -879,7 +880,7 @@ a{color:#165dff}a:hover{color:#0e4edb}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">产品列表</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">即将到期的订阅</a><a class="kc-btn pri" href="#">购买产品</a></div>
+        <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">即将到期的订阅</a><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
       </div>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
@@ -943,14 +944,14 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const R = [
-      ['云安全', [{ t: 'SCDN', a: 'Main.dc.html' }, '企业版 · 10 域名', { t: '6 / 10 域名' }, { t: '2027-03-18', s: '剩 142 天' }, { t: '运行中', tag: 'ok' }], [['控制台', 'Main.dc.html'], ['续费']], ''],
-      ['云安全', [{ t: 'DDoS 高防 IP', a: 'DdosInstances.dc.html' }, '4 个实例', '—', { t: '2026-11-09', s: '最早一个剩 13 天', sc: 'o' }, { t: '攻击中', tag: 'err' }], [['控制台', 'DdosInstances.dc.html'], ['续费']], 'att exp'],
-      ['云安全', [{ t: '游戏盾', a: 'GameAccess.dc.html' }, '专业版 · 2,000 并发', { t: '1,700 / 2,000', c: 'o', s: '已用 85%', sc: 'o' }, { t: '2027-01-12', s: '剩 77 天' }, { t: '接近上限', tag: 'warn' }], [['控制台', 'GameAccess.dc.html'], ['升级']], 'att'],
-      ['主机安全', [{ t: '德迅卫士', a: 'AcctSubs.dc.html' }, '企业版 · 50 台', { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '2026-10-25', s: '已到期，保留至 11-08', sc: 'r' }, { t: '已到期 · 保留中', tag: 'err' }], [['续费'], ['扩容']], 'att exp'],
-      ['安全运营', [{ t: '德迅云眼', a: 'EyeRisk.dc.html' }, '标准版 · 20 资产', '12 / 20 资产', { t: '2027-05-02', s: '剩 187 天' }, { t: '运行中', tag: 'ok' }], [['控制台', 'EyeRisk.dc.html'], ['续费']], ''],
-      ['云安全', [{ t: 'SSL 证书', a: '#' }, 'DV × 3 张', '3 张', { t: '2026-11-04', s: '最早一张剩 8 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['管理'], ['续费']], 'att exp'],
-      ['安全运营', [{ t: '漏洞扫描 VSS', a: '#' }, '基础版 · 5 站点', '2 / 5 站点', { t: '2027-02-20', s: '剩 116 天' }, { t: '运行中', tag: 'ok' }], [['控制台'], ['续费']], ''],
-      ['IDC 服务', [{ t: '服务器租用', a: '#' }, '独享型 · E5-2680×2 / 64G', '1 / 1 台', { t: '2026-11-20', s: '剩 24 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['管理'], ['续费']], 'exp'],
+      ['云安全', [{ t: 'SCDN', a: 'Main.dc.html' }, '企业版 · 10 域名', { t: '6 / 10 域名' }, { t: '2027-03-18', s: '剩 142 天' }, { t: '运行中', tag: 'ok' }], [['控制台', 'Main.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['云安全', [{ t: 'DDoS 高防 IP', a: 'DdosInstances.dc.html' }, '4 个实例', '—', { t: '2026-11-09', s: '最早一个剩 13 天', sc: 'o' }, { t: '攻击中', tag: 'err' }], [['控制台', 'DdosInstances.dc.html'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
+      ['云安全', [{ t: '游戏盾', a: 'GameAccess.dc.html' }, '专业版 · 2,000 并发', { t: '1,700 / 2,000', c: 'o', s: '已用 85%', sc: 'o' }, { t: '2027-01-12', s: '剩 77 天' }, { t: '接近上限', tag: 'warn' }], [['控制台', 'GameAccess.dc.html'], ['升级', 'BillConfirm.dc.html']], 'att'],
+      ['主机安全', [{ t: '德迅卫士', a: 'AcctProductDetail.dc.html' }, '企业版 · 50 台', { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '2026-10-25', s: '已到期，保留至 11-08', sc: 'r' }, { t: '已到期 · 保留中', tag: 'err' }], [['续费', 'BillConfirm.dc.html'], ['扩容', 'BillConfirm.dc.html']], 'att exp'],
+      ['安全运营', [{ t: '德迅云眼', a: 'EyeRisk.dc.html' }, '标准版 · 20 资产', '12 / 20 资产', { t: '2027-05-02', s: '剩 187 天' }, { t: '运行中', tag: 'ok' }], [['控制台', 'EyeRisk.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['云安全', [{ t: 'SSL 证书', a: '#' }, 'DV × 3 张', '3 张', { t: '2026-11-04', s: '最早一张剩 8 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['管理'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
+      ['安全运营', [{ t: '漏洞扫描 VSS', a: '#' }, '基础版 · 5 站点', '2 / 5 站点', { t: '2027-02-20', s: '剩 116 天' }, { t: '运行中', tag: 'ok' }], [['控制台'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['IDC 服务', [{ t: '服务器租用', a: '#' }, '独享型 · E5-2680×2 / 64G', '1 / 1 台', { t: '2026-11-20', s: '剩 24 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['管理'], ['续费', 'BillConfirm.dc.html']], 'exp'],
       ['安全服务', [{ t: '等保咨询', a: '#' }, '二级 · 一次性服务', '—', { t: '2026-08-30', s: '服务已完成', sc: 'm' }, { t: '已释放', tag: 'mut' }], [['详情']], 'rel']
     ];
     const cat = st.cat || '全部';
