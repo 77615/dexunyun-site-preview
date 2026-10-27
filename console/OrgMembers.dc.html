@@ -1148,13 +1148,13 @@ a{color:#1664ff}a:hover{color:#1759dd}
 /* /kit71 */
 
 /* opfix73：操作列固定 */
-.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:-10px 0 10px -10px rgba(31,35,41,.18)}
+.op-fix tr > :last-child{position:sticky;right:0;z-index:1;white-space:nowrap;box-shadow:none}
 .op-fix thead tr > :last-child{background:#f7f8fa;z-index:2}
 .op-fix tbody tr > td:last-child{background:#fff}
 .op-fix tbody tr.kc-row-hot > td:last-child{background:#fffafa}
 .op-fix tbody tr:hover > td:last-child{background:#f7f9fd}
 .op-fix tbody tr.sel > td:last-child,.op-fix tbody tr.sel:hover > td:last-child{background:#eaf2ff}
-.op-fix tr > :last-child::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #f0f2f5}
+.op-fix tr > :last-child::before{content:"";position:absolute;left:-12px;top:0;bottom:-1px;width:12px;border-right:1px solid #eaedf1;background:linear-gradient(to left,rgba(12,13,14,.06),rgba(12,13,14,0));pointer-events:none}
 /* /opfix73 */
 
 /* volc75：参考火山控制台 */
