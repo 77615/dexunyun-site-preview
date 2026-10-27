@@ -1003,7 +1003,7 @@ class Component extends DCLogic {
       ['DDoS 高防 IP', 'err', '攻击中', 'e', '攻击超过保底防护', '高防-002 峰值 86 Gbps，业务访问正常。', 'DdosInstances.dc.html', '进入控制台', 'DdosReport.dc.html', '攻击报表'],
       ['德迅云眼', 'err', '需处理 3', 'e', '首页被植入暗链', '另有 1 个 SQL 注入高危漏洞。', 'EyeRisk.dc.html', '进入控制台', 'EyeAssets.dc.html', '监测资产'],
       ['游戏盾', 'warn', '接近上限', 'w', '并发已用 85%', '周六活动可能超出套餐。', 'GameAccess.dc.html', '进入控制台', 'AcctUsage.dc.html', '升级'],
-      ['德迅卫士', 'err', '已到期', 'e', '已到期 · 保留至 11-08', '续费后防护立即恢复，68 台主机待保护。', 'BillConfirm.dc.html', '去续费', 'AcctProductDetail.dc.html', '详情'],
+      ['德迅卫士', 'err', '已到期', 'e', '已到期 · 保留至 11-08', '续费后防护立即恢复，68 台主机待保护。', 'BillConfirm.dc.html', '去续费', '#', '进入控制台'],
       ['SSL 证书', 'ok', '正常', 'ok', '3 张证书正常', '最近一张 11-04 到期，已开启提醒。', 'AcctProducts.dc.html', '管理', 'BillConfirm.dc.html', '续费']
     ];
     const prods = PR.map(([n, tc, tag, vc, v, d, href, go, h2, l2]) => { const on = favs.indexOf(n) >= 0; return { n, tc: 'kc-tag ' + tc, tag, vc: 'n ' + vc, v, d, href, go, h2, l2,

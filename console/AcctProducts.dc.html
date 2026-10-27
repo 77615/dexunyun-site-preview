@@ -944,14 +944,14 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const R = [
-      ['云安全', [{ t: 'SCDN', a: 'Main.dc.html' }, '企业版 · 10 域名', { t: '6 / 10 域名' }, { t: '2027-03-18', s: '剩 142 天' }, { t: '运行中', tag: 'ok' }], [['控制台', 'Main.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
-      ['云安全', [{ t: 'DDoS 高防 IP', a: 'DdosInstances.dc.html' }, '4 个实例', '—', { t: '2026-11-09', s: '最早一个剩 13 天', sc: 'o' }, { t: '攻击中', tag: 'err' }], [['控制台', 'DdosInstances.dc.html'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
-      ['云安全', [{ t: '游戏盾', a: 'GameAccess.dc.html' }, '专业版 · 2,000 并发', { t: '1,700 / 2,000', c: 'o', s: '已用 85%', sc: 'o' }, { t: '2027-01-12', s: '剩 77 天' }, { t: '接近上限', tag: 'warn' }], [['控制台', 'GameAccess.dc.html'], ['升级', 'BillConfirm.dc.html']], 'att'],
-      ['主机安全', [{ t: '德迅卫士', a: 'AcctProductDetail.dc.html' }, '企业版 · 50 台', { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '2026-10-25', s: '已到期，保留至 11-08', sc: 'r' }, { t: '已到期 · 保留中', tag: 'err' }], [['续费', 'BillConfirm.dc.html'], ['扩容', 'BillConfirm.dc.html']], 'att exp'],
-      ['安全运营', [{ t: '德迅云眼', a: 'EyeRisk.dc.html' }, '标准版 · 20 资产', '12 / 20 资产', { t: '2027-05-02', s: '剩 187 天' }, { t: '运行中', tag: 'ok' }], [['控制台', 'EyeRisk.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
-      ['云安全', [{ t: 'SSL 证书', a: '#' }, 'DV × 3 张', '3 张', { t: '2026-11-04', s: '最早一张剩 8 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['管理'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
-      ['安全运营', [{ t: '漏洞扫描 VSS', a: '#' }, '基础版 · 5 站点', '2 / 5 站点', { t: '2027-02-20', s: '剩 116 天' }, { t: '运行中', tag: 'ok' }], [['控制台'], ['续费', 'BillConfirm.dc.html']], ''],
-      ['IDC 服务', [{ t: '服务器租用', a: '#' }, '独享型 · E5-2680×2 / 64G', '1 / 1 台', { t: '2026-11-20', s: '剩 24 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['管理'], ['续费', 'BillConfirm.dc.html']], 'exp'],
+      ['云安全', [{ t: 'SCDN', a: 'Main.dc.html' }, '企业版 · 10 域名', { t: '6 / 10 域名' }, { t: '2027-03-18', s: '剩 142 天' }, { t: '运行中', tag: 'ok' }], [['进入控制台', 'Main.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['云安全', [{ t: 'DDoS 高防 IP', a: 'DdosInstances.dc.html' }, '4 个实例', '—', { t: '2026-11-09', s: '最早一个剩 13 天', sc: 'o' }, { t: '攻击中', tag: 'err' }], [['进入控制台', 'DdosInstances.dc.html'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
+      ['云安全', [{ t: '游戏盾', a: 'GameAccess.dc.html' }, '专业版 · 2,000 并发', { t: '1,700 / 2,000', c: 'o', s: '已用 85%', sc: 'o' }, { t: '2027-01-12', s: '剩 77 天' }, { t: '接近上限', tag: 'warn' }], [['进入控制台', 'GameAccess.dc.html'], ['升级', 'BillConfirm.dc.html']], 'att'],
+      ['主机安全', [{ t: '德迅卫士', a: '#' }, '企业版 · 50 台', { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '2026-10-25', s: '已到期，保留至 11-08', sc: 'r' }, { t: '已到期 · 保留中', tag: 'err' }], [['进入控制台'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
+      ['安全运营', [{ t: '德迅云眼', a: 'EyeRisk.dc.html' }, '标准版 · 20 资产', '12 / 20 资产', { t: '2027-05-02', s: '剩 187 天' }, { t: '运行中', tag: 'ok' }], [['进入控制台', 'EyeRisk.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['云安全', [{ t: 'SSL 证书', a: '#' }, 'DV × 3 张', '3 张', { t: '2026-11-04', s: '最早一张剩 8 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['进入控制台'], ['续费', 'BillConfirm.dc.html']], 'att exp'],
+      ['安全运营', [{ t: '漏洞扫描 VSS', a: '#' }, '基础版 · 5 站点', '2 / 5 站点', { t: '2027-02-20', s: '剩 116 天' }, { t: '运行中', tag: 'ok' }], [['进入控制台'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['IDC 服务', [{ t: '服务器租用', a: 'IdcServers.dc.html' }, '独享型 · 3 台', '3 台', { t: '2026-11-20', s: '最早一台剩 24 天', sc: 'o' }, { t: '即将到期', tag: 'warn' }], [['进入控制台', 'IdcServers.dc.html'], ['续费', 'BillConfirm.dc.html']], 'exp'],
       ['安全服务', [{ t: '等保咨询', a: '#' }, '二级 · 一次性服务', '—', { t: '2026-08-30', s: '服务已完成', sc: 'm' }, { t: '已释放', tag: 'mut' }], [['详情']], 'rel']
     ];
     const cat = st.cat || '全部';
