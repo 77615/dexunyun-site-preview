@@ -719,15 +719,15 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .tp-q input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:14px;background:none;color:#1d2129}
 .tp-q small{font-size:12px;color:#86909c;white-space:nowrap}
 .tp-q i{width:16px;height:16px;flex-shrink:0;background:#86909c;-webkit-mask:var(--m) center/16px no-repeat;mask:var(--m) center/16px no-repeat}
-.tp-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;margin-top:16px}
-.tp-cols h5{margin:0 0 6px;padding-bottom:8px;border-bottom:1px solid #e5e6eb;font-size:14px;font-weight:600}
-.tp-cols ul{list-style:none;margin:0 0 16px;padding:0}
-.tp-cols li{display:grid;grid-template-columns:minmax(0,1fr) 24px;align-items:center;gap:6px;border-radius:2px}
-.tp-cols li:hover{background:#f7f8fa}
-.tp-cols li a{display:flex;flex-direction:column;justify-content:center;min-height:44px;padding:4px 8px;color:#1d2129;text-decoration:none;font-size:14px;min-width:0}
-.tp-cols li a:hover b{color:#165dff}
+.tp-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin-top:24px}
+.tp-cols h5{margin:0 0 8px;padding:0 8px;border:0;font-size:16px;font-weight:500;color:#1664ff}
+.tp-cols ul{list-style:none;margin:0 0 24px;padding:0}
+.tp-cols li{display:grid;grid-template-columns:minmax(0,1fr) 24px;align-items:center;gap:4px;border-radius:4px}
+.tp-cols li:hover{background:#f6f8fa}
+.tp-cols li a{display:flex;align-items:center;height:34px;padding:0 8px;color:#42464e;text-decoration:none;font-size:13px;min-width:0}
+.tp-cols li a:hover b{color:#1664ff}
 .tp-cols li a b{font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tp-cols li a small{font-size:12px;color:#86909c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-cols li a small{display:none}
 .tp-cols li button{width:24px;height:24px;border:0;background:none;cursor:pointer;color:#86909c;font-size:15px;padding:0;line-height:24px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s}
 .tp-cols li:hover button,.tp-cols li button.on,.tp-cols li button:focus-visible{opacity:1}
 .tp-cols li button.on{color:#ff7d00}
@@ -1144,7 +1144,7 @@ button:not(.on) > .rx-star .rx-sf{display:none}
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
-        <div class="tp-cols"><sc-for list="{{hd.cats}}" as="c" hint-placeholder-count="4"><div><h5>{{c.n}}</h5><ul><sc-for list="{{c.items}}" as="p" hint-placeholder-count="5"><li><a href="{{p.href}}"><b>{{p.n}}</b><small>{{p.s}}</small></a><button type="button" class="{{p.fc}}" aria-label="{{p.fl}}" onClick="{{p.fav}}"><svg class="rx rx-star" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path><path class="rx-sf" fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg></button></li></sc-for></ul></div></sc-for></div>
+        <div class="tp-cols"><sc-for list="{{hd.cats}}" as="c" hint-placeholder-count="4"><div><h5>{{c.n}}</h5><ul><sc-for list="{{c.items}}" as="p" hint-placeholder-count="5"><li><a href="{{p.href}}" title="{{p.s}}"><b>{{p.n}}</b><small>{{p.s}}</small></a><button type="button" class="{{p.fc}}" aria-label="{{p.fl}}" onClick="{{p.fav}}"><svg class="rx rx-star" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path><path class="rx-sf" fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg></button></li></sc-for></ul></div></sc-for></div>
         <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
