@@ -222,6 +222,214 @@ button.ac-st:hover{border-color:#bedaff}
 .tm-grid p{margin:0 0 14px;font-size:13px;color:#86909c;line-height:1.6;min-height:42px}
 /* /acct62 */
 
+/* flow64：确认订单 / 付款 / 订单详情 */
+.fl-steps{display:flex;align-items:center;gap:0;padding:18px 24px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.fl-steps li{list-style:none;display:flex;align-items:center;gap:10px;flex:1;font-size:14px;color:#86909c;min-width:0}
+.fl-steps li:last-child{flex:0 0 auto}
+.fl-steps li > i{width:24px;height:24px;border-radius:50%;border:1px solid #c9cdd4;display:flex;align-items:center;justify-content:center;font:600 12px/1 Inter,sans-serif;font-style:normal;flex-shrink:0;background:#fff}
+.fl-steps li > div{white-space:nowrap}
+.fl-steps li > div small{display:block;font-size:12px;color:#86909c;margin-top:2px}
+.fl-steps li::after{content:"";flex:1;height:1px;background:#e5e6eb;margin:0 12px}
+.fl-steps li:last-child::after{display:none}
+.fl-steps li.done{color:#1d2129}.fl-steps li.done > i{border-color:#165dff;color:#165dff}
+.fl-steps li.done::after{background:#165dff}
+.fl-steps li.cur{color:#1d2129;font-weight:500}.fl-steps li.cur > i{background:#165dff;border-color:#165dff;color:#fff}
+.fl-steps li.bad{color:#cb2634}.fl-steps li.bad > i{border-color:#f53f3f;background:#f53f3f;color:#fff}
+.fl-seg{display:inline-flex;border:1px solid #e5e6eb;border-radius:2px;overflow:hidden}
+.fl-seg button{height:32px;min-width:72px;padding:0 14px;border:0;border-left:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
+.fl-seg button:first-child{border-left:0}
+.fl-seg button.on{background:#f2f7ff;color:#165dff;box-shadow:inset 0 0 0 1px #165dff;position:relative}
+.fl-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:14px}
+.fl-row:first-child{border-top:0}
+.fl-row > span{color:#4e5969}
+.fl-row .kc-in{height:32px;width:320px;font-size:14px}
+.fl-row .kc-hint{margin:6px 0 0}
+.fl-sum{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:20px;justify-content:flex-end;padding:14px 24px;margin-top:16px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;box-shadow:0 -4px 16px rgba(29,33,41,.05);font-size:14px}
+.fl-sum .agree{margin-right:auto;display:flex;align-items:center;gap:8px;color:#4e5969;font-size:13px}
+.fl-sum .agree a{text-decoration:none}
+.fl-sum small{color:#86909c;font-size:13px}
+.fl-sum b{font:600 24px/1 Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-sum .kc-btn{height:40px;padding:0 28px;font-size:15px}
+.fl-acct{display:grid;grid-template-columns:auto 1fr auto;gap:0 16px;align-items:center;font-size:14px}
+.fl-acct > span{color:#86909c;line-height:40px}
+.fl-acct > b{font-weight:500;font-variant-numeric:tabular-nums}
+.fl-acct > a{text-decoration:none;font-size:13px}
+.fl-acct > b.hl{color:#165dff;font:600 16px Inter,"PingFang SC",sans-serif}
+.fl-acct > div{grid-column:1/-1;border-top:1px solid #f2f3f5}
+.fl-drop{display:flex;align-items:center;justify-content:center;gap:10px;height:96px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;color:#86909c;font:inherit;font-size:13px;cursor:pointer;width:100%}
+.fl-drop:hover{border-color:#165dff;color:#165dff}
+.fl-file{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;font-size:13px}
+.fl-file > i{width:36px;height:36px;border-radius:2px;background:#f2f7ff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fl-file > i .kc-ic{background:#165dff}
+.fl-file div{flex:1;min-width:0}.fl-file small{display:block;color:#86909c;font-size:12px}
+.fl-file button{border:0;background:none;color:#86909c;font:inherit;font-size:13px;cursor:pointer}
+.fl-ok{display:flex;flex-direction:column;align-items:center;gap:10px;padding:48px 20px;text-align:center}
+.fl-ok > i{width:56px;height:56px;border-radius:50%;background:#e8ffea;display:flex;align-items:center;justify-content:center}
+.fl-ok > i .kc-ic{width:28px;height:28px;-webkit-mask-size:28px 28px;mask-size:28px 28px;background:#00b42a}
+.fl-ok h2{margin:6px 0 0;font-size:18px;font-weight:600}
+.fl-ok p{margin:0;font-size:14px;color:#4e5969}
+.fl-ok .kc-btns{margin-top:12px}
+.fl-tot{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding:14px 20px;border-top:1px solid #e5e6eb;font-size:13px;color:#4e5969}
+.fl-tot div{display:flex;gap:24px}.fl-tot div b{min-width:110px;text-align:right;font-weight:400;color:#1d2129;font-variant-numeric:tabular-nums}
+.fl-tot div.big b{font:600 20px Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-radio{display:flex;flex-direction:column;gap:8px}
+.fl-radio button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;text-align:left;cursor:pointer}
+.fl-radio button > i{width:16px;height:16px;border-radius:50%;border:1px solid #c9cdd4;flex-shrink:0}
+.fl-radio button.on{border-color:#165dff;background:#f2f7ff}.fl-radio button.on > i{border:5px solid #165dff}
+.fl-radio button small{margin-left:auto;color:#86909c;font-size:12px}
+/* /flow64 */
+
+/* flow65：表单与验证弹窗 */
+.fm-ta{width:100%;max-width:640px;height:120px;border:1px solid #e5e6eb;border-radius:2px;padding:8px 10px;font:inherit;font-size:14px;resize:vertical;box-sizing:border-box}
+.fm-types{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:860px}
+.fm-types button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;text-align:left;cursor:pointer}
+.fm-types button small{font-size:12px;color:#86909c}
+.fm-types button.on{border-color:#165dff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #165dff}
+.fm-types button.r small{color:#cb2634}
+.fm-help{margin-top:8px;padding:10px 12px;background:#f7f8fa;border-radius:2px;font-size:13px;max-width:640px}
+.fm-help b{font-weight:500;margin-right:8px}
+.fm-help a{margin-right:14px;text-decoration:none}
+.fm-chk{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}
+.fm-chk label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.ac-drw .fl-row{grid-template-columns:96px minmax(0,1fr);padding:12px 0}
+.ac-drw .fl-row .kc-in{width:100%}
+.ac-drw .fl-radio button{padding:8px 12px}
+.vf-mask{position:absolute;inset:0;z-index:30;background:rgba(29,33,41,.45);display:flex;align-items:flex-start;justify-content:center;padding-top:200px}
+.vf-dlg{width:420px;background:#fff;border-radius:4px;box-shadow:0 12px 32px rgba(29,33,41,.18)}
+.vf-dlg header{display:flex;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e6eb}
+.vf-dlg header b{flex:1;font-size:16px;font-weight:600}
+.vf-dlg header button{border:0;background:none;font-size:20px;color:#86909c;cursor:pointer}
+.vf-dlg .bd{padding:20px;font-size:14px;color:#4e5969;display:flex;flex-direction:column;gap:14px}
+.vf-dlg .bd p{margin:0}
+.vf-code{display:flex;gap:8px}.vf-code .kc-in{flex:1;height:36px;font-size:15px;letter-spacing:4px}
+.vf-code .kc-btn{height:36px}
+.vf-dlg footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid #e5e6eb}
+.fm-new{background:#f2fff4}
+/* /flow65 */
+
+/* flow66 */
+.pu-cmp{width:100%;border-collapse:collapse;font-size:14px}
+.pu-cmp th,.pu-cmp td{padding:11px 16px;border-bottom:1px solid #f2f3f5;text-align:left}
+.pu-cmp th{font-weight:500;color:#4e5969;background:#f7f8fa}
+.pu-cmp td.e,.pu-cmp th.e{background:#f2f7ff;color:#165dff}
+.pu-cmp th.e{font-weight:600}
+.pu-step{display:inline-flex;align-items:center;border:1px solid #e5e6eb;border-radius:2px}
+.pu-step button{width:32px;height:32px;border:0;background:#f7f8fa;font-size:16px;color:#4e5969;cursor:pointer}
+.pu-step b{min-width:48px;text-align:center;font:500 14px Inter,sans-serif}
+.pu-formula{font-size:13px;color:#86909c}
+.on-hero{display:flex;align-items:center;gap:24px;padding:28px 28px;background:linear-gradient(90deg,#f2f7ff,#fff);border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.on-hero h2{margin:0 0 6px;font-size:20px;font-weight:600}.on-hero p{margin:0;color:#4e5969;font-size:14px}
+.on-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.on-step{display:flex;flex-direction:column;gap:8px;padding:20px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.on-step > i{width:28px;height:28px;border-radius:50%;background:#165dff;color:#fff;font:600 13px/28px Inter,sans-serif;text-align:center;font-style:normal}
+.on-step.done > i{background:#e8ffea;color:#00b42a}
+.on-step b{font-size:15px;font-weight:600}.on-step p{margin:0;font-size:13px;color:#86909c;line-height:1.6;flex:1}
+.on-step .kc-btn{align-self:flex-start}
+.on-prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.on-prods a{display:block;padding:16px 20px;border-right:1px solid #f2f3f5;border-bottom:1px solid #f2f3f5;text-decoration:none;color:#1d2129}
+.on-prods a:nth-child(3n){border-right:0}
+.on-prods a b{font-size:14px;font-weight:600}.on-prods a p{margin:6px 0 0;font-size:13px;color:#86909c}
+.on-prods a:hover b{color:#165dff}
+.nt-list{list-style:none;margin:0;padding:0}
+.nt-list li{display:grid;grid-template-columns:10px 72px minmax(0,1fr) 120px 80px;gap:12px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:14px}
+.nt-list li > i{width:8px;height:8px;border-radius:50%;background:#f53f3f}
+.nt-list li > i.r{background:transparent}
+.nt-list li div b{font-weight:500}.nt-list li div b.r{font-weight:400;color:#4e5969}
+.nt-list li div p{margin:4px 0 0;font-size:13px;color:#86909c}
+.nt-list li time{font-size:13px;color:#86909c}
+.nt-list li > a{text-decoration:none;font-size:13px;text-align:right}
+.nt-mx td{text-align:center}.nt-mx td:first-child{text-align:left}
+.vf-up{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
+.vf-lic{height:130px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#86909c}
+.vf-lic.on{border-style:solid;border-color:#bedaff;background:#f2f7ff;color:#165dff}
+/* /flow66 */
+
+/* idc67：服务器控制台 */
+.sv-hd{display:flex;align-items:center;gap:12px}
+.sv-hd h1{margin:0}
+.sv-hd .kc-tag{width:auto}
+.sv-desc{margin:4px 0 0;font-size:13px;color:#86909c}
+.sv-tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.sv-task{display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;min-width:0}
+.sv-task > header{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#1d2129}
+.sv-task > header i{width:28px;height:28px;border-radius:4px;background:#f2f7ff;display:flex;align-items:center;justify-content:center}
+.sv-task > header i .kc-ic{background:#165dff}
+.sv-task > header a,.sv-task > header button{margin-left:auto;font-size:13px;font-weight:400;text-decoration:none;color:#165dff;background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+.sv-big{font:600 22px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129}
+.sv-big small{font-size:13px;font-weight:400;color:#86909c;margin-left:8px}
+.sv-big.o small{color:#d25f00}
+.sv-line{font-size:13px;color:#4e5969}
+.sv-act{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
+.sv-act .kc-btn{min-width:84px;justify-content:center}
+.sv-prog{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#4e5969}
+.sv-prog .ac-bar{width:100%;height:8px;margin:0}
+.sv-prog > div{display:flex;justify-content:space-between;align-items:center}
+.sv-prog button{background:none;border:0;color:#165dff;font:inherit;font-size:13px;cursor:pointer;padding:0}
+.sv-mets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-mets div{display:flex;flex-direction:column;gap:2px;font-size:12px;color:#86909c}
+.sv-mets b{font:600 20px/1.3 Inter,"PingFang SC",sans-serif;color:#1d2129}
+.sv-mets b small{font-size:12px;font-weight:400;color:#86909c;margin-left:2px}
+.sv-mets b.r{color:#cb2634}
+.sv-rng{display:flex;gap:0;margin-left:auto}
+.sv-rng button{height:28px;padding:0 12px;border:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#4e5969;cursor:pointer;margin-left:-1px}
+.sv-rng button:first-child{border-radius:2px 0 0 2px;margin-left:0}
+.sv-rng button:last-child{border-radius:0 2px 2px 0}
+.sv-rng button.on{border-color:#165dff;color:#165dff;background:#f2f7ff;position:relative;z-index:1}
+.sv-bar{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid #f2f3f5}
+.sv-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.sv-ch{padding:16px 20px 18px;border-bottom:1px solid #f2f3f5;min-width:0}
+.sv-ch:nth-child(odd){border-right:1px solid #f2f3f5}
+.sv-ch > div:first-child{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;font-size:14px;color:#1d2129}
+.sv-ch > div:first-child b{font:600 18px/1 Inter,"PingFang SC",sans-serif}
+.sv-ch > div:first-child em{font-style:normal;font-size:12px;color:#86909c;margin-left:auto}
+.sv-cols{display:flex;align-items:flex-end;gap:3px;height:120px;border-bottom:1px solid #e5e6eb;background:repeating-linear-gradient(0deg,#f2f3f5 0 1px,transparent 1px 30px)}
+.sv-cols i{flex:1;background:#165dff;border-radius:1px 1px 0 0;opacity:.85;min-height:1px}
+.sv-cols.g i{background:#14c9c9}.sv-cols.o i{background:#ff7d00}.sv-cols.r i{background:#f53f3f}
+.sv-ax{display:flex;justify-content:space-between;font-size:11px;color:#86909c;margin-top:6px}
+.sv-dlg{width:600px}
+.sv-dlg .bd{gap:16px}
+.sv-dlg .fl-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:start;padding:0;border:0}
+.sv-dlg .fl-row > span{padding-top:6px;color:#4e5969}
+.sv-os{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-os button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:9px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:14px;color:#1d2129;cursor:pointer;text-align:left}
+.sv-os button small{font-size:12px;color:#86909c}
+.sv-os button.on{border-color:#165dff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #165dff}
+.sv-seg{display:flex;gap:8px;flex-wrap:wrap}
+.sv-seg button{height:32px;padding:0 14px;border:1px solid #e5e6eb;border-radius:2px;background:#fff;font:inherit;font-size:14px;color:#4e5969;cursor:pointer}
+.sv-seg button.on{border-color:#165dff;color:#165dff;background:#f2f7ff}
+.sv-ck{display:flex;align-items:center;gap:8px;font-size:14px;color:#1d2129;cursor:pointer;background:none;border:0;padding:0;font-family:inherit;text-align:left}
+.sv-warn{padding:10px 12px;border-radius:2px;background:#fff5f3;border:1px solid #ffd8d2;font-size:13px;color:#1d2129;line-height:1.6}
+.sv-warn b{color:#cb2634;font-weight:500}
+.sv-rb{display:flex;flex-direction:column;gap:8px}
+.sv-dlg .fl-row > div > .sv-ck{margin-top:6px}
+.kc-t td .sv-ops a,.kc-t td .sv-ops button{margin-right:12px;background:none;border:0;padding:0;font:inherit;font-size:14px;color:#165dff;cursor:pointer;text-decoration:none}
+/* /idc67 */
+
+/* fine69 安全设置 */
+.sx{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;padding:20px 24px 24px}
+.sx-score{align-self:start;display:flex;flex-direction:column;align-items:center;padding:28px 20px 24px;border-radius:6px;background:linear-gradient(180deg,#f5f8fd 0%,#f7f8fa 100%);border:1px solid #edf0f5;text-align:center}
+.sx-g{position:relative;width:180px;height:156px;margin-bottom:4px}
+.sx-arc{position:absolute;left:0;top:0;width:180px;height:180px;border-radius:50%;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 14px),#000 calc(100% - 13px));mask:radial-gradient(farthest-side,transparent calc(100% - 14px),#000 calc(100% - 13px))}
+.sx-num{position:absolute;left:0;right:0;top:52px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.sx-num b{font:600 44px/1 Inter,"PingFang SC",sans-serif;color:#1d2129;letter-spacing:-.5px}
+.sx-num > span{font-size:14px;color:#165dff;font-weight:500}
+.sx-num > span.ok{color:#00b42a}
+.sx-score p{margin:8px 0 0;font-size:14px;color:#4e5969}
+.sx-score p b{color:#1d2129;font-weight:600}
+.sx-score small{display:block;margin-top:6px;font-size:13px;color:#86909c}
+.sx-score small a{text-decoration:none}
+.sx-list{list-style:none;margin:0;padding:0}
+.sx-list li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid #f2f3f5}
+.sx-list li:first-child{padding-top:4px}
+.sx-list li:last-child{border-bottom:0;padding-bottom:4px}
+.sx-t{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sx-t b{font-size:15px;font-weight:600;color:#1d2129}
+.sx-t em{font-style:normal;font-size:13px;color:#00b42a;font-weight:500}
+.sx-list p{margin:6px 0 0;font-size:13px;color:#4e5969;line-height:1.6}
+.sx-list .kc-btn{min-width:88px;justify-content:center;height:32px}
+/* /fine69 安全设置 */
+
+
 /* ux56：总览、全局搜索、加载规范 */
 .ux-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .ux-tile{position:relative;display:flex;align-items:center;gap:12px;height:64px;padding:0 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;color:#1d2129;text-decoration:none;transition:border-color .2s,background .2s}
@@ -810,6 +1018,53 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .i-check{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22/%3E%3C/svg%3E")}
 /* /lucide63 */
 
+/* fine69：细节打磨 */
+.kc-tag.ok,.kc-tag.warn,.kc-tag.err,.kc-tag.info,.kc-tag.mut{gap:5px;padding:0 8px 0 7px}
+.kc-tag.ok::before,.kc-tag.warn::before,.kc-tag.err::before,.kc-tag.info::before,.kc-tag.mut::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.kc-tag.mut::before{background:#86909c}
+.kc-ch{padding:15px 24px}
+.kc-ch h2{font-size:15px;font-weight:600;color:#1d2129;display:flex;align-items:center;gap:8px}
+.fi-i{width:18px;height:18px;flex-shrink:0;background:#165dff;-webkit-mask:var(--m) center/18px no-repeat;mask:var(--m) center/18px no-repeat;display:inline-block}
+.fi-tile{width:40px;height:40px;border-radius:6px;background:linear-gradient(180deg,#f2f6ff 0%,#e8f0ff 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fi-tile .fi-i{width:20px;height:20px;-webkit-mask-size:20px;mask-size:20px}
+.fi-pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:4px;background:#f2f7ff;border:1px solid #bedaff;color:#165dff;font-size:13px;font-weight:500}
+.fi-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.fi-pill.ok{background:#e8ffea;border-color:#aff0b5;color:#00754e}
+.ac-kv div{padding:12px 0}
+.kc-t thead th{background:#f7f8fa;color:#4e5969;font-weight:500}
+.ac-set li{padding:18px 24px}
+.ac-set li > i{width:40px;height:40px;border-radius:6px;background:linear-gradient(180deg,#f2f6ff 0%,#e8f0ff 100%)}
+.ac-set li > i .fi-i{width:20px;height:20px;-webkit-mask-size:20px;mask-size:20px}
+.ac-set li b{font-size:15px;font-weight:600;color:#1d2129}
+.ac-set li p{margin-top:6px;color:#4e5969}
+.ac-set li .kc-btn{min-width:88px;justify-content:center;height:32px}
+.fi-lock{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect width=%2218%22 height=%2211%22 x=%223%22 y=%2211%22 rx=%222%22 ry=%222%22 /%3E %3Cpath d=%22M7 11V7a5 5 0 0 1 10 0v4%22 /%3E%3C/svg%3E")}
+.fi-phone{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect width=%2214%22 height=%2220%22 x=%225%22 y=%222%22 rx=%222%22 ry=%222%22 /%3E %3Cpath d=%22M12 18h.01%22 /%3E%3C/svg%3E")}
+.fi-mail{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect width=%2220%22 height=%2216%22 x=%222%22 y=%224%22 rx=%222%22 /%3E %3Cpath d=%22m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7%22 /%3E%3C/svg%3E")}
+.fi-wx{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z%22 /%3E %3Cpath d=%22M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1%22 /%3E%3C/svg%3E")}
+.fi-shield2{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z%22 /%3E %3Cpath d=%22m9 12 2 2 4-4%22 /%3E%3C/svg%3E")}
+.fi-key{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z%22 /%3E %3Ccircle cx=%2216.5%22 cy=%227.5%22 r=%22.5%22 fill=%22currentColor%22 /%3E%3C/svg%3E")}
+.fi-bell2{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M10.268 21a2 2 0 0 0 3.464 0%22 /%3E %3Cpath d=%22M22 8c0-2.3-.8-4.3-2-6%22 /%3E %3Cpath d=%22M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326%22 /%3E %3Cpath d=%22M4 2C2.8 3.7 2 5.7 2 8%22 /%3E%3C/svg%3E")}
+.fi-shield{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z%22 /%3E%3C/svg%3E")}
+.fi-hist{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8%22 /%3E %3Cpath d=%22M3 3v5h5%22 /%3E %3Cpath d=%22M12 7v5l4 2%22 /%3E%3C/svg%3E")}
+.fi-build{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z%22 /%3E %3Cpath d=%22M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2%22 /%3E %3Cpath d=%22M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2%22 /%3E %3Cpath d=%22M10 6h4%22 /%3E %3Cpath d=%22M10 10h4%22 /%3E %3Cpath d=%22M10 14h4%22 /%3E %3Cpath d=%22M10 18h4%22 /%3E%3C/svg%3E")}
+.fi-idcard{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 10h2%22 /%3E %3Cpath d=%22M16 14h2%22 /%3E %3Cpath d=%22M6.17 15a3 3 0 0 1 5.66 0%22 /%3E %3Ccircle cx=%229%22 cy=%2211%22 r=%222%22 /%3E %3Crect x=%222%22 y=%225%22 width=%2220%22 height=%2214%22 rx=%222%22 /%3E%3C/svg%3E")}
+.fi-user{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%228%22 r=%225%22 /%3E %3Cpath d=%22M20 21a8 8 0 0 0-16 0%22 /%3E%3C/svg%3E")}
+.fi-link{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M9 17H7A5 5 0 0 1 7 7h2%22 /%3E %3Cpath d=%22M15 7h2a5 5 0 1 1 0 10h-2%22 /%3E %3Cline x1=%228%22 x2=%2216%22 y1=%2212%22 y2=%2212%22 /%3E%3C/svg%3E")}
+.fi-bank{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cline x1=%223%22 x2=%2221%22 y1=%2222%22 y2=%2222%22 /%3E %3Cline x1=%226%22 x2=%226%22 y1=%2218%22 y2=%2211%22 /%3E %3Cline x1=%2210%22 x2=%2210%22 y1=%2218%22 y2=%2211%22 /%3E %3Cline x1=%2214%22 x2=%2214%22 y1=%2218%22 y2=%2211%22 /%3E %3Cline x1=%2218%22 x2=%2218%22 y1=%2218%22 y2=%2211%22 /%3E %3Cpolygon points=%2212 2 20 7 4 7%22 /%3E%3C/svg%3E")}
+.fi-chart{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 3v16a2 2 0 0 0 2 2h16%22 /%3E %3Cpath d=%22M18 17V9%22 /%3E %3Cpath d=%22M13 17V5%22 /%3E %3Cpath d=%22M8 17v-3%22 /%3E%3C/svg%3E")}
+.fi-pie{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z%22 /%3E %3Cpath d=%22M21.21 15.89A10 10 0 1 1 8 2.83%22 /%3E%3C/svg%3E")}
+.fi-box{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z%22 /%3E %3Cpath d=%22M12 22V12%22 /%3E %3Cpath d=%22m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7%22 /%3E %3Cpath d=%22m7.5 4.27 9 5.15%22 /%3E%3C/svg%3E")}
+.fi-grid{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect width=%227%22 height=%227%22 x=%223%22 y=%223%22 rx=%221%22 /%3E %3Crect width=%227%22 height=%227%22 x=%2214%22 y=%223%22 rx=%221%22 /%3E %3Crect width=%227%22 height=%227%22 x=%2214%22 y=%2214%22 rx=%221%22 /%3E %3Crect width=%227%22 height=%227%22 x=%223%22 y=%2214%22 rx=%221%22 /%3E%3C/svg%3E")}
+.fi-help{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22 /%3E %3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22 /%3E %3Cpath d=%22M12 17h.01%22 /%3E%3C/svg%3E")}
+.fi-wallet{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1%22 /%3E %3Cpath d=%22M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4%22 /%3E%3C/svg%3E")}
+.fi-doc{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z%22 /%3E %3Cpath d=%22M14 2v4a2 2 0 0 0 2 2h4%22 /%3E %3Cpath d=%22M10 9H8%22 /%3E %3Cpath d=%22M16 13H8%22 /%3E %3Cpath d=%22M16 17H8%22 /%3E%3C/svg%3E")}
+.fi-receipt{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z%22 /%3E %3Cpath d=%22M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8%22 /%3E %3Cpath d=%22M12 17.5v-11%22 /%3E%3C/svg%3E")}
+.fi-users{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2%22 /%3E %3Ccircle cx=%229%22 cy=%227%22 r=%224%22 /%3E %3Cpath d=%22M22 21v-2a4 4 0 0 0-3-3.87%22 /%3E %3Cpath d=%22M16 3.13a4 4 0 0 1 0 7.75%22 /%3E%3C/svg%3E")}
+.fi-gauge{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m12 14 4-4%22 /%3E %3Cpath d=%22M3.34 19a10 10 0 1 1 17.32 0%22 /%3E%3C/svg%3E")}
+.fi-ding{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7.9 20A9 9 0 1 0 4 16.1L2 22Z%22 /%3E %3Cpath d=%22M8 12h.01%22 /%3E %3Cpath d=%22M12 12h.01%22 /%3E %3Cpath d=%22M16 12h.01%22 /%3E%3C/svg%3E")}
+/* /fine69 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -919,16 +1174,24 @@ a{color:#165dff}a:hover{color:#0e4edb}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">安全设置</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="OrgInfo.dc.html">企业信息与认证</a></div>
+        <div class="kc-btns"><a class="kc-btn" href="OrgMembers.dc.html">成员管理</a></div>
       </div>
-      <div class="ac-g2" style="grid-template-columns:280px minmax(0,1fr);margin-bottom:16px">
-        <section class="kc-card"><div class="ac-ring">
-          <div class="ac-rw" style="{{ring}}"><b>{{score}}</b></div>
-          <span>安全分 · {{done}} / 7 项已完成</span></div></section>
-        <section class="kc-card"><div class="kc-ch"><h2>账号安全</h2></div>
-          <ul class="ac-set"><sc-for list="{{items}}" as="i" hint-placeholder-count="7"><li><i><span class="{{i.ic}}"></span></i><div><b>{{i.n}}</b><span class="{{i.tc}}">{{i.st}}</span><em>{{i.plus}}</em><p>{{i.d}}</p></div><button class="{{i.bc}}" type="button" onClick="{{i.go}}">{{i.a}}</button></li></sc-for></ul></section>
-      </div>
-      <section class="kc-card"><div class="kc-ch"><h2>登录记录</h2><a href="#">查看全部</a></div>
+      <section class="kc-card">
+        <div class="kc-ch"><h2><i class="fi-i fi-shield"></i>账号安全</h2><span class="{{lvCls}}">安全等级 {{lv}}</span></div>
+        <div class="sx">
+          <div class="sx-score">
+            <div class="sx-g"><div class="sx-arc" style="{{arc}}"></div><div class="sx-num"><b>{{score}}</b><span class="{{lvTxtCls}}">{{lv}}</span></div></div>
+            <p>已完成 <b>{{done}} / 7</b> 项安全配置</p>
+            <small>{{tip}}</small>
+          </div>
+          <ul class="sx-list"><sc-for list="{{items}}" as="i" hint-placeholder-count="7"><li>
+            <span class="fi-tile"><i class="{{i.ic}}"></i></span>
+            <div><div class="sx-t"><b>{{i.n}}</b><span class="{{i.tc}}">{{i.st}}</span><em>{{i.plus}}</em></div><p>{{i.d}}</p></div>
+            <button class="{{i.bc}}" type="button" onClick="{{i.go}}">{{i.a}}</button>
+          </li></sc-for></ul>
+        </div>
+      </section>
+      <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-hist"></i>登录记录</h2><a href="#">查看全部</a></div>
         <div class="kc-tw"><table class="kc-t"><thead><tr><th>登录时间</th><th>账号</th><th>方式</th><th>IP</th><th>地点</th><th>设备</th><th>结果</th></tr></thead><tbody>
           <tr><td>2026-10-27 09:12</td><td>wangqi</td><td>密码</td><td>60.12.**.**</td><td>浙江 温州</td><td>Chrome / Windows</td><td><span class="kc-tag ok">成功</span> <span class="kc-sub">本机</span></td></tr>
           <tr><td>2026-10-24 22:40</td><td>wangqi</td><td>微信扫码</td><td>115.236.**.**</td><td>浙江 杭州</td><td>Chrome / macOS</td><td><span class="kc-tag warn">异地登录</span></td></tr>
@@ -987,17 +1250,24 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const on = st.on || {};
-    const I = [['登录密码', 'lock', 1, '上次修改 2026-06-01，8–20 位包含字母和数字', '修改', 0], ['登录手机', 'users', 1, '177****1234，用于登录、找回密码和敏感操作验证', '更换', 0],
-      ['邮箱', 'doc', 1, 'wq@example.com，接收账单和安全通知', '修改', 0], ['绑定微信', 'users', 0, '扫码登录，并在微信接收安全与到期通知', '绑定', 5],
-      ['登录二次验证', 'shield', 0, '异地或新设备登录时，需要短信验证码', '开启', 9], ['敏感操作验证', 'shield', 1, '付款、删除成员、转移权益前需要验证码；主账号不可关闭', '已开启', 0],
-      ['异地登录提醒', 'bell', 0, '登录地与常用地不一致时短信和站内信提醒', '开启', 5]];
-    let score = 81, done = 0;
-    const items = I.map(([n, ic, ok0, d, a, plus], i) => { const ok = ok0 || on[i]; if (ok) done++; if (!ok0 && on[i]) score += plus;
-      return { n, d, ic: 'kc-ic i-' + ic, st: ok ? '已开启' : '未开启', tc: ok ? 'kc-tag ok' : 'kc-tag mut', plus: !ok && plus ? '+' + plus + ' 分' : '', a: ok0 ? (a === '已开启' ? '已开启' : a) : (ok ? '关闭' : a),
-        bc: ok0 ? (a === '已开启' ? 'kc-btn sm dis' : 'kc-btn sm') : (ok ? 'kc-btn sm' : 'kc-btn pri sm'), go: () => { if (!ok0) this.setState({ on: Object.assign({}, on, { [i]: !on[i] }) }); } }; });
+    // [名称, 图标, 已完成, 已完成状态, 未完成状态, 说明, 已完成按钮, 未完成按钮, 加分, 不可关闭]
+    const I = [['登录密码', 'lock', 1, '已设置', '', '上次修改 2026-06-01；建议定期更换，8–20 位且包含字母和数字', '修改密码', '', 0],
+      ['登录手机', 'phone', 1, '已验证', '', '177****1234，用于登录、找回密码及敏感操作验证', '换绑手机', '', 0],
+      ['邮箱', 'mail', 1, '已验证', '', 'wq@example.com，用于接收账单、发票等邮件通知', '修改', '', 0],
+      ['绑定微信', 'wx', 1, '已绑定', '', '用于微信扫码登录，并接收安全与到期通知', '解绑', '', 0],
+      ['登录二次验证', 'shield2', 0, '已开启', '未开启', '开启后新设备或异地登录需短信验证；30 天内同设备不重复验证', '关闭', '开启', 9],
+      ['敏感操作验证', 'key', 1, '已开启', '', '转移权益、换绑手机、删除成员、付款前需短信验证码；主账号不可关闭', '关闭', '', 0, 1],
+      ['异地登录提醒', 'bell2', 0, '已设置', '未设置', '登录城市与上一次不同时，按「账号安全」通知渠道发送提醒', '修改设置', '去设置', 5]];
+    let score = 81, done = 0, best = null;
+    const items = I.map(([n, ic, ok0, s1, s0, d, a1, a0, plus, lock], i) => { const ok = ok0 || on[i]; if (ok) done++; if (!ok0 && on[i]) score += plus;
+      if (!ok && (!best || plus > best[1])) best = [n, plus];
+      return { n, d, ic: 'fi-i fi-' + ic, st: ok ? s1 : s0, tc: ok ? 'kc-tag ok' : 'kc-tag mut', plus: !ok && plus ? '+' + plus + ' 分' : '', a: ok ? a1 : a0,
+        bc: lock ? 'kc-btn dis' : ok ? 'kc-btn' : 'kc-btn pri', go: () => { if (!ok0 && !lock) this.setState({ on: Object.assign({}, on, { [i]: !on[i] }) }); } }; });
     score = Math.min(100, score);
+    const lv = score >= 90 ? '优秀' : score >= 75 ? '良好' : '较弱';
+    const pct = score * 0.75;
 
-    return Object.assign({ nav }, { items, score, done, tip: done >= 7 ? '全部完成' : '开启剩余项可提升安全分', ring: 'background:conic-gradient(#165dff 0 ' + score + '%, #f2f3f5 ' + score + '% 100%)' });
+    return Object.assign({ nav }, { items, score, done, lv, lvCls: score >= 90 ? 'fi-pill ok' : 'fi-pill', lvTxtCls: score >= 90 ? 'ok' : '', tip: best ? '建议' + (best[0] === '绑定微信' ? '' : '开启') + best[0] + '（+' + best[1] + ' 分）' : '全部安全配置已完成', arc: 'background:conic-gradient(from 225deg,' + (score >= 90 ? '#00b42a' : '#165dff') + ' 0 ' + pct + '%,#e5e6eb ' + pct + '% 75%,transparent 75% 100%)' });
   }
 }
 </script>
