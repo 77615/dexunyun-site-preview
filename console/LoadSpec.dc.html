@@ -37,7 +37,8 @@
 .ux-pc{border:1px solid #e5e6eb;border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-height:150px;background:#fff}
 .ux-pc .h{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .ux-pc .h b{font-size:14px;font-weight:600}
-.ux-pc .n{font-size:22px;font-weight:700;color:#1d2129;font-family:Inter,"PingFang SC",sans-serif}
+.ux-pc .n{font-size:15px;font-weight:600;color:#1d2129;line-height:1.4}
+.ux-pc .n.w{color:#d25f00}.ux-pc .n.e{color:#cb2634}.ux-pc .n.m{color:#c9cdd4}
 .ux-pc .n small{font-size:12px;font-weight:400;color:#86909c;margin-left:4px}
 .ux-pc p{margin:0;font-size:12px;color:#86909c;line-height:1.6;flex:1}
 .ux-pc .a{display:flex;gap:12px;font-size:13px}
@@ -167,6 +168,46 @@
 .ls-line span{position:absolute;right:8px;top:-22px;font-size:12px;color:#f53f3f;background:#fafbfc;padding:0 6px}
 .ls-rule{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 .ls-note{margin-top:20px;font-size:12px;color:#86909c;line-height:1.7}
+
+/* flow58：FlowGram 风格流程图 */
+.fg{position:relative;width:1080px;max-width:100%;margin:0 auto;border:1px solid #eef0f3;border-radius:6px;background:#fafbfc radial-gradient(#d5d9e0 1px,transparent 1.2px) 0 0/16px 16px;overflow:hidden}
+.fg svg.fg-e{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fg-n{position:absolute;box-sizing:border-box;background:linear-gradient(180deg,#fff 0%,#fbfbfe 100%);border:1px solid #e3e5ea;border-radius:8px;box-shadow:0 1px 2px rgba(29,33,41,.04),0 4px 12px rgba(29,33,41,.05);padding:10px 12px}
+.fg-n.hl{border-color:#bedaff;box-shadow:0 0 0 3px rgba(22,93,255,.06),0 6px 16px rgba(22,93,255,.08)}
+.fg-h{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#1d2129;line-height:22px}
+.fg-h span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fg-ic{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;background:#165dff}
+.fg-ic.g{background:#00b42a}.fg-ic.o{background:#ff7d00}.fg-ic.r{background:#f53f3f}.fg-ic.p{background:#722ed1}.fg-ic.k{background:#4e5969}.fg-ic.v{background:linear-gradient(135deg,#6a5cff,#165dff)}
+.fg-dots{display:inline-flex;gap:2px;flex-shrink:0}.fg-dots i{width:3px;height:3px;border-radius:50%;background:#165dff}
+.fg-d{margin:4px 0 0;font-size:12px;color:#86909c;line-height:1.5}
+.fg-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.fg-chip{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 6px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font-size:12px;color:#4e5969;white-space:nowrap}
+.fg-chip b{font-weight:400;color:#86909c;font-family:Menlo,monospace;font-size:10px}
+.fg-lb{position:absolute;transform:translate(-50%,-50%);height:18px;line-height:16px;padding:0 6px;border-radius:3px;border:1px solid #e5e6eb;background:#f2f3f5;color:#86909c;font-size:11px;white-space:nowrap}
+.fg-lb.ok{background:#e8ffea;border-color:#b7ebc6;color:#00875a}.fg-lb.w{background:#fff7e8;border-color:#ffe4ba;color:#d25f00}.fg-lb.e{background:#ffece8;border-color:#fdcdc5;color:#cb2634}
+.fg-j{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#fff;border:1.5px solid #c9cdd4;color:#86909c;font:600 12px/13px Inter,sans-serif;text-align:center}
+.fg-pt{position:absolute;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:#a9aeb8}
+.fg-steps{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr);align-items:stretch;padding:20px}
+.fg-steps .fg-n{position:relative;height:100%}
+.fg-c{position:relative;height:1.5px;background:#c9cdd4;align-self:center}
+.fg-c::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#a9aeb8}
+.fg-c::before{content:"";position:absolute;right:-1px;top:50%;margin-top:-4px;border:4px solid transparent;border-left:5px solid #c9cdd4;border-right:0}
+.fg-ft{display:flex;gap:16px;justify-content:flex-end;padding:8px 4px 0;font-size:12px;color:#86909c}
+.fg-ft i{display:inline-block;width:16px;height:0;border-top:1.5px solid #c9cdd4;vertical-align:middle;margin-right:6px}
+.fg-ft i.d{border-top-style:dashed}
+/* hero59：未开通页背景图 */
+.kc-hero.hb59{position:relative;display:block;min-height:330px;padding:56px 44px;overflow:hidden;background-color:#f3f6fc;background-repeat:no-repeat;background-position:right center;background-size:auto 118%;border-color:#e1e8f5}
+.kc-hero.hb59::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(243,246,252,.9) 0%,rgba(243,246,252,.6) 40%,rgba(243,246,252,0) 58%);pointer-events:none}
+.kc-hero.hb59 > div{position:relative;max-width:560px}
+.kc-hero.hb59 h2{font-size:26px}
+/* /flow58 */
+
+
+
+
+
+
+
 
 body{margin:0;background:#f5f7fb}
 a{color:#165dff}a:hover{color:#0e4edb}
@@ -423,6 +464,19 @@ a{color:#165dff}a:hover{color:#0e4edb}
 .kc-dtabs button.on{color:#165dff;border-bottom-color:#165dff;font-weight:500}
 .kc-kvg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 24px;font-size:13px}
 .kc-kvg div span{display:inline-block;width:72px;color:#86909c}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
