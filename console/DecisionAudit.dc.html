@@ -757,6 +757,18 @@ a.kc-logo:hover{opacity:.85}
 .kc-back:hover svg{color:#1664ff}
 /* /nav80 */
 
+/* ia84：一级菜单页内页签 */
+.ia-tabs{display:flex;gap:32px;margin:-4px 0 20px;border-bottom:1px solid #eaedf1}
+.ia-tabs a{position:relative;padding:0 0 12px;font-size:14px;color:#42464e;text-decoration:none;white-space:nowrap}
+.ia-tabs a:hover{color:#1664ff}
+.ia-tabs a.on{color:#1664ff;font-weight:500}
+.ia-tabs a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#1664ff}
+.ia-tabs + .b8{border-top:0}
+.ia-tabs + .b8 > .b8-m,.ia-tabs + .b8 > .b8-r{padding-top:4px}
+.kc-side[aria-label="控制台菜单"] .kc-gl{display:none}
+.kc-side[aria-label="控制台菜单"] .kc-nv{padding-top:4px}
+/* /ia84 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}

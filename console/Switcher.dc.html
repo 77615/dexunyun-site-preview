@@ -595,6 +595,18 @@ a.kc-logo:hover{opacity:.85}
 .kc-back:hover svg{color:#1664ff}
 /* /nav80 */
 
+/* ia84：一级菜单页内页签 */
+.ia-tabs{display:flex;gap:32px;margin:-4px 0 20px;border-bottom:1px solid #eaedf1}
+.ia-tabs a{position:relative;padding:0 0 12px;font-size:14px;color:#42464e;text-decoration:none;white-space:nowrap}
+.ia-tabs a:hover{color:#1664ff}
+.ia-tabs a.on{color:#1664ff;font-weight:500}
+.ia-tabs a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#1664ff}
+.ia-tabs + .b8{border-top:0}
+.ia-tabs + .b8 > .b8-m,.ia-tabs + .b8 > .b8-r{padding-top:4px}
+.kc-side[aria-label="控制台菜单"] .kc-gl{display:none}
+.kc-side[aria-label="控制台菜单"] .kc-nv{padding-top:4px}
+/* /ia84 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -703,7 +715,7 @@ a.kc-logo:hover{opacity:.85}
         </sc-if>
         <h3 style="margin-top: 20px;">账号与费用</h3>
         <a class="kc-rl" href="#">用户中心</a>
-        <a class="kc-rl" href="#">订单与账务</a>
+        <a class="kc-rl" href="#">费用</a>
       </div>
       <div class="kc-pm">
         <label class="kc-ps">
@@ -827,7 +839,7 @@ class Component extends DCLogic {
       ['DDoS 防护', 'DDoS 高防 IP › 防护策略', 'DdosPolicy.dc.html', '高防 清洗 等级'],
       ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', '高防 攻击 报表'],
       ['安全事件', '德迅卫士 › 风险处置', '#', '主机 告警'],
-      ['发票管理', '用户中心 › 订单与账务', '#', '发票 开票'],
+      ['发票管理', '用户中心 › 费用', '#', '发票 开票'],
       ['证书购买与续费', 'SSL 证书', '#', '证书 续费']
     ].filter(([n, d, h, k]) => q && (n + d + k).toLowerCase().includes(q)).map(([n, d, href]) => ({ n, d, href }));
     const res = [

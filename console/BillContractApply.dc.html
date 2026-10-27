@@ -1420,6 +1420,18 @@ a.kc-logo:hover{opacity:.85}
 .kc-back:hover svg{color:#1664ff}
 /* /nav80 */
 
+/* ia84：一级菜单页内页签 */
+.ia-tabs{display:flex;gap:32px;margin:-4px 0 20px;border-bottom:1px solid #eaedf1}
+.ia-tabs a{position:relative;padding:0 0 12px;font-size:14px;color:#42464e;text-decoration:none;white-space:nowrap}
+.ia-tabs a:hover{color:#1664ff}
+.ia-tabs a.on{color:#1664ff;font-weight:500}
+.ia-tabs a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#1664ff}
+.ia-tabs + .b8{border-top:0}
+.ia-tabs + .b8 > .b8-m,.ia-tabs + .b8 > .b8-r{padding-top:4px}
+.kc-side[aria-label="控制台菜单"] .kc-gl{display:none}
+.kc-side[aria-label="控制台菜单"] .kc-nv{padding-top:4px}
+/* /ia84 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -1471,7 +1483,7 @@ a.kc-logo:hover{opacity:.85}
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}">{{r.n}}<small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}">{{r.n}}<small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">订单与账务</a></li></ul>
+        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
@@ -1480,7 +1492,7 @@ a.kc-logo:hover{opacity:.85}
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav class="kc-crumb" aria-label="面包屑">订单与账务<i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i>合同管理<i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>申请合同</b></nav>
+    <nav class="kc-crumb" aria-label="面包屑">费用<i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i>合同管理<i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>申请合同</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -1629,9 +1641,9 @@ class Component extends DCLogic {
       ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
       ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
       ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
-      ['我的订单', '订单与账务', 'BillOrders.dc.html', 'doc', '订单'], ['合并付款', '订单与账务', 'BillPayment.dc.html', 'doc', '付款 转账 对公'], ['申请开票', '订单与账务 › 发票管理', 'BillInvoiceApply.dc.html', 'doc', '发票 开票 专票'],
-      ['续费', '我的产品 › 订阅与资源', 'AcctSubs.dc.html', 'box', '续费 到期'], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', '工单 客服 报障'], ['成员管理', '企业管理', 'OrgMembers.dc.html', 'users', '成员 子用户 权限'],
-      ['安全设置', '企业管理', 'OrgSecurity.dc.html', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业管理', 'OrgVerify.dc.html', 'users', '认证 营业执照'], ['消息', '消息中心', 'Notifications.dc.html', 'bell', '消息 通知 告警']];
+      ['我的订单', '费用', 'BillOrders.dc.html', 'doc', '订单'], ['合并付款', '费用', 'BillPayment.dc.html', 'doc', '付款 转账 对公'], ['申请开票', '费用 › 发票管理', 'BillInvoiceApply.dc.html', 'doc', '发票 开票 专票'],
+      ['续费', '我的产品 › 订阅与资源', 'AcctSubs.dc.html', 'box', '续费 到期'], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', '工单 客服 报障'], ['成员管理', '企业', 'OrgMembers.dc.html', 'users', '成员 子用户 权限'],
+      ['安全设置', '企业', 'OrgSecurity.dc.html', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业', 'OrgVerify.dc.html', 'users', '认证 营业执照'], ['消息', '消息中心', 'Notifications.dc.html', 'bell', '消息 通知 告警']];
     const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.13 ddos-1e8d07'],
       ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
       ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
@@ -1681,8 +1693,8 @@ class Component extends DCLogic {
   }
   /* /hdr62 */
   _rv() {
-    const cur = '合同管理';
-    const pages = { '总览': 'ConsoleHome.dc.html', '产品列表': 'AcctProducts.dc.html', '订阅与资源': 'AcctSubs.dc.html', '授权使用情况': 'AcctUsage.dc.html', '账务概览': 'BillOverview.dc.html', '我的订单': 'BillOrders.dc.html', '付款管理': 'BillPay.dc.html', '发票管理': 'BillInvoice.dc.html', '合同管理': 'BillContract.dc.html', '我的工单': 'SupTickets.dc.html', '帮助文档': 'SupDocs.dc.html', '企业信息与认证': 'OrgInfo.dc.html', '成员管理': 'OrgMembers.dc.html', '角色权限': 'OrgRoles.dc.html', '安全设置': 'OrgSecurity.dc.html' };
+    const cur = '费用';
+    const pages = { '总览': 'ConsoleHome.dc.html', '我的产品': 'AcctProducts.dc.html', '费用': 'BillOverview.dc.html', '企业': 'OrgInfo.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1690,8 +1702,7 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '控制台', items: [L("总览", 'grid'), P("我的产品", 'box', ["产品列表", "订阅与资源", "授权使用情况"])] },
-      { label: '账号与服务', items: [P("订单与账务", 'doc', ["账务概览", "我的订单", "付款管理", "发票管理", "合同管理"]), P("支持服务", 'help', ["我的工单", "帮助文档"]), P("企业管理", 'users', ["企业信息与认证", "成员管理", "角色权限", "安全设置"])] }
+      { label: '', items: [L("总览", 'grid'), L("我的产品", 'box'), L("费用", 'doc'), L("企业", 'users')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
