@@ -1232,6 +1232,70 @@ body,.kc-root,.kc-app{font-size:13px;color:#0c0d0e;font-family:Roboto,Helvetica,
 input::placeholder,textarea::placeholder{color:#737a87}
 /* /type77 */
 
+/* list79：火山三档列表 */
+.kc-bar.lf-bar{display:flex;align-items:center;gap:8px;padding:16px;flex-wrap:wrap}
+.lf-bar .lf-r{margin-left:auto;display:flex;align-items:center;gap:8px}
+.lf-bar .kc-sub{font-size:12px;color:#737a87;margin-right:4px}
+.lf-q{position:relative;display:inline-flex}
+.lf-q .kc-in{padding-left:30px}
+.lf-qi{position:absolute;left:10px;top:50%;margin-top:-7.5px;color:#737a87;pointer-events:none}
+.lf-fs{position:relative;display:inline-flex;align-items:stretch;height:32px;border:1px solid #dde2e9;border-radius:4px;background:#fff;width:360px}
+.lf-fs:hover{border-color:#6694ff}
+.lf-fs:focus-within{border-color:#1664ff;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.lf-fk{display:inline-flex;align-items:center;gap:6px;padding:0 10px 0 12px;border:0;border-right:1px solid #eaedf1;background:#f6f8fa;color:#42464e;font:inherit;font-size:13px;border-radius:3px 0 0 3px;cursor:pointer;white-space:nowrap}
+.lf-fk svg{color:#737a87}
+.lf-fs .kc-in{flex:1;min-width:0;border:0 !important;box-shadow:none !important;background:transparent;height:30px;padding:0 30px 0 10px}
+.lf-fs .lf-qi{left:auto;right:10px}
+.lf-ib{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dde2e9;border-radius:4px;background:#fff;color:#42464e;cursor:pointer;padding:0}
+.lf-ib:hover{border-color:#6694ff;color:#1664ff}
+.lf-tok{position:relative;flex:1 1 360px;max-width:560px;min-height:32px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:3px 10px 3px 32px;border:1px solid #dde2e9;border-radius:4px;background:#fff;cursor:text;outline:0}
+.lf-tok:hover{border-color:#6694ff}
+.lf-tok:focus,.lf-tok:focus-within{border-color:#1664ff;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.lf-ph{color:#737a87}
+.lf-chip{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 4px 0 8px;border-radius:2px;background:#f2f3f5;color:#0c0d0e;font-size:12px}
+.lf-chip i{display:inline-flex;color:#737a87;cursor:pointer}
+.lf-pop{display:none;position:absolute;left:-1px;top:calc(100% + 4px);z-index:20;width:280px;padding:4px;background:#fff;border:1px solid #eaedf1;border-radius:4px;box-shadow:0 6px 16px rgba(12,13,14,.08)}
+.lf-tok:focus .lf-pop,.lf-tok:focus-within .lf-pop{display:block}
+.lf-pt{padding:6px 8px;font-size:12px;color:#737a87}
+.lf-pop > button{display:block;width:100%;height:32px;padding:0 8px;border:0;border-radius:2px;background:none;text-align:left;font:inherit;font-size:13px;color:#0c0d0e;cursor:pointer}
+.lf-pop > button:hover,.lf-pop > button:first-of-type{background:#f2f3f5}
+.lf-kb{display:flex;align-items:center;gap:4px;margin-top:4px;padding:8px 8px 4px;border-top:1px solid #eaedf1;font-size:12px;color:#737a87}
+.lf-kb kbd{min-width:18px;height:18px;padding:0 4px;border:1px solid #dde2e9;border-radius:2px;background:#f6f8fa;font:inherit;font-size:11px;line-height:16px;text-align:center;color:#42464e}
+.kc-t .lf-ck{width:48px;padding-right:0 !important}
+.lf-batch{display:flex;align-items:center;gap:8px}
+.kc-bar.lf-bar{position:relative;z-index:6}
+.kc-t .lf-ck .ac-cbx,.lf-batch .ac-cbx{display:inline-block !important;width:16px !important;height:16px !important;flex:0 0 16px;border:1px solid #c9d2df !important;border-radius:4px;background:#fff;box-sizing:border-box}
+.lf-batch .ac-cbx{margin-right:4px}
+.lf-sel{color:#42464e;margin-right:8px}
+.lf-sel b{font-weight:500;color:#0c0d0e}
+.lf-batch .kc-btn[disabled]{color:#c7ccd6;background:#f6f8fa;border-color:#eaedf1;cursor:not-allowed}
+.lf-more{position:relative}
+.lf-more .kc-btn{width:32px;padding:0;justify-content:center}
+.lf-mp{display:none}
+.kc-foot.lf-foot{position:sticky;bottom:0;z-index:4;background:#fff;border-top:1px solid #eaedf1;border-radius:0 0 8px 8px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:#42464e}
+.lf-batch + .kc-foot.lf-foot{border-top:0}
+.lf-note{font-size:12px;color:#737a87}
+.lf-pgr{display:flex;align-items:center;gap:12px;margin-left:auto}
+.lf-pgr .kc-pg{display:flex;gap:4px}
+.lf-sz{height:28px}
+.lf-jp{display:inline-flex;align-items:center;gap:6px;color:#42464e}
+.lf-jp .kc-in{width:44px;height:28px;padding:0 6px;text-align:center}
+.kc-card:has(> .lf-foot){overflow:visible}
+.kc-t.lf-st1 > tbody > tr > td:nth-child(1) .kc-tag,.kc-t.lf-st2 > tbody > tr > td:nth-child(2) .kc-tag,.kc-t.lf-st3 > tbody > tr > td:nth-child(3) .kc-tag,.kc-t.lf-st4 > tbody > tr > td:nth-child(4) .kc-tag,.kc-t.lf-st5 > tbody > tr > td:nth-child(5) .kc-tag,.kc-t.lf-st6 > tbody > tr > td:nth-child(6) .kc-tag,.kc-t.lf-st7 > tbody > tr > td:nth-child(7) .kc-tag,.kc-t.lf-st8 > tbody > tr > td:nth-child(8) .kc-tag,.kc-t.lf-st9 > tbody > tr > td:nth-child(9) .kc-tag,.kc-t.lf-st10 > tbody > tr > td:nth-child(10) .kc-tag,.kc-t.lf-st11 > tbody > tr > td:nth-child(11) .kc-tag,.kc-t.lf-st12 > tbody > tr > td:nth-child(12) .kc-tag,.kc-t.lf-st13 > tbody > tr > td:nth-child(13) .kc-tag,.kc-t.lf-st14 > tbody > tr > td:nth-child(14) .kc-tag,.kc-t.lf-st15 > tbody > tr > td:nth-child(15) .kc-tag{border:0 !important;background:none !important;padding:0 !important;height:auto;gap:6px !important;font-weight:400}
+.kc-t.lf-st1 > tbody > tr > td:nth-child(1) .kc-tag::before,.kc-t.lf-st2 > tbody > tr > td:nth-child(2) .kc-tag::before,.kc-t.lf-st3 > tbody > tr > td:nth-child(3) .kc-tag::before,.kc-t.lf-st4 > tbody > tr > td:nth-child(4) .kc-tag::before,.kc-t.lf-st5 > tbody > tr > td:nth-child(5) .kc-tag::before,.kc-t.lf-st6 > tbody > tr > td:nth-child(6) .kc-tag::before,.kc-t.lf-st7 > tbody > tr > td:nth-child(7) .kc-tag::before,.kc-t.lf-st8 > tbody > tr > td:nth-child(8) .kc-tag::before,.kc-t.lf-st9 > tbody > tr > td:nth-child(9) .kc-tag::before,.kc-t.lf-st10 > tbody > tr > td:nth-child(10) .kc-tag::before,.kc-t.lf-st11 > tbody > tr > td:nth-child(11) .kc-tag::before,.kc-t.lf-st12 > tbody > tr > td:nth-child(12) .kc-tag::before,.kc-t.lf-st13 > tbody > tr > td:nth-child(13) .kc-tag::before,.kc-t.lf-st14 > tbody > tr > td:nth-child(14) .kc-tag::before,.kc-t.lf-st15 > tbody > tr > td:nth-child(15) .kc-tag::before{content:"";display:inline-block !important;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.kc-t.lf-st1 > tbody > tr > td:nth-child(1) .kc-tag.mut,.kc-t.lf-st2 > tbody > tr > td:nth-child(2) .kc-tag.mut,.kc-t.lf-st3 > tbody > tr > td:nth-child(3) .kc-tag.mut,.kc-t.lf-st4 > tbody > tr > td:nth-child(4) .kc-tag.mut,.kc-t.lf-st5 > tbody > tr > td:nth-child(5) .kc-tag.mut,.kc-t.lf-st6 > tbody > tr > td:nth-child(6) .kc-tag.mut,.kc-t.lf-st7 > tbody > tr > td:nth-child(7) .kc-tag.mut,.kc-t.lf-st8 > tbody > tr > td:nth-child(8) .kc-tag.mut,.kc-t.lf-st9 > tbody > tr > td:nth-child(9) .kc-tag.mut,.kc-t.lf-st10 > tbody > tr > td:nth-child(10) .kc-tag.mut,.kc-t.lf-st11 > tbody > tr > td:nth-child(11) .kc-tag.mut,.kc-t.lf-st12 > tbody > tr > td:nth-child(12) .kc-tag.mut,.kc-t.lf-st13 > tbody > tr > td:nth-child(13) .kc-tag.mut,.kc-t.lf-st14 > tbody > tr > td:nth-child(14) .kc-tag.mut,.kc-t.lf-st15 > tbody > tr > td:nth-child(15) .kc-tag.mut{color:#737a87}
+/* /list79 */
+
+/* nav80：返回总览 */
+a.kc-logo{text-decoration:none;color:inherit;cursor:pointer}
+a.kc-logo:hover{opacity:.85}
+.kc-back{display:flex;align-items:center;gap:6px;height:32px;margin:0 -4px 10px;padding:0 6px;border-radius:6px;color:#42464e;font-size:13px;text-decoration:none}
+.kc-back:hover{background:#ebebf5;color:#1664ff}
+.kc-sh .kc-back span{font-size:13px;color:inherit}
+.kc-back svg{color:#737a87}
+.kc-back:hover svg{color:#1664ff}
+/* /nav80 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -1274,7 +1338,7 @@ input::placeholder,textarea::placeholder{color:#737a87}
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <div class="kc-logo"><span class="kc-mark">德</span>德迅云控制台</div>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}">产品与服务
       <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
     </button>
@@ -1381,11 +1445,11 @@ input::placeholder,textarea::placeholder{color:#737a87}
       <div class="ac-al "><i>!</i><span>有 1 项资源等待你确认接收：云备份 · 标准版（来自 139****4321）<em>超过 24 小时未确认会自动失效</em></span><button class="kc-btn sm" type="button" onClick="{{openR}}">去处理</button></div>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
-        <div class="kc-tw"><table class="kc-t op-fix">
+        <div class="kc-tw"><table class="kc-t lf-st5 op-fix">
           <thead><tr><th>转移单号</th><th>资源</th><th>发起方</th><th>接收方</th><th>状态</th><th>发起时间</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}" onClick="{{o.go}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
         </table></div>
-        <div class="kc-foot"><span>共 {{total}} 条 · 待确认期间该资源的续费、扩容、升级全部暂停</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div></div>
+        <div class="kc-foot lf-foot"><span class="lf-note">待确认期间该资源的续费、扩容、升级全部暂停</span><div class="lf-pgr"><span>共 {{total}} 条</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><button class="kc-dd lf-sz" type="button" aria-haspopup="listbox"><b>10 条/页</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
       </section>
     </main>
   </div>

@@ -405,173 +405,86 @@ button.ac-st:hover{border-color:#bedaff}
 .kc-t td .sv-ops a,.kc-t td .sv-ops button{margin-right:12px;background:none;border:0;padding:0;font:inherit;font-size:13px;color:#1664ff;cursor:pointer;text-decoration:none}
 /* /idc67 */
 
-/* bill72：账务概览 */
-.bo-todo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
-.bo-td{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;background:#fff;border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04);position:relative;overflow:hidden}
-.bo-td::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#ff7d00}
-.bo-td.e::before{background:#f53f3f}
-.bo-td > i{width:36px;height:36px;border-radius:6px;background:#fff7e8;display:flex;align-items:center;justify-content:center}
-.bo-td.e > i{background:#ffece8}
-.bo-td > i .fi-i{background:#ff7d00}
-.bo-td.e > i .fi-i{background:#f53f3f}
-.bo-td b{display:block;font-size:13px;font-weight:500;color:#0c0d0e}
-.bo-td p{margin:2px 0 0;font-size:12px;color:#737a87;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bo-g{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(320px,1fr);gap:16px;margin-bottom:16px;align-items:stretch}
-.bo-g > .kc-card{margin:0}
-.bo-pay{display:flex;flex-direction:column}
-.bo-pay .kc-cb{flex:1;display:flex;flex-direction:column}
-.bo-amt{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px dashed #e5e6eb}
-.bo-amt small{display:block;font-size:13px;color:#42464e}
-.bo-amt b{display:block;font:600 34px/1.2 Inter,"PingFang SC",sans-serif;color:#0c0d0e;letter-spacing:-.5px;margin-top:4px}
-.bo-amt b em{font-style:normal;font-size:16px;margin-right:4px;color:#42464e;font-weight:500}
-.bo-amt > span{font-size:12px;color:#737a87}
-.bo-pf .kc-btn,.bo-only{gap:0}
-.bo-ol{list-style:none;margin:8px 0 0;padding:0}
-.bo-ol li{display:grid;grid-template-columns:20px minmax(0,1fr) auto 96px;gap:12px;align-items:center;padding:10px 8px;border-radius:6px;cursor:pointer}
-.bo-ol li:hover{background:#f7f9fd}
-.bo-ol li.on{background:#f2f7ff}
-.bo-ol li b{font-size:13px;font-weight:500;color:#0c0d0e}
-.bo-ol li p{margin:2px 0 0;font-size:12px;color:#737a87}
-.bo-ol li strong{text-align:right;font:600 14px Inter,"PingFang SC",sans-serif;color:#0c0d0e}
-.bo-pf{margin-top:auto;padding-top:12px;display:flex;align-items:center;gap:12px;font-size:13px;color:#42464e}
-.bo-pf b{font:600 16px Inter,"PingFang SC",sans-serif;color:#1664ff}
-.bo-pf .kc-btn:first-of-type{margin-left:auto}
-.bo-acc{list-style:none;margin:0;padding:0}
-.bo-acc li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border-radius:6px;background:#f7f8fa;margin-bottom:8px}
-.bo-acc li span{font-size:13px;color:#737a87}
-.bo-acc li b{font-size:13px;font-weight:500;color:#0c0d0e;word-break:break-all}
-.bo-acc li b.mono{font:500 15px/1.4 Inter,"PingFang SC",sans-serif;letter-spacing:.5px}
-.bo-cp{height:24px;padding:0 8px;border:1px solid #e4eaf0;border-radius:4px;background:#fff;font:inherit;font-size:12px;color:#42464e;cursor:pointer;white-space:nowrap}
-.bo-cp:hover{border-color:#1664ff;color:#1664ff}
-.bo-cp.ok{border-color:#b7eb8f;background:#f6ffed;color:#00b42a}
-.bo-tip{font-size:12px;color:#737a87;line-height:1.7;margin:4px 0 0}
-.bo-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
-.bo-k{display:block;padding:14px 16px 10px;background:#fff;border:1px solid #f0f2f5;border-radius:6px;box-shadow:0 2px 8px rgba(31,35,41,.04);text-decoration:none;color:#0c0d0e;position:relative}
-.bo-k:hover{border-color:#bedaff}
-.bo-k > span{font-size:13px;color:#42464e}
-.bo-k > b{display:block;font:600 24px/1.3 Inter,"PingFang SC",sans-serif;margin-top:6px}
-.bo-k > b small{font-size:13px;font-weight:400;color:#737a87;margin-left:4px}
-.bo-k > em{display:block;font-style:normal;font-size:12px;color:#737a87;margin-top:2px}
-.bo-k > em i{font-style:normal;font-weight:500}
-.bo-k > em i.up{color:#f53f3f}
-.bo-k > em i.dn{color:#00b42a}
-.bo-k:nth-child(n+3) svg{display:none}
-.bo-k svg{position:absolute;right:14px;top:16px;width:96px;height:36px}
-.bo-an{margin-bottom:16px}
-.bo-ah{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.bo-ah h2{margin-right:auto}
-.bo-seg{display:inline-flex;padding:2px;background:#f2f3f5;border-radius:6px}
-.bo-seg button{height:26px;padding:0 12px;border:0;border-radius:4px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
-.bo-seg button.on{background:#fff;color:#1664ff;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
-.bo-only{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 6px 0 10px;border-radius:13px;background:#eaf2ff;color:#1664ff;font-size:12px}
-.bo-only button{border:0;background:none;color:#1664ff;cursor:pointer;font-size:13px;line-height:1;padding:0 2px}
-.bo-ab{display:grid;grid-template-columns:minmax(0,1fr) 320px;border-top:1px solid #f2f3f5}
-.bo-cw{padding:16px 24px 18px}
-.bo-sum{display:flex;gap:28px;font-size:13px;color:#737a87;margin-bottom:6px}
-.bo-sum b{font:600 18px Inter,"PingFang SC",sans-serif;color:#0c0d0e;margin-left:6px}
-.bo-lg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 4px}
-.bo-lg button{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:2px 0;font:inherit;font-size:12px;color:#42464e;cursor:pointer}
-.bo-lg button i{width:10px;height:10px;border-radius:2px}
-.bo-lg button.off{color:#c7ccd6}
-.bo-lg button.off i{background:#e5e6eb !important}
-.bo-ch{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);height:280px;margin:10px 0 26px}
-.bo-ya{position:relative;font:11px Inter,sans-serif;color:#737a87}
-.bo-ya > span{position:absolute;right:10px;transform:translateY(50%);white-space:nowrap}
-.bo-pl{position:relative;border-bottom:1px solid #e5e6eb}
-.bo-gl{position:absolute;left:0;right:0;border-top:1px dashed #edf0f5}
-.bo-avg{position:absolute;left:0;right:0;border-top:1px dashed #ff7d00;z-index:2;pointer-events:none}
-.bo-avg span{position:absolute;right:0;top:-20px;font-size:12px;color:#ff7d00;background:rgba(255,255,255,.9);padding:0 4px;border-radius:3px}
-.bo-cols{position:absolute;inset:0;display:flex}
-.bo-col{position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;cursor:pointer;border-radius:6px 6px 0 0}
-.bo-col:hover,.bo-col.hov{background:rgba(22,93,255,.04)}
-.bo-col.on{background:rgba(22,93,255,.07)}
-.bo-bar{display:flex;flex-direction:column-reverse;width:46%;max-width:34px;border-radius:3px 3px 0 0;overflow:hidden;transition:height .3s cubic-bezier(.2,.8,.2,1)}
-.bo-bar > i{display:block;flex-shrink:0;transition:height .3s cubic-bezier(.2,.8,.2,1),opacity .15s}
-.bo-col.dim .bo-bar{opacity:.45}
-.bo-col > em{position:absolute;bottom:-24px;font-style:normal;font-size:12px;color:#737a87;white-space:nowrap}
-.bo-col.on > em{color:#1664ff;font-weight:500}
-.bo-col > small{font:11px Inter,sans-serif;color:#42464e;margin-bottom:4px;white-space:nowrap}
-.bo-tt{position:absolute;z-index:5;left:calc(50% + 22px);transform:translateY(50%);min-width:188px;padding:10px 12px;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 8px 24px rgba(31,35,41,.12);pointer-events:none;animation:mo-drop .14s cubic-bezier(.2,.8,.2,1) both}
-.bo-col:nth-last-child(-n+3) .bo-tt{left:auto;right:calc(50% + 22px)}
-.bo-tt b{display:flex;justify-content:space-between;font-size:13px;color:#0c0d0e;margin-bottom:6px}
-.bo-tt b span{font-family:Inter,sans-serif}
-.bo-tt p{display:flex;align-items:center;gap:6px;margin:3px 0 0;font-size:12px;color:#42464e}
-.bo-tt p i{width:8px;height:8px;border-radius:2px}
-.bo-tt p span{margin-left:auto;font-family:Inter,sans-serif;color:#0c0d0e}
-.bo-tt small{display:block;margin-top:8px;padding-top:6px;border-top:1px solid #f2f3f5;font-size:12px;color:#737a87}
-.bo-md{border-left:1px solid #f2f3f5;padding:16px 20px;background:linear-gradient(180deg,#fafbfd 0%,#fff 60%);display:flex;flex-direction:column}
-.bo-md h3{margin:0;font-size:13px;font-weight:500;color:#0c0d0e;display:flex;align-items:center;gap:8px}
-.bo-md h3 span{font-size:12px;font-weight:400;color:#737a87}
-.bo-mt{font:600 26px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e;margin-top:8px}
-.bo-mt small{font-size:12px;font-weight:500;margin-left:8px}
-.bo-mt small.up{color:#f53f3f}
-.bo-mt small.dn{color:#00b42a}
-.bo-mm{display:flex;gap:16px;font-size:12px;color:#737a87;margin:2px 0 10px}
-.bo-mo{list-style:none;margin:0;padding:0;flex:1}
-.bo-mo li{display:grid;grid-template-columns:8px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #f2f3f5;animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
-.bo-mo li > i{width:8px;height:8px;border-radius:2px}
-.bo-mo li a{font-size:13px;font-weight:500;text-decoration:none}
-.bo-mo li p{margin:1px 0 0;font-size:12px;color:#737a87;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bo-mo li strong{font:500 13px Inter,"PingFang SC",sans-serif;color:#0c0d0e}
-.bo-mo .rf strong{color:#00b42a}
-.bo-me{padding:24px 0;text-align:center;font-size:13px;color:#737a87}
-.bo-mb{display:flex;gap:8px;margin-top:12px}
-.bo-mb .kc-btn{flex:1;justify-content:center}
-.bo-g3{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:16px}
-.bo-g3 > .kc-card{margin:0}
-.bo-dn{display:grid;grid-template-columns:140px minmax(0,1fr);gap:20px;align-items:center}
-.bo-ring{position:relative;width:140px;height:140px;border-radius:50%;transition:background .2s}
-.bo-ring::after{content:"";position:absolute;inset:22px;border-radius:50%;background:#fff}
-.bo-rc{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.bo-rc > span{font-size:12px;color:#737a87;max-width:96px}
-.bo-rc > b{font:600 17px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e;margin-top:2px}
-.bo-rc > em{font-style:normal;font-size:12px;color:#1664ff;font-weight:500}
-.bo-pl2{list-style:none;margin:0;padding:0}
-.bo-pl2 li{display:grid;grid-template-columns:10px minmax(0,1fr) auto 44px;white-space:nowrap;gap:8px;align-items:center;padding:6px 8px;margin:0 -8px;border-radius:4px;font-size:13px;color:#42464e;cursor:pointer}
-.bo-pl2 li:hover,.bo-pl2 li.hov{background:#f7f8fa;color:#0c0d0e}
-.bo-pl2 li.on{background:#eaf2ff;color:#1664ff}
-.bo-pl2 li > i{width:10px;height:10px;border-radius:2px}
-.bo-pl2 li strong{font:500 13px Inter,"PingFang SC",sans-serif;color:#0c0d0e}
-.bo-pl2 li em{font-style:normal;text-align:right;font:12px Inter,sans-serif;color:#737a87}
-.bo-hint{font-size:12px;color:#737a87;margin:12px 0 0}
-.bo-tl{position:relative;height:46px;margin:6px 6px 8px}
-.bo-tl::before{content:"";position:absolute;left:0;right:0;top:18px;height:4px;border-radius:2px;background:linear-gradient(90deg,#ffece8 0%,#fff7e8 35%,#f2f3f5 100%)}
-.bo-tl > em{position:absolute;top:30px;white-space:nowrap;font-style:normal;font-size:12px;color:#737a87;transform:translateX(-50%)}
-.bo-tl > em:first-of-type{transform:none}
-.bo-tl > em:last-of-type{transform:translateX(-100%)}
-.bo-dot{position:absolute;top:12px;width:16px;height:16px;margin-left:-8px;border-radius:50%;border:3px solid #fff;background:#ff7d00;box-shadow:0 1px 4px rgba(0,0,0,.18);cursor:pointer;transition:transform .15s}
-.bo-dot.e{background:#f53f3f}
-.bo-dot.n{background:#1664ff}
-.bo-dot.hov{transform:scale(1.35);z-index:2}
-.bo-ex{list-style:none;margin:0;padding:0}
-.bo-ex li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:8px 8px;margin:0 -8px;border-radius:4px}
-.bo-ex li.hov{background:#fff7e8}
-.bo-ex li b{display:block;font-size:13px;font-weight:500;color:#0c0d0e}
-.bo-ex li p{margin:1px 0 0;font-size:12px;color:#737a87}
-.bo-ex li > span{font-size:12px;font-weight:500;color:#ff7d00;white-space:nowrap}
-.bo-ex li > span.e{color:#f53f3f}
-.bo-ex li > span.n{color:#42464e}
-.bo-iv{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.bo-iv small{display:block;font-size:13px;color:#42464e}
-.bo-iv b{display:block;font:600 24px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e;margin-top:4px}
-.bo-iv em{font-style:normal;font-size:12px;color:#737a87}
-.bo-st{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:16px 0 8px;background:#f2f3f5}
-.bo-st i{display:block;height:100%}
-.bo-sl{display:flex;justify-content:space-between;font-size:12px;color:#737a87}
-.bo-sl span{display:inline-flex;align-items:center;gap:5px}
-.bo-sl span i{width:8px;height:8px;border-radius:2px}
-.bo-sl b{color:#0c0d0e;font-weight:500;margin-left:2px}
-.bo-il{list-style:none;margin:14px 0 0;padding:0}
-.bo-il li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 0;border-top:1px solid #f2f3f5}
-.bo-il li b{display:block;font-size:13px;font-weight:500;color:#0c0d0e}
-.bo-il li p{margin:1px 0 0;font-size:12px;color:#737a87}
-.bo-flow{display:flex;align-items:flex-start;margin-top:14px;padding-top:14px;border-top:1px dashed #e5e6eb}
-.bo-flow > div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-size:12px;color:#42464e;text-align:center}
-.bo-flow > div::before{content:"";position:absolute;top:11px;left:calc(-50% + 16px);right:calc(50% + 16px);height:1px;background:#c9d2df}
-.bo-flow > div:first-child::before{display:none}
-.bo-flow b{width:22px;height:22px;border-radius:50%;background:#eaf2ff;color:#1664ff;font:600 12px/22px Inter,sans-serif;text-align:center}
-.bo-flow small{font-size:12px;color:#737a87}
-/* /bill72 */
+/* bill83：账务概览（火山两栏） */
+.b8{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:0;margin:0;border-top:1px solid #eaedf1}
+.b8-m{padding:24px 32px 40px 0;min-width:0}
+.b8-r{padding:24px 24px 40px;border-left:1px solid #eaedf1}
+.b8-sec{margin-top:32px}
+.b8-sec.b8-first{margin-top:0}
+.b8-st{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
+.b8-st h2{margin:0;font-size:13px;line-height:22px;font-weight:500;color:#0c0d0e}
+.b8-st h2 small{margin-left:8px;font-size:12px;font-weight:400;color:#737a87}
+.b8-st > a{display:inline-flex;align-items:center;gap:2px;font-size:13px;color:#1664ff;text-decoration:none}
+.b8-hero{position:relative;padding:24px 24px 22px;border-radius:8px;background:linear-gradient(100deg,#eef4ff 0%,#f5f8ff 60%,#eef4ff 100%);border:1px solid #e0eaff;overflow:hidden}
+.b8-hero::after{content:"";position:absolute;right:-40px;top:-60px;width:260px;height:260px;background:linear-gradient(135deg,rgba(22,100,255,.06),rgba(22,100,255,0) 60%);transform:rotate(30deg)}
+.b8-lb{display:flex;align-items:center;gap:6px;font-size:13px;color:#42464e}
+.b8-amt{margin:8px 0 6px;font-size:32px;line-height:40px;font-weight:600;color:#0c0d0e;font-family:Roboto,"PingFang SC",sans-serif}
+.b8-amt small{font-size:18px;margin-right:2px;font-weight:500}
+.b8-warn{display:flex;align-items:center;gap:6px;font-size:12px;color:#bd7e00;margin-bottom:18px}
+.b8-warn i{width:6px;height:6px;border-radius:50%;background:#ff7d00}
+.b8-warn a{color:#1664ff;text-decoration:none;margin-left:4px}
+.b8-act{position:relative;z-index:1;display:flex;gap:8px}
+.b8-t{width:100%;border-collapse:collapse;font-size:13px}
+.b8-t th{height:40px;padding:0 16px;background:#f6f8fa;color:#42464e;font-weight:500;text-align:left;white-space:nowrap}
+.b8-t td{height:44px;padding:0 16px;border-bottom:1px solid #eaedf1;color:#0c0d0e;white-space:nowrap}
+.b8-t .num{text-align:right;font-variant-numeric:tabular-nums}
+.b8-t td.mut{color:#737a87}
+.b8-t a{color:#1664ff;text-decoration:none;margin-right:12px}
+.b8-seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5}
+.b8-seg button{height:24px;padding:0 10px;border:0;border-radius:3px;background:none;font:inherit;font-size:12px;color:#42464e;cursor:pointer}
+.b8-seg button.on{background:#fff;color:#1664ff;font-weight:500;box-shadow:0 1px 2px rgba(12,13,14,.08)}
+.b8-ch{display:flex;align-items:flex-end;gap:10px;height:200px;padding:8px 0 0;border-bottom:1px solid #dde2e9;background:repeating-linear-gradient(to top,transparent 0,transparent 49px,#f2f3f5 49px,#f2f3f5 50px)}
+.b8-col{position:relative;flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.b8-bar{width:min(32px,70%);display:flex;flex-direction:column-reverse;border-radius:2px 2px 0 0;overflow:hidden;cursor:pointer}
+.b8-bar i{display:block;width:100%}
+.b8-col:hover .b8-bar{filter:brightness(1.06)}
+.b8-tip{display:none;position:absolute;bottom:calc(100% - 20px);left:50%;transform:translateX(-50%);z-index:3;padding:6px 10px;border-radius:4px;background:#fff;box-shadow:0 4px 12px rgba(12,13,14,.12);font-size:12px;color:#42464e;white-space:nowrap}
+.b8-tip b{display:block;font-size:13px;font-weight:500;color:#0c0d0e}
+.b8-col:hover .b8-tip{display:block}
+.b8-xs{display:flex;gap:10px;margin-top:8px}
+.b8-xs span{flex:1;text-align:center;font-size:12px;color:#737a87}
+.b8-lg{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:12px;color:#42464e}
+.b8-lg span{display:inline-flex;align-items:center;gap:6px}
+.b8-lg i{width:8px;height:8px;border-radius:2px}
+.b8-lg b{font-weight:400;color:#737a87;margin-left:2px}
+.b8-todo{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px;border-radius:8px;background:#f6f8fa}
+.b8-todo a{display:block;padding:10px 12px;border-radius:6px;text-decoration:none}
+.b8-todo a:hover{background:#fff}
+.b8-todo strong{display:block;font-size:20px;line-height:28px;font-weight:500;color:#0c0d0e}
+.b8-todo strong small{font-size:12px;font-weight:400;color:#42464e;margin-left:2px}
+.b8-todo strong.w{color:#d25f00}
+.b8-todo span{font-size:12px;color:#42464e;border-bottom:1px dashed #c7ccd6}
+.b8-inv{padding:16px;border:1px solid #eaedf1;border-radius:8px}
+.b8-inv .lb{font-size:12px;color:#737a87}
+.b8-inv .v{display:flex;align-items:baseline;justify-content:space-between;margin:4px 0 12px}
+.b8-inv .v b{font-size:20px;font-weight:600;color:#0c0d0e}
+.b8-inv .v a{font-size:13px;color:#1664ff;text-decoration:none}
+.b8-pr{display:flex;height:4px;border-radius:2px;overflow:hidden;background:#f2f3f5;margin-bottom:10px}
+.b8-ps{display:flex;justify-content:space-between;font-size:12px;color:#42464e}
+.b8-ps em{font-style:normal;color:#bd2923}
+.b8-set{margin:0;padding:0;list-style:none}
+.b8-set li{display:flex;align-items:center;gap:10px;min-height:44px;font-size:13px;color:#0c0d0e}
+.b8-set li + li{border-top:1px solid #f2f3f5}
+.b8-set li span{flex:1}
+.b8-set li small{display:block;font-size:12px;color:#737a87}
+.b8-set li a{color:#1664ff;text-decoration:none}
+.b8-sw{position:relative;width:28px;height:16px;border:0;border-radius:8px;background:#c7ccd6;cursor:pointer;padding:0}
+.b8-sw::after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:#fff;transition:left .15s}
+.b8-sw.on{background:#1664ff}
+.b8-sw.on::after{left:14px}
+.b8-acc{margin:0 0 16px;padding:0;list-style:none;border:1px solid #eaedf1;border-radius:8px}
+.b8-acc li{display:flex;align-items:center;gap:12px;padding:12px 16px;font-size:13px}
+.b8-acc li + li{border-top:1px solid #f2f3f5}
+.b8-acc li span{width:56px;color:#737a87}
+.b8-acc li b{flex:1;font-weight:500;color:#0c0d0e}
+.b8-acc li a{color:#1664ff;text-decoration:none;font-size:12px}
+.b8-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0;padding:0;list-style:none;counter-reset:f}
+.b8-flow li{padding:10px 12px;border-radius:6px;background:#f6f8fa;font-size:12px;color:#737a87;counter-increment:f}
+.b8-flow li b{display:block;font-size:13px;font-weight:500;color:#0c0d0e}
+.b8-flow li b::before{content:counter(f) " ";color:#1664ff}
+.b8-note{margin:12px 0 0;font-size:12px;color:#737a87}
+.dt-mask{position:absolute;left:0;right:0;top:56px;bottom:0;z-index:11;background:rgba(29,33,41,.18)}
+/* /bill83 */
 
 
 /* ux56：总览、全局搜索、加载规范 */
@@ -1461,6 +1374,70 @@ body,.kc-root,.kc-app{font-size:13px;color:#0c0d0e;font-family:Roboto,Helvetica,
 input::placeholder,textarea::placeholder{color:#737a87}
 /* /type77 */
 
+/* list79：火山三档列表 */
+.kc-bar.lf-bar{display:flex;align-items:center;gap:8px;padding:16px;flex-wrap:wrap}
+.lf-bar .lf-r{margin-left:auto;display:flex;align-items:center;gap:8px}
+.lf-bar .kc-sub{font-size:12px;color:#737a87;margin-right:4px}
+.lf-q{position:relative;display:inline-flex}
+.lf-q .kc-in{padding-left:30px}
+.lf-qi{position:absolute;left:10px;top:50%;margin-top:-7.5px;color:#737a87;pointer-events:none}
+.lf-fs{position:relative;display:inline-flex;align-items:stretch;height:32px;border:1px solid #dde2e9;border-radius:4px;background:#fff;width:360px}
+.lf-fs:hover{border-color:#6694ff}
+.lf-fs:focus-within{border-color:#1664ff;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.lf-fk{display:inline-flex;align-items:center;gap:6px;padding:0 10px 0 12px;border:0;border-right:1px solid #eaedf1;background:#f6f8fa;color:#42464e;font:inherit;font-size:13px;border-radius:3px 0 0 3px;cursor:pointer;white-space:nowrap}
+.lf-fk svg{color:#737a87}
+.lf-fs .kc-in{flex:1;min-width:0;border:0 !important;box-shadow:none !important;background:transparent;height:30px;padding:0 30px 0 10px}
+.lf-fs .lf-qi{left:auto;right:10px}
+.lf-ib{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dde2e9;border-radius:4px;background:#fff;color:#42464e;cursor:pointer;padding:0}
+.lf-ib:hover{border-color:#6694ff;color:#1664ff}
+.lf-tok{position:relative;flex:1 1 360px;max-width:560px;min-height:32px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:3px 10px 3px 32px;border:1px solid #dde2e9;border-radius:4px;background:#fff;cursor:text;outline:0}
+.lf-tok:hover{border-color:#6694ff}
+.lf-tok:focus,.lf-tok:focus-within{border-color:#1664ff;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.lf-ph{color:#737a87}
+.lf-chip{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 4px 0 8px;border-radius:2px;background:#f2f3f5;color:#0c0d0e;font-size:12px}
+.lf-chip i{display:inline-flex;color:#737a87;cursor:pointer}
+.lf-pop{display:none;position:absolute;left:-1px;top:calc(100% + 4px);z-index:20;width:280px;padding:4px;background:#fff;border:1px solid #eaedf1;border-radius:4px;box-shadow:0 6px 16px rgba(12,13,14,.08)}
+.lf-tok:focus .lf-pop,.lf-tok:focus-within .lf-pop{display:block}
+.lf-pt{padding:6px 8px;font-size:12px;color:#737a87}
+.lf-pop > button{display:block;width:100%;height:32px;padding:0 8px;border:0;border-radius:2px;background:none;text-align:left;font:inherit;font-size:13px;color:#0c0d0e;cursor:pointer}
+.lf-pop > button:hover,.lf-pop > button:first-of-type{background:#f2f3f5}
+.lf-kb{display:flex;align-items:center;gap:4px;margin-top:4px;padding:8px 8px 4px;border-top:1px solid #eaedf1;font-size:12px;color:#737a87}
+.lf-kb kbd{min-width:18px;height:18px;padding:0 4px;border:1px solid #dde2e9;border-radius:2px;background:#f6f8fa;font:inherit;font-size:11px;line-height:16px;text-align:center;color:#42464e}
+.kc-t .lf-ck{width:48px;padding-right:0 !important}
+.lf-batch{display:flex;align-items:center;gap:8px}
+.kc-bar.lf-bar{position:relative;z-index:6}
+.kc-t .lf-ck .ac-cbx,.lf-batch .ac-cbx{display:inline-block !important;width:16px !important;height:16px !important;flex:0 0 16px;border:1px solid #c9d2df !important;border-radius:4px;background:#fff;box-sizing:border-box}
+.lf-batch .ac-cbx{margin-right:4px}
+.lf-sel{color:#42464e;margin-right:8px}
+.lf-sel b{font-weight:500;color:#0c0d0e}
+.lf-batch .kc-btn[disabled]{color:#c7ccd6;background:#f6f8fa;border-color:#eaedf1;cursor:not-allowed}
+.lf-more{position:relative}
+.lf-more .kc-btn{width:32px;padding:0;justify-content:center}
+.lf-mp{display:none}
+.kc-foot.lf-foot{position:sticky;bottom:0;z-index:4;background:#fff;border-top:1px solid #eaedf1;border-radius:0 0 8px 8px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:#42464e}
+.lf-batch + .kc-foot.lf-foot{border-top:0}
+.lf-note{font-size:12px;color:#737a87}
+.lf-pgr{display:flex;align-items:center;gap:12px;margin-left:auto}
+.lf-pgr .kc-pg{display:flex;gap:4px}
+.lf-sz{height:28px}
+.lf-jp{display:inline-flex;align-items:center;gap:6px;color:#42464e}
+.lf-jp .kc-in{width:44px;height:28px;padding:0 6px;text-align:center}
+.kc-card:has(> .lf-foot){overflow:visible}
+.kc-t.lf-st1 > tbody > tr > td:nth-child(1) .kc-tag,.kc-t.lf-st2 > tbody > tr > td:nth-child(2) .kc-tag,.kc-t.lf-st3 > tbody > tr > td:nth-child(3) .kc-tag,.kc-t.lf-st4 > tbody > tr > td:nth-child(4) .kc-tag,.kc-t.lf-st5 > tbody > tr > td:nth-child(5) .kc-tag,.kc-t.lf-st6 > tbody > tr > td:nth-child(6) .kc-tag,.kc-t.lf-st7 > tbody > tr > td:nth-child(7) .kc-tag,.kc-t.lf-st8 > tbody > tr > td:nth-child(8) .kc-tag,.kc-t.lf-st9 > tbody > tr > td:nth-child(9) .kc-tag,.kc-t.lf-st10 > tbody > tr > td:nth-child(10) .kc-tag,.kc-t.lf-st11 > tbody > tr > td:nth-child(11) .kc-tag,.kc-t.lf-st12 > tbody > tr > td:nth-child(12) .kc-tag,.kc-t.lf-st13 > tbody > tr > td:nth-child(13) .kc-tag,.kc-t.lf-st14 > tbody > tr > td:nth-child(14) .kc-tag,.kc-t.lf-st15 > tbody > tr > td:nth-child(15) .kc-tag{border:0 !important;background:none !important;padding:0 !important;height:auto;gap:6px !important;font-weight:400}
+.kc-t.lf-st1 > tbody > tr > td:nth-child(1) .kc-tag::before,.kc-t.lf-st2 > tbody > tr > td:nth-child(2) .kc-tag::before,.kc-t.lf-st3 > tbody > tr > td:nth-child(3) .kc-tag::before,.kc-t.lf-st4 > tbody > tr > td:nth-child(4) .kc-tag::before,.kc-t.lf-st5 > tbody > tr > td:nth-child(5) .kc-tag::before,.kc-t.lf-st6 > tbody > tr > td:nth-child(6) .kc-tag::before,.kc-t.lf-st7 > tbody > tr > td:nth-child(7) .kc-tag::before,.kc-t.lf-st8 > tbody > tr > td:nth-child(8) .kc-tag::before,.kc-t.lf-st9 > tbody > tr > td:nth-child(9) .kc-tag::before,.kc-t.lf-st10 > tbody > tr > td:nth-child(10) .kc-tag::before,.kc-t.lf-st11 > tbody > tr > td:nth-child(11) .kc-tag::before,.kc-t.lf-st12 > tbody > tr > td:nth-child(12) .kc-tag::before,.kc-t.lf-st13 > tbody > tr > td:nth-child(13) .kc-tag::before,.kc-t.lf-st14 > tbody > tr > td:nth-child(14) .kc-tag::before,.kc-t.lf-st15 > tbody > tr > td:nth-child(15) .kc-tag::before{content:"";display:inline-block !important;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.kc-t.lf-st1 > tbody > tr > td:nth-child(1) .kc-tag.mut,.kc-t.lf-st2 > tbody > tr > td:nth-child(2) .kc-tag.mut,.kc-t.lf-st3 > tbody > tr > td:nth-child(3) .kc-tag.mut,.kc-t.lf-st4 > tbody > tr > td:nth-child(4) .kc-tag.mut,.kc-t.lf-st5 > tbody > tr > td:nth-child(5) .kc-tag.mut,.kc-t.lf-st6 > tbody > tr > td:nth-child(6) .kc-tag.mut,.kc-t.lf-st7 > tbody > tr > td:nth-child(7) .kc-tag.mut,.kc-t.lf-st8 > tbody > tr > td:nth-child(8) .kc-tag.mut,.kc-t.lf-st9 > tbody > tr > td:nth-child(9) .kc-tag.mut,.kc-t.lf-st10 > tbody > tr > td:nth-child(10) .kc-tag.mut,.kc-t.lf-st11 > tbody > tr > td:nth-child(11) .kc-tag.mut,.kc-t.lf-st12 > tbody > tr > td:nth-child(12) .kc-tag.mut,.kc-t.lf-st13 > tbody > tr > td:nth-child(13) .kc-tag.mut,.kc-t.lf-st14 > tbody > tr > td:nth-child(14) .kc-tag.mut,.kc-t.lf-st15 > tbody > tr > td:nth-child(15) .kc-tag.mut{color:#737a87}
+/* /list79 */
+
+/* nav80：返回总览 */
+a.kc-logo{text-decoration:none;color:inherit;cursor:pointer}
+a.kc-logo:hover{opacity:.85}
+.kc-back{display:flex;align-items:center;gap:6px;height:32px;margin:0 -4px 10px;padding:0 6px;border-radius:6px;color:#42464e;font-size:13px;text-decoration:none}
+.kc-back:hover{background:#ebebf5;color:#1664ff}
+.kc-sh .kc-back span{font-size:13px;color:inherit}
+.kc-back svg{color:#737a87}
+.kc-back:hover svg{color:#1664ff}
+/* /nav80 */
+
 /* motion68：页面与交互过渡 */
 @view-transition{navigation:auto}
 .kc-top{view-transition-name:kc-top}
@@ -1503,7 +1480,7 @@ input::placeholder,textarea::placeholder{color:#737a87}
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <div class="kc-logo"><span class="kc-mark">德</span>德迅云控制台</div>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}">产品与服务
       <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
     </button>
@@ -1599,100 +1576,51 @@ input::placeholder,textarea::placeholder{color:#737a87}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">账务概览</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="BillOrders.dc.html">我的订单</a><a class="kc-btn" href="BillInvoice.dc.html">发票管理</a><a class="kc-btn pri" href="BillPay.dc.html">付款管理</a></div>
+        <div class="kc-btns"></div>
       </div>
-      <div class="bo-todo">
-        <div class="bo-td e"><i><i class="fi-i fi-wallet"></i></i><div><b>付款核验未匹配</b><p>DX20261024001：汇款户名与认证企业不一致</p></div><a class="kc-btn sm" href="BillPay.dc.html">补充信息</a></div>
-        <div class="bo-td"><i><i class="fi-i fi-receipt"></i></i><div><b>2 项财务申请被驳回</b><p>发票抬头与订单企业不符；合同甲方信息不符</p></div><a class="kc-btn sm" href="BillInvoice.dc.html">去修改</a></div>
-        <div class="bo-td"><i><i class="fi-i fi-hist"></i></i><div><b>5 项 30 天内到期</b><p>最近：游戏盾-001 还有 6 天到期</p></div><a class="kc-btn sm" href="AcctSubs.dc.html">去续费</a></div>
-      </div>
-      <div class="bo-g">
-        <section class="kc-card bo-pay">
-          <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>待付款</h2><a href="BillOrders.dc.html">全部订单</a></div>
-          <div class="kc-cb">
-            <div class="bo-amt"><div><small>待付款合计（{{payN}} 笔）</small><b><em>¥</em>{{payTot}}</b></div><span>仅支持对公转账 · 财务 1–2 个工作日内核验</span></div>
-            <ul class="bo-ol"><sc-for list="{{pays}}" as="p" hint-placeholder-count="2"><li class="{{p.cls}}" onClick="{{p.tog}}"><span class="{{p.cbx}}"></span><div><b>{{p.id}}</b><p>{{p.d}}</p></div><span class="{{p.tc}}">{{p.st}}</span><strong>¥{{p.amt}}</strong></li></sc-for></ul>
-            <div class="bo-pf">已选 {{selN}} 笔，合计 <b>¥{{selTot}}</b><a class="kc-btn" href="BillOrders.dc.html">待付款订单</a><a class="{{mergeCls}}" href="BillPayment.dc.html">合并付款（{{selN}}）</a></div>
-          </div>
-        </section>
-        <section class="kc-card">
-          <div class="kc-ch"><h2><i class="fi-i fi-bank"></i>对公转账账户</h2><button class="{{cpAll}}" type="button" onClick="{{copyAll}}">{{cpAllT}}</button></div>
-          <div class="kc-cb">
-            <ul class="bo-acc"><sc-for list="{{acc}}" as="a" hint-placeholder-count="3"><li><span>{{a.k}}</span><b class="{{a.bc}}">{{a.v}}</b><button class="{{a.cls}}" type="button" onClick="{{a.cp}}">{{a.t}}</button></li></sc-for></ul>
-            <p class="bo-tip">汇款备注填写订单号；合并付款时填写合并付款单号。</p>
-            <div class="bo-flow"><div><b>1</b>提交订单</div><div><b>2</b>对公转账<small>备注订单号</small></div><div><b>3</b>财务核验<small>1–2 个工作日</small></div><div><b>4</b>开通 / 生效</div></div>
-          </div>
-        </section>
-      </div>
-      <div class="bo-kpi">
-        <sc-for list="{{kpis}}" as="k" hint-placeholder-count="4"><a class="bo-k" href="{{k.href}}"><span>{{k.n}}</span><b>{{k.v}}<small>{{k.u}}</small></b><em><i class="{{k.dc}}">{{k.d}}</i> {{k.s}}</em><svg viewBox="0 0 96 36" aria-hidden="true"><polyline points="2.0,25.8 10.4,24.8 18.7,25.6 27.1,27.7 35.5,16.2 43.8,15.8 52.2,21.5 60.5,10.1 68.9,25.3 77.3,3.0 85.6,12.8 94.0,29.9" fill="none" stroke="#1664ff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".55"/></svg></a></sc-for>
-      </div>
-      <section class="kc-card bo-an">
-        <div class="kc-ch bo-ah"><h2><i class="fi-i fi-chart"></i>付款分析</h2>
-          <sc-if value="{{hasOnly}}" hint-placeholder-val="{{false}}"><span class="bo-only">仅看 {{onlyN}}<button type="button" aria-label="清除" onClick="{{clrOnly}}">×</button></span></sc-if>
-          <div class="bo-seg"><sc-for list="{{mets}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.pick}}">{{m.n}}</button></sc-for></div>
-          <div class="bo-seg"><sc-for list="{{rngs}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.pick}}">{{m.n}}</button></sc-for></div>
+      <div class="b8">
+        <div class="b8-m">
+        <div class="b8-hero">
+          <div class="b8-lb">待付款 · 2 笔订单</div>
+          <div class="b8-amt"><small>¥</small>560.00</div>
+          <div class="b8-warn"><i></i>DX20261024001 付款核验未匹配：汇款户名与认证企业不一致<a href="BillOrderDetail.dc.html">补充信息</a></div>
+          <div class="b8-act"><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a><a class="kc-btn" href="BillPay.dc.html">待付款订单</a><button class="kc-btn" type="button" onClick="{{openAcc}}">对公转账账户</button></div>
         </div>
-        <div class="bo-ab">
-          <div class="bo-cw">
-            <div class="bo-sum"><span>合计<b>{{sumV}}</b></span><span>月均<b>{{avgV}}</b></span><span>最高<b>{{maxV}}</b></span></div>
-            <div class="bo-lg"><sc-for list="{{legend}}" as="l" hint-placeholder-count="6"><button class="{{l.cls}}" type="button" onClick="{{l.tog}}"><i style="{{l.sw}}"></i>{{l.n}}</button></sc-for></div>
-            <div class="bo-ch">
-              <div class="bo-ya"><sc-for list="{{ticks}}" as="t" hint-placeholder-count="4"><span style="{{t.st}}">{{t.v}}</span></sc-for></div>
-              <div class="bo-pl">
-                <sc-for list="{{ticks}}" as="t" hint-placeholder-count="4"><div class="bo-gl" style="{{t.st}}"></div></sc-for>
-                <div class="bo-avg" style="{{avgSt}}"><span>月均 {{avgV}}</span></div>
-                <div class="bo-cols"><sc-for list="{{cols}}" as="c" hint-placeholder-count="12"><div class="{{c.cls}}" onClick="{{c.pick}}" onMouseEnter="{{c.in}}" onMouseLeave="{{c.out}}">
-                  <small>{{c.top}}</small><div class="bo-bar" style="{{c.bh}}"><sc-for list="{{c.segs}}" as="s" hint-placeholder-count="3"><i style="{{s.st}}"></i></sc-for></div><em>{{c.m}}</em>
-                  <sc-if value="{{c.hov}}" hint-placeholder-val="{{false}}"><div class="bo-tt" style="{{c.tp}}"><b>{{c.ym}}<span>{{c.tv}}</span></b><sc-for list="{{c.tips}}" as="p" hint-placeholder-count="3"><p><i style="{{p.sw}}"></i>{{p.n}}<span>{{p.v}}</span></p></sc-for><small>{{c.tn}} · 点击查看当月明细</small></div></sc-if>
-                </div></sc-for></div>
-              </div>
-            </div>
-          </div>
-          <div class="bo-md">
-            <h3>{{mYm}} 付款明细 <span>{{mN}} 笔</span></h3>
-            <div class="bo-mt">¥{{mTot}}<small class="{{mDc}}">{{mD}}</small></div>
-            <div class="bo-mm"><span>较上月 {{mDiff}}</span><sc-if value="{{mHasRf}}" hint-placeholder-val="{{false}}"><span>退款 ¥{{mRf}}</span></sc-if></div>
-            <sc-if value="{{mEmpty}}" hint-placeholder-val="{{false}}"><div class="bo-me">当月没有付款</div></sc-if>
-            <ul class="bo-mo"><sc-for list="{{mList}}" as="o" hint-placeholder-count="3"><li class="{{o.cls}}"><i style="{{o.sw}}"></i><div><a href="BillOrderDetail.dc.html">{{o.id}}</a><p>{{o.d}}</p></div><strong>{{o.v}}</strong></li></sc-for></ul>
-            <div class="bo-mb"><button class="kc-btn sm" type="button" onClick="{{exp}}">{{expT}}</button><a class="kc-btn sm" href="BillOrders.dc.html">查看订单</a></div>
-          </div>
+        <div class="b8-sec"><div class="b8-st"><h2>近三月账单</h2><a href="BillOrders.dc.html">全部订单<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <table class="b8-t op-fix"><thead><tr><th>账期</th><th class="num">订单数</th><th class="num">已付款</th><th class="num">待付款</th><th class="num">可开票</th><th>操作</th></tr></thead><tbody><tr><td>2026-10</td><td class="num">4</td><td class="num">¥1,305.00</td><td class="num">¥560.00</td><td class="num">¥25.00</td><td><a href="BillOrders.dc.html">订单明细</a><a href="BillInvoice.dc.html">开票</a></td></tr><tr><td>2026-09</td><td class="num">3</td><td class="num">¥8,504.00</td><td class="num mut">—</td><td class="num">¥0.00</td><td><a href="BillOrders.dc.html">订单明细</a><a href="BillInvoice.dc.html">开票</a></td></tr><tr><td>2026-08</td><td class="num">5</td><td class="num">¥13,248.00</td><td class="num mut">—</td><td class="num">¥1,144.84</td><td><a href="BillOrders.dc.html">订单明细</a><a href="BillInvoice.dc.html">开票</a></td></tr></tbody></table>
         </div>
-      </section>
-      <div class="bo-g3">
-        <section class="kc-card">
-          <div class="kc-ch"><h2><i class="fi-i fi-pie"></i>支出构成</h2><span class="kc-sub">{{rngN}}</span></div>
-          <div class="kc-cb">
-            <div class="bo-dn">
-              <div class="bo-ring" style="{{ring}}"><div class="bo-rc"><span>{{rcN}}</span><b>¥{{rcV}}</b><em>{{rcP}}</em></div></div>
-              <ul class="bo-pl2"><sc-for list="{{share}}" as="s" hint-placeholder-count="6"><li class="{{s.cls}}" onMouseEnter="{{s.in}}" onMouseLeave="{{s.out}}" onClick="{{s.pick}}"><i style="{{s.sw}}"></i>{{s.n}}<strong>{{s.v}}</strong><em>{{s.p}}</em></li></sc-for></ul>
-            </div>
-            <p class="bo-hint">点产品可在付款分析中只看该产品</p>
-          </div>
-        </section>
-        <section class="kc-card">
-          <div class="kc-ch"><h2><i class="fi-i fi-hist"></i>30 天内到期</h2><a href="AcctSubs.dc.html">订阅与资源</a></div>
-          <div class="kc-cb">
-            <div class="bo-tl"><sc-for list="{{exp30}}" as="x" hint-placeholder-count="5"><span class="{{x.dc}}" style="{{x.pos}}" onMouseEnter="{{x.in}}" onMouseLeave="{{x.out}}"></span></sc-for><em style="left:0">今天</em><em style="left:50%">15 天</em><em style="left:100%">30 天</em></div>
-            <ul class="bo-ex"><sc-for list="{{exp30}}" as="x" hint-placeholder-count="5"><li class="{{x.cls}}" onMouseEnter="{{x.in}}" onMouseLeave="{{x.out}}"><div><b>{{x.n}}</b><p>{{x.d}}</p></div><span class="{{x.lc}}">{{x.left}}</span><a class="kc-btn sm" href="{{x.href}}">续费</a></li></sc-for></ul>
-          </div>
-        </section>
-        <section class="kc-card">
-          <div class="kc-ch"><h2><i class="fi-i fi-receipt"></i>发票</h2><a href="BillInvoice.dc.html">发票管理</a></div>
-          <div class="kc-cb">
-            <div class="bo-iv"><div><small>可开票金额</small><b>¥1,169.84</b><em>4 笔已完成订单</em></div><a class="kc-btn pri sm" href="BillInvoiceApply.dc.html">申请开票</a></div>
-            <div class="bo-st"><i style="width:76%;background:#00b42a"></i><i style="width:8%;background:#1664ff"></i><i style="width:8%;background:#f53f3f"></i></div>
-            <div class="bo-sl"><span><i style="background:#00b42a"></i>已开具<b>10</b></span><span><i style="background:#1664ff"></i>审核中<b>1</b></span><span><i style="background:#f53f3f"></i>被驳回<b>1</b></span></div>
-            <ul class="bo-il">
-              <li><div><b>FP202610200003 · ¥8,300.00</b><p>SCDN 企业版 · 抬头与订单企业不符</p></div><span class="kc-tag err">被驳回</span></li>
-              <li><div><b>FP202610150002 · ¥1,280.00</b><p>DDoS 高防 IP · 电子普票</p></div><span class="kc-tag info">审核中</span></li>
-              <li><div><b>FP202609280001 · ¥204.00</b><p>SSL 证书 · 电子专票</p></div><span class="kc-tag ok">已开具</span></li>
-            </ul>
-          </div>
-        </section>
+        <div class="b8-sec"><div class="b8-st"><h2>费用趋势<small>{{tot}}</small></h2><div class="b8-seg"><button type="button" class="{{r6}}" onClick="{{s6}}">近 6 个月</button><button type="button" class="{{r12}}" onClick="{{s12}}">近 12 个月</button></div></div>
+          <div class="b8-ch"><sc-for list="{{bars}}" as="b" hint-placeholder-count="6"><div class="b8-col"><div class="b8-bar" style="{{b.h}}"><sc-for list="{{b.segs}}" as="g" hint-placeholder-count="3"><i style="{{g.s}}"></i></sc-for></div><div class="b8-tip"><b>{{b.t}}</b>{{b.m}} 付款</div></div></sc-for></div>
+          <div class="b8-xs"><sc-for list="{{bars}}" as="b" hint-placeholder-count="6"><span>{{b.m}}</span></sc-for></div>
+          <div class="b8-lg"><sc-for list="{{legend}}" as="l" hint-placeholder-count="6"><span><i style="{{l.c}}"></i>{{l.n}}<b>{{l.v}}</b></span></sc-for></div>
+        </div>
+        </div>
+        <aside class="b8-r">
+        <div class="b8-sec b8-first"><div class="b8-st"><h2>待办事项</h2></div>
+          <div class="b8-todo"><a href="BillPay.dc.html"><strong>2<small>笔</small></strong><span>待付款</span></a><a href="AcctSubs.dc.html"><strong class="w">5<small>个</small></strong><span>30 天内到期</span></a><a href="BillOrders.dc.html"><strong>1<small>笔</small></strong><span>付款核验中</span></a><a href="BillInvoice.dc.html"><strong>1<small>项</small></strong><span>申请被驳回</span></a></div>
+        </div>
+        <div class="b8-sec"><div class="b8-st"><h2>发票</h2><a href="BillInvoice.dc.html">发票管理<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="b8-inv"><div class="lb">可开票金额</div><div class="v"><b>¥1,169.84</b><a href="BillInvoiceApply.dc.html">申请开票</a></div><div class="b8-pr"><i style="width:83%;background:#00b42a"></i><i style="width:8.5%;background:#1664ff"></i><i style="width:8.5%;background:#f53f3f"></i></div><div class="b8-ps"><span>已开具 10</span><span>审核中 1</span><em>被驳回 1</em></div></div>
+        </div>
+        <div class="b8-sec"><div class="b8-st"><h2>账户设置</h2></div>
+          <ul class="b8-set"><li><span>到期提醒<small>到期前 30 / 7 / 1 天</small></span><button type="button" class="{{rmCls}}" aria-label="到期提醒" onClick="{{rmTog}}"></button></li><li><span>发票抬头<small>浙江德迅网络安全技术有限公司</small></span><a href="BillInvoice.dc.html">修改</a></li><li><span>邮寄地址<small>温州市龙湾区 · 王琦</small></span><a href="BillInvoice.dc.html">修改</a></li><li><span>对公转账账户</span><a href="#" onClick="{{openAcc}}">查看</a></li></ul>
+        </div>
+        </aside>
       </div>
     </main>
   </div>
+  <sc-if value="{{acc}}" hint-placeholder-val="{{false}}">
+  <div class="dt-mask" onClick="{{acc_x}}"></div>
+  <div class="ac-drw" role="dialog" aria-label="对公转账账户" style="width:480px">
+    <header><b>对公转账账户</b><button type="button" aria-label="关闭" onClick="{{acc_x}}">×</button></header>
+    <div class="bd">
+      <ul class="b8-acc"><sc-for list="{{accRows}}" as="a" hint-placeholder-count="3"><li><span>{{a.k}}</span><b>{{a.v}}</b><a href="#" onClick="{{a.cp}}">{{a.ct}}</a></li></sc-for></ul>
+      <ol class="b8-flow"><li><b>提交订单</b>生成订单号</li><li><b>对公转账</b>备注订单号</li><li><b>财务核验</b>1–2 个工作日</li><li><b>开通生效</b>短信通知</li></ol>
+      <p class="b8-note">合并付款时，汇款备注填写合并付款单号。</p>
+    </div>
+    <footer style="justify-content:flex-end"><button class="kc-btn" type="button" onClick="{{acc_x}}">关闭</button><button class="kc-btn pri" type="button" onClick="{{cpAll}}">{{cpAllT}}</button></footer>
+  </div>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
@@ -1789,93 +1717,23 @@ class Component extends DCLogic {
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
-    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
     const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
       const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
-
-    const fm = (n) => Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    const fk = (n) => n >= 10000 ? (n / 10000).toFixed(n % 10000 ? 1 : 0) + ' 万' : Math.round(n).toLocaleString('en-US');
-    const S = [['DDoS 高防 IP', '#1664ff'], ['SCDN', '#0fc6c2'], ['游戏盾', '#722ed1'], ['德迅卫士', '#ff7d00'], ['服务器租用', '#f7ba1e'], ['其他', '#a9aeb8']];
-    const YM = ['2025-11', '2025-12', '2026-01', '2026-02', '2026-03', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09', '2026-10'];
-    const V = [[1999, 0, 799, 0, 240, 0], [1999, 0, 799, 420, 240, 0], [1999, 0, 799, 0, 240, 68], [1999, 0, 0, 0, 240, 0], [5998, 0, 799, 0, 240, 0], [1999, 0, 799, 4200, 240, 0],
-      [1999, 0, 799, 0, 240, 1782], [5998, 0, 1599, 1200, 240, 563], [1999, 0, 799, 0, 240, 202], [5998, 0, 4800, 1200, 240, 362], [0, 8300, 0, 0, 0, 204], [1280, 0, 0, 25, 0, 0]];
-    const RF = { '2026-06': 142.22 };
-    const DESC = ['高防-002 · 续费', 'SCDN-001 · 企业版新购 1 年', '游戏盾-001 · 续费', 'dx-guard-01 · 授权', 'web-prod-01 · 续费 1 个月', 'SSL 证书 / 云备份'];
-    const REAL = { '2026-10': [['DX20261018006', 0, '高防-002 · 保底 50→80 Gbps 升级'], ['DX20261007003', 3, 'dx-guard-01 · 授权 +25 台']],
-      '2026-09': [['DX20260926008', 1, 'SCDN-001 · 企业版新购 1 年'], ['DX20260920007', 5, 'SSL 证书 DV × 3 · 新购 1 年']] };
-    // 待付款
-    const PD = [['DX20261024001', '服务器租用 · web-prod-01 续费 3 个月', 240, '核验未匹配', 'kc-tag err'], ['DX20261022002', '游戏盾 · 游戏盾-001 专业版续费', 320, '待付款', 'kc-tag warn']];
-    const sel = st.psel || { 0: 1, 1: 1 };
-    let selN = 0, selTot = 0;
-    const pays = PD.map(([id, d, amt, s, tc], i) => { const on = !!sel[i]; if (on) { selN++; selTot += amt; }
-      return { id, d, amt: fm(amt), st: s, tc, cls: on ? 'on' : '', cbx: on ? 'ac-cbx on' : 'ac-cbx', tog: () => this.setState({ psel: Object.assign({}, sel, { [i]: !on }) }) }; });
-    // 账户复制
+    const PV = [[1999, 0, 799, 0, 240, 0], [1999, 0, 799, 420, 240, 0], [1999, 0, 799, 0, 240, 68], [1999, 0, 0, 0, 240, 0], [5998, 0, 799, 0, 240, 0], [1999, 0, 799, 4200, 240, 0], [1999, 0, 799, 0, 240, 1782], [5998, 0, 1599, 1200, 240, 563], [1999, 0, 799, 0, 240, 202], [5998, 0, 4800, 1200, 240, 362], [0, 8300, 0, 0, 0, 204], [1280, 0, 0, 25, 0, 0]], MS = ["11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月"], PC = [["DDoS 高防 IP", "#1664ff"], ["SCDN", "#14c9c9"], ["游戏盾", "#722ed1"], ["德迅卫士", "#ff7d00"], ["服务器租用", "#f7ba1e"], ["其他", "#a9aeb8"]];
+    const rng = st.rng || 6, V = PV.slice(12 - rng), MM = MS.slice(12 - rng);
+    const tots = V.map((r) => r.reduce((a, b) => a + b, 0)), mx = 15000;
+    const fk = (n) => '¥' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const bars = V.map((r, i) => ({ m: MM[i], t: fk(tots[i]), h: 'height:' + (tots[i] / mx * 100).toFixed(1) + '%', segs: r.map((v, j) => ({ s: 'height:' + (tots[i] ? v / tots[i] * 100 : 0).toFixed(2) + '%;background:' + PC[j][1] })).filter((g, j) => r[j] > 0) }));
+    const sum = PC.map((p, j) => V.reduce((a, r) => a + r[j], 0)), all = sum.reduce((a, b) => a + b, 0);
+    const legend = PC.map((p, j) => ({ n: p[0], c: 'background:' + p[1], v: (sum[j] / all * 100).toFixed(1) + '%' }));
     const cp = st.cp || '';
-    const doCp = (k) => { this.setState({ cp: k }); clearTimeout(this._cpT); this._cpT = setTimeout(() => this.setState({ cp: '' }), 1600); };
-    const acc = [['户名', '浙江德迅网络安全技术有限公司', ''], ['开户行', '中国工商银行温州龙湾支行', ''], ['账号', '1109 0212 0910 0601', 'mono']].map(([k, v, bc]) =>
-      ({ k, v, bc, t: cp === k ? '已复制' : '复制', cls: cp === k ? 'bo-cp ok' : 'bo-cp', cp: () => doCp(k) }));
-    // 付款分析
-    const rng = st.rng || 12, met = st.met || 'amt', hid = st.hid || {}, only = st.only === undefined ? -1 : st.only;
-    const vis = (j) => only >= 0 ? j === only : !hid[j];
-    const off = YM.length - rng;
-    const idx = YM.map((_, i) => i).slice(off);
-    const val = (i, j) => met === 'amt' ? V[i][j] : (V[i][j] ? 1 : 0);
-    const tot = (i) => S.reduce((a, _, j) => a + (vis(j) ? val(i, j) : 0), 0);
-    const tots = idx.map(tot);
-    const mx = Math.max.apply(null, tots.concat([met === 'amt' ? 1000 : 3]));
-    const raw = mx / 4, mag = Math.pow(10, Math.floor(Math.log10(raw)));
-    const step = [1, 2, 2.5, 5, 10].map((k) => k * mag).find((k) => k >= raw);
-    const top = Math.ceil(mx / step) * step, nt = Math.round(top / step);
-    const fv = (n) => met === 'amt' ? '¥' + fk(n) : n + ' 笔';
-    const ticks = Array.from({ length: nt + 1 }, (_, k) => ({ v: met === 'amt' ? fk(step * k) : String(step * k), st: 'bottom:' + (k * 100 / nt) + '%' }));
-    const sum = tots.reduce((a, b) => a + b, 0), avg = sum / rng;
-    const sm = st.sm === undefined ? YM.length - 1 : st.sm, hv = st.hv === undefined ? -1 : st.hv;
-    const cols = idx.map((i, n) => { const t = tots[n];
-      const segs = S.map((s, j) => ({ j, v: vis(j) ? val(i, j) : 0 })).filter((x) => x.v > 0).map((x) => ({ st: 'height:' + (x.v / (t || 1) * 100) + '%;background:' + S[x.j][1] }));
-      const tips = S.map((s, j) => ({ j, v: V[i][j] })).filter((x) => x.v > 0 && vis(x.j)).map((x) => ({ n: S[x.j][0], sw: 'background:' + S[x.j][1], v: met === 'amt' ? '¥' + fm(x.v) : '1 笔' }));
-      const cnt = V[i].filter((x, j) => x > 0 && vis(j)).length;
-      return { m: YM[i].slice(5).replace(/^0/, '') + '月', ym: YM[i].replace('-', ' 年 ') + ' 月', top: t ? fv(t) : '', tv: met === 'amt' ? '¥' + fm(t) : t + ' 笔', tn: cnt + ' 笔订单',
-        bh: 'height:' + (t / top * 100) + '%', tp: 'bottom:' + Math.min(t / top * 100, 62) + '%', segs, tips, hov: hv === i,
-        cls: 'bo-col' + (sm === i ? ' on' : '') + (hv === i ? ' hov' : '') + (sm !== i && hv >= 0 && hv !== i ? ' dim' : ''),
-        pick: () => this.setState({ sm: i, ex: false }), in: () => this.setState({ hv: i }), out: () => this.setState({ hv: -1 }) }; });
-    const legend = S.map(([n, c], j) => ({ n, sw: 'background:' + c, cls: vis(j) ? '' : 'off',
-      tog: () => only >= 0 ? this.setState({ only: -1, hid: {} }) : this.setState({ hid: Object.assign({}, hid, { [j]: !hid[j] }) }) }));
-    const mets = [['amt', '付款金额'], ['cnt', '订单笔数']].map(([k, n]) => ({ n, cls: met === k ? 'on' : '', pick: () => this.setState({ met: k }) }));
-    const rngs = [[6, '近 6 个月'], [12, '近 12 个月']].map(([k, n]) => ({ n, cls: rng === k ? 'on' : '', pick: () => this.setState({ rng: k, sm: sm < YM.length - k ? YM.length - 1 : sm }) }));
-    // 当月明细
-    const mt = V[sm].reduce((a, b) => a + b, 0), pt = sm > 0 ? V[sm - 1].reduce((a, b) => a + b, 0) : 0;
-    const dd = pt ? (mt - pt) / pt * 100 : 0;
-    const mList = (REAL[YM[sm]] || V[sm].map((v, j) => v ? ['DX' + YM[sm].replace('-', '') + String(3 + j * 4).padStart(2, '0') + '00' + (j + 1), j, DESC[j]] : null).filter(Boolean))
-      .map(([id, j, d]) => ({ id, d: S[j][0] + ' · ' + d.replace(/^.*? · /, ''), v: '¥' + fm(V[sm][j]), sw: 'background:' + S[j][1], cls: '' }));
-    if (RF[YM[sm]]) mList.push({ id: 'RF' + YM[sm].replace('-', '') + '01', d: '退款 · 游戏盾 降配差额', v: '-¥' + fm(RF[YM[sm]]), sw: 'background:#00b42a', cls: 'rf' });
-    // 构成
-    const shareT = idx.reduce((a, i) => a + V[i].reduce((x, y) => x + y, 0), 0);
-    const sv = S.map((s, j) => idx.reduce((a, i) => a + V[i][j], 0));
-    const hs = st.hs === undefined ? -1 : st.hs, fs = hs >= 0 ? hs : only;
-    let acc0 = 0;
-    const ring = 'background:conic-gradient(' + S.map(([n, c], j) => { const a = acc0, b = acc0 + sv[j] / shareT * 100; acc0 = b;
-      return (fs >= 0 && fs !== j ? c + '33' : c) + ' ' + a + '% ' + b + '%'; }).join(',') + ')';
-    const share = S.map(([n, c], j) => ({ n, sw: 'background:' + c, v: fk(sv[j]), p: (sv[j] / shareT * 100).toFixed(1) + '%',
-      cls: only === j ? 'on' : (hs === j ? 'hov' : ''), in: () => this.setState({ hs: j }), out: () => this.setState({ hs: -1 }),
-      pick: () => this.setState({ only: only === j ? -1 : j, hid: {} }) })).filter((x, j) => sv[j] > 0);
-    // 到期
-    const E = [['游戏盾-001', '游戏盾 · 专业版 · 2026-11-02 到期', 6, 'AcctSubs.dc.html'], ['SSL 证书 DV × 3', 'www / api / m · 2026-11-08 到期', 12, 'AcctSubs.dc.html'],
-      ['高防-002', 'DDoS 高防 IP · 2026-11-15 到期', 19, 'AcctSubs.dc.html'], ['web-prod-01', '服务器租用 · 2026-11-20 到期', 24, 'IdcServerDetail.dc.html'], ['backup-cloud-01', '云备份 · 10-25 已到期，数据保留至 11-01', -2, 'AcctSubs.dc.html']];
-    const he = st.he === undefined ? -1 : st.he;
-    const exp30 = E.map(([n, d, dl, href], i) => { const k = dl < 0 ? 'e' : (dl <= 14 ? '' : 'n');
-      return { n, d, href, left: dl < 0 ? '已到期' : dl + ' 天', lc: k, pos: 'left:' + Math.max(0, dl) / 30 * 100 + '%', dc: 'bo-dot ' + k + (he === i ? ' hov' : ''), cls: he === i ? 'hov' : '',
-        in: () => this.setState({ he: i }), out: () => this.setState({ he: -1 }) }; });
-    const lastT = V[11].reduce((a, b) => a + b, 0), prevT = V[10].reduce((a, b) => a + b, 0);
-    const kpis = [
-      { n: '本月已付款', v: '¥' + fm(lastT), u: '', d: '↓ ' + Math.abs((lastT - prevT) / prevT * 100).toFixed(1) + '%', dc: 'dn', s: '较上月', href: 'BillPay.dc.html' },
-      { n: '近 12 个月累计', v: '¥' + fm(V.reduce((a, r) => a + r.reduce((x, y) => x + y, 0), 0)), u: '', d: '', dc: '', s: '退款另计', href: 'BillOrders.dc.html' },
-      { n: '付款核验中', v: '¥4,200.00', u: '1 笔', d: '', dc: '', s: '财务 1–2 个工作日内核验', href: 'BillPay.dc.html' },
-      { n: '可开票金额', v: '¥1,169.84', u: '4 笔', d: '', dc: '', s: '订单完成后可开票', href: 'BillInvoice.dc.html' }];
-
-    return Object.assign({ nav }, { pays, payN: PD.length, payTot: fm(PD.reduce((a, p) => a + p[2], 0)), selN, selTot: fm(selTot), mergeCls: selN ? 'kc-btn pri' : 'kc-btn pri dis', acc, cpAll: cp === 'all' ? 'bo-cp ok' : 'bo-cp', cpAllT: cp === 'all' ? '已复制全部' : '复制全部', copyAll: () => doCp('all'), kpis, mets, rngs, legend, ticks, cols, sumV: fv(sum), avgV: fv(Math.round(avg * 100) / 100), maxV: fv(Math.max.apply(null, tots)), avgSt: 'bottom:' + (avg / top * 100) + '%', hasOnly: only >= 0, onlyN: only >= 0 ? S[only][0] : '', clrOnly: () => this.setState({ only: -1 }), mYm: YM[sm].replace('-', ' 年 ') + ' 月', mN: mList.filter((o) => !o.cls).length, mTot: fm(mt), mD: pt ? (dd >= 0 ? '↑ ' : '↓ ') + Math.abs(dd).toFixed(1) + '%' : '', mDc: dd >= 0 ? 'up' : 'dn', mDiff: pt ? (mt >= pt ? '+' : '-') + '¥' + fm(Math.abs(mt - pt)) : '—', mHasRf: !!RF[YM[sm]], mRf: fm(RF[YM[sm]] || 0), mEmpty: !mList.length, mList, exp: () => this.setState({ ex: true }), expT: st.ex ? '已生成，去下载' : '导出本月明细', rngN: '近 ' + rng + ' 个月', ring, share, rcN: fs >= 0 ? S[fs][0] : '合计', rcV: fk(fs >= 0 ? sv[fs] : shareT), rcP: fs >= 0 ? (sv[fs] / shareT * 100).toFixed(1) + '%' : rng + ' 个月', exp30 });
+    const AR = [['户名', '浙江德迅网络安全技术有限公司'], ['开户行', '中国工商银行温州龙湾支行'], ['账号', '1109 0212 0910 0601']];
+    const accRows = AR.map(([k, v]) => ({ k, v, ct: cp === k ? '已复制' : '复制', cp: (e) => { ev(e); this.setState({ cp: k }); } }));
+    return Object.assign({ nav }, { bars, legend, tot: '合计 ' + fk(tots.reduce((a, b) => a + b, 0)), r6: rng === 6 ? 'on' : '', r12: rng === 12 ? 'on' : '', s6: () => this.setState({ rng: 6 }), s12: () => this.setState({ rng: 12 }), acc: !!st.acc, openAcc: (e) => { ev(e); this.setState({ acc: true }); }, acc_x: () => this.setState({ acc: false, cp: '' }), accRows, cpAll: () => this.setState({ cp: 'all' }), cpAllT: cp === 'all' ? '已复制全部' : '复制全部', rmCls: st.rm === false ? 'b8-sw' : 'b8-sw on', rmTog: () => this.setState({ rm: st.rm === false }) });
   }
 }
 </script>
