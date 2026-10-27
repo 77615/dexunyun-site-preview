@@ -230,6 +230,45 @@ body{margin:0;background:#f5f7fb}
 .i-gear{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
 .i-check{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.75%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22/%3E%3C/svg%3E")}
 /* /lucide63 */
+
+/* motion68：页面与交互过渡 */
+@view-transition{navigation:auto}
+.kc-top{view-transition-name:kc-top}
+.kc-side{view-transition-name:kc-side}
+.kc-main{view-transition-name:kc-main}
+::view-transition-group(kc-top),::view-transition-group(kc-side){animation:none}
+::view-transition-old(kc-main){animation:mo-fade-out .12s ease-in both}
+::view-transition-new(kc-main){animation:mo-fade-in .2s ease-out both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@keyframes mo-fade-in{from{opacity:0}}
+@keyframes mo-fade-out{to{opacity:0}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes mo-rise-s{from{opacity:0;transform:translateY(4px)}}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+@keyframes mo-pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
+@keyframes mo-slide{from{transform:translateX(100%)}}
+@keyframes mo-open{from{opacity:0;transform:translateY(-4px)}}
+.kc-main > *{animation:mo-rise .24s cubic-bezier(.2,.8,.2,1) both}
+.kc-main > :nth-child(2){animation-delay:.04s}
+.kc-main > :nth-child(3){animation-delay:.08s}
+.kc-main > :nth-child(4){animation-delay:.12s}
+.kc-main > :nth-child(n+5){animation-delay:.16s}
+.kc-card > .kc-tw,.kc-card > .kc-cb,.kc-card > .kc-bar,.kc-card > .ac-chips,.kc-card > .nt-list,.sv-charts,.sv-bar,.sv-prog,.fl-ok{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-al{animation:mo-rise-s .2s cubic-bezier(.2,.8,.2,1) both}
+.ac-pop{animation:mo-drop .16s cubic-bezier(.2,.8,.2,1) both;transform-origin:top right}
+.ac-mask{animation:mo-fade-in .12s ease-out both}
+.vf-mask{animation:mo-fade-in .18s ease-out both}
+.vf-dlg{animation:mo-pop .22s cubic-bezier(.2,.8,.2,1) both}
+.ac-drw{animation:mo-slide .28s cubic-bezier(.2,.8,.2,1) both}
+.kc-sub2{animation:mo-open .2s cubic-bezier(.2,.8,.2,1) both}
+.kc-chev{transition:transform .2s cubic-bezier(.2,.8,.2,1) !important}
+.kc-btn,.kc-it,.kc-ki,.kc-tab,.kc-dtabs button,.ac-chips button,.sv-seg button,.sv-os button,.sv-rng button,.fl-radio button,.ac-st,.sv-task,.kc-tag,.ac-cbx{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,transform .1s}
+.kc-btn:active{transform:scale(.98)}
+.ac-bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fm-new{animation:mo-new 1.6s ease-out both}
+@keyframes mo-new{from{background:#e8ffea}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
+/* /motion68 */
 </style>
 </helmet>
 <div class="kc-map" style="width: 1440px; height: 1240px; background: #f5f7fb; padding: 40px 48px; display: flex; gap: 24px; align-items: flex-start;">
