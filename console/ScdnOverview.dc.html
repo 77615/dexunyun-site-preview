@@ -1116,8 +1116,8 @@ class Component extends DCLogic {
     const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, s, href }));
     // 全局搜索
     const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
-    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', '#', 'lock', '证书 ssl https'],
-      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', '#', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
+    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],
+      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', 'ScdnAcl.dc.html', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
       ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
       ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
       ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
@@ -1174,7 +1174,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '概览';
-    const pages = { '域名管理': 'Main.dc.html' };
+    const pages = { '域名管理': 'Main.dc.html', '证书管理': 'ScdnCerts.dc.html', '实例与套餐': 'ScdnPlan.dc.html', 'Web 应用防火墙': 'ScdnWaf.dc.html', 'CC 防护': 'ScdnCC.dc.html', '访问控制': 'ScdnAcl.dc.html', 'Bot 管理': 'ScdnBot.dc.html', 'API 安全': 'ScdnApi.dc.html', '防篡改与后台加密': 'ScdnTamper.dc.html', '内容风控': 'ScdnContent.dc.html', '云蜜罐': 'ScdnHoneypot.dc.html', '访问统计': 'ScdnStats.dc.html', '攻击报表': 'ScdnStats.dc.html', '拦截记录': 'ScdnBlocks.dc.html', '高级配置': 'ScdnAdvanced.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1183,7 +1183,7 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("域名管理", 'link'), L("证书管理", 'lock'), L("实例与套餐", 'box')] },
-      { label: '能力区', items: [P("防护策略", 'shield', ["Web 应用防火墙", "CC 防护", "访问控制", "Bot 管理", "API 安全"]), P("内容安全", 'lock', ["防篡改与后台加密", "内容风控", ["云蜜罐", "↗"]]), P("日志与分析", 'chart', ["访问统计", "攻击报表", "拦截记录"])] }
+      { label: '能力区', items: [P("防护策略", 'shield', ["Web 应用防火墙", "CC 防护", "访问控制", "Bot 管理", "API 安全"]), P("内容安全", 'lock', ["防篡改与后台加密", "内容风控", "云蜜罐"]), P("日志与分析", 'chart', ["访问统计", "攻击报表", "拦截记录"]), L("高级配置", 'gear')] }
     ];
     const DECS = [
       { k: "cc", s: "e", t: "api.example.com 正在被 CC 攻击，当前 CC 规则只记录、不拦截", why: "继续放行会拖慢源站，严重时网站打不开。", ev: "近 1 小时异常请求 4.2 万，是 7 日均值的 4.1 倍；源站 CPU 告警 1 次", act: "改为拦截", act2: "查看拦截记录", href: "#", doneTxt: "已改为拦截，约 30 秒全网生效" },

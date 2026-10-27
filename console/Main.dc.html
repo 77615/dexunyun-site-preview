@@ -872,7 +872,7 @@ a.kc-logo:hover{opacity:.85}
         </div>
         <div class="kc-btns">
           <button class="kc-btn" type="button">分组管理</button>
-          <button class="kc-btn" type="button">批量添加域名</button>
+          <a class="kc-btn" href="ScdnDomainAdd.dc.html">批量添加域名</a>
           
         </div>
       </div>
@@ -891,7 +891,7 @@ a.kc-logo:hover{opacity:.85}
         <div class="kc-tabs" role="tablist">
           <sc-for list="{{ftabs}}" as="t" hint-placeholder-count="5"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for>
         </div>
-        <div class="kc-bar lf-bar lf-c"><button class="kc-btn pri" type="button">添加域名</button><div class="lf-tok" tabindex="0" role="combobox" aria-expanded="false" aria-label="添加筛选条件"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span class="lf-ph">添加筛选条件</span><div class="lf-pop" role="listbox"><div class="lf-pt">选择资源属性进行过滤，或直接输入关键字</div><button type="button">域名</button><button type="button">源站 IP</button><button type="button">分组</button><button type="button">防护策略</button><div class="lf-kb"><kbd>↑</kbd><kbd>↓</kbd>切换<kbd>Enter</kbd>选择<kbd>Esc</kbd>关闭</div></div></div><div class="lf-r"><button class="lf-ib" type="button" aria-label="刷新" title="刷新"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.46257 4.43262C7.21556 2.91688 9.5007 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C9.84982 4 7.89777 4.84827 6.46023 6.22842L5.46257 4.43262ZM18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 9.86386 2.66979 7.88416 3.8108 6.25944L7 12H4C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"></path></svg></button><button class="lf-ib" type="button" aria-label="列设置" title="列设置"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 5H5V19H11V5ZM13 5V19H19V5H13ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path></svg></button><button class="lf-ib" type="button" aria-label="导出" title="导出"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg></button></div></div>
+        <div class="kc-bar lf-bar lf-c"><a class="kc-btn pri" href="ScdnDomainAdd.dc.html">添加域名</a><div class="lf-tok" tabindex="0" role="combobox" aria-expanded="false" aria-label="添加筛选条件"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span class="lf-ph">添加筛选条件</span><div class="lf-pop" role="listbox"><div class="lf-pt">选择资源属性进行过滤，或直接输入关键字</div><button type="button">域名</button><button type="button">源站 IP</button><button type="button">分组</button><button type="button">防护策略</button><div class="lf-kb"><kbd>↑</kbd><kbd>↓</kbd>切换<kbd>Enter</kbd>选择<kbd>Esc</kbd>关闭</div></div></div><div class="lf-r"><button class="lf-ib" type="button" aria-label="刷新" title="刷新"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.46257 4.43262C7.21556 2.91688 9.5007 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C9.84982 4 7.89777 4.84827 6.46023 6.22842L5.46257 4.43262ZM18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 9.86386 2.66979 7.88416 3.8108 6.25944L7 12H4C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"></path></svg></button><button class="lf-ib" type="button" aria-label="列设置" title="列设置"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 5H5V19H11V5ZM13 5V19H19V5H13ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path></svg></button><button class="lf-ib" type="button" aria-label="导出" title="导出"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg></button></div></div>
         <div class="kc-tw">
           <table class="kc-t lf-st5 op-fix">
             <thead><tr><th class="lf-ck"><span class="ac-cbx" aria-label="全选"></span></th><th>域名</th><th>CNAME</th><th>源站</th><th>接入状态</th><th>HTTPS</th><th>防护策略</th><th>24h 拦截</th><th>操作</th></tr></thead>
@@ -939,8 +939,8 @@ class Component extends DCLogic {
     const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, s, href }));
     // 全局搜索
     const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
-    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', '#', 'lock', '证书 ssl https'],
-      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', '#', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
+    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],
+      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', 'ScdnAcl.dc.html', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
       ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
       ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
       ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
@@ -997,7 +997,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '域名管理';
-    const pages = { '域名管理': 'Main.dc.html' };
+    const pages = { '域名管理': 'Main.dc.html', '证书管理': 'ScdnCerts.dc.html', '实例与套餐': 'ScdnPlan.dc.html', 'Web 应用防火墙': 'ScdnWaf.dc.html', 'CC 防护': 'ScdnCC.dc.html', '访问控制': 'ScdnAcl.dc.html', 'Bot 管理': 'ScdnBot.dc.html', 'API 安全': 'ScdnApi.dc.html', '防篡改与后台加密': 'ScdnTamper.dc.html', '内容风控': 'ScdnContent.dc.html', '云蜜罐': 'ScdnHoneypot.dc.html', '访问统计': 'ScdnStats.dc.html', '攻击报表': 'ScdnStats.dc.html', '拦截记录': 'ScdnBlocks.dc.html', '高级配置': 'ScdnAdvanced.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1006,7 +1006,7 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("域名管理", 'link'), L("证书管理", 'lock'), L("实例与套餐", 'box')] },
-      { label: '能力区', items: [P("防护策略", 'shield', ["Web 应用防火墙", "CC 防护", "访问控制", "Bot 管理", "API 安全"]), P("内容安全", 'lock', ["防篡改与后台加密", "内容风控", ["云蜜罐", "↗"]]), P("日志与分析", 'chart', ["访问统计", "攻击报表", "拦截记录"])] }
+      { label: '能力区', items: [P("防护策略", 'shield', ["Web 应用防火墙", "CC 防护", "访问控制", "Bot 管理", "API 安全"]), P("内容安全", 'lock', ["防篡改与后台加密", "内容风控", "云蜜罐"]), P("日志与分析", 'chart', ["访问统计", "攻击报表", "拦截记录"]), L("高级配置", 'gear')] }
     ];
     const ok = 'kc-tag ok', warn = 'kc-tag warn', err = 'kc-tag err', mut = 'kc-tag mut', info = 'kc-tag info';
     const R = [
