@@ -222,6 +222,190 @@ button.ac-st:hover{border-color:#bedaff}
 .tm-grid p{margin:0 0 14px;font-size:13px;color:#737a87;line-height:1.6;min-height:42px}
 /* /acct62 */
 
+/* flow64：确认订单 / 付款 / 订单详情 */
+.fl-steps{display:flex;align-items:center;gap:0;padding:18px 24px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.fl-steps li{list-style:none;display:flex;align-items:center;gap:10px;flex:1;font-size:13px;color:#737a87;min-width:0}
+.fl-steps li:last-child{flex:0 0 auto}
+.fl-steps li > i{width:24px;height:24px;border-radius:50%;border:1px solid #c9cdd4;display:flex;align-items:center;justify-content:center;font:600 12px/1 Inter,sans-serif;font-style:normal;flex-shrink:0;background:#fff}
+.fl-steps li > div{white-space:nowrap}
+.fl-steps li > div small{display:block;font-size:12px;color:#737a87;margin-top:2px}
+.fl-steps li::after{content:"";flex:1;height:1px;background:#e5e6eb;margin:0 12px}
+.fl-steps li:last-child::after{display:none}
+.fl-steps li.done{color:#0c0d0e}.fl-steps li.done > i{border-color:#1664ff;color:#1664ff}
+.fl-steps li.done::after{background:#1664ff}
+.fl-steps li.cur{color:#0c0d0e;font-weight:500}.fl-steps li.cur > i{background:#1664ff;border-color:#1664ff;color:#fff}
+.fl-steps li.bad{color:#cb2634}.fl-steps li.bad > i{border-color:#f53f3f;background:#f53f3f;color:#fff}
+.fl-seg{display:inline-flex;border:1px solid #e5e6eb;border-radius:2px;overflow:hidden}
+.fl-seg button{height:32px;min-width:72px;padding:0 14px;border:0;border-left:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.fl-seg button:first-child{border-left:0}
+.fl-seg button.on{background:#f2f7ff;color:#1664ff;box-shadow:inset 0 0 0 1px #1664ff;position:relative}
+.fl-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:13px}
+.fl-row:first-child{border-top:0}
+.fl-row > span{color:#42464e}
+.fl-row .kc-in{height:32px;width:320px;font-size:13px}
+.fl-row .kc-hint{margin:6px 0 0}
+.fl-sum{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:20px;justify-content:flex-end;padding:14px 24px;margin-top:16px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;box-shadow:0 -4px 16px rgba(29,33,41,.05);font-size:13px}
+.fl-sum .agree{margin-right:auto;display:flex;align-items:center;gap:8px;color:#42464e;font-size:13px}
+.fl-sum .agree a{text-decoration:none}
+.fl-sum small{color:#737a87;font-size:13px}
+.fl-sum b{font:600 24px/1 Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-sum .kc-btn{height:40px;padding:0 28px;font-size:14px}
+.fl-acct{display:grid;grid-template-columns:auto 1fr auto;gap:0 16px;align-items:center;font-size:13px}
+.fl-acct > span{color:#737a87;line-height:40px}
+.fl-acct > b{font-weight:500;font-variant-numeric:tabular-nums}
+.fl-acct > a{text-decoration:none;font-size:13px}
+.fl-acct > b.hl{color:#1664ff;font:600 16px Inter,"PingFang SC",sans-serif}
+.fl-acct > div{grid-column:1/-1;border-top:1px solid #f2f3f5}
+.fl-drop{display:flex;align-items:center;justify-content:center;gap:10px;height:96px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;color:#737a87;font:inherit;font-size:13px;cursor:pointer;width:100%}
+.fl-drop:hover{border-color:#1664ff;color:#1664ff}
+.fl-file{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;font-size:13px}
+.fl-file > i{width:36px;height:36px;border-radius:2px;background:#f2f7ff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fl-file > i .kc-ic{background:#1664ff}
+.fl-file div{flex:1;min-width:0}.fl-file small{display:block;color:#737a87;font-size:12px}
+.fl-file button{border:0;background:none;color:#737a87;font:inherit;font-size:13px;cursor:pointer}
+.fl-ok{display:flex;flex-direction:column;align-items:center;gap:10px;padding:48px 20px;text-align:center}
+.fl-ok > i{width:56px;height:56px;border-radius:50%;background:#e8ffea;display:flex;align-items:center;justify-content:center}
+.fl-ok > i .kc-ic{width:28px;height:28px;-webkit-mask-size:28px 28px;mask-size:28px 28px;background:#00b42a}
+.fl-ok h2{margin:6px 0 0;font-size:18px;font-weight:500}
+.fl-ok p{margin:0;font-size:13px;color:#42464e}
+.fl-ok .kc-btns{margin-top:12px}
+.fl-tot{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding:14px 20px;border-top:1px solid #e5e6eb;font-size:13px;color:#42464e}
+.fl-tot div{display:flex;gap:24px}.fl-tot div b{min-width:110px;text-align:right;font-weight:400;color:#0c0d0e;font-variant-numeric:tabular-nums}
+.fl-tot div.big b{font:600 20px Inter,"PingFang SC",sans-serif;color:#d25f00}
+.fl-radio{display:flex;flex-direction:column;gap:8px}
+.fl-radio button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#0c0d0e;text-align:left;cursor:pointer}
+.fl-radio button > i{width:16px;height:16px;border-radius:50%;border:1px solid #c9cdd4;flex-shrink:0}
+.fl-radio button.on{border-color:#1664ff;background:#f2f7ff}.fl-radio button.on > i{border:5px solid #1664ff}
+.fl-radio button small{margin-left:auto;color:#737a87;font-size:12px}
+/* /flow64 */
+
+/* flow65：表单与验证弹窗 */
+.fm-ta{width:100%;max-width:640px;height:120px;border:1px solid #e5e6eb;border-radius:2px;padding:8px 10px;font:inherit;font-size:13px;resize:vertical;box-sizing:border-box}
+.fm-types{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:860px}
+.fm-types button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#0c0d0e;text-align:left;cursor:pointer}
+.fm-types button small{font-size:12px;color:#737a87}
+.fm-types button.on{border-color:#1664ff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #1664ff}
+.fm-types button.r small{color:#cb2634}
+.fm-help{margin-top:8px;padding:10px 12px;background:#f7f8fa;border-radius:2px;font-size:13px;max-width:640px}
+.fm-help b{font-weight:500;margin-right:8px}
+.fm-help a{margin-right:14px;text-decoration:none}
+.fm-chk{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px}
+.fm-chk label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.ac-drw .fl-row{grid-template-columns:96px minmax(0,1fr);padding:12px 0}
+.ac-drw .fl-row .kc-in{width:100%}
+.ac-drw .fl-radio button{padding:8px 12px}
+.vf-mask{position:absolute;inset:0;z-index:30;background:rgba(29,33,41,.45);display:flex;align-items:flex-start;justify-content:center;padding-top:200px}
+.vf-dlg{width:420px;background:#fff;border-radius:4px;box-shadow:0 12px 32px rgba(29,33,41,.18)}
+.vf-dlg header{display:flex;align-items:center;padding:16px 20px;border-bottom:1px solid #e5e6eb}
+.vf-dlg header b{flex:1;font-size:16px;font-weight:500}
+.vf-dlg header button{border:0;background:none;font-size:20px;color:#737a87;cursor:pointer}
+.vf-dlg .bd{padding:20px;font-size:13px;color:#42464e;display:flex;flex-direction:column;gap:14px}
+.vf-dlg .bd p{margin:0}
+.vf-code{display:flex;gap:8px}.vf-code .kc-in{flex:1;height:36px;font-size:14px;letter-spacing:4px}
+.vf-code .kc-btn{height:36px}
+.vf-dlg footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid #e5e6eb}
+.fm-new{background:#f2fff4}
+/* /flow65 */
+
+/* flow66 */
+.pu-cmp{width:100%;border-collapse:collapse;font-size:13px}
+.pu-cmp th,.pu-cmp td{padding:11px 16px;border-bottom:1px solid #f2f3f5;text-align:left}
+.pu-cmp th{font-weight:500;color:#42464e;background:#f7f8fa}
+.pu-cmp td.e,.pu-cmp th.e{background:#f2f7ff;color:#1664ff}
+.pu-cmp th.e{font-weight:500}
+.pu-step{display:inline-flex;align-items:center;border:1px solid #e5e6eb;border-radius:2px}
+.pu-step button{width:32px;height:32px;border:0;background:#f7f8fa;font-size:16px;color:#42464e;cursor:pointer}
+.pu-step b{min-width:48px;text-align:center;font:500 14px Inter,sans-serif}
+.pu-formula{font-size:13px;color:#737a87}
+.on-hero{display:flex;align-items:center;gap:24px;padding:28px 28px;background:linear-gradient(90deg,#f2f7ff,#fff);border:1px solid #e5e6eb;border-radius:4px;margin-bottom:16px}
+.on-hero h2{margin:0 0 6px;font-size:20px;font-weight:600}.on-hero p{margin:0;color:#42464e;font-size:13px}
+.on-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.on-step{display:flex;flex-direction:column;gap:8px;padding:20px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.on-step > i{width:28px;height:28px;border-radius:50%;background:#1664ff;color:#fff;font:600 13px/28px Inter,sans-serif;text-align:center;font-style:normal}
+.on-step.done > i{background:#e8ffea;color:#00b42a}
+.on-step b{font-size:14px;font-weight:500}.on-step p{margin:0;font-size:13px;color:#737a87;line-height:1.6;flex:1}
+.on-step .kc-btn{align-self:flex-start}
+.on-prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.on-prods a{display:block;padding:16px 20px;border-right:1px solid #f2f3f5;border-bottom:1px solid #f2f3f5;text-decoration:none;color:#0c0d0e}
+.on-prods a:nth-child(3n){border-right:0}
+.on-prods a b{font-size:13px;font-weight:500}.on-prods a p{margin:6px 0 0;font-size:13px;color:#737a87}
+.on-prods a:hover b{color:#1664ff}
+.nt-list{list-style:none;margin:0;padding:0}
+.nt-list li{display:grid;grid-template-columns:10px 72px minmax(0,1fr) 120px 80px;gap:12px;align-items:center;padding:14px 20px;border-top:1px solid #f2f3f5;font-size:13px}
+.nt-list li > i{width:8px;height:8px;border-radius:50%;background:#f53f3f}
+.nt-list li > i.r{background:transparent}
+.nt-list li div b{font-weight:500}.nt-list li div b.r{font-weight:400;color:#42464e}
+.nt-list li div p{margin:4px 0 0;font-size:13px;color:#737a87}
+.nt-list li time{font-size:13px;color:#737a87}
+.nt-list li > a{text-decoration:none;font-size:13px;text-align:right}
+.nt-mx td{text-align:center}.nt-mx td:first-child{text-align:left}
+.vf-up{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
+.vf-lic{height:130px;border:1px dashed #c9cdd4;border-radius:4px;background:#fafbfc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#737a87}
+.vf-lic.on{border-style:solid;border-color:#bedaff;background:#f2f7ff;color:#1664ff}
+/* /flow66 */
+
+/* idc67：服务器控制台 */
+.sv-hd{display:flex;align-items:center;gap:12px}
+.sv-hd h1{margin:0}
+.sv-hd .kc-tag{width:auto}
+.sv-desc{margin:4px 0 0;font-size:13px;color:#737a87}
+.sv-tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.sv-task{display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#fff;border:1px solid #e5e6eb;border-radius:4px;min-width:0}
+.sv-task > header{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#0c0d0e}
+.sv-task > header i{width:28px;height:28px;border-radius:4px;background:#f2f7ff;display:flex;align-items:center;justify-content:center}
+.sv-task > header i .kc-ic{background:#1664ff}
+.sv-task > header a,.sv-task > header button{margin-left:auto;font-size:13px;font-weight:400;text-decoration:none;color:#1664ff;background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+.sv-big{font:600 22px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e}
+.sv-big small{font-size:13px;font-weight:400;color:#737a87;margin-left:8px}
+.sv-big.o small{color:#d25f00}
+.sv-line{font-size:13px;color:#42464e}
+.sv-act{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
+.sv-act .kc-btn{min-width:84px;justify-content:center}
+.sv-prog{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#42464e}
+.sv-prog .ac-bar{width:100%;height:8px;margin:0}
+.sv-prog > div{display:flex;justify-content:space-between;align-items:center}
+.sv-prog button{background:none;border:0;color:#1664ff;font:inherit;font-size:13px;cursor:pointer;padding:0}
+.sv-mets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-mets div{display:flex;flex-direction:column;gap:2px;font-size:12px;color:#737a87}
+.sv-mets b{font:600 20px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e}
+.sv-mets b small{font-size:12px;font-weight:400;color:#737a87;margin-left:2px}
+.sv-mets b.r{color:#cb2634}
+.sv-rng{display:flex;gap:0;margin-left:auto}
+.sv-rng button{height:28px;padding:0 12px;border:1px solid #e5e6eb;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer;margin-left:-1px}
+.sv-rng button:first-child{border-radius:2px 0 0 2px;margin-left:0}
+.sv-rng button:last-child{border-radius:0 2px 2px 0}
+.sv-rng button.on{border-color:#1664ff;color:#1664ff;background:#f2f7ff;position:relative;z-index:1}
+.sv-bar{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid #f2f3f5}
+.sv-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.sv-ch{padding:16px 20px 18px;border-bottom:1px solid #f2f3f5;min-width:0}
+.sv-ch:nth-child(odd){border-right:1px solid #f2f3f5}
+.sv-ch > div:first-child{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;font-size:13px;color:#0c0d0e}
+.sv-ch > div:first-child b{font:600 18px/1 Inter,"PingFang SC",sans-serif}
+.sv-ch > div:first-child em{font-style:normal;font-size:12px;color:#737a87;margin-left:auto}
+.sv-cols{display:flex;align-items:flex-end;gap:3px;height:120px;border-bottom:1px solid #e5e6eb;background:repeating-linear-gradient(0deg,#f2f3f5 0 1px,transparent 1px 30px)}
+.sv-cols i{flex:1;background:#1664ff;border-radius:1px 1px 0 0;opacity:.85;min-height:1px}
+.sv-cols.g i{background:#14c9c9}.sv-cols.o i{background:#ff7d00}.sv-cols.r i{background:#f53f3f}
+.sv-ax{display:flex;justify-content:space-between;font-size:12px;color:#737a87;margin-top:6px}
+.sv-dlg{width:600px}
+.sv-dlg .bd{gap:16px}
+.sv-dlg .fl-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:start;padding:0;border:0}
+.sv-dlg .fl-row > span{padding-top:6px;color:#42464e}
+.sv-os{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-os button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:9px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#0c0d0e;cursor:pointer;text-align:left}
+.sv-os button small{font-size:12px;color:#737a87}
+.sv-os button.on{border-color:#1664ff;background:#f2f7ff;box-shadow:inset 0 0 0 1px #1664ff}
+.sv-seg{display:flex;gap:8px;flex-wrap:wrap}
+.sv-seg button{height:32px;padding:0 14px;border:1px solid #e5e6eb;border-radius:2px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.sv-seg button.on{border-color:#1664ff;color:#1664ff;background:#f2f7ff}
+.sv-ck{display:flex;align-items:center;gap:8px;font-size:13px;color:#0c0d0e;cursor:pointer;background:none;border:0;padding:0;font-family:inherit;text-align:left}
+.sv-warn{padding:10px 12px;border-radius:2px;background:#fff5f3;border:1px solid #ffd8d2;font-size:13px;color:#0c0d0e;line-height:1.6}
+.sv-warn b{color:#cb2634;font-weight:500}
+.sv-rb{display:flex;flex-direction:column;gap:8px}
+.sv-dlg .fl-row > div > .sv-ck{margin-top:6px}
+.kc-t td .sv-ops a,.kc-t td .sv-ops button{margin-right:12px;background:none;border:0;padding:0;font:inherit;font-size:13px;color:#1664ff;cursor:pointer;text-decoration:none}
+/* /idc67 */
+
+
 /* ux56：总览、全局搜索、加载规范 */
 .ux-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .ux-tile{position:relative;display:flex;align-items:center;gap:12px;height:64px;padding:0 14px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;color:#0c0d0e;text-decoration:none;transition:border-color .2s,background .2s}
@@ -695,6 +879,89 @@ a{color:#1664ff}a:hover{color:#1759dd}
 
 
 
+
+/* home78：总览（火山首页版式） */
+.h8{max-width:1040px;margin:0 auto;padding:4px 32px 56px;box-sizing:border-box}
+.h8-sec{margin-top:40px}
+.h8-st{display:flex;align-items:center;justify-content:space-between;margin:0 0 16px}
+.h8-st h2{margin:0;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-st h2 small{margin-left:8px;font-size:13px;font-weight:400;color:#737a87}
+.h8-st > a{display:inline-flex;align-items:center;gap:2px;font-size:13px;color:#737a87;text-decoration:none}
+.h8-st > a:hover{color:#1664ff}
+.h8-sub{margin:0 0 12px;font-size:13px;color:#737a87}
+.h8-box{border:1px solid #eaedf1;border-radius:12px;background:#fff}
+.h8-acc{display:flex;align-items:center;gap:16px;padding:28px 32px}
+.h8-av{width:52px;height:52px;border-radius:50%;background:#eef3ff;color:#1664ff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;flex:none}
+.h8-who{flex:1;min-width:0}
+.h8-who b{font-size:16px;font-weight:500;color:#0c0d0e;margin-right:8px}
+.h8-who .kc-tag{vertical-align:2px;margin-right:6px}
+.h8-who p{margin:6px 0 0;font-size:13px;color:#42464e}
+.h8-kpi{display:flex;gap:8px}
+.h8-kpi a{display:block;min-width:104px;padding:4px 12px;border-radius:8px;text-decoration:none}
+.h8-kpi a:hover{background:#f6f8fa}
+.h8-kpi strong{display:block;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-kpi strong.w{color:#d25f00}
+.h8-kpi span{font-size:12px;color:#737a87}
+.h8 .vt-wrap{margin:0;padding:0;background:none;gap:12px}
+.h8 .vt-c{padding:16px 16px 16px 18px}
+.h8-g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.h8-qk{display:flex;align-items:center;gap:10px;height:56px;padding:0 16px 0 20px;border:1px solid #eaedf1;border-radius:8px;background:#fff;text-decoration:none;color:#0c0d0e;transition:box-shadow .15s,border-color .15s}
+.h8-qk:hover{box-shadow:0 4px 12px rgba(12,13,14,.06);border-color:#dde2e9}
+.h8-qk:hover b{color:#1664ff}
+.h8-qk b{flex:1;font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h8-qk small{font-size:12px;color:#737a87}
+.h8-qk.add{border-style:dashed;color:#42464e;justify-content:flex-start}
+.h8-qk.add b{font-weight:400}
+.h8-res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 24px;padding:28px 32px}
+.h8-res a{text-decoration:none;color:#0c0d0e;display:block}
+.h8-res a > b{display:flex;align-items:center;gap:2px;font-size:13px;font-weight:500}
+.h8-res a:hover > b{color:#1664ff}
+.h8-res a > p{margin:6px 0 0;font-size:16px;line-height:24px}
+.h8-res a > p span{margin-left:4px;font-size:12px;color:#737a87}
+.h8-res a > i{display:block;margin-top:2px;font-style:normal;font-size:12px;color:#737a87}
+.h8-res a > i.r{color:#d7312a}
+.h8-res a > i.w{color:#bd7e00}
+.h8-res a > i.b{color:#1664ff}
+.h8-fee{display:grid;grid-template-columns:300px minmax(0,1fr);overflow:hidden}
+.h8-fl{padding:24px 24px 24px 32px}
+.h8-fl label{display:block;font-size:13px;color:#737a87}
+.h8-fl .big{display:block;margin:4px 0 2px;font-size:22px;line-height:32px;font-weight:600;color:#0c0d0e}
+.h8-fl .note{font-size:12px;color:#737a87}
+.h8-fl .kc-btns{margin:14px 0 24px}
+.h8-fl dl{margin:0;display:grid;gap:18px}
+.h8-fl dd{margin:4px 0 0;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-fr{background:rgba(246,248,250,.6);padding:20px 24px 16px;border-left:1px solid #eaedf1}
+.h8-fr header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;color:#0c0d0e}
+.h8-fr header small{font-weight:400;font-size:12px;color:#737a87}
+.h8-ch{position:relative;height:210px;margin:16px 0 0 44px;border-bottom:1px solid #dde2e9;display:flex;align-items:flex-end;justify-content:space-around}
+.h8-ch .gl{position:absolute;left:0;right:0;border-top:1px dashed #eaedf1}
+.h8-ch .gl em{position:absolute;right:100%;top:-9px;margin-right:8px;font-style:normal;font-size:12px;color:#737a87;white-space:nowrap}
+.h8-ch .bar{position:relative;width:28px;border-radius:4px 4px 0 0;background:#1664ff;opacity:.85}
+.h8-ch .bar:hover{opacity:1}
+.h8-ch .bar span{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:6px;font-size:12px;color:#737a87;white-space:nowrap}
+.h8-ch .bar.cur{background:#94b8ff}
+.h8-lg{display:flex;justify-content:center;gap:16px;margin-top:30px;font-size:12px;color:#42464e}
+.h8-lg i{display:inline-block;width:10px;height:10px;border-radius:2px;background:#1664ff;margin-right:6px;vertical-align:-1px}
+.h8-lg i.c{background:#94b8ff}
+.h8-tip{display:flex;align-items:center;gap:8px;height:36px;padding:0 16px;margin-bottom:12px;border-radius:4px;background:#f6f8fa;font-size:13px;color:#0c0d0e}
+.h8-tip b{font-weight:500}
+.h8-tip svg.rx{color:#1664ff}
+.h8-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.h8-ac{display:flex;align-items:center;justify-content:space-between;padding:16px 24px 16px 28px;border:1px solid #eaedf1;border-radius:8px}
+.h8-ac span{font-size:13px;color:#737a87}
+.h8-ac strong{display:block;margin-top:2px;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-ac strong small{margin-left:6px;font-size:12px;font-weight:400;color:#737a87}
+.h8-nt{list-style:none;margin:0;padding:4px 24px}
+.h8-nt li{display:flex;align-items:center;gap:12px;height:48px;border-bottom:1px solid #eaedf1}
+.h8-nt li:last-child{border-bottom:0}
+.h8-nt li a{flex:1;min-width:0;color:#0c0d0e;text-decoration:none;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h8-nt li a:hover{color:#1664ff}
+.h8-nt li time{font-size:12px;color:#737a87}
+.kc-main > .h8{margin:0 auto !important}
+/* 标题也放进居中列，字号 24 */
+.kc-main:has(> .h8) > .kc-hd{max-width:1040px;margin:0 auto !important;padding:28px 32px 20px !important;box-sizing:border-box}
+.kc-main:has(> .h8) > .kc-hd .kc-h1{font-size:24px !important;line-height:36px;font-weight:500 !important}
+/* /home78 */
 
 /* top70：产品切换与全局搜索 */
 .kc-top{position:relative;z-index:50}
@@ -1247,58 +1514,29 @@ input::placeholder,textarea::placeholder{color:#737a87}
     <main class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi</h1></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
+        <div class="kc-btns"></div>
       </div>
-      <div class="ac-g2">
-        <div class="ac-col">
-          <section class="kc-card">
-            <div class="kc-ch"><h2>待处理事件<span class="vt-sub">12 项未解决</span></h2><a href="Notifications.dc.html">全部<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-            <div class="vt-wrap"><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>安全告警</b><p><em>1</em> 个高危</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPay.dc.html"><i class="vt-pay"></i><div><b>付款异常</b><p><em>1</em> 笔需补充信息</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html"><i class="vt-exp"></i><div><b>服务即将到期</b><p><em>1</em> 项已到期 · 3 项即将到期</p></div><strong>4</strong><s></s></a><a class="vt-c" href="DdosInstances.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>服务回复等待你确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPay.dc.html"><i class="vt-ord"></i><div><b>待付款订单</b><p>2 笔订单等待对公转账</p></div><strong>2</strong><s></s></a><a class="vt-c" href="AcctUsage.dc.html"><i class="vt-lic"></i><div><b>授权不足</b><p><em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a></div>
-          </section>
-          <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-box"></i>我的产品</h2><a href="AcctProducts.dc.html">全部产品</a></div>
-            <div class="ov-prods"><sc-for list="{{prods}}" as="p" hint-placeholder-count="6"><div class="{{p.cls}}"><div class="h"><b>{{p.n}}</b><span class="{{p.tc}}">{{p.tag}}</span><button type="button" class="{{p.sc}}" aria-label="{{p.sl}}" onClick="{{p.star}}"><svg class="rx rx-star" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path><path class="rx-sf" fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg></button></div><div class="{{p.vc}}">{{p.v}}</div><p>{{p.d}}</p><div class="a"><a href="{{p.href}}">{{p.go}}</a><a href="{{p.h2}}">{{p.l2}}</a></div></div></sc-for></div>
-          </section>
-          <div class="kc-g2" style="grid-template-columns:1fr 1fr;margin:0">
-            <section class="kc-card">
-              <div class="kc-ch"><h2><i class="fi-i fi-grid"></i>常用功能</h2><a href="#" onClick="{{togEdit}}">{{editTxt}}</a></div>
-              <div class="kc-cb">
-                <div class="{{tilesCls}}" style="grid-template-columns:1fr 1fr"><sc-for list="{{tiles}}" as="t" hint-placeholder-count="6"><a class="ux-tile" href="{{t.href}}"><i><span class="{{t.ic}}"></span></i><div><b>{{t.n}}</b><small>{{t.p}}</small></div><sc-if value="{{editing}}" hint-placeholder-val="{{false}}"><button type="button" aria-label="{{t.rl}}" onClick="{{t.rm}}">×</button></sc-if></a></sc-for></div>
-                <sc-if value="{{editing}}" hint-placeholder-val="{{false}}"><div class="ux-pool"><span>点击添加：</span><sc-for list="{{pool}}" as="p" hint-placeholder-count="4"><button class="ux-chip" type="button" onClick="{{p.add}}">+ {{p.n}}</button></sc-for></div></sc-if>
-              </div>
-            </section>
-            <section class="kc-card">
-              <div class="kc-ch"><h2><i class="fi-i fi-hist"></i>最近访问</h2></div>
-              <div class="kc-cb" style="padding-top:6px;padding-bottom:6px"><ul class="ux-recent"><sc-for list="{{recent}}" as="r" hint-placeholder-count="5"><li><a href="{{r.href}}"><span class="{{r.ic}}"></span><span>{{r.p}} <i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i> {{r.n}}</span><em>{{r.t}}</em></a></li></sc-for></ul></div>
-            </section>
-          </div>
-        </div>
-        <div class="ac-col">
-          <section class="kc-card">
-            <div class="ov-me"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>德迅科技 · 企业已认证 · ID 100014655316</small></div></div>
-            <div class="ov-meb"><a href="OrgSecurity.dc.html"><b class="o">81</b>安全分 · 2 项可提升</a><a href="OrgMembers.dc.html"><b>5</b>成员</a><a href="SupTickets.dc.html"><b>4</b>未关闭工单</a></div>
-          </section>
-          <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>费用</h2><a href="BillOverview.dc.html">账务概览</a></div>
-            <div class="ov-fee"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>1 笔付款核验中 · 1 笔核验未匹配</em>
-              <div class="ac-pbtn"><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a><a class="kc-btn" href="BillInvoice.dc.html">申请开票</a></div>
-              <ul><li>本月已付款<b>¥1,305.00</b></li><li>30 天内到期<b style="color:#d25f00">5 项</b></li><li>可开票金额<b>¥1,169.84</b></li><li>代金券<b>1 张</b></li></ul></div>
-          </section>
-          <section class="kc-card">
-            <div class="kc-ch"><div class="ov-tabs"><sc-for list="{{ntabs}}" as="t" hint-placeholder-count="2"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div><a href="#">更多</a></div>
-            <ul class="ov-news"><sc-for list="{{news}}" as="n" hint-placeholder-count="5"><li><span class="{{n.tc}}">{{n.tag}}</span><a href="#">{{n.t}}</a><time>{{n.d}}</time></li></sc-for></ul>
-          </section>
-          <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-help"></i>常见问题</h2><a href="SupDocs.dc.html">帮助文档</a></div>
-            <ul class="ov-news">
-              <li><a href="SupDocs.dc.html">回源 502 怎么排查？</a></li>
-              <li><a href="SupDocs.dc.html">如何修改 CNAME 解析接入 SCDN？</a></li>
-              <li><a href="SupDocs.dc.html">对公转账后多久能核验到账？</a></li>
-              <li><a href="SupDocs.dc.html">成员如何登录？</a></li>
-            </ul>
-            <div class="ac-pf" style="border-top:1px solid #f2f3f5"><a href="SupTicketNew.dc.html">提交工单</a><span style="color:#737a87">7×24 热线 0577-26676666</span></div>
-          </section>
-        </div>
+      <div class="h8">
+        <div class="h8-box h8-acc"><div class="h8-av">德</div><div class="h8-who"><b>wangqi</b><span class="kc-tag info">主账号</span><a class="kc-tag ok" href="OrgVerify.dc.html" style="text-decoration:none">企业已认证</a><p>德迅科技 · 账号 ID 100014655316</p></div><div class="h8-kpi"><a href="BillPay.dc.html"><strong>2</strong><span>待付款订单</span></a><a href="AcctSubs.dc.html"><strong class="w">5</strong><span>30 天内到期</span></a><a href="SupTickets.dc.html"><strong>4</strong><span>未关闭工单</span></a><a href="OrgSecurity.dc.html"><strong>81</strong><span>安全分</span></a></div></div>
+        <section class="h8-sec"><div class="h8-st"><h2>待处理<small>12 项未解决</small></h2><a href="Notifications.dc.html">全部<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="vt-wrap"><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>安全告警</b><p><em>1</em> 个高危</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPay.dc.html"><i class="vt-pay"></i><div><b>付款异常</b><p><em>1</em> 笔需补充信息</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html"><i class="vt-exp"></i><div><b>服务即将到期</b><p><em>1</em> 项已到期 · 3 项即将到期</p></div><strong>4</strong><s></s></a><a class="vt-c" href="DdosInstances.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>服务回复等待你确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPay.dc.html"><i class="vt-ord"></i><div><b>待付款订单</b><p>2 笔订单等待对公转账</p></div><strong>2</strong><s></s></a><a class="vt-c" href="AcctUsage.dc.html"><i class="vt-lic"></i><div><b>授权不足</b><p><em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a></div>
+        </section>
+        <section class="h8-sec"><div class="h8-st"><h2>快捷导航</h2></div>
+          <p class="h8-sub">最近访问</p><div class="h8-g4"><a class="h8-qk" href="Main.dc.html"><i class="fi-i fi-link"></i><b>SCDN · 域名管理</b><small>今天</small></a><a class="h8-qk" href="DdosInstances.dc.html"><i class="fi-i fi-shield"></i><b>DDoS 高防 IP</b><small>今天</small></a><a class="h8-qk" href="IdcServers.dc.html"><i class="fi-i fi-box"></i><b>服务器租用</b><small>10-26</small></a><a class="h8-qk" href="EyeRisk.dc.html"><i class="fi-i fi-shield2"></i><b>德迅云眼</b><small>10-25</small></a><a class="h8-qk" href="BillOrders.dc.html"><i class="fi-i fi-receipt"></i><b>我的订单</b><small>10-25</small></a><a class="h8-qk" href="BillInvoice.dc.html"><i class="fi-i fi-doc"></i><b>发票管理</b><small>10-24</small></a><a class="h8-qk" href="SupTickets.dc.html"><i class="fi-i fi-help"></i><b>我的工单</b><small>10-23</small></a><a class="h8-qk" href="OrgMembers.dc.html"><i class="fi-i fi-users"></i><b>成员管理</b><small>10-20</small></a></div>
+          <p class="h8-sub" style="margin-top:20px">自定义入口</p><div class="h8-g4"><a class="h8-qk" href="BillPay.dc.html"><i class="fi-i fi-wallet"></i><b>付款管理</b></a><a class="h8-qk" href="BillInvoiceApply.dc.html"><i class="fi-i fi-doc"></i><b>申请开票</b></a><a class="h8-qk add" href="#"><b>＋ 添加入口</b></a></div>
+        </section>
+        <section class="h8-sec"><div class="h8-st"><h2>资源概览</h2><a href="AcctProducts.dc.html">我的产品<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="h8-box h8-res"><a href="DdosInstances.dc.html"><b>DDoS 高防 IP<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>实例</span></p><i class="r">1 个攻击进行中</i></a><a href="Main.dc.html"><b>SCDN<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>12<span>域名</span></p><i class="w">4 项需处理</i></a><a href="GameAccess.dc.html"><b>游戏盾<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>2<span>实例</span></p><i class="w">并发已用 85%</i></a><a href="EyeRisk.dc.html"><b>德迅云眼<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>26<span>资产</span></p><i class="r">3 项需处理</i></a><a href="AcctProductDetail.dc.html"><b>德迅卫士<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>68<span>台主机</span></p><i class="r">已到期 · 保留至 11-08</i></a><a href="AcctProducts.dc.html"><b>SSL 证书<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>张证书</span></p><i class="">运行正常</i></a><a href="IdcServers.dc.html"><b>服务器租用<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>2<span>台服务器</span></p><i class="">运行正常</i></a><a href="AcctPurchase.dc.html"><b>漏洞扫描 VSS<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>–<span></span></p><i class="b">未开通 · 去了解</i></a></div>
+        </section>
+        <section class="h8-sec"><div class="h8-st"><h2>费用信息</h2><a href="BillOverview.dc.html">账务概览<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="h8-box h8-fee"><div class="h8-fl"><label>待付款（2 笔）</label><span class="big">¥ 560.00</span><span class="note">1 笔付款核验中 · 1 笔核验未匹配</span><div class="kc-btns"><a class="kc-btn pri" href="BillPay.dc.html">合并付款</a><a class="kc-btn" href="BillInvoiceApply.dc.html">申请开票</a></div><dl><div><dt><label>本月已付款</label></dt><dd>¥ 1,305.00</dd></div><div><dt><label>可开票金额</label></dt><dd>¥ 1,169.84</dd></div></dl></div><div class="h8-fr"><header>近半年付款 <small>数据更新至 2026-10-27</small></header><div class="h8-ch"><div class="gl" style="bottom:0%"><em>¥0</em></div><div class="gl" style="bottom:25%"><em>¥2,500</em></div><div class="gl" style="bottom:50%"><em>¥5,000</em></div><div class="gl" style="bottom:75%"><em>¥7,500</em></div><div class="gl" style="bottom:100%"><em>¥10,000</em></div><div class="bar" style="height:32.0%" title="2026-05 · ¥3,200"><span>2026-05</span></div><div class="bar" style="height:18.0%" title="2026-06 · ¥1,800"><span>2026-06</span></div><div class="bar" style="height:46.0%" title="2026-07 · ¥4,600"><span>2026-07</span></div><div class="bar" style="height:21.0%" title="2026-08 · ¥2,100"><span>2026-08</span></div><div class="bar" style="height:94.0%" title="2026-09 · ¥9,400"><span>2026-09</span></div><div class="bar cur" style="height:13.1%" title="2026-10 · ¥1,305"><span>2026-10</span></div></div><div class="h8-lg"><span><i></i>已付款</span><span><i class="c"></i>本月（截至今日）</span></div></div></div>
+        </section>
+        <section class="h8-sec"><div class="h8-st"><h2>企业管理</h2><a href="OrgMembers.dc.html">成员管理<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="h8-tip"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b>https://console.dexunyun.com/login/100014655316</div><div class="h8-g3"><div class="h8-ac"><div><span>成员</span><strong>5</strong></div><a class="kc-btn" href="OrgMemberNew.dc.html">添加成员</a></div><div class="h8-ac"><div><span>角色</span><strong>4</strong></div><a class="kc-btn" href="OrgRoles.dc.html">管理角色</a></div><div class="h8-ac"><div><span>安全分</span><strong>81<small>2 项可提升</small></strong></div><a class="kc-btn" href="OrgSecurity.dc.html">去提升</a></div></div>
+        </section>
+        <section class="h8-sec"><div class="h8-st"><h2>公告</h2><a href="Notifications.dc.html">更多<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="h8-box"><ul class="h8-nt"><li><span class="kc-tag mut">维护</span><a href="Notifications.dc.html">10 月 30 日 02:00–04:00 华东节点升级，期间 SCDN 配置下发可能延迟</a><time>10-26</time></li><li><span class="kc-tag mut">公告</span><a href="Notifications.dc.html">发票开具规则调整说明</a><time>10-20</time></li><li><span class="kc-tag mut">公告</span><a href="Notifications.dc.html">国庆期间值班安排</a><time>09-28</time></li></ul></div>
+        </section>
       </div>
     </main>
   </div>
@@ -1398,55 +1636,14 @@ class Component extends DCLogic {
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
-    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
     const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
       const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
-    const TD = [
-      ['r', '安全', '高防-002 正遭受 UDP Flood 攻击', '峰值 86 Gbps，超过保底 80 Gbps', '处理', 'DdosInstances.dc.html', 'sec'],
-      ['r', '安全', '德迅云眼发现 3 个高危风险', 'www.example.com 首页被植入暗链', '处理', 'EyeRisk.dc.html', 'sec'],
-      ['o', '产品', '德迅卫士授权超出 18 台', '超出的主机不受保护', '扩容', 'AcctUsage.dc.html', 'prod'],
-      ['o', '续费', '5 项服务 30 天内到期', '最早：德迅卫士 dx-guard-01 已到期，保留至 11-08', '续费', 'BillConfirm.dc.html', 'fee'],
-      ['o', '费用', '1 笔付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '补充', 'BillPay.dc.html', 'fee'],
-      ['b', '费用', '1 笔订单待对公转账', '游戏盾 · 专业版续费 ¥320.00', '付款', 'BillPayment.dc.html', 'fee'],
-      ['b', '工单', '工单「回源 502」待你确认', '技术支持已回复解决方案', '确认', 'SupTickets.dc.html', 'tk'],
-      ['g', '账号', '权益转移待确认', '139****4321 转入「云备份 · 标准版」', '查看', 'AcctTransfer.dc.html', 'tk']
-    ];
-    const tdRows = TD.map(([dot, c, t, s, a, href, k]) => ({ dot, c, t, s, a, href, k }));
-    const TT = TABS([['全部', ''], ['安全', 'sec'], ['费用与续费', 'fee'], ['工单与其他', 'tk']], tdRows, 'tt');
-    const favs = st.favs || ['SCDN', 'DDoS 高防 IP'];
-    const PR = [
-      ['SCDN', 'warn', '需处理 4', 'w', 'CC 规则只记录不拦截', 'api.example.com 正被 CC 攻击；另有证书到期。', 'Main.dc.html', '进入控制台', 'BillConfirm.dc.html', '续费'],
-      ['DDoS 高防 IP', 'err', '攻击中', 'e', '攻击超过保底防护', '高防-002 峰值 86 Gbps，业务访问正常。', 'DdosInstances.dc.html', '进入控制台', 'DdosReport.dc.html', '攻击报表'],
-      ['德迅云眼', 'err', '需处理 3', 'e', '首页被植入暗链', '另有 1 个 SQL 注入高危漏洞。', 'EyeRisk.dc.html', '进入控制台', 'EyeAssets.dc.html', '监测资产'],
-      ['游戏盾', 'warn', '接近上限', 'w', '并发已用 85%', '周六活动可能超出套餐。', 'GameAccess.dc.html', '进入控制台', 'AcctUsage.dc.html', '升级'],
-      ['德迅卫士', 'err', '已到期', 'e', '已到期 · 保留至 11-08', '续费后防护立即恢复，68 台主机待保护。', 'BillConfirm.dc.html', '去续费', '#', '进入控制台'],
-      ['SSL 证书', 'ok', '正常', 'ok', '3 张证书正常', '最近一张 11-04 到期，已开启提醒。', 'AcctProducts.dc.html', '管理', 'BillConfirm.dc.html', '续费']
-    ];
-    const prods = PR.map(([n, tc, tag, vc, v, d, href, go, h2, l2]) => { const on = favs.indexOf(n) >= 0; return { n, tc: 'kc-tag ' + tc, tag, vc: 'n ' + vc, v, d, href, go, h2, l2,
-      cls: 'ov-pc', sc: on ? 'on' : '', sl: on ? '取消收藏' : '收藏，置顶到顶栏', star: () => this.setState({ favs: on ? favs.filter((x) => x !== n) : favs.concat([n]) }) }; })
-      .sort((a, b) => (favs.indexOf(b.n) >= 0) - (favs.indexOf(a.n) >= 0));
-    const ALL = { '添加域名': ['SCDN', 'link', 'Main.dc.html'], '攻击报表': ['DDoS 高防 IP', 'chart', 'DdosReport.dc.html'], '风险中心': ['德迅云眼', 'shield', 'EyeRisk.dc.html'],
-      '转发规则': ['游戏盾', 'link', 'GameRules.dc.html'], '发票管理': ['订单与账务', 'doc', 'BillInvoice.dc.html'], '提交工单': ['支持服务', 'help', 'SupTickets.dc.html'],
-      '成员管理': ['企业管理', 'users', 'OrgMembers.dc.html'], '日志查询': ['DDoS 高防 IP', 'doc', 'DdosLogs.dc.html'], '我的订单': ['订单与账务', 'doc', 'BillOrders.dc.html'] };
-    const pins = st.pins || ['添加域名', '攻击报表', '风险中心', '转发规则', '发票管理', '提交工单'];
-    const editing = !!st.editing;
-    const tiles = pins.map((n) => ({ n, p: ALL[n][0], ic: 'kc-ic i-' + ALL[n][1], href: editing ? '#' : ALL[n][2], rl: '移除 ' + n,
-      rm: (e) => { if (e && e.preventDefault) { e.preventDefault(); e.stopPropagation(); } this.setState({ pins: pins.filter((x) => x !== n) }); } }));
-    const pool = Object.keys(ALL).filter((n) => pins.indexOf(n) < 0).map((n) => ({ n, add: () => this.setState({ pins: pins.concat([n]) }) }));
-    const recent = [['SCDN', '域名管理', '10 分钟前', 'Main.dc.html', 'link'], ['订单与账务', '我的订单', '1 小时前', 'BillOrders.dc.html', 'doc'],
-      ['DDoS 高防 IP', '攻击报表', '昨天 16:20', 'DdosReport.dc.html', 'chart'], ['德迅云眼', '风险中心', '昨天 10:05', 'EyeRisk.dc.html', 'shield'], ['企业管理', '成员管理', '3 天前', 'OrgMembers.dc.html', 'users']]
-      .map(([p, n, t, href, ic]) => ({ p, n, t, href, ic: 'kc-ic i-' + ic }));
-    const nt = st.nt || '公告';
-    const NW = { '公告': [['info', '维护', '10 月 30 日 02:00–04:00 华东节点升级', '10-26'], ['mut', '公告', '发票开具规则调整说明', '10-20'], ['mut', '公告', '国庆期间值班安排', '09-28']],
-      '产品动态': [['ok', '新功能', 'DDoS 高防新增海外清洗节点', '10-22'], ['ok', '新功能', 'SCDN 支持 HTTP/3', '10-15'], ['info', '优化', '游戏盾 SDK 3.2 发布', '10-08'], ['mut', '价格', '漏洞扫描 VSS 新增按次计费', '09-30']] };
-    const news = NW[nt].map(([tc, tag, t, d]) => ({ tc: 'kc-tag ' + tc, tag, t, d }));
-    const ntabs = ['公告', '产品动态'].map((n) => ({ n, cls: n === nt ? 'on' : '', go: () => this.setState({ nt: n }) }));
-
-    return Object.assign({ nav }, { ttabs: TT.tabs, todo: TT.rows, todoN: TD.length, prods, tiles, pool, recent, editing, tilesCls: editing ? 'ux-tiles ux-edit' : 'ux-tiles', editTxt: editing ? '完成' : '编辑', togEdit: (e) => { ev(e); this.setState({ editing: !editing }); }, news, ntabs });
+    return Object.assign({ nav }, {});
   }
 }
 </script>
