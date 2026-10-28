@@ -1426,6 +1426,32 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .kc-main *:has(.dd-w.on){z-index:60;animation:none !important;transform:none !important}
 .kc-main section:has(.dd-w.on),.kc-main .kc-card:has(.dd-w.on),.kc-main .kc-bar:has(.dd-w.on){position:relative}
 /* /dd87 */
+
+/* pur90：版本卡片 */
+.pv-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:880px}
+.pv-c{position:relative;display:flex;flex-direction:column;gap:10px;padding:16px 18px;border:1px solid #e5e6eb;border-radius:6px;background:#fff;text-align:left}
+.pv-c.on{border-color:#1664ff;background:linear-gradient(180deg,#f3f7ff 0%,#fff 60%);box-shadow:0 0 0 1px #1664ff inset}
+.pv-c.on::after{content:"";position:absolute;right:0;top:0;width:26px;height:26px;border-radius:0 5px 0 6px;background:#1664ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M10 15.17l9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17z'/%3E%3C/svg%3E") center/16px no-repeat}
+.pv-c header{display:flex;align-items:center;gap:8px}
+.pv-c header b{font-size:15px;font-weight:500;color:#0c0d0e}
+.pv-c header .kc-tag{height:20px;font-size:12px}
+.pv-c p{margin:0;font-size:12px;color:#737a87}
+.pv-c ul{margin:0;padding:10px 0 0;list-style:none;display:flex;flex-direction:column;gap:7px;border-top:1px dashed #e5e6eb}
+.pv-c li{position:relative;padding-left:20px;font-size:13px;color:#42464e}
+.pv-c li::before{content:"";position:absolute;left:0;top:4px;width:12px;height:12px;background:#00b42a;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 15.17l9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17z'/%3E%3C/svg%3E") center/12px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 15.17l9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17z'/%3E%3C/svg%3E") center/12px no-repeat}
+.pv-c li.no{color:#a9aeb8}
+.pv-c li.no::before{background:#c9cdd4;-webkit-mask:linear-gradient(#000,#000) center/10px 1.5px no-repeat;mask:linear-gradient(#000,#000) center/10px 1.5px no-repeat}
+.pv-c li em{font-style:normal;color:#1664ff}
+.pv-x{display:inline-flex;align-items:center;gap:4px;margin-top:12px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1664ff;cursor:pointer}
+.pv-x i{display:inline-block;width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 13.17l4.95-4.95 1.41 1.42L12 16 5.64 9.64l1.41-1.42L12 13.17z'/%3E%3C/svg%3E") center/12px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 13.17l4.95-4.95 1.41 1.42L12 16 5.64 9.64l1.41-1.42L12 13.17z'/%3E%3C/svg%3E") center/12px no-repeat;transition:transform .15s}
+.pv-x.on i{transform:rotate(180deg)}
+.pv-more{margin-top:12px;max-width:880px;animation:mo-drop .16s ease-out both}
+.pv-more .pu-cmp td.e{color:#1664ff}
+.pv-more .pu-cmp td.g{color:#00875a}
+.pv-more .pu-cmp td.n{color:#a9aeb8}
+.pv-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px;margin:14px 0 0;padding:14px 16px;background:#f7f8fa;border-radius:6px;font-size:13px;color:#42464e;line-height:1.6}
+.pv-notes b{display:block;font-weight:500;color:#0c0d0e}
+/* /pur90 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1530,15 +1556,28 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
       </div>
       <section class="kc-card"><div class="kc-ch"><h2><i class="fi-i fi-box"></i>产品配置</h2></div>
         <div class="fl-row" style="border-top:0"><span>购买产品</span><div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>产品</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div></div>
-        <div class="fl-row"><span>版本</span><div><b style="font-weight:500">企业版</b> · 每份 52 台授权 / 年</div></div>
+        <div class="fl-row"><span>版本</span><div><b style="font-weight:500">企业版</b> · 每份 52 台授权 / 年<span class="kc-sub" style="margin-left:8px">在下方「选择版本」里对比</span></div></div>
       </section>
-      <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-shield2"></i>企业版服务权益</h2><span class="kc-sub">包含个人版全部防护能力</span></div>
-        <table class="pu-cmp"><thead><tr><th>服务能力</th><th>个人版</th><th class="e">企业版</th></tr></thead><tbody>
-          <tr><td>高级威胁狩猎</td><td>不包含</td><td class="e">支持 · 专享</td></tr>
-          <tr><td>安全日志留存</td><td>30 天</td><td class="e">180 天</td></tr>
-          <tr><td>研判与技术支持</td><td>基础防护能力</td><td class="e">AI 辅助告警研判 · 7×24 小时专家支持</td></tr>
-        </tbody></table>
-        <div class="ac-pf"><a href="#">完整服务内容与使用说明</a></div>
+      <section class="kc-card pv-cards-wrap" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-shield2"></i>选择版本</h2><span class="kc-sub">按版本购买，权益在付款后立即生效</span></div>
+        <div class="kc-cb" style="padding:16px 20px 18px"><div class="pv-cards">
+          <div class="pv-c"><header><b>个人版</b><span class="kc-tag mut" style="width:auto">当前版本</span></header><p>适合个人和小团队的基础主机防护</p>
+            <ul><li>基础防护能力</li><li>安全日志留存 30 天</li><li class="no">高级威胁狩猎</li><li class="no">AI 辅助告警研判 · 7×24 小时专家支持</li></ul></div>
+          <div class="pv-c on" role="radio" aria-checked="true"><header><b>企业版</b><span class="kc-tag info" style="width:auto">本次购买</span></header><p>每份 52 台授权 / 年 · 适合多台服务器统一管理</p>
+            <ul><li>包含个人版全部防护能力</li><li><em>高级威胁狩猎</em> · 专享</li><li>安全日志留存 <em>180 天</em></li><li><em>AI 辅助告警研判</em> · 7×24 小时专家支持</li></ul></div>
+        </div>
+        <button type="button" class="{{pvXc}}" aria-expanded="{{pvEx}}" onClick="{{pvTog}}">{{pvXt}}<i></i></button>
+        <sc-if value="{{pvEx}}" hint-placeholder-val="{{false}}"><div class="pv-more">
+          <table class="pu-cmp"><thead><tr><th>服务内容</th><th>个人版</th><th class="e">企业版</th></tr></thead><tbody>
+            <tr><td>基础防护能力</td><td class="g">支持</td><td class="e">支持</td></tr>
+            <tr><td>高级威胁狩猎</td><td class="n">不包含</td><td class="e">支持 · 专享</td></tr>
+            <tr><td>安全日志留存</td><td>30 天</td><td class="e">180 天</td></tr>
+            <tr><td>告警研判</td><td>基础防护能力</td><td class="e">AI 辅助告警研判</td></tr>
+            <tr><td>技术支持</td><td>工单</td><td class="e">7×24 小时专家支持</td></tr>
+            <tr><td>授权方式</td><td>—</td><td class="e">每份 52 台主机授权，可买 1–20 份</td></tr>
+          </tbody></table>
+          <div class="pv-notes"><div><b>什么时候生效</b>对公转账到账、财务核验通过后立即生效，可在「我的产品」查看。</div><div><b>台数不够怎么办</b>随时增购份数，新增授权和原授权同一天到期。</div>
+            <div><b>到期提醒</b>到期前 30 天、7 天和当天，短信和站内信提醒。</div><div><b>需要帮助</b>拨打 0577-26676666，或在「支持服务」提交工单。</div></div>
+        </div></sc-if></div>
       </section>
       <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-box"></i>购买配置</h2></div>
         <div class="fl-row" style="border-top:0"><span>服务期限</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="6"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
@@ -1860,7 +1899,7 @@ class Component extends DCLogic {
 
       DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
 
-    return Object.assign(__R, DDX);
+    const __pv = !!(this.state || {}).pvx; return Object.assign(__R, DDX, { pvEx: __pv, pvXc: __pv ? 'pv-x on' : 'pv-x', pvXt: __pv ? '收起服务内容' : '完整服务内容与使用说明', pvTog: () => this.setState({ pvx: !__pv }) });
   }
 }
 </script>
