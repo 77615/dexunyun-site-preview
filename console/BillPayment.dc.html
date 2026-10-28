@@ -1324,8 +1324,8 @@ a.kc-logo:hover{opacity:.85}
       <a href="SupTickets.dc.html">工单</a><a href="SupDocs.dc.html">文档</a>
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
-          <div class="ac-ph"><small>待付款（2 笔）</small><b class="amt">¥ 560.00</b><em>对公转账 · 本月已付款 ¥1,305.00 · 1 笔核验未匹配</em>
-            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">合并付款</a></div></div>
+          <div class="ac-ph"><small>待付款（1 笔）</small><b class="amt">¥ 320.00</b><em>对公转账 · 另有 1 笔汇款核验未匹配，补充信息即可</em>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">去付款</a></div></div>
           <ul class="ac-rows">
             <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
@@ -1388,12 +1388,12 @@ a.kc-logo:hover{opacity:.85}
       <div class="ac-g2">
         <div class="ac-col">
           <section class="kc-card">
-            <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>本次付款</h2><span class="kc-sub">合并付款单 HB20261027001</span></div>
+            <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>本次付款</h2><span class="kc-sub">付款单 HB20261027001</span></div>
         <div class="kc-tw"><table class="kc-t">
           <thead><tr><th>订单号</th><th>内容</th><th class="num">金额</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="3"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for></tr></sc-for></tbody>
         </table></div>
-            <div class="fl-tot"><div class="big">合计<b>¥560.00</b></div></div>
+            <div class="fl-tot"><div class="big">合计<b>¥320.00</b></div></div>
           </section>
           <section class="kc-card">
             <div class="kc-ch"><h2><i class="fi-i fi-bank"></i>汇款信息</h2><span class="kc-sub">转账完成后填写</span></div>
@@ -1401,7 +1401,7 @@ a.kc-logo:hover{opacity:.85}
             <sc-if value="{{other}}" hint-placeholder-val="{{false}}"><div class="fl-row"><span></span><div class="ac-al" style="margin:0"><i>!</i><span>非认证企业账户付款需要上传付款说明（加盖公章），否则核验会不匹配</span></div></div></sc-if>
             <div class="fl-row"><span>付款户名</span><div><input class="kc-in" type="text" aria-label="付款户名" value="{{payer}}"></div></div>
             <div class="fl-row"><span>付款账号</span><div><input class="kc-in" type="text" aria-label="付款账号" placeholder="对公账户账号"></div></div>
-            <div class="fl-row"><span>汇款金额</span><div><input class="kc-in" type="text" aria-label="汇款金额" value="560.00" style="width:160px"><p class="kc-hint">需与合计金额一致</p></div></div>
+            <div class="fl-row"><span>汇款金额</span><div><input class="kc-in" type="text" aria-label="汇款金额" value="320.00" style="width:160px"><p class="kc-hint">需与合计金额一致</p></div></div>
             <div class="fl-row"><span>汇款日期</span><div><input class="kc-in" type="text" aria-label="汇款日期" value="2026-10-27" style="width:160px"></div></div>
             <div class="fl-row" style="align-items:start"><span style="padding-top:8px">付款凭证</span><div style="display:flex;flex-direction:column;gap:8px;max-width:420px">
               <sc-for list="{{files}}" as="f" hint-placeholder-count="1"><div class="fl-file"><i><span class="kc-ic i-doc"></span></i><div>{{f.n}}<small>{{f.s}}</small></div><button type="button" onClick="{{f.rm}}">删除</button></div></sc-for>
@@ -1424,7 +1424,7 @@ a.kc-logo:hover{opacity:.85}
             </ul></div></section>
         </div>
       </div>
-      <div class="fl-sum"><a class="kc-btn" href="BillPay.dc.html" style="margin-right:auto">稍后付款</a><small>合计</small><b>¥560.00</b><button class="{{subCls}}" type="button" onClick="{{submit}}">提交汇款信息</button></div>
+      <div class="fl-sum"><a class="kc-btn" href="BillPay.dc.html" style="margin-right:auto">稍后付款</a><small>合计</small><b>¥320.00</b><button class="{{subCls}}" type="button" onClick="{{submit}}">提交汇款信息</button></div>
       </sc-if>
       <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
       <ol class="fl-steps"><li class="done"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><div>提交订单<small>10-27 10:12</small></div></li><li class="done"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><div>对公转账</div></li><li class="done"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><div>提交汇款信息<small>刚刚</small></div></li><li class="cur"><i>4</i><div>财务核验<small>1–2 个工作日</small></div></li><li class=""><i>5</i><div>开通</div></li></ol>
@@ -1468,7 +1468,7 @@ class Component extends DCLogic {
     const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.13 ddos-1e8d07'],
       ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
       ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
-      ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillOrderDetail.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
+      ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillPayFix.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
     const DC = [['回源 502 怎么排查', 'SCDN 文档', 'SupDocs.dc.html', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', 'SupDocs.dc.html', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', 'SupDocs.dc.html', 'doc', '重装 数据'],
       ['如何封禁 IP', '防护策略文档', 'SupDocs.dc.html', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', 'SupDocs.dc.html', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', 'SupDocs.dc.html', 'doc', '发票 专票']];
     const hit = (x) => !ql || (x[0] + ' ' + x[1] + ' ' + x[4]).toLowerCase().indexOf(ql) >= 0;
@@ -1498,7 +1498,7 @@ class Component extends DCLogic {
     const M = [
       ['安全', '高防-002 正在遭受 UDP Flood 攻击', '峰值 86 Gbps，已超过保底 80 Gbps', '10:12', 'DdosInstances.dc.html', 1],
       ['产品', '德迅云眼发现 3 个高危风险', '其中 www.example.com 首页被植入暗链', '09:40', 'EyeRisk.dc.html', 1],
-      ['费用', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPay.dc.html', 1],
+      ['费用', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPayFix.dc.html', 1],
       ['费用', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'BillInvoice.dc.html', 0],
       ['账号', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'OrgSecurity.dc.html', 0],
       ['产品', 'SCDN 证书 8 天后到期', 'shop.example.com', '10-23', 'ScdnDomainDetail.dc.html', 0]
@@ -1535,8 +1535,7 @@ class Component extends DCLogic {
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
-    const rows = [[{ t: 'DX20261024001', a: 'BillOrderDetail.dc.html', s: '上次核验未匹配：户名不一致', sc: 'r' }, '服务器租用 · web-prod-01 续费 3 个月', { t: '¥240.00', c: 'ac-n', td: 'num' }],
-      [{ t: 'DX20261022002', a: 'BillOrderDetail.dc.html' }, '游戏盾 · 游戏盾-001 专业版续费', { t: '¥320.00', c: 'ac-n', td: 'num' }]].map((c) => ROW(c, []));
+    const rows = [[{ t: 'DX20261022002', a: 'BillOrderDetail.dc.html' }, '游戏盾 · 游戏盾-001 专业版续费', { t: '¥320.00', c: 'ac-n', td: 'num' }]].map((c) => ROW(c, []));
     const ac = st.ac || 'own'; const other = ac === 'other';
     const accts = [['own', '认证企业对公账户', '浙江德迅科技有限公司'], ['other', '其他账户', '需上传付款说明']].map(([k, n, s]) => ({ n, s, cls: k === ac ? 'on' : '', go: () => this.setState({ ac: k }) }));
     const fl = st.files || [];
