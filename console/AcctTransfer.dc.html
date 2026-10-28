@@ -1590,6 +1590,35 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .kc-sw:disabled,.b8-sw:disabled{opacity:.45;cursor:not-allowed}
 .kc-uam-on .kc-sw.on{background:#cb2634}
 /* /sw99 */
+
+/* docs100：文档入口统一跳官网文档中心 */
+.dx-ext{flex:0 0 12px;width:12px;height:12px;margin-left:3px;vertical-align:-1px;opacity:.7}
+.kc-top a .dx-ext{opacity:.55}
+.dg-s{padding:32px 32px 28px;margin-bottom:24px;background:linear-gradient(120deg,#f4f8ff,#eef4ff)}
+.dg-s h2{margin:0 0 16px;font-size:20px;font-weight:600;color:#0c0d0e}
+.dg-s form{display:flex;gap:8px;max-width:720px}
+.dg-s input{flex:1;height:40px;padding:0 14px;border:1px solid #d9dde4;border-radius:4px;font:inherit;font-size:14px;background:#fff}
+.dg-s input:focus{outline:none;border-color:#1664ff}
+.dg-s .kc-btn{height:40px;display:inline-flex;align-items:center;padding:0 18px}
+.dg-s .kc-btn .dx-ext{opacity:.9}
+.dg-hot{margin-top:14px;font-size:13px;color:#737a87;display:flex;flex-wrap:wrap;gap:4px 18px}
+.dg-hot a{color:#42464e;text-decoration:none}
+.dg-hot a:hover{color:#1664ff}
+.dg-t{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 12px}
+.dg-t h2{margin:0;font-size:16px;font-weight:600;color:#0c0d0e}
+.dg-t a{display:inline-flex;align-items:center;font-size:13px;color:#1664ff;text-decoration:none}
+.dg-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:24px}
+.dg-c{background:#fff;border:1px solid #e5e8ef;border-radius:4px;padding:18px 20px;transition:border-color .15s}
+.dg-c:hover{border-color:#c9d8f5}
+.dg-h{display:flex;align-items:center;gap:10px;margin-bottom:12px;text-decoration:none;color:#0c0d0e}
+.dg-h .dt{flex-basis:24px;width:24px;height:24px}
+.dg-h b{font-size:14px;font-weight:600}
+.dg-h .dx-ext{margin-left:auto;opacity:0;transition:opacity .15s}
+.dg-c:hover .dg-h .dx-ext{opacity:.6}
+.dg-c ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.dg-c li a{font-size:13px;color:#42464e;text-decoration:none}
+.dg-c li a:hover{color:#1664ff}
+/* /docs100 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1623,12 +1652,12 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         </sc-if>
         <sc-if value="{{hd.isIp}}" hint-placeholder-val="{{false}}"><h6><span>对 IP {{hd.q}} 可以</span></h6><ul class="tp-rs"><sc-for list="{{hd.ipActs}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em class="go">{{r.e}}</em></a></li></sc-for></ul></sc-if>
         <sc-for list="{{hd.groups}}" as="g" hint-placeholder-count="0"><h6>{{g.n}}<span>{{g.c}} 条</span></h6><ul class="tp-rs"><sc-for list="{{g.items}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul></sc-for>
-        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="SupDocs.dc.html">搜帮助文档</a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
+        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="https://www.dexunyun.com/docs?product=billing" target="_blank" rel="noopener">搜帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
       </div>
       <div class="tp-sf"><span>Ctrl K 随时打开</span><span>Esc 关闭</span><a href="#" onClick="{{hd.toProd}}">按产品浏览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if>
     <nav class="kc-tl ac-tl" aria-label="快捷入口">
-      <a href="SupTickets.dc.html">工单</a><a href="SupDocs.dc.html">文档</a>
+      <a href="SupTickets.dc.html">工单</a><a href="https://www.dexunyun.com/docs?product=billing" target="_blank" rel="noopener">文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a>
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
           <div class="ac-ph"><small>待付款（1 笔）</small><b class="amt">¥ 320.00</b><em>对公转账 · 另有 1 笔汇款核验未匹配，补充信息即可</em>
@@ -1754,8 +1783,8 @@ class Component extends DCLogic {
       ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
       ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
       ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillPayFix.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
-    const DC = [['回源 502 怎么排查', 'SCDN 文档', 'SupDocs.dc.html', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', 'SupDocs.dc.html', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', 'SupDocs.dc.html', 'doc', '重装 数据'],
-      ['如何封禁 IP', '防护策略文档', 'SupDocs.dc.html', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', 'SupDocs.dc.html', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', 'SupDocs.dc.html', 'doc', '发票 专票']];
+    const DC = [['回源 502 怎么排查', 'SCDN 文档', 'https://www.dexunyun.com/docs?product=scdn&q=%E5%9B%9E%E6%BA%90%20502%20%E6%80%8E%E4%B9%88%E6%8E%92%E6%9F%A5', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', 'https://www.dexunyun.com/docs?product=scdn&q=%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%20CNAME%20%E6%8E%A5%E5%85%A5%20SCDN', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', 'https://www.dexunyun.com/docs?product=idc&q=%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%BC%9A%E6%B8%85%E7%A9%BA%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE', 'doc', '重装 数据'],
+      ['如何封禁 IP', '防护策略文档', 'https://www.dexunyun.com/docs?product=ddos&q=%E5%A6%82%E4%BD%95%E5%B0%81%E7%A6%81%20IP', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', 'https://www.dexunyun.com/docs?product=billing&q=%E5%AF%B9%E5%85%AC%E8%BD%AC%E8%B4%A6%E5%A4%9A%E4%B9%85%E6%A0%B8%E9%AA%8C%E5%88%B0%E8%B4%A6', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', 'https://www.dexunyun.com/docs?product=billing&q=%E4%B8%93%E7%A5%A8%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E8%B5%84%E6%96%99', 'doc', '发票 专票']];
     const hit = (x) => !ql || (x[0] + ' ' + x[1] + ' ' + x[4]).toLowerCase().indexOf(ql) >= 0;
     const mk = (e) => ([n, p, href, ic]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: '' });
     const G0 = [['功能', F.filter(hit).map(mk('功能'))], ['资源', R.filter(hit).map(mk('资源'))], ['文档', DC.filter(hit).map(mk('文档'))]];
@@ -1792,7 +1821,7 @@ class Component extends DCLogic {
     return false;
   };
   var root = function (el) { return (el && el.closest && el.closest('.kc-app,.kc-shell,x-dc')) || D.body; };
-  var go = function (el, href) { var a = D.createElement('a'); a.href = href; a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
+  var go = function (el, href) { var a = D.createElement('a'); a.href = href; if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; } a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var layer = function (el) { var r = root(el); var l = r.querySelector(':scope > .lp-layer'); if (!l) { l = D.createElement('div'); l.className = 'lp-layer'; r.appendChild(l); } return l; };
   var toast = function (el, msg, kind) {
@@ -1860,7 +1889,7 @@ class Component extends DCLogic {
     '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
     '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
     '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
-    '接入文档': 'SupDocs.dc.html', '产品文档': 'SupDocs.dc.html', '查看接入文档': 'SupDocs.dc.html', '完整服务内容与使用说明': 'SupDocs.dc.html', '接入指引': 'SupDocs.dc.html',
+    '接入文档': 'https://www.dexunyun.com/docs?product=billing', '产品文档': 'https://www.dexunyun.com/docs?product=billing', '查看接入文档': 'https://www.dexunyun.com/docs?product=billing', '完整服务内容与使用说明': 'https://www.dexunyun.com/docs?product=billing', '接入指引': 'https://www.dexunyun.com/docs?product=billing',
     '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
     '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };

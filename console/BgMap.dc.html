@@ -665,6 +665,35 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .kc-sw:disabled,.b8-sw:disabled{opacity:.45;cursor:not-allowed}
 .kc-uam-on .kc-sw.on{background:#cb2634}
 /* /sw99 */
+
+/* docs100：文档入口统一跳官网文档中心 */
+.dx-ext{flex:0 0 12px;width:12px;height:12px;margin-left:3px;vertical-align:-1px;opacity:.7}
+.kc-top a .dx-ext{opacity:.55}
+.dg-s{padding:32px 32px 28px;margin-bottom:24px;background:linear-gradient(120deg,#f4f8ff,#eef4ff)}
+.dg-s h2{margin:0 0 16px;font-size:20px;font-weight:600;color:#0c0d0e}
+.dg-s form{display:flex;gap:8px;max-width:720px}
+.dg-s input{flex:1;height:40px;padding:0 14px;border:1px solid #d9dde4;border-radius:4px;font:inherit;font-size:14px;background:#fff}
+.dg-s input:focus{outline:none;border-color:#1664ff}
+.dg-s .kc-btn{height:40px;display:inline-flex;align-items:center;padding:0 18px}
+.dg-s .kc-btn .dx-ext{opacity:.9}
+.dg-hot{margin-top:14px;font-size:13px;color:#737a87;display:flex;flex-wrap:wrap;gap:4px 18px}
+.dg-hot a{color:#42464e;text-decoration:none}
+.dg-hot a:hover{color:#1664ff}
+.dg-t{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 12px}
+.dg-t h2{margin:0;font-size:16px;font-weight:600;color:#0c0d0e}
+.dg-t a{display:inline-flex;align-items:center;font-size:13px;color:#1664ff;text-decoration:none}
+.dg-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:24px}
+.dg-c{background:#fff;border:1px solid #e5e8ef;border-radius:4px;padding:18px 20px;transition:border-color .15s}
+.dg-c:hover{border-color:#c9d8f5}
+.dg-h{display:flex;align-items:center;gap:10px;margin-bottom:12px;text-decoration:none;color:#0c0d0e}
+.dg-h .dt{flex-basis:24px;width:24px;height:24px}
+.dg-h b{font-size:14px;font-weight:600}
+.dg-h .dx-ext{margin-left:auto;opacity:0;transition:opacity .15s}
+.dg-c:hover .dg-h .dx-ext{opacity:.6}
+.dg-c ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.dg-c li a{font-size:13px;color:#42464e;text-decoration:none}
+.dg-c li a:hover{color:#1664ff}
+/* /docs100 */
 </style>
 </helmet>
 <div class="kc-map" style="width: 1440px; height: 1240px; background: #f5f7fb; padding: 40px 48px; display: flex; gap: 24px; align-items: flex-start;">
@@ -723,7 +752,7 @@ class Component extends DCLogic {
     return false;
   };
   var root = function (el) { return (el && el.closest && el.closest('.kc-app,.kc-shell,x-dc')) || D.body; };
-  var go = function (el, href) { var a = D.createElement('a'); a.href = href; a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
+  var go = function (el, href) { var a = D.createElement('a'); a.href = href; if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; } a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var layer = function (el) { var r = root(el); var l = r.querySelector(':scope > .lp-layer'); if (!l) { l = D.createElement('div'); l.className = 'lp-layer'; r.appendChild(l); } return l; };
   var toast = function (el, msg, kind) {
@@ -791,7 +820,7 @@ class Component extends DCLogic {
     '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
     '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
     '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
-    '接入文档': 'SupDocs.dc.html', '产品文档': 'SupDocs.dc.html', '查看接入文档': 'SupDocs.dc.html', '完整服务内容与使用说明': 'SupDocs.dc.html', '接入指引': 'SupDocs.dc.html',
+    '接入文档': 'https://www.dexunyun.com/docs', '产品文档': 'https://www.dexunyun.com/docs', '查看接入文档': 'https://www.dexunyun.com/docs', '完整服务内容与使用说明': 'https://www.dexunyun.com/docs', '接入指引': 'https://www.dexunyun.com/docs',
     '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
     '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };
