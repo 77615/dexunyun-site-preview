@@ -1679,6 +1679,38 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .kc-crumb .cb-home{color:#737a87}
 .kc-crumb .cb-home:hover{color:#1664ff}
 /* /menu97 */
+
+/* cfg98：防护配置模块卡片 */
+.pc{display:flex;flex-direction:column;gap:16px;margin-bottom:16px}
+.pc-band{display:flex;align-items:stretch;background:#fff;border:1px solid #e5e8ef;border-radius:4px;padding:20px 0}
+.pc-band > div{flex:1;padding:0 24px;border-left:1px solid #eef0f3;min-width:0}
+.pc-band > div:first-child{border-left:0}
+.pc-band span{display:block;font-size:12px;color:#737a87;margin-bottom:6px}
+.pc-band b{display:block;font-size:22px;line-height:30px;font-weight:600;color:#0c0d0e;font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pc-band b small{font-size:13px;font-weight:400;color:#737a87;margin-left:4px}
+.pc-band .pc-tpl{flex:1.3;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:16px;align-items:center}
+.pc-tpl span{grid-column:1/-1}
+.pc-band b{font-size:20px}
+.pc-tpl b{font-family:inherit !important}
+.pc-tpl a{justify-self:end;display:inline-flex;align-items:center;gap:2px;font-size:13px;text-decoration:none;color:#1664ff}
+.pc-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pc-c{display:flex;flex-direction:column;background:#fff;border:1px solid #e5e8ef;border-radius:4px;transition:border-color .15s,box-shadow .15s}
+.pc-c:hover{border-color:#c9d8f5;box-shadow:0 4px 14px rgba(29,33,41,.05)}
+.pc-c header{display:flex;align-items:center;gap:10px;padding:16px 20px 0}
+.pc-c header .dt{flex-basis:28px;width:28px;height:28px}
+.pc-c h3{margin:0;font-size:15px;font-weight:600;color:#0c0d0e}
+.pc-c header .kc-sw{margin-left:auto}
+.pc .kc-sw.on{background:#1664ff}
+.pc .kc-sw.on::after{left:21px}
+.pc-kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:18px 20px 16px}
+.pc-kv span{display:block;font-size:12px;color:#737a87;margin-bottom:4px}
+.pc-kv b{display:block;font-size:14px;font-weight:500;color:#1d2129;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-c.off .pc-kv b{color:#a9aeb8}
+.pc-c.off header .dt{filter:grayscale(1);opacity:.55}
+.pc-w{margin:-4px 20px 14px;padding:8px 12px;border-radius:4px;background:#fff7e8;color:#a84700;font-size:12px;line-height:18px}
+.pc-c footer{margin-top:auto;display:flex;justify-content:flex-end;padding:12px 20px;border-top:1px solid #f2f3f5}
+.pc-c footer a:not(.kc-btn){display:inline-flex;align-items:center;gap:2px;font-size:13px;text-decoration:none;color:#1664ff}
+/* /cfg98 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
