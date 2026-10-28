@@ -1618,21 +1618,6 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
       </section>
     </main>
   </div>
-  <sc-if value="{{dOpen}}" hint-placeholder-val="{{false}}">
-  <div class="ac-drw" role="dialog" aria-label="工单详情">
-    <header><b>回源 502 偶发，请排查</b><span class="kc-tag warn">待你确认</span><button type="button" aria-label="关闭" onClick="{{closeD}}">×</button></header>
-    <div class="bd">
-      <div class="ac-kv" style="grid-template-columns:1fr"><div><span>工单号</span>TK-20261025-0005</div><div><span>关联产品</span>SCDN · shop.example.com</div><div><span>提交人</span>张三（运维工程师）</div></div>
-      <ul class="ac-tl2">
-        <li><b>张三</b><time>10-25 14:20</time><p>shop.example.com 晚高峰偶发 502，大约每小时 20 次，源站负载正常。</p></li>
-        <li><b>德迅技术支持 · 王工</b><time>10-25 15:02</time><p>已定位：源站对德迅回源 IP 段做了连接数限制。请把回源 IP 段加入源站白名单（已附 IP 列表），我们这边已临时调大回源超时。</p></li>
-        <li><b>张三</b><time>10-25 16:40</time><p>已加白名单，观察中。</p></li>
-        <li><b>德迅技术支持 · 王工</b><time>10-26 10:00</time><p>近 18 小时没有再出现 502。如确认解决请点「确认解决」；3 天内未确认会自动解决。</p></li>
-      </ul>
-    </div>
-    <footer><textarea aria-label="回复" placeholder="补充说明或继续提问"></textarea><div style="display:flex;flex-direction:column;gap:8px"><button class="kc-btn" type="button">回复</button><button class="kc-btn pri" type="button" onClick="{{closeD}}">确认解决</button></div></footer>
-  </div>
-  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
@@ -1967,7 +1952,7 @@ class Component extends DCLogic {
       [[{ t: 'web-prod-01 网络不通', a: '#', s: 'TK-20261019-0003' }, '故障报修', '服务器租用 · web-prod-01', 'wangqi', { t: '2026-10-19 09:10', s: '已恢复' }, { t: '已解决', tag: 'ok' }], 'open done', 0],
       [[{ t: '发票抬头修改', a: '#', s: 'TK-20260930-0001' }, '财务问题', '—', 'wangqi', '2026-09-30 11:00', { t: '已关闭', tag: 'mut' }], 'closed', 0]
     ];
-    const rows0 = R.map((r) => { const row = ROW(r[0], r[2] ? [['查看并确认', '#', '', (e) => { ev(e); this.setState({ d: true }); }]] : [['查看', 'SupTicketDetail.dc.html']], r[1]); return row; });
+    const rows0 = R.map((r) => { const row = ROW(r[0], r[2] ? [['查看并确认', 'SupTicketDetail.dc.html']] /* tk103 */ : [['查看', 'SupTicketDetail.dc.html']], r[1]); return row; });
     const T = TABS([['未关闭', 'open'], ['待我确认', 'confirm'], ['已解决', 'done'], ['已关闭', 'closed'], ['全部', '']], rows0, 'ft');
 
     const __R = Object.assign({ nav }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, dOpen: st.d === true, closeD: () => this.setState({ d: false }) });
