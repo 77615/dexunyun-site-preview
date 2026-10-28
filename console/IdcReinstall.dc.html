@@ -2120,8 +2120,10 @@ class Component extends DCLogic {
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
       return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
     const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '', go: o[3] || null });
-    const TABS = (defs, rows, key, dflt) => { const cur = st[key] || dflt || defs[0][0];
-      const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ [key]: n }) }; });
+    // nav101
+    const __qs = (() => { try { return /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search) : null; } catch (x) { return null; } })();
+    const TABS = (defs, rows, key, dflt) => { const __uq = __qs && __qs.get(key); const __ud = __uq ? defs.find((d) => d[1] === __uq || d[0] === __uq) : null; const cur = st[key] || (__ud && __ud[0]) || dflt || defs[0][0];
+      const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => { this.setState({ [key]: n }); try { if (__qs) { const u = new URL(location.href); if (k) u.searchParams.set(key, k); else u.searchParams.delete(key); history.replaceState(null, '', u); } } catch (x) {} } }; });
       const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
