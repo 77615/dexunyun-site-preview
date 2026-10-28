@@ -1799,6 +1799,21 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .dg-c li a{font-size:13px;color:#42464e;text-decoration:none}
 .dg-c li a:hover{color:#1664ff}
 /* /docs100 */
+
+/* nav102：侧栏底部去掉、无权限页 */
+.kc-sf{display:none !important}
+.na{width:100%;max-width:520px;text-align:center}
+.kc-main > .na{margin:96px auto 0 !important}
+.na-ic{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;background:#f2f3f5;color:#86909c}
+.kc-main .na h1{margin:0 0 8px;font-size:20px;font-weight:600;color:#0c0d0e}
+.na > p{margin:0;font-size:14px;line-height:22px;color:#42464e}
+.na-who{display:inline-flex;align-items:center;gap:12px;margin:24px 0;padding:12px 20px 12px 12px;border:1px solid #e5e8ef;border-radius:4px;text-align:left;background:#fff}
+.na-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e8f0ff;color:#1664ff;font-weight:600}
+.na-who b{display:block;font-size:14px;font-weight:500;color:#1d2129}
+.na-who small{font-size:12px;color:#86909c}
+.na-btns{display:flex;justify-content:center;gap:12px}
+.na .na-ft{margin-top:16px;font-size:12px;color:#86909c}
+/* /nav102 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1889,10 +1904,6 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         </sc-for>
       </sc-for>
       </nav>
-      <div class="kc-sf">
-        <a class="kc-it" href="#"><i class="kc-ic i-help"></i><span>帮助支持</span></a>
-        <a class="kc-it" href="#"><i class="kc-ic i-gear"></i><span>系统设置</span></a>
-      </div>
     </aside>
     <main data-pg="ConsoleHome" class="kc-main">
       <div class="kc-hd">
@@ -1903,8 +1914,8 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         <div class="h8-box h8-acc"><div class="h8-av">德</div><div class="h8-who"><b>wangqi</b><span class="kc-tag info">主账号</span><a class="kc-tag ok" href="OrgVerify.dc.html" style="text-decoration:none">企业已认证</a><p>德迅科技 · 账号 ID 100014655316</p></div><div class="h8-kpi"><a href="BillPayment.dc.html"><strong>1</strong><span>待付款</span></a><a href="AcctSubs.dc.html?ft=exp"><strong class="w">5</strong><span>到期与即将到期</span></a><a href="SupTickets.dc.html"><strong>4</strong><span>未关闭工单</span></a><a href="OrgSecurity.dc.html"><strong>81</strong><span>安全分</span></a></div></div>
         <section class="h8-sec"><div class="h8-st"><h2>待处理<small>16 项未解决</small></h2><a href="Notifications.dc.html">全部<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
           <div class="h8-rt" role="tablist"><button type="button" role="tab" class="{{rc0}}" onClick="{{rp0}}">全部 <span>16</span></button><button type="button" role="tab" class="{{rc1}}" onClick="{{rp1}}">运维 <span>8</span></button><button type="button" role="tab" class="{{rc2}}" onClick="{{rp2}}">财务 <span>7</span></button><button type="button" role="tab" class="{{rc3}}" onClick="{{rp3}}">其他 <span>1</span></button><em>成员登录后只显示自己角色能处理的事项：运维看不到付款，财务看不到攻击告警</em></div>
-          <sc-if value="{{rs0}}" hint-placeholder-val="{{true}}"><div class="vt-wrap"><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>安全告警</b><p>德迅云眼 <em>1</em> 个高危漏洞</p></div><strong>1</strong><s></s></a><a class="vt-c" href="DdosInstanceDetail.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中 · 高防-002</p></div><strong>1</strong><s></s></a><a class="vt-c" href="Main.dc.html"><i class="vt-sec"></i><div><b>SCDN 域名需处理</b><p><em>1</em> 个 CC 攻击未拦截 · 证书 12 天后到期等</p></div><strong>4</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=att"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if>
-          <sc-if value="{{rs1}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>安全告警</b><p>德迅云眼 <em>1</em> 个高危漏洞</p></div><strong>1</strong><s></s></a><a class="vt-c" href="DdosInstanceDetail.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中 · 高防-002</p></div><strong>1</strong><s></s></a><a class="vt-c" href="Main.dc.html"><i class="vt-sec"></i><div><b>SCDN 域名需处理</b><p><em>1</em> 个 CC 攻击未拦截 · 证书 12 天后到期等</p></div><strong>4</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=att"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a></div></sc-if>
+          <sc-if value="{{rs0}}" hint-placeholder-val="{{true}}"><div class="vt-wrap"><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>安全告警</b><p>德迅云眼 <em>1</em> 个高危漏洞</p></div><strong>1</strong><s></s></a><a class="vt-c" href="DdosInstanceDetail.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中 · 高防-002</p></div><strong>1</strong><s></s></a><a class="vt-c" href="Main.dc.html"><i class="vt-sec"></i><div><b>SCDN 域名需处理</b><p><em>1</em> 个 CC 攻击未拦截 · 证书 12 天后到期等</p></div><strong>4</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=lic"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if>
+          <sc-if value="{{rs1}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>安全告警</b><p>德迅云眼 <em>1</em> 个高危漏洞</p></div><strong>1</strong><s></s></a><a class="vt-c" href="DdosInstanceDetail.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中 · 高防-002</p></div><strong>1</strong><s></s></a><a class="vt-c" href="Main.dc.html"><i class="vt-sec"></i><div><b>SCDN 域名需处理</b><p><em>1</em> 个 CC 攻击未拦截 · 证书 12 天后到期等</p></div><strong>4</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=lic"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a></div></sc-if>
           <sc-if value="{{rs2}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a></div></sc-if>
           <sc-if value="{{rs3}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if>
         </section>

@@ -1496,6 +1496,21 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .dg-c li a{font-size:13px;color:#42464e;text-decoration:none}
 .dg-c li a:hover{color:#1664ff}
 /* /docs100 */
+
+/* nav102：侧栏底部去掉、无权限页 */
+.kc-sf{display:none !important}
+.na{width:100%;max-width:520px;text-align:center}
+.kc-main > .na{margin:96px auto 0 !important}
+.na-ic{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;background:#f2f3f5;color:#86909c}
+.kc-main .na h1{margin:0 0 8px;font-size:20px;font-weight:600;color:#0c0d0e}
+.na > p{margin:0;font-size:14px;line-height:22px;color:#42464e}
+.na-who{display:inline-flex;align-items:center;gap:12px;margin:24px 0;padding:12px 20px 12px 12px;border:1px solid #e5e8ef;border-radius:4px;text-align:left;background:#fff}
+.na-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e8f0ff;color:#1664ff;font-weight:600}
+.na-who b{display:block;font-size:14px;font-weight:500;color:#1d2129}
+.na-who small{font-size:12px;color:#86909c}
+.na-btns{display:flex;justify-content:center;gap:12px}
+.na .na-ft{margin-top:16px;font-size:12px;color:#86909c}
+/* /nav102 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1586,10 +1601,6 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         </sc-for>
       </sc-for>
       </nav>
-      <div class="kc-sf">
-        <a class="kc-it" href="#"><i class="kc-ic i-help"></i><span>帮助支持</span></a>
-        <a class="kc-it" href="#"><i class="kc-ic i-gear"></i><span>系统设置</span></a>
-      </div>
     </aside>
     <main data-pg="AcctSubs" class="kc-main">
       <div class="kc-hd">
@@ -1915,18 +1926,18 @@ class Component extends DCLogic {
       tog: () => this.setState({ sel: on ? sel.filter((x) => x !== r[idk]) : sel.concat([r[idk]]) }) }); });
 
     const R = [
-      ['dx-guard-01', [{ t: 'dx-guard-01', a: '#', s: '德迅卫士' }, { t: '企业版 · 50 台', s: '全局' }, { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-10-25', s: '保留至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html'], ['扩容', 'BillConfirm.dc.html']], 'att exp'],
+      ['dx-guard-01', [{ t: 'dx-guard-01', a: '#', s: '德迅卫士' }, { t: '企业版 · 50 台', s: '全局' }, { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-10-25', s: '保留至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html'], ['扩容', 'BillConfirm.dc.html']], 'att exp lic'],
       ['ddos-1e8d07', [{ t: '高防-003', a: 'DdosInstanceDetail.dc.html', s: 'DDoS 高防 IP · ddos-1e8d07' }, { t: '保底 50 Gbps', s: '电信 + 联通' }, '—', { t: '即将到期', tag: 'warn' }, { t: '2026-11-09', s: '剩 13 天', sc: 'o' }], [['续费', 'BillConfirm.dc.html'], ['详情', 'DdosInstanceDetail.dc.html']], 'att exp'],
       ['ssl-shop', [{ t: 'ssl-shop', a: '#', s: 'SSL 证书 · shop.example.com' }, { t: 'DV 单域名', s: '—' }, '—', { t: '即将到期', tag: 'warn' }, { t: '2026-11-04', s: '剩 8 天', sc: 'o' }], [['续费', 'BillConfirm.dc.html']], 'att exp'],
       ['web-prod-01', [{ t: 'web-prod-01', a: 'IdcServerDetail.dc.html', s: '服务器租用' }, { t: 'E5-2680×2 / 64G / 100M', s: '温州' }, '1 / 1 台', { t: '即将到期', tag: 'warn' }, { t: '2026-11-20', s: '剩 24 天', sc: 'o' }], [['续费', 'BillConfirm.dc.html'], ['详情', 'IdcServerDetail.dc.html']], 'exp'],
-      ['gs-01', [{ t: '游戏盾-001', a: 'GameAccess.dc.html', s: '游戏盾' }, { t: '专业版 · 2,000 并发', s: 'BGP' }, { t: '1,700 / 2,000', c: 'o', s: '已用 85%', sc: 'o' }, { t: '运行中', tag: 'ok' }, { t: '2027-01-12', s: '剩 77 天' }], [['升级', 'BillConfirm.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
+      ['gs-01', [{ t: '游戏盾-001', a: 'GameAccess.dc.html', s: '游戏盾' }, { t: '专业版 · 2,000 并发', s: 'BGP' }, { t: '1,700 / 2,000', c: 'o', s: '已用 85%', sc: 'o' }, { t: '运行中', tag: 'ok' }, { t: '2027-01-12', s: '剩 77 天' }], [['升级', 'BillConfirm.dc.html'], ['续费', 'BillConfirm.dc.html']], 'lic'],
       ['ddos-9c0b44', [{ t: '高防-002', a: 'DdosInstanceDetail.dc.html', s: 'DDoS 高防 IP · ddos-9c0b44' }, { t: '保底 80 Gbps', s: 'BGP 多线' }, '—', { t: '运行中', tag: 'ok' }, { t: '2027-06-02', s: '剩 218 天' }], [['升级', 'BillConfirm.dc.html'], ['续费', 'BillConfirm.dc.html']], ''],
       ['scdn-001', [{ t: 'SCDN-001', a: 'Main.dc.html', s: 'SCDN' }, { t: '企业版 · 10 域名', s: '中国内地' }, '6 / 10 域名', { t: '运行中', tag: 'ok' }, { t: '2027-03-18', s: '剩 142 天' }], [['续费', 'BillConfirm.dc.html']], ''],
       ['eye-001', [{ t: '云眼-001', a: 'EyeRisk.dc.html', s: '德迅云眼' }, { t: '标准版 · 20 资产', s: '—' }, '12 / 20 资产', { t: '运行中', tag: 'ok' }, { t: '2027-05-02', s: '剩 187 天' }], [['续费', 'BillConfirm.dc.html']], ''],
       ['backup-01', [{ t: 'backup-01', a: '#', s: '云备份' }, { t: '标准版 · 3 TB', s: '华东' }, '1.6 / 3 TB', { t: '已过期', tag: 'mut' }, { t: '2026-10-01', s: '已释放', sc: 'm' }], [['续费记录', 'BillOrders.dc.html']], 'gone']
     ];
     const rows0 = R.map((r) => ROW(r[1], r[2], r[3], { id: r[0] }));
-    const T = TABS([['全部', ''], ['需关注', 'att'], ['即将到期', 'exp'], ['已过期', 'gone']], rows0, 'ft');
+    const T = TABS([['全部', ''], ['需关注', 'att'], ['授权预警', 'lic'], ['即将到期', 'exp'], ['已过期', 'gone']], rows0, 'ft');
     const rows = selRows(T.rows, 'id');
     const allOn = rows.length > 0 && rows.every((r) => sel.indexOf(r.id) >= 0);
 

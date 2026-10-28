@@ -1496,6 +1496,21 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .dg-c li a{font-size:13px;color:#42464e;text-decoration:none}
 .dg-c li a:hover{color:#1664ff}
 /* /docs100 */
+
+/* nav102：侧栏底部去掉、无权限页 */
+.kc-sf{display:none !important}
+.na{width:100%;max-width:520px;text-align:center}
+.kc-main > .na{margin:96px auto 0 !important}
+.na-ic{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;background:#f2f3f5;color:#86909c}
+.kc-main .na h1{margin:0 0 8px;font-size:20px;font-weight:600;color:#0c0d0e}
+.na > p{margin:0;font-size:14px;line-height:22px;color:#42464e}
+.na-who{display:inline-flex;align-items:center;gap:12px;margin:24px 0;padding:12px 20px 12px 12px;border:1px solid #e5e8ef;border-radius:4px;text-align:left;background:#fff}
+.na-av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e8f0ff;color:#1664ff;font-weight:600}
+.na-who b{display:block;font-size:14px;font-weight:500;color:#1d2129}
+.na-who small{font-size:12px;color:#86909c}
+.na-btns{display:flex;justify-content:center;gap:12px}
+.na .na-ft{margin-top:16px;font-size:12px;color:#86909c}
+/* /nav102 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1586,10 +1601,6 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         </sc-for>
       </sc-for>
       </nav>
-      <div class="kc-sf">
-        <a class="kc-it" href="#"><i class="kc-ic i-help"></i><span>帮助支持</span></a>
-        <a class="kc-it" href="#"><i class="kc-ic i-gear"></i><span>系统设置</span></a>
-      </div>
     </aside>
     <main data-pg="BillOrders" class="kc-main">
       <div class="kc-hd">
