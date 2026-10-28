@@ -646,6 +646,12 @@ a.kc-logo:hover{opacity:.85}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
 /* /motion68 */
 
+/* crumb89：面包屑可跳转 */
+.kc-crumb a{color:#737a87;text-decoration:none;border-radius:4px;padding:2px 4px;margin:0 -4px;transition:color .15s,background .15s}
+.kc-crumb a:hover{color:#1664ff;background:rgba(22,100,255,.06)}
+.kc-crumb .cb-el{cursor:pointer;letter-spacing:1px}
+/* /crumb89 */
+
 /* loop88：通用反馈层 */
 .lp-layer{position:fixed;inset:0;pointer-events:none;z-index:200}
 .lp-layer > *{pointer-events:auto}
@@ -710,7 +716,7 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
     <button class="kc-prod on" type="button" aria-expanded="true">产品与服务
       <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path></svg>
     </button>
-    <nav class="kc-crumb" aria-label="面包屑">控制台<i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>产品与服务</b></nav>
+    <nav data-cb class="kc-crumb" aria-label="面包屑"><a href="ConsoleHome.dc.html">控制台</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>产品与服务</b></nav>
     <input class="kc-search" type="search" aria-label="全局搜索" placeholder="搜索 IP、域名、实例 ID 或功能">
     <nav class="kc-tl ac-tl" aria-label="快捷入口">
       <a href="SupTickets.dc.html">工单</a><a href="SupDocs.dc.html">文档</a>
