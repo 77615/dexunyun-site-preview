@@ -907,7 +907,7 @@ class Component extends DCLogic {
     '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
     '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
     '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
-    '接入文档': '../Docs.dc.html?product=scdn', '产品文档': '../Docs.dc.html?product=scdn', '查看接入文档': '../Docs.dc.html?product=scdn', '完整服务内容与使用说明': '../Docs.dc.html?product=scdn', '接入指引': '../Docs.dc.html?product=scdn',
+    '接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '产品文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '查看接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '完整服务内容与使用说明': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '接入指引': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn',
     '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
     '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };
@@ -928,10 +928,34 @@ class Component extends DCLogic {
     var p = el.parentElement; [].slice.call(p.children).forEach(function (c) { c.classList.remove('on'); c.setAttribute && c.getAttribute('aria-selected') !== null && c.setAttribute('aria-selected', 'false'); });
     el.classList.add('on'); if (el.getAttribute('aria-selected') !== null) el.setAttribute('aria-selected', 'true');
   };
+  var acctSwitch = function (el) {
+    if (!D.getElementById('dx-acs-css')) { var st = D.createElement('style'); st.id = 'dx-acs-css';
+      st.textContent = '.lp-acs{width:440px;padding:20px 0 8px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18)}.lp-acs header{display:flex;align-items:center;justify-content:space-between;padding:0 24px 12px}.lp-acs h3{margin:0;font-size:16px;font-weight:600;color:#0c0d0e}.lp-acs header button{border:0;background:none;font-size:18px;color:#86909c;cursor:pointer}.lp-acs p.s{margin:0 24px 8px;font-size:12px;color:#86909c}.lp-acs ul{list-style:none;margin:0;padding:0 12px}.lp-acs li button{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border:0;border-radius:6px;background:none;font:inherit;text-align:left;cursor:pointer}.lp-acs li button:hover{background:#f6f8fa}.lp-acs li.on button{background:#f2f6ff;cursor:default}.lp-acs .av{flex:0 0 36px;width:36px;height:36px;border-radius:6px;display:grid;place-items:center;font-weight:600;color:#fff}.lp-acs .nm{flex:1;min-width:0}.lp-acs .nm b{display:block;font-size:14px;font-weight:500;color:#1d2129;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lp-acs .nm small{display:block;margin-top:2px;font-size:12px;color:#86909c}.lp-acs .nm small em{font-style:normal;color:#42464e;margin-right:8px}.lp-acs .cur{font-size:12px;color:#1664ff}.lp-acs .go{color:#c2c7d0;font-size:16px}.lp-acs footer{margin-top:8px;padding:10px 24px 4px;border-top:1px solid #f2f3f5}.lp-acs footer button{border:0;background:none;padding:6px 0;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-acs footer button:hover{color:#1664ff}';
+      D.head.appendChild(st); }
+    try { D.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); } catch (x) {}
+    var A = [['德', '#1664ff', '德迅科技', '主账号', '100014655316'], ['云', '#14a9a0', '温州云帆网络科技有限公司', '运维', '100020381146'], ['瓯', '#ff7d00', '浙江瓯越信息技术有限公司', '财务', '100031907752']];
+    var cur = (D.querySelector('.kc-user small') || {}).textContent || '德迅科技 · 主账号';
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask';
+    n.innerHTML = '<div class="lp-acs" role="dialog" aria-modal="true" aria-label="切换账号"><header><h3>切换账号</h3><button type="button" data-x aria-label="关闭">×</button></header><p class="s">wangqi 可以进入以下企业，切换后菜单和数据按该企业的角色显示</p><ul>' +
+      A.map(function (a, i) { var on = cur.indexOf(a[2]) === 0; return '<li class="' + (on ? 'on' : '') + '"><button type="button" data-i="' + i + '"><span class="av" style="background:' + a[1] + '">' + a[0] + '</span><span class="nm"><b>' + esc(a[2]) + '</b><small><em>' + a[3] + '</em>ID ' + a[4] + '</small></span>' + (on ? '<span class="cur">当前</span>' : '<span class="go">›</span>') + '</button></li>'; }).join('') +
+      '</ul><footer><button type="button" data-out>登录其他账号</button></footer></div>';
+    n.addEventListener('click', function (e) {
+      var tg = e.target; if (tg === n || tg.hasAttribute('data-x')) { close(n); return; }
+      if (tg.closest('[data-out]')) { close(n); confirmBox(el, '退出当前账号并登录其他账号？', '退出后回到登录页。', '退出并登录', false, function () { toast(el, '已退出，正在前往登录页', 'info'); }); return; }
+      var b = tg.closest('button[data-i]'); if (!b || b.closest('li.on')) return;
+      var a = A[+b.getAttribute('data-i')]; close(n);
+      [].slice.call(D.querySelectorAll('.kc-user small, .kc-sh span')).forEach(function (x) { x.textContent = a[2].replace(/(网络|信息)?科技有限公司$/, '') + ' · ' + a[3]; });
+      [].slice.call(D.querySelectorAll('.kc-top .kc-av')).forEach(function (x) { x.textContent = a[0]; });
+      toast(el, '已切换到 ' + a[2] + ' · ' + a[3]);
+    });
+    l.appendChild(n);
+  };
   var act = function (el, e) {
     if (el.classList.contains('lu-cp')) { try { var cp = navigator.clipboard.writeText(el.getAttribute('data-v')); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} el.classList.add('ok'); setTimeout(function () { el.classList.remove('ok'); }, 1600); toast(el, '已复制成员登录地址'); return; }
     var t = txt(el); var pg = el.closest('[data-pg]'); P = pg ? pg.getAttribute('data-pg') : page(); var NAV = nav();
     if (el.getAttribute('aria-current') === 'page' || el.classList.contains('on') && el.closest('.kc-pg')) return;
+    // 切换账号：同一登录身份下的企业 / 角色列表，选中即切换（77，2026-10-28）
+    if (t === '切换账号') { acctSwitch(el); return; }
     // 分页
     if (el.closest('.kc-pg') || /^(上一页|下一页|‹|›)$/.test(t)) { toast(el, /上一|‹/.test(t) ? '已经是第一页' : '已经是最后一页', 'info'); return; }
     // 开关
