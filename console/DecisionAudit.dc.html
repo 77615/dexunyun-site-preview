@@ -925,6 +925,28 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .kc > .kc-top,.kc > .kc-body,.kc .kc-side{background:transparent !important}
 .kc-top .kc-q,.kc-top .tp-sb{background:rgba(255,255,255,.72)}
 /* /topbg96 */
+
+/* menu97：菜单图标按钮 + 首页面包屑 */
+.kc-top .kc-logo{width:176px !important;padding-right:8px}
+.kc-top .tp-dw{margin:0 8px 0 0}
+.kc-top .tp-dw > button.kc-prod{display:inline-flex !important;align-items:center;justify-content:center;width:36px !important;height:36px !important;min-width:0;padding:0 !important;border:0 !important;border-radius:8px !important;background:transparent !important;box-shadow:none !important;font-size:0 !important;gap:0;cursor:pointer;transition:background .2s}
+.kc-top .tp-dw > button.kc-prod:hover{background:rgba(255,255,255,.75) !important}
+.kc-top .tp-dw > button.kc-prod.on{background:#fff !important;box-shadow:0 1px 3px rgba(31,35,41,.08) !important}
+.tp-hb{position:relative;display:block;width:16px;height:12px}
+.tp-hb i{position:absolute;left:0;width:16px;height:2px;border-radius:2px;background:#1d2129;transition:top .22s cubic-bezier(.3,.7,.4,1),transform .22s cubic-bezier(.3,.7,.4,1) .06s,opacity .15s,background .2s}
+.tp-hb i:nth-child(1){top:0}.tp-hb i:nth-child(2){top:5px}.tp-hb i:nth-child(3){top:10px}
+.kc-prod:hover .tp-hb i{background:#1664ff}
+.kc-prod.on .tp-hb i{background:#1664ff;transition:top .22s cubic-bezier(.3,.7,.4,1) .06s,transform .22s cubic-bezier(.3,.7,.4,1),opacity .15s,background .2s}
+.kc-prod.on .tp-hb i:nth-child(1){top:5px;transform:rotate(45deg)}
+.kc-prod.on .tp-hb i:nth-child(2){opacity:0;transform:scaleX(.2)}
+.kc-prod.on .tp-hb i:nth-child(3){top:5px;transform:rotate(-45deg)}
+.kc-top .tp-pp{animation:tpIn .24s cubic-bezier(.3,.7,.4,1);transform-origin:top left}
+.kc-top .tp-dim{animation:tpDim .2s ease-out}
+@keyframes tpIn{from{opacity:0;transform:translateY(-8px) scale(.99)}to{opacity:1;transform:none}}
+@keyframes tpDim{from{opacity:0}to{opacity:1}}
+.kc-crumb .cb-home{color:#737a87}
+.kc-crumb .cb-home:hover{color:#1664ff}
+/* /menu97 */
 </style>
 </helmet>
 <div class="au">

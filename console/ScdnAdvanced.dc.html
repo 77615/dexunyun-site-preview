@@ -1832,14 +1832,34 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .kc > .kc-top,.kc > .kc-body,.kc .kc-side{background:transparent !important}
 .kc-top .kc-q,.kc-top .tp-sb{background:rgba(255,255,255,.72)}
 /* /topbg96 */
+
+/* menu97：菜单图标按钮 + 首页面包屑 */
+.kc-top .kc-logo{width:176px !important;padding-right:8px}
+.kc-top .tp-dw{margin:0 8px 0 0}
+.kc-top .tp-dw > button.kc-prod{display:inline-flex !important;align-items:center;justify-content:center;width:36px !important;height:36px !important;min-width:0;padding:0 !important;border:0 !important;border-radius:8px !important;background:transparent !important;box-shadow:none !important;font-size:0 !important;gap:0;cursor:pointer;transition:background .2s}
+.kc-top .tp-dw > button.kc-prod:hover{background:rgba(255,255,255,.75) !important}
+.kc-top .tp-dw > button.kc-prod.on{background:#fff !important;box-shadow:0 1px 3px rgba(31,35,41,.08) !important}
+.tp-hb{position:relative;display:block;width:16px;height:12px}
+.tp-hb i{position:absolute;left:0;width:16px;height:2px;border-radius:2px;background:#1d2129;transition:top .22s cubic-bezier(.3,.7,.4,1),transform .22s cubic-bezier(.3,.7,.4,1) .06s,opacity .15s,background .2s}
+.tp-hb i:nth-child(1){top:0}.tp-hb i:nth-child(2){top:5px}.tp-hb i:nth-child(3){top:10px}
+.kc-prod:hover .tp-hb i{background:#1664ff}
+.kc-prod.on .tp-hb i{background:#1664ff;transition:top .22s cubic-bezier(.3,.7,.4,1) .06s,transform .22s cubic-bezier(.3,.7,.4,1),opacity .15s,background .2s}
+.kc-prod.on .tp-hb i:nth-child(1){top:5px;transform:rotate(45deg)}
+.kc-prod.on .tp-hb i:nth-child(2){opacity:0;transform:scaleX(.2)}
+.kc-prod.on .tp-hb i:nth-child(3){top:5px;transform:rotate(-45deg)}
+.kc-top .tp-pp{animation:tpIn .24s cubic-bezier(.3,.7,.4,1);transform-origin:top left}
+.kc-top .tp-dim{animation:tpDim .2s ease-out}
+@keyframes tpIn{from{opacity:0;transform:translateY(-8px) scale(.99)}to{opacity:1;transform:none}}
+@keyframes tpDim{from{opacity:0}to{opacity:1}}
+.kc-crumb .cb-home{color:#737a87}
+.kc-crumb .cb-home:hover{color:#1664ff}
+/* /menu97 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
     <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
-    <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}">产品与服务
-      <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
-    </button>
+    <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
@@ -1854,7 +1874,7 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb class="kc-crumb" aria-label="面包屑"><a href="Main.dc.html">SCDN</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>高级配置</b></nav>
+    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="Main.dc.html">SCDN</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>高级配置</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
