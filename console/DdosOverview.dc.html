@@ -1229,6 +1229,45 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .lp-toast.err .lp-ti{color:#f53f3f}
 .kc-toast button{margin-left:8px;width:20px !important;height:20px !important;font-size:14px !important;color:#86909c !important}
 /* /toast104 */
+
+/* ddosnav105：DDoS CC 防护 / 访问控制 / 告警设置 */
+.dn-tb{display:flex;justify-content:flex-end;margin:-34px 0 12px}
+.dn-seg + .dn-tb{margin-top:-44px}
+.kc-pc .dn-t{width:100%}
+.dn-t td,.dn-t th{white-space:nowrap;text-align:left}
+.dn-t .kc-sw{vertical-align:middle}
+.dn-ops{display:inline-flex;gap:16px}
+.dn-ops a{color:#1664ff;text-decoration:none;font-size:13px}
+.dn-ops a.r{color:#f53f3f}
+.dn-ah{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dn-st{display:flex;gap:24px;margin-top:12px;flex-wrap:wrap}
+.dn-st b{display:block;font-size:22px;line-height:30px;font-weight:600;color:#0c0d0e;font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums}
+.dn-st span{font-size:12px;color:#737a87}
+.dn-b{font-weight:500;color:#1d2129}
+.dn-more{display:inline-block;margin-top:10px;font-size:13px;color:#1664ff;text-decoration:none}
+.dn-seg{display:inline-flex;margin:14px 0 12px;padding:2px;border-radius:4px;background:#f2f3f5}
+.dn-seg button{height:28px;padding:0 14px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.dn-seg button.on{background:#fff;color:#1664ff;font-weight:500;box-shadow:0 1px 2px rgba(29,33,41,.08)}
+.dn-seg em{font-style:normal;color:#86909c;margin-left:4px}
+.dn-geo{display:flex;align-items:center;gap:40px;margin-top:14px;padding:14px 16px;border:1px solid #e5e8ef;border-radius:4px}
+.dn-geo b{display:block;font-size:12px;font-weight:400;color:#737a87;margin-bottom:4px}
+.dn-geo span{font-size:14px;color:#1d2129}
+.dn-geo .kc-btn{margin-left:auto}
+.kc-pch .kc-sw{margin-left:auto}
+.dn-ol{margin:12px 0 0;padding-left:18px;font-size:13px;line-height:24px;color:#42464e}
+.dn-ol b{font-weight:500;color:#1d2129}
+.dn-ch{display:inline-flex;gap:4px;flex-wrap:wrap}
+.dn-ch i{font-style:normal;font-size:12px;line-height:20px;padding:0 6px;border-radius:2px;background:#f2f3f5;color:#42464e}
+.dn-rcp{display:flex;flex-direction:column;margin-top:8px}
+.dn-rcp > div{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f2f3f5}
+.dn-rcp > div > div{flex:1}
+.dn-rcp b{display:block;font-size:14px;font-weight:500;color:#1d2129}
+.dn-rcp small{font-size:12px;color:#86909c}
+.dn-av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#e8f0ff;color:#1664ff;font-weight:600;font-size:13px}
+.dn-add{align-self:flex-start;margin-top:12px;height:32px;padding:0 12px;border:1px dashed #c9cdd4;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.dn-add:hover{border-color:#1664ff;color:#1664ff}
+.dn-lk{font-size:13px;color:#1664ff;text-decoration:none;margin-right:16px}
+/* /ddosnav105 */
 </style>
 </helmet>
 <div class="kc">
@@ -1698,7 +1737,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '概览';
-    const pages = { '实例列表': 'DdosInstances.dc.html', '域名接入': 'DdosAccess.dc.html', '端口接入': 'DdosAccess.dc.html', 'DDoS 防护': 'DdosPolicy.dc.html', '攻击报表': 'DdosReport.dc.html', '策略模板': 'DdosTemplates.dc.html', '流量监控': 'DdosMonitor.dc.html', '日志查询': 'DdosLogs.dc.html', '日志推送': 'DdosLogs.dc.html' };
+    const pages = { 'CC 防护': 'DdosCC.dc.html', '访问控制': 'DdosAcl.dc.html', '告警设置': 'DdosAlerts.dc.html', '实例列表': 'DdosInstances.dc.html', '域名接入': 'DdosAccess.dc.html', '端口接入': 'DdosAccess.dc.html?tab=p', 'DDoS 防护': 'DdosPolicy.dc.html', '攻击报表': 'DdosReport.dc.html', '策略模板': 'DdosTemplates.dc.html', '流量监控': 'DdosMonitor.dc.html', '日志查询': 'DdosLogs.dc.html', '日志推送': 'DdosLogs.dc.html?tab=u' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1707,7 +1746,7 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("实例列表", 'box'), L("告警设置", 'bell')] },
-      { label: '能力区', items: [P("接入管理", 'link', ["域名接入", "端口接入"]), P("防护策略", 'shield', ["DDoS 防护", "CC 防护", "访问控制", "策略模板"]), P("日志与报表", 'chart', [["攻击报表", "1"], "流量监控", "日志查询", "日志推送"])] }
+      { label: '能力区', items: [P("接入管理", 'link', ["域名接入", "端口接入"]), P("防护策略", 'shield', ["DDoS 防护", "CC 防护", "访问控制", "策略模板"]), P("日志与报表", 'chart', ["攻击报表", "流量监控", "日志查询", "日志推送"])] }
     ];
     const DECS = [
       { k: "base", s: "e", t: "攻击峰值 86 Gbps 超过了保底防护 80 Gbps", why: "超出部分走弹性防护按次计费；如果再超过弹性上限 120 Gbps，IP 会被临时封堵（黑洞）。", ev: "近 30 天第 3 次超出保底；本次预计弹性费用 ¥1,200", act: "升级保底到 100 Gbps", act2: "调整弹性上限", href: "DdosInstanceDetail.dc.html", doneTxt: "已生成升级订单，付款后立即生效" },

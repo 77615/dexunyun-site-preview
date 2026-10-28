@@ -1045,6 +1045,45 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .lp-toast.err .lp-ti{color:#f53f3f}
 .kc-toast button{margin-left:8px;width:20px !important;height:20px !important;font-size:14px !important;color:#86909c !important}
 /* /toast104 */
+
+/* ddosnav105：DDoS CC 防护 / 访问控制 / 告警设置 */
+.dn-tb{display:flex;justify-content:flex-end;margin:-34px 0 12px}
+.dn-seg + .dn-tb{margin-top:-44px}
+.kc-pc .dn-t{width:100%}
+.dn-t td,.dn-t th{white-space:nowrap;text-align:left}
+.dn-t .kc-sw{vertical-align:middle}
+.dn-ops{display:inline-flex;gap:16px}
+.dn-ops a{color:#1664ff;text-decoration:none;font-size:13px}
+.dn-ops a.r{color:#f53f3f}
+.dn-ah{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dn-st{display:flex;gap:24px;margin-top:12px;flex-wrap:wrap}
+.dn-st b{display:block;font-size:22px;line-height:30px;font-weight:600;color:#0c0d0e;font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums}
+.dn-st span{font-size:12px;color:#737a87}
+.dn-b{font-weight:500;color:#1d2129}
+.dn-more{display:inline-block;margin-top:10px;font-size:13px;color:#1664ff;text-decoration:none}
+.dn-seg{display:inline-flex;margin:14px 0 12px;padding:2px;border-radius:4px;background:#f2f3f5}
+.dn-seg button{height:28px;padding:0 14px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.dn-seg button.on{background:#fff;color:#1664ff;font-weight:500;box-shadow:0 1px 2px rgba(29,33,41,.08)}
+.dn-seg em{font-style:normal;color:#86909c;margin-left:4px}
+.dn-geo{display:flex;align-items:center;gap:40px;margin-top:14px;padding:14px 16px;border:1px solid #e5e8ef;border-radius:4px}
+.dn-geo b{display:block;font-size:12px;font-weight:400;color:#737a87;margin-bottom:4px}
+.dn-geo span{font-size:14px;color:#1d2129}
+.dn-geo .kc-btn{margin-left:auto}
+.kc-pch .kc-sw{margin-left:auto}
+.dn-ol{margin:12px 0 0;padding-left:18px;font-size:13px;line-height:24px;color:#42464e}
+.dn-ol b{font-weight:500;color:#1d2129}
+.dn-ch{display:inline-flex;gap:4px;flex-wrap:wrap}
+.dn-ch i{font-style:normal;font-size:12px;line-height:20px;padding:0 6px;border-radius:2px;background:#f2f3f5;color:#42464e}
+.dn-rcp{display:flex;flex-direction:column;margin-top:8px}
+.dn-rcp > div{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f2f3f5}
+.dn-rcp > div > div{flex:1}
+.dn-rcp b{display:block;font-size:14px;font-weight:500;color:#1d2129}
+.dn-rcp small{font-size:12px;color:#86909c}
+.dn-av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#e8f0ff;color:#1664ff;font-weight:600;font-size:13px}
+.dn-add{align-self:flex-start;margin-top:12px;height:32px;padding:0 12px;border:1px dashed #c9cdd4;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.dn-add:hover{border-color:#1664ff;color:#1664ff}
+.dn-lk{font-size:13px;color:#1664ff;text-decoration:none;margin-right:16px}
+/* /ddosnav105 */
 </style>
 </helmet>
 <div class="kc">
@@ -1225,7 +1264,7 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 class Component extends DCLogic {
   __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
-  constructor(p) { super(p); this.state = { tab: 'd' }; }
+  constructor(p) { super(p); this.state = { tab: (() => { try { return /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search).get('tab') : null; } catch (x) { return null; } })() === 'p' ? 'p' : 'd' }; }
   /* top70 */
   componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
   componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
@@ -1549,7 +1588,7 @@ class Component extends DCLogic {
   _rv() {
     const isD = this.state.tab === 'd', isP = !isD;
     const cur = isD ? '域名接入' : '端口接入';
-    const pages = { '实例列表': 'DdosInstances.dc.html', '域名接入': 'DdosAccess.dc.html', '端口接入': 'DdosAccess.dc.html', 'DDoS 防护': 'DdosPolicy.dc.html', '攻击报表': 'DdosReport.dc.html', '策略模板': 'DdosTemplates.dc.html', '流量监控': 'DdosMonitor.dc.html', '日志查询': 'DdosLogs.dc.html', '日志推送': 'DdosLogs.dc.html' };
+    const pages = { 'CC 防护': 'DdosCC.dc.html', '访问控制': 'DdosAcl.dc.html', '告警设置': 'DdosAlerts.dc.html', '实例列表': 'DdosInstances.dc.html', '域名接入': 'DdosAccess.dc.html', '端口接入': 'DdosAccess.dc.html?tab=p', 'DDoS 防护': 'DdosPolicy.dc.html', '攻击报表': 'DdosReport.dc.html', '策略模板': 'DdosTemplates.dc.html', '流量监控': 'DdosMonitor.dc.html', '日志查询': 'DdosLogs.dc.html', '日志推送': 'DdosLogs.dc.html?tab=u' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1558,7 +1597,7 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("实例列表", 'box'), L("告警设置", 'bell')] },
-      { label: '能力区', items: [P("接入管理", 'link', ["域名接入", "端口接入"]), P("防护策略", 'shield', ["DDoS 防护", "CC 防护", "访问控制", "策略模板"]), P("日志与报表", 'chart', [["攻击报表", "1"], "流量监控", "日志查询", "日志推送"])] }
+      { label: '能力区', items: [P("接入管理", 'link', ["域名接入", "端口接入"]), P("防护策略", 'shield', ["DDoS 防护", "CC 防护", "访问控制", "策略模板"]), P("日志与报表", 'chart', ["攻击报表", "流量监控", "日志查询", "日志推送"])] }
     ];
     const ok = 'kc-tag ok', warn = 'kc-tag warn', err = 'kc-tag err';
     const doms = [
@@ -1578,7 +1617,7 @@ class Component extends DCLogic {
     const __R = {
       isD, isP, nav, doms, ports,
       tabD: isD ? 'kc-tab on' : 'kc-tab', tabP: isP ? 'kc-tab on' : 'kc-tab',
-      showD: () => this.setState({ tab: 'd' }), showP: () => this.setState({ tab: 'p' }),
+      showD: () => { this.setState({ tab: 'd' }); try { if (/\.dc\.html$/.test(location.pathname)) { const u = new URL(location.href); u.searchParams.delete('tab'); history.replaceState(null, '', u); } } catch (x) {} }, showP: () => { this.setState({ tab: 'p' }); try { if (/\.dc\.html$/.test(location.pathname)) { const u = new URL(location.href); u.searchParams.set('tab', 'p'); history.replaceState(null, '', u); } } catch (x) {} },
       title: cur,
       desc: isD ? '网站类业务按域名接入，支持 HTTP / HTTPS，可在这里上传证书。' : '游戏、App、TCP / UDP 业务按端口转发，高防 IP 与源站端口一一对应。',
       addLabel: isD ? '添加域名' : '添加转发规则',
