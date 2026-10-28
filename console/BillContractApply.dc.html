@@ -1470,6 +1470,23 @@ a.kc-logo:hover{opacity:.85}
 @keyframes mo-new{from{background:#e8ffea}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
 /* /motion68 */
+
+/* dd87：下拉框可展开 */
+.dd-w{position:relative;display:inline-flex;vertical-align:middle;max-width:100%}
+.dd-w > button{max-width:100%}
+.dd-w.on{z-index:50}
+.dd-w.on > button{border-color:#1664ff !important;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.dd-w.on > button svg{transform:rotate(180deg)}
+.dd-m{position:fixed;inset:0;z-index:40;cursor:default}
+.dd-p{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;max-height:280px;overflow:auto;z-index:41;display:flex;flex-direction:column;padding:4px;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.12);box-sizing:border-box;animation:mo-drop .14s ease-out both}
+.dd-p.up{top:auto;bottom:calc(100% + 4px)}
+.dd-p button{display:block;width:100%;padding:7px 10px;border:0;border-radius:4px;background:none;font:inherit;font-size:13px;color:#1d2129;text-align:left;white-space:nowrap;cursor:pointer}
+.dd-p button:hover{background:#f2f3f5}
+.dd-p button.on{background:#f2f7ff;color:#1664ff;font-weight:500}
+.kc-card:has(.dd-w.on),.kc-tw:has(.dd-w.on),.sp-rows:has(.dd-w.on),.kc-bar:has(.dd-w.on),.lf-foot:has(.dd-w.on),.ac-drw .bd:has(.dd-w.on){overflow:visible !important}
+.kc-main *:has(.dd-w.on){z-index:60;animation:none !important;transform:none !important}
+.kc-main section:has(.dd-w.on),.kc-main .kc-card:has(.dd-w.on),.kc-main .kc-bar:has(.dd-w.on){position:relative}
+/* /dd87 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1597,7 +1614,7 @@ a.kc-logo:hover{opacity:.85}
           <div class="dt-f"><span class="req">签署方式</span><div class="dt-seg"><sc-for list="{{signs}}" as="t" hint-placeholder-count="2"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div></div>
           <sc-if value="{{paper}}" hint-placeholder-val="{{false}}">          <div class="dt-f"><span class="req">收件人</span><div><input class="kc-in" type="text" aria-label="收件人" placeholder="收件人" value="王琦"></div></div>
           <div class="dt-f"><span class="req">手机号</span><div><input class="kc-in" type="text" aria-label="手机号" placeholder="手机号" value="177****1234"></div></div>
-          <div class="dt-f"><span class="req">所在地区</span><div><button class="kc-dd" type="button" aria-haspopup="listbox"><span>地区</span><b>浙江省 / 温州市 / 龙湾区</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button></div></div>
+          <div class="dt-f"><span class="req">所在地区</span><div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>地区</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div></div>
           <div class="dt-f"><span class="req">详细地址</span><div><input class="kc-in" type="text" aria-label="详细地址" placeholder="详细地址" value="永中街道 XX 路 88 号 3 楼"></div></div>
 </sc-if>
           <div class="dt-f"><span class="req">联系人</span><div><input class="kc-in" type="text" aria-label="联系人" placeholder="联系人" value="李四" style="width:320px"></div></div>
@@ -1723,7 +1740,15 @@ class Component extends DCLogic {
     const oAll = osel.length === OD.length; const oSum = OD.filter((o) => osel.indexOf(o[0]) >= 0).reduce((a, o) => a + o[4], 0);
     const can = kt === '框架合同' || osel.length > 0;
 
-    return Object.assign({ nav }, { todo: !done, done, ktypes, isOrder: kt === '订单合同', isFrame: kt === '框架合同', ords, allCls: oAll ? 'ac-cbx on' : (osel.length ? 'ac-cbx half' : 'ac-cbx'), selAll: () => this.setState({ osel: oAll ? [] : OD.map((o) => o[0]) }), signs, paper: sg !== '电子签章', sumTxt: kt === '订单合同' ? '已选 ' + osel.length + ' 笔订单，合同金额 ¥' + oSum.toLocaleString('en-US', { minimumFractionDigits: 2 }) : '框架合同金额以最终条款为准', subCls: can ? 'kc-btn pri' : 'kc-btn pri dis', submit: () => { if (can) this.setState({ done: true }); }, back: () => this.setState({ done: false }) });
+    const __R = Object.assign({ nav }, { todo: !done, done, ktypes, isOrder: kt === '订单合同', isFrame: kt === '框架合同', ords, allCls: oAll ? 'ac-cbx on' : (osel.length ? 'ac-cbx half' : 'ac-cbx'), selAll: () => this.setState({ osel: oAll ? [] : OD.map((o) => o[0]) }), signs, paper: sg !== '电子签章', sumTxt: kt === '订单合同' ? '已选 ' + osel.length + ' 笔订单，合同金额 ¥' + oSum.toLocaleString('en-US', { minimumFractionDigits: 2 }) : '框架合同金额以最终条款为准', subCls: can ? 'kc-btn pri' : 'kc-btn pri dis', submit: () => { if (can) this.setState({ done: true }); }, back: () => this.setState({ done: false }) });
+
+    const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
+
+    [["浙江省 / 温州市 / 龙湾区", ["浙江省 / 温州市 / 龙湾区", "浙江省 / 杭州市 / 西湖区", "上海市 / 浦东新区", "北京市 / 海淀区"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+
+      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
+
+    return Object.assign(__R, DDX);
   }
 }
 </script>

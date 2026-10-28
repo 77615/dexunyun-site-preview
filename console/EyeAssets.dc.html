@@ -859,6 +859,23 @@ a.kc-logo:hover{opacity:.85}
 @keyframes mo-new{from{background:#e8ffea}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
 /* /motion68 */
+
+/* dd87：下拉框可展开 */
+.dd-w{position:relative;display:inline-flex;vertical-align:middle;max-width:100%}
+.dd-w > button{max-width:100%}
+.dd-w.on{z-index:50}
+.dd-w.on > button{border-color:#1664ff !important;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.dd-w.on > button svg{transform:rotate(180deg)}
+.dd-m{position:fixed;inset:0;z-index:40;cursor:default}
+.dd-p{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;max-height:280px;overflow:auto;z-index:41;display:flex;flex-direction:column;padding:4px;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.12);box-sizing:border-box;animation:mo-drop .14s ease-out both}
+.dd-p.up{top:auto;bottom:calc(100% + 4px)}
+.dd-p button{display:block;width:100%;padding:7px 10px;border:0;border-radius:4px;background:none;font:inherit;font-size:13px;color:#1d2129;text-align:left;white-space:nowrap;cursor:pointer}
+.dd-p button:hover{background:#f2f3f5}
+.dd-p button.on{background:#f2f7ff;color:#1664ff;font-weight:500}
+.kc-card:has(.dd-w.on),.kc-tw:has(.dd-w.on),.sp-rows:has(.dd-w.on),.kc-bar:has(.dd-w.on),.lf-foot:has(.dd-w.on),.ac-drw .bd:has(.dd-w.on){overflow:visible !important}
+.kc-main *:has(.dd-w.on){z-index:60;animation:none !important;transform:none !important}
+.kc-main section:has(.dd-w.on),.kc-main .kc-card:has(.dd-w.on),.kc-main .kc-bar:has(.dd-w.on){position:relative}
+/* /dd87 */
 </style>
 </helmet>
 <div class="kc">
@@ -983,7 +1000,7 @@ a.kc-logo:hover{opacity:.85}
             <td><a href="#">立即监测</a><a href="#">监测设置</a><a href="#" style="color:#f53f3f">删除</a></td>
           </tr></sc-for></tbody>
         </table></div>
-        <div class="kc-foot lf-foot"><div class="lf-batch"><span class="ac-cbx" aria-label="全选"></span><span class="lf-sel">已选 <b>0</b> 条</span><button class="kc-btn sm" type="button" disabled>立即监测</button><button class="kc-btn sm" type="button" disabled>修改分组</button><button class="kc-btn sm" type="button" disabled>暂停监测</button><span class="lf-more"><button class="kc-btn sm" type="button" disabled aria-label="更多批量操作"><svg class="rx" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"></path></svg></button><span class="lf-mp"><button type="button" disabled>删除</button></span></span></div><div class="lf-pgr"><span></span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><button class="kc-dd lf-sz" type="button" aria-haspopup="listbox"><b>10 条/页</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
+        <div class="kc-foot lf-foot"><div class="lf-batch"><span class="ac-cbx" aria-label="全选"></span><span class="lf-sel">已选 <b>0</b> 条</span><button class="kc-btn sm" type="button" disabled>立即监测</button><button class="kc-btn sm" type="button" disabled>修改分组</button><button class="kc-btn sm" type="button" disabled>暂停监测</button><span class="lf-more"><button class="kc-btn sm" type="button" disabled aria-label="更多批量操作"><svg class="rx" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"></path></svg></button><span class="lf-mp"><button type="button" disabled>删除</button></span></span></div><div class="lf-pgr"><span></span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
       </section>
       <div class="kc-note" style="margin-top:16px"><span class="kc-tag info">资产发现</span><span>根据你的主域名和 IP 段，发现 5 个尚未监测的子域名和主机。</span><a href="#" style="margin-left:auto">查看并加入</a></div>
     </main>
@@ -995,7 +1012,7 @@ a.kc-logo:hover{opacity:.85}
       <div class="kc-dwb">
         <div class="kc-fr"><label><i>*</i>资产类型</label><div class="kc-sg"><button class="on" type="button">网站</button><button type="button">主机</button></div></div>
         <div class="kc-fr"><label><i>*</i>网站地址</label><input class="kc-fi" type="text" value="https://shop.example.com" aria-label="网站地址"><div class="kc-hint">每行一个，可一次添加多个。</div></div>
-        <div class="kc-fr"><label>资产分组</label><button class="kc-dd" type="button" aria-haspopup="listbox" style="width:100%;justify-content:space-between"><b>电商业务</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><div class="kc-hint">资产发现找到的资产也可以直接加入分组。</div></div>
+        <div class="kc-fr"><label>资产分组</label><span class="{{ddC1}}" style="width:100%;justify-content:space-between"><button data-dd="1" class="kc-dd" type="button" aria-haspopup="listbox" style="width:100%" onClick="{{ddT1}}"><b>{{ddV1}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO1}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL1}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="kc-hint">资产发现找到的资产也可以直接加入分组。</div></div>
         <div class="kc-fr"><label>开启哪些监测</label>
           <div class="kc-ckg">
             <sc-for list="{{mons}}" as="m" hint-placeholder-count="4">
@@ -1012,7 +1029,7 @@ a.kc-logo:hover{opacity:.85}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
-  constructor(p) { super(p); this.state = { open: true, m: [true, true, false, true] }; }
+  constructor(p) { super(p); this.state = { open: false, m: [true, true, false, true] }; }
   /* top70 */
   componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
   componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
@@ -1118,10 +1135,14 @@ class Component extends DCLogic {
     const m = this.state.m;
     const mons = defs.map((x, i) => ({ n: x[0], d: x[1], on: m[i], cls: m[i] ? 'kc-ck on' : 'kc-ck',
       tog: () => this.setState({ m: m.map((v, j) => (j === i ? !v : v)) }) }));
-    return {
+    const __R = {
       nav, rows, mons, monN: m.filter((v) => v).length, open: this.state.open,
       openM: () => this.setState({ open: true }), close: () => this.setState({ open: false })
     };
+    const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
+    [["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]], ["电商业务", ["电商业务", "官网", "游戏", "API 接口"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
+    return Object.assign(__R, DDX);
   }
 }
 </script>
