@@ -1765,6 +1765,18 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .na-btns{display:flex;justify-content:center;gap:12px}
 .na .na-ft{margin-top:16px;font-size:12px;color:#86909c}
 /* /nav102 */
+
+/* toast104：全局提示规格 */
+.lp-toast,.kc-toast,.ls-toast{display:flex;align-items:center;gap:8px;padding:9px 16px !important;height:auto !important;background:#fff;border:1px solid #e5e8ef !important;border-radius:4px !important;box-shadow:0 4px 12px rgba(29,33,41,.1) !important;font-size:14px !important;line-height:22px;color:#1d2129;font-weight:400}
+.ls-toast{display:inline-flex}
+.lp-toast i,.ls-toast i{display:none !important}
+.lp-ti{flex:0 0 16px;width:16px;height:16px}
+.lp-toast.ok .lp-ti,.kc-toast .lp-ti,.ls-toast .lp-ti{color:#00b42a}
+.lp-toast.info .lp-ti{color:#1664ff}
+.lp-toast.warn .lp-ti{color:#ff7d00}
+.lp-toast.err .lp-ti{color:#f53f3f}
+.kc-toast button{margin-left:8px;width:20px !important;height:20px !important;font-size:14px !important;color:#86909c !important}
+/* /toast104 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2018,8 +2030,9 @@ class Component extends DCLogic {
   var go = function (el, href) { var a = D.createElement('a'); a.href = href; if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; } a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var layer = function (el) { var r = root(el); var l = r.querySelector(':scope > .lp-layer'); if (!l) { l = D.createElement('div'); l.className = 'lp-layer'; r.appendChild(l); } return l; };
+  var TI = {"ok": "M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM17.4571 9.45711L16.0429 8.04289L11 13.0858L8.20711 10.2929L6.79289 11.7071L11 15.9142L17.4571 9.45711Z", "info": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z", "warn": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z", "err": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"};
   var toast = function (el, msg, kind) {
-    var l = layer(el); var t = D.createElement('div'); t.className = 'lp-toast ' + (kind || 'ok'); t.innerHTML = '<i></i><span>' + esc(msg) + '</span>';
+    var l = layer(el); var t = D.createElement('div'); var k = TI[kind] ? kind : 'ok'; t.className = 'lp-toast ' + k; t.setAttribute('role', 'status'); t.innerHTML = '<svg class="lp-ti" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="' + TI[k] + '"></path></svg><span>' + esc(msg) + '</span>';
     l.appendChild(t); setTimeout(function () { t.classList.add('out'); }, 2200); setTimeout(function () { t.remove(); }, 2500);
   };
   var close = function (n) { if (n) { n.classList.add('out'); setTimeout(function () { n.remove(); }, 160); } };
