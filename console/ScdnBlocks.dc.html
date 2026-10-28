@@ -2189,6 +2189,29 @@ class Component extends DCLogic {
     var c = el.closest('.kc-card') || D; var hs = [].slice.call(c.querySelectorAll('thead th')).map(txt).filter(function (h) { return h && h !== '操作'; });
     return '<p class="lp-hint">勾选要在列表里显示的列，拖动可调整顺序。</p>' + hs.map(function (h, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 7 ? 'checked' : '') + (i === 0 ? ' disabled' : '') + '> ' + esc(h) + '</label>'; }).join('');
   };
+  // 列设置：按钮下方的轻气泡，勾选即生效，点外面关闭（77，2026-10-28）
+  var colPop = function (el) {
+    if (!D.getElementById('dx-cp-css')) { var st = D.createElement('style'); st.id = 'dx-cp-css';
+      st.textContent = '.lp-cpm{position:absolute;inset:0;z-index:40}.lp-cp{position:absolute;width:208px;padding:6px 0;background:#fff;border:1px solid #e5e8ef;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.1);animation:lp-cp-in .14s ease-out both}.lp-cp::before{content:"";position:absolute;top:-5px;right:14px;width:8px;height:8px;background:#fff;border-left:1px solid #e5e8ef;border-top:1px solid #e5e8ef;transform:rotate(45deg)}@keyframes lp-cp-in{from{opacity:0;transform:translateY(-4px)}}.lp-cp header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px 8px;font-size:12px;color:#86909c}.lp-cp header button{border:0;background:none;padding:0;font:inherit;font-size:12px;color:#1664ff;cursor:pointer}.lp-cp label{display:flex;align-items:center;gap:8px;padding:6px 12px;font-size:13px;color:#1d2129;cursor:pointer}.lp-cp label:hover{background:#f6f8fa}.lp-cp label.dis{color:#a9aeb8;cursor:default}.lp-cp label.dis:hover{background:none}.lp-cp input{width:14px;height:14px;margin:0;accent-color:#1664ff}';
+      D.head.appendChild(st); }
+    var card = el.closest('.kc-card') || D; var tb = card.querySelector('table'); if (!tb) return;
+    var ths = [].slice.call(tb.querySelectorAll('thead th'));
+    var list = ths.map(function (th, i) { return { i: i, n: txt(th) }; }).filter(function (c) { return c.n && c.n !== '操作'; });
+    var first = list.length ? list[0].i : -1;
+    var hidden = function (i) { return ths[i] && ths[i].style.display === 'none'; };
+    var show = function (i, on) { [].slice.call(tb.querySelectorAll('tr')).forEach(function (tr) { var c = tr.children[i]; if (c) c.style.display = on ? '' : 'none'; }); };
+    var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-cpm';
+    var m = D.createElement('div'); m.className = 'lp-cp'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', '列设置');
+    m.style.top = (r.bottom - lr.top + 8) + 'px'; m.style.left = Math.max(8, r.right - lr.left - 208) + 'px';
+    m.innerHTML = '<header><span>显示列</span><button type="button" data-reset>重置</button></header>' + list.map(function (c) {
+      var dis = c.i === first; return '<label class="' + (dis ? 'dis' : '') + '"><input type="checkbox" data-i="' + c.i + '"' + (hidden(c.i) ? '' : ' checked') + (dis ? ' disabled' : '') + '>' + esc(c.n) + '</label>'; }).join('');
+    m.addEventListener('click', function (e) { e.stopPropagation();
+      if (e.target.hasAttribute('data-reset')) { list.forEach(function (c) { show(c.i, true); }); [].slice.call(m.querySelectorAll('input')).forEach(function (x) { x.checked = true; }); } });
+    m.addEventListener('change', function (e) { var x = e.target; if (x.hasAttribute('data-i')) show(+x.getAttribute('data-i'), x.checked); });
+    n.addEventListener('click', function () { n.remove(); el.classList.remove('on'); });
+    n.appendChild(m); l.appendChild(n); el.classList.add('on');
+  };
   var sw = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b><small>' + esc(r[1]) + '</small></div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="开关"></button></div>'; }).join(''); };
   var P = '';
   var pre = function (p) { return P.indexOf(p) === 0; };
@@ -2314,7 +2337,7 @@ class Component extends DCLogic {
     }
     // 抽屉类
     if (/批量导入|上传/.test(t)) { drawer(el, t, upload(t.indexOf('附件') >= 0 ? '截图、日志或报错信息，最多 5 个，单个 20 MB 以内' : t.indexOf('证书') >= 0 ? '上传证书文件（.pem / .crt）和私钥（.key）' : '点击或拖拽文件到这里上传'), '确定', function () { toast(el, t.indexOf('导入') >= 0 ? '已导入 12 条' : '已上传'); }); return; }
-    if (t === '列设置') { drawer(el, '列设置', cols(el), '确定', function () { toast(el, '列设置已保存'); }); return; }
+    if (t === '列设置') { colPop(el); return; }
     if (/^(监测设置|通知设置|到期提醒设置|日志存储设置|告警联系人)/.test(t)) {
       var B = { '监测设置': sw([['漏洞扫描', '每天 02:00', true], ['网页篡改', '每 10 分钟', true], ['暗链 / 挂马', '每小时', true], ['可用性', '每 1 分钟，3 个地区', true], ['敏感内容', '每天', false]]),
         '通知设置': sw([['严重 / 高危风险', '短信 + 站内信', true], ['中危风险', '站内信', true], ['低危风险', '每周汇总', false]]),
