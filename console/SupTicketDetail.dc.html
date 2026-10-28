@@ -1741,6 +1741,11 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .na-btns{display:flex;justify-content:center;gap:12px}
 .na .na-ft{margin-top:16px;font-size:12px;color:#86909c}
 /* /nav102 */
+
+/* tk103：新发出的消息只做淡入，不加底色 */
+.dt-msg.dt-in{animation:dt-in .24s ease-out both}
+@keyframes dt-in{from{opacity:0;transform:translateY(6px)}}
+/* /tk103 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1850,7 +1855,7 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 请确认源站防火墙是否放行了 SCDN 回源 IP 段（控制台「域名详情 › 回源配置」可以看到），并提供一次出现 502 的大概时间。</div></div></div>
               <div class="dt-msg me"><div><header><b>wangqi（主账号）</b>10-25 15:10</header><div class="bb">源站白名单里只加了旧的两个网段，已经补上新的回源 IP 段。最近一次 502 在 15:02 左右。</div></div><i>王</i></div>
               <div class="dt-msg"><i>刘</i><div><header><b>刘工 · 德迅技术支持</b>10-25 15:30</header><div class="bb">收到。15:12 以后回源成功率已经恢复到 99.98%，没有新的 502。我们会继续观察到明天上午；如果确认没问题，可以点「问题已解决」关闭工单。</div></div></div>
-              <sc-for list="{{more}}" as="m" hint-placeholder-count="0"><div class="dt-msg me fm-new"><div><header><b>wangqi（主账号）</b>刚刚</header><div class="bb">{{m.t}}</div></div><i>王</i></div></sc-for>
+              <sc-for list="{{more}}" as="m" hint-placeholder-count="0"><div class="dt-msg me dt-in"><div><header><b>wangqi（主账号）</b>刚刚</header><div class="bb">{{m.t}}</div></div><i>王</i></div></sc-for>
             </div>
             <sc-if value="{{open}}" hint-placeholder-val="{{true}}"><div class="dt-reply"><textarea aria-label="回复" placeholder="补充信息或回复工程师，Ctrl + Enter 发送" value="{{rv}}" onChange="{{rc}}"></textarea>
               <div class="dt-rb"><button class="kc-btn sm" type="button">上传附件</button><span class="kc-sub">截图、日志，单个 20 MB 以内</span><button class="kc-btn" type="button" onClick="{{openC}}">问题已解决</button><button class="{{sendCls}}" type="button" onClick="{{send}}">发送</button></div></div></sc-if>
