@@ -1159,6 +1159,15 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .lp-toast.err .lp-ti{color:#f53f3f}
 .kc-toast button{margin-left:8px;width:20px !important;height:20px !important;font-size:14px !important;color:#86909c !important}
 /* /toast104 */
+
+/* vt107：跨页切换不叠图 */
+::view-transition-group(*){animation:none !important}
+::view-transition-old(*){animation:none !important;opacity:0 !important}
+::view-transition-new(*){animation:none !important;opacity:1 !important}
+::view-transition-image-pair(*){isolation:auto !important}
+/* 页面载入时不做入场动画（时长置 0 而不是 animation:none，否则加上 mo-ready 时动画会重新播一遍）：画布先渲染一次再挂载，入场动画会播两遍，看起来像闪了一下；载入后的页签切换、展开照常有动画 */
+html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready) .kc-card > .kc-tw,html:not(.mo-ready) .kc-card > .kc-cb,html:not(.mo-ready) .kc-card > .kc-bar,html:not(.mo-ready) .kc-card > .ac-chips,html:not(.mo-ready) .kc-card > .nt-list,html:not(.mo-ready) .sv-charts,html:not(.mo-ready) .sv-bar,html:not(.mo-ready) .sv-prog{animation-duration:0s !important;animation-delay:0s !important}
+/* /vt107 */
 </style>
 </helmet>
 <div class="kc">
@@ -1364,6 +1373,10 @@ class Component extends DCLogic {
   renderVals() { if (typeof window !== 'undefined' && !window.__dx88) (function () {
   if (window.__dx88) return; window.__dx88 = 1;
   var D = document;
+  // vt107：页面载入后才允许侧栏子菜单展开动画，切页时已展开的子菜单不再闪
+  (function () { var R = D.documentElement, done = function () { R.classList.add('mo-ready'); };
+    var wait = function () { if (D.querySelector('.kc-main > *')) { setTimeout(done, 700); return true; } };
+    if (!wait()) { var mo = new MutationObserver(function () { if (wait()) mo.disconnect(); }); mo.observe(R, { childList: true, subtree: true }); setTimeout(done, 4000); } })();
   var page = function () { var m = (location.pathname + location.hash).match(/([A-Za-z0-9]+)\.dc\.html/); var t = D.querySelector('.kc-main .kc-h1'); return m ? m[1] : (t ? t.textContent : ''); };
   var txt = function (el) { return (el.innerText || el.getAttribute('aria-label') || el.getAttribute('title') || '').trim().replace(/\s+/g, ' '); };
   var live = function (el) {
