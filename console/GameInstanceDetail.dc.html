@@ -859,6 +859,63 @@ a.kc-logo:hover{opacity:.85}
 @keyframes mo-new{from{background:#e8ffea}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}}
 /* /motion68 */
+
+/* loop88：通用反馈层 */
+.lp-layer{position:fixed;inset:0;pointer-events:none;z-index:200}
+.lp-layer > *{pointer-events:auto}
+.lp-toast{position:absolute;left:50%;top:72px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:9px 16px;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.12);font-size:13px;color:#1d2129;white-space:nowrap;animation:lp-in .16s ease-out both}
+.lp-toast i{width:16px;height:16px;border-radius:50%;background:#00b42a;flex:0 0 16px;-webkit-mask:radial-gradient(circle,#000 99%,transparent);position:relative}
+.lp-toast.info i{background:#1664ff}
+.lp-toast.out{opacity:0;transition:opacity .25s}
+.lp-mask{position:absolute;inset:0;background:rgba(29,33,41,.32);display:flex;align-items:center;justify-content:center;animation:lp-fade .16s ease-out both}
+.lp-mask.out,.lp-dm.out{opacity:0;transition:opacity .16s}
+.lp-modal{width:420px;padding:22px 24px 18px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18)}
+.lp-modal h3{margin:0 0 8px;font-size:16px;font-weight:500;color:#1d2129}
+.lp-modal p{margin:0;font-size:13px;line-height:1.7;color:#4e5969}
+.lp-act{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}
+.kc-btn.lp-danger{background:#f53f3f;border-color:#f53f3f;color:#fff}
+.lp-dm{justify-content:flex-end;align-items:stretch}
+.lp-drw{width:480px;max-width:92%;display:flex;flex-direction:column;background:#fff;box-shadow:-8px 0 24px rgba(29,33,41,.12);animation:lp-slide .2s ease-out both}
+.lp-drw header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f2f3f5}
+.lp-drw h3{margin:0;font-size:16px;font-weight:500;color:#1d2129}
+.lp-x{border:0;background:none;font-size:20px;line-height:1;color:#86909c;cursor:pointer}
+.lp-bd{flex:1;overflow:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.lp-drw footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px;border-top:1px solid #f2f3f5}
+.lp-f{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:12px;font-size:13px;color:#4e5969}
+.lp-f .kc-in{width:100%;box-sizing:border-box}
+.lp-ck{display:flex;align-items:center;gap:8px;font-size:13px;color:#1d2129}
+.lp-hint{margin:0;font-size:12px;color:#86909c}
+.lp-hint a{color:#1664ff;text-decoration:none;margin-left:6px}
+.lp-drop{display:flex;align-items:center;justify-content:center;gap:6px;height:120px;border:1px dashed #c9cdd4;border-radius:6px;background:#f7f8fa;font-size:13px;color:#4e5969;cursor:pointer}
+.lp-drop.ok{border-style:solid;border-color:#b9ebd0;background:#f3fbf6}
+.lp-drop em{font-style:normal;color:#00875a}
+.lp-swr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #f2f3f5}
+.lp-swr b{display:block;font-size:13px;font-weight:500;color:#1d2129}
+.lp-swr small{font-size:12px;color:#86909c}
+.lp-menu-m{position:absolute;inset:0}
+.lp-menu{position:absolute;width:168px;padding:4px;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.12);display:flex;flex-direction:column;animation:lp-in .14s ease-out both}
+.lp-menu button{padding:7px 10px;border:0;border-radius:4px;background:none;font:inherit;font-size:13px;color:#1d2129;text-align:left;cursor:pointer}
+.lp-menu button:hover{background:#f2f3f5}
+.lp-menu button.r{color:#f53f3f}
+tr.lp-done td{opacity:.45}
+tr.lp-gone{opacity:0;transition:opacity .2s}
+tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
+@keyframes lp-in{from{opacity:0;transform:translate(-50%,-4px)}to{opacity:1}}
+.lp-menu{animation-name:lp-fade}
+@keyframes lp-fade{from{opacity:0}to{opacity:1}}
+@keyframes lp-slide{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+.kc-app,.kc-shell{position:relative}
+/* 详情页标签内容 */
+.lp-kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 24px;font-size:13px}
+.lp-kv div span{display:inline-block;width:84px;color:#737a87}
+.lp-more{display:flex;justify-content:flex-end;padding:12px 20px 0;font-size:13px}
+.lp-more a{color:#1664ff;text-decoration:none}
+.lp-g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.lp-g4 .kc-card{padding:16px 20px}
+.lp-g4 span{display:block;font-size:13px;color:#737a87}
+.lp-g4 b{display:block;margin-top:6px;font:500 24px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e}
+.lp-g4 i{font-style:normal;font-size:12px;color:#86909c}
+/* /loop88 */
 </style>
 </helmet>
 <div class="kc">
@@ -956,7 +1013,7 @@ a.kc-logo:hover{opacity:.85}
         <a class="kc-it" href="#"><i class="kc-ic i-gear"></i><span>系统设置</span></a>
       </div>
     </aside>
-    <main class="kc-main">
+    <main data-pg="GameInstanceDetail" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><span class="kc-ico" aria-hidden="true"><svg class="rx" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.00488 2.99979H21.0049C21.5572 2.99979 22.0049 3.4475 22.0049 3.99979V19.9998C22.0049 20.5521 21.5572 20.9998 21.0049 20.9998H3.00488C2.4526 20.9998 2.00488 20.5521 2.00488 19.9998V3.99979C2.00488 3.4475 2.4526 2.99979 3.00488 2.99979ZM20.0049 10.9998H4.00488V18.9998H20.0049V10.9998ZM20.0049 8.99979V4.99979H4.00488V8.99979H20.0049ZM14.0049 14.9998H18.0049V16.9998H14.0049V14.9998Z"></path></svg></span><div>
           <h1 class="kc-h1">游戏盾-001</h1>
@@ -967,6 +1024,7 @@ a.kc-logo:hover{opacity:.85}
       <div class="kc-dtabs" role="tablist">
         <sc-for list="{{tabs}}" as="t" hint-placeholder-count="6"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for>
       </div>
+      <sc-if value="{{lpT0}}" hint-placeholder-val="{{true}}" data-lp-tabs>
       <section class="kc-card" style="margin-bottom:16px">
         <div class="kc-cb kc-kvg"><div><span>实例 ID</span>gs-4a71c2</div><div><span>套餐</span>企业版</div><div><span>接入方式</span>PC 封装 · Android SDK</div><div><span>状态</span><span class="kc-tag ok" style="width:auto">运行中</span></div><div><span>在线上限</span>20,000</div><div><span>转发端口</span>6 / 20</div><div><span>源服务器</span>3 / 5</div><div><span>应用程序</span>4 / 5</div><div><span>线路</span>多线 BGP</div><div><span>到期时间</span>2027-04-30</div><div><span>自动续费</span>未开启</div><div><span>创建时间</span>2026-04-30</div></div>
       </section>
@@ -982,6 +1040,12 @@ a.kc-logo:hover{opacity:.85}
         <div class="kc-ch"><h2>接入与风控</h2></div>
         <div class="kc-cb kc-tiles" style="grid-template-columns:repeat(6,minmax(0,1fr))"><a class="kc-tile" href="GameAccess.dc.html"><span>应用 <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span><b>4</b></a><a class="kc-tile" href="GameRules.dc.html"><span>转发规则 <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span><b>6</b></a><a class="kc-tile" href="GameRules.dc.html"><span>源服务器 <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span><b>3</b></a><a class="kc-tile" href="GameOnline.dc.html"><span>在线设备 <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span><b>12,180</b></a><a class="kc-tile" href="GameOnline.dc.html"><span>高危 IP <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span><b>27</b></a><a class="kc-tile" href="GameOnline.dc.html"><span>黑名单 <svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></span><b>35</b></a></div>
       </section>
+    </sc-if>
+      <sc-if value="{{lpT1}}" hint-placeholder-val="{{false}}"><section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2>应用接入</h2></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>应用</th><th>平台</th><th>SDK 版本</th><th>在线设备</th><th>状态</th><th>操作</th></tr></thead><tbody><tr><td>传奇手游</td><td>Android / iOS</td><td>3.2.1</td><td>8,214</td><td><span class="kc-tag ok" style="width:auto">正常</span></td><td><a href="#">修改</a></td></tr><tr><td>传奇手游 PC</td><td>Windows</td><td>3.2.0</td><td>2,106</td><td><span class="kc-tag ok" style="width:auto">正常</span></td><td><a href="#">修改</a></td></tr><tr><td>新服测试包</td><td>Android</td><td>3.1.4</td><td>96</td><td><span class="kc-tag warn" style="width:auto">旧版本</span></td><td><a href="SupDocs.dc.html">升级 SDK</a></td></tr><tr><td>官网下载器</td><td>Windows</td><td>3.2.1</td><td>12</td><td><span class="kc-tag ok" style="width:auto">正常</span></td><td><a href="#">修改</a></td></tr></tbody></table></div><div class="lp-more" style="padding-bottom:14px"><a href="GameAccess.dc.html">去接入管理 ›</a></div></section></sc-if>
+      <sc-if value="{{lpT2}}" hint-placeholder-val="{{false}}"><section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2>转发规则</h2></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>名称</th><th>协议</th><th>游戏端口</th><th>源站</th><th>负载模式</th><th>操作</th></tr></thead><tbody><tr><td>登录服</td><td>TCP</td><td>7000</td><td>192.0.2.88:7000</td><td>轮询</td><td><a href="#">修改</a></td></tr><tr><td>游戏服 1</td><td>TCP</td><td>7101</td><td>192.0.2.91:7101</td><td>IP 哈希</td><td><a href="#">修改</a></td></tr><tr><td>游戏服 2</td><td>TCP</td><td>7102</td><td>192.0.2.92:7102</td><td>IP 哈希</td><td><a href="#">修改</a></td></tr><tr><td>语音</td><td>UDP</td><td>9000</td><td>192.0.2.95:9000</td><td>轮询</td><td><a href="#">修改</a></td></tr></tbody></table></div><div class="lp-more" style="padding-bottom:14px"><a href="GameRules.dc.html">查看全部 6 条规则 ›</a></div></section></sc-if>
+      <sc-if value="{{lpT3}}" hint-placeholder-val="{{false}}"><div class="lp-g4"><div class="kc-card"><span>在线设备</span><b>10,428</b><i>并发上限 12,000</i></div><div class="kc-card"><span>今日峰值</span><b>11,906</b><i>20:30</i></div><div class="kc-card"><span>掉线率</span><b>0.4%</b><i>攻击期间未上升</i></div><div class="kc-card"><span>拦截异常连接</span><b>2,340</b><i>近 24 小时</i></div></div><section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2>在线设备 · 今日</h2><a href="GameOnline.dc.html" style="margin-left:auto">查看在线设备 ›</a></div><div class="kc-cb"><div class="kc-spark"><i style="height:30%"></i><i style="height:28%"></i><i style="height:26%"></i><i style="height:24%"></i><i style="height:22%"></i><i style="height:25%"></i><i style="height:31%"></i><i style="height:42%"></i><i style="height:55%"></i><i style="height:62%"></i><i style="height:66%"></i><i style="height:64%"></i><i style="height:60%"></i><i style="height:63%"></i><i style="height:68%"></i><i style="height:72%"></i><i style="height:76%"></i><i style="height:88%" class="hi"></i><i style="height:84%"></i><i style="height:78%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:46%"></i><i style="height:38%"></i></div><div class="kc-axis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span></div></div></section></sc-if>
+      <sc-if value="{{lpT4}}" hint-placeholder-val="{{false}}"><section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2>黑名单</h2></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>IP / 设备</th><th>来源</th><th>加入时间</th><th>到期</th><th>操作</th></tr></thead><tbody><tr><td>45.13.**.204</td><td>自动 · 异常连接</td><td>10-28 09:40</td><td>24 小时</td><td><a href="#">移除</a></td></tr><tr><td>设备 7f2a…91c</td><td>手动 · 外挂</td><td>10-27 22:15</td><td>永久</td><td><a href="#">移除</a></td></tr><tr><td>103.21.**.17</td><td>自动 · 端口扫描</td><td>10-27 18:02</td><td>24 小时</td><td><a href="#">移除</a></td></tr></tbody></table></div><div class="lp-more" style="padding-bottom:14px"><a href="GameOnline.dc.html">查看全部 35 条 ›</a></div></section></sc-if>
+      <sc-if value="{{lpT5}}" hint-placeholder-val="{{false}}"><section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2>操作日志</h2></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>时间</th><th>操作人</th><th>操作</th><th>对象</th></tr></thead><tbody><tr><td>10-27 15:02</td><td>张三</td><td>新增转发规则「语音」</td><td>UDP 9000</td></tr><tr><td>10-26 11:40</td><td>李四</td><td>上传客户端 3.2.1</td><td>传奇手游</td></tr><tr><td>10-25 20:18</td><td>系统</td><td>并发达到 85%，已提醒</td><td>游戏盾-001</td></tr></tbody></table></div></section></sc-if>
     </main>
   </div>
 
@@ -1045,7 +1109,202 @@ class Component extends DCLogic {
   }
   /* /top70 */
   /* hdr62 */
-  renderVals() { const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
+  renderVals() { if (typeof window !== 'undefined' && !window.__dx88) (function () {
+  if (window.__dx88) return; window.__dx88 = 1;
+  var D = document;
+  var page = function () { var m = (location.pathname + location.hash).match(/([A-Za-z0-9]+)\.dc\.html/); var t = D.querySelector('.kc-main .kc-h1'); return m ? m[1] : (t ? t.textContent : ''); };
+  var txt = function (el) { return (el.innerText || el.getAttribute('aria-label') || el.getAttribute('title') || '').trim().replace(/\s+/g, ' '); };
+  var live = function (el) {
+    for (var e = el; e && e !== D.body; e = e.parentElement) {
+      var k = Object.keys(e).find(function (x) { return x.indexOf('__reactProps') === 0; });
+      if (k && e[k] && (e[k].onClick || e[k].onChange || e[k].onMouseDown)) return true;
+      if (e.tagName === 'A' && e.getAttribute('href') && e.getAttribute('href') !== '#') return true;
+      if (e.tagName === 'LABEL') return true;
+    }
+    return false;
+  };
+  var root = function (el) { return (el && el.closest && el.closest('.kc-app,.kc-shell,x-dc')) || D.body; };
+  var go = function (el, href) { var a = D.createElement('a'); a.href = href; a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var layer = function (el) { var r = root(el); var l = r.querySelector(':scope > .lp-layer'); if (!l) { l = D.createElement('div'); l.className = 'lp-layer'; r.appendChild(l); } return l; };
+  var toast = function (el, msg, kind) {
+    var l = layer(el); var t = D.createElement('div'); t.className = 'lp-toast ' + (kind || 'ok'); t.innerHTML = '<i></i><span>' + esc(msg) + '</span>';
+    l.appendChild(t); setTimeout(function () { t.classList.add('out'); }, 2200); setTimeout(function () { t.remove(); }, 2500);
+  };
+  var close = function (n) { if (n) { n.classList.add('out'); setTimeout(function () { n.remove(); }, 160); } };
+  var confirmBox = function (el, title, desc, ok, danger, done) {
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask';
+    n.innerHTML = '<div class="lp-modal" role="dialog" aria-modal="true"><h3>' + esc(title) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : '') +
+      '<div class="lp-act"><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn ' + (danger ? 'lp-danger' : 'pri') + '" data-ok>' + esc(ok) + '</button></div></div>';
+    n.addEventListener('click', function (e) { if (e.target === n || e.target.hasAttribute('data-x')) close(n); if (e.target.hasAttribute('data-ok')) { close(n); done && done(); } });
+    l.appendChild(n);
+  };
+  var drawer = function (el, title, body, ok, done) {
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask lp-dm';
+    n.innerHTML = '<aside class="lp-drw" role="dialog" aria-modal="true"><header><h3>' + esc(title) + '</h3><button type="button" class="lp-x" data-x aria-label="关闭">×</button></header><div class="lp-bd">' + body +
+      '</div><footer><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn pri" data-ok>' + esc(ok || '保存') + '</button></footer></aside>';
+    n.addEventListener('click', function (e) {
+      var t = e.target; if (t === n || t.hasAttribute('data-x')) { close(n); return; }
+      if (t.hasAttribute('data-ok')) { close(n); done ? done() : toast(el, '已保存，约 30 秒生效'); return; }
+      if (t.classList.contains('kc-sw')) { t.classList.toggle('on'); return; }
+      if (t.closest('.lp-drop')) { var d = t.closest('.lp-drop'); d.innerHTML = '<b>付款说明.pdf</b> · 186 KB <em>已上传</em>'; d.classList.add('ok'); }
+    });
+    l.appendChild(n);
+  };
+  var menu = function (el, items) {
+    var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-menu-m';
+    var m = D.createElement('div'); m.className = 'lp-menu'; m.style.top = (r.bottom - lr.top + 4) + 'px'; m.style.left = Math.max(8, r.right - lr.left - 168) + 'px';
+    items.forEach(function (it) { var b = D.createElement('button'); b.type = 'button'; b.textContent = it[0]; if (it[2]) b.className = 'r'; b.onclick = function (e) { e.stopPropagation(); n.remove(); it[1](); }; m.appendChild(b); });
+    n.appendChild(m); n.addEventListener('click', function () { n.remove(); }); l.appendChild(n);
+  };
+  var row = function (el) { return el.closest('tr,li,.ln-row,.kc-row'); };
+  var rowName = function (el) {
+    var r = row(el); if (!r) return '';
+    var a = [].slice.call(r.querySelectorAll('td a, b, strong')).find(function (x) { return txt(x) && x !== el; });
+    if (a) return txt(a).split(' ')[0];
+    var c = [].slice.call(r.querySelectorAll('td')).find(function (x) { return txt(x); }); return c ? txt(c).split(' ')[0] : '';
+  };
+  var formFor = function (el, label) {
+    var r = el.closest('tr'); var fields = [];
+    if (r) {
+      var tb = r.closest('table'); var hs = tb ? [].slice.call(tb.querySelectorAll('thead th')) : [];
+      [].slice.call(r.children).forEach(function (td, i) { var h = hs[i] ? txt(hs[i]) : ''; if (!h || /操作|^$/.test(h) || td.classList.contains('lf-ck')) return; fields.push([h, txt(td).split(' · ')[0]]); });
+    }
+    if (!fields.length) { var li = row(el); var b = li && li.querySelector('b'); var sp = li && li.querySelector('span'); fields = [['名称', b ? txt(b) : rowName(el) || label], ['当前设置', sp ? txt(sp) : '']]; }
+    return fields.slice(0, 7).map(function (f) { return '<label class="lp-f"><span>' + esc(f[0]) + '</span><input class="kc-in" value="' + esc(f[1]) + '"></label>'; }).join('') + '<label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>';
+  };
+  var upload = function (hint) { return '<div class="lp-drop" role="button" tabindex="0">' + esc(hint || '点击或拖拽文件到这里上传') + '</div><p class="lp-hint">支持 CSV / Excel，单次最多 500 条。<a href="#" onclick="return false">下载模板</a></p>'; };
+  var cols = function (el) {
+    var c = el.closest('.kc-card') || D; var hs = [].slice.call(c.querySelectorAll('thead th')).map(txt).filter(function (h) { return h && h !== '操作'; });
+    return '<p class="lp-hint">勾选要在列表里显示的列，拖动可调整顺序。</p>' + hs.map(function (h, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 7 ? 'checked' : '') + (i === 0 ? ' disabled' : '') + '> ' + esc(h) + '</label>'; }).join('');
+  };
+  var sw = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b><small>' + esc(r[1]) + '</small></div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="开关"></button></div>'; }).join(''); };
+  var P = '';
+  var pre = function (p) { return P.indexOf(p) === 0; };
+  var ctxPage = function (kind) {
+    if (pre('Ddos')) return { rep: 'DdosReport.dc.html', log: 'DdosLogs.dc.html', ana: 'DdosMonitor.dc.html' }[kind];
+    if (pre('Game')) return { rep: 'GameOverview.dc.html', log: 'GameOnline.dc.html', ana: 'GameOnline.dc.html' }[kind];
+    if (pre('Eye')) return { rep: 'EyeRisk.dc.html', log: 'EyeRisk.dc.html', ana: 'EyeRisk.dc.html' }[kind];
+    return { rep: 'ScdnStats.dc.html', log: 'ScdnBlocks.dc.html', ana: 'ScdnStats.dc.html' }[kind];
+  };
+  var nav = function () { return {
+    '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
+    '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
+    '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
+    '接入文档': 'SupDocs.dc.html', '产品文档': 'SupDocs.dc.html', '查看接入文档': 'SupDocs.dc.html', '完整服务内容与使用说明': 'SupDocs.dc.html', '接入指引': 'SupDocs.dc.html',
+    '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
+    '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
+  }; };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
+  var regNav = function (t) {
+    if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
+    if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
+    if (/^高防-\d+/.test(t)) return 'DdosInstanceDetail.dc.html';
+    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'IdcServerDetail.dc.html';
+    if (/^ssl-/.test(t)) return 'ScdnCerts.dc.html';
+    if (/^HB\d+/.test(t)) return 'BillPayment.dc.html';
+    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'EyeAssetDetail.dc.html' : pre('Ddos') ? 'DdosAccess.dc.html' : 'ScdnDomainDetail.dc.html';
+    return null;
+  };
+  var PROD = [['SCDN', 'Main.dc.html'], ['DDoS', 'DdosInstances.dc.html'], ['高防', 'DdosInstances.dc.html'], ['游戏盾', 'GameAccess.dc.html'], ['云眼', 'EyeRisk.dc.html'], ['服务器', 'IdcServers.dc.html']];
+  var tabClick = function (name) { var b = [].slice.call(D.querySelectorAll('.kc-dtabs button')).find(function (x) { return txt(x).indexOf(name) === 0; }); if (b) { b.click(); var m = D.querySelector('.kc-main'); if (m && m.scrollIntoView) window.scrollTo(0, 0); return true; } return false; };
+  var segToggle = function (el) {
+    var p = el.parentElement; [].slice.call(p.children).forEach(function (c) { c.classList.remove('on'); c.setAttribute && c.getAttribute('aria-selected') !== null && c.setAttribute('aria-selected', 'false'); });
+    el.classList.add('on'); if (el.getAttribute('aria-selected') !== null) el.setAttribute('aria-selected', 'true');
+  };
+  var act = function (el, e) {
+    var t = txt(el); var pg = el.closest('[data-pg]'); P = pg ? pg.getAttribute('data-pg') : page(); var NAV = nav();
+    if (el.getAttribute('aria-current') === 'page' || el.classList.contains('on') && el.closest('.kc-pg')) return;
+    // 分页
+    if (el.closest('.kc-pg') || /^(上一页|下一页|‹|›)$/.test(t)) { toast(el, /上一|‹/.test(t) ? '已经是第一页' : '已经是最后一页', 'info'); return; }
+    // 开关
+    if (el.classList.contains('kc-sw')) { var on = el.classList.toggle('on'); el.setAttribute('aria-checked', on ? 'true' : 'false'); toast(el, on ? '已开启，约 30 秒生效' : '已关闭，约 30 秒生效'); return; }
+    // 标签、分段
+    if (el.classList.contains('kc-tab') || el.getAttribute('role') === 'tab') {
+      segToggle(el); var card = el.closest('.kc-card'); var key = t.replace(/\s*\d+$/, '').replace(/\s*\(\d+\)$/, '');
+      var SW = { '按端口': ['端口', ['203.0.113.10:7000', '1.2 Gbps', '1.6 Gbps', '—', '—', '0%'], ['203.0.113.10:7101', '0.9 Gbps', '1.3 Gbps', '—', '—', '0.01%'], ['203.0.113.10:8443', '0.2 Gbps', '0.4 Gbps', '—', '—', '3.2%'], ['203.0.113.10:9000', '0.1 Gbps', '0.2 Gbps', '—', '—', '0%']] };
+      var tbd = card && card.querySelector('tbody'); var th0 = card && card.querySelector('thead th');
+      if (tbd && !tbd.__lp0) { tbd.__lp0 = tbd.innerHTML; th0.__lp0 = th0.textContent; }
+      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="DdosLogs.dc.html">日志</a></td></tr>'; }).join(''); return; }
+      if (tbd && tbd.__lp0 && /^按/.test(key)) { tbd.innerHTML = tbd.__lp0; th0.textContent = th0.__lp0; return; }
+      var rows = card ? [].slice.call(card.querySelectorAll('tbody tr:not(.lp-empty)')) : []; var shown = 0;
+      rows.forEach(function (tr) { var hit = /^全部/.test(key) || txt(tr).indexOf(key.replace(/^按/, '')) >= 0; tr.style.display = hit ? '' : 'none'; if (hit) shown++; });
+      if (card && rows.length) { var em = card.querySelector('tbody .lp-empty'); if (em) em.remove(); if (!shown) { var tb = card.querySelector('tbody'); var tr = D.createElement('tr'); tr.className = 'lp-empty'; tr.innerHTML = '<td colspan="20">「' + esc(key) + '」下暂时没有数据</td>'; tb.appendChild(tr); } }
+      return;
+    }
+    if (el.closest('.kc-sg') || el.parentElement && el.parentElement.querySelector(':scope > .on') && el.tagName === 'BUTTON' && !el.closest('.kc-btns')) {
+      segToggle(el); var cd = el.closest('.kc-card'); var bars = cd ? cd.querySelectorAll('.kc-spark i') : [];
+      [].forEach.call(bars, function (b, i) { b.style.height = (24 + Math.round(60 * Math.abs(Math.sin((i + 1) * (t.length + 1) * 0.7)))) + '%'; });
+      if (!bars.length) toast(el, '已切换到「' + t + '」', 'info'); return;
+    }
+    // 跳转
+    var href = NAV[t] || regNav(t);
+    if (!href && /^(攻击报表|访问分析|趋势|日志|详情)$/.test(t)) href = ctxPage(t === '日志' ? 'log' : t === '攻击报表' ? 'rep' : 'ana');
+    if (!href && t === '进入控制台') { var rt = txt(row(el) || el.parentElement || el); var hit = PROD.find(function (x) { return rt.indexOf(x[0]) >= 0; }); if (hit) href = hit[1]; else { toast(el, '该产品控制台已在新窗口打开', 'info'); return; } }
+    if (!href && el.tagName === 'A' && el.closest('tbody td') && DETAIL[P] && el.closest('td') === el.closest('tr').querySelector('td:not(.lf-ck)')) href = DETAIL[P];
+    if (href) { e.preventDefault(); go(el, href); return; }
+    // 详情页：修改 → 对应标签
+    if (/^(修改|在「访问统计」页签查看这个域名的数据)$/.test(t) && D.querySelector('.kc-dtabs')) {
+      var b = row(el) && row(el).querySelector('b'); var nm = b ? txt(b) : '访问统计'; if (nm === '缓存') nm = '缓存配置'; if (nm === '访问控制') nm = '防护策略';
+      if (tabClick(nm)) return;
+    }
+    var nm2 = rowName(el);
+    // 确认类
+    if (t === '改为拦截') { confirmBox(el, '把 ' + (nm2 || '该域名') + ' 的 CC 规则改为拦截？', '当前规则只记录不拦截，改为拦截后，命中规则的请求会被直接拦下。约 30 秒全网生效，可随时改回。', '改为拦截', false, function () { var al = [].slice.call(D.querySelectorAll('a,button')).find(function (x) { return x !== el && txt(x) === '改为拦截' && live(x); }); if (al) { al.click(); return; } el.textContent = '已拦截'; el.style.color = '#86909c'; toast(el, '已改为拦截，约 30 秒生效'); }); return; }
+    if (/^(删除|解绑|拒绝|踢下线|全部踢下线|退出登录|加入黑名单|封禁|移除|取消|删除域名|暂停加速|暂停监测)$/.test(t)) {
+      var danger = !/^(取消)$/.test(t); var title = t === '取消' ? '取消这笔订单？' : (t + (nm2 ? '「' + nm2 + '」' : '') + '？');
+      var desc = { '删除': '删除后无法恢复。', '解绑': '解绑后该域名改用默认证书，访问可能出现不安全提示。', '踢下线': '设备会立即断开，可重新连接。', '全部踢下线': '所有在线设备会立即断开。', '退出登录': '', '加入黑名单': '该 IP 之后的请求都会被拦截。', '封禁': '该 IP 之后的请求都会被拦截。', '取消': '取消后订单关闭，已付款项原路退回。', '拒绝': '对方会收到拒绝通知。' }[t] || '';
+      confirmBox(el, title, desc, t === '取消' ? '取消订单' : t, danger, function () {
+        var rw = el.closest('tr'); if (rw && /删除|移除|删除域名/.test(t)) { rw.classList.add('lp-gone'); setTimeout(function () { rw.remove(); }, 200); }
+        toast(el, t === '退出登录' ? '已退出' : '已' + t);
+      }); return;
+    }
+    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
+    if (/^清除缓存$/.test(t)) { confirmBox(el, '清除' + (nm2 && /\./.test(nm2) ? ' ' + nm2 + ' 的' : '') + '缓存？', '清除后首批请求会回源，源站压力会短暂上升。', '清除缓存', false, function () { toast(el, '已提交，约 5 分钟全网生效'); }); return; }
+    // 提示类
+    var TO = { '刷新': '已刷新，数据更新于刚刚', '导出': '导出任务已创建，生成后在「消息」里下载', '导出报表': '报表生成中，完成后在「消息」里下载', '生成报告': '报告生成中，约 1 分钟后可在「报告」里查看',
+      '复制': '已复制', '复制全部': '已复制全部汇款信息', '下载': '已开始下载', '下载电子合同': '已开始下载', '下载模板': '已开始下载', '下载付款说明模板': '已开始下载', '预览': '已在新窗口打开预览',
+      '立即监测': '已开始监测，约 3 分钟出结果', '重新检测': '已开始检测', '忽略': '已忽略，可在「已忽略」里恢复', '已修复': '已标记为已修复，下次监测时复核', '误报': '已标记为误报，规则会自动调优',
+      '加白': '已加入白名单，约 30 秒生效', '远程控制台': '远程控制台已在新窗口打开', '重试': '已重试', '刷新开通状态': '已刷新，产品已开通', '重新封装': '已开始重新封装，约 10 分钟完成',
+      '全部已读': '已全部标为已读', '搜索': '已搜索', '订阅异常通知': '已订阅，异常时短信和站内信通知', '恢复默认': '已恢复默认设置', '银行回单.jpg': '已在新窗口打开回单', '0577-26676666': '客服热线 0577-26676666（7×24 小时）' };
+    if (TO[t]) { if (t === '忽略' || t === '已修复' || t === '误报' || t === '加白') { var rr = el.closest('tr'); if (rr) rr.classList.add('lp-done'); } toast(el, TO[t]); return; }
+    if (t === '上移') { var rw2 = row(el); if (rw2 && rw2.previousElementSibling) { rw2.parentElement.insertBefore(rw2, rw2.previousElementSibling); toast(el, '已上移，优先级 +1'); } else toast(el, '已经是第一条', 'info'); return; }
+    if (/^(显示真实 IP|自动更新)$/.test(t)) { var tg = el.classList.toggle('on'); toast(el, (tg ? '已开启' : '已关闭') + t.replace('显示', '')); return; }
+    // 菜单
+    if (t === '更多') {
+      var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'ScdnStats.dc.html'); }], ['拦截记录', function () { go(el, 'ScdnBlocks.dc.html'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['防护策略', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
+        : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
+      menu(el, items); return;
+    }
+    // 抽屉类
+    if (/批量导入|上传/.test(t)) { drawer(el, t, upload(t.indexOf('附件') >= 0 ? '截图、日志或报错信息，最多 5 个，单个 20 MB 以内' : t.indexOf('证书') >= 0 ? '上传证书文件（.pem / .crt）和私钥（.key）' : '点击或拖拽文件到这里上传'), '确定', function () { toast(el, t.indexOf('导入') >= 0 ? '已导入 12 条' : '已上传'); }); return; }
+    if (t === '列设置') { drawer(el, '列设置', cols(el), '确定', function () { toast(el, '列设置已保存'); }); return; }
+    if (/^(监测设置|通知设置|到期提醒设置|日志存储设置|告警联系人)/.test(t)) {
+      var B = { '监测设置': sw([['漏洞扫描', '每天 02:00', true], ['网页篡改', '每 10 分钟', true], ['暗链 / 挂马', '每小时', true], ['可用性', '每 1 分钟，3 个地区', true], ['敏感内容', '每天', false]]),
+        '通知设置': sw([['严重 / 高危风险', '短信 + 站内信', true], ['中危风险', '站内信', true], ['低危风险', '每周汇总', false]]),
+        '到期提醒设置': sw([['到期前 30 天', '站内信', true], ['到期前 7 天', '短信 + 站内信', true], ['到期当天', '短信 + 电话', true]]),
+        '日志存储设置': '<label class="lp-f"><span>保存时长</span><input class="kc-in" value="180 天"></label>' + sw([['推送到日志服务', '实时推送攻击日志', false]]),
+        '告警联系人': sw([['张三 · 177****1234', '短信 + 站内信', true], ['李四 · 139****5678', '站内信', true], ['王五 · 186****9012', '短信', true]]) + '<p class="lp-hint"><a href="OrgMembers.dc.html">在成员管理里添加联系人</a></p>' };
+      drawer(el, t.replace(/\s*\d+$/, ''), B[t.replace(/\s*\d+$/, '')] || sw([['开启', '', true]])); return;
+    }
+    if (/^(分组管理)$/.test(t)) { drawer(el, '分组管理', ['商城', '官网', '移动站', '未分组'].map(function (g) { return '<label class="lp-f"><span>分组</span><input class="kc-in" value="' + g + '"></label>'; }).join('') + '<p class="lp-hint"><a href="#" onclick="return false">+ 新建分组</a></p>'); return; }
+    if (/^(绑定|批量绑定|批量解绑|应用到…)$/.test(t)) { drawer(el, t === '应用到…' ? '应用到域名' : t, '<p class="lp-hint">选择要' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '的域名</p>' + ['shop.example.com', 'pay.example.com', 'www.example.com', 'm.example.com', 'api.example.com'].map(function (d, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 2 ? 'checked' : '') + '> ' + d + '</label>'; }).join(''), '确定', function () { toast(el, '已' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '，约 30 秒生效'); }); return; }
+    if (/^(编辑|修改|新建模板|添加域名|编辑配置|＋ 添加入口|\+ 添加源站|添加源站|查看规则|301 重定向)$/.test(t) || /^(新建|添加|新增)/.test(t)) {
+      var title2 = (t === '修改' || t === '编辑' || t === '编辑配置') && nm2 ? '修改「' + nm2 + '」' : t.replace(/^[＋+]\s*/, '');
+      drawer(el, title2, /^(新建|添加|新增|＋|\+)/.test(t) ? '<label class="lp-f"><span>名称</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>内容</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>' : formFor(el, t), /^(新建|添加|新增|＋|\+)/.test(t) ? '创建' : '保存'); return;
+    }
+    // 名字、条目：打开详情抽屉
+    if (el.tagName === 'A' || el.closest('td,li')) { drawer(el, t.length > 24 ? t.slice(0, 24) + '…' : t, formFor(el, t), '关闭', function () {}); return; }
+    drawer(el, t, '<p class="lp-hint">' + esc(t) + '</p>' + formFor(el, t));
+  };
+  D.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('a,button,[role=tab],[role=button],[role=switch]');
+    if (!el || !el.isConnected || el.closest('.lp-layer') || el.disabled || /\bdis\b/.test(el.className) || live(el)) return;
+    if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
+    e.preventDefault(); act(el, e);
+  }, false);
+})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
     const M = [
@@ -1080,9 +1339,10 @@ class Component extends DCLogic {
       { label: '能力区', items: [L("转发规则", 'shield'), P("在线与风控", 'users', ["在线设备", "真人识别", "黑名单"]), P("日志与分析", 'chart', ["访问分析", "连接日志", "客户端日志"])] }
     ];
     const T = ['实例概览', '应用接入 (4)', '转发规则 (6)', '在线设备', '黑名单 (35)', '操作日志'];
-    const tab = this.state.tab;
+    const tab = this.state.tab || T[0];
     const tabs = T.map((n) => ({ n, on: n === tab, cls: n === tab ? 'on' : '', pick: () => this.setState({ tab: n }) }));
-    return { nav, tabs };
+    const lpT = {}; T.forEach((n, i) => { lpT['lpT' + i] = n === tab; });
+    return Object.assign({ nav, tabs }, lpT);
   }
 }
 </script>
