@@ -1566,6 +1566,32 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .h8-res b{display:flex;align-items:center;gap:8px}
 .ac-pn{display:inline-flex;align-items:center;gap:10px}
 /* /duo92 */
+
+/* tm95：任务管理器式状态图 */
+.tm{display:grid;grid-template-columns:240px minmax(0,1fr);border-top:1px solid #eef0f3}
+.tm-l{display:flex;flex-direction:column;gap:4px;padding:12px;border-right:1px solid #eef0f3}
+.tm-m{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid transparent;border-radius:6px;background:none;font:inherit;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}
+.tm-m:hover{background:#f6f8fa}
+.tm-m.on{background:#f2f6ff;border-color:#d6e4fd}
+.tm-sp{flex:0 0 72px;width:72px;height:44px;border:1px solid #e5e6eb;border-radius:3px;background:#fff}
+.tm-m > span{display:flex;flex-direction:column;min-width:0}
+.kc-card .tm .tm-m b{font-size:14px;font-weight:500;color:#0c0d0e}
+.kc-card .tm .tm-m em{font-style:normal;font-size:14px !important;color:#1d2129;font-family:Barlow,Inter,"PingFang SC",sans-serif;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tm-m small{font-size:12px;color:#86909c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-r{padding:16px 24px 20px;min-width:0}
+.tm-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px}
+.kc-card .tm .tm-h h3{margin:0;font-size:20px !important;font-weight:600 !important;color:#0c0d0e}
+.tm-h > span{font-size:13px;color:#42464e}
+.tm-y{display:flex;justify-content:space-between;font-size:12px;color:#86909c;margin-bottom:4px}
+.tm-g{position:relative;height:240px;border:1px solid #c9cdd4;background-color:#fff;background-image:linear-gradient(#eef0f3 1px,transparent 1px),linear-gradient(90deg,#eef0f3 1px,transparent 1px);background-size:100% 10%,5% 100%;background-position:0 -1px,-1px 0}
+.tm-g svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tm-pk{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff;border:2px solid var(--c);box-sizing:border-box}
+.tm-pk em{position:absolute;bottom:12px;left:50%;transform:translateX(var(--tx,-50%));padding:2px 8px;border-radius:4px;background:#1d2129;color:#fff;font-style:normal;font-size:12px;white-space:nowrap}
+.tm-ax{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#86909c}
+.tm-st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px;padding-top:16px;border-top:1px solid #f2f3f5}
+.tm-st > div > span{display:block;font-size:12px;color:#86909c}
+.kc-card .tm .tm-st b{display:block;margin-top:2px;font-size:20px !important;font-weight:600 !important;color:#0c0d0e;font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums}
+/* /tm95 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1689,9 +1715,19 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
         <sc-if value="{{tRep}}" hint-placeholder-val="{{true}}">
         <div class="sv-bar"><span class="kc-sub">运行数据每 1 分钟采集，防护数据来自机房清洗中心</span><div class="sv-rng"><sc-for list="{{rngs}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.cls}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></div><a class="kc-btn sm" href="#">导出</a></div>
-        <div class="sv-charts"><sc-for list="{{charts}}" as="c" hint-placeholder-count="4">
-          <div class="sv-ch"><div>{{c.n}}<b>{{c.v}}</b><em>{{c.s}}</em></div><div class="{{c.cc}}"><sc-for list="{{c.bars}}" as="b" hint-placeholder-count="24"><i style="{{b}}"></i></sc-for></div><div class="sv-ax"><sc-for list="{{ax}}" as="x" hint-placeholder-count="5"><span>{{x}}</span></sc-for></div></div>
-        </sc-for></div>
+        <div class="tm">
+          <div class="tm-l" role="tablist" aria-label="指标"><sc-for list="{{mets}}" as="m" hint-placeholder-count="4"><button type="button" role="tab" class="{{m.cls}}" aria-selected="{{m.on}}" onClick="{{m.go}}">
+            <svg class="tm-sp" viewBox="0 0 120 48" preserveAspectRatio="none" aria-hidden="true"><path d="{{m.da}}" fill="{{m.fa}}"></path><path d="{{m.dl}}" fill="none" stroke="{{m.col}}" stroke-width="1.2" vector-effect="non-scaling-stroke"></path></svg>
+            <span><b>{{m.n}}</b><em>{{m.v}}</em><small>{{m.s}}</small></span></button></sc-for></div>
+          <div class="tm-r">
+            <div class="tm-h"><h3>{{tmc.n}}</h3><span>{{tmc.spec}}</span></div>
+            <div class="tm-y"><span>{{tmc.unit}}</span><span>{{tmc.max}}</span></div>
+            <div class="tm-g"><svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-label="{{tmc.n}}趋势"><path d="{{tmc.da}}" fill="{{tmc.fa}}"></path><path d="{{tmc.dl}}" fill="none" stroke="{{tmc.col}}" stroke-width="1.6" vector-effect="non-scaling-stroke"></path></svg>
+              <i class="tm-pk" style="{{tmc.pk}}"><em>{{tmc.pkT}}</em></i></div>
+            <div class="tm-ax"><sc-for list="{{ax}}" as="x" hint-placeholder-count="5"><span>{{x}}</span></sc-for></div>
+            <div class="tm-st"><sc-for list="{{tmc.stats}}" as="s" hint-placeholder-count="4"><div><span>{{s.k}}</span><b>{{s.v}}</b></div></sc-for></div>
+          </div>
+        </div>
         </sc-if>
         <sc-if value="{{tInfo}}" hint-placeholder-val="{{false}}">
         <div class="kc-cb kc-kvg"><div><span>服务器 ID</span>idc-wz-0193</div><div><span>机房</span>温州电信 A 机房 · 机柜 A12</div><div><span>公网 IP</span>115.231.**.12</div><div><span>线路</span>电信 · 100M 独享</div>
@@ -2040,6 +2076,30 @@ class Component extends DCLogic {
     const N = rng === '24 小时' ? 24 : rng === '7 天' ? 28 : 30;
     const ax = rng === '24 小时' ? ['00:00', '06:00', '12:00', '18:00', '现在'] : rng === '7 天' ? ['10-21', '10-23', '10-25', '10-27'] : ['09-28', '10-08', '10-18', '10-27'];
     const wave = (base, amp, seed, spike) => Array.from({ length: N }, (_, i) => { let v = base + amp * Math.sin((i + seed) / 3.1) + amp * 0.5 * Math.sin((i * 7 + seed) / 2.3); if (spike && spike.indexOf(i) >= 0) v = 96; return 'height:' + Math.max(2, Math.min(100, v)).toFixed(0) + '%'; });
+
+    // tm95：任务管理器式状态图
+    const __rngI = rng === '24 小时' ? 0 : rng === '7 天' ? 1 : 2;
+    const __rnd = (s) => () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+    const __ser = (base, amp, seed, noise, spikes) => { const r = __rnd(seed * 97 + 13 + __rngI * 31); return Array.from({ length: 120 }, (_, i) => { let v = base + amp * Math.sin((i + seed * 5 + __rngI * 7) / 9) + amp * 0.5 * Math.sin((i * 3 + seed) / 5) + (r() - 0.5) * noise;
+      (spikes || []).forEach(([c, h, w]) => { const d = Math.abs(i - c); if (d < w) v = Math.max(v, h * (1 - d / w) + (r() - 0.5) * 4); }); return Math.max(0.8, Math.min(98, v)); }); };
+    const __path = (vals, W, H) => { const n = vals.length; const pts = vals.map((v, i) => (i / (n - 1) * W).toFixed(1) + ' ' + (H - v / 100 * H).toFixed(1)); const dl = 'M' + pts.join('L'); return { dl, da: dl + 'L' + W + ' ' + H + 'L0 ' + H + 'Z' }; };
+    const __atk = rng === '24 小时' ? '3 次' : rng === '7 天' ? '11 次' : '26 次';
+    const __M = [
+      { k: 'cpu', n: 'CPU', v: '23%', s: 'E5-2680 v4 × 2', col: '#1664ff', fa: 'rgba(22,100,255,.14)', unit: '% 利用率', max: '100%', spec: 'Intel Xeon E5-2680 v4 × 2 · 28 核 56 线程',
+        vals: __ser(24, 7, 1, 10, [[34, 61, 6], [88, 44, 5]]), pkT: '峰值 61%', stats: [['当前', '23%'], ['平均', '26%'], ['峰值', '61%'], ['进程 / 线程', '186 / 2,341']] },
+      { k: 'mem', n: '内存', v: '30.7/64 GB (48%)', s: 'DDR4', col: '#722ed1', fa: 'rgba(114,46,209,.12)', unit: '内存使用量', max: '64 GB', spec: '64 GB DDR4 · 2400 MHz',
+        vals: __ser(48, 1.6, 4, 1.4, [[60, 57, 10]]), pkT: '峰值 57%', stats: [['已使用', '30.7 GB'], ['可用', '33.3 GB'], ['峰值', '57%'], ['已缓存', '12.4 GB']] },
+      { k: 'net', n: '出带宽', v: '41 Mbps', s: '电信 100M 独享', col: '#ff7d00', fa: 'rgba(255,125,0,.13)', unit: '吞吐量', max: '100 Mbps', spec: '电信 · 100M 独享 · 115.231.**.12',
+        vals: __ser(38, 14, 2, 16, [[100, 88, 7]]), pkT: '峰值 88 Mbps', stats: [['当前出', '41 Mbps'], ['当前入', '12 Mbps'], ['峰值', '88 Mbps'], ['上限', '100 Mbps']] },
+      { k: 'atk', n: '攻击拦截', v: __atk, s: '全部已清洗', col: '#f53f3f', fa: 'rgba(245,63,63,.12)', unit: '攻击流量', max: '2.5 Gbps', spec: '默认防护 20 Gbps · 机房清洗中心',
+        vals: __ser(1.2, .4, 0, .8, [[15, 84, 3], [60, 62, 3], [104, 74, 3]]), pkT: '最大 2.1 Gbps', stats: [['拦截', __atk], ['最大', '2.1 Gbps'], ['类型', 'UDP Flood / SYN Flood'], ['结果', '全部已清洗']] }
+    ];
+    const __mk = st.tmk || 'cpu';
+    const mets = __M.map((m) => { const p = __path(m.vals, 120, 48); return { n: m.n, v: m.v, s: m.s, col: m.col, fa: m.fa, dl: p.dl, da: p.da, on: m.k === __mk, cls: m.k === __mk ? 'tm-m on' : 'tm-m', go: () => this.setState({ tmk: m.k }) }; });
+    const __c = __M.find((m) => m.k === __mk) || __M[0]; const __p = __path(__c.vals, 600, 240);
+    const __pi = __c.vals.indexOf(Math.max.apply(null, __c.vals)); const __px = __pi / 119 * 100; const __py = 100 - __c.vals[__pi];
+    const tmc = { n: __c.n, spec: __c.spec, unit: __c.unit, max: __c.max, col: __c.col, fa: __c.fa, dl: __p.dl, da: __p.da,
+      pk: 'left:' + __px.toFixed(1) + '%;top:' + __py.toFixed(1) + '%;--c:' + __c.col + (__px > 80 ? ';--tx:-100%' : ''), pkT: __c.pkT, stats: __c.stats.map(([k, v]) => ({ k, v })) };
     const charts = [
       { n: 'CPU 使用率', v: '23%', s: '峰值 61% · 14:20', cc: 'sv-cols', bars: wave(28, 12, 1) },
       { n: '内存使用率', v: '48%', s: '64 GB · 峰值 57%', cc: 'sv-cols g', bars: wave(50, 5, 4) },
@@ -2062,7 +2122,7 @@ class Component extends DCLogic {
     const now = '2026-10-27 10:30';
     const start = (j, row) => this.setState({ dlg: '', job: j, logs: [row].concat(st.logs || []), doneMsg: '' });
 
-    return Object.assign({ nav }, { tabs, tRep: tab === '运行与防护报表', tInfo: tab === '基本信息', tLog: tab === '操作记录', rngs, ax, charts, logs,
+    return Object.assign({ nav }, { tabs, tRep: tab === '运行与防护报表', tInfo: tab === '基本信息', tLog: tab === '操作记录', rngs, ax, charts, mets, tmc, logs,
       goRep: () => this.setState({ tab: '运行与防护报表' }), goLog: () => this.setState({ tab: '操作记录' }),
       osName: os, runTxt: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中 · 37 天', osLine: '最近一次重启 2026-10-12 23:05',
       idle: !job, busy: !!job, busyTxt: job === 'rb' ? '正在重启…' : '正在重装 ' + pick + '…', pct: job === 'rb' ? 60 : 35, pgw: 'width:' + (job === 'rb' ? 60 : 35) + '%',
