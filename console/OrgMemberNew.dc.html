@@ -1548,6 +1548,16 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 .h8-res b{display:flex;align-items:center;gap:8px}
 .ac-pn{display:inline-flex;align-items:center;gap:10px}
 /* /duo92 */
+
+/* lu94：成员登录地址 */
+.h8-tip.lu{display:flex;align-items:center;gap:8px;height:36px;padding:0 16px;margin-bottom:12px;border-radius:4px;background:#f6f8fa;font-size:13px;color:#0c0d0e}
+.h8-tip.lu b{font-weight:500}
+.h8-tip.lu svg.rx{flex:0 0 16px;color:#1664ff}
+.lu-a{color:#0c0d0e;user-select:all}
+.lu-cp{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-left:-2px;padding:0;border:0;border-radius:4px;background:none;color:#4e5969;cursor:pointer;transition:background .15s,color .15s}
+.lu-cp:hover{background:#e8f0ff;color:#1664ff}
+.lu-cp .i-ok{display:none}.lu-cp.ok{color:#00b42a}.lu-cp.ok .i-cp{display:none}.lu-cp.ok .i-ok{display:block}
+/* /lu94 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1650,7 +1660,7 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
         <div class="kc-hdl"><div><h1 class="kc-h1">成员管理</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="OrgRoles.dc.html">角色权限</a></div>
       </div>
-      <div class="ac-url" style="margin-bottom:16px"><span>成员登录地址</span><code>https://uc.dexunyun.com/sub-login?ent=100014655316</code><a href="#">复制</a></div>
+      <div class="h8-tip lu" style="margin-bottom:16px"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b><span class="lu-a">https://uc.dexunyun.com/sub-login?ent=100014655316</span><button type="button" class="lu-cp" data-v="https://uc.dexunyun.com/sub-login?ent=100014655316" aria-label="复制成员登录地址" title="复制"><svg class="i-cp" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3Zm2 0h7a1 1 0 0 1 1 1v9h2V4H9v2ZM5 8v12h10V8H5Z"/></svg><svg class="i-ok" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m10 15.17 9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17Z"/></svg></button></div>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <div class="kc-bar lf-bar lf-s"><div class="lf-q"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input class="kc-in" style="width:360px" type="search" aria-label="姓名 / 登录名 / 手机号" placeholder="姓名 / 登录名 / 手机号"></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>角色</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="lf-r"><a class="kc-btn pri" href="#" onClick="{{openD}}">新增成员</a></div></div>
@@ -1873,6 +1883,7 @@ class Component extends DCLogic {
     el.classList.add('on'); if (el.getAttribute('aria-selected') !== null) el.setAttribute('aria-selected', 'true');
   };
   var act = function (el, e) {
+    if (el.classList.contains('lu-cp')) { try { var cp = navigator.clipboard.writeText(el.getAttribute('data-v')); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} el.classList.add('ok'); setTimeout(function () { el.classList.remove('ok'); }, 1600); toast(el, '已复制成员登录地址'); return; }
     var t = txt(el); var pg = el.closest('[data-pg]'); P = pg ? pg.getAttribute('data-pg') : page(); var NAV = nav();
     if (el.getAttribute('aria-current') === 'page' || el.classList.contains('on') && el.closest('.kc-pg')) return;
     // 分页
