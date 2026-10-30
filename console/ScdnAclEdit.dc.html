@@ -1959,6 +1959,68 @@ tr.lp-empty td{padding:40px 0;text-align:center;color:#86909c;font-size:13px}
 /* 页面载入时不做入场动画（时长置 0 而不是 animation:none，否则加上 mo-ready 时动画会重新播一遍）：画布先渲染一次再挂载，入场动画会播两遍，看起来像闪了一下；载入后的页签切换、展开照常有动画 */
 html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready) .kc-card > .kc-tw,html:not(.mo-ready) .kc-card > .kc-cb,html:not(.mo-ready) .kc-card > .kc-bar,html:not(.mo-ready) .kc-card > .ac-chips,html:not(.mo-ready) .kc-card > .nt-list,html:not(.mo-ready) .sv-charts,html:not(.mo-ready) .sv-bar,html:not(.mo-ready) .sv-prog{animation-duration:0s !important;animation-delay:0s !important}
 /* /vt107 */
+
+/* rows108：可重复表单行 */
+.rw-ft{display:flex;align-items:center;gap:4px}
+.rw-add{height:28px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1664ff;cursor:pointer}
+.rw-add:hover{color:#4080ff}
+.rw-add.rw-off{color:#a9aeb8;cursor:not-allowed}
+.kc-src.rw-new{animation:mo-rise-s .18s cubic-bezier(.2,.8,.2,1) both}
+.kc-src .kc-x{width:24px;height:24px;border:0;border-radius:4px;background:none;color:#86909c;cursor:pointer}
+.kc-src .kc-x:hover{background:#f2f3f5;color:#f53f3f}
+/* fl108：筛选两步选择 */
+.lf-pop .fl-hd{display:flex;align-items:center;gap:6px;color:#1d2129;font-weight:500}
+.lf-pop .fl-back{border:0;background:none;outline:none;width:20px;height:20px;padding:0;display:inline-grid;place-items:center;border-radius:4px;font-size:16px;line-height:1;color:#737a87}
+.lf-pop .fl-back:hover{background:#f2f3f5;color:#1664ff}
+.fl-inw{padding:4px 8px 8px}
+.fl-inw .kc-in{width:100%;height:32px}
+/* ix110：通用表单抽屉和业务抽屉同一套样式（宽 520、标题 56 高、标签在上、灰底输入框） */
+.lp-drw{width:520px !important}
+.lp-drw header{height:56px;box-sizing:border-box;padding:0 20px !important;border-bottom:1px solid #e5e6eb !important}
+.lp-drw .lp-bd{padding:20px !important;display:flex !important;flex-direction:column;gap:18px !important}
+.lp-drw .lp-f{display:flex !important;flex-direction:column;align-items:stretch !important;gap:6px !important;margin:0 !important;font-size:13px;color:#4e5969}
+.lp-drw .lp-f .kc-in{height:32px;border:1px solid transparent;border-radius:2px;background:#f2f3f5;padding:0 12px;font-size:13px;color:#0c0d0e}
+.lp-drw .lp-f .kc-in:focus{background:#fff;border-color:#1664ff;outline:none}
+.lp-drw .lp-f select.kc-in{background:#f2f3f5}
+/* /rows108 */
+
+/* pages109：游戏盾、云眼补齐页面 */
+.pg-pad{padding:20px 24px}
+.pg-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pg-sp{flex:1}
+.pg-q{width:240px}
+.pg-seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5}
+.pg-seg button{height:28px;padding:0 12px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer;white-space:nowrap}
+.pg-seg button.on{background:#fff;color:#1664ff;font-weight:500;box-shadow:0 1px 2px rgba(29,33,41,.08)}
+.kc-hd .pg-seg{align-self:center}
+.pg-t td,.pg-t th{text-align:left;white-space:nowrap}
+.pg-foot{display:flex;justify-content:flex-end;padding:12px 16px;font-size:13px;color:#737a87}
+.pg-th{display:flex;align-items:center;gap:16px;margin-top:14px;flex-wrap:wrap}
+.pg-lb{font-size:13px;color:#42464e}
+.pg-bars{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.pg-bars > div{display:grid;grid-template-columns:72px minmax(0,1fr) auto;align-items:center;gap:12px;font-size:13px;color:#42464e}
+.pg-bars i{display:block;height:8px;border-radius:4px;background:#f2f3f5;overflow:hidden}
+.pg-bars em{display:block;height:100%;border-radius:4px;background:#1664ff}
+.pg-bars b{font-weight:500;color:#1d2129;font-variant-numeric:tabular-nums}
+.pg-g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.pg-ch{display:flex;align-items:center;justify-content:space-between}
+.pg-chp{padding:16px 20px 12px}
+.pg-up{display:inline-flex;gap:2px}
+.pg-up i{width:4px;height:16px;border-radius:1px;background:#23c343}
+.pg-up i.e{background:#f53f3f}
+.pg-up i.w{background:#ff9a2e}
+.st-p[hidden]{display:none}
+.kc-grid2{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.kc-pc{padding:20px 24px}
+.kc-pc + .kc-pc{border-top:1px solid #f0f2f5}
+.kc-pch{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.kc-sw-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid #f0f2f5}
+.kc-sw-row:first-of-type{border-top:0}
+.kc-sw-row div{flex:1;min-width:0}
+.kc-log{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-top:1px solid #f0f2f5;font-size:13px}
+.kc-pch .kc-sw{margin-left:auto}
+.kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
+/* /pages109 */
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2230,6 +2292,9 @@ class Component extends DCLogic {
   renderVals() { if (typeof window !== 'undefined' && !window.__dx88) (function () {
   if (window.__dx88) return; window.__dx88 = 1;
   var D = document;
+  // seg109：静态页签按地址 ?tab= 打开对应页签
+  (function () { var go9 = function () { try { if (!/\.dc\.html$/.test(location.pathname)) return; var v = new URLSearchParams(location.search).get('tab'); if (!v) return; var b = D.querySelector('.st-tabs [data-st="' + v + '"]'); if (b) b.click(); } catch (x) {} };
+    var t9 = setInterval(function () { if (D.querySelector('.st-tabs')) { clearInterval(t9); go9(); } }, 50); setTimeout(function () { clearInterval(t9); }, 4000); })();
   // vt107：页面载入后才允许侧栏子菜单展开动画，切页时已展开的子菜单不再闪
   (function () { var R = D.documentElement, done = function () { R.classList.add('mo-ready'); };
     var wait = function () { if (D.querySelector('.kc-main > *')) { setTimeout(done, 700); return true; } };
@@ -2381,12 +2446,220 @@ class Component extends DCLogic {
     });
     l.appendChild(n);
   };
+  // ix110：按钮逐个对上正确交互，不再落到通用抽屉（77，2026-10-28「很多菜单和按钮都没有检查没有正确的交互」）
+  // 1) 表格旁的「添加 / 新建」和行内「编辑 / 修改」：同一张表单，字段来自表头，编辑时带上这一行的值
+  // 2) 轻量设置（提醒、存储、通知、订阅、地区、绑定域名…）：气泡弹层，不开抽屉
+  // 3) 立即执行、暂停、保存等：就地改状态 + 提示；跳转类：去对应页面；上传：系统选文件
+  var popCss = function () {
+    if (D.getElementById('dx-ix-css')) return; var st = D.createElement('style'); st.id = 'dx-ix-css';
+    st.textContent = '.lp-pm{position:absolute;inset:0;z-index:40}.lp-pp{position:absolute;width:300px;background:#fff;border:1px solid #e5e8ef;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.1);animation:lp-cp-in .14s ease-out both;text-align:left}' +
+      '.lp-pp h4{margin:0;padding:12px 16px 4px;font-size:14px;font-weight:500;color:#1d2129}.lp-pp .lp-pb{padding:4px 16px 8px;font-size:13px;color:#42464e;max-height:320px;overflow:auto}.lp-pp .lp-pf{display:flex;justify-content:flex-end;gap:8px;padding:8px 12px 12px}' +
+      '.lp-pp .kc-btn{height:28px;padding:0 12px;font-size:13px}.lp-pp label.ck{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer}.lp-pp label.ck input{width:14px;height:14px;margin:0;accent-color:#1664ff}' +
+      '.lp-pp .lp-swr{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid #f2f3f5}.lp-pp .lp-swr:first-child{border-top:0}.lp-pp .lp-swr div{flex:1}.lp-pp .lp-swr b{display:block;font-weight:400;color:#1d2129}.lp-pp .lp-swr small{color:#86909c;font-size:12px}' +
+      '.lp-pp .seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5;margin:6px 0}.lp-pp .seg button{height:26px;padding:0 10px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-pp .seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}' +
+      '.lp-pp .lb{display:block;margin:8px 0 2px;font-size:12px;color:#86909c}.lp-pp .kc-in{width:100%;height:32px;box-sizing:border-box}.lp-pp .row{display:flex;gap:8px;align-items:center}.lp-pp .li{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid #f2f3f5}.lp-pp .li:first-child{border-top:0}.lp-pp .li a{color:#1664ff;text-decoration:none;font-size:12px}' +
+      '.lp-f select.kc-in{height:32px;background:#fff}.lp-f .seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5}.lp-f .seg button{height:28px;padding:0 12px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-f .seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}';
+    D.head.appendChild(st);
+  };
+  var pop = function (el, title, body, ok, done) {
+    popCss(); var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-pm'; var m = D.createElement('div'); m.className = 'lp-pp'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', title);
+    m.style.top = (r.bottom - lr.top + 8) + 'px'; var left = r.left - lr.left; if (left + 300 > lr.width - 8) left = r.right - lr.left - 300; m.style.left = Math.max(8, left) + 'px';
+    m.innerHTML = '<h4>' + esc(title) + '</h4><div class="lp-pb">' + body + '</div>' + (ok === false ? '' : '<div class="lp-pf"><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn pri" data-ok>' + esc(ok || '确定') + '</button></div>');
+    m.addEventListener('click', function (e) { e.stopPropagation(); var t = e.target;
+      if (t.hasAttribute('data-x')) { n.remove(); return; }
+      if (t.hasAttribute('data-ok')) { n.remove(); done ? done(m) : toast(el, '已保存'); return; }
+      if (t.classList.contains('kc-sw')) { t.classList.toggle('on'); return; }
+      if (t.parentElement && t.parentElement.classList.contains('seg')) { [].slice.call(t.parentElement.children).forEach(function (b) { b.classList.toggle('on', b === t); }); return; }
+      if (t.hasAttribute('data-go')) { n.remove(); go(el, t.getAttribute('data-go')); }
+    });
+    n.addEventListener('click', function () { n.remove(); }); n.appendChild(m); l.appendChild(n);
+    var f = m.querySelector('input'); if (f && f.type !== 'checkbox') f.focus(); return m;
+  };
+  var segH = function (xs, on) { return '<div class="seg">' + xs.map(function (x, i) { return '<button type="button" class="' + (i === (on || 0) ? 'on' : '') + '">' + esc(x) + '</button>'; }).join('') + '</div>'; };
+  var ckH = function (xs, on) { return xs.map(function (x, i) { return '<label class="ck"><input type="checkbox"' + (on === true || (on && on.indexOf(i) >= 0) ? ' checked' : '') + '>' + esc(x) + '</label>'; }).join(''); };
+  var swH = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b>' + (r[1] ? '<small>' + esc(r[1]) + '</small>' : '') + '</div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="' + esc(r[0]) + '"></button></div>'; }).join(''); };
+  var file = function (el, done) { var i = D.createElement('input'); i.type = 'file'; i.style.display = 'none'; i.addEventListener('change', function () { if (i.files && i.files[0]) done(i.files[0]); i.remove(); }); D.body.appendChild(i); i.click(); };
+  var DOCS = 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html';
+  var prodOf = function () { var p = P || ''; return /^(Scdn|Main)/.test(p) ? 'scdn' : /^Ddos/.test(p) ? 'ddos' : /^Game/.test(p) ? 'game' : /^Eye/.test(p) ? 'eye' : /^Idc/.test(p) ? 'idc' : ''; };
+  // 表格表单：字段 = 表头（去掉 状态 / 操作 / 时间类），枚举列做成下拉
+  var SKIP = /^(状态|操作|更新时间|添加时间|创建时间|生成时间|发现时间|上次执行|下次执行|命中.*|近 24 小时|可用率|平均响应|最近一次异常|)$/;
+  var tableOf = function (el) {
+    var box = el.closest('.kc-pc,.kc-card,section') || el.closest('main');
+    var tb = box && box.querySelector('table'); if (!tb && el.closest('main')) tb = el.closest('main').querySelector('table'); return tb;
+  };
+  var tableForm = function (el, tb, row, title) {
+    var ths = [].slice.call(tb.querySelectorAll('thead th')); var trs = [].slice.call(tb.querySelectorAll('tbody tr'));
+    var cell = function (tr, i) { var c = tr && tr.children[i]; if (!c) return ''; var f = c.firstChild; return ((f && f.nodeType === 3 ? f.textContent : c.innerText.split('\n')[0]) || '').trim(); };
+    var f = ths.map(function (th, i) { return { i: i, n: txt(th) }; }).filter(function (c) { return !SKIP.test(c.n) && !ths[c.i].classList.contains('lf-ck'); });
+    var body = f.map(function (c) {
+      var vals = trs.map(function (tr) { return cell(tr, c.i); }).filter(Boolean); var uniq = vals.filter(function (v, k) { return vals.indexOf(v) === k; });
+      var v = row ? cell(row, c.i) : '';
+      var en = uniq.length > 1 && uniq.length <= 4 && uniq.length < trs.length && uniq.every(function (u) { return u.length <= 8; });
+      if (en) return '<label class="lp-f"><span>' + esc(c.n) + '</span><select class="kc-in">' + uniq.map(function (u) { return '<option' + (u === v ? ' selected' : '') + '>' + esc(u) + '</option>'; }).join('') + '</select></label>';
+      return '<label class="lp-f"><span>' + esc(c.n) + '</span><input class="kc-in" value="' + esc(v === '—' ? '' : v) + '" placeholder="' + esc(row ? '' : (vals[0] ? '例如 ' + vals[0] : '请输入')) + '"></label>';
+    }).join('');
+    popCss(); drawer(el, title, body, row ? '保存' : '确定', function () { toast(el, row ? '已保存，约 30 秒生效' : '已添加，约 30 秒生效'); });
+  };
+  var addTitle = function (t) { return t.replace(/^[＋+]\s*/, '').replace(/^(添加|新建)([A-Za-z0-9])/, '$1 $2'); };
+  var editTitle = function (tb, el) {
+    var adds = [].slice.call((el.closest('.kc-pc,.kc-card,section') || D).querySelectorAll('button,a')).map(txt).filter(function (x) { return /^[＋+]?\s*(添加|新建)/.test(x); });
+    var a = adds[0] || ''; var obj = a.replace(/^[＋+]?\s*(添加|新建)\s*/, '');
+    if (!obj) { var h0 = tb.querySelector('thead th:not(.lf-ck)'); obj = h0 ? txt(h0).split(/\s*[\/:：]\s*/)[0] : ''; }
+    return '编辑' + (/^[A-Za-z0-9]/.test(obj) ? ' ' : '') + obj;
+  };
+  var POPS = {
+    '到期提醒设置': ['到期提醒', ckH(['提前 30 天', '提前 15 天', '提前 7 天', '到期当天'], [0, 2, 3]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
+    '日志存储设置': ['日志存储', '<span class="lb">保留时长</span>' + segH(['30 天', '90 天', '180 天'], 0) + '<p style="margin:6px 0 0;color:#86909c;font-size:12px">超过 30 天按存储量计费，价格见计费说明。</p>'],
+    '监测设置': ['监测设置', swH([['漏洞扫描', '每天 02:00', true], ['篡改监测', '每 10 分钟', true], ['可用性', '每分钟', true], ['内容安全', '每 6 小时', false]])],
+    '通知设置': ['通知设置', swH([['高危风险', '立即通知', true], ['中危风险', '每天汇总一次', true], ['低危风险', '每周汇总一次', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1, 2])],
+    '订阅日报': ['订阅日报', swH([['每天 09:00 发送前一天报表', '', true]]) + '<span class="lb">接收人</span>' + ckH(['张三 · 管理员', '李四 · 运维', '王五 · 运维'], [0, 1])],
+    '订阅设置': ['订阅月报', swH([['每月 1 日自动生成上月报告', '', true]]) + '<span class="lb">发送给</span>' + ckH(['张三 · 管理员', '李四 · 运维'], [0])],
+    '发现设置': ['发现设置', swH([['子域名', '证书透明日志、DNS 记录', true], ['开放端口', '常见 1,000 个端口', true], ['备案信息', '同主体下的网站', true]])],
+    '告警设置': ['可用性告警', swH([['连续 3 次失败告警', '', true], ['响应超过 3 秒告警', '', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
+    '开启超额提醒': ['超额提醒', '<span class="lb">流量包用到</span>' + segH(['70%', '80%', '90%'], 1) + '<span class="lb">提醒方式</span>' + ckH(['站内信', '短信'], [0, 1])],
+    '选择地区': ['封禁地区', ckH(['境外（港澳台除外）', '香港', '澳门', '台湾'], [0])],
+    '应用到…': ['应用到', ckH(['www.example.com', 'shop.example.com', 'api.example.com', '端口 7000', '端口 7001-7004'], [1])],
+    '分组管理': ['分组管理', '<div class="li"><span>电商业务 · 12</span><a href="#">重命名</a></div><div class="li"><span>官网 · 8</span><a href="#">重命名</a></div><div class="li"><span>默认分组 · 16</span><span style="color:#a9aeb8;font-size:12px">默认</span></div><span class="lb">新建分组</span><input class="kc-in" placeholder="分组名称">'],
+    '节点详情': ['拨测节点', '<div class="li"><span>杭州 · 电信</span><span>132 ms</span></div><div class="li"><span>广州 · 电信</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>成都 · 移动</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>北京 · 联通</span><span>186 ms</span></div><div class="li"><span>上海 · 电信</span><span>118 ms</span></div>', false],
+    '回收站': ['回收站', '<div class="li"><span>旧版客户端 v2.1.0 · 10-12 删除</span><a href="#" data-ok>恢复</a></div><p style="margin:6px 0 0;color:#86909c;font-size:12px">删除 30 天后自动清除。</p>', false],
+    '管理白名单': ['白名单设备', '<div class="li"><span>7A21-0C3E-55D1 · 测试机</span><a href="#">移除</a></div><div class="li"><span>B904-61FE-2A07 · 主播</span><a href="#">移除</a></div><span class="lb">添加设备</span><input class="kc-in" placeholder="机器特征码">'],
+    '批量绑定': ['批量绑定', '<span class="lb">证书</span><select class="kc-in"><option>*.example.com · 2027-03-01</option><option>shop.example.com · 2026-11-06</option></select><span class="lb">绑定到</span>' + ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0, 2])],
+    '绑定': ['绑定到域名', ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0])],
+    '查看规则': ['规则（412 条）', '<div class="li"><span>SQL 注入 · 98 条</span></div><div class="li"><span>XSS · 76 条</span></div><div class="li"><span>命令注入 · 41 条</span></div><div class="li"><span>文件包含 · 37 条</span></div><div class="li"><span>其他 · 160 条</span></div>', false]
+  };
+  var NAVX = {
+    '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
+    '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
+    '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
+    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
+    '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
+  };
+  var ix = function (el, t) {
+    var key = t.split(' ')[0];
+    if (/\b(rw-add|sp-add|sp-del|dn-add|lf-ib|lu-cp)\b/.test(el.className)) return false;
+    // 行首名字：等同这一行的「编辑」
+    var trn = el.closest('tr');
+    if (trn && el.tagName === 'A' && el.closest('td') === trn.querySelector('td:not(.lf-ck)')) { var ed = [].slice.call(trn.querySelectorAll('a,button')).filter(function (b) { return /^(编辑|修改)$/.test(txt(b)); })[0]; if (ed) { ed.click(); return true; } }
+    // 资产指纹小卡：就地展开清单
+    if (el.classList.contains('kc-tile') || (t === '全部' && P === 'EyeAssetDetail')) {
+      var FP = { '开放端口': ['80 · HTTP', '443 · HTTPS', '22 · SSH', '3306 · MySQL（建议关闭对外）', '8080 · HTTP'], '子域名': ['www', 'shop', 'm', 'api', 'img', 'test（未监测）'], '网站指纹': ['Nginx 1.22', 'Vue 2.6', 'jQuery 3.4', 'Element UI'], '关联主机': ['192.0.2.60', '192.0.2.61'], '已爬取页面': ['/', '/list', '/item/1024', '/cart', '/login'], '外部链接': ['cdn.jsdelivr.net', 'hm.baidu.com', 'res.wx.qq.com'] };
+      var nm9 = t.replace(/\s*\d+$/, ''); var xs9 = FP[nm9] || [].concat.apply([], Object.keys(FP).map(function (k) { return [k + ' · ' + FP[k].length]; }));
+      pop(el, t === '全部' ? '资产指纹' : nm9, xs9.map(function (x) { return '<div class="li"><span>' + esc(x) + '</span></div>'; }).join(''), false); return true;
+    }
+    // 文档：去官网文档中心，带上当前产品
+    if (/^(接入文档|完整文档|接入指引|产品文档|查看接入文档)$/.test(t)) { window.open(DOCS + (prodOf() ? '?product=' + prodOf() : ''), '_blank', 'noopener'); return true; }
+    // 跳转
+    var nv = NAVX[t] || NAVX[key] || NAVX[Object.keys(NAVX).filter(function (k) { return k.length >= 4 && t.indexOf(k) >= 0; })[0]];
+    if (el.closest('.sw-p,.ps-l,.ps-r') || P === 'Switcher') { var nm = t.split(' ')[0]; nv = NAVX[nm] || NAVX[t] || 'AcctPurchase.dc.html'; }
+    if (nv && !(t === '查看' && P !== 'DdosTemplates') && !(t === '告警设置' && P === 'EyeUptime') && !(t === '费用' && P !== 'Switcher') && !(t === '用户中心' && P !== 'Switcher')) { go(el, nv); return true; }
+    // 气泡弹层
+    var pp = POPS[t] || POPS[key];
+    if (pp && !(t === '绑定' && P === 'OrgInfo')) { pop(el, pp[0], pp[1], pp[2], function () { toast(el, t === '回收站' ? '已恢复' : '已保存'); }); return true; }
+    if (t === '绑定' && P === 'OrgInfo') { pop(el, '绑定钉钉', '<p style="margin:4px 0 8px">用钉钉扫码完成绑定，绑定后可在钉钉群接收告警。</p><div style="width:120px;height:120px;margin:0 auto 4px;background:repeating-linear-gradient(45deg,#1d2129 0 4px,#fff 4px 8px);opacity:.85;border-radius:4px"></div>', '我已扫码', function () { var li = el.closest('li'); var tg = li && li.querySelector('.kc-tag'); if (tg) { tg.className = 'kc-tag ok'; tg.textContent = '已绑定'; } el.textContent = '解绑'; toast(el, '钉钉已绑定'); }); return true; }
+    if (t === '批量解绑') { confirmBox(el, '解绑选中的证书？', '解绑后这些域名改用默认证书，HTTPS 访问可能报错。', '解绑', true, function () { toast(el, '已解绑'); }); return true; }
+    // 就地操作
+    var tr = el.closest('tr');
+    if (/^(立即执行|立即扫描)$/.test(t)) { toast(el, t === '立即扫描' ? '已开始扫描，约 15 分钟完成' : '已开始执行，约 2 分钟完成'); return true; }
+    if (/^(暂停|恢复)$/.test(t) && tr) { var tg2 = tr.querySelector('.kc-tag'); var p2 = t === '暂停'; if (tg2) { tg2.className = 'kc-tag ' + (p2 ? 'mut' : 'ok'); tg2.textContent = p2 ? '已暂停' : '运行中'; } el.textContent = p2 ? '恢复' : '暂停'; toast(el, p2 ? '任务已暂停' : '任务已恢复'); return true; }
+    if (/^(加入监测|查看并加入)$/.test(t)) { if (tr) { tr.style.opacity = '.45'; el.textContent = '已加入'; el.style.pointerEvents = 'none'; } toast(el, '已加入监测，首次扫描约 10 分钟完成'); return true; }
+    if (t === '批量加入监测') { toast(el, '先勾选要加入的资产', 'info'); return true; }
+    if (t === '加入白名单') { if (tr) { el.textContent = '已加入白名单'; el.style.pointerEvents = 'none'; } toast(el, '已加入白名单，这台设备不再参与识别'); return true; }
+    if (t === '保存') { toast(el, '已保存，约 1 分钟生效'); return true; }
+    if (t === '发送测试告警') { toast(el, '测试告警已发给 3 位成员'); return true; }
+    if (t === '复制回源 IP 段') { try { var cp = navigator.clipboard.writeText('203.0.113.0/24, 198.51.100.0/24'); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} toast(el, '已复制回源 IP 段，请在源站防火墙放行'); return true; }
+    if (/^(导出 PDF|下载 PDF)$/.test(t)) { toast(el, '正在生成 PDF，完成后自动下载', 'info'); return true; }
+    if (t === '申请访问权限') { el.textContent = '已申请'; el.disabled = true; toast(el, '申请已发给企业管理员 张三'); return true; }
+    if (t === '清空') { var sec = el.closest('section,div'); if (sec) { [].slice.call(sec.querySelectorAll('a,li')).forEach(function (a) { if (a !== el) a.remove(); }); } toast(el, '已清空最近搜索'); return true; }
+    if (t === '申请' && P === 'SupDocs') { pop(el, '申请专属服务群', '<span class="lb">联系人</span><input class="kc-in" value="张三"><span class="lb">手机号</span><input class="kc-in" value="177****1234"><p style="margin:8px 0 0;color:#86909c;font-size:12px">客户经理会在 1 个工作日内加你微信并拉群。</p>', '提交申请', function () { toast(el, '已提交，客户经理会在 1 个工作日内联系你'); }); return true; }
+    if (t === '拨打') { location.href = 'tel:0577-26676666'; return true; }
+    if (t === '开始对话') { pop(el, '在线客服', '<p style="margin:4px 0 8px">工作日 9:00–21:00，平均 1 分钟内接入。</p><span class="lb">你想咨询</span>' + segH(['使用问题', '购买咨询', '账单发票']) + '<span class="lb">问题描述</span><input class="kc-in" placeholder="一句话说明问题">', '开始对话', function () { toast(el, '已为你接入在线客服'); }); return true; }
+    if (t === '1' && el.closest('.lf-pgr,.kc-pg,.lf-foot')) return true;
+    // 上传
+    if (/^(上传客户端|上传附件|批量导入)$/.test(t) || /最多 5 个|下载模板/.test(t)) {
+      if (/下载模板/.test(t) && el.tagName === 'A') { toast(el, '模板已下载'); return true; }
+      file(el, function (f) { toast(el, (t === '批量导入' ? '已读取 ' : '已上传 ') + f.name); }); return true;
+    }
+    // 表格表单：添加 / 新建 与 编辑 / 修改 用同一张表
+    var liveAdd = [].slice.call(((el.closest('.kc-main') || D).querySelectorAll('.kc-hd button, .kc-bar button, .kc-hd a, .kc-bar a'))).some(function (b) { return /^[+＋]?\s*(添加|新建)/.test(txt(b)) && live(b); });
+    if (/^(编辑|修改)$/.test(t) && tr && !liveAdd) { var tb3 = tr.closest('table'); if (tb3) { tableForm(el, tb3, tr, editTitle(tb3, el)); return true; } }
+    if (/^[＋+]?\s*(添加|新建)/.test(t) && !el.closest('.lp-layer')) { var tb4 = tableOf(el); if (tb4) { tableForm(el, tb4, null, addTitle(t)); return true; } }
+    return false;
+  };
   var act = function (el, e) {
     if (el.classList.contains('lu-cp')) { try { var cp = navigator.clipboard.writeText(el.getAttribute('data-v')); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} el.classList.add('ok'); setTimeout(function () { el.classList.remove('ok'); }, 1600); toast(el, '已复制成员登录地址'); return; }
     var t = txt(el); var pg = el.closest('[data-pg]'); P = pg ? pg.getAttribute('data-pg') : page(); var NAV = nav();
     if (el.getAttribute('aria-current') === 'page' || el.classList.contains('on') && el.closest('.kc-pg')) return;
     // 切换账号：同一登录身份下的企业 / 角色列表，选中即切换（77，2026-10-28）
     if (t === '切换账号') { acctSwitch(el); return; }
+    if (ix(el, t)) return;
+    // seg109：分段按钮、静态页签（非 React）= 组内切换选中，不弹抽屉
+    var grp = el.closest('.pg-seg,.dn-seg,.kc-sg,.st-tabs,[role=group]');
+    if (grp && el.parentElement === grp && !live(el)) {
+      [].slice.call(grp.children).forEach(function (b) { var on = b === el; b.classList.toggle('on', on); if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', on ? 'true' : 'false'); if (b.getAttribute('role') === 'tab') b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      if (grp.classList.contains('st-tabs')) { var k9 = el.getAttribute('data-st'); [].slice.call(grp.parentElement.querySelectorAll(':scope > .st-p')).forEach(function (p) { p.hidden = p.getAttribute('data-st') !== k9; });
+        var kids9 = [].slice.call(D.querySelectorAll('.kc-side .kc-ki')), lab9 = txt(el).replace(/\s*\d[\d,]*$/, ''); if (kids9.some(function (x) { return txt(x) === lab9; })) kids9.forEach(function (x) { x.classList.toggle('on', txt(x) === lab9); });
+        try { if (/\.dc\.html$/.test(location.pathname)) { var u9 = new URL(location.href); if (k9 === grp.children[0].getAttribute('data-st')) u9.searchParams.delete(grp.getAttribute('data-key') || 'tab'); else u9.searchParams.set(grp.getAttribute('data-key') || 'tab', k9); history.replaceState(null, '', u9); } } catch (x) {} }
+      return;
+    }
+    // rows108：可重复的表单行（源服务器等）「+ 添加」在下面加一行，× 删掉这一行，不弹抽屉（77，2026-10-28）
+    var fr = el.closest('.kc-fr');
+    var rowsOf = function (f) { return [].slice.call(f.querySelectorAll('.kc-src')).filter(function (r) { return !r.classList.contains('kc-hint') && r.style.display !== 'none'; }); };
+    var cnt = function (f) { var a = f.querySelector('.rw-add'), c = f.querySelector('.rw-cnt'), n = rowsOf(f).length, mx = +(a && a.getAttribute('data-max') || 5); if (c) c.textContent = '（已添加 ' + n + ' / ' + mx + ' 台）'; if (a) a.classList.toggle('rw-off', n >= mx); };
+    if (fr && el.classList.contains('rw-add')) {
+      var rs = rowsOf(fr), mx = +(el.getAttribute('data-max') || 5);
+      if (rs.length >= mx) { toast(el, '最多添加 ' + mx + ' 台源服务器', 'warn'); return; }
+      var nr = rs[rs.length - 1].cloneNode(true), ins = nr.querySelectorAll('input');
+      ins[0].value = ''; ins[0].placeholder = '例如 192.0.2.62 : 7000'; ins[0].setAttribute('aria-label', '源服务器 ' + (rs.length + 1));
+      if (ins[1]) ins[1].value = '50'; if (ins[2]) ins[2].value = String(rs.length + 1);
+      nr.classList.add('rw-new'); var lr = rs[rs.length - 1]; lr.parentNode.insertBefore(nr, lr.nextSibling); cnt(fr); ins[0].focus(); return;
+    }
+    // 表格 / 条件列表下面的「+ 添加…」（sp-add）同样在下面加一行；「删除」（sp-del）删掉这一行
+    var vis = function (r) { return r.style.display !== 'none'; };
+    var spRows = function (host) {
+      var box = host.previousElementSibling; if (!box) return [];
+      var tb = box.matches('table') ? box : box.querySelector('table');
+      if (tb) return [].slice.call(tb.querySelectorAll('tbody > tr')).filter(vis);
+      return [].slice.call(box.querySelectorAll('.sp-del')).map(function (b) { return b.parentElement; }).filter(vis);
+    };
+    if (el.classList.contains('sp-add')) {
+      var host = el.closest('.sp-rf') || el.closest('p') || el.parentElement, rs2 = spRows(host);
+      var m2 = (host.textContent.match(/最多\s*(\d+)/) || [])[1], max2 = m2 ? +m2 : 20;
+      if (!rs2.length) return;
+      if (rs2.length >= max2) { toast(el, '最多 ' + max2 + ' 条', 'warn'); return; }
+      var last = rs2[rs2.length - 1], nr2 = last.cloneNode(true);
+      [].slice.call(nr2.querySelectorAll('input[type=text],input:not([type])')).forEach(function (i, k) { if (!i.closest('.sp-num')) { i.placeholder = i.value || i.placeholder; i.value = ''; } });
+      [].slice.call(nr2.querySelectorAll('.kc-sw.on')).forEach(function (w) { w.classList.remove('on'); w.setAttribute('aria-checked', 'false'); });
+      nr2.classList.add('rw-new'); last.parentNode.insertBefore(nr2, last.nextSibling);
+      var f2 = nr2.querySelector('input'); if (f2) f2.focus(); return;
+    }
+    if (el.classList.contains('sp-del')) {
+      var r2 = el.closest('tr') || el.parentElement, h2 = r2.closest('table') ? (r2.closest('table').closest('div') || r2.closest('table')).nextElementSibling : r2.parentElement.nextElementSibling;
+      var all = r2.closest('table') ? [].slice.call(r2.closest('tbody').children).filter(vis) : [].slice.call(r2.parentElement.querySelectorAll('.sp-del')).map(function (b) { return b.parentElement; }).filter(vis);
+      if (all.length <= 1) { toast(el, '至少保留 1 条', 'warn'); return; }
+      if (r2.classList.contains('rw-new')) r2.remove(); else r2.style.display = 'none';
+      return;
+    }
+    // 告警设置：添加成员 = 从企业成员里选（轻量菜单），添加 Webhook = 下面加一行填地址
+    if (el.classList.contains('dn-add') && el.closest('.dn-rcp')) {
+      var list = el.closest('.dn-rcp');
+      menu(el, [['赵六 · 运维', function () { addR('赵', '赵六', '运维 · 135****2468'); }], ['钱七 · 财务', function () { addR('钱', '钱七', '财务 · 150****1357'); }]]);
+      var addR = function (a, n, d) { var x = D.createElement('div'); x.className = 'rw-new'; x.innerHTML = '<span class="dn-av">' + a + '</span><div><b>' + n + '</b><small>' + d + '</small></div><span class="dn-ch"><i>站内信</i></span>'; list.insertBefore(x, el); toast(el, '已添加 ' + n + '，默认只发站内信'); };
+      return;
+    }
+    if (el.classList.contains('dn-add') && t.indexOf('Webhook') >= 0) {
+      var w = D.createElement('div'); w.className = 'kc-sw-row rw-new';
+      w.innerHTML = '<div style="flex:1"><input class="kc-in" style="width:100%" type="text" aria-label="Webhook 地址" placeholder="粘贴企业微信、钉钉或飞书群机器人的 Webhook 地址"></div><button class="kc-sw on" type="button" role="switch" aria-checked="true" aria-label="Webhook 开关"></button>';
+      el.parentNode.insertBefore(w, el); w.querySelector('input').focus(); return;
+    }
+    if (fr && el.classList.contains('kc-x') && el.closest('.kc-src')) {
+      var r = el.closest('.kc-src');
+      if (rowsOf(fr).length <= 1) { toast(el, '至少保留 1 台源服务器', 'warn'); return; }
+      if (r.classList.contains('rw-new')) r.remove(); else r.style.display = 'none';
+      cnt(fr); return;
+    }
     // 分页
     if (el.closest('.kc-pg') || /^(上一页|下一页|‹|›)$/.test(t)) { toast(el, /上一|‹/.test(t) ? '已经是第一页' : '已经是最后一页', 'info'); return; }
     // 开关
@@ -2461,6 +2734,34 @@ class Component extends DCLogic {
     }
     if (/^(分组管理)$/.test(t)) { drawer(el, '分组管理', ['商城', '官网', '移动站', '未分组'].map(function (g) { return '<label class="lp-f"><span>分组</span><input class="kc-in" value="' + g + '"></label>'; }).join('') + '<p class="lp-hint"><a href="#" onclick="return false">+ 新建分组</a></p>'); return; }
     if (/^(绑定|批量绑定|批量解绑|应用到…)$/.test(t)) { drawer(el, t === '应用到…' ? '应用到域名' : t, '<p class="lp-hint">选择要' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '的域名</p>' + ['shop.example.com', 'pay.example.com', 'www.example.com', 'm.example.com', 'api.example.com'].map(function (d, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 2 ? 'checked' : '') + '> ' + d + '</label>'; }).join(''), '确定', function () { toast(el, '已' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '，约 30 秒生效'); }); return; }
+    // edit108：列表行的「编辑」复用本页的新建表单（同一个抽屉，标题改成「编辑…」，带上这一行的值），不再弹通用抽屉（77，2026-10-28）
+    if (/^(编辑|修改)$/.test(t) && el.closest('tr')) {
+      var mainEl = el.closest('.kc-main') || root(el);
+      var mk = [].slice.call(mainEl.querySelectorAll('.kc-hd button, .kc-hd a, .kc-bar button, .kc-bar a')).filter(function (b) { return /^[+＋]?\s*(添加|新建)/.test(txt(b)) && live(b); })[0];
+      if (mk) {
+        var tr = el.closest('tr'), cells = [].slice.call(tr.children).map(function (c) { return c.innerText.trim(); });
+        mk.click();
+        setTimeout(function () {
+          var dw = root(el).querySelector('.kc-dw'); if (!dw) return;
+          var h = dw.querySelector('.kc-dwh'); if (h && h.firstChild && h.firstChild.nodeType === 3) h.firstChild.textContent = h.firstChild.textContent.replace(/^(添加|新建)/, '编辑');
+          dw.setAttribute('aria-label', (dw.getAttribute('aria-label') || '').replace(/^(添加|新建)/, '编辑'));
+          var ok = dw.querySelector('.kc-dwf .pri'); if (ok) ok.textContent = '保存';
+          var vp = (cells[0] || '').split(/\s*:\s*/), ipIn = dw.querySelector('input[aria-label="虚拟 IP"]'), ptIn = dw.querySelector('input[aria-label="客户端端口"]');
+          if (ipIn && vp.length > 1) { ipIn.value = vp[0]; if (ptIn) ptIn.value = vp[1]; }
+          var src = dw.querySelectorAll('.kc-src:not(.kc-hint)');
+          if (src.length && cells[1]) {
+            var lines = cells[1].split('\n'), a1 = lines[0].trim(), m = (lines[1] || '').match(/(\d+\.\d+\.\d+\.\d+)/);
+            src[0].querySelector('input').value = a1;
+            if (src[1]) { if (m) src[1].querySelector('input').value = m[1] + ' : ' + (a1.split(':')[1] || '').trim(); else src[1].style.display = 'none'; }
+            var f3 = src[0].closest('.kc-fr'); var c3 = f3 && f3.querySelector('.rw-cnt'); if (c3) c3.textContent = '（已添加 ' + (m ? 2 : 1) + ' / 5 台）';
+          }
+          var lbB = dw.querySelector('.kc-dd[data-dd] b'); if (lbB && /模式$/.test(cells[2] || '')) lbB.textContent = cells[2];
+          var rsw = tr.querySelector('[role=switch]'), dsw = dw.querySelector('.kc-sw'); if (rsw && dsw) { var on3 = rsw.getAttribute('aria-checked') === 'true'; dsw.classList.toggle('on', on3); dsw.setAttribute('aria-checked', on3 ? 'true' : 'false'); }
+          var ct = cells[3]; if (ct) [].slice.call(dw.querySelectorAll('.kc-sg button')).forEach(function (b) { if (b.textContent === 'PC 客户端' || b.textContent === '移动端') b.classList.toggle('on', b.textContent === ct); });
+        }, 60);
+        return;
+      }
+    }
     if (/^(编辑|修改|新建模板|添加域名|编辑配置|＋ 添加入口|\+ 添加源站|添加源站|查看规则|301 重定向)$/.test(t) || /^(新建|添加|新增)/.test(t)) {
       var title2 = (t === '修改' || t === '编辑' || t === '编辑配置') && nm2 ? '修改「' + nm2 + '」' : t.replace(/^[＋+]\s*/, '');
       drawer(el, title2, /^(新建|添加|新增|＋|\+)/.test(t) ? '<label class="lp-f"><span>名称</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>内容</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>' : formFor(el, t), /^(新建|添加|新增|＋|\+)/.test(t) ? '创建' : '保存'); return;
@@ -2469,6 +2770,34 @@ class Component extends DCLogic {
     if (el.tagName === 'A' || el.closest('td,li')) { drawer(el, t.length > 24 ? t.slice(0, 24) + '…' : t, formFor(el, t), '关闭', function () {}); return; }
     drawer(el, t, '<p class="lp-hint">' + esc(t) + '</p>' + formFor(el, t));
   };
+  // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
+  var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
+    '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['大促模式', '默认防护', '官网默认'] };
+  var flAdd = function (tok, k, v) {
+    [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
+    var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';
+    tok.insertBefore(c, tok.querySelector('.lf-ph'));
+  };
+  var flReset = function (pop) { if (pop.__orig != null) { pop.innerHTML = pop.__orig; pop.__orig = null; } };
+  D.addEventListener('click', function (e) {
+    var x = e.target.closest && e.target.closest('.lf-chip i');
+    if (x) { e.preventDefault(); e.stopPropagation(); var c = x.closest('.lf-chip'); if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; return; }
+    var b = e.target.closest && e.target.closest('.lf-pop button'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var pop = b.closest('.lf-pop'), tok = b.closest('.lf-tok');
+    if (b.classList.contains('fl-back')) { flReset(pop); return; }
+    if (b.hasAttribute('data-fv')) { flAdd(tok, pop.getAttribute('data-fk'), b.getAttribute('data-fv')); flReset(pop); if (D.activeElement) D.activeElement.blur(); return; }
+    var k = txt(b), vs = FV[k]; if (pop.__orig == null) pop.__orig = pop.innerHTML; pop.setAttribute('data-fk', k);
+    var kb = pop.querySelector('.lf-kb'); var foot = kb ? kb.outerHTML : '';
+    pop.innerHTML = '<div class="lf-pt fl-hd"><button type="button" class="fl-back" aria-label="返回">‹</button>' + esc(k) + '</div>' +
+      (vs ? vs.map(function (v) { return '<button type="button" data-fv="' + esc(v) + '">' + esc(v) + '</button>'; }).join('')
+          : '<div class="fl-inw"><input class="kc-in fl-in" type="text" aria-label="' + esc(k) + '" placeholder="输入' + esc(k) + '，回车添加"></div>') + foot;
+    tok.focus();
+    var inp = pop.querySelector('.fl-in'); if (inp) { inp.focus(); inp.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' && inp.value.trim()) { flAdd(tok, k, inp.value.trim()); flReset(pop); inp.blur(); } if (ev.key === 'Escape') { flReset(pop); inp.blur(); } }); }
+    else { var f = pop.querySelector('[data-fv]'); if (f) f.focus(); }
+  }, true);
+  D.addEventListener('focusout', function (e) { var tok = e.target.closest && e.target.closest('.lf-tok'); if (!tok) return; setTimeout(function () { if (!tok.contains(D.activeElement)) { var pop = tok.querySelector('.lf-pop'); if (pop) flReset(pop); } }, 0); });
   D.addEventListener('click', function (e) {
     var el = e.target.closest && e.target.closest('a,button,[role=tab],[role=button],[role=switch]');
     if (!el || !el.isConnected || el.closest('.lp-layer') || el.disabled || /\bdis\b/.test(el.className) || live(el)) return;
