@@ -8,7 +8,7 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&display=swap" data-r91>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&amp;display=swap" data-r91="">
 <style>
 /* hdr62：顶栏下拉 */
 .ac-tl{gap:4px !important}
@@ -1787,6 +1787,218 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-pch .kc-sw{margin-left:auto}
 .kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
 /* /pages109 */
+
+.sc-sec{display:flex;flex-direction:column;gap:16px;margin-bottom:16px}
+.sc-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sc-hd h2{margin:0;font-size:16px;font-weight:600;color:#1d2129;display:flex;align-items:center;gap:8px}
+.sc-hd p{margin:4px 0 0;font-size:13px;color:#4e5969}
+.sc-demo{display:flex;align-items:center;gap:4px;padding:3px;background:#f2f3f5;border-radius:4px;font-size:12px;color:#4e5969}
+.sc-demo span{padding:0 6px}
+.sc-demo button{border:0;background:transparent;padding:4px 10px;border-radius:3px;font:inherit;color:#4e5969;cursor:pointer}
+.sc-demo button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.sc-st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid #eef0f3;border-radius:6px}
+.sc-st > div{padding:12px 16px;display:flex;flex-direction:column;gap:4px;border-left:1px solid #eef0f3;min-width:0}
+.sc-st > div:first-child{border-left:0}
+.sc-st small{font-size:12px;color:#6b7380}
+.sc-st b{font-size:15px;font-weight:600;color:#1d2129;display:flex;align-items:center;gap:6px}
+.sc-st b.r{color:#cb2634}.sc-st b.g{color:#00754e}
+.sc-dot{width:8px;height:8px;border-radius:50%;background:#00b42a;display:inline-block}
+.sc-dot.o{background:#ff7d00}.sc-dot.x{background:#c9cdd4}
+.sc-tb{width:100%;border-collapse:collapse;font-size:13px}
+.sc-tb th{text-align:left;font-weight:500;color:#6b7380;padding:8px 12px;background:#f7f8fa;font-size:12px}
+.sc-tb td{padding:12px;border-bottom:1px solid #f2f3f5;vertical-align:top;color:#1d2129}
+.sc-tb td small{display:block;color:#6b7380;font-size:12px;margin-top:2px}
+.sc-tb td.op{white-space:nowrap;text-align:right}
+.sc-tb td.op a{color:#1664ff;text-decoration:none;margin-left:12px}
+.sc-lv{display:inline-block;padding:0 6px;height:20px;line-height:20px;border-radius:2px;font-size:12px;color:#fff}
+.sc-lv.h{background:#722ed1}.sc-lv.m{background:#f7ba1e;color:#1d2129}.sc-lv.u{background:#f53f3f}
+.sc-more{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#6b7380}
+.sc-more a{color:#1664ff;text-decoration:none}
+.sc-ok{display:flex;align-items:center;gap:16px;padding:20px;border:1px solid #d6f0e2;background:#f3fbf7;border-radius:6px}
+.sc-ok i{width:40px;height:40px;border-radius:50%;background:#00b42a;flex-shrink:0;position:relative}
+.sc-ok i::after{content:"";position:absolute;left:14px;top:9px;width:9px;height:16px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+.sc-ok b{display:block;font-size:15px;color:#1d2129}
+.sc-ok p{margin:4px 0 0;font-size:13px;color:#4e5969}
+.sc-set{display:flex;flex-direction:column;border:1px solid #eef0f3;border-radius:6px}
+.sc-set > div{display:flex;align-items:center;gap:16px;padding:12px 16px;border-top:1px solid #f2f3f5}
+.sc-set > div:first-child{border-top:0}
+.sc-set > div > span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;font-size:14px;color:#1d2129}
+.sc-set > div > span small{font-size:12px;color:#6b7380}
+.sc-set h3{margin:0;padding:10px 16px;font-size:13px;font-weight:600;color:#4e5969;background:#f7f8fa;border-radius:6px 6px 0 0}
+.sc-sw{width:40px;height:22px;border-radius:11px;border:0;background:#c9cdd4;position:relative;cursor:pointer;flex-shrink:0;padding:0}
+.sc-sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s}
+.sc-sw.on{background:#1664ff}.sc-sw.on::after{left:21px}
+.sc-gone{display:flex;flex-direction:column;gap:16px;padding:20px;border:1px dashed #c9cdd4;border-radius:6px;background:#fafbfc}
+.sc-gone > div:first-child{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sc-gone > div:first-child > span{flex:1;min-width:260px}
+.sc-gone b{font-size:15px;color:#1d2129}
+.sc-gone p{margin:4px 0 0;font-size:13px;color:#4e5969}
+.sc-feat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sc-feat > div{padding:12px 14px;background:#fff;border:1px solid #eef0f3;border-radius:6px;font-size:13px;color:#4e5969;display:flex;flex-direction:column;gap:4px}
+.sc-feat > div b{font-size:14px;color:#1d2129;font-weight:600}
+.sc-ft{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:#6b7380;flex-wrap:wrap}
+@media (max-width:900px){.sc-st,.sc-feat{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-st > div:nth-child(3){border-left:0}}
+
+/* dt121: detail page = who / status / details */
+.dt-who{padding:16px 0 20px;display:flex;flex-direction:column;gap:12px}
+.dt-back{font-size:13px;color:#737a87;text-decoration:none;align-self:flex-start}
+.dt-back::before{content:"‹";margin-right:6px}
+.dt-back:hover{color:#1664ff}
+.dt-id{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.dt-nm{display:flex;align-items:center;gap:12px}
+.dt-nm h1{margin:0;font:600 22px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e}
+.dt-btns{display:flex;gap:8px;flex-wrap:wrap}
+.dt-meta{display:flex;flex-wrap:wrap;gap:8px 32px;margin:0;font-size:13px}
+.dt-meta div{display:flex;gap:8px}
+.dt-meta dt{color:#737a87}
+.dt-meta dd{margin:0;color:#0c0d0e}
+.dt-prog{display:flex;align-items:center;gap:12px;margin:0 24px 16px;padding:10px 16px;background:#f2f7ff;border:1px solid #cfe0ff;border-radius:4px;font-size:13px;color:#0c0d0e}
+.dt-prog .ac-bar{flex:1;height:6px;margin:0;max-width:320px}
+.dt-prog button{margin-left:auto;background:none;border:0;padding:0;font:inherit;color:#1664ff;cursor:pointer}
+.dt-st{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:0 24px 16px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.dt-st > div{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:16px 20px;border-left:1px solid #f2f3f5;min-width:0}
+.dt-st > div:first-child{border-left:0}
+.dt-st small{font-size:12px;color:#737a87}
+.dt-st b{font:600 18px/1.3 Inter,"PingFang SC",sans-serif;color:#0c0d0e}
+.dt-st b.r{color:#cb2634}.dt-st b.g{color:#00754e}.dt-st b.x{color:#737a87}
+.dt-st span{font-size:12px;color:#737a87}
+.dt-st span.o{color:#d25f00}
+.dt-st button{background:none;border:0;padding:0;font:inherit;font-size:12px;color:#1664ff;cursor:pointer}
+.dt-body{margin:0 24px 24px}
+.dt-pane{padding:20px 24px 24px}
+.dt-info h3{margin:0 0 12px;font-size:14px;font-weight:600;color:#0c0d0e}
+.dt-info h3:not(:first-child){margin-top:24px;padding-top:20px;border-top:1px solid #f2f3f5}
+.dt-info dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 24px;margin:0;font-size:13px}
+.dt-info dl div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.dt-info dt{color:#737a87}
+.dt-info dd{margin:0;color:#0c0d0e}
+.dt-body .sc-sec{margin:0}
+@media (max-width:900px){.dt-st{grid-template-columns:repeat(2,minmax(0,1fr))}.dt-st > div{border-left:0;border-top:1px solid #f2f3f5}.dt-info dl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* sec122: security tab = verdict → to-do → status/settings */
+.sq{display:flex;flex-direction:column;gap:16px}
+.sq-demo{display:flex;justify-content:flex-end;margin-bottom:-4px}
+.sq-vd{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:6px;border:1px solid}
+.sq-vd > i{width:36px;height:36px;border-radius:50%;flex-shrink:0;position:relative}
+.sq-vd > div{flex:1;min-width:0}
+.sq-vd b{display:block;font-size:16px;font-weight:600;color:#0c0d0e}
+.sq-vd p{margin:4px 0 0;font-size:13px;color:#42464e}
+.sq-vd.e{background:#fff5f3;border-color:#ffd8d2}.sq-vd.e > i{background:#cb2634}
+.sq-vd.e > i::after,.sq-vd.w > i::after{content:"!";position:absolute;inset:0;color:#fff;font:700 18px/36px Inter,sans-serif;text-align:center}
+.sq-vd.w{background:#fff8f0;border-color:#ffe4ba}.sq-vd.w > i{background:#ff7d00}
+.sq-vd.ok{background:#f3fbf7;border-color:#d6f0e2}.sq-vd.ok > i{background:#00b42a}
+.sq-vd.ok > i::after{content:"";position:absolute;left:13px;top:8px;width:8px;height:15px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+.sq-cols{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+.sq h3{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:14px;font-weight:600;color:#0c0d0e}
+.sq h3 em{font-style:normal;font-size:12px;font-weight:500;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:#cb2634;color:#fff;display:inline-flex;align-items:center;justify-content:center}
+.sq h3 em.n{background:none;color:#737a87;font-weight:400;padding:0}
+.sq-main{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sq-r{display:flex;gap:14px;padding:16px;border:1px solid #e5e6eb;border-radius:6px;background:#fff;transition:background .2s,border-color .2s}
+.sq-r .sc-lv{flex-shrink:0;margin-top:1px}
+.sq-rb{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.sq-rb > b{font-size:14px;font-weight:600;color:#0c0d0e}
+.sq-rb > p{margin:0;font-size:13px;color:#42464e}
+.sq-rb > small{font-size:12px;color:#737a87}
+.sq-ask{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;padding-top:12px;border-top:1px dashed #e5e6eb}
+.sq-ask > span{font-size:13px;font-weight:500;color:#0c0d0e;margin-right:4px}
+.sq-ask a{margin-left:auto;font-size:13px;color:#1664ff;text-decoration:none;white-space:nowrap}
+.sq-ask .kc-btn.danger{color:#cb2634;border-color:#ffc4c4}
+.sq-ask .kc-btn.txt{border-color:transparent;background:none;color:#737a87}
+.sq-r.ok{background:#f7f8fa;border-color:#eef0f3}
+.sq-r.ok .sc-lv{background:#c9cdd4;color:#fff}
+.sq-r.ok .sq-rb > b{color:#737a87;text-decoration:line-through}
+.sq-done{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:#00754e}
+.sq-done::before{content:"✓";font-weight:700}
+.sq-done button{background:none;border:0;padding:0;font:inherit;color:#737a87;cursor:pointer;margin-left:8px}
+.sq-res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid #eef0f3;border-radius:6px}
+.sq-res > div{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-left:1px solid #eef0f3}
+.sq-res > div:first-child{border-left:0}
+.sq-res small{font-size:12px;color:#737a87}
+.sq-res b{font:600 20px/1.2 Inter,sans-serif;color:#00754e}
+.sq-res b.m{color:#a84700}
+.sq-res a{font-size:12px;color:#1664ff;text-decoration:none}
+.sq-side{display:flex;flex-direction:column;padding:16px;background:#f7f8fa;border-radius:6px}
+.sq-side h3:not(:first-child){margin-top:20px}
+.sq-side dl{display:flex;flex-direction:column;gap:8px;margin:0;font-size:13px}
+.sq-side dl div{display:flex;justify-content:space-between;gap:12px}
+.sq-side dt{color:#737a87}
+.sq-side dd{margin:0;color:#0c0d0e;display:flex;align-items:center;gap:6px}
+.sq-set{display:flex;flex-direction:column;gap:14px}
+.sq-set > div{display:flex;align-items:flex-start;gap:12px}
+.sq-set > div > span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;font-size:13px;color:#0c0d0e}
+.sq-set > div > span small{font-size:12px;color:#737a87;line-height:1.5}
+.sq-ft{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:14px;border-top:1px solid #e5e6eb;font-size:13px}
+.sq-ft a{color:#1664ff;text-decoration:none}
+.sq-ft button{background:none;border:0;padding:0;font:inherit;font-size:12px;color:#737a87;cursor:pointer}
+.sq-ft button:hover{color:#cb2634}
+.dt-st b.o{color:#d25f00}
+@media (max-width:1000px){.sq-cols{grid-template-columns:minmax(0,1fr)}.sq-res{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* plg123 plugins */
+.sq h3.sq-h2{margin-top:12px}
+.sq-plg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sq-pg{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #e5e6eb;border-radius:6px;min-width:0}
+.sq-pg > div{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.sq-pg b{font-size:13px;font-weight:600;color:#0c0d0e}
+.sq-pg small{font-size:12px;color:#737a87;line-height:1.5}
+.sq-pi{width:28px;height:28px;border-radius:6px;flex-shrink:0;background:#e8f9f0;position:relative}
+.sq-pi::after{content:"";position:absolute;left:10px;top:6px;width:6px;height:12px;border:solid #00b42a;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.sq-pg.off{background:#fafbfc;border-style:dashed}
+.sq-pg.off b{color:#42464e}
+.sq-pg.off .sq-pi,.sq-pg.ent .sq-pi{background:#f2f3f5}
+.sq-pg.off .sq-pi::after,.sq-pg.ent .sq-pi::after{left:9px;top:12px;width:10px;height:8px;border:2px solid #86909c;border-radius:2px;transform:none}
+.sq-pg.off .sq-pi::before,.sq-pg.ent .sq-pi::before{content:"";position:absolute;left:11px;top:6px;width:6px;height:7px;border:2px solid #86909c;border-bottom:0;border-radius:4px 4px 0 0}
+.sq-ps{font-size:12px;color:#00754e;white-space:nowrap}
+.sq-pg a{font-size:12px;color:#1664ff;text-decoration:none;white-space:nowrap}
+
+/* std124: common components only; small layout helpers */
+.ss-top{display:flex;justify-content:flex-end;margin-bottom:12px}
+.ss-h{display:flex;align-items:center;gap:8px;margin:24px 0 12px;font-size:14px;font-weight:600;color:#0c0d0e}
+.ss-tw{margin:0}
+.ss-op{margin-right:16px;color:#1664ff;text-decoration:none;white-space:nowrap}
+.ss-more{margin-top:10px}
+.ss-more a{color:#1664ff;text-decoration:none;margin-left:4px}
+.ss-set .kc-sw-row:first-child{border-top:0}
+.kc-tile b.ss-r{color:#cb2634}.kc-tile b.ss-o{color:#d25f00}.kc-tile b.ss-g{color:#00754e}.kc-tile b.ss-x{color:#737a87}
+.kc-tile .kc-sub{margin-top:4px}
+.kc-tile .kc-sub.o{color:#d25f00}
+.ac-al > span b{display:block;font-weight:600;margin-bottom:2px}
+.kc-h1 .kc-tag{margin-left:8px;vertical-align:3px}
+
+/* sec125 */
+.ss-tiles .kc-tile > span{font-size:13px;color:#42464e}
+.kc-tile b span,.kc-tile .kc-sub span,.kc-kvg div span span,.kc-kvg div span+span{font:inherit;color:inherit;width:auto;display:inline}
+.kc-tile b span{font-size:inherit}
+.ss-tiles .kc-tile b{font:600 20px/28px Inter,"PingFang SC",sans-serif;margin-top:4px;color:#0c0d0e}
+.ss-tiles .kc-tile .kc-sub{font-size:12px;line-height:18px;margin-top:2px}
+.ss-steps{border:1px solid #e5e6eb;border-radius:4px}
+.ss-steps .kc-step > div > span:first-child{display:block;font-size:12px;color:#737a87;margin-bottom:2px}
+.ss-steps .kc-step b{font-size:14px;font-weight:600}
+.kc-step i span,.kc-step b span{color:inherit;font-size:inherit;line-height:inherit;font-weight:inherit}
+.ss-steps .kc-step i{font-weight:600}
+.cf-tip{margin:0 0 8px}
+.cf-h{font-size:13px;font-weight:600;color:#0c0d0e;margin:20px 0 4px}
+.kc-dw .kc-sw-row:first-of-type{border-top:0}
+.kc-dw .kc-sw-row > div{font-size:14px;color:#0c0d0e}
+.kc-dw .kc-sw-row .kc-sub{font-size:12px;color:#737a87;margin-top:2px;line-height:1.6}
+.kc-dmask,.kc-dw{z-index:40}
+.ss-rl{display:flex;flex-direction:column;border:1px solid #e5e6eb;border-radius:4px}
+.ss-ri + .ss-ri{border-top:1px solid #e5e6eb}
+.ss-rh{display:flex;align-items:center;gap:16px;width:100%;padding:14px 16px;background:none;border:0;font:inherit;font-size:13px;color:#0c0d0e;text-align:left;cursor:pointer}
+.ss-rh:hover{background:#f7f8fa}
+.ss-rh > b{flex:1;min-width:0;font-size:14px;font-weight:500}
+.ss-lv{width:56px;flex-shrink:0;white-space:nowrap}
+.ss-car{width:8px;height:8px;border:solid #86909c;border-width:0 1.5px 1.5px 0;transform:rotate(45deg);margin:0 4px 4px 4px;transition:transform .15s}
+.ss-ri.on .ss-car{transform:rotate(-135deg);margin-bottom:0}
+.ss-ri.done .ss-rh > b{color:#737a87}
+.ss-rb{padding:0 16px 16px 88px;display:flex;flex-direction:column;gap:12px}
+.ss-rg{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:24px}
+.ss-rg h4{margin:0 0 6px;font-size:12px;font-weight:500;color:#737a87}
+.ss-rg p,.ss-rg ol{margin:0;font-size:13px;line-height:1.7;color:#0c0d0e}
+.ss-rg ol{padding-left:18px}
+.ss-rb .ac-al{margin:0}
+.ss-ra{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ss-ra .ss-op{margin-left:8px}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1807,7 +2019,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器租用</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>web-prod-01</b></nav>
+    <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器租用</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>web-prod-01</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -1880,28 +2092,70 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     </aside>
     <main data-pg="IdcServerDetail" class="kc-main">
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1 sv-hd">web-prod-01<span class="{{stCls}}">{{stTxt}}</span></h1><p class="sv-desc">115.231.**.12 · 电信 100M 独享 · E5-2680×2 / 64G · 温州电信 A 机房</p></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="IdcServers.dc.html">返回服务器列表</a></div>
+        <div class="kc-hdl"><span class="kc-ico" aria-hidden="true"><svg class="rx" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.00488 2.99979H21.0049C21.5572 2.99979 22.0049 3.4475 22.0049 3.99979V19.9998C22.0049 20.5521 21.5572 20.9998 21.0049 20.9998H3.00488C2.4526 20.9998 2.00488 20.5521 2.00488 19.9998V3.99979C2.00488 3.4475 2.4526 2.99979 3.00488 2.99979ZM20.0049 10.9998H4.00488V18.9998H20.0049V10.9998ZM20.0049 8.99979V4.99979H4.00488V8.99979H20.0049ZM14.0049 14.9998H18.0049V16.9998H14.0049V14.9998Z"></path></svg></span><div>
+          <h1 class="kc-h1">web-prod-01 <span class="{{stCls}}">{{stTxt}}</span></h1>
+          <p class="kc-desc">idc-wz-0193 · 115.231.**.12 · 温州电信 A 机房 · E5-2680×2 / 64G · 电信 100M 独享</p></div>
+        </div>
+        <div class="kc-btns"><a class="kc-btn" href="IdcServers.dc.html">返回列表</a><button class="kc-btn" type="button">远程控制台</button><button class="kc-btn" type="button" onClick="{{openCfg}}">安全配置</button>
+          <sc-if value="{{idle}}" hint-placeholder-val="{{true}}"><button class="kc-btn" type="button" onClick="{{openRb}}">重启</button><button class="kc-btn" type="button" onClick="{{openRi}}">重装系统</button></sc-if>
+          <sc-if value="{{busy}}" hint-placeholder-val="{{false}}"><button class="kc-btn" type="button" disabled="">重启</button><button class="kc-btn" type="button" disabled="">重装系统</button></sc-if>
+          <a class="kc-btn pri" href="BillConfirm.dc.html">续费</a></div>
       </div>
       <sc-if value="{{doneMsg}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><span>{{doneMsg}}</span><button type="button" class="kc-btn sm" onClick="{{hideMsg}}">知道了</button></div></sc-if>
-      <div class="sv-tasks">
-        <section class="sv-task"><header><i><span class="kc-ic i-doc"></span></i>到期与续费<a href="BillOrders.dc.html">续费记录</a></header>
-          <div class="sv-big o">2026-11-20<small>剩 24 天到期</small></div>
-          <div class="sv-line">月付 ¥80/月 · 到期后保留 7 天，之后释放并清空数据</div>
-          <div class="sv-act"><a class="kc-btn pri" href="BillConfirm.dc.html">续费</a><a class="kc-btn" href="BillConfirm.dc.html">升级配置</a></div></section>
-        <section class="sv-task"><header><i><span class="kc-ic i-gear"></span></i>重启与重装<button type="button" onClick="{{goLog}}">操作记录</button></header>
-          <div class="sv-big">{{osName}}<small>{{runTxt}}</small></div>
-          <div class="sv-line">{{osLine}}</div>
-          <sc-if value="{{idle}}" hint-placeholder-val="{{true}}"><div class="sv-act"><button class="kc-btn" type="button" onClick="{{openRb}}">重启</button><button class="kc-btn" type="button" onClick="{{openRi}}">重装系统</button><button class="kc-btn" type="button">远程控制台</button></div></sc-if>
-          <sc-if value="{{busy}}" hint-placeholder-val="{{false}}"><div class="sv-prog"><div><span>{{busyTxt}}</span><span>{{pct}}%</span></div><span class="ac-bar"><i style="{{pgw}}"></i></span><div><span class="kc-sub">{{busyTip}}</span><button type="button" onClick="{{finish}}">演示：完成</button></div></div></sc-if>
-        </section>
-        <section class="sv-task"><header><i><span class="kc-ic i-chart"></span></i>运行与防护数据<button type="button" onClick="{{goRep}}">查看报表</button></header>
-          <div class="sv-mets"><div>CPU<b>23<small>%</small></b></div><div>出带宽<b>41<small>/100 Mbps</small></b></div><div>今日拦截<b class="r">3<small>次攻击</small></b></div></div>
-          <div class="sv-line">最近一次：10:12 UDP Flood 2.1 Gbps，已清洗</div>
-          <div class="sv-act"><button class="kc-btn" type="button" onClick="{{goRep}}">查看报表</button><a class="kc-btn" href="#">导出报表</a></div></section>
-      </div>
+      <sc-if value="{{busy}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>i</i><span>{{busyTxt}} {{pct}}%<em>{{busyTip}}</em></span><button type="button" class="kc-btn sm" onClick="{{finish}}">演示：完成</button></div></sc-if>
+
+      <section class="kc-card" style="margin-bottom:16px" aria-label="状态">
+        <div class="kc-cb kc-tiles ss-tiles" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+          <a class="kc-tile" href="#" onClick="{{goLog}}"><span>运行状态</span><b>{{runB}}</b><div class="kc-sub">{{runS}}</div></a>
+          <a class="kc-tile" href="BillConfirm.dc.html"><span>到期时间</span><b>24 天后</b><div class="kc-sub">2026-11-20 · 月付 ¥80</div></a>
+          <a class="kc-tile" href="#" onClick="{{goSec}}"><span>安全状态</span><b class="{{secStCls}}">{{secStTxt}}</b><div class="kc-sub">{{secStSub}}</div></a>
+          <a class="kc-tile" href="#" onClick="{{goRep}}"><span>今日防护</span><b>3 次攻击</b><div class="kc-sub">已全部拦截</div></a>
+          <a class="kc-tile" href="#" onClick="{{goRep}}"><span>资源使用</span><b>CPU 23%</b><div class="kc-sub">出带宽 41 / 100 Mbps</div></a>
+        </div>
+      </section>
+
       <section class="kc-card">
-        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
+        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}<span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
+        <sc-if value="{{tInfo}}" hint-placeholder-val="{{true}}">
+        <div class="kc-cb kc-kvg"><div><span>服务器 ID</span>idc-wz-0193</div><div><span>CPU</span>E5-2680 v4 × 2（28 核）</div><div><span>内存</span>64 GB DDR4</div><div><span>硬盘</span>2 × 960 GB SSD · RAID 1</div>
+          <div><span>操作系统</span>{{osName}}</div><div><span>公网 IP</span>115.231.**.12</div><div><span>线路</span>电信 · 100M 独享</div><div><span>默认防护</span>20 Gbps DDoS 防护</div>
+          <div><span>机房</span>温州电信 A 机房 · A12</div><div><span>计费方式</span>月付 ¥80/月</div><div><span>开通时间</span>2026-02-20</div><div><span>到期时间</span>2026-11-20</div></div>
+        </sc-if>
+        <sc-if value="{{tSec}}" hint-placeholder-val="{{false}}">
+        <div class="kc-cb" id="sec">
+          <div class="ss-top"><div class="sc-demo" role="group" aria-label="演示状态"><span>演示</span><sc-for list="{{secTabs}}" as="s" hint-placeholder-count="3"><button type="button" class="{{s.cls}}" onClick="{{s.go}}">{{s.n}}</button></sc-for></div></div>
+          <sc-if value="{{secOn}}" hint-placeholder-val="{{true}}">
+          <div class="kc-steps ss-steps" style="grid-template-columns:repeat(4,minmax(0,1fr))"><sc-for list="{{ov}}" as="o" hint-placeholder-count="4"><div class="{{o.cls}}"><i>{{o.i}}</i><div><span>{{o.q}}</span><b>{{o.b}}</b><span>{{o.d}}</span></div></div></sc-for></div>
+          <sc-if value="{{hasRisk}}" hint-placeholder-val="{{true}}">
+          <h3 class="ss-h">风险与处理</h3>
+          <div class="ss-rl"><sc-for list="{{risks}}" as="r" hint-placeholder-count="3"><div class="{{r.cls}}">
+            <button class="ss-rh" type="button" aria-expanded="{{r.ex}}" onClick="{{r.tog}}"><span class="ss-lv"><i class="{{r.lc}}"></i>{{r.lv}}</span><b>{{r.t}}</b><span class="kc-sub">{{r.time}}</span><span class="{{r.tc}}">{{r.st}}</span><i class="ss-car" aria-hidden="true"></i></button>
+            <sc-if value="{{r.open}}" hint-placeholder-val="{{false}}"><div class="ss-rb">
+              <div class="ss-rg"><div><h4>发生了什么</h4><p>{{r.what}}</p></div><div><h4>可能的后果</h4><p>{{r.imp}}</p></div><div><h4>你需要做</h4><ol><sc-for list="{{r.steps}}" as="x" hint-placeholder-count="3"><li>{{x}}</li></sc-for></ol></div></div>
+              <sc-if value="{{r.hasMsg}}" hint-placeholder-val="{{false}}"><div class="{{r.mc}}"><i>{{r.mi}}</i><span>{{r.msg}}</span></div></sc-if>
+              <div class="ss-ra"><sc-for list="{{r.acts}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.cls}}" onClick="{{x.go}}">{{x.n}}</button></sc-for><a href="BgMap.dc.html" class="ss-op">{{r.link}}<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a></div>
+            </div></sc-if>
+          </div></sc-for></div>
+          <div class="kc-sub ss-more">另有 2 项低危基线问题，不影响运行。<a href="BgMap.dc.html">在德迅安全卫士查看<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a></div>
+          </sc-if>
+          <sc-if value="{{noRisk}}" hint-placeholder-val="{{false}}">
+          <h3 class="ss-h">最近一次检测<span class="kc-sub">今天 10:28</span></h3>
+          <div class="kc-tiles ss-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵行为</span><b>0</b></div><div class="kc-tile"><span>高危漏洞</span><b>0</b></div><div class="kc-tile"><span>弱口令</span><b>0</b></div><a class="kc-tile" href="BgMap.dc.html"><span>低危基线</span><b>2</b></a></div>
+          </sc-if>
+          <h3 class="ss-h">防护功能<span class="kc-cnt">{{plgOn}}/7</span></h3>
+          <div class="kc-tw ss-tw"><table class="kc-t"><thead><tr><th style="width:140px">功能</th><th>说明</th><th style="width:96px">类型</th><th style="width:96px">状态</th><th style="width:260px">操作</th></tr></thead><tbody>
+            <sc-for list="{{plgs}}" as="g" hint-placeholder-count="7"><tr>
+              <td>{{g.n}}</td><td>{{g.d}}</td><td>{{g.tp}}</td><td><span class="{{g.tc}}">{{g.st}}</span></td>
+              <td><sc-if value="{{g.ins}}" hint-placeholder-val="{{false}}"><a href="#" class="ss-op" onClick="{{g.go}}">{{g.btn}}</a></sc-if><sc-if value="{{g.ent}}" hint-placeholder-val="{{false}}"><a href="BgMap.dc.html" class="ss-op">升级企业版<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a></sc-if></td>
+            </tr></sc-for>
+          </tbody></table></div>
+                    </sc-if>
+          <sc-if value="{{secGone}}" hint-placeholder-val="{{false}}">
+          <div class="ac-al e"><i>!</i><span><b>这台服务器未受保护</b>德迅安全卫士客户端已于 2026-10-20 卸载，不再检测入侵、漏洞和基线，发生风险也不会收到短信。</span><button type="button" class="kc-btn sm pri" onClick="{{reinstall}}">{{reTxt}}</button></div>
+          <div class="kc-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵检测</span><div class="kc-sub">异常登录、暴力破解、木马、挖矿</div></div><div class="kc-tile"><span>漏洞检测</span><div class="kc-sub">系统和软件漏洞，给出修复方法</div></div><div class="kc-tile"><span>基线检查</span><div class="kc-sub">弱口令、危险配置</div></div><div class="kc-tile"><span>威胁猎杀</span><div class="kc-sub">攻击链溯源与节点证据</div></div></div>
+          </sc-if>
+        </div>
+        </sc-if>
         <sc-if value="{{tRep}}" hint-placeholder-val="{{true}}">
         <div class="sv-bar"><span class="kc-sub">运行数据每 1 分钟采集，防护数据来自机房清洗中心</span><div class="sv-rng"><sc-for list="{{rngs}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.cls}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></div><a class="kc-btn sm" href="#">导出</a></div>
         <div class="tm">
@@ -1918,11 +2172,6 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
           </div>
         </div>
         </sc-if>
-        <sc-if value="{{tInfo}}" hint-placeholder-val="{{false}}">
-        <div class="kc-cb kc-kvg"><div><span>服务器 ID</span>idc-wz-0193</div><div><span>机房</span>温州电信 A 机房 · 机柜 A12</div><div><span>公网 IP</span>115.231.**.12</div><div><span>线路</span>电信 · 100M 独享</div>
-          <div><span>CPU</span>E5-2680 v4 × 2（28 核）</div><div><span>内存</span>64 GB DDR4</div><div><span>硬盘</span>2 × 960 GB SSD · RAID 1</div><div><span>操作系统</span>{{osName}}</div>
-          <div><span>默认防护</span>20 Gbps DDoS 防护</div><div><span>计费方式</span>月付 ¥80/月</div><div><span>开通时间</span>2026-02-20</div><div><span>到期时间</span>2026-11-20</div></div>
-        </sc-if>
         <sc-if value="{{tLog}}" hint-placeholder-val="{{false}}">
         <div class="kc-tw"><table class="kc-t"><thead><tr><th>时间</th><th>操作</th><th>内容</th><th>操作人</th><th>结果</th></tr></thead><tbody>
           <sc-for list="{{logs}}" as="l" hint-placeholder-count="4"><tr class="{{l.rc}}"><td>{{l.t}}</td><td>{{l.op}}</td><td>{{l.d}}</td><td>{{l.u}}</td><td><span class="{{l.tc}}">{{l.r}}</span></td></tr></sc-for>
@@ -1931,6 +2180,31 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       </section>
     </main>
   </div>
+  <sc-if value="{{cfgOpen}}" hint-placeholder-val="{{false}}">
+  <div class="kc-dmask" onClick="{{close}}"></div>
+  <aside class="kc-dw" role="dialog" aria-label="安全配置">
+    <div class="kc-dwh">安全配置<button class="kc-x" type="button" aria-label="关闭" onClick="{{close}}">×</button></div>
+    <div class="kc-dwb">
+      <p class="kc-sub cf-tip">web-prod-01 · 德迅安全卫士。改动即时生效，不需要重启服务器。</p>
+      <h4 class="cf-h">客户端</h4>
+      <div class="kc-sw-row"><div>{{cliTxt}}<div class="kc-sub">{{cliSub}}</div></div><sc-if value="{{secOnC}}" hint-placeholder-val="{{true}}"><a href="#" class="ss-op" onClick="{{uninstall}}">卸载客户端</a></sc-if><sc-if value="{{secGoneC}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn sm pri" onClick="{{reinstall}}">{{reTxt}}</button></sc-if></div>
+      <h4 class="cf-h">发现风险时</h4>
+      <div class="kc-sw-row"><div>自动拦截<div class="kc-sub">{{blockTip}}</div></div><button type="button" class="{{blockSw}}" role="switch" aria-label="自动拦截" aria-checked="{{blockP}}" onClick="{{togBlock}}"></button></div>
+      <div class="kc-sw-row"><div>风险短信<div class="kc-sub">紧急、高危风险发送到 177****1234，夜间顺延到早上 8 点（紧急除外）</div></div><button type="button" class="{{smsSw}}" role="switch" aria-label="风险短信" aria-checked="{{smsP}}" onClick="{{togSms}}"></button></div>
+      <h4 class="cf-h">登录</h4>
+      <div class="kc-sw-row"><div>登录 IP 白名单<div class="kc-sub">{{wlTip}}</div></div><button type="button" class="kc-btn sm" onClick="{{addWl}}">{{wlBtn}}</button></div>
+    </div>
+    <div class="kc-dwf"><button class="kc-btn pri" type="button" onClick="{{close}}">完成</button></div>
+  </aside>
+  </sc-if>
+  <sc-if value="{{unOpen}}" hint-placeholder-val="{{false}}">
+  <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="卸载客户端">
+    <header><b>卸载 web-prod-01 的德迅安全卫士？</b><button type="button" aria-label="关闭" onClick="{{close}}">×</button></header>
+    <div class="bd"><div class="sv-warn"><b>卸载后这台服务器将不受保护。</b>不再检测入侵、漏洞和基线，发生风险也不会收到短信。</div>
+      <p class="kc-sub" style="margin:0">之后重装系统也不会自动装回；当前未处理的风险会保留。随时可以在「安全配置」里一键重新安装。</p></div>
+    <footer><button class="kc-btn" type="button" onClick="{{close}}">取消</button><button class="kc-btn lp-danger" type="button" onClick="{{doUn}}">卸载</button></footer>
+  </div></div>
+  </sc-if>
   <sc-if value="{{rbOpen}}" hint-placeholder-val="{{false}}">
   <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="重启服务器">
     <header><b>重启 web-prod-01</b><button type="button" aria-label="关闭" onClick="{{close}}">×</button></header>
@@ -1944,6 +2218,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <header><b>重装系统 · web-prod-01</b><button type="button" aria-label="关闭" onClick="{{close}}">×</button></header>
     <div class="bd">
       <div class="sv-warn"><b>系统盘数据会被全部清空且无法恢复。</b>重装约需 10 分钟，期间业务中断。</div>
+      <p class="kc-sub" style="margin:0 0 12px">{{riSecTip}}</p>
       <div class="fl-row"><span>镜像</span><div class="sv-os"><sc-for list="{{oss}}" as="o" hint-placeholder-count="6"><button type="button" class="{{o.cls}}" onClick="{{o.go}}">{{o.n}}<small>{{o.s}}</small></button></sc-for></div></div>
       <div class="fl-row"><span>登录密码</span><div class="sv-rb"><div class="sv-seg"><sc-for list="{{pws}}" as="p" hint-placeholder-count="2"><button type="button" class="{{p.cls}}" onClick="{{p.go}}">{{p.n}}</button></sc-for></div>
         <sc-if value="{{pwSet}}" hint-placeholder-val="{{true}}"><input class="kc-in" type="password" aria-label="新密码" placeholder="8–30 位，包含大小写字母和数字" style="width:100%"></sc-if>
@@ -2579,8 +2854,8 @@ class Component extends DCLogic {
     const os = st.os || 'CentOS 7.9 64 位';
     const job = st.job || '';
     const dlg = st.dlg || '';
-    const tab = st.tab || '运行与防护报表';
-    const tabs = ['运行与防护报表', '基本信息', '操作记录'].map((n) => ({ n, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ tab: n }) }));
+    const tab = st.tab || '基本信息'; const R0n = 3;
+    const tabs = ['基本信息', '安全', '监控与报表', '操作记录'].map((n) => ({ n, c: n === '安全' && (st.sec || 'risk') === 'risk' ? (R0n - Object.keys(st.hd || {}).filter((k) => ['ok', 'me'].indexOf((st.hd || {})[k]) >= 0).length || '') : '', cc: 'kc-cnt r', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ tab: n }) }));
     const rng = st.rng || '24 小时';
     const rngs = ['24 小时', '7 天', '30 天'].map((n) => ({ n, cls: n === rng ? 'on' : '', go: () => this.setState({ rng: n }) }));
     const N = rng === '24 小时' ? 24 : rng === '7 天' ? 28 : 30;
@@ -2632,14 +2907,81 @@ class Component extends DCLogic {
     const now = '2026-10-27 10:30';
     const start = (j, row) => this.setState({ dlg: '', job: j, logs: [row].concat(st.logs || []), doneMsg: '' });
 
-    return Object.assign({ nav }, { tabs, tRep: tab === '运行与防护报表', tInfo: tab === '基本信息', tLog: tab === '操作记录', rngs, ax, charts, mets, tmc, logs,
-      goRep: () => this.setState({ tab: '运行与防护报表' }), goLog: () => this.setState({ tab: '操作记录' }),
+
+    const sec = st.sec || 'risk'; const blk = !!st.blk; const sms = st.sms === undefined ? true : st.sms; const wl = !!st.wl; const re = st.re || '';
+    const secTabs = [['risk', '有风险'], ['ok', '正常'], ['gone', '已卸载']].map(([k, n]) => ({ n, cls: k === sec ? 'on' : '', go: () => this.setState({ sec: k, re: '', hd: {}, rop: undefined, pwdTry: false }) }));
+
+    const hd = st.hd || {};
+    const pv = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const setR = (k, v, extra) => this.setState(Object.assign({ hd: Object.assign({}, (this.state && this.state.hd) || {}, { [k]: v }) }, extra || {}));
+    const recheck = (k, fail) => { setR(k, 'chk'); setTimeout(() => setR(k, fail ? 'fail' : 'ok'), 1400); };
+    const R0 = [
+      { k: 'login', lv: '高危', lc: 'kc-lv3 r', t: '有人从陌生地点登录了你的服务器', time: '今天 10:12', link: '登录证据',
+        what: '今天 10:12，root 账号从荷兰（185.220.**.4）登录成功。你以前没有在这个地点登录过。',
+        imp: '如果不是你或同事登录的，对方已经可以完全控制这台服务器，可能删除数据、植入木马。',
+        steps: ['确认这次登录是不是你或同事', '不是的话，点「不是我」，我们会立即封禁这个 IP 并让对方下线', '然后修改 root 密码，再点重新检测'],
+        okTxt: '已解决：复检通过（今天 10:36）。对方 IP 已封禁，root 密码已更新，之后没有再出现异常登录。' },
+      { k: 'vul', lv: '高危', lc: 'kc-lv3 r', t: '系统里有一个可被远程入侵的漏洞', time: '今天 09:40', link: '详细修复步骤',
+        what: '服务器上的 OpenSSH 是 8.5 版本，存在漏洞 CVE-2024-6387，网上已经有公开的攻击方法。',
+        imp: '攻击者不需要密码，就可能远程控制这台服务器。',
+        steps: ['登录服务器，执行 yum update openssh 升级到 9.8p1 或以上', '执行 systemctl restart sshd 重启服务', '回到这里点「我已修复，重新检测」'],
+        okTxt: '已解决：复检通过（今天 10:36）。OpenSSH 已是 9.8p1，这个漏洞不再存在。' },
+      { k: 'pwd', lv: '中危', lc: 'kc-lv3 o', t: '3 个账号的密码太简单', time: '昨天 22:05', link: '查看账号',
+        what: 'admin、test、backup 三个账号使用了 123456、admin123 这类常见密码。',
+        imp: '攻击者用常见密码反复尝试，很容易登录进来。',
+        steps: ['给这 3 个账号设置 12 位以上、包含字母和数字的密码', '用不到的账号（例如 test）建议直接删除', '点「我已修改，重新检测」'],
+        okTxt: '已解决：复检通过（今天 10:38）。3 个账号都已使用复杂密码。', failTxt: '复检未通过：backup 账号仍在使用常见密码。请修改后再检测。' }
+    ];
+    const rop = st.rop === undefined ? null : st.rop;
+    const isOk = (v) => v === 'ok' || v === 'me';
+    const firstOpen = R0.findIndex((r) => !isOk(hd[r.k]));
+    const risks = R0.map((r, i) => { const v = hd[r.k] || '';
+      const S = isOk(v) ? ['kc-tag ok', '已解决'] : v === 'chk' ? ['kc-tag info', '检测中'] : v === 'fail' ? ['kc-tag err', '未解决'] : v === 'block' ? ['kc-tag warn', '还差一步'] : r.lv === '高危' ? ['kc-tag err', '需立即处理'] : ['kc-tag warn', '待处理'];
+      const M = v === 'chk' ? ['ac-al i', 'i', '正在重新检测，大约 10 秒…'] : v === 'fail' ? ['ac-al e', '!', r.failTxt] : v === 'ok' ? ['ac-al i', '✓', r.okTxt] : v === 'me' ? ['ac-al i', '✓', '已解决：确认是你本人登录，这个登录地已加入白名单，以后不再提醒。'] : v === 'block' ? ['ac-al', '!', '已封禁 185.220.**.4 并让对方下线。还差一步：修改 root 密码，改完点下面的按钮重新检测。'] : null;
+      let acts = [];
+      if (r.k === 'login') acts = v === '' ? [['是我本人', 'kc-btn', () => setR('login', 'me', { wl: true })], ['不是我，立即封禁', 'kc-btn pri', () => setR('login', 'block')]] : (v === 'block' || v === 'fail') ? [['我已改密码，重新检测', 'kc-btn pri', () => recheck('login')]] : [];
+      if (r.k === 'vul') acts = (v === '' || v === 'fail') ? [['我已修复，重新检测', 'kc-btn pri', () => recheck('vul')]] : [];
+      if (r.k === 'pwd') acts = v === '' ? [['我已修改，重新检测', 'kc-btn pri', () => { recheck('pwd', !st.pwdTry); this.setState({ pwdTry: true }); }]] : v === 'fail' ? [['我已修改，再次检测', 'kc-btn pri', () => recheck('pwd')]] : [];
+      if (isOk(v)) acts = [['重新打开（演示）', 'kc-btn', () => setR(r.k, '')]];
+      const open = rop === null ? i === firstOpen : rop === i;
+      return { lv: r.lv, lc: r.lc, t: r.t, time: r.time, link: r.link, what: r.what, imp: r.imp, steps: r.steps, tc: S[0], st: S[1],
+        hasMsg: !!M, mc: M ? M[0] : '', mi: M ? M[1] : '', msg: M ? M[2] : '', open, ex: open ? 'true' : 'false', cls: isOk(v) ? 'ss-ri done' + (open ? ' on' : '') : 'ss-ri' + (open ? ' on' : ''),
+        tog: () => this.setState({ rop: open ? -1 : i }), acts: acts.map(([n, c, f]) => ({ n, cls: c, go: (e) => { pv(e); f(); } })) }; });
+    const todo = sec === 'risk' ? R0.filter((r) => !isOk(hd[r.k])).length : 0;
+    const todoH = sec === 'risk' ? R0.filter((r) => !isOk(hd[r.k]) && r.lv === '高危').length : 0;
+    const solved = sec === 'risk' ? 3 - todo : 0;
+    const ov = sec === 'risk' ? [
+      ['kc-step done', '✓', '安全服务正常吗', '正常运行', '客户端在线，今天 10:28 完成检测' + (sms ? '，风险会短信通知你' : '')],
+      [todo ? 'kc-step' : 'kc-step done', todo ? '!' : '✓', '有什么风险', '发现 3 个风险', todoH ? '其中 ' + todoH + ' 个需要立即处理' : '高危风险已处理完'],
+      [todo ? 'kc-step' : 'kc-step done', todo ? String(todo) : '✓', '我该做什么', todo ? '还有 ' + todo + ' 件事要处理' : '没有要做的事了', todo ? '展开下方风险，按步骤操作即可' : '所有风险都已处理'],
+      [todo ? 'kc-step todo' : 'kc-step done', todo ? '…' : '✓', '解决了吗', '已解决 ' + solved + ' / 3', '处理后系统会重新检测，通过才算解决']
+    ] : [
+      ['kc-step done', '✓', '安全服务正常吗', '正常运行', '客户端在线，今天 10:28 完成检测'],
+      ['kc-step done', '✓', '有什么风险', '没有发现风险', '入侵、漏洞、弱口令都已检查'],
+      ['kc-step done', '✓', '我该做什么', '不需要做任何事', '有新风险时会短信通知你'],
+      ['kc-step done', '✓', '解决了吗', '无待解决问题', '每天自动检测一次']
+    ];
+    const plg = st.plg || {};
+    const P0 = [['入侵检测', '异常登录、暴力破解、木马、挖矿', 'base'], ['漏洞检测', '系统和软件漏洞，给出修复方法', 'base'], ['基线检查', '弱口令、危险配置', 'base'], ['威胁猎杀', '攻击链溯源与节点证据', 'base'],
+      ['防勒索', '识别勒索加密行为，自动备份关键文件', 'plug'], ['网页防篡改', '网站目录被改动时立即还原', 'plug'], ['AI 研判', '自动分析告警真假、给出处置建议（企业版）', 'ent']];
+    const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
+      cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
+      go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (v) return; this.setState({ plg: Object.assign({}, plg, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plg: Object.assign({}, this.state.plg || {}, { [n]: 'ok' }) }), 1500); } }; });
+    const secV = { secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone', secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
+      modeTxt: blk ? '自动拦截' : '仅告警', riskTxt: sec === 'risk' ? '高危 2 · 中危 1' : '0', riskCls: sec === 'risk' ? 'r' : 'g',
+      blockTip: blk ? '已开启：按德迅安全卫士默认策略拦截暴力破解和已知木马' : '已关闭：发现风险只告警，不影响业务进程', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
+      smsSw: sms ? 'kc-sw on' : 'kc-sw', smsP: sms ? 'true' : 'false', togSms: () => this.setState({ sms: !sms }),
+      wlTip: wl ? '已添加 1 个：183.134.**.20（本次登录地）' : '未设置。白名单内 IP 的登录不会触发异常登录告警', wlBtn: wl ? '管理' : '添加', addWl: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ wl: true }); },
+      uninstall: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dlg: 'un' }); }, unOpen: dlg === 'un', doUn: () => this.setState({ dlg: '', sec: 'gone', re: '' }), reTxt: re === 'ing' ? '正在安装…约 2 分钟' : '一键重新安装', reinstall: () => { if (re) return; this.setState({ re: 'ing' }); setTimeout(() => this.setState({ sec: 'ok', re: '' }), 1600); } };
+    return Object.assign({ nav }, secV, { tabs, tRep: tab === '监控与报表', tInfo: tab === '基本信息', tSec: tab === '安全', tLog: tab === '操作记录',
+      goSec: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '安全' }); }, secStTxt: secV.secGone ? '未受保护' : todo ? '有风险' : '正常', secStSub: secV.secGone ? '原因：客户端已卸载' : todo ? todo + ' 项待处理' + (todoH ? '，' + todoH + ' 项需立即处理' : '') : '今天 10:28 已检测', runB: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中', runS: '已运行 37 天 · ' + os.replace(' 64 位', ''), secStCls: secV.secGone ? 'ss-x' : todoH ? 'ss-r' : todo ? 'ss-o' : 'ss-g', secStGo: secV.secGone ? '重新安装' : todo ? '去处理' : '查看', rngs, ax, charts, mets, tmc, logs,
+      goRep: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '监控与报表' }); }, goLog: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '操作记录' }); },
       osName: os, runTxt: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中 · 37 天', osLine: '最近一次重启 2026-10-12 23:05',
       idle: !job, busy: !!job, busyTxt: job === 'rb' ? '正在重启…' : '正在重装 ' + pick + '…', pct: job === 'rb' ? 60 : 35, pgw: 'width:' + (job === 'rb' ? 60 : 35) + '%',
       busyTip: job === 'rb' ? '约 1 分钟后恢复' : '约 7 分钟，完成后短信通知', doneMsg: st.doneMsg || '', hideMsg: () => this.setState({ doneMsg: '' }),
       finish: () => { const ri = job === 'ri'; const ls = (st.logs || []).slice(); if (ls[0]) ls[0] = ls[0].slice(0, 4).concat(['成功']);
         this.setState({ job: '', logs: ls, os: ri ? pick + ' ' + (OS.find((o) => o[0] === pick) || ['', ''])[1] : os, doneMsg: ri ? '重装完成：' + pick + (pw === '设置新密码' ? '，请用新密码登录' : '，随机密码已短信发送') : '重启完成，服务器已恢复运行' }); },
-      rbOpen: dlg === 'rb', riOpen: dlg === 'ri', openRb: () => this.setState({ dlg: 'rb' }), openRi: () => this.setState({ dlg: 'ri', bk: false, sent: false }), close: () => this.setState({ dlg: '' }),
+      riSecTip: sec === 'gone' ? '这台服务器已卸载德迅安全卫士，重装后不会自动装回，可在「安全配置」里一键安装。' : '重装期间暂停安全检测；完成后自动重新安装德迅安全卫士并检测。当前未处理的安全风险会归档（不算已解决），新系统里仍存在的问题会重新提醒。', cfgOpen: dlg === 'cfg', openCfg: () => this.setState({ dlg: 'cfg' }), cliTxt: sec === 'gone' ? '已卸载' : '在线', cliSub: sec === 'gone' ? (re === 'ing' ? '正在安装，约 2 分钟' : '2026-10-20 已卸载，这台服务器目前不受保护') : 'v3.2.1 · 今天 10:28 完成检测 · 2026-02-20 起保护', secOnC: sec !== 'gone', secGoneC: sec === 'gone', rbOpen: dlg === 'rb', riOpen: dlg === 'ri', openRb: () => this.setState({ dlg: 'rb' }), openRi: () => this.setState({ dlg: 'ri', bk: false, sent: false }), close: () => this.setState({ dlg: '' }),
       rbm, doRb: () => start('rb', [now, '重启', rbm0, 'wangqi', '进行中']),
       oss, pws, pwSet: pw === '设置新密码', pwSms: pw !== '设置新密码',
       keepCls: keep ? 'ac-cbx on' : 'ac-cbx', togKeep: () => this.setState({ keep: !keep }), bkCls: bk ? 'ac-cbx on' : 'ac-cbx', togBk: () => this.setState({ bk: !bk }),

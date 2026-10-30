@@ -1778,6 +1778,17 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-pch .kc-sw{margin-left:auto}
 .kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
 /* /pages109 */
+
+/* plg123 */
+.sv-ins-old{display:flex;align-items:center;gap:12px;padding:12px 16px;margin-bottom:16px;border:1px solid #ffe4ba;background:#fff8f0;border-radius:4px;font-size:13px;color:#42464e}
+.sv-ins > i{width:18px;height:18px;border-radius:50%;background:#ff7d00;color:#fff;font:700 12px/18px Inter,sans-serif;text-align:center;font-style:normal;flex-shrink:0}
+.sv-ins > span{flex:1;min-width:0}
+.sv-ins b{display:block;font-weight:600;color:#0c0d0e;margin-bottom:2px}
+.sv-ins.ing{border-color:#cfe0ff;background:#f2f7ff}.sv-ins.ing > i{background:#1664ff}
+.sv-sec{font-size:13px;font-weight:500;text-decoration:none;color:#42464e}
+.sv-sec.r{color:#cb2634}.sv-sec.g{color:#00754e}.sv-sec.x{color:#a84700}
+
+.ac-al > span b{display:block;font-weight:600;margin-bottom:2px}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1874,15 +1885,17 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         <div class="kc-hdl"><div><h1 class="kc-h1">服务器</h1></div></div>
         
       </div>
+      <sc-if value="{{insShow}}" hint-placeholder-val="{{true}}"><div class="{{insCls}}"><i>{{insI}}</i><span><b>{{insT}}</b>{{insD}}</span><sc-if value="{{insIdle}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn sm pri" onClick="{{doIns}}">一键安装</button></sc-if></div></sc-if>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <div class="kc-bar lf-bar lf-s"><div class="lf-q"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input class="kc-in" style="width:360px" type="search" aria-label="搜索服务器名称、IP 或 ID" placeholder="搜索服务器名称、IP 或 ID"></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>机房</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="lf-r"><a class="kc-btn pri" href="AcctPurchase.dc.html">购买服务器</a></div></div>
         <div class="kc-tw"><table class="kc-t lf-st5 op-fix">
-          <thead><tr><th>服务器</th><th>公网 IP / 线路</th><th>配置</th><th>系统</th><th>状态</th><th>到期时间</th><th>操作</th></tr></thead>
+          <thead><tr><th>服务器</th><th>公网 IP / 线路</th><th>配置</th><th>系统</th><th>状态</th><th>安全</th><th>到期时间</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="3"><tr>
             <td><a href="IdcServerDetail.dc.html">{{r.n}}</a><div class="kc-sub">{{r.id}}</div></td>
             <td>{{r.ip}}<div class="kc-sub">{{r.ln}}</div></td><td>{{r.cfg}}<div class="kc-sub">{{r.room}}</div></td><td>{{r.os}}</td>
             <td><span class="{{r.tc}}">{{r.st}}</span><div class="kc-sub">CPU {{r.cpu}} · 带宽 {{r.bw}}</div></td>
+            <td><span class="{{r.sc}}">{{r.sec}}</span><div class="kc-sub">{{r.secS}}</div></td>
             <td><span class="{{r.ec}}">{{r.exp}}</span><div class="{{r.lc}}">{{r.left}}</div></td>
             <td><span class="sv-ops"><a href="BillConfirm.dc.html">续费</a><a href="IdcServerDetail.dc.html">重启</a><a href="IdcReinstall.dc.html">重装系统</a><a href="IdcServerDetail.dc.html">报表</a></span></td>
           </tr></sc-for></tbody>
@@ -2514,14 +2527,20 @@ class Component extends DCLogic {
 
     const R = [['web-prod-01', 'idc-wz-0193', '115.231.**.12', '电信 · 100M 独享', 'E5-2680×2 / 64G', '温州电信 A 机房', 'CentOS 7.9', '运行中', 'ok', '23%', '41M', '2026-11-20', '剩 24 天', 'exp'],
       ['db-01', 'idc-wz-0194', '115.231.**.13', '电信 · 50M 独享', 'E5-2680×2 / 128G', '温州电信 A 机房', 'Rocky Linux 9', '运行中', 'ok', '41%', '12M', '2027-02-20', '剩 116 天', ''],
-      ['backup-02', 'idc-hz-0071', '60.191.**.40', 'BGP · 20M', 'E5-2650×2 / 32G', '杭州 BGP 机房', 'Ubuntu 22.04', '已关机', 'mut', '—', '—', '2027-04-02', '剩 157 天', '']];
+      ['backup-02', 'idc-hz-0071', '60.191.**.40', 'BGP · 20M', 'E5-2650×2 / 32G', '杭州 BGP 机房', 'Ubuntu 22.04', '运行中', 'ok', '8%', '2M', '2027-04-02', '剩 157 天', '']];
+    const ins = st.ins || '';
+    const SEC = { 'web-prod-01': ['有风险', 'kc-tag err', '2 项高危 · 1 项中危', ' sec'], 'db-01': ['正常', 'kc-tag ok', '今天 10:28 检测', ''], 'backup-02': ins === 'ok' ? ['接入中', 'kc-tag info', '首次检测中', ''] : ins === 'ing' ? ['接入中', 'kc-tag info', '正在安装，约 2 分钟', ' noag'] : ['未受保护', 'kc-tag warn', '原因：未安装客户端', ' noag'] };
     const tab = st.ft || '全部';
-    const all = R.map(([n, id, ip, ln, cfg, room, os, s, tc, cpu, bw, exp, left, k]) => ({ n, id, ip, ln, cfg, room, os, st: s, tc: 'kc-tag ' + tc, cpu, bw, exp, left, ec: k ? 'o' : '', lc: k ? 'kc-sub o' : 'kc-sub', k: k + (s === '运行中' ? ' run' : ' off') }));
-    const tabs = [['全部', ''], ['即将到期', 'exp'], ['已关机', 'off']].map(([n, k]) => ({ n, c: all.filter((r) => !k || r.k.indexOf(k) >= 0).length, cc: 'kc-cnt', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ ft: n }) }));
-    const kk = { '全部': '', '即将到期': 'exp', '已关机': 'off' }[tab];
+    const all = R.map(([n, id, ip, ln, cfg, room, os, s, tc, cpu, bw, exp, left, k]) => ({ n, id, ip, ln, cfg, room, os, st: s, tc: 'kc-tag ' + tc, cpu, bw, exp, left, ec: k ? 'o' : '', lc: k ? 'kc-sub o' : 'kc-sub', k: k + (s === '运行中' ? ' run' : ' off') + SEC[n][3], sec: SEC[n][0], sc: SEC[n][1], secS: SEC[n][2] }));
+    const tabs = [['全部', ''], ['有安全风险', 'sec'], ['未受保护', 'noag'], ['即将到期', 'exp'], ['已关机', 'off']].map(([n, k]) => ({ n, c: all.filter((r) => !k || r.k.indexOf(k) >= 0).length, cc: 'kc-cnt', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ ft: n }) }));
+    const kk = { '全部': '', '有安全风险': 'sec', '未受保护': 'noag', '即将到期': 'exp', '已关机': 'off' }[tab];
     const rows = all.filter((r) => !kk || r.k.indexOf(kk) >= 0);
 
-    const __R = Object.assign({ nav }, { tabs, rows, total: rows.length });
+    const __R = Object.assign({ nav }, { tabs, rows, total: rows.length,
+      insShow: ins !== 'ok', insIdle: !ins, insCls: ins === 'ing' ? 'ac-al i' : 'ac-al', insI: ins === 'ing' ? 'i' : '!',
+      insT: ins === 'ing' ? '正在为 backup-02 安装德迅安全卫士客户端…' : '1 台服务器未受保护：backup-02 没有安装德迅安全卫士客户端',
+      insD: ins === 'ing' ? '约 2 分钟，装好后自动开始第一次检测' : '没有客户端就不会检测入侵、漏洞和弱口令，出了问题也不会通知你。安装免费，不影响业务。',
+      doIns: () => { this.setState({ ins: 'ing' }); setTimeout(() => this.setState({ ins: 'ok' }), 1800); } });
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 
