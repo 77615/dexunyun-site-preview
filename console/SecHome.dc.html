@@ -2121,6 +2121,20 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .sh .sh-ts > span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sh .sh-aic{display:inline-flex;flex:none;color:#6b72e6}
 .sh .sh-tl li{grid-template-columns:8px minmax(240px,360px) minmax(0,1fr) auto}
+
+/* sh-aiui141: AI module distinct */
+.sh .sh-aicard{position:relative;border:1px solid transparent !important;background:linear-gradient(180deg,#f7f5ff 0,#fff 88px) padding-box,linear-gradient(120deg,#5b8cff,#9b6bff 55%,#e58bd6) border-box !important;box-shadow:0 4px 16px rgba(110,92,255,.10)}
+.sh .sh-aicard > .kc-ch h2{gap:10px}
+.sh .sh-aiico{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#3f7bff,#8e5cff 60%,#d86fd0);color:#fff;box-shadow:0 2px 6px rgba(110,92,255,.3)}
+.sh .sh-aicard .sh-aib{background:linear-gradient(90deg,rgba(63,123,255,.1),rgba(142,92,255,.12));color:#6a4fe0;font-weight:500}
+.sh .sh-aicard .sh-aic{color:#8e5cff}
+.sh .sh-aicard .sh-ts > span{color:#3c3f4a}
+.sh .sh-aicard .sh-tl li:hover{background:rgba(142,92,255,.05)}
+.sh .sh-aicard .sh-wk{margin-left:16px}
+.sh .sh-aif{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 24px;padding:10px 0 12px;font-size:12px;color:#86909c;border-top:1px dashed #e9e4fb}
+.sh .sh-fb{display:inline-flex;gap:4px}
+.sh .sh-fb button{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:0;border-radius:4px;background:none;color:#86909c;cursor:pointer}
+.sh .sh-fb button:hover{background:#f3f0ff;color:#6a4fe0}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2235,7 +2249,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         </div>
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><a class="sh-rc1" href="{{k.h}}" onClick="{{k.go}}"><div class="sh-rch"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></div><div class="sh-rcv"><div><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></div><div><small>影响主机</small><b>{{k.m}}</b><i>台</i></div></div></a></sc-for></div>
       </section>
-      <section class="kc-card sh-pri"><div class="kc-ch"><h2>优先处置<span class="sh-aib" title="企业版：AI 根据风险等级、可利用性和影响范围排序"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg>AI 已排序</span></h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
+      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><i class="sh-aiico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.2 5.6 5.8 2.2-5.8 2.2L12 18.1l-2.2-5.6L4 10.3l5.8-2.2z"></path><path d="M19 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"></path></svg></i>优先处置<span class="sh-aib" title="企业版：AI 根据风险等级、可利用性和影响范围排序"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg>AI 已排序</span></h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
         <div class="kc-cb sh-pw">
           <ul class="sh-tl"><sc-for list="{{sx.pri}}" as="p" hint-placeholder-count="4"><li>
             <i class="{{p.dot}}" aria-hidden="true"></i>
@@ -2243,7 +2257,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
             <span class="sh-ts"><i class="sh-aic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span>{{p.s}}</span></span>
             <button type="button" class="{{p.bc}}" onClick="{{p.go}}">{{p.bt}}</button>
           </li></sc-for></ul>
-        </div></section>
+        </div><div class="sh-aif"><span>由 AI 根据风险等级、可利用性和影响范围排序，结论仅供参考</span><span class="sh-fb"><button type="button" aria-label="有帮助" title="有帮助" onClick="{{sx.fbUp}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助" title="没帮助" onClick="{{sx.fbDown}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></section>
       <section class="sh-capc"><div class="kc-ch"><h2>防护能力</h2><span class="sh-upd">守护主机 64 / 68 台 · 基础防护默认开启 · 插件安装后生效</span></div>
         <div class="kc-cb"><div class="sh-cg"><sc-for list="{{sx.caps}}" as="c" hint-placeholder-count="8"><div class="{{c.cls}}">
           <div class="sh-ch"><i class="sh-ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></i><b>{{c.n}}</b><sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><span class="{{c.tc}}">{{c.st}}</span></sc-if><sc-if value="{{c.lock}}" hint-placeholder-val="{{false}}"><span class="sh-lk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>{{c.k}}</span></sc-if></div>
@@ -2932,7 +2946,8 @@ class Component extends DCLogic {
       dwOn: !!dk, dw, dwX: ev(() => S({ shDw: '' })),
       mdOn: !!mk, md: Object.assign({ code: '' }, md), mdX: ev(() => S({ shMd: '' })), mdOk: ev(() => md.run && md.run()),
       mdCpT: st.shCp ? '已复制' : '复制', mdCopy: ev(() => { try { navigator.clipboard.writeText(md.code).catch(() => {}); } catch (x) {} S({ shCp: 1 }); }),
-      tsOn: !!st.shT, ts: st.shT || { t: '', c: '' }
+      tsOn: !!st.shT, ts: st.shT || { t: '', c: '' },
+      fbUp: ev(() => toast('感谢反馈，AI 会参考你的评价')), fbDown: ev(() => toast('已记录，AI 会据此调整排序', 'info'))
     });
     const PG = [() => openDw('judge'), () => openMd('fix'), () => openMd('install'), () => openMd('retry')];
     sx.pri.forEach((x, i) => { x.go = pd[i] ? ev(() => toast('已提交，处理中', 'info')) : ev(PG[i]); });
