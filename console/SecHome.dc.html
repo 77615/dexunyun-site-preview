@@ -2073,6 +2073,46 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .sh .sh-act2{display:flex;gap:16px}
 .sh .sh-act2 a{font-size:13px;color:#1664ff;text-decoration:none}
 .sh .sh-unp{white-space:nowrap}
+
+/* sh-ix138: drawer / modal / toast */
+.sh-fx{position:fixed !important;z-index:60}
+.sh-mask{left:0;right:0;top:56px;bottom:0;background:rgba(29,33,41,.28);animation:sh-fade .15s ease-out}
+.sh-mc{display:flex;align-items:center;justify-content:center}
+.sh-dw{top:56px;right:0;bottom:0;width:640px;max-width:92vw;background:#fff;box-shadow:-8px 0 24px rgba(29,33,41,.12);display:flex;flex-direction:column;animation:sh-in .2s ease-out}
+.sh-dw header{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;border-bottom:1px solid #e5e6eb;flex:none}
+.sh-dw h3,.sh-md h3{margin:0;font-size:16px;font-weight:500;color:#0c0d0e}
+.sh-x{width:28px;height:28px;border:0;border-radius:4px;background:none;font-size:20px;line-height:1;color:#4e5969;cursor:pointer}
+.sh-x:hover{background:#f2f3f5}
+.sh-dwb{flex:1;overflow:auto;padding:16px 20px}
+.sh-dp{margin:0 0 12px;font-size:13px;line-height:1.7;color:#42464e}
+.sh-dn{font-weight:500;color:#0c0d0e}
+.sh-dw .kc-t td{white-space:normal}
+.sh-dw footer{display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:12px 20px;border-top:1px solid #e5e6eb;flex:none}
+.sh-dw footer .sh-tx{margin-right:auto}
+.sh-dw .sh-op,.sh-md .sh-op{border:0;background:none;padding:0;font:inherit;font-size:13px;color:#1664ff;cursor:pointer;white-space:nowrap}
+.sh-dw a.sh-tx{font-size:13px;color:#1664ff;text-decoration:none}
+.sh-red{color:#f53f3f;font-weight:500}
+.sh-md{width:480px;max-width:92vw;padding:24px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18);animation:sh-pop .16s ease-out}
+.sh-md p{margin:10px 0 0;font-size:13px;line-height:1.7;color:#42464e}
+.sh-code{display:flex;align-items:flex-start;gap:12px;margin-top:14px;padding:10px 12px;background:#f7f8fa;border-radius:4px}
+.sh-code code{flex:1;min-width:0;font:12px/1.6 "JetBrains Mono",Menlo,monospace;color:#0c0d0e;word-break:break-all}
+.sh-mf{display:flex;justify-content:flex-end;gap:8px;margin-top:24px}
+.sh-toast{top:72px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:9px 16px;background:#fff;border:1px solid #e5e8ef;border-radius:4px;box-shadow:0 4px 12px rgba(29,33,41,.1);font-size:14px;color:#1d2129;white-space:nowrap;z-index:70 !important;animation:sh-fade .16s ease-out}
+.sh-ti{width:14px;height:14px;border-radius:50%;background:#00b42a;flex:none;position:relative}
+.sh-ti::after{content:"";position:absolute;left:4px;top:2px;width:4px;height:7px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.sh-ti.info{background:#1664ff}
+.sh-ti.info::after{left:6px;top:3px;width:2px;height:8px;border:0;background:#fff;transform:none}
+.sh .sh-rf.spin svg{animation:sh-spin .8s linear infinite}
+@keyframes sh-spin{to{transform:rotate(360deg)}}
+@keyframes sh-fade{from{opacity:0}}
+@keyframes sh-in{from{transform:translateX(24px);opacity:0}}
+@keyframes sh-pop{from{transform:scale(.96);opacity:0}}
+
+/* sh-tbl139: fixed action column (B-end table norm) */
+.sh .sh-m .kc-t th:last-child,.sh .sh-m .kc-t td:last-child{position:sticky;right:0;z-index:1;box-shadow:inset 1px 0 0 #eaedf1}
+.sh .sh-m .kc-t td:last-child{background:#fff}
+.sh .sh-m .kc-t th:last-child{background:#f6f8fa}
+.sh .sh-m .kc-t tbody tr:hover td:last-child{background:#f6f8fa}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2168,27 +2208,27 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <main data-pg="SecHome" class="kc-main sh">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">安全总览</h1></div></div>
-        <div class="kc-btns sh-hb2"><a class="sh-tx" href="#">安全报告</a><button type="button" class="kc-btn pri" onClick="{{sx.scan}}">{{sx.scanT}}</button></div>
+        <div class="kc-btns sh-hb2"><a class="sh-tx" href="#" onClick="{{sx.go.report}}">安全报告</a><button type="button" class="kc-btn pri" onClick="{{sx.scan}}">{{sx.scanT}}</button></div>
       </div>
       <div class="sh-nb" role="status">
         <span class="sh-nt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path></svg></span>
-        <span class="{{sx.nb.c}}">{{sx.nb.k}}</span><span class="sh-nx">{{sx.nb.t}}</span><a href="{{sx.nb.h}}">{{sx.nb.o}}</a>
+        <span class="{{sx.nb.c}}">{{sx.nb.k}}</span><span class="sh-nx">{{sx.nb.t}}</span><a href="{{sx.nb.h}}" onClick="{{sx.nbGo}}">{{sx.nb.o}}</a>
         <span class="sh-np"><button type="button" aria-label="上一条" onClick="{{sx.nPrev}}">‹</button>{{sx.nIdx}}<button type="button" aria-label="下一条" onClick="{{sx.nNext}}">›</button></span>
       </div>
       <div class="sh-fl">
         <label class="sh-sel"><span>资产范围</span><select aria-label="资产范围"><option>全部主机 · 68 台</option><option>德迅服务器 · 3 台</option><option>其他机房接入 · 65 台</option></select></label>
         <div class="sh-seg" role="group" aria-label="时间范围"><sc-for list="{{sx.ranges}}" as="g" hint-placeholder-count="2"><button type="button" class="{{g.cls}}" aria-pressed="{{g.on}}" onClick="{{g.pick}}">{{g.n}}</button></sc-for></div>
-        <div class="sh-calm"><span><i class="sh-dot"></i>已守护 <b>412</b> 天</span><span>客户端 V4.3.2</span><span>病毒库 11-02 00:00</span><span>漏洞库 11-02 14:21</span><span class="sh-upd2">最近更新 {{sx.upd}}<button type="button" class="sh-rf" title="{{sx.refT}}" aria-label="{{sx.refT}}" onClick="{{sx.refresh}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"></path><path d="M20 4v7h-7"></path></svg></button></span></div>
+        <div class="sh-calm"><span><i class="sh-dot"></i>已守护 <b>412</b> 天</span><span>客户端 V4.3.2</span><span>病毒库 11-02 00:00</span><span>漏洞库 11-02 14:21</span><span class="sh-upd2">最近更新 {{sx.upd}}<button type="button" class="{{sx.rfC}}" title="{{sx.refT}}" aria-label="{{sx.refT}}" onClick="{{sx.refresh}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"></path><path d="M20 4v7h-7"></path></svg></button></span></div>
       </div>
       <section class="kc-card kc-hero sh-hero">
         <div class="sh-score">
           <div class="sh-ring" role="img" aria-label="安全评分 82 分"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#f2f3f5" stroke-width="10"></circle><circle class="sh-arc" cx="66" cy="66" r="56" fill="none" stroke-width="10" stroke-linecap="round" style="{{sx.arc}}"></circle></svg><div class="sh-rv"><b>82</b><span>良好</span></div></div>
-          <div class="sh-sd"><span class="sh-kn">安全评分</span><em class="sh-kd up">比昨天 +3</em><p>修复 2 项紧急风险后预计可到 91 分</p><p class="sh-unp"><i></i>未受保护 1 台（backup-02）<a href="#">去安装</a></p><div class="sh-kl"><a href="#">评分详情</a><a href="#">扣分项 6</a></div></div>
+          <div class="sh-sd"><span class="sh-kn">安全评分</span><em class="sh-kd up">比昨天 +3</em><p>修复 2 项紧急风险后预计可到 91 分</p><p class="sh-unp"><i></i>未受保护 1 台（backup-02）<a href="#" onClick="{{sx.go.install}}">去安装</a></p><div class="sh-kl"><a href="#" onClick="{{sx.go.score}}">评分详情</a><a href="#" onClick="{{sx.go.score}}">扣分项 6</a></div></div>
         </div>
-        <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><a class="sh-rc1" href="{{k.h}}"><div class="sh-rch"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></div><div class="sh-rcv"><div><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></div><div><small>影响主机</small><b>{{k.m}}</b><i>台</i></div></div></a></sc-for></div>
-        <div class="sh-ai"><i class="sh-aii" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span><b>AI 摘要</b>安全评分 82，比昨天高 3 分。2 台主机有风险，9 项待处置，其中紧急 4 项。建议先处理 web-prod-01 的异常登录和 OpenSSH 漏洞，再给 backup-02 重新安装客户端。</span><span class="kc-tag info">企业版</span><a class="sh-tx" href="#">AI 分析详情</a></div>
+        <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><a class="sh-rc1" href="{{k.h}}" onClick="{{k.go}}"><div class="sh-rch"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></div><div class="sh-rcv"><div><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></div><div><small>影响主机</small><b>{{k.m}}</b><i>台</i></div></div></a></sc-for></div>
+        <div class="sh-ai"><i class="sh-aii" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span><b>AI 摘要</b>安全评分 82，比昨天高 3 分。2 台主机有风险，9 项待处置，其中紧急 4 项。建议先处理 web-prod-01 的异常登录和 OpenSSH 漏洞，再给 backup-02 重新安装客户端。</span><span class="kc-tag info">企业版</span><a class="sh-tx" href="#" onClick="{{sx.go.ai}}">AI 分析详情</a></div>
       </section>
-      <section class="kc-card sh-pri"><div class="kc-ch"><h2>优先处置</h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><a href="#">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+      <section class="kc-card sh-pri"><div class="kc-ch"><h2>优先处置</h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         <div class="kc-cb sh-pw">
           <ul class="sh-tl"><sc-for list="{{sx.pri}}" as="p" hint-placeholder-count="4"><li>
             <i class="{{p.dot}}" aria-hidden="true"></i>
@@ -2210,11 +2250,11 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
             <sc-if value="{{sx.byState}}" hint-placeholder-val="{{true}}"><div class="kc-cb">
               <div class="sh-cov"><div><b>68</b><span>台主机</span></div><p>德迅服务器 3 台 · 其他机房接入 65 台</p></div>
               <div class="sh-bar" role="img" aria-label="保护状态分布"><sc-for list="{{sx.dist}}" as="d" hint-placeholder-count="6"><i class="{{d.c}}" style="{{d.w}}"></i></sc-for></div>
-              <div class="sh-lg"><sc-for list="{{sx.dist}}" as="d" hint-placeholder-count="6"><a href="#" class="{{d.lc}}"><i class="{{d.c}}"></i>{{d.n}}<b>{{d.v}}</b><small>{{d.s}}</small></a></sc-for></div>
+              <div class="sh-lg"><sc-for list="{{sx.dist}}" as="d" hint-placeholder-count="6"><a href="#" class="{{d.lc}}" onClick="{{d.go}}"><i class="{{d.c}}"></i>{{d.n}}<b>{{d.v}}</b><small>{{d.s}}</small></a></sc-for></div>
             </div></sc-if></section>
-          <section class="kc-card"><div class="kc-ch"><h2>处置成果 · 近 7 天</h2><a href="#">处置记录<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-            <div class="kc-cb kc-tiles"><sc-for list="{{sx.prog}}" as="p" hint-placeholder-count="5"><a class="kc-tile" href="#"><span>{{p.n}}</span><b>{{p.v}}</b><div class="kc-sub">{{p.s}}</div></a></sc-for></div>
-            <ul class="sh-ev"><sc-for list="{{sx.ev}}" as="e" hint-placeholder-count="2"><li><span class="{{e.c}}">{{e.k}}</span><span class="sh-evt">{{e.t}}</span><a href="#">{{e.o}}</a></li></sc-for></ul></section>
+          <section class="kc-card"><div class="kc-ch"><h2>处置成果 · 近 7 天</h2><a href="#" onClick="{{sx.go.rec}}">处置记录<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+            <div class="kc-cb kc-tiles"><sc-for list="{{sx.prog}}" as="p" hint-placeholder-count="5"><a class="kc-tile" href="#" onClick="{{p.go}}"><span>{{p.n}}</span><b>{{p.v}}</b><div class="kc-sub">{{p.s}}</div></a></sc-for></div>
+            <ul class="sh-ev"><sc-for list="{{sx.ev}}" as="e" hint-placeholder-count="2"><li><span class="{{e.c}}">{{e.k}}</span><span class="sh-evt">{{e.t}}</span><a href="#" onClick="{{e.go}}">{{e.o}}</a></li></sc-for></ul></section>
           <section class="kc-card"><div class="kc-ch"><h2>告警与风险</h2><span class="sh-upd">10:42 更新 · 包含主机、DDoS 高防、SCDN、德迅云眼</span></div>
             <div class="kc-tabs" role="tablist"><sc-for list="{{sx.tabs}}" as="t" hint-placeholder-count="5"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
             <div class="kc-tw"><table class="kc-t">
@@ -2222,21 +2262,30 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
               <tbody><sc-for list="{{sx.rows}}" as="r" hint-placeholder-count="6"><tr>
                 <td><span class="sh-al"><i class="{{r.lv}}" title="{{r.lvT}}" aria-label="{{r.lvT}}"></i><b>{{r.t}}</b></span></td>
                 <td>{{r.a}}</td><td>{{r.p}}</td><td><span class="{{r.sc}}">{{r.st}}</span></td><td>{{r.tm}}</td>
-                <td><a href="{{r.href}}">{{r.op}}</a></td></tr></sc-for></tbody>
-            </table></div><div class="sh-tfoot"><a href="#">查看全部告警<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div></section>
+                <td><a href="{{r.href}}" onClick="{{r.go}}">{{r.op}}</a></td></tr></sc-for></tbody>
+            </table></div><div class="sh-tfoot"><a href="#" onClick="{{sx.go.allAl}}">查看全部告警<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div></section>
           <section class="kc-card"><div class="kc-ch"><h2>风险发现与处置趋势</h2><span class="sh-lg2"><i class="sh-info"></i>新发现<i class="sh-mut"></i>已处置</span></div>
             <div class="kc-cb"><div class="sh-tr" role="img" aria-label="风险发现与处置趋势"><sc-for list="{{sx.trend}}" as="t" hint-placeholder-count="7"><div class="sh-tc"><div class="sh-tb"><i class="sh-info" style="{{t.a}}"></i><i class="sh-mut" style="{{t.b}}"></i></div><span>{{t.n}}</span></div></sc-for></div></div></section>
         </div>
         <div class="sh-r">
-          <section class="kc-card"><div class="kc-ch"><h2>资产与防护健康</h2><a href="#">资产中心<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-            <div class="kc-cb"><ul class="sh-hl"><sc-for list="{{sx.health}}" as="h" hint-placeholder-count="4"><li><div class="sh-hh"><span>{{h.n}}</span><b>{{h.p}}</b></div><div class="sh-hb"><i style="{{h.w}}"></i></div><div class="sh-hf"><small>{{h.f}}</small><a href="#">{{h.l}}</a></div></li></sc-for></ul></div></section>
+          <section class="kc-card"><div class="kc-ch"><h2>资产与防护健康</h2><a href="#" onClick="{{sx.go.assets}}">资产中心<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+            <div class="kc-cb"><ul class="sh-hl"><sc-for list="{{sx.health}}" as="h" hint-placeholder-count="4"><li><div class="sh-hh"><span>{{h.n}}</span><b>{{h.p}}</b></div><div class="sh-hb"><i style="{{h.w}}"></i></div><div class="sh-hf"><small>{{h.f}}</small><a href="#" onClick="{{h.go}}">{{h.l}}</a></div></li></sc-for></ul></div></section>
           <section class="kc-card"><div class="kc-ch"><h2>版本与授权</h2><span class="sh-act2"><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">续费</a><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">扩容</a></span></div>
             <div class="kc-cb"><div class="sh-kv"><div><span>版本</span>企业版</div><div><span>授权</span><em class="r">68 / 50 台</em></div><div><span>到期</span><em class="r">10-25 · 保留至 11-08</em></div></div>
             </div></section>
-          <section class="kc-card"><div class="kc-ch"><h2>告警通知</h2><a href="#">设置</a></div>
+          <section class="kc-card"><div class="kc-ch"><h2>告警通知</h2><a href="#" onClick="{{sx.go.notify}}">设置</a></div>
             <div class="kc-cb"><div class="sh-kv"><div><span>接收人</span>wangqi、李四</div><div><span>方式</span>站内信、短信（紧急）</div><div><span>未受保护提醒</span>每天 1 次</div></div></div></section>
         </div>
       </div>
+          <sc-if value="{{sx.dwOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.dwX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{sx.dw.t}}"><header><h3>{{sx.dw.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.dwX}}">×</button></header>
+        <div class="sh-dwb"><sc-if value="{{sx.dw.p}}" hint-placeholder-val="{{true}}"><p class="sh-dp">{{sx.dw.p}}</p></sc-if>
+          <div class="kc-tw"><table class="kc-t"><thead><tr><sc-for list="{{sx.dw.h}}" as="h" hint-placeholder-count="4"><th>{{h.t}}</th></sc-for></tr></thead><tbody><sc-for list="{{sx.dw.r}}" as="r" hint-placeholder-count="3"><tr><td><b class="sh-dn">{{r.a}}</b></td><td>{{r.b}}</td><td><span class="{{r.cc}}">{{r.c}}</span></td><td><sc-if value="{{r.o}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.go}}">{{r.o}}</button></sc-if></td></tr></sc-for></tbody></table></div>
+          <sc-if value="{{sx.dw.more}}" hint-placeholder-val="{{false}}"><p class="sh-dmore">{{sx.dw.more}}</p></sc-if></div>
+        <footer><sc-if value="{{sx.dw.lk}}" hint-placeholder-val="{{true}}"><a class="sh-tx" href="#" onClick="{{sx.dw.lkGo}}">{{sx.dw.lk}}</a></sc-if><button type="button" class="kc-btn" onClick="{{sx.dwX}}">关闭</button></footer></aside></sc-if>
+      <sc-if value="{{sx.mdOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md" role="dialog" aria-modal="true" aria-label="{{sx.md.t}}"><h3>{{sx.md.t}}</h3><p>{{sx.md.p}}</p>
+        <sc-if value="{{sx.md.code}}" hint-placeholder-val="{{false}}"><div class="sh-code"><code>{{sx.md.code}}</code><button type="button" class="sh-op" onClick="{{sx.mdCopy}}">{{sx.mdCpT}}</button></div></sc-if>
+        <div class="sh-mf"><button type="button" class="kc-btn" onClick="{{sx.mdX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.mdOk}}">{{sx.md.ok}}</button></div></div></div></sc-if>
+      <sc-if value="{{sx.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{sx.ts.c}}"></i>{{sx.ts.t}}</div></sc-if>
     </main>
   </div>
 </div>
@@ -2816,6 +2865,81 @@ class Component extends DCLogic {
     e.preventDefault(); act(el, e);
   }, false);
 })(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
+  _shx(sx) {
+    const st = this.state || {}; const S = (o) => this.setState(o);
+    const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(); };
+    const toast = (t, k) => { S({ shT: { t, c: 'sh-ti ' + (k || 'ok') } }); clearTimeout(this.__shTo); this.__shTo = setTimeout(() => this.setState({ shT: null }), 2400); };
+    const navT = (n) => ev(() => toast('跳转到「' + n + '」页', 'info'));
+    const H = (rows) => rows.map(([a, b, c, cc, o, go]) => ({ a, b, c, cc: cc || '', o: o || '', go: go ? ev(go) : undefined }));
+    const openDw = (k) => S({ shDw: k, shMd: '' });
+    const openMd = (k) => S({ shMd: k, shDw: '', shCp: 0 });
+    const pd = st.pd || {}; const plug = st.plug || {};
+    const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
+    const HOST = {
+      '正常': ['共 62 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
+      '有风险': ['', [['web-prod-01', '10.0.1.11', '紧急 2 · 高危 1', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
+      '未受保护': ['客户端未安装或已卸载的主机不会被检测。', [['backup-02', '10.0.5.52', '客户端已卸载', 'kc-tag warn', '重新安装', () => openMd('install')]]],
+      '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
+      '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
+      '离线': ['', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
+      'Agent 异常': ['', [['backup-02', '10.0.5.52', '客户端已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['cache-02', '10.0.3.32', '心跳超时 12 分钟', 'kc-tag warn', '排查', () => toast('跳转到「cache-02」主机详情', 'info')], ['app-05', '10.0.2.25', '客户端版本过旧 V4.1', 'kc-tag warn', '升级', () => toast('已下发升级任务')]]],
+      '策略未生效': ['新接入主机首次下发策略约需 5 分钟。', [['db-new-01', '10.0.4.61', '策略下发中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '策略下发中', 'kc-tag info']]],
+      '未覆盖': ['', [['backup-02', '10.0.5.52', '客户端已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['test-07', '10.0.9.17', '已停机', 'kc-tag mut'], ['db-new-01', '10.0.4.61', '接入中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '接入中', 'kc-tag info']]]
+    };
+    const hostDw = (k) => ({ t: k + '的主机', p: HOST[k][0], h: ['主机', 'IP', '状态', '操作'], r: H(HOST[k][1]), lk: '在资产中心查看', lkGo: navT('资产中心') });
+    const REC = [['EVT-0998', 'web-prod-01', '已解决', 'kc-tag ok', '恶意文件已阻断，复检通过'], ['EVT-1003', 'app-03', '已解决', 'kc-tag ok', '高危端口已关闭'], ['EVT-0999', 'cache-01', '待复检', 'kc-tag warn', '可疑进程已隔离'], ['EVT-1005', 'web-prod-02', '待复检', 'kc-tag warn', 'Nginx 已升级'], ['EVT-0990', 'api-01', '已忽略', 'kc-tag mut', '测试账号，已确认'], ['EVT-0981', 'backup-02', '旧环境归档', 'kc-tag mut', '重装前的 3 条风险']];
+    const recDw = (f) => ({ t: f ? '处置记录 · ' + f : '处置记录 · 近 7 天', p: f === '新发现' ? '近 7 天新发现 14 项，其中紧急 4 项。' : '', h: ['事件', '主机', '结果', '说明'],
+      r: REC.filter((r) => !f || f === '新发现' || r[2] === f).map(([a, b, c, cc, d]) => ({ a, b, c, cc, o: '', go: undefined, d })).map((x) => Object.assign(x, { b: x.b + ' · ' + x.d })), lk: '查看全部处置记录', lkGo: navT('处置记录') });
+    const DW = {
+      score: { t: '评分详情', p: '安全评分 = 100 − 扣分。修复后下次检测时更新评分。', h: ['扣分项', '主机', '扣分', '操作'],
+        r: H([['OpenSSH 远程代码执行漏洞', 'web-prod-01', '−6', 'sh-red', '去修复', () => openMd('fix')], ['异常登录', 'web-prod-01', '−4', 'sh-red', 'AI 研判', () => openDw('judge')], ['弱口令（3 个账号）', 'web-prod-01', '−3', 'sh-red', '处理', () => openMd('retry')],
+          ['基线不合规 5 项', '2 台', '−2', 'sh-red', '查看', () => toast('跳转到「基线检查」页', 'info')], ['客户端已卸载', 'backup-02', '−2', 'sh-red', '重新安装', () => openMd('install')], ['高危端口开放', 'app-03', '−1', 'sh-red', '查看', () => toast('跳转到「网络防火墙」页', 'info')]]), lk: '', lkGo: undefined },
+      ai: { t: 'AI 分析详情', p: '基于近 24 小时的告警、日志和资产信息生成，结论供参考，处置前请确认。', h: ['事件', '研判结论', '可信度', '操作'],
+        r: H([['异常登录', '疑似撞库成功，来源 IP 近 1 小时尝试 312 次', '高', 'kc-tag err', '封禁 IP', () => toast('已封禁 45.142.xx.xx，24 小时后自动解封')], ['OpenSSH 漏洞', '端口对公网开放，可被远程利用', '高', 'kc-tag err', '去修复', () => openMd('fix')], ['客户端已卸载', '10-29 由 root 手动卸载', '中', 'kc-tag warn', '重新安装', () => openMd('install')]]), lk: '', lkGo: undefined },
+      judge: { t: 'AI 研判 · 异常登录', p: 'web-prod-01 在 10:12 被 45.142.xx.xx（荷兰）以 root 登录，此前 1 小时该 IP 尝试登录 312 次。', h: ['证据', '内容', '判断', '操作'],
+        r: H([['登录来源', '45.142.xx.xx · 荷兰', '首次出现', 'kc-tag err'], ['登录前行为', '1 小时内失败 312 次', '暴力破解', 'kc-tag err'], ['登录后行为', '下载 /tmp/.x 并执行', '可疑', 'kc-tag warn', '隔离文件', () => toast('已隔离 /tmp/.x')]]), lk: '确认是本人登录', lkGo: ev(() => { S({ shDw: '', pd: Object.assign({}, this.state.pd || {}, { 0: 1 }) }); toast('已标记为本人登录，同类告警 7 天内不再提醒'); }) },
+      verify: { t: '验证详情 · EVT-0998', p: '恶意文件已在 10-31 阻断并隔离，11-01 复检未再发现。', h: ['步骤', '时间', '结果', ''], r: H([['发现恶意文件', '10-31 14:02', '已告警', 'kc-tag warn'], ['阻断并隔离', '10-31 14:02', '成功', 'kc-tag ok'], ['复检', '11-01 02:00', '通过', 'kc-tag ok']]), lk: '', lkGo: undefined }
+    };
+    const MD = {
+      scanAll: { t: '对全部 68 台主机进行全面检测？', p: '检测漏洞、基线、病毒和入侵痕迹，约需 10 分钟，不影响业务运行。检测期间可以离开本页，完成后会通知你。', ok: '开始检测',
+        run: () => { S({ shMd: '', scan: 'ing' }); toast('已开始全面检测，预计 10 分钟完成', 'info'); setTimeout(() => this.setState({ scan: 'ok' }), 2400); } },
+      scanOne: { t: '检测 OpenSSH 远程代码执行漏洞？', p: '对全部 68 台主机检测 CVE-2024-6387，约需 1 分钟，不影响业务运行。', ok: '开始检测', run: () => { S({ shMd: '' }); toast('已开始检测，约 1 分钟后出结果', 'info'); } },
+      install: { t: '为 backup-02 重新安装客户端', p: '以 root 身份在服务器上运行下面的命令，安装完成后约 1 分钟自动上线并开始检测。', code: 'curl -sSL https://dl.dexunyun.com/agent/install.sh | sudo bash -s -- --key DX-8F3A-****', ok: '我已运行',
+        run: () => { S({ shMd: '', pd: Object.assign({}, this.state.pd || {}, { 2: 1 }) }); toast('已记录，客户端上线后状态会自动更新', 'info'); } },
+      fix: { t: '在 web-prod-01 上修复 OpenSSH 漏洞？', p: '将 OpenSSH 升级到 9.8p1，升级时会重启 sshd，已建立的 SSH 连接不受影响。建议在业务低峰执行，完成后自动复检。', ok: '确认修复', run: done(1, '已下发修复任务，完成后自动复检') },
+      retry: { t: '重试弱口令修复？', p: '上次失败原因：客户端没有修改账号密码的权限。请确认客户端以 root 运行后再重试。', ok: '重试', run: done(3, '已重新下发修复任务') },
+      recheck: { t: '对 EVT-0999 进行复检？', p: '重新检测 cache-01 上的可疑进程，约需 1 分钟。', ok: '开始复检', run: () => { S({ shMd: '' }); toast('已开始复检，约 1 分钟后出结果', 'info'); } }
+    };
+    ['防勒索', '网页防篡改'].forEach((n) => { MD['plug:' + n] = { t: '安装' + n + '插件？', p: '将为 64 台受保护主机安装，安装时不重启服务器，约需 3 分钟。安装后在「防护能力」中默认开启。', ok: '安装',
+      run: () => { S({ shMd: '', plug: Object.assign({}, this.state.plug || {}, { [n]: 'ing' }) }); setTimeout(() => { this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }); toast(n + '插件已安装'); }, 1800); } }; });
+    const dk = st.shDw || '', mk = st.shMd || '';
+    const dw = dk.indexOf('host:') === 0 ? hostDw(dk.slice(5)) : dk.indexOf('rec:') === 0 ? recDw(dk.slice(4)) : DW[dk] || { t: '', p: '', h: [], r: [], lk: '' };
+    dw.h = (dw.h || []).map((t) => ({ t })); dw.more = dw.more || '';
+    const md = MD[mk] || { t: '', p: '', ok: '', code: '' };
+    Object.assign(sx, {
+      go: { report: navT('安全报告'), install: ev(() => openMd('install')), score: ev(() => openDw('score')), ai: ev(() => openDw('ai')), allPri: navT('告警与风险'), allAl: navT('告警与风险'), rec: ev(() => openDw('rec:')), assets: navT('资产中心'), notify: navT('通知设置') },
+      nbGo: (st.ni || 0) === 0 ? ev(() => openMd('scanOne')) : (st.ni || 0) === 2 ? navT('产品动态') : undefined,
+      scan: () => { if (st.scan === 'ing') return; openMd('scanAll'); },
+      refresh: () => { if (st.rf === 'ing') return; S({ rf: 'ing' }); setTimeout(() => { this.setState({ rf: 'ok' }); toast('数据已更新'); }, 900); },
+      rfC: st.rf === 'ing' ? 'sh-rf spin' : 'sh-rf',
+      dwOn: !!dk, dw, dwX: ev(() => S({ shDw: '' })),
+      mdOn: !!mk, md: Object.assign({ code: '' }, md), mdX: ev(() => S({ shMd: '' })), mdOk: ev(() => md.run && md.run()),
+      mdCpT: st.shCp ? '已复制' : '复制', mdCopy: ev(() => { try { navigator.clipboard.writeText(md.code).catch(() => {}); } catch (x) {} S({ shCp: 1 }); }),
+      tsOn: !!st.shT, ts: st.shT || { t: '', c: '' }
+    });
+    const PG = [() => openDw('judge'), () => openMd('fix'), () => openMd('install'), () => openMd('retry')];
+    sx.pri.forEach((x, i) => { x.go = pd[i] ? ev(() => toast('已提交，处理中', 'info')) : ev(PG[i]); });
+    sx.caps.forEach((c) => { if (c.btn) c.go = ev(() => { if ((plug[c.n] || '') === '') openMd('plug:' + c.n); }); });
+    sx.dist.forEach((d) => { d.go = d.v ? ev(() => openDw('host:' + d.n)) : ev(() => {}); });
+    const HK = { '离线 1 台': '离线', '异常 3 台': 'Agent 异常', '未生效 2 台': '策略未生效', '未覆盖 4 台': '未覆盖' };
+    sx.health.forEach((h) => { h.go = ev(() => openDw('host:' + HK[h.l])); });
+    sx.prog.forEach((x) => { x.go = ev(() => openDw('rec:' + x.n)); });
+    sx.ev.forEach((x) => { x.go = x.o === '去复检' ? ev(() => openMd('recheck')) : ev(() => openDw('verify')); });
+    const RG = { '客户端已卸载': () => openMd('install'), '异常登录': () => openDw('judge'), 'OpenSSH 远程代码执行漏洞': () => openMd('fix'), '弱口令（3 个账号）': () => openMd('retry') };
+    sx.rows.forEach((r) => { r.go = RG[r.t] ? ev(RG[r.t]) : undefined; });
+    const KP = { '入侵检测': '入侵防御', '漏洞风险': '漏洞检测', '基线风险': '基线检查', '网络风险': '网络防火墙' };
+    sx.rcat.forEach((k) => { k.go = navT(KP[k.n] || k.n); });
+  }
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
     const M = [
@@ -2940,6 +3064,7 @@ class Component extends DCLogic {
         return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'kc-tag info' : 'kc-tag ok', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })
     } };
+    this._shx(SXD.sx);
     const __R = Object.assign({ nav }, SXD, { tabs, rows, total: rows.length,
       insShow: ins !== 'ok', insIdle: !ins, insCls: ins === 'ing' ? 'ac-al i' : 'ac-al', insI: ins === 'ing' ? 'i' : '!',
       insT: ins === 'ing' ? '正在为 backup-02 安装德迅安全卫士客户端…' : '1 台服务器未受保护：backup-02 的德迅安全卫士客户端已被卸载',
