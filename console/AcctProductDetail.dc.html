@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>德迅卫士</title>
+<title>德迅安全卫士</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -1700,6 +1700,17 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-pch .kc-sw{margin-left:auto}
 .kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
 /* /pages109 */
+
+/* p0sec：德迅安全卫士固定入口 */
+.ac-tl > a.sx-sec{color:#1664ff;font-weight:500;gap:6px}
+.ac-tl > a.sx-sec:hover{background:#eef4ff;color:#1664ff}
+.ac-tl > a.sx-sec em{font-style:normal;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#f53f3f;color:#fff;font-size:12px;line-height:18px;text-align:center;font-weight:500}
+.tp-l ul.sx-pinl{margin-bottom:14px}
+.tp-l ul.sx-pinl li a.sx-pin{height:40px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.tp-l ul.sx-pinl li a.sx-pin:hover{border-color:#1664ff;background:#fff}
+.tp-l a.sx-pin i{flex:none;width:18px;height:18px}
+.tp-l a.sx-pin b{font-weight:500}
+.tp-l a.sx-pin small.r{color:#f53f3f}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1708,6 +1719,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">10 条待处理</small></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
@@ -1720,7 +1732,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">我的产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">产品列表</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>德迅卫士</b></nav>
+    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">我的产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">产品列表</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>德迅安全卫士</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -1793,7 +1805,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     </aside>
     <main data-pg="AcctProductDetail" class="kc-main">
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1">德迅卫士</h1></div></div>
+        <div class="kc-hdl"><div><h1 class="kc-h1">德迅安全卫士</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctTransfer.dc.html">转移权益</a><a class="kc-btn pri" href="#">进入控制台</a></div>
       </div>
       <div class="ac-al e"><i>!</i><span>1 项服务已到期 · 授权超出 18 台<em>续费和扩容在下方对应服务里操作</em></span></div>
@@ -1802,7 +1814,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         <sc-if value="{{isOv}}" hint-placeholder-val="{{true}}">
         <div class="kc-cb"><div class="ac-stats c3" style="margin:0"><div class="ac-st"><span>授权总数</span><b>52 <small>台</small></b></div><div class="ac-st r"><span>已使用</span><b>70 <small>台</small></b><em>使用率 134.6%</em></div><div class="ac-st r"><span>超出</span><b>18 <small>台</small></b><em>超出的主机不受保护<a href="BillConfirm.dc.html">扩容</a></em></div></div></div>
         <div class="kc-ch" style="border-top:1px solid #f2f3f5"><h2>产品资料</h2></div>
-        <div class="kc-cb"><div class="ac-kv"><div><span>产品名称</span>德迅卫士</div><div><span>所属分类</span>主机安全</div><div><span>服务数量</span>2 项有效 · 0 项已释放</div><div><span>首次购买</span>2026-01-26</div></div></div>
+        <div class="kc-cb"><div class="ac-kv"><div><span>产品名称</span>德迅安全卫士</div><div><span>所属分类</span>主机安全</div><div><span>服务数量</span>2 项有效 · 0 项已释放</div><div><span>首次购买</span>2026-01-26</div></div></div>
         </sc-if>
         <sc-if value="{{isSv}}" hint-placeholder-val="{{false}}">
         <div class="kc-tw"><table class="kc-t lf-st4 op-fix">
@@ -1823,7 +1835,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   /* top70 */
   componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
@@ -1834,7 +1846,7 @@ class Component extends DCLogic {
     // 产品切换
     const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
         ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
-      ['主机与容器', [['德迅卫士', '主机安全', 'AcctProducts.dc.html', 1, '主机 hids'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
       ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
       ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
     const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();

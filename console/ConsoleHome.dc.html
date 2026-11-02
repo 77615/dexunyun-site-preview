@@ -8,7 +8,7 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&display=swap" data-r91>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&amp;display=swap" data-r91="">
 <style>
 /* hdr62：顶栏下拉 */
 .ac-tl{gap:4px !important}
@@ -1897,6 +1897,98 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-pch .kc-sw{margin-left:auto}
 .kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
 /* /pages109 */
+.sa{border:1px solid #e5e6eb;border-radius:4px;background:#fff;margin-bottom:24px;overflow:hidden}
+.sa-hd{display:flex;align-items:center;gap:12px;height:48px;padding:0 16px}
+.sa-hd b{font-size:14px;font-weight:600;color:#0c0d0e}
+.sa-upd{font-size:12px;color:#86909c}
+.sa-hd a{margin-left:auto;font-size:13px;color:#1664ff;text-decoration:none}
+.sa-sum{display:flex;align-items:center;gap:20px;padding:0 16px 14px}
+.sa-dist{display:flex;gap:2px;width:220px;height:6px;flex-shrink:0}
+.sa-dist i{border-radius:1px}
+.sa-dist i.n0{display:none}
+.sa-dist i.n1{flex:1}.sa-dist i.n2{flex:2}.sa-dist i.n3{flex:3}.sa-dist i.n4{flex:4}.sa-dist i.n5{flex:5}
+.d-r{background:#f53f3f}.d-o{background:#ff7d00}.d-y{background:#fadc19}.d-g{background:#c9cdd4}
+.sa-lg{display:flex;gap:16px;font-size:12px;color:#4e5969}
+.sa-lg span{display:inline-flex;align-items:center;gap:6px;background:none}
+.sa-lg span::before{content:"";width:8px;height:8px;border-radius:1px;background:inherit}
+.sa-lg span.d-r::before{background:#f53f3f}.sa-lg span.d-o::before{background:#ff7d00}.sa-lg span.d-y::before{background:#fadc19}.sa-lg span.d-g::before{background:#c9cdd4}
+.sa-lg b{margin-left:2px;font:600 12px Inter,"PingFang SC",sans-serif;color:#1d2129}
+.sa-dlt{margin-left:auto;font-size:12px;color:#86909c}
+.sa-dlt b{font:500 12px Inter,"PingFang SC",sans-serif;color:#4e5969}
+.sa .kc-tabs{border-top:1px solid #f0f2f5}
+.sa .kc-tab{height:40px;font-weight:400;color:#42464e}
+.sa .kc-tab.on{color:#1664ff;font-weight:500}
+.sa .kc-tw{margin:0}
+.sa-t{table-layout:fixed}
+.sa-t td{height:56px;overflow:hidden;text-overflow:ellipsis}
+.sa-row{cursor:pointer}
+.sa-row:hover td{background:#f7f9fc}
+.sa-nm{display:flex;align-items:flex-start;gap:8px;min-width:0}
+.sa-nm .kc-lv3{margin:7px 0 0;flex-shrink:0}
+.sa-nm > div{min-width:0}
+.sa-nm b{display:block;font-size:13px;font-weight:500;color:#1d2129;overflow:hidden;text-overflow:ellipsis}
+.sa-nm p{margin:2px 0 0;font-size:12px;line-height:18px;color:#86909c;overflow:hidden;text-overflow:ellipsis}
+.sa-nm p span + span::before{content:"/";margin:0 6px;color:#e5e6eb}
+.sa-lvt.r{color:#cb2634}.sa-lvt.o{color:#d25f00}.sa-lvt.y{color:#a87b00}
+.sa-sp{display:flex;align-items:flex-end;gap:2px;height:20px;width:96px}
+.sa-sp i{flex:1;background:#c9d9f5;border-radius:1px 1px 0 0;min-height:1px}
+.sa-sp i.r{background:#f9b5b5}
+.sa-sp i.s0{height:1px;background:#e5e6eb}.sa-sp i.s1{height:12%}.sa-sp i.s2{height:25%}.sa-sp i.s3{height:37%}.sa-sp i.s4{height:50%}.sa-sp i.s5{height:62%}.sa-sp i.s6{height:75%}.sa-sp i.s7{height:88%}.sa-sp i.s8{height:100%}
+.sa-sp i:last-child:not(.s0){background:#1664ff}.sa-sp i.r:last-child:not(.s0){background:#f53f3f}
+.sa-sp.lg{width:100%;height:56px;gap:4px;margin-top:8px}
+.sa-ax{display:flex;justify-content:space-between;margin-top:4px;font-size:12px;color:#86909c}
+.sa-n{text-align:right;font-family:Inter,"PingFang SC",sans-serif}
+.sa-none{margin:0;padding:24px;text-align:center;font-size:13px;color:#86909c}
+.sa-more{display:block;width:100%;height:40px;border:0;border-top:1px solid #e5e6eb;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.sa-more:hover{color:#1664ff}
+.sa-fx{position:fixed !important;top:56px !important;z-index:60 !important}
+.sa-x{border:0;background:none;font-size:22px;line-height:1;color:#86909c;cursor:pointer}
+.sa-x:hover{color:#1d2129}
+.sa-dh{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sa-dh .kc-tag{margin:0}
+.sa-dh h3{flex-basis:100%;margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;color:#0c0d0e}
+.sa-kv{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px 12px;margin:20px 0 4px;padding:16px;background:#f7f8fa;border-radius:4px;font-size:13px}
+.sa-kv dt{color:#86909c}.sa-kv dd{margin:0;color:#1d2129}
+.sa-kv a{color:#1664ff;text-decoration:none}
+.kc-dwb h4{margin:24px 0 0;font-size:14px;font-weight:500;color:#0c0d0e}
+.kc-dwb > p{margin:6px 0 0;font-size:13px;line-height:22px;color:#4e5969}
+.sa-fix{margin:8px 0 0;padding-left:20px;font-size:13px;line-height:22px;color:#4e5969}
+.sa-fix li + li{margin-top:4px}
+.sa-sub2{margin:0 0 12px;font-size:14px;font-weight:500;color:#0c0d0e}
+.sa-sub2 small{margin-left:6px;font-size:13px;font-weight:400;color:#737a87}
+/* wide screens */
+.h8,.kc-main:has(> .h8) > .kc-hd{max-width:1200px}
+@media (min-width:1600px){
+  .h8,.kc-main:has(> .h8) > .kc-hd{max-width:1680px;padding-left:40px !important;padding-right:40px !important}
+  .h8-cols{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:32px;align-items:start}
+  .h8-rl{position:sticky;top:16px}
+  .h8-rl .h8-fee{grid-template-columns:1fr}
+  .h8-rl .h8-fl{padding:20px 24px}
+  .h8-rl .h8-fl dl{grid-template-columns:1fr 1fr}
+  .h8-rl .h8-fr{border-left:0;border-top:1px solid #eaedf1;padding:16px 20px}
+  .h8-rl .h8-ch{height:150px}
+  .h8-rl .h8-g3{grid-template-columns:1fr}
+  .h8-rl .h8-ac{padding:12px 16px 12px 20px}
+  .h8-rl .h8-tip{height:auto;min-height:36px;padding:8px 12px;flex-wrap:wrap}
+  .h8-m .h8-g4,.h8-m .h8-res{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .h8-m .vt-wrap{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:2200px){
+  .h8,.kc-main:has(> .h8) > .kc-hd{max-width:2000px}
+  .h8-cols{grid-template-columns:minmax(0,1fr) 440px}
+  .h8-m .h8-g4,.h8-m .h8-res{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+
+/* p0sec：德迅安全卫士固定入口 */
+.ac-tl > a.sx-sec{color:#1664ff;font-weight:500;gap:6px}
+.ac-tl > a.sx-sec:hover{background:#eef4ff;color:#1664ff}
+.ac-tl > a.sx-sec em{font-style:normal;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#f53f3f;color:#fff;font-size:12px;line-height:18px;text-align:center;font-weight:500}
+.tp-l ul.sx-pinl{margin-bottom:14px}
+.tp-l ul.sx-pinl li a.sx-pin{height:40px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.tp-l ul.sx-pinl li a.sx-pin:hover{border-color:#1664ff;background:#fff}
+.tp-l a.sx-pin i{flex:none;width:18px;height:18px}
+.tp-l a.sx-pin b{font-weight:500}
+.tp-l a.sx-pin small.r{color:#f53f3f}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1905,6 +1997,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">10 条待处理</small></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
@@ -1917,7 +2010,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb class="kc-crumb" aria-label="面包屑"><b>首页</b></nav>
+    <nav data-cb="" class="kc-crumb" aria-label="面包屑"><b>首页</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -1995,12 +2088,10 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       </div>
       <div class="h8">
         <div class="h8-box h8-acc"><div class="h8-av">德</div><div class="h8-who"><b>wangqi</b><span class="kc-tag info">主账号</span><a class="kc-tag ok" href="OrgVerify.dc.html" style="text-decoration:none">企业已认证</a><p>德迅科技 · 账号 ID 100014655316</p></div><div class="h8-kpi"><a href="BillOverview.dc.html"><strong>¥1,260.00</strong><span>账户余额 · <u style="color:#1664ff;text-decoration:none">充值</u></span></a><a href="BillPayment.dc.html"><strong>1</strong><span>待付款</span></a><a href="AcctSubs.dc.html?ft=exp"><strong class="w">5</strong><span>到期与即将到期</span></a><a href="SupTickets.dc.html"><strong>4</strong><span>未关闭工单</span></a><a href="OrgSecurity.dc.html"><strong>81</strong><span>安全分</span></a></div></div>
-        <section class="h8-sec"><div class="h8-st"><h2>待处理<small>19 项未解决</small></h2><a href="Notifications.dc.html">全部<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-          <div class="h8-rt" role="tablist"><button type="button" role="tab" class="{{rc0}}" onClick="{{rp0}}">全部 <span>19</span></button><button type="button" role="tab" class="{{rc1}}" onClick="{{rp1}}">运维 <span>11</span></button><button type="button" role="tab" class="{{rc2}}" onClick="{{rp2}}">财务 <span>7</span></button><button type="button" role="tab" class="{{rc3}}" onClick="{{rp3}}">其他 <span>1</span></button><em>成员登录后只显示自己角色能处理的事项：运维看不到付款，财务看不到攻击告警</em></div>
-          <sc-if value="{{rs0}}" hint-placeholder-val="{{true}}"><div class="vt-wrap"><a class="vt-c" href="IdcServerDetail.dc.html"><i class="vt-sec"></i><div><b>云安全中心 · 需处理</b><p>德迅安全卫士 <em>2</em> 项高危 · web-prod-01 异常登录</p></div><strong>3</strong><s></s></a><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>德迅云眼 · 需处理</b><p><em>1</em> 个高危漏洞</p></div><strong>1</strong><s></s></a><a class="vt-c" href="DdosInstanceDetail.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中 · 高防-002</p></div><strong>1</strong><s></s></a><a class="vt-c" href="Main.dc.html"><i class="vt-sec"></i><div><b>SCDN 域名需处理</b><p><em>1</em> 个 CC 攻击未拦截 · 证书 12 天后到期等</p></div><strong>4</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=lic"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅安全卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if>
-          <sc-if value="{{rs1}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="IdcServerDetail.dc.html"><i class="vt-sec"></i><div><b>云安全中心 · 需处理</b><p>德迅安全卫士 <em>2</em> 项高危 · web-prod-01 异常登录</p></div><strong>3</strong><s></s></a><a class="vt-c" href="EyeRisk.dc.html"><i class="vt-sec"></i><div><b>德迅云眼 · 需处理</b><p><em>1</em> 个高危漏洞</p></div><strong>1</strong><s></s></a><a class="vt-c" href="DdosInstanceDetail.dc.html"><i class="vt-ddos"></i><div><b>DDoS 攻击</b><p><em>1</em> 个攻击进行中 · 高防-002</p></div><strong>1</strong><s></s></a><a class="vt-c" href="Main.dc.html"><i class="vt-sec"></i><div><b>SCDN 域名需处理</b><p><em>1</em> 个 CC 攻击未拦截 · 证书 12 天后到期等</p></div><strong>4</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=lic"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅安全卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a></div></sc-if>
-          <sc-if value="{{rs2}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a></div></sc-if>
-          <sc-if value="{{rs3}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if>
+        <div class="h8-cols"><div class="h8-m">
+        <section class="h8-sec"><div class="h8-st"><h2>待处理<small>20 项</small></h2><a href="Notifications.dc.html">全部<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="h8-rt" role="tablist"><button type="button" role="tab" class="{{rc0}}" onClick="{{rp0}}">全部 <span>20</span></button><button type="button" role="tab" class="{{rc1}}" onClick="{{rp1}}">安全告警 <span>10</span></button><button type="button" role="tab" class="{{rc2}}" onClick="{{rp2}}">运维 <span>2</span></button><button type="button" role="tab" class="{{rc3}}" onClick="{{rp3}}">财务 <span>7</span></button><button type="button" role="tab" class="{{rc4}}" onClick="{{rp4}}">其他 <span>1</span></button><em>成员登录后只显示自己角色能处理的事项：运维看不到付款，财务看不到攻击告警</em></div>
+          <sc-if value="{{saOn}}" hint-placeholder-val="{{true}}"><div class="sa"><div class="sa-hd"><b>安全告警</b><span class="sa-upd">近 24 小时 · 10:42 更新</span><a href="SecHome.dc.html">在德迅安全卫士中查看全部</a></div><div class="sa-sum"><div class="sa-dist"><sc-for list="{{saDist}}" as="d" hint-placeholder-count="4"><i class="{{d.c}}" title="{{d.l}}"></i></sc-for></div><div class="sa-lg"><sc-for list="{{saDist}}" as="d" hint-placeholder-count="4"><span class="{{d.c}}">{{d.l}}<b>{{d.n}}</b></span></sc-for></div><div class="sa-dlt">较昨日 <b>+3</b> · 今天已处置 <b>2</b></div></div><div class="kc-tabs" role="tablist"><sc-for list="{{saChips}}" as="c" hint-placeholder-count="4"><button type="button" role="tab" class="{{c.cls}}" onClick="{{c.go}}">{{c.l}}<span class="{{c.cc}}">{{c.n}}</span></button></sc-for></div><div class="kc-tw"><table class="kc-t sa-t"><thead><tr><th>告警</th><th style="width:150px">状态</th><th style="width:132px">近 24 小时</th><th style="width:80px;text-align:right">次数</th><th style="width:96px">最近发生</th><th style="width:88px">操作</th></tr></thead><tbody><sc-for list="{{saRows}}" as="r" hint-placeholder-count="5"><tr class="sa-row" onClick="{{r.open}}"><td><div class="sa-nm"><i class="{{r.dot}}"></i><div><b>{{r.t}}</b><p><span class="{{r.lvt}}">{{r.lv}}</span><span>{{r.where}}</span><span>{{r.prod}}</span></p></div></div></td><td><span class="{{r.stc}}">{{r.st}}</span></td><td><div class="sa-sp"><sc-for list="{{r.sp}}" as="b" hint-placeholder-count="12"><i class="{{b.c}}"></i></sc-for></div></td><td class="sa-n">{{r.ev}}</td><td class="m">{{r.tm}}</td><td><a href="{{r.href}}">{{r.btn}}</a></td></tr></sc-for></tbody></table></div><sc-if value="{{saEmpty}}" hint-placeholder-val="{{false}}"><p class="sa-none">这一类没有待处理的告警</p></sc-if><sc-if value="{{saCanMore}}" hint-placeholder-val="{{true}}"><button type="button" class="sa-more" onClick="{{saTog}}">{{saMoreTxt}}</button></sc-if></div></sc-if><sc-if value="{{rs0}}" hint-placeholder-val="{{true}}"><p class="sa-sub2">其他待办<small>10 项</small></p><div class="vt-wrap"><a class="vt-c" href="AcctSubs.dc.html?ft=lic"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅安全卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if><sc-if value="{{rs2}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="AcctSubs.dc.html?ft=lic"><i class="vt-lic"></i><div><b>授权不足</b><p>德迅安全卫士 <em>1</em> 项授权超出上限</p></div><strong>1</strong><s></s></a><a class="vt-c" href="SupTicketDetail.dc.html"><i class="vt-tk"></i><div><b>工单待确认</b><p>回源 502 已处理，等你确认</p></div><strong>1</strong><s></s></a></div></sc-if><sc-if value="{{rs3}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="BillPayment.dc.html"><i class="vt-ord"></i><div><b>待付款</b><p><em>1</em> 笔 · ¥320.00 · 对公转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="BillPayFix.dc.html"><i class="vt-pay"></i><div><b>汇款核验未匹配</b><p>¥240.00 已转账，补充信息即可，不要重复转账</p></div><strong>1</strong><s></s></a><a class="vt-c" href="AcctSubs.dc.html?ft=exp"><i class="vt-exp"></i><div><b>服务到期</b><p><em>1</em> 项已到期 · 4 项 30 天内到期</p></div><strong>5</strong><s></s></a></div></sc-if><sc-if value="{{rs4}}" hint-placeholder-val="{{false}}"><div class="vt-wrap"><a class="vt-c" href="AcctTransfer.dc.html"><i class="vt-tf"></i><div><b>权益转移待确认</b><p>1 项等待接收确认</p></div><strong>1</strong><s></s></a></div></sc-if>
         </section>
         <section class="h8-sec"><div class="h8-st"><h2>快捷导航</h2></div>
           <p class="h8-sub">最近访问</p><div class="h8-g4"><a class="h8-qk" href="Main.dc.html"><i class="dt dt-scdn"></i><b>SCDN · 域名管理</b><small>今天</small></a><a class="h8-qk" href="DdosInstances.dc.html"><i class="dt dt-ddos"></i><b>DDoS 高防 IP</b><small>今天</small></a><a class="h8-qk" href="IdcServers.dc.html"><i class="dt dt-idc"></i><b>服务器租用</b><small>10-26</small></a><a class="h8-qk" href="EyeRisk.dc.html"><i class="dt dt-eye"></i><b>德迅云眼</b><small>10-25</small></a><a class="h8-qk" href="BillOrders.dc.html"><i class="dt dt-order"></i><b>我的订单</b><small>10-25</small></a><a class="h8-qk" href="BillInvoice.dc.html"><i class="dt dt-invoice"></i><b>发票管理</b><small>10-24</small></a><a class="h8-qk" href="SupTickets.dc.html"><i class="dt dt-ticket"></i><b>我的工单</b><small>10-23</small></a><a class="h8-qk" href="OrgMembers.dc.html"><i class="dt dt-member"></i><b>成员管理</b><small>10-20</small></a></div>
@@ -2017,28 +2108,79 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
             </div></sc-if></div></div>
         </section>
         <section class="h8-sec"><div class="h8-st"><h2>资源概览</h2><a href="AcctProducts.dc.html">我的产品<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-          <div class="h8-box h8-res"><a href="DdosInstances.dc.html"><b><i class="dt dt-ddos"></i>DDoS 高防 IP<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>实例</span></p><i class="r">1 个攻击进行中</i></a><a href="Main.dc.html"><b><i class="dt dt-scdn"></i>SCDN<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>6<span>域名</span></p><i class="w">4 项需处理</i></a><a href="GameAccess.dc.html"><b><i class="dt dt-game"></i>游戏盾<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>2<span>实例</span></p><i class="w">并发已用 85%</i></a><a href="EyeRisk.dc.html"><b><i class="dt dt-eye"></i>德迅云眼<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>26<span>资产</span></p><i class="r">9 项待处理</i></a><a href="BillConfirm.dc.html"><b><i class="dt dt-host"></i>德迅卫士<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>68<span>台主机</span></p><i class="r">已到期 · 保留至 11-08</i></a><a href="AcctProducts.dc.html"><b><i class="dt dt-ssl"></i>SSL 证书<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>张证书</span></p><i class="">运行正常</i></a><a href="IdcServers.dc.html"><b><i class="dt dt-idc"></i>服务器租用<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>台服务器</span></p><i class="w">1 台即将到期</i></a><a href="AcctPurchase.dc.html"><b><i class="dt dt-vss"></i>漏洞扫描 VSS<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>–<span></span></p><i class="b">未开通 · 去了解</i></a></div>
+          <div class="h8-box h8-res"><a href="DdosInstances.dc.html"><b><i class="dt dt-ddos"></i>DDoS 高防 IP<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>实例</span></p><i class="r">1 个攻击进行中</i></a><a href="Main.dc.html"><b><i class="dt dt-scdn"></i>SCDN<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>6<span>域名</span></p><i class="w">4 项需处理</i></a><a href="GameAccess.dc.html"><b><i class="dt dt-game"></i>游戏盾<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>2<span>实例</span></p><i class="w">并发已用 85%</i></a><a href="EyeRisk.dc.html"><b><i class="dt dt-eye"></i>德迅云眼<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>26<span>资产</span></p><i class="r">9 项待处理</i></a><a href="BillConfirm.dc.html"><b><i class="dt dt-host"></i>德迅安全卫士<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>68<span>台主机</span></p><i class="r">已到期 · 保留至 11-08</i></a><a href="AcctProducts.dc.html"><b><i class="dt dt-ssl"></i>SSL 证书<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>张证书</span></p><i class="">运行正常</i></a><a href="IdcServers.dc.html"><b><i class="dt dt-idc"></i>服务器租用<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>3<span>台服务器</span></p><i class="w">1 台即将到期</i></a><a href="AcctPurchase.dc.html"><b><i class="dt dt-vss"></i>漏洞扫描 VSS<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></b><p>–<span></span></p><i class="b">未开通 · 去了解</i></a></div>
         </section>
+        </div><aside class="h8-rl">
         <section class="h8-sec"><div class="h8-st"><h2>费用信息</h2><a href="BillOverview.dc.html">账务概览<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
           <div class="h8-box h8-fee"><div class="h8-fl"><label>待付款（1 笔）</label><span class="big">¥ 320.00</span><span class="note">另有 1 笔汇款核验未匹配，<a href="BillPayFix.dc.html">补充信息</a>即可，不用再转账</span><div class="kc-btns"><a class="kc-btn pri" href="BillPayment.dc.html">去付款</a><a class="kc-btn" href="BillInvoiceApply.dc.html">申请开票</a></div><dl><div><dt><label>本月已付款</label></dt><dd>¥ 1,305.00</dd></div><div><dt><label>可开票金额</label></dt><dd>¥ 1,169.84</dd></div></dl></div><div class="h8-fr"><header>近半年付款 <small>数据更新至 2026-10-27</small></header><div class="h8-ch"><div class="gl" style="bottom:0%"><em>¥0</em></div><div class="gl" style="bottom:25%"><em>¥2,500</em></div><div class="gl" style="bottom:50%"><em>¥5,000</em></div><div class="gl" style="bottom:75%"><em>¥7,500</em></div><div class="gl" style="bottom:100%"><em>¥10,000</em></div><div class="bar" style="height:32.0%" title="2026-05 · ¥3,200"><span>2026-05</span></div><div class="bar" style="height:18.0%" title="2026-06 · ¥1,800"><span>2026-06</span></div><div class="bar" style="height:46.0%" title="2026-07 · ¥4,600"><span>2026-07</span></div><div class="bar" style="height:21.0%" title="2026-08 · ¥2,100"><span>2026-08</span></div><div class="bar" style="height:94.0%" title="2026-09 · ¥9,400"><span>2026-09</span></div><div class="bar cur" style="height:13.1%" title="2026-10 · ¥1,305"><span>2026-10</span></div></div><div class="h8-lg"><span><i></i>已付款</span><span><i class="c"></i>本月（截至今日）</span></div></div></div>
         </section>
         <section class="h8-sec"><div class="h8-st"><h2>企业</h2><a href="OrgMembers.dc.html">成员管理<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-          <div class="h8-tip lu"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b><span class="lu-a">https://uc.dexunyun.com/sub-login?ent=100014655316</span><button type="button" class="lu-cp" data-v="https://uc.dexunyun.com/sub-login?ent=100014655316" aria-label="复制成员登录地址" title="复制"><svg class="i-cp" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3Zm2 0h7a1 1 0 0 1 1 1v9h2V4H9v2ZM5 8v12h10V8H5Z"/></svg><svg class="i-ok" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m10 15.17 9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17Z"/></svg></button></div><div class="h8-g3"><div class="h8-ac"><div><span>成员</span><strong>5</strong></div><a class="kc-btn" href="OrgMemberNew.dc.html">添加成员</a></div><div class="h8-ac"><div><span>角色</span><strong>4</strong></div><a class="kc-btn" href="OrgRoles.dc.html">管理角色</a></div><div class="h8-ac"><div><span>安全分</span><strong>81<small>2 项可提升</small></strong></div><a class="kc-btn" href="OrgSecurity.dc.html">去提升</a></div></div>
+          <div class="h8-tip lu"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b><span class="lu-a">https://uc.dexunyun.com/sub-login?ent=100014655316</span><button type="button" class="lu-cp" data-v="https://uc.dexunyun.com/sub-login?ent=100014655316" aria-label="复制成员登录地址" title="复制"><svg class="i-cp" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3Zm2 0h7a1 1 0 0 1 1 1v9h2V4H9v2ZM5 8v12h10V8H5Z"></path></svg><svg class="i-ok" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m10 15.17 9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17Z"></path></svg></button></div><div class="h8-g3"><div class="h8-ac"><div><span>成员</span><strong>5</strong></div><a class="kc-btn" href="OrgMemberNew.dc.html">添加成员</a></div><div class="h8-ac"><div><span>角色</span><strong>4</strong></div><a class="kc-btn" href="OrgRoles.dc.html">管理角色</a></div><div class="h8-ac"><div><span>安全分</span><strong>81<small>2 项可提升</small></strong></div><a class="kc-btn" href="OrgSecurity.dc.html">去提升</a></div></div>
         </section>
         <section class="h8-sec"><div class="h8-st"><h2>公告</h2><a href="Notifications.dc.html">更多<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
           <div class="h8-box"><ul class="h8-nt"><li><span class="kc-tag mut">维护</span><a href="Notifications.dc.html">10 月 30 日 02:00–04:00 华东节点升级，期间 SCDN 配置下发可能延迟</a><time>10-26</time></li><li><span class="kc-tag mut">公告</span><a href="Notifications.dc.html">发票开具规则调整说明</a><time>10-20</time></li><li><span class="kc-tag mut">公告</span><a href="Notifications.dc.html">国庆期间值班安排</a><time>09-28</time></li></ul></div>
         </section>
+        </aside></div>
       </div>
+      <sc-if value="{{saDOn}}" hint-placeholder-val="{{false}}"><div class="kc-dmask sa-fx" onClick="{{saClose}}"></div><aside class="kc-dw sa-fx" role="dialog" aria-label="告警详情"><div class="kc-dwh"><span>告警详情</span><button type="button" class="sa-x" aria-label="关闭" onClick="{{saClose}}">×</button></div><div class="kc-dwb"><div class="sa-dh"><span class="{{saD.lvtag}}">{{saD.lv}}</span><span class="{{saD.stc}}">{{saD.st}}</span><h3>{{saD.t}}</h3></div><dl class="sa-kv"><dt>影响资产</dt><dd><a href="{{saD.href}}">{{saD.where}}</a></dd><dt>所属产品</dt><dd>{{saD.prod}}</dd><dt>首次发现</dt><dd>{{saD.first}}</dd><dt>最近发生</dt><dd>{{saD.tm}}</dd><dt>发生次数</dt><dd>{{saD.ev}}</dd></dl><h4>近 24 小时</h4><div class="sa-sp lg"><sc-for list="{{saD.sp}}" as="b" hint-placeholder-count="12"><i class="{{b.c}}"></i></sc-for></div><div class="sa-ax"><span>前 24 小时</span><span>现在</span></div><h4>发生了什么</h4><p>{{saD.what}}</p><h4>可能的影响</h4><p>{{saD.imp}}</p><h4>处置建议</h4><ol class="sa-fix"><sc-for list="{{saD.fix}}" as="x" hint-placeholder-count="2"><li>{{x.t}}</li></sc-for></ol></div><div class="kc-dwf"><button type="button" class="kc-btn" onClick="{{saIgnore}}">忽略</button><a class="kc-btn pri" href="{{saD.href}}">{{saD.btn2}}</a></div></aside></sc-if>
     </main>
   </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
+  _sa() {
+    const st = this.state || {}; const rt = st.rt || 0; const f = st.saF || 'all'; const more = !!st.saMore; const ig = st.saIg || [];
+    const SD = 'IdcServerDetail.dc.html', SL = 'IdcServers.dc.html';
+    const EYE = 'EyeRisk.dc.html', CDN = 'Main.dc.html';
+    const CERT = 'ScdnCerts.dc.html', ATK = 'DdosInstanceDetail.dc.html';
+    // id, group, level, name, asset, product, state, stateTone, spark(12), events, last, first, op, href, what, impact, fix
+    const ROWS = [
+      ['a1', 'hi', '紧急', '异常登录', 'web-prod-01', '服务器租用', '新发现', 'err', '000000000082', '3', '10:12', '10-30 10:12', '处理', SD,
+        'root 账号从荷兰 185.220.**.4 登录成功，这个地点以前没有出现过，登录后执行了 3 条命令。', '如果不是本人操作，对方已经拿到服务器的最高权限，可以删数据、植入挖矿程序或继续攻击内网。',
+        ['确认是否本人或同事登录', '不是本人：封禁该 IP，修改 root 密码，检查新增账号和计划任务', '是本人：标记为可信登录地点，之后不再提醒']],
+      ['a2', 'hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '服务器租用', '待修复', 'warn', '111111111111', '1', '10:05', '10-28 03:00', '修复', SD,
+        '服务器上的 OpenSSH 是 8.5 版本，存在 CVE-2024-6387，网上已有公开的利用方法。', '攻击者不需要密码就可能远程控制这台服务器。',
+        ['把 OpenSSH 升级到 9.8p1 或以上', '升级后在德迅安全卫士里点「重新检测」确认']],
+      ['a3', 'hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'warn', '000000011111', '1', '09:30', '10-30 09:30', '修复', EYE,
+        '网站使用的组件存在已知高危漏洞，扫描时可以被直接利用。', '可能导致网站数据泄露或页面被篡改。', ['按修复建议升级组件', '修复后发起复测']],
+      ['a4', 'hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'err', '000000013687', '18.6万', '10:41', '10-30 10:29', '开启防护', CDN,
+        '大量请求集中访问 /api/search，当前 CC 防护是宽松模式，没有拦住。', '源站负载升高，网站打开变慢，严重时会无法访问。', ['把 CC 防护切换到严格模式（立即生效）', '攻击结束后再改回宽松模式，避免误拦正常用户']],
+      ['a5', 'un', '未受保护', '客户端已卸载', 'backup-02', '服务器租用', '待处理', 'mut', '000000000000', '—', '10-29', '10-29 16:40', '安装', SL,
+        '这台服务器上的德迅安全卫士客户端已被卸载，入侵、漏洞和基线检测都没有在运行。', '出现入侵时不会有任何告警。', ['在服务器列表里点「一键安装」，约 2 分钟，不需要重启']],
+      ['a6', 'md', '可疑', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'ok', '000013578653', '86 Gbps', '10:24', '10-30 10:06', '查看', ATK,
+        '高防 IP 正在被 UDP Flood 攻击，峰值 86 Gbps，已自动清洗。', '业务目前正常；攻击超过 100 Gbps 保底防护时会触发黑洞。', ['不需要操作，留意攻击峰值', '经常接近保底时，考虑升级弹性防护']],
+      ['a7', 'md', '可疑', '弱口令（3 个账号）', 'web-prod-01', '服务器租用', '待修复', 'warn', '111111111111', '3', '10:05', '10-28 03:00', '处理', SD,
+        'admin、test、backup 三个账号使用了 123456、admin123 这类常见密码。', '容易被暴力破解后登录服务器。', ['修改这 3 个账号的密码', '不再使用的账号直接删除']],
+      ['a8', 'md', '可疑', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'mut', '000000000100', '1', '10-29', '10-29 21:02', '查看', CDN,
+        '在公开 DNS 历史记录中发现了源站的真实 IP。', '攻击者可以绕过 SCDN 直接攻击源站。', ['更换源站 IP', '源站防火墙只允许 SCDN 回源 IP 访问']],
+      ['a9', 'lo', '提醒', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'mut', '000000000000', '—', '10-28', '10-28 09:00', '续费', CERT,
+        '证书将在 11 月 11 日到期。', '到期后浏览器会提示网站不安全，访客可能离开。', ['续费证书，或上传新证书']],
+      ['a10', 'lo', '提醒', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'mut', '000000000000', '—', '10-26', '10-26 14:31', '开启', CDN,
+        '这个域名还在使用 HTTP 访问。', '访客数据明文传输，可能被窃听。', ['开启 HTTPS 并设置强制跳转']]];
+    const live = ROWS.filter((r) => ig.indexOf(r[0]) < 0);
+    const cnt = (k) => live.filter((r) => r[1] === k).length;
+    const LV = { hi: ['r', 'r', 'kc-tag err'], un: ['o', 'o', 'kc-tag warn'], md: ['y', 'y', 'kc-tag warn'], lo: ['g', 'm', 'kc-tag mut'] };
+    const CH = [['all', '全部', live.length], ['hi', '紧急', cnt('hi')], ['un', '未受保护', cnt('un')], ['md', '可疑', cnt('md')], ['lo', '提醒', cnt('lo')]];
+    const pick = live.filter((r) => f === 'all' || r[1] === f); const LIM = 5; const cut = f === 'all' && !more ? pick.slice(0, LIM) : pick;
+    const sp = (str, k) => str.split('').map((h) => ({ c: 's' + h + (k === 'hi' ? ' r' : '') }));
+    const D = live.find((r) => r[0] === st.saD);
+    const dd = D ? { lv: D[2], lvtag: LV[D[1]][2], t: D[3], where: D[4], prod: D[5], st: D[6], stc: 'kc-tag ' + D[7], sp: sp(D[8], D[1]), ev: D[9], tm: D[10], first: D[11], btn2: '去' + D[12], href: D[13], what: D[14], imp: D[15], fix: D[16].map((t) => ({ t })) } : { sp: [], fix: [] };
+    return { saOn: rt === 0 || rt === 1,
+      saDist: [['hi', '紧急', 'r'], ['un', '未受保护', 'o'], ['md', '可疑', 'y'], ['lo', '提醒', 'g']].map((x) => ({ l: x[1], n: cnt(x[0]), c: 'd-' + x[2] + ' n' + cnt(x[0]) })),
+      saChips: CH.map((c) => ({ l: c[1], n: c[2], cc: c[0] === 'hi' && c[2] ? 'kc-cnt r' : 'kc-cnt', cls: 'kc-tab' + (f === c[0] ? ' on' : ''), go: () => this.setState({ saF: c[0], saMore: false }) })),
+      saRows: cut.map((r) => ({ dot: 'kc-lv3 ' + LV[r[1]][0], lvt: 'sa-lvt ' + LV[r[1]][1], lv: r[2], t: r[3], where: r[4], prod: r[5], st: r[6], stc: 'kc-tag ' + r[7], sp: sp(r[8], r[1]), ev: r[9], tm: r[10], btn: r[12], href: r[13],
+        open: (e) => { if (e && e.target && e.target.closest && e.target.closest('a')) return; this.setState({ saD: r[0] }); } })),
+      saEmpty: pick.length === 0,
+      saCanMore: f === 'all' && pick.length > LIM, saMoreTxt: more ? '收起' : '展开其余 ' + (pick.length - LIM) + ' 条',
+      saTog: () => this.setState({ saMore: !more }),
+      saDOn: !!D, saD: dd, saClose: () => this.setState({ saD: null }),
+      saIgnore: () => this.setState({ saIg: ig.concat([st.saD]), saD: null }) };
+  }
   _ce() {
     const st = this.state || {}; const ev = (e) => { if (e) { if (e.preventDefault) e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); } };
     const ALL = [['SCDN · 域名管理', 'Main.dc.html', 'scdn', 'cdn 域名 加速'], ['DDoS 高防 IP', 'DdosInstances.dc.html', 'ddos', '高防 ddos'], ['游戏盾', 'GameAccess.dc.html', 'game', '游戏'], ['德迅云眼', 'EyeRisk.dc.html', 'eye', '监测 风险'],
-      ['服务器租用', 'IdcServers.dc.html', 'idc', '服务器 idc'], ['SSL 证书', 'AcctProducts.dc.html', 'ssl', '证书 https'], ['漏洞扫描 VSS', 'AcctProducts.dc.html', 'vss', '漏洞'], ['德迅卫士', 'AcctProducts.dc.html', 'host', '主机'],
+      ['服务器租用', 'IdcServers.dc.html', 'idc', '服务器 idc'], ['SSL 证书', 'AcctProducts.dc.html', 'ssl', '证书 https'], ['漏洞扫描 VSS', 'AcctProducts.dc.html', 'vss', '漏洞'], ['德迅安全卫士', 'SecHome.dc.html', 'host', '主机 安全中心 告警'],
       ['攻击报表', 'DdosReport.dc.html', 'situ', '报表 攻击'], ['证书管理', 'ScdnCerts.dc.html', 'ssl', '证书'], ['我的订单', 'BillOrders.dc.html', 'order', '订单'], ['付款管理', 'BillPay.dc.html', 'order', '付款 转账'],
       ['发票管理', 'BillInvoice.dc.html', 'invoice', '发票'], ['申请开票', 'BillInvoiceApply.dc.html', 'invoice', '开票 发票'], ['合同管理', 'BillContract.dc.html', 'log', '合同'], ['我的工单', 'SupTickets.dc.html', 'ticket', '工单 支持'],
       ['成员管理', 'OrgMembers.dc.html', 'member', '成员 权限'], ['企业信息与认证', 'OrgInfo.dc.html', 'member', '认证 企业']];
@@ -2059,7 +2201,7 @@ class Component extends DCLogic {
       ceN: st.ceN || '', ceU: st.ceU || '', ceOnN: (e) => this.setState({ ceN: e.target.value }), ceOnU: (e) => this.setState({ ceU: e.target.value }),
       ceBtn: ok ? 'kc-btn pri sm' : 'kc-btn pri sm dis', ceAddC: (e) => { ev(e); if (!ok) return; this.setState({ ceL: list.concat([[fn, fu, 'link']]), ceN: '', ceU: '', ceOn: false, ceT: 's' }); } };
   }
-  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   /* top70 */
   componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
@@ -2070,7 +2212,7 @@ class Component extends DCLogic {
     // 产品切换
     const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
         ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
-      ['主机与容器', [['德迅卫士', '主机安全', 'AcctProducts.dc.html', 1, '主机 hids'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
       ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
       ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
     const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
@@ -2631,7 +2773,7 @@ class Component extends DCLogic {
     if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
     e.preventDefault(); act(el, e);
   }, false);
-})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); Object.assign(o, this._ce()); return o; }
+})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); Object.assign(o, this._ce()); Object.assign(o, this._sa()); return o; }
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
     const M = [
@@ -2677,7 +2819,7 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const rt = st.rt || 0; const R = {};
-    for (let i = 0; i < 4; i++) { R['rs' + i] = rt === i; R['rc' + i] = rt === i ? 'on' : ''; R['rp' + i] = () => this.setState({ rt: i }); }
+    for (let i = 0; i < 5; i++) { R['rs' + i] = rt === i; R['rc' + i] = rt === i ? 'on' : ''; R['rp' + i] = () => this.setState({ rt: i }); }
 
     return Object.assign({ nav }, R);
   }

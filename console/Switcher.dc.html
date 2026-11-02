@@ -999,6 +999,17 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-pch .kc-sw{margin-left:auto}
 .kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
 /* /pages109 */
+
+/* p0sec：德迅安全卫士固定入口 */
+.ac-tl > a.sx-sec{color:#1664ff;font-weight:500;gap:6px}
+.ac-tl > a.sx-sec:hover{background:#eef4ff;color:#1664ff}
+.ac-tl > a.sx-sec em{font-style:normal;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#f53f3f;color:#fff;font-size:12px;line-height:18px;text-align:center;font-weight:500}
+.tp-l ul.sx-pinl{margin-bottom:14px}
+.tp-l ul.sx-pinl li a.sx-pin{height:40px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.tp-l ul.sx-pinl li a.sx-pin:hover{border-color:#1664ff;background:#fff}
+.tp-l a.sx-pin i{flex:none;width:18px;height:18px}
+.tp-l a.sx-pin b{font-weight:500}
+.tp-l a.sx-pin small.r{color:#f53f3f}
 </style>
 </helmet>
 <div class="kc">
@@ -1059,7 +1070,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         <h3>最近访问</h3>
         <a class="kc-rl" href="Main.dc.html"><i class="dt dt-scdn"></i>SCDN<span>SCDN-001</span></a>
         <a class="kc-rl" href="DdosReport.dc.html"><i class="dt dt-ddos"></i>DDoS 高防 IP<span>高防-002</span></a>
-        <a class="kc-rl" href="#"><i class="dt dt-host"></i>德迅卫士<span>主机安全</span></a>
+        <a class="kc-rl" href="SecHome.dc.html"><i class="dt dt-host"></i>德迅安全卫士<span>安全中心</span></a>
         <h3 style="margin-top: 20px;">我的收藏</h3>
         <sc-for list="{{favs}}" as="f" hint-placeholder-count="3">
           <a class="kc-rl" href="{{f.href}}"><i class="{{f.di}}"></i>{{f.n}}<span>{{f.g}}</span></a>
@@ -1129,9 +1140,9 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
-  constructor(p) { super(p); this.state = { q: '', fav: { 'DDoS 高防 IP': true, '德迅卫士': true } }; }
+  constructor(p) { super(p); this.state = { q: '', fav: { 'DDoS 高防 IP': true, '德迅安全卫士': true } }; }
   /* hdr62 */
   renderVals() { if (typeof window !== 'undefined' && !window.__dx88) (function () {
   if (window.__dx88) return; window.__dx88 = 1;
@@ -1673,7 +1684,7 @@ class Component extends DCLogic {
     const href = { 'SCDN': 'Main.dc.html', 'DDoS 高防 IP': 'DdosInstances.dc.html' };
     const groups = [
       ['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 1], ['游戏盾', '游戏 TCP/UDP 防护', 0], ['SCDN', '加速 + Web 防护', 1], ['Web 应用防火墙', 'WAF', 0], ['德迅云眼', '网站安全监测', 0], ['漏洞扫描', '', 0], ['SSL 证书', '', 1]]],
-      ['主机与容器', [['德迅卫士', '主机安全', 1], ['德迅零域', '微隔离', 0], ['德迅蜂巢', '容器安全', 0], ['德迅猎鹰', '云蜜罐', 0]]],
+      ['主机与容器', [['德迅安全卫士', '主机安全', 1], ['德迅零域', '微隔离', 0], ['德迅蜂巢', '容器安全', 0], ['德迅猎鹰', '云蜜罐', 0]]],
       ['安全运营', [['态势感知', '', 0], ['德迅云图', '威胁检测与分析', 0], ['等保合规', '等保咨询与测评', 0], ['日志审计', '', 0], ['数据库审计', '', 0], ['应用加固', 'Android / iOS / H5', 0], ['身份核验', '实名、四要素', 0]]],
       ['计算与 IDC', [['云服务器', '', 1], ['弹性云', '', 0], ['裸金属', '', 0], ['服务器租用', '', 0], ['机柜托管', '', 0]]]
     ];
@@ -1695,7 +1706,7 @@ class Component extends DCLogic {
       })
     })).filter((c) => !q || c.items.length);
     const favs = Object.keys(fav).filter((k) => fav[k]).map((n) => ({ n, di: this.__di(n), href: href[n] || '#', g: (groups.find(([, xs]) => xs.some((x) => x[0] === n)) || [''])[0] }));
-    const alias = { 'DDoS 高防 IP': '高防 ddos 抗d', 'SSL 证书': '证书 https', '德迅卫士': '主机 hids', '游戏盾': '高防 游戏' };
+    const alias = { 'DDoS 高防 IP': '高防 ddos 抗d', 'SSL 证书': '证书 https', '德迅安全卫士': '主机 hids', '游戏盾': '高防 游戏' };
     const prodHits = [];
     groups.forEach(([label, items]) => items.forEach(([n, d, open]) => {
       if (q && (n + d + (alias[n] || '')).toLowerCase().includes(q)) prodHits.push({ n, d: label + (d ? ' · ' + d : '') + (open ? ' · 已开通' : ' · 未开通'), href: href[n] || '#' });
@@ -1709,7 +1720,7 @@ class Component extends DCLogic {
       ['端口接入', 'DDoS 高防 IP › 接入管理', 'DdosAccess.dc.html', '端口 tcp udp 高防'],
       ['DDoS 防护', 'DDoS 高防 IP › 防护策略', 'DdosPolicy.dc.html', '高防 清洗 等级'],
       ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', '高防 攻击 报表'],
-      ['安全事件', '德迅卫士 › 风险处置', '#', '主机 告警'],
+      ['安全事件', '德迅安全卫士 › 风险处置', '#', '主机 告警'],
       ['发票管理', '用户中心 › 费用', '#', '发票 开票'],
       ['证书购买与续费', 'SSL 证书', '#', '证书 续费']
     ].filter(([n, d, h, k]) => q && (n + d + k).toLowerCase().includes(q)).map(([n, d, href]) => ({ n, d, href }));

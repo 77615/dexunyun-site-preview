@@ -1594,6 +1594,17 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-pch .kc-sw{margin-left:auto}
 .kc-grid2 .pg-bars > div{grid-template-columns:72px minmax(0,1fr) 52px}
 /* /pages109 */
+
+/* p0sec：德迅安全卫士固定入口 */
+.ac-tl > a.sx-sec{color:#1664ff;font-weight:500;gap:6px}
+.ac-tl > a.sx-sec:hover{background:#eef4ff;color:#1664ff}
+.ac-tl > a.sx-sec em{font-style:normal;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#f53f3f;color:#fff;font-size:12px;line-height:18px;text-align:center;font-weight:500}
+.tp-l ul.sx-pinl{margin-bottom:14px}
+.tp-l ul.sx-pinl li a.sx-pin{height:40px;background:#fff;border:1px solid #e5e6eb;border-radius:4px}
+.tp-l ul.sx-pinl li a.sx-pin:hover{border-color:#1664ff;background:#fff}
+.tp-l a.sx-pin i{flex:none;width:18px;height:18px}
+.tp-l a.sx-pin b{font-weight:500}
+.tp-l a.sx-pin small.r{color:#f53f3f}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1602,6 +1613,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">10 条待处理</small></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
@@ -1706,7 +1718,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   /* top70 */
   componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
@@ -1717,7 +1729,7 @@ class Component extends DCLogic {
     // 产品切换
     const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
         ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
-      ['主机与容器', [['德迅卫士', '主机安全', 'AcctProducts.dc.html', 1, '主机 hids'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
       ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
       ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
     const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
@@ -2328,7 +2340,7 @@ class Component extends DCLogic {
       [[{ t: 'DX20261022002', a: 'BillOrderDetail.dc.html' }, { t: '游戏盾', s: '游戏盾-001 · 专业版续费' }, { t: '续费', tag: 'mut' }, '张三（运维工程师）', '2026-10-22 15:40', { t: '待付款', tag: 'warn' }, { t: '¥320.00', c: 'ac-n' }], [['去付款', 'BillPayment.dc.html'], ['取消']], 'unpaid'],
       [[{ t: 'DX20261021011', a: 'BillOrderDetail.dc.html' }, { t: '云备份', s: 'backup-cloud-01 · 续费 1 年' }, { t: '续费', tag: 'mut' }, 'wangqi（主账号）', '2026-10-21 16:30', { t: '付款核验中', tag: 'info' }, { t: '¥4,200.00', c: 'ac-n' }], [['付款记录', 'BillPayment.dc.html']], 'verify'],
       [[{ t: 'DX20261018006', a: 'BillOrderDetail.dc.html' }, { t: 'DDoS 高防 IP', s: '高防-002 · 保底 50→80 Gbps' }, { t: '升级', tag: 'info' }, '李四（财务管理员）', '2026-10-18 09:22', { t: '已付款 · 开通中', tag: 'info' }, { t: '¥1,280.00', c: 'ac-n' }], [['详情', 'BillOrderDetail.dc.html']], 'paid'],
-      [[{ t: 'DX20261007003', a: 'BillOrderDetail.dc.html' }, { t: '德迅卫士', s: 'dx-guard-01 · 授权 +25 台' }, { t: '扩容', tag: 'info' }, 'wangqi（主账号）', '2026-10-07 00:19', { t: '已完成', tag: 'ok' }, { t: '¥25.00', c: 'ac-n' }], [['详情', 'BillOrderDetail.dc.html'], ['开票', 'BillInvoice.dc.html']], 'done'],
+      [[{ t: 'DX20261007003', a: 'BillOrderDetail.dc.html' }, { t: '德迅安全卫士', s: 'dx-guard-01 · 授权 +25 台' }, { t: '扩容', tag: 'info' }, 'wangqi（主账号）', '2026-10-07 00:19', { t: '已完成', tag: 'ok' }, { t: '¥25.00', c: 'ac-n' }], [['详情', 'BillOrderDetail.dc.html'], ['开票', 'BillInvoice.dc.html']], 'done'],
       [[{ t: 'DX20260926008', a: 'BillOrderDetail.dc.html' }, { t: 'SCDN', s: 'SCDN-001 · 企业版新购 1 年' }, { t: '新购', tag: 'ok' }, 'wangqi（主账号）', '2026-09-26 14:01', { t: '已完成', tag: 'ok' }, { t: '¥8,300.00', c: 'ac-n' }], [['详情', 'BillOrderDetail.dc.html'], ['开票', 'BillInvoice.dc.html']], 'done'],
       [[{ t: 'DX20260920007', a: 'BillOrderDetail.dc.html' }, { t: 'SSL 证书', s: 'DV × 3 · 新购 1 年' }, { t: '新购', tag: 'ok' }, '张三（运维工程师）', '2026-09-20 11:30', { t: '已完成', tag: 'ok' }, { t: '¥204.00', c: 'ac-n' }], [['详情', 'BillOrderDetail.dc.html']], 'done'],
       [[{ t: 'DX20260912009', a: 'BillOrderDetail.dc.html' }, { t: '游戏盾', s: 'gs-01 · 扩容 +500 并发' }, { t: '扩容', tag: 'info' }, 'wangqi（主账号）', '2026-09-12 12:40', { t: '已取消', tag: 'mut' }, { t: '¥532.00', c: 'ac-n m' }], [['详情', 'BillOrderDetail.dc.html']], 'cancel']
@@ -2340,7 +2352,7 @@ class Component extends DCLogic {
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 
-    [["订单号", ["订单号", "资源名称", "付款户名", "创建人"]], ["全部", ["全部", "SCDN", "DDoS 高防 IP", "游戏盾", "德迅云眼", "德迅卫士", "SSL 证书", "服务器租用"]], ["全部", ["全部", "新购", "续费", "升级", "扩容"]], ["近 1 年", ["近 1 小时", "今天", "近 24 小时", "近 7 天", "近 30 天", "近 3 个月", "近 1 年", "自定义时间"]], ["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+    [["订单号", ["订单号", "资源名称", "付款户名", "创建人"]], ["全部", ["全部", "SCDN", "DDoS 高防 IP", "游戏盾", "德迅云眼", "德迅安全卫士", "SSL 证书", "服务器租用"]], ["全部", ["全部", "新购", "续费", "升级", "扩容"]], ["近 1 年", ["近 1 小时", "今天", "近 24 小时", "近 7 天", "近 30 天", "近 3 个月", "近 1 年", "自定义时间"]], ["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
 
       DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
 
