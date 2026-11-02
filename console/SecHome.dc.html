@@ -2113,6 +2113,14 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .sh .sh-m .kc-t td:last-child{background:#fff}
 .sh .sh-m .kc-t th:last-child{background:#f6f8fa}
 .sh .sh-m .kc-t tbody tr:hover td:last-child{background:#f6f8fa}
+
+/* sh-ai140 */
+.sh .sh-aib{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;margin-left:4px;border-radius:11px;background:linear-gradient(90deg,#e8f1ff,#f1ecff);color:#4a5bd8;font-size:12px;font-weight:400}
+.sh .sh-pl2{display:inline-flex;gap:20px}
+.sh .sh-ts{display:flex;align-items:center;gap:6px;min-width:0}
+.sh .sh-ts > span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sh .sh-aic{display:inline-flex;flex:none;color:#6b72e6}
+.sh .sh-tl li{grid-template-columns:8px minmax(240px,360px) minmax(0,1fr) auto}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2226,14 +2234,13 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
           <div class="sh-sd"><span class="sh-kn">安全评分</span><em class="sh-kd up">比昨天 +3</em><p>修复 2 项紧急风险后预计可到 91 分</p><p class="sh-unp"><i></i>未受保护 1 台（backup-02）<a href="#" onClick="{{sx.go.install}}">去安装</a></p><div class="sh-kl"><a href="#" onClick="{{sx.go.score}}">评分详情</a><a href="#" onClick="{{sx.go.score}}">扣分项 6</a></div></div>
         </div>
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><a class="sh-rc1" href="{{k.h}}" onClick="{{k.go}}"><div class="sh-rch"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></div><div class="sh-rcv"><div><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></div><div><small>影响主机</small><b>{{k.m}}</b><i>台</i></div></div></a></sc-for></div>
-        <div class="sh-ai"><i class="sh-aii" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span><b>AI 摘要</b>安全评分 82，比昨天高 3 分。2 台主机有风险，9 项待处置，其中紧急 4 项。建议先处理 web-prod-01 的异常登录和 OpenSSH 漏洞，再给 backup-02 重新安装客户端。</span><span class="kc-tag info">企业版</span><a class="sh-tx" href="#" onClick="{{sx.go.ai}}">AI 分析详情</a></div>
       </section>
-      <section class="kc-card sh-pri"><div class="kc-ch"><h2>优先处置</h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+      <section class="kc-card sh-pri"><div class="kc-ch"><h2>优先处置<span class="sh-aib" title="企业版：AI 根据风险等级、可利用性和影响范围排序"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg>AI 已排序</span></h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
         <div class="kc-cb sh-pw">
           <ul class="sh-tl"><sc-for list="{{sx.pri}}" as="p" hint-placeholder-count="4"><li>
             <i class="{{p.dot}}" aria-hidden="true"></i>
             <a class="sh-tt" href="{{p.dh}}"><b>{{p.t}}</b><span>{{p.a}}</span><sc-if value="{{p.fail}}" hint-placeholder-val="{{false}}"><em>上次处置失败</em></sc-if></a>
-            <span class="sh-ts">{{p.s}}</span>
+            <span class="sh-ts"><i class="sh-aic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span>{{p.s}}</span></span>
             <button type="button" class="{{p.bc}}" onClick="{{p.go}}">{{p.bt}}</button>
           </li></sc-for></ul>
         </div></section>
@@ -3020,10 +3027,10 @@ class Component extends DCLogic {
       ? [['14:00', 5, 1], ['18:00', 4, 2], ['22:00', 1, 0], ['02:00', 1, 1], ['06:00', 2, 2], ['10:00', 1, 3]]
       : [['10-27', 3, 2], ['10-28', 1, 2], ['10-29', 2, 1], ['10-30', 0, 1], ['10-31', 4, 1], ['11-01', 2, 1], ['11-02', 2, 1]];
     const pd = st.pd || {};
-    const PRI = [['高危', 'kc-tag err', '异常登录', 'EVT-1021', 'web-prod-01', '待研判', 'kc-tag warn', '确认是否本人登录', '查看事件', SD, 'AI 研判', 1],
-      ['高危', 'kc-tag err', 'OpenSSH 远程代码执行漏洞', 'EVT-1019', 'web-prod-01', '待处置', 'kc-tag warn', '升级到 9.8p1', '漏洞详情', SD, '去修复', 0],
-      ['未受保护', 'kc-tag warn', '客户端已卸载', 'EVT-1008', 'backup-02', '待处理', 'kc-tag mut', '重新安装客户端', '主机详情', SL, '重新安装', 0],
-      ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '检查权限后重试', '处置记录', SD, '重试', 0]];
+    const PRI = [['高危', 'kc-tag err', '异常登录', 'EVT-1021', 'web-prod-01', '待研判', 'kc-tag warn', '疑似撞库成功：同一 IP 1 小时内尝试 312 次，请确认是否本人', '查看事件', SD, 'AI 研判', 1],
+      ['高危', 'kc-tag err', 'OpenSSH 远程代码执行漏洞', 'EVT-1019', 'web-prod-01', '待处置', 'kc-tag warn', '22 端口对公网开放，可被远程利用，建议升级到 9.8p1', '漏洞详情', SD, '去修复', 0],
+      ['未受保护', 'kc-tag warn', '客户端已卸载', 'EVT-1008', 'backup-02', '待处理', 'kc-tag mut', '10-29 由 root 手动卸载，这台主机目前不受检测', '主机详情', SL, '重新安装', 0],
+      ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '客户端没有改密权限，确认以 root 运行后重试', '处置记录', SD, '重试', 0]];
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
