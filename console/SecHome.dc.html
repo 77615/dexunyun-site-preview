@@ -2059,6 +2059,20 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .sh .sh-unp a{color:#1664ff;text-decoration:none;margin-left:4px}
 .sh .sh-tfoot{padding:10px 24px 14px}
 .sh .sh-tfoot a{display:inline-flex;align-items:center;gap:2px;font-size:13px;color:#1664ff;text-decoration:none}
+
+/* sh-btn137: text actions */
+.sh .sh-hb2{display:flex;align-items:center;gap:20px}
+.sh a.sh-tx{font-size:13px;color:#1664ff;text-decoration:none;white-space:nowrap}
+.sh a.sh-tx:hover,.sh .sh-op:hover,.sh .sh-act2 a:hover{color:#4086ff}
+.sh .sh-op{border:0;background:none;padding:0;font:inherit;font-size:13px;color:#1664ff;cursor:pointer;white-space:nowrap}
+.sh .sh-tl li > .sh-op{justify-self:end;min-width:64px;text-align:right}
+.sh .sh-cl .sh-op{margin-top:auto}
+.sh .sh-upd2{display:inline-flex;align-items:center;gap:4px}
+.sh .sh-rf{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:0;border-radius:4px;background:transparent;color:#737a87;cursor:pointer}
+.sh .sh-rf:hover{background:#f2f3f5;color:#1664ff}
+.sh .sh-act2{display:flex;gap:16px}
+.sh .sh-act2 a{font-size:13px;color:#1664ff;text-decoration:none}
+.sh .sh-unp{white-space:nowrap}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2154,7 +2168,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <main data-pg="SecHome" class="kc-main sh">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">安全总览</h1></div></div>
-        <div class="kc-btns"><button type="button" class="kc-btn" onClick="{{sx.refresh}}">{{sx.refT}}</button><button type="button" class="kc-btn" onClick="{{sx.scan}}">{{sx.scanT}}</button><a class="kc-btn pri" href="#">查看安全报告</a></div>
+        <div class="kc-btns sh-hb2"><a class="sh-tx" href="#">安全报告</a><button type="button" class="kc-btn pri" onClick="{{sx.scan}}">{{sx.scanT}}</button></div>
       </div>
       <div class="sh-nb" role="status">
         <span class="sh-nt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path></svg></span>
@@ -2164,15 +2178,15 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       <div class="sh-fl">
         <label class="sh-sel"><span>资产范围</span><select aria-label="资产范围"><option>全部主机 · 68 台</option><option>德迅服务器 · 3 台</option><option>其他机房接入 · 65 台</option></select></label>
         <div class="sh-seg" role="group" aria-label="时间范围"><sc-for list="{{sx.ranges}}" as="g" hint-placeholder-count="2"><button type="button" class="{{g.cls}}" aria-pressed="{{g.on}}" onClick="{{g.pick}}">{{g.n}}</button></sc-for></div>
-        <div class="sh-calm"><span><i class="sh-dot"></i>已守护 <b>412</b> 天</span><span>客户端 V4.3.2</span><span>病毒库 11-02 00:00</span><span>漏洞库 11-02 14:21</span><span>最近更新 {{sx.upd}}</span></div>
+        <div class="sh-calm"><span><i class="sh-dot"></i>已守护 <b>412</b> 天</span><span>客户端 V4.3.2</span><span>病毒库 11-02 00:00</span><span>漏洞库 11-02 14:21</span><span class="sh-upd2">最近更新 {{sx.upd}}<button type="button" class="sh-rf" title="{{sx.refT}}" aria-label="{{sx.refT}}" onClick="{{sx.refresh}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"></path><path d="M20 4v7h-7"></path></svg></button></span></div>
       </div>
       <section class="kc-card kc-hero sh-hero">
         <div class="sh-score">
           <div class="sh-ring" role="img" aria-label="安全评分 82 分"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#f2f3f5" stroke-width="10"></circle><circle class="sh-arc" cx="66" cy="66" r="56" fill="none" stroke-width="10" stroke-linecap="round" style="{{sx.arc}}"></circle></svg><div class="sh-rv"><b>82</b><span>良好</span></div></div>
-          <div class="sh-sd"><span class="sh-kn">安全评分</span><em class="sh-kd up">比昨天 +3</em><p>修复 2 项紧急风险后预计可到 91 分</p><p class="sh-unp"><i></i>未受保护 1 台：backup-02 客户端已卸载<a href="#">去安装</a></p><div class="sh-kl"><a href="#">评分详情</a><a href="#">扣分项 6</a></div></div>
+          <div class="sh-sd"><span class="sh-kn">安全评分</span><em class="sh-kd up">比昨天 +3</em><p>修复 2 项紧急风险后预计可到 91 分</p><p class="sh-unp"><i></i>未受保护 1 台（backup-02）<a href="#">去安装</a></p><div class="sh-kl"><a href="#">评分详情</a><a href="#">扣分项 6</a></div></div>
         </div>
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><a class="sh-rc1" href="{{k.h}}"><div class="sh-rch"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></div><div class="sh-rcv"><div><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></div><div><small>影响主机</small><b>{{k.m}}</b><i>台</i></div></div></a></sc-for></div>
-        <div class="sh-ai"><i class="sh-aii" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span><b>AI 摘要</b>安全评分 82，比昨天高 3 分。2 台主机有风险，9 项待处置，其中紧急 4 项。建议先处理 web-prod-01 的异常登录和 OpenSSH 漏洞，再给 backup-02 重新安装客户端。</span><span class="kc-tag info">企业版</span><a class="kc-btn sm" href="#">AI 分析详情</a></div>
+        <div class="sh-ai"><i class="sh-aii" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"></path><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></i><span><b>AI 摘要</b>安全评分 82，比昨天高 3 分。2 台主机有风险，9 项待处置，其中紧急 4 项。建议先处理 web-prod-01 的异常登录和 OpenSSH 漏洞，再给 backup-02 重新安装客户端。</span><span class="kc-tag info">企业版</span><a class="sh-tx" href="#">AI 分析详情</a></div>
       </section>
       <section class="kc-card sh-pri"><div class="kc-ch"><h2>优先处置</h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><a href="#">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         <div class="kc-cb sh-pw">
@@ -2187,7 +2201,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         <div class="kc-cb"><div class="sh-cg"><sc-for list="{{sx.caps}}" as="c" hint-placeholder-count="8"><div class="{{c.cls}}">
           <div class="sh-ch"><i class="sh-ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></i><b>{{c.n}}</b><sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><span class="{{c.tc}}">{{c.st}}</span></sc-if><sc-if value="{{c.lock}}" hint-placeholder-val="{{false}}"><span class="sh-lk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>{{c.k}}</span></sc-if></div>
           <sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><div class="sh-cs"><div><small>{{c.fl}}</small><b class="{{c.fc}}">{{c.f}}</b></div><div><small>影响主机</small><b class="{{c.fc}}">{{c.m}}</b></div></div></sc-if>
-          <sc-if value="{{c.btn}}" hint-placeholder-val="{{false}}"><div class="sh-cl"><p>{{c.d}}</p><button type="button" class="kc-btn sm pri" onClick="{{c.go}}">{{c.bt}}</button></div></sc-if>
+          <sc-if value="{{c.btn}}" hint-placeholder-val="{{false}}"><div class="sh-cl"><p>{{c.d}}</p><button type="button" class="sh-op" onClick="{{c.go}}">{{c.bt}}</button></div></sc-if>
         </div></sc-for></div></div></section>
       <div class="sh-g">
         <div class="sh-m">
@@ -2216,9 +2230,9 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         <div class="sh-r">
           <section class="kc-card"><div class="kc-ch"><h2>资产与防护健康</h2><a href="#">资产中心<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
             <div class="kc-cb"><ul class="sh-hl"><sc-for list="{{sx.health}}" as="h" hint-placeholder-count="4"><li><div class="sh-hh"><span>{{h.n}}</span><b>{{h.p}}</b></div><div class="sh-hb"><i style="{{h.w}}"></i></div><div class="sh-hf"><small>{{h.f}}</small><a href="#">{{h.l}}</a></div></li></sc-for></ul></div></section>
-          <section class="kc-card"><div class="kc-ch"><h2>版本与授权</h2></div>
+          <section class="kc-card"><div class="kc-ch"><h2>版本与授权</h2><span class="sh-act2"><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">续费</a><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">扩容</a></span></div>
             <div class="kc-cb"><div class="sh-kv"><div><span>版本</span>企业版</div><div><span>授权</span><em class="r">68 / 50 台</em></div><div><span>到期</span><em class="r">10-25 · 保留至 11-08</em></div></div>
-            <div class="sh-act"><a class="kc-btn sm" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">续费</a><a class="kc-btn sm" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">扩容</a></div></div></section>
+            </div></section>
           <section class="kc-card"><div class="kc-ch"><h2>告警通知</h2><a href="#">设置</a></div>
             <div class="kc-cb"><div class="sh-kv"><div><span>接收人</span>wangqi、李四</div><div><span>方式</span>站内信、短信（紧急）</div><div><span>未受保护提醒</span>每天 1 次</div></div></div></section>
         </div>
@@ -2909,7 +2923,7 @@ class Component extends DCLogic {
         ['未受保护', '1', '台', '客户端已卸载', '', 'warn2', SL],
         ['防护覆盖率', '94', '%', '较上周 +3%', 'up', 'ok', SL]].map(([n, v, u, d, dc, bc, h]) => ({ n, v, u, d, h, dc: 'sh-kd ' + dc, bc: 'sh-bl ' + bc })),
       pri: PRI.map(([lv, lc, t, id, a, st2, sc, s2, d, dh, bt, p], i) => ({ lv, lc, t, id, a, st: pd[i] ? '处理中' : st2, sc: pd[i] ? 'kc-tag info' : sc, s: s2, d, dh,
-        bt: pd[i] ? '已提交' : bt, dot: 'sh-tdot ' + ({ '高危': 'r', '未受保护': 'o', '中危': 'y' }[lv] || ''), fail: st2 === '处置失败' && !pd[i], tcls: (lv === '高危' || lv === '未受保护') && !pd[i] ? 'sh-task hot' : 'sh-task', bc: p ? 'kc-btn sm pri' : 'kc-btn sm', go: () => this.setState({ pd: Object.assign({}, pd, { [i]: 1 }) }) })),
+        bt: pd[i] ? '已提交' : bt, dot: 'sh-tdot ' + ({ '高危': 'r', '未受保护': 'o', '中危': 'y' }[lv] || ''), fail: st2 === '处置失败' && !pd[i], tcls: (lv === '高危' || lv === '未受保护') && !pd[i] ? 'sh-task hot' : 'sh-task', bc: 'sh-op', go: () => this.setState({ pd: Object.assign({}, pd, { [i]: 1 }) }) })),
       done: 9 + Object.keys(pd).length, left: 5 - Object.keys(pd).length,
       wkw: 'width:' + Math.round((9 + Object.keys(pd).length) / 14 * 100) + '%',
       harc: 'stroke-dasharray:' + (Math.PI * 72 * (9 + Object.keys(pd).length) / 14).toFixed(1) + ' 400',
