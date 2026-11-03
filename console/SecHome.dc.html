@@ -8,7 +8,7 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&display=swap" data-r91>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&amp;display=swap" data-r91="">
 <style>
 /* hdr62：顶栏下拉 */
 .ac-tl{gap:4px !important}
@@ -2174,6 +2174,263 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .sh-ck.on{background:#1664ff;border-color:#1664ff}
 .sh-ck.on::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
 .sh-proc small{font-size:12px;color:#86909c}
+
+/* v10 降噪: colour only for severity dots, the urgent notice chip and the licence problem */
+.sh .sh-kd.up,.sh .sh-kd.r{color:#86909c}
+.sh .sh-score p em.r{color:#0c0d0e}
+.sh .sh-rcv b.r,.sh .sh-cs b.r{color:#0c0d0e}
+.sh .sh-on,.sh .sh-ent{font-size:12px;color:#86909c;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.sh .sh-on::before{content:"";width:6px;height:6px;border-radius:50%;background:#00b42a}
+.sh .sh-ent{padding:1px 6px;border:1px solid #e5e6eb;border-radius:2px;color:#4e5969}
+.sh .sh-evk{font-size:12px;color:#4e5969;min-width:96px}
+.sh .sh-st{font-size:13px;color:#4e5969}
+.sh .sh-aib{background:none !important;border:1px solid #e5e6eb !important;color:#4e5969 !important}
+.sh .sh-fl .dd-w .kc-dd{background:#fff}
+.sh .dd-p button span{font:inherit;color:inherit}
+
+/* dn139: 可点击的数字 → 对应列表 */
+.sh .sh-rc1{display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-radius:4px;border:1px solid transparent;background:rgba(255,255,255,.86);box-shadow:0 1px 3px rgba(15,35,80,.06)}
+.sh a.sh-rch{text-decoration:none;color:#0c0d0e}
+.sh a.sh-rch:hover > span{color:#1664ff}
+.sh .sh-rcv > a,.sh .sh-cs > a{display:block;text-decoration:none;color:inherit;border-radius:4px;margin:-4px;padding:4px}
+.sh .sh-rcv > a:hover,.sh .sh-cs > a:hover{background:rgba(22,100,255,.06)}
+.sh .sh-rcv > a:hover b,.sh .sh-cs > a:hover b,.sh .sh-rcv > a:hover b span,.sh .sh-cs > a:hover b span{color:#1664ff}
+.sh .sh-cs > a.z{pointer-events:none;cursor:default}
+.sh a.sh-wk{text-decoration:none;color:#737a87}
+.sh a.sh-wk:hover b,.sh a.sh-wk:hover span{color:#1664ff}
+.sh .sh-cov > a{display:flex;align-items:baseline;text-decoration:none;color:inherit}
+.sh .sh-cov > a:hover b,.sh .sh-cov > a:hover span{color:#1664ff}
+.sh a.sh-gc{text-decoration:none}
+.sh a.sh-gc:hover{color:#1664ff}
+.sh a.sh-rn{color:#0c0d0e;font-weight:500;text-decoration:none}
+.sh a.sh-rn:hover{color:#1664ff}
+.sh a.sh-ra{color:inherit;text-decoration:none}
+.sh a.sh-ra:hover{color:#1664ff}
+.sh a.sh-ul{color:inherit;text-decoration:none;border-bottom:1px dashed #c9cdd4}
+.sh a.sh-ul:hover{color:#1664ff;border-color:#1664ff}
+/* 列表页 */
+.sl .kc-card{margin-bottom:16px}
+.sl .sl-bk{display:inline-flex;align-items:center;gap:2px;font-size:13px;color:#4e5969;text-decoration:none;margin-right:12px}
+.sl .sl-bk:hover{color:#1664ff}
+.sl .sl-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:16px 20px 8px}
+.sl .sl-q{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border:1px solid #dde2e9;border-radius:4px;background:#fff;color:#86909c;width:260px}
+.sl .sl-q input{border:0;outline:0;font:inherit;font-size:13px;flex:1;min-width:0;background:transparent;color:#0c0d0e}
+.sl .sl-chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 4px 0 10px;border-radius:4px;background:#f2f3f5;font-size:13px;color:#4e5969}
+.sl .sl-chip b{font-weight:500;color:#0c0d0e}
+.sl .sl-chip b span{font:inherit;color:inherit}
+.sl .sl-chip button{width:20px;height:20px;border:0;border-radius:3px;background:none;color:#86909c;cursor:pointer;font-size:14px;line-height:1}
+.sl .sl-chip button:hover{background:#e5e6eb;color:#0c0d0e}
+.sl .sl-clr{font-size:13px;color:#1664ff;text-decoration:none}
+.sl .sl-n{margin-left:auto;font-size:13px;color:#86909c}
+.sl .sl-n b{color:#0c0d0e;font-weight:500}
+.sl .dd-p .sl-bkv{color:#86909c;border-bottom:1px solid #f2f3f5;border-radius:0;margin-bottom:4px}
+.sl .kc-tabs{padding:0 20px}
+.sl .kc-t td{vertical-align:middle}
+.sl .sl-nm{display:flex;align-items:center;gap:8px}
+.sl a.sl-a{color:#0c0d0e;font-weight:500;text-decoration:none}
+.sl a.sl-a:hover{color:#1664ff}
+.sl .sl-sub{font-size:12px;color:#86909c;margin-top:2px}
+.sl a.sl-h{color:#1664ff;text-decoration:none;margin-right:8px}
+.sl a.sl-h:hover{text-decoration:underline}
+.sl .sl-st{font-size:13px;color:#4e5969}
+.sl .sl-st.r{color:#f53f3f}
+.sl .sl-op{color:#1664ff;text-decoration:none;margin-right:16px;white-space:nowrap}
+.sl .sl-op.dis{color:#86909c;pointer-events:none}
+.sl .sl-d{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#0c0d0e}
+.sl .sl-d::before{content:"";width:6px;height:6px;border-radius:50%;background:#c9cdd4}
+.sl .sl-d.g::before{background:#00b42a}.sl .sl-d.r::before{background:#f53f3f}.sl .sl-d.o::before{background:#ff7d00}.sl .sl-d.b::before{background:#1664ff}
+.sl .sl-ty{display:flex;flex-wrap:wrap;gap:4px 10px}
+.sl .sl-ty a{font-size:13px;color:#1664ff;text-decoration:none}
+.sl .sl-ty a:hover{text-decoration:underline}
+.sl .sl-mut{color:#c9cdd4}
+.sl .sl-ft{display:flex;align-items:center;justify-content:flex-end;gap:12px;padding:12px 20px 16px}
+.sl .sl-empty{padding:48px 20px;text-align:center;color:#86909c;font-size:13px}
+.sl .sl-empty a{color:#1664ff;text-decoration:none;margin-left:6px}
+.sl .sl-hd{display:flex;align-items:center;gap:12px}
+.sl .sl-tg{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#4e5969;font-weight:400}
+.sl .sl-kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 24px;padding:16px 20px 20px}
+.sl .sl-kv div{display:flex;flex-direction:column;gap:4px;font-size:13px;color:#0c0d0e}
+.sl .sl-kv small{font-size:12px;color:#86909c}
+.sl .sl-kv a{color:#1664ff;text-decoration:none}
+.sl .sl-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sl .sl-p{padding:4px 20px 20px;font-size:13px;line-height:1.8;color:#42464e;margin:0}
+.sl .sl-log{list-style:none;margin:0;padding:4px 20px 20px}
+.sl .sl-log li{display:grid;grid-template-columns:110px 120px 1fr;gap:12px;padding:8px 0;font-size:13px;color:#42464e;border-top:1px solid #f2f3f5}
+.sl .sl-log li:first-child{border-top:0}
+.sl .sl-log b{font-weight:500;color:#0c0d0e}
+.sl .sl-log b span,.sl .sl-kv div span{font:inherit;color:inherit}
+
+/* g139 dashboard-style score gauge */
+.sh .sh-ring.sh-gauge2{width:192px;height:148px;flex:none}
+.sh .sh-gauge2 svg{transform:none;overflow:visible;width:192px;height:148px}
+.sh .sh-hero .sh-score{gap:16px;padding-right:16px}
+.sh .sh-gauge2 .sh-gt line{stroke:rgba(22,100,255,.18);stroke-width:1}
+.sh .sh-gauge2 .sh-gt line.mj{stroke:rgba(22,100,255,.38);stroke-width:1.5}
+.sh .sh-gauge2 .sh-gl text{font:12px/1 Barlow,Inter,sans-serif;fill:#86909c;text-anchor:middle}
+.sh .sh-gauge2 .sh-gtr{stroke:rgba(22,100,255,.1)}
+.sh .sh-gauge2 .sh-gv{animation:shGv 1s cubic-bezier(.2,.8,.2,1) both}
+.sh .sh-gauge2 .sh-gk{fill:#fff;stroke:#1664ff;stroke-width:3}
+@keyframes shGv{from{stroke-dasharray:0 100}}
+.sh .sh-gauge2 .sh-rv{top:45px;bottom:auto;inset-inline:0;height:72px}
+.sh .sh-gauge2 .sh-rv b{font-size:36px}
+.sh .sh-gauge2 .sh-gnil{display:flex;gap:8px;height:40px;align-items:center}
+.sh .sh-gauge2 .sh-gnil i{display:block;width:22px;height:5px;border-radius:3px;background:#c9cdd4}
+.sh .sh-gauge2 .sh-rv span.sh-gst{color:#86909c}
+
+/* g140 hero bottom white fade */
+.sh .sh-hero.kc-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 70%,#fff 100%);pointer-events:none;z-index:0}
+.sh .sh-hero.kc-hero > *{position:relative;z-index:1}
+
+/* g141 filled (面性) capability icons, Remix Icon fill */
+.sh .sh-ci::before{content:"";width:20px;height:20px;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+.sh .sh-ci.ic0{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M17 13C19.2091 13 21 14.7909 21 17C21 19.2091 19.2091 21 17 21C14.8578 21 13 19.21 13 17H11C11 19.2091 9.20914 21 7 21C4.79086 21 3 19.2091 3 17C3 14.7909 4.79086 13 7 13C8.48052 13 9.77317 13.8043 10.4648 14.9999H13.5352C14.2268 13.8043 15.5195 13 17 13ZM2 12V10H4V7C4 4.79086 5.79086 3 8 3H16C18.2091 3 20 4.79086 20 7V10H22V12H2Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic1{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M6.05636 8.30049C6.11995 8.19854 6.18609 8.09835 6.25469 8H17.7453C17.8139 8.09835 17.88 8.19854 17.9436 8.30049L19.9641 7.13397L20.9641 8.86602L18.7512 10.1436C18.9134 10.7348 19 11.3573 19 12V13H22V15H19C19 15.9534 18.8094 16.8623 18.4642 17.6907L20.9641 19.134L19.9641 20.866L17.4383 19.4077C16.3533 20.7447 14.7853 21.6737 13 21.9291V14H11V21.9291C9.21467 21.6737 7.64665 20.7447 6.56171 19.4077L4.0359 20.866L3.0359 19.134L5.5358 17.6907C5.19061 16.8623 5 15.9534 5 15H2V13H5V12C5 11.3573 5.08661 10.7348 5.2488 10.1436L3.0359 8.86602L4.0359 7.13397L6.05636 8.30049ZM8 6C8 3.79086 9.79086 2 12 2C14.2091 2 16 3.79086 16 6H8Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic2{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21 10H11V17.3823C11 18.9449 11.7775 20.4053 13.074 21.2742L14.1569 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H15.9968L21 7V10ZM13 12H21V17.3823C21 18.2786 20.5544 19.1156 19.8125 19.6128L17 21.4978L14.1875 19.6128C13.4456 19.1156 13 18.2786 13 17.3823V12Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic3{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M14.3685 4.39807L10.8842 10.433L12.6163 11.433L16.1006 5.39807C20.27 8.17002 22.4058 12.4771 20.6605 15.5C18.8003 18.7221 13.4717 18.8551 8.75027 16.1292C4.0289 13.4033 1.47976 8.72208 3.34002 5.50001C5.08527 2.47715 9.88324 2.17321 14.3685 4.39807ZM15.8842 1.77277L17.6163 2.77277L16.1163 5.37084L14.3842 4.37084L15.8842 1.77277ZM6.73233 20H17.0003V22H5.01761C4.94008 22.0014 4.86194 21.9938 4.78481 21.9768C4.77025 21.9735 4.7558 21.97 4.74147 21.9662C4.6589 21.944 4.57784 21.9108 4.50028 21.866C4.47106 21.8492 4.44301 21.831 4.41616 21.8118C4.30161 21.7292 4.20524 21.623 4.1342 21.5003C4.06328 21.3772 4.01939 21.2404 4.00518 21.0997C4.00446 21.0924 4.00381 21.085 4.00325 21.0777C3.98786 20.883 4.02924 20.6819 4.13425 20.5L6.38425 16.6029L8.1163 17.6029L6.73233 20Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic4{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.7163 1.94745L17.4506 3.38092L16.7339 5.24808L15.8003 4.88947L15.0539 6.83436C15.8328 7.29585 16.4983 7.92847 16.9986 8.68044L18.9014 7.83255L18.4947 6.919L20.3218 6.10553L21.9487 9.75971L20.1216 10.5732L19.7149 9.65964L17.8126 10.5071C17.9348 10.9844 17.9998 11.4846 17.9998 12C17.9998 12.4062 17.9594 12.8031 17.8825 13.1867L19.8265 13.9327L20.1852 12.9998L22.0523 13.7165L20.6189 17.4508L18.7517 16.7341L19.1094 15.8009L17.1654 15.0541C16.7039 15.833 16.0713 16.4985 15.3194 16.9988L16.1672 18.9016L17.0808 18.4949L17.8943 20.322L14.2401 21.9489L13.4266 20.1218L14.3402 19.7151L13.4927 17.8128C13.0154 17.935 12.5152 18 11.9998 18C11.5932 18 11.196 17.9595 10.8121 17.8825L10.0662 19.8271L11 20.1854L10.2833 22.0525L6.54897 20.6191L7.2657 18.7519L8.19803 19.11L8.9457 17.1656C8.16683 16.7041 7.50133 16.0715 7.00097 15.3195L5.09818 16.1674L5.50492 17.081L3.67782 17.8944L2.05088 14.2403L3.87797 13.4268L4.28379 14.3407L6.18702 13.4929C6.06479 13.0156 5.99981 12.5154 5.99981 12C5.99981 11.5937 6.04018 11.1969 6.11714 10.8133L4.17174 10.0668L3.81443 11.0002L1.94727 10.2835L3.38074 6.54915L5.2479 7.26588L4.88888 8.19862L6.83418 8.94588C7.29566 8.16702 7.92829 7.50151 8.68026 7.00115L7.83237 5.09836L6.91882 5.5051L6.10535 3.67801L9.75953 2.05106L10.573 3.87815L9.65946 4.28489L10.5069 6.1872C10.9842 6.06497 11.4844 5.99999 11.9998 5.99999C12.4061 5.99999 12.8029 6.04037 13.1865 6.11732L13.9321 4.17233L12.9996 3.81461L13.7163 1.94745ZM10.1338 13.232C9.85764 13.7103 10.0215 14.3219 10.4998 14.5981C10.9781 14.8742 11.5897 14.7103 11.8658 14.232C12.142 13.7537 11.9781 13.1422 11.4998 12.866C11.0215 12.5899 10.4099 12.7537 10.1338 13.232ZM13.9998 11C13.4475 11 12.9998 11.4477 12.9998 12C12.9998 12.5523 13.4475 13 13.9998 13C14.5521 13 14.9998 12.5523 14.9998 12C14.9998 11.4477 14.5521 11 13.9998 11ZM10.4998 9.40191C10.0215 9.67806 9.85764 10.2896 10.1338 10.7679C10.4099 11.2462 11.0215 11.4101 11.4998 11.134C11.9781 10.8578 12.142 10.2462 11.8658 9.76794C11.5897 9.28965 10.9781 9.12577 10.4998 9.40191Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic5{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M17.0007 1.20825 18.3195 3.68108 20.7923 4.99992 18.3195 6.31876 17.0007 8.79159 15.6818 6.31876 13.209 4.99992 15.6818 3.68108 17.0007 1.20825ZM8.00065 4.33325 10.6673 9.33325 15.6673 11.9999 10.6673 14.6666 8.00065 19.6666 5.33398 14.6666.333984 11.9999 5.33398 9.33325 8.00065 4.33325ZM19.6673 16.3333 18.0007 13.2083 16.334 16.3333 13.209 17.9999 16.334 19.6666 18.0007 22.7916 19.6673 19.6666 22.7923 17.9999 19.6673 16.3333Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic6{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M16 2L21 7V21.0082C21 21.556 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918C3 2.44405 3.44495 2 3.9934 2H16ZM15 11V10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10V11H8V16H16V11H15ZM13 11H11V10C11 9.44772 11.4477 9 12 9C12.5523 9 13 9.44772 13 10V11Z"/%3E%3C/svg%3E')}
+.sh .sh-ci.ic7{--ic:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M20 22H4C3.44772 22 3 21.5523 3 21V8H21V21C21 21.5523 20.5523 22 20 22ZM21 6H3V3C3 2.44772 3.44772 2 4 2H20C20.5523 2 21 2.44772 21 3V6ZM7 11V15H11V11H7ZM7 17V19H17V17H7ZM13 12V14H17V12H13Z"/%3E%3C/svg%3E')}
+.sh .sh-lk .sh-lki{display:inline-block;width:12px;height:12px;background:currentColor;-webkit-mask:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M19 10H20C20.5523 10 21 10.4477 21 11V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V11C3 10.4477 3.44772 10 4 10H5V9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V10ZM17 10V9C17 6.23858 14.7614 4 12 4C9.23858 4 7 6.23858 7 9V10H17ZM11 14V18H13V14H11Z"/%3E%3C/svg%3E') center/contain no-repeat;mask:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M19 10H20C20.5523 10 21 10.4477 21 11V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V11C3 10.4477 3.44772 10 4 10H5V9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V10ZM17 10V9C17 6.23858 14.7614 4 12 4C9.23858 4 7 6.23858 7 9V10H17ZM11 14V18H13V14H11Z"/%3E%3C/svg%3E') center/contain no-repeat}
+
+/* g142 light-skeuomorphic 版本与授权 + 告警通知 */
+.sh .kc-card.sh-lic{position:relative;overflow:hidden;padding:16px;border-radius:12px;display:flex;flex-direction:column;gap:14px}
+.sh .sh-lic::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 0% 0%,rgba(255,255,255,.95),rgba(255,255,255,0) 60%);pointer-events:none}
+.sh .sh-lic::after{content:"";position:absolute;top:-40%;right:-30%;width:70%;height:180%;transform:rotate(25deg);background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));pointer-events:none}
+.sh .sh-lic > *{position:relative;z-index:1}
+.sh .sh-lic.ent{background:linear-gradient(150deg,#fffaf1 0%,#fbefd6 52%,#f2dcae 100%);border:1px solid #ecd6a8;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(160,110,30,.12),0 8px 20px -10px rgba(170,120,40,.45),0 1px 2px rgba(170,120,40,.15);--lc:#7a4d0e;--lm:#a77422}
+.sh .sh-lic.base{background:linear-gradient(150deg,#ffffff 0%,#f0f4f9 52%,#dfe6f0 100%);border:1px solid #d6deea;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(60,80,110,.1),0 8px 20px -10px rgba(70,90,130,.35),0 1px 2px rgba(70,90,130,.12);--lc:#2f3b4f;--lm:#6b7789}
+.sh .sh-lic-top{display:flex;align-items:center;gap:10px}
+.sh .sh-lic-md{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.sh .sh-lic-md::before{content:"";width:22px;height:22px;background:#fff;-webkit-mask:var(--mi) center/contain no-repeat;mask:var(--mi) center/contain no-repeat;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+.sh .ent .sh-lic-md{--mi:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M2.80577 5.20006L7.00505 7.99958L11.1913 2.13881C11.5123 1.6894 12.1369 1.58531 12.5863 1.90631C12.6761 1.97045 12.7546 2.04901 12.8188 2.13881L17.0051 7.99958L21.2043 5.20006C21.6639 4.89371 22.2847 5.01788 22.5911 5.47741C22.7228 5.67503 22.7799 5.91308 22.7522 6.14895L21.109 20.1164C21.0497 20.62 20.6229 20.9996 20.1158 20.9996H3.8943C3.38722 20.9996 2.9604 20.62 2.90115 20.1164L1.25792 6.14895C1.19339 5.60045 1.58573 5.10349 2.13423 5.03896C2.37011 5.01121 2.60816 5.06832 2.80577 5.20006ZM12.0051 14.9996C13.1096 14.9996 14.0051 14.1042 14.0051 12.9996C14.0051 11.895 13.1096 10.9996 12.0051 10.9996C10.9005 10.9996 10.0051 11.895 10.0051 12.9996C10.0051 14.1042 10.9005 14.9996 12.0051 14.9996Z"/%3E%3C/svg%3E');background:radial-gradient(circle at 35% 30%,#ffe9b3,#e2ac4c 60%,#b9802b);box-shadow:inset 0 1px 1px rgba(255,255,255,.8),inset 0 -2px 3px rgba(120,70,10,.3),0 3px 6px -2px rgba(150,95,20,.5)}
+.sh .base .sh-lic-md{--mi:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M3.78307 2.82598L12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598Z"/%3E%3C/svg%3E');background:radial-gradient(circle at 35% 30%,#fbfcfe,#b9c4d4 60%,#8c99ad);box-shadow:inset 0 1px 1px rgba(255,255,255,.9),inset 0 -2px 3px rgba(40,60,90,.25),0 3px 6px -2px rgba(60,80,110,.45)}
+.sh .sh-lic-nm{display:flex;flex-direction:column;min-width:0}
+.sh .sh-lic-nm small{font-size:12px;color:var(--lm)}
+.sh .sh-lic-nm b{font-size:18px;font-weight:600;color:var(--lc);cursor:pointer;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+.sh .sh-lic-tag{margin-left:auto;font-size:12px;line-height:20px;padding:0 8px;border-radius:10px;color:var(--lc);background:rgba(255,255,255,.6);box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(0,0,0,.06)}
+.sh .sh-lic-use{display:flex;flex-direction:column;gap:6px}
+.sh .sh-lic-uh{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--lm)}
+.sh .sh-lic-n b{font:600 20px/1 Barlow,Inter,sans-serif;color:#f53f3f}
+.sh .sh-lic-n em{font-style:normal;margin-left:4px;color:var(--lm)}
+.sh .sh-lic-bar{height:8px;border-radius:4px;background:rgba(0,0,0,.07);box-shadow:inset 0 1px 2px rgba(0,0,0,.14),0 1px 0 rgba(255,255,255,.9)}
+.sh .sh-lic-bar i{display:block;height:100%;width:100%;border-radius:4px;background:linear-gradient(180deg,#ff8a7a,#f53f3f);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.sh .sh-lic-ov{margin:0;font-size:12px;color:var(--lm)}
+.sh .sh-lic-row{display:flex;justify-content:space-between;font-size:13px;color:var(--lm);padding-top:10px;border-top:1px solid rgba(0,0,0,.06);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.sh .sh-lic-row em{font-style:normal;color:var(--lc)}
+.sh .sh-lic-act{display:flex;gap:8px}
+.sh .sh-lic-b{flex:1;text-align:center;font-size:13px;line-height:30px;border-radius:6px;color:var(--lc);text-decoration:none;background:linear-gradient(180deg,#fff,#f4f5f7);box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.08)}
+.sh .sh-lic-b:hover{background:linear-gradient(180deg,#fff,#fafbfc)}
+.sh .ent .sh-lic-b.pri{color:#fff;background:linear-gradient(180deg,#e8b75a,#c98a2b);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 0 0 1px #b77c22,0 2px 4px rgba(160,100,20,.35);text-shadow:0 -1px 0 rgba(120,70,10,.35)}
+.sh .base .sh-lic-b.pri{color:#fff;background:linear-gradient(180deg,#5a95ff,#1664ff);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 1px #0e55e0,0 2px 4px rgba(22,100,255,.35);text-shadow:0 -1px 0 rgba(0,40,140,.3)}
+.sh .kc-card.sh-ntf{padding:16px;border-radius:12px;background:linear-gradient(180deg,#ffffff,#f5f7fa);border:1px solid #e3e8ef;box-shadow:inset 0 1px 0 #fff,0 8px 20px -12px rgba(70,90,130,.3),0 1px 2px rgba(70,90,130,.08)}
+.sh .sh-ntf-h{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.sh .sh-ntf-h h2{margin:0;font-size:14px;font-weight:600;flex:1}
+.sh .sh-ntf-h a{font-size:13px;text-decoration:none}
+.sh .sh-ntf-ic{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#6aa0ff,#1664ff);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 2px 4px rgba(22,100,255,.3)}
+.sh .sh-ntf-ic::before,.sh .sh-ntf-ri::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:var(--mi) center/contain no-repeat;mask:var(--mi) center/contain no-repeat}
+.sh .sh-ntf-ic{color:#fff;--mi:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M20 17H22V19H2V17H4V10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10V17ZM9 21H15V23H9V21Z"/%3E%3C/svg%3E')}
+.sh .sh-ntf-l{list-style:none;margin:0;padding:4px;border-radius:10px;background:#eef1f5;box-shadow:inset 0 1px 3px rgba(30,45,70,.1),0 1px 0 #fff}
+.sh .sh-ntf-l li{display:flex;align-items:center;gap:8px;padding:8px;font-size:13px;color:#737a87}
+.sh .sh-ntf-l li + li{border-top:1px solid rgba(255,255,255,.9);box-shadow:0 -1px 0 rgba(30,45,70,.06)}
+.sh .sh-ntf-ri{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#4e5969;background:linear-gradient(180deg,#fff,#eef1f5);box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.08)}
+.sh .sh-ntf-ri::before{width:13px;height:13px}
+.sh .sh-ntf-ri.r1{--mi:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12 10C14.2091 10 16 8.20914 16 6 16 3.79086 14.2091 2 12 2 9.79086 2 8 3.79086 8 6 8 8.20914 9.79086 10 12 10ZM5.5 13C6.88071 13 8 11.8807 8 10.5 8 9.11929 6.88071 8 5.5 8 4.11929 8 3 9.11929 3 10.5 3 11.8807 4.11929 13 5.5 13ZM21 10.5C21 11.8807 19.8807 13 18.5 13 17.1193 13 16 11.8807 16 10.5 16 9.11929 17.1193 8 18.5 8 19.8807 8 21 9.11929 21 10.5ZM12 11C14.7614 11 17 13.2386 17 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5 15.9999C5 15.307 5.10067 14.6376 5.28818 14.0056L5.11864 14.0204C3.36503 14.2104 2 15.6958 2 17.4999V21.9999H5V15.9999ZM22 21.9999V17.4999C22 15.6378 20.5459 14.1153 18.7118 14.0056 18.8993 14.6376 19 15.307 19 15.9999V21.9999H22Z"/%3E%3C/svg%3E')}.sh .sh-ntf-ri.r2{--mi:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M2 8.99374C2 5.68349 4.67654 3 8.00066 3H15.9993C19.3134 3 22 5.69478 22 8.99374V21H8.00066C4.68659 21 2 18.3052 2 15.0063V8.99374ZM14 11V13H16V11H14ZM8 11V13H10V11H8Z"/%3E%3C/svg%3E')}.sh .sh-ntf-ri.r3{--mi:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12.0001 22.0001C7.02956 22.0001 3.00012 17.9707 3.00012 13.0001C3.00012 8.02956 7.02956 4.00012 12.0001 4.00012C16.9707 4.00012 21.0001 8.02956 21.0001 13.0001C21.0001 17.9707 16.9707 22.0001 12.0001 22.0001ZM13.0001 13.0001V8.00012H11.0001V15.0001H16.0001V13.0001H13.0001ZM1.74707 6.2826L5.2826 2.74707L6.69682 4.16128L3.16128 7.69682L1.74707 6.2826ZM18.7176 2.74707L22.2532 6.2826L20.839 7.69682L17.3034 4.16128L18.7176 2.74707Z"/%3E%3C/svg%3E')}
+.sh .sh-ntf-l em{margin-left:auto;font-style:normal;color:#0c0d0e;display:flex;align-items:center;gap:4px}
+.sh .sh-av{width:18px;height:18px;border-radius:50%;font:600 10px/18px Inter,sans-serif;text-align:center;color:#fff;background:linear-gradient(180deg,#7fb0ff,#3b7bff);box-shadow:0 0 0 1.5px #fff}
+.sh .sh-av.b{margin-left:-8px;margin-right:2px;background:linear-gradient(180deg,#8fd9b6,#2bb673)}
+.sh .sh-pill{font-weight:400;font-size:12px;line-height:20px;padding:0 8px;border-radius:10px;background:linear-gradient(180deg,#fff,#f4f5f7);box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(0,0,0,.07),0 1px 1px rgba(0,0,0,.05)}
+
+/* g143 toned-down license/notify cards (match kc components) */
+.sh .kc-card.sh-lic{border-radius:8px;padding:16px;gap:12px}
+.sh .sh-lic::after{display:none}
+.sh .sh-lic::before{background:radial-gradient(100% 60% at 0% 0%,rgba(255,255,255,.7),rgba(255,255,255,0) 60%)}
+.sh .sh-lic.ent{background:linear-gradient(160deg,#fffdf8 0%,#fdf6e7 60%,#f9ecd2 100%);border-color:#f1e3c4;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(31,35,41,.04),0 4px 12px -8px rgba(170,120,40,.25)}
+.sh .sh-lic.base{background:linear-gradient(160deg,#ffffff 0%,#f6f8fb 60%,#edf1f6 100%);border-color:#e5e9f0;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(31,35,41,.04),0 4px 12px -8px rgba(70,90,130,.2)}
+.sh .ent{--lc:#0c0d0e;--lm:#8a6a3a}.sh .base{--lc:#0c0d0e;--lm:#737a87}
+.sh .sh-lic.ent{--lm:#8a6a3a;--lc:#0c0d0e}.sh .sh-lic.base{--lc:#0c0d0e}
+.sh .sh-lic-act .kc-btn{display:inline-flex;align-items:center;justify-content:center}
+.sh .sh-lic-md{width:32px;height:32px}
+.sh .sh-lic-md::before{width:17px;height:17px;filter:none}
+.sh .ent .sh-lic-md{background:linear-gradient(180deg,#f3d08a,#d9a24a);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 2px rgba(150,95,20,.2)}
+.sh .base .sh-lic-md{background:linear-gradient(180deg,#d5dce6,#a9b5c6);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 1px 2px rgba(60,80,110,.15)}
+.sh .sh-lic-nm b{font-size:16px;text-shadow:none;cursor:default}
+.sh .sh-lic-tag{font-size:12px;line-height:20px;padding:0 6px;border-radius:2px;background:rgba(255,255,255,.7);box-shadow:none;border:1px solid rgba(0,0,0,.08);color:#42464e}
+.sh .sh-lic-n b{font-size:18px}
+.sh .sh-lic-bar{height:6px;border-radius:3px;background:rgba(0,0,0,.06);box-shadow:inset 0 1px 1px rgba(0,0,0,.06)}
+.sh .sh-lic-bar i{border-radius:3px;background:#f53f3f;box-shadow:none}
+.sh .sh-lic-row{box-shadow:none;border-top-color:rgba(0,0,0,.05);font-size:13px}
+.sh .sh-lic-act .kc-btn{flex:1;height:32px;line-height:30px;padding:0 12px;text-shadow:none}
+.sh .sh-lic-act .kc-btn:not(.pri){color:#0c0d0e;background:#fff}
+.sh .sh-lic-act .kc-btn.pri,.sh .ent .sh-lic-b.pri,.sh .base .sh-lic-b.pri{background:#1664ff;border:1px solid #1664ff;color:#fff;box-shadow:0 1px 2px rgba(22,100,255,.25);text-shadow:none}
+.sh .sh-lic-act .kc-btn:not(.pri),.sh .ent .sh-lic-b:not(.pri),.sh .base .sh-lic-b:not(.pri){border:1px solid #dde2e9;box-shadow:0 1px 2px rgba(31,35,41,.05)}
+.sh .kc-card.sh-ntf{border-radius:8px;background:linear-gradient(180deg,#fff,#fafbfc);border-color:#eef0f3;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(31,35,41,.03)}
+.sh .sh-ntf-ic{width:24px;height:24px;border-radius:4px;background:#e8f3ff;color:#1664ff;box-shadow:none}
+.sh .sh-ntf-ic::before{width:14px;height:14px}
+.sh .sh-ntf-l{padding:0 10px;border-radius:4px;background:#f7f8fa;box-shadow:none}
+.sh .sh-ntf-l li{padding:9px 0}
+.sh .sh-ntf-l li + li{border-top:1px solid #eef0f3;box-shadow:none}
+.sh .sh-ntf-ri{width:20px;height:20px;background:#fff;box-shadow:none;border:1px solid #e5e6eb;color:#737a87}
+.sh .sh-ntf-ri::before{width:12px;height:12px}
+.sh .sh-pill{border-radius:2px;background:#fff;box-shadow:none;border:1px solid #e5e6eb;padding:0 6px}
+.sh .sh-av{box-shadow:0 0 0 1.5px #f7f8fa;background:#3b7bff}.sh .sh-av.b{background:#2bb673}
+
+/* g144 安全开关 */
+.sh .sh-capc .kc-ch{gap:12px}
+.sh .sh-swe{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.sh .sh-swe:hover{border-color:#b9c3d1}
+.sh .sh-swe b{font-weight:500;color:#0c0d0e;font-variant-numeric:tabular-nums}
+.sh .sh-swe em{font-style:normal;color:#1664ff;padding-left:8px;border-left:1px solid #e5e6eb}
+.sh-swi{width:14px;height:14px;background:#1664ff;-webkit-mask:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8 5H16C19.866 5 23 8.13401 23 12C23 15.866 19.866 19 16 19H8C4.13401 19 1 15.866 1 12C1 8.13401 4.13401 5 8 5ZM16 15C17.6569 15 19 13.6569 19 12C19 10.3431 17.6569 9 16 9C14.3431 9 13 10.3431 13 12C13 13.6569 14.3431 15 16 15Z"/%3E%3C/svg%3E') center/contain no-repeat;mask:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8 5H16C19.866 5 23 8.13401 23 12C23 15.866 19.866 19 16 19H8C4.13401 19 1 15.866 1 12C1 8.13401 4.13401 5 8 5ZM16 15C17.6569 15 19 13.6569 19 12C19 10.3431 17.6569 9 16 9C14.3431 9 13 10.3431 13 12C13 13.6569 14.3431 15 16 15Z"/%3E%3C/svg%3E') center/contain no-repeat}
+.sh-swd{width:920px}
+.sh-swtop{display:flex;align-items:center;margin-bottom:12px;font-size:13px;color:#737a87}
+.sh-swtop b{font:600 20px/1 Barlow,Inter,sans-serif;color:#0c0d0e;margin-right:6px}
+.sh-swt{width:100%;table-layout:fixed}
+.sh-swt th:nth-child(1){width:30%}.sh-swt th:nth-child(2){width:36%}.sh-swt th:nth-child(3){width:14%}.sh-swt th:nth-child(4){width:9%}.sh-swt th:nth-child(5){width:11%}
+.sh-swt tr.sh-swg td{background:#fff;padding:18px 0 8px;border-bottom:0}
+.sh-swgh{display:flex;align-items:center;gap:8px}
+.sh-swgh b{font-size:14px;font-weight:600;color:#0c0d0e}
+.sh-swgh .sh-op{margin-left:auto}
+.sh-swgt{font-size:12px;color:#86909c}
+.sh-swtip{margin:8px 0 0}
+.sh-swn{color:#0c0d0e}
+.sh-rec{margin-left:6px}
+.sh-swdsc{color:#42464e}
+.sh-swr.off .sh-swn,.sh-swr.off .sh-swdsc{color:#86909c}
+.sh-swr.off .sh-swm{opacity:.6}
+.sh-swm{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5}
+.sh-swm button{border:0;background:none;padding:0 10px;height:24px;font:inherit;font-size:12px;color:#737a87;border-radius:3px;cursor:pointer}
+.sh-swm button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.sh-swedr td{background:#f7f8fa}
+.sh-swed{display:flex;align-items:center;gap:10px;font-size:12px;color:#737a87;flex-wrap:wrap}
+.sh-swed > span:not(.sh-swm){margin-left:8px}
+.sh-swed > span:first-child{margin-left:0}
+.sh-swd footer .sh-swch{margin-right:auto;font-size:13px;color:#ff7d00}
+
+/* g144b div grid */
+.sh-swt{font-size:13px}
+.sh-swh,.sh-swr{display:grid;grid-template-columns:30% 34% 14% 9% 13%;align-items:center}
+.sh-swh{height:40px;background:#f7f8fa;color:#737a87;border-radius:4px}
+.sh-swh span,.sh-swr > div{padding:0 12px}
+.sh-swr{min-height:52px;border-bottom:1px solid #f2f3f5}
+.sh-swg{padding:20px 0 8px}
+.sh-swedr{padding:10px 12px;background:#f7f8fa;border-bottom:1px solid #f2f3f5}
+
+/* g145 score side hierarchy */
+.sh .sh-sd2{gap:0;min-width:216px}
+.sh .sh-sdh{display:flex;align-items:baseline;gap:8px}
+.sh .sh-hero .sh-sdh .sh-kn{font-size:16px;font-weight:600;color:#0c0d0e}
+.sh .sh-kd2{font-style:normal;font-size:12px;color:#86909c;line-height:20px}
+.sh .sh-sd2 p.sh-fc{margin:6px 0 0;font-size:13px;color:#42464e;line-height:20px}
+.sh .sh-fc b{font:600 16px/1 Barlow,Inter,sans-serif;color:#1664ff;margin:0 1px}
+.sh .sh-unp2{display:flex;align-items:center;gap:6px;margin-top:14px;padding:6px 8px;border-radius:4px;background:#fff7e8;border:1px solid #ffe4ba;font-size:12px;color:#42464e;white-space:nowrap}
+.sh .sh-unp2 i{width:6px;height:6px;border-radius:50%;background:#ff7d00;flex:none}
+.sh .sh-unp2 a.sh-ul{border-bottom:0}
+.sh .sh-unp2 .sh-ins{margin-left:auto;padding-left:8px;color:#1664ff;text-decoration:none;font-weight:500}
+.sh .sh-kl2{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:0;border-top:0}
+.sh .sh-kl2 a{color:#737a87;font-size:12px}
+.sh .sh-kl2 a:hover{color:#1664ff}
+.sh .sh-kl2 i{width:1px;height:10px;background:#d9dde3}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2182,7 +2439,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
-        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">10 条待处理</small></a></li></ul>
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
@@ -2195,7 +2452,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1909709bb28d">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="SecHome.dc.html">德迅安全卫士</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>安全总览</b></nav>
+    <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1909709bb28d">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="SecHome.dc.html">德迅安全卫士</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>安全总览</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -2277,38 +2534,38 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         <span class="sh-np"><button type="button" aria-label="上一条" onClick="{{sx.nPrev}}">‹</button>{{sx.nIdx}}<button type="button" aria-label="下一条" onClick="{{sx.nNext}}">›</button></span>
       </div>
       <div class="sh-fl">
-        <label class="sh-sel"><span>资产范围</span><select aria-label="资产范围"><option>全部主机 · 68 台</option><option>德迅服务器 · 3 台</option><option>其他机房接入 · 65 台</option></select></label>
+        <span class="{{sx.scW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" aria-expanded="{{sx.scOpen}}" onClick="{{sx.scT}}"><span>资产范围</span><b>{{sx.scV}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{sx.scOpen}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{sx.scX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{sx.scL}}" as="o" hint-placeholder-count="3"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span>
         <div class="sh-seg" role="group" aria-label="时间范围"><sc-for list="{{sx.ranges}}" as="g" hint-placeholder-count="2"><button type="button" class="{{g.cls}}" aria-pressed="{{g.on}}" onClick="{{g.pick}}">{{g.n}}</button></sc-for></div>
         <div class="sh-calm"><span><i class="sh-dot"></i>已守护 <b>412</b> 天</span><span>客户端 V4.3.2</span><span>病毒库 11-02 00:00</span><span>漏洞库 11-02 14:21</span><span class="sh-upd2">最近更新 {{sx.upd}}<button type="button" class="{{sx.rfC}}" title="{{sx.refT}}" aria-label="{{sx.refT}}" onClick="{{sx.refresh}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"></path><path d="M20 4v7h-7"></path></svg></button></span></div>
       </div>
       <section class="kc-card kc-hero sh-hero">
         <div class="sh-score">
-          <div class="sh-ring" role="img" aria-label="安全评分 82 分"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="56" fill="none" stroke="#f2f3f5" stroke-width="10"></circle><circle class="sh-arc" cx="66" cy="66" r="56" fill="none" stroke-width="10" stroke-linecap="round" style="{{sx.arc}}"></circle></svg><div class="sh-rv"><b>82</b><span>良好</span></div></div>
-          <div class="sh-sd"><span class="sh-kn">安全评分</span><em class="sh-kd up">比昨天 +3</em><p>修复 2 项紧急风险后预计可到 91 分</p><p class="sh-unp"><i></i>未受保护 1 台（backup-02）<a href="#" onClick="{{sx.go.install}}">去安装</a></p><div class="sh-kl"><a href="#" onClick="{{sx.go.score}}">评分详情</a><a href="#" onClick="{{sx.go.score}}">扣分项 6</a></div></div>
+          <div class="sh-ring sh-gauge2" role="img" aria-label="安全评分 82 分，满分 100"><svg width="220" height="170" viewBox="0 0 220 170" aria-hidden="true"><defs><linearGradient id="shGg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#7aa7ff"></stop><stop offset="1" stop-color="#1664ff"></stop></linearGradient></defs><g class="sh-gt"><line x1="35.5" y1="155.0" x2="27.7" y2="159.5" class="mj"></line><line x1="31.4" y1="147.0" x2="26.0" y2="149.4" class=""></line><line x1="28.2" y1="138.6" x2="22.5" y2="140.4" class=""></line><line x1="25.9" y1="129.9" x2="20.0" y2="131.1" class=""></line><line x1="24.5" y1="121.0" x2="18.5" y2="121.6" class=""></line><line x1="24.0" y1="112.0" x2="18.0" y2="112.0" class=""></line><line x1="24.5" y1="103.0" x2="18.5" y2="102.4" class=""></line><line x1="25.9" y1="94.1" x2="20.0" y2="92.9" class=""></line><line x1="28.2" y1="85.4" x2="22.5" y2="83.6" class=""></line><line x1="31.4" y1="77.0" x2="26.0" y2="74.6" class=""></line><line x1="35.5" y1="69.0" x2="27.7" y2="64.5" class="mj"></line><line x1="40.4" y1="61.5" x2="35.6" y2="57.9" class=""></line><line x1="46.1" y1="54.5" x2="41.6" y2="50.4" class=""></line><line x1="52.5" y1="48.1" x2="48.4" y2="43.6" class=""></line><line x1="59.5" y1="42.4" x2="55.9" y2="37.6" class=""></line><line x1="67.0" y1="37.5" x2="64.0" y2="32.3" class=""></line><line x1="75.0" y1="33.4" x2="72.6" y2="28.0" class=""></line><line x1="83.4" y1="30.2" x2="81.6" y2="24.5" class=""></line><line x1="92.1" y1="27.9" x2="90.9" y2="22.0" class=""></line><line x1="101.0" y1="26.5" x2="100.4" y2="20.5" class=""></line><line x1="110.0" y1="26.0" x2="110.0" y2="17.0" class="mj"></line><line x1="119.0" y1="26.5" x2="119.6" y2="20.5" class=""></line><line x1="127.9" y1="27.9" x2="129.1" y2="22.0" class=""></line><line x1="136.6" y1="30.2" x2="138.4" y2="24.5" class=""></line><line x1="145.0" y1="33.4" x2="147.4" y2="28.0" class=""></line><line x1="153.0" y1="37.5" x2="156.0" y2="32.3" class=""></line><line x1="160.5" y1="42.4" x2="164.1" y2="37.6" class=""></line><line x1="167.5" y1="48.1" x2="171.6" y2="43.6" class=""></line><line x1="173.9" y1="54.5" x2="178.4" y2="50.4" class=""></line><line x1="179.6" y1="61.5" x2="184.4" y2="57.9" class=""></line><line x1="184.5" y1="69.0" x2="192.3" y2="64.5" class="mj"></line><line x1="188.6" y1="77.0" x2="194.0" y2="74.6" class=""></line><line x1="191.8" y1="85.4" x2="197.5" y2="83.6" class=""></line><line x1="194.1" y1="94.1" x2="200.0" y2="92.9" class=""></line><line x1="195.5" y1="103.0" x2="201.5" y2="102.4" class=""></line><line x1="196.0" y1="112.0" x2="202.0" y2="112.0" class=""></line><line x1="195.5" y1="121.0" x2="201.5" y2="121.6" class=""></line><line x1="194.1" y1="129.9" x2="200.0" y2="131.1" class=""></line><line x1="191.8" y1="138.6" x2="197.5" y2="140.4" class=""></line><line x1="188.6" y1="147.0" x2="194.0" y2="149.4" class=""></line><line x1="184.5" y1="155.0" x2="192.3" y2="159.5" class="mj"></line></g><g class="sh-gl"><text x="18.2" y="169.0">0</text><text x="18.2" y="63.0">25</text><text x="110.0" y="10.0">50</text><text x="201.8" y="63.0">75</text><text x="201.8" y="169.0">100</text></g><path class="sh-gtr" d="M47.6 148.0A72 72 0 1 1 172.4 148.0" fill="none" stroke-width="12" stroke-linecap="round"></path><sc-if value="{{sx.gOn}}" hint-placeholder-val="{{true}}"><path class="sh-gv" d="M47.6 148.0A72 72 0 1 1 172.4 148.0" fill="none" stroke="url(#shGg)" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="82 100"></path><circle class="sh-gk" cx="180.1" cy="95.6" r="5"></circle></sc-if></svg><div class="sh-rv"><sc-if value="{{sx.gOn}}" hint-placeholder-val="{{true}}"><b>82</b><span>良好</span></sc-if><sc-if value="{{sx.gOff}}" hint-placeholder-val="{{false}}"><b class="sh-gnil"><i></i><i></i></b><span class="sh-gst">检测中</span></sc-if></div></div>
+          <div class="sh-sd sh-sd2"><div class="sh-sdh"><span class="sh-kn">安全评分</span><em class="sh-kd2">较昨天 +3</em></div><p class="sh-fc">修复 2 项紧急风险后预计 <b>91</b> 分</p><div class="sh-unp2"><i></i><a class="sh-ul" href="#" onClick="{{sx.go.unp}}">未受保护 1 台 · backup-02</a><a class="sh-ins" href="#" onClick="{{sx.go.install}}">去安装</a></div><div class="sh-kl sh-kl2"><a href="#">评分规则</a><i></i><a href="#">扣分项 6</a></div></div>
         </div>
-        <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><a class="sh-rc1" href="{{k.h}}" onClick="{{k.go}}"><div class="sh-rch"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></div><div class="sh-rcv"><div><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></div><div><small>影响主机</small><b>{{k.m}}</b><i>台</i></div></div></a></sc-for></div>
+        <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><div class="sh-rc1"><a class="sh-rch" href="#" onClick="{{k.goR}}"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></a><div class="sh-rcv"><a href="#" onClick="{{k.goR}}" title="查看这些风险"><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></a><a href="#" onClick="{{k.goH}}" title="查看这些主机"><small>影响主机</small><b>{{k.m}}</b><i>台</i></a></div></div></sc-for></div>
       </section>
-      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><svg class="sh-spk" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="shAiG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6bff"><animate attributeName="stop-color" values="#2f6bff;#7b5cff;#2f6bff" dur="4s" repeatCount="indefinite"></animate></stop><stop offset=".55" stop-color="#6d5cff"><animate attributeName="stop-color" values="#6d5cff;#3d8bff;#6d5cff" dur="4s" repeatCount="indefinite"></animate></stop><stop offset="1" stop-color="#b65cf0"><animate attributeName="stop-color" values="#b65cf0;#6d5cff;#b65cf0" dur="4s" repeatCount="indefinite"></animate></stop></linearGradient></defs><g class="sh-spk-b"><path transform="translate(0 5) scale(1.12)" d="M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z" fill="url(#shAiG)"></path></g><g class="sh-spk-s"><path transform="translate(19 0) scale(.54)" d="M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z" fill="url(#shAiG)"></path></g></svg>优先处置<span class="sh-aib" title="企业版：AI 根据风险等级、可利用性和影响范围排序">AI 已排序</span></h2><div class="sh-wk"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></div><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
+      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><svg class="sh-spk" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="shAiG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6bff"><animate attributeName="stop-color" values="#2f6bff;#7b5cff;#2f6bff" dur="4s" repeatCount="indefinite"></animate></stop><stop offset=".55" stop-color="#6d5cff"><animate attributeName="stop-color" values="#6d5cff;#3d8bff;#6d5cff" dur="4s" repeatCount="indefinite"></animate></stop><stop offset="1" stop-color="#b65cf0"><animate attributeName="stop-color" values="#b65cf0;#6d5cff;#b65cf0" dur="4s" repeatCount="indefinite"></animate></stop></linearGradient></defs><g class="sh-spk-b"><path transform="translate(0 5) scale(1.12)" d="M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z" fill="url(#shAiG)"></path></g><g class="sh-spk-s"><path transform="translate(19 0) scale(.54)" d="M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z" fill="url(#shAiG)"></path></g></svg>优先处置<span class="sh-aib" title="企业版：AI 根据风险等级、可利用性和影响范围排序">AI 已排序</span></h2><a class="sh-wk" href="#" onClick="{{sx.go.wk}}"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>/ 14</em></a><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
         <div class="kc-cb sh-pw">
           <ul class="sh-tl"><sc-for list="{{sx.pri}}" as="p" hint-placeholder-count="4"><li>
             <i class="{{p.dot}}" aria-hidden="true"></i>
-            <a class="sh-tt" href="{{p.dh}}"><b>{{p.t}}</b><span>{{p.a}}</span><sc-if value="{{p.fail}}" hint-placeholder-val="{{false}}"><em>上次处置失败</em></sc-if></a>
+            <a class="sh-tt" href="#" onClick="{{p.goT}}"><b>{{p.t}}</b><span>{{p.a}}</span><sc-if value="{{p.fail}}" hint-placeholder-val="{{false}}"><em>上次处置失败</em></sc-if></a>
             <span class="sh-ts"><i class="sh-aic" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z" fill="url(#shAiG)"></path></svg></i><span>{{p.s}}</span></span>
             <button type="button" class="{{p.bc}}" onClick="{{p.go}}">{{p.bt}}</button>
           </li></sc-for></ul>
         </div><div class="sh-aif"><span>由 AI 根据风险等级、可利用性和影响范围排序，结论仅供参考</span><span class="sh-fb"><button type="button" aria-label="有帮助" title="有帮助" onClick="{{sx.fbUp}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助" title="没帮助" onClick="{{sx.fbDown}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></section>
-      <section class="sh-capc"><div class="kc-ch"><h2>防护能力</h2><span class="sh-upd">守护主机 64 / 68 台 · 基础防护默认开启 · 插件安装后生效</span></div>
+      <section class="sh-capc"><div class="kc-ch"><h2>防护能力</h2><span class="sh-upd">守护主机 64 / 68 台 · 插件安装后生效</span><button type="button" class="sh-swe" onClick="{{sx.sw.open}}"><i class="sh-swi" aria-hidden="true"></i>安全开关<b>{{sx.sw.sum}}</b><em>设置</em></button></div>
         <div class="kc-cb"><div class="sh-cg"><sc-for list="{{sx.caps}}" as="c" hint-placeholder-count="8"><div class="{{c.cls}}">
-          <div class="sh-ch"><i class="sh-ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></i><b>{{c.n}}</b><sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><span class="{{c.tc}}">{{c.st}}</span></sc-if><sc-if value="{{c.lock}}" hint-placeholder-val="{{false}}"><span class="sh-lk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>{{c.k}}</span></sc-if></div>
-          <sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><div class="sh-cs"><div><small>{{c.fl}}</small><b class="{{c.fc}}">{{c.f}}</b></div><div><small>影响主机</small><b class="{{c.fc}}">{{c.m}}</b></div></div></sc-if>
+          <div class="sh-ch"><i class="{{c.ic}}"></i><b>{{c.n}}</b><sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><span class="{{c.tc}}">{{c.st}}</span></sc-if><sc-if value="{{c.lock}}" hint-placeholder-val="{{false}}"><span class="sh-lk"><i class="sh-lki"></i>{{c.k}}</span></sc-if></div>
+          <sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><div class="sh-cs"><a href="#" class="{{c.zc}}" onClick="{{c.goR}}"><small>{{c.fl}}</small><b class="{{c.fc}}">{{c.f}}</b></a><a href="#" class="{{c.zc}}" onClick="{{c.goH}}"><small>影响主机</small><b class="{{c.fc}}">{{c.m}}</b></a></div></sc-if>
           <sc-if value="{{c.btn}}" hint-placeholder-val="{{false}}"><div class="sh-cl"><p>{{c.d}}</p><button type="button" class="sh-op" onClick="{{c.go}}">{{c.bt}}</button></div></sc-if>
         </div></sc-for></div></div></section>
       <div class="sh-g">
         <div class="sh-m">
           <section class="kc-card"><div class="kc-ch"><h2>保护状态</h2><div class="sh-seg" role="group" aria-label="查看方式"><sc-for list="{{sx.pv}}" as="v" hint-placeholder-count="2"><button type="button" class="{{v.cls}}" aria-pressed="{{v.on}}" onClick="{{v.pick}}">{{v.n}}</button></sc-for></div></div>
-            <sc-if value="{{sx.byRisk}}" hint-placeholder-val="{{false}}"><div class="kc-cb"><ul class="sh-gr"><sc-for list="{{sx.grades}}" as="g" hint-placeholder-count="6"><li><span class="{{g.c}}">{{g.l}}</span><div class="sh-gn"><b>{{g.n}}</b><small>{{g.s}}</small></div><div class="sh-gh"><sc-for list="{{g.hosts}}" as="h" hint-placeholder-count="2"><a class="sh-chip" href="{{h.href}}">{{h.t}}</a></sc-for></div><b class="sh-gc">{{g.v}} 台</b></li></sc-for></ul></div></sc-if>
+            <sc-if value="{{sx.byRisk}}" hint-placeholder-val="{{false}}"><div class="kc-cb"><ul class="sh-gr"><sc-for list="{{sx.grades}}" as="g" hint-placeholder-count="6"><li><span class="{{g.c}}">{{g.l}}</span><div class="sh-gn"><b>{{g.n}}</b><small>{{g.s}}</small></div><div class="sh-gh"><sc-for list="{{g.hosts}}" as="h" hint-placeholder-count="2"><a class="sh-chip" href="{{h.href}}" onClick="{{h.go}}">{{h.t}}</a></sc-for></div><a class="sh-gc" href="#" onClick="{{g.go}}">{{g.v}} 台</a></li></sc-for></ul></div></sc-if>
             <sc-if value="{{sx.byState}}" hint-placeholder-val="{{true}}"><div class="kc-cb">
-              <div class="sh-cov"><div><b>68</b><span>台主机</span></div><p>德迅服务器 3 台 · 其他机房接入 65 台</p></div>
+              <div class="sh-cov"><a href="#" onClick="{{sx.go.hosts}}"><b>68</b><span>台主机</span></a><p>德迅服务器 3 台 · 其他机房接入 65 台</p></div>
               <div class="sh-bar" role="img" aria-label="保护状态分布"><sc-for list="{{sx.dist}}" as="d" hint-placeholder-count="6"><i class="{{d.c}}" style="{{d.w}}"></i></sc-for></div>
               <div class="sh-lg"><sc-for list="{{sx.dist}}" as="d" hint-placeholder-count="6"><a href="#" class="{{d.lc}}" onClick="{{d.go}}"><i class="{{d.c}}"></i>{{d.n}}<b>{{d.v}}</b><small>{{d.s}}</small></a></sc-for></div>
             </div></sc-if></section>
@@ -2320,24 +2577,43 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
             <div class="kc-tw"><table class="kc-t">
               <thead><tr><th>告警</th><th>影响资产</th><th>来源</th><th>状态</th><th>最近发生</th><th>操作</th></tr></thead>
               <tbody><sc-for list="{{sx.rows}}" as="r" hint-placeholder-count="6"><tr>
-                <td><span class="sh-al"><i class="{{r.lv}}" title="{{r.lvT}}" aria-label="{{r.lvT}}"></i><b>{{r.t}}</b></span></td>
-                <td>{{r.a}}</td><td>{{r.p}}</td><td><span class="{{r.sc}}">{{r.st}}</span></td><td>{{r.tm}}</td>
+                <td><span class="sh-al"><i class="{{r.lv}}" title="{{r.lvT}}" aria-label="{{r.lvT}}"></i><a class="sh-rn" href="{{r.dh}}" onClick="{{r.goD}}">{{r.t}}</a></span></td>
+                <td><a class="sh-ra" href="{{r.ah}}" onClick="{{r.goA}}">{{r.a}}</a></td><td>{{r.p}}</td><td><span class="{{r.sc}}">{{r.st}}</span></td><td>{{r.tm}}</td>
                 <td><a href="{{r.href}}" onClick="{{r.go}}">{{r.op}}</a></td></tr></sc-for></tbody>
-            </table></div><div class="sh-tfoot"><a href="#" onClick="{{sx.go.allAl}}">查看全部告警<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div></section>
+            </table></div><div class="sh-tfoot"><a href="#" onClick="{{sx.go.allAl}}">查看全部 {{sx.alN}} 条<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div></section>
           <section class="kc-card"><div class="kc-ch"><h2>风险发现与处置趋势</h2><span class="sh-lg2"><i class="sh-info"></i>新发现<i class="sh-mut"></i>已处置</span></div>
             <div class="kc-cb"><div class="sh-tr" role="img" aria-label="风险发现与处置趋势"><sc-for list="{{sx.trend}}" as="t" hint-placeholder-count="7"><div class="sh-tc"><div class="sh-tb"><i class="sh-info" style="{{t.a}}"></i><i class="sh-mut" style="{{t.b}}"></i></div><span>{{t.n}}</span></div></sc-for></div></div></section>
         </div>
         <div class="sh-r">
           <section class="kc-card"><div class="kc-ch"><h2>资产与防护健康</h2><a href="#" onClick="{{sx.go.assets}}">资产中心<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
             <div class="kc-cb"><ul class="sh-hl"><sc-for list="{{sx.health}}" as="h" hint-placeholder-count="4"><li><div class="sh-hh"><span>{{h.n}}</span><b>{{h.p}}</b></div><div class="sh-hb"><i style="{{h.w}}"></i></div><div class="sh-hf"><small>{{h.f}}</small><a href="#" onClick="{{h.go}}">{{h.l}}</a></div></li></sc-for></ul></div></section>
-          <section class="kc-card"><div class="kc-ch"><h2>版本与授权</h2><span class="sh-act2"><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">续费</a><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">扩容</a></span></div>
-            <div class="kc-cb"><div class="sh-kv"><div><span>版本</span>企业版</div><div><span>授权</span><em class="r">68 / 50 台</em></div><div><span>到期</span><em class="r">10-25 · 保留至 11-08</em></div></div>
-            </div></section>
-          <section class="kc-card"><div class="kc-ch"><h2>告警通知</h2><a href="#" onClick="{{sx.go.notify}}">设置</a></div>
-            <div class="kc-cb"><div class="sh-kv"><div><span>接收人</span>wangqi、李四</div><div><span>方式</span>站内信、短信（紧急）</div><div><span>未受保护提醒</span>每天 1 次</div></div></div></section>
+          <section class="kc-card sh-lic {{sx.lic.cls}}">
+            <div class="sh-lic-top"><i class="sh-lic-md" aria-hidden="true"></i><div class="sh-lic-nm"><small>德迅安全卫士</small><b onClick="{{sx.lic.flip}}" title="设计预览：点击切换基础版 / 企业版样式">{{sx.lic.ed}}</b></div><span class="sh-lic-tag">{{sx.lic.tag}}</span></div>
+            <div class="sh-lic-use"><div class="sh-lic-uh"><span>授权台数</span><span class="sh-lic-n"><b>68</b><em>/ 50 台</em></span></div><div class="sh-lic-bar"><i></i></div><p class="sh-lic-ov">已超额 18 台，超出部分仅告警不防护</p></div>
+            <div class="sh-lic-row"><span>到期</span><em>10-25 · 数据保留至 11-08</em></div>
+            <div class="sh-lic-act"><a class="kc-btn pri sh-lic-b" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">{{sx.lic.pb}}</a><a class="kc-btn sh-lic-b" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">续费</a></div>
+          </section>
+          <section class="kc-card sh-ntf"><div class="sh-ntf-h"><i class="sh-ntf-ic" aria-hidden="true"></i><h2>告警通知</h2><a href="#" onClick="{{sx.go.notify}}">设置</a></div>
+            <ul class="sh-ntf-l">
+              <li><i class="sh-ntf-ri r1" aria-hidden="true"></i><span>接收人</span><em><b class="sh-av">W</b><b class="sh-av b">李</b>wangqi、李四</em></li>
+              <li><i class="sh-ntf-ri r2" aria-hidden="true"></i><span>方式</span><em><b class="sh-pill">站内信</b><b class="sh-pill">短信 · 紧急</b></em></li>
+              <li><i class="sh-ntf-ri r3" aria-hidden="true"></i><span>未受保护提醒</span><em>每天 1 次</em></li>
+            </ul></section>
         </div>
       </div>
-          <sc-if value="{{sx.dwOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.dwX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{sx.dw.t}}"><header><h3>{{sx.dw.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.dwX}}">×</button></header>
+          <sc-if value="{{sx.sw.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.sw.x}}"></div><aside class="sh-dw sh-fx sh-swd" role="dialog" aria-modal="true" aria-label="安全开关"><header><h3>安全开关</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.sw.x}}">×</button></header>
+        <div class="sh-dwb"><div class="sh-swtop"><div><b>{{sx.sw.sum}}</b><span>项已开启 · 对 64 台受保护主机生效 · 新主机接入后自动应用</span></div></div>
+          <div class="sh-swt"><div class="sh-swh"><span>设置项</span><span>内容</span><span>生效范围</span><span>开关</span><span>操作</span></div><sc-for list="{{sx.sw.rows}}" as="r" hint-placeholder-count="6">
+            <sc-if value="{{r.gh}}" hint-placeholder-val="{{false}}"><div class="sh-swg"><div class="sh-swgh"><b>{{r.g}}</b><span class="{{r.gtc}}">{{r.gt}}</span><sc-if value="{{r.bulk}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.all}}">全部开启</button></sc-if></div><sc-if value="{{r.tip}}" hint-placeholder-val="{{false}}"><div class="ac-al i sh-swtip"><i>!</i><span>{{r.tip}}</span></div></sc-if></div></sc-if>
+            <sc-if value="{{r.it}}" hint-placeholder-val="{{true}}"><div class="{{r.rc}}"><div><span class="sh-swn">{{r.n}}</span><sc-if value="{{r.rec}}" hint-placeholder-val="{{false}}"><span class="kc-tag info sh-rec">推荐开启</span></sc-if></div>
+              <div><sc-if value="{{r.hasM}}" hint-placeholder-val="{{false}}"><span class="sh-swm"><sc-for list="{{r.modes}}" as="m" hint-placeholder-count="2"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}" title="{{m.tip}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noM}}" hint-placeholder-val="{{true}}"><span class="sh-swdsc">{{r.d}}</span></sc-if></div>
+              <div><span class="sh-swdsc">{{r.sc}}</span></div>
+              <div><button type="button" class="{{r.swc}}" role="switch" aria-checked="{{r.ac}}" aria-label="{{r.n}}" onClick="{{r.tog}}"></button></div>
+              <div><button type="button" class="sh-op" onClick="{{r.ed}}">{{r.edT}}</button></div></div></sc-if>
+            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
+          </sc-for></div></div>
+        <footer><span class="sh-swch">{{sx.sw.chg}}</span><button type="button" class="kc-btn" onClick="{{sx.sw.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.sw.save}}">保存设置</button></footer></aside></sc-if>
+      <sc-if value="{{sx.dwOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.dwX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{sx.dw.t}}"><header><h3>{{sx.dw.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.dwX}}">×</button></header>
         <div class="sh-dwb"><sc-if value="{{sx.dw.p}}" hint-placeholder-val="{{true}}"><p class="sh-dp">{{sx.dw.p}}</p></sc-if><sc-if value="{{sx.dw.hasKv}}" hint-placeholder-val="{{false}}"><div class="sh-dkv"><sc-for list="{{sx.dw.kv}}" as="k" hint-placeholder-count="4"><div><small>{{k.k}}</small><span class="{{k.c}}">{{k.v}}</span></div></sc-for></div></sc-if><sc-if value="{{sx.dw.desc}}" hint-placeholder-val="{{false}}"><div class="sh-dsec"><h4>漏洞描述</h4><p class="sh-ddesc">{{sx.dw.desc}}</p></div></sc-if><sc-if value="{{sx.dw.code}}" hint-placeholder-val="{{false}}"><div class="sh-dsec"><h4>修复建议</h4><p class="sh-dok">{{sx.dw.fix}}</p><div class="sh-code"><code>{{sx.dw.code}}</code><button type="button" class="sh-op" onClick="{{sx.dwCopy}}">{{sx.dwCpT}}</button></div></div></sc-if><sc-if value="{{sx.dw.tT}}" hint-placeholder-val="{{false}}"><h4 class="sh-dh4">{{sx.dw.tT}}</h4></sc-if>
           <div class="kc-tw"><table class="kc-t"><thead><tr><sc-for list="{{sx.dw.h}}" as="h" hint-placeholder-count="4"><th>{{h.t}}</th></sc-for></tr></thead><tbody><sc-for list="{{sx.dw.r}}" as="r" hint-placeholder-count="3"><tr><td><b class="sh-dn">{{r.a}}</b></td><td>{{r.b}}</td><td><span class="{{r.cc}}">{{r.c}}</span></td><td><sc-if value="{{r.o}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.go}}">{{r.o}}</button></sc-if></td></tr></sc-for></tbody></table></div>
           <sc-if value="{{sx.dw.more}}" hint-placeholder-val="{{false}}"><p class="sh-dmore">{{sx.dw.more}}</p></sc-if></div>
@@ -2929,7 +3205,7 @@ class Component extends DCLogic {
     if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
     e.preventDefault(); act(el, e);
   }, false);
-})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
+})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); Object.assign(o, this._sl()); return o; }
   _shx(sx) {
     const st = this.state || {}; const S = (o) => this.setState(o);
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(); };
@@ -2939,6 +3215,47 @@ class Component extends DCLogic {
     const openDw = (k) => S({ shDw: k, shMd: '', shDc: 0 });
     const openMd = (k) => S({ shMd: k, shDw: '', shCp: 0 });
     const pd = st.pd || {}; const plug = st.plug || {};
+
+    // g144 安全开关 drawer
+    { const SW = [
+        ['c1', '客户端与授权', '客户端离线清理', '离线超过 15 天的主机自动移出列表，释放授权', '全部主机', 1, 0],
+        ['c2', '客户端与授权', '客户端自保护 - 防卸载', '卸载需二次校验，被恶意卸载后自动重装', '全部主机', 1, 1],
+        ['c3', '客户端与授权', '客户端自保护 - 进程守护', '驱动级守护客户端进程，防止被结束', '全部主机', 1, 0],
+        ['c4', '客户端与授权', '新主机自动安装客户端', '德迅云新开服务器预装客户端并自动绑定授权', '德迅云服务器', 1, 1],
+        ['c5', '客户端与授权', '客户端轻量化', '扫描跳过数据盘，降低 CPU 与磁盘占用', '—', 0, 0],
+        ['s1', '定时扫描', '漏洞定时扫描', '每 3 天 · 00:00–02:00', '全部主机', 1, 0, 0, 1],
+        ['s2', '定时扫描', '文件定时扫描', '每天 · 04:00–07:00，查杀病毒与木马', '全部主机', 1, 0, 0, 1],
+        ['s3', '定时扫描', '基线定时扫描', '每 7 天 · 05:15，含弱密码检查', '全部主机', 1, 1, 0, 1],
+        ['d1', '自动防御', '恶意文件自动隔离', '', '全部主机', 0, 1, 1],
+        ['d2', '自动防御', '暴力破解自动阻断', '封禁来源 IP 24 小时，可在白名单中放行', '全部主机', 0, 1],
+        ['d3', '自动防御', '反弹 Shell 自动拦截', '', '全部主机', 0, 0, 1],
+        ['d4', '自动防御', '高危命令自动拦截', '', '全部主机', 0, 0, 1],
+        ['p1', '插件', '插件自动下载', '新版本发布后自动下载到主机，不自动安装', '全部主机', 1, 0],
+        ['p2', '插件', '插件安装后自动开启', '安装防勒索、网页防篡改后立即生效', '全部主机', 1, 0]];
+      const GT = { '客户端与授权': ['', ''], '定时扫描': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动防御': ['默认仅告警', 'kc-tag warn'], '插件': ['', ''] };
+      const TIP = { '自动防御': '客户端默认只告警、不拦截。开启后会自动隔离文件或阻断连接，可能影响业务进程，建议先选择部分主机试运行。' };
+      const base = {}; SW.forEach((r) => { base[r[0]] = !!r[5]; });
+      const sv = st.swS || base; const dr = st.swD || sv; const md = st.swMd || {}; const rg = st.swRg || {}; const pr = st.swPr || {};
+      const setD = (o) => S({ swD: Object.assign({}, dr, o) });
+      const cnt = (m) => SW.filter((r) => m[r[0]]).length;
+      const chg = SW.filter((r) => !!dr[r[0]] !== !!sv[r[0]]).length;
+      const rows = []; let lastG = '';
+      SW.forEach(([id, g, n, d, sc, on, rec, hm, hp]) => {
+        if (g !== lastG) { lastG = g; const ids = SW.filter((r) => r[1] === g).map((r) => r[0]);
+          rows.push({ gh: true, it: false, eOn: false, g, gt: GT[g][0], gtc: GT[g][1], tip: TIP[g] || '', bulk: g !== '自动防御', all: ev(() => { const o = {}; ids.forEach((k) => { o[k] = true; }); setD(o); }) }); }
+        const v = !!dr[id]; const mv = md[id] || '标准模式'; const rv = rg[id] || sc; const pv = pr[id] || '';
+        rows.push({ gh: false, it: true, n, rec: !!rec && !v, d, sc: rv, rc: v ? 'sh-swr' : 'sh-swr off', swc: v ? 'kc-sw on' : 'kc-sw', ac: v ? 'true' : 'false',
+          tog: ev(() => setD({ [id]: !v })), hasM: !!hm, noM: !hm,
+          modes: ['标准模式', '重保模式'].map((m) => ({ n: m, tip: m === '标准模式' ? '只处置高置信度威胁，误报少' : '处置范围更广，适合重保期间', cls: m === mv ? 'on' : '', pick: ev(() => S({ swMd: Object.assign({}, md, { [id]: m }) })) })),
+          ed: ev(() => S({ swE: st.swE === id ? '' : id })), edT: st.swE === id ? '收起' : '编辑',
+          eOn: st.swE === id, ranges: (sc === '—' ? ['全部主机', '指定主机组', '指定主机'] : [sc === '德迅云服务器' ? '德迅云服务器' : '全部主机', '指定主机组', '指定主机']).map((m) => ({ n: m, cls: m === rv || (rv === '—' && m === '全部主机') ? 'on' : '', pick: ev(() => S({ swRg: Object.assign({}, rg, { [id]: m }) })) })),
+          hasP: !!hp, pers: ['每天', '每 3 天', '每 7 天'].map((m) => ({ n: m, cls: m === (pv || (d.indexOf('每天') === 0 ? '每天' : d.indexOf('每 3 天') === 0 ? '每 3 天' : '每 7 天')) ? 'on' : '', pick: ev(() => S({ swPr: Object.assign({}, pr, { [id]: m }) })) })) });
+      });
+      sx.sw = { on: !!st.swOn, sum: cnt(sv) + ' / ' + SW.length, rows, chg: chg ? '有 ' + chg + ' 项修改未保存' : '',
+        open: ev(() => S({ swOn: true, swD: null, swE: '' })), x: ev(() => S({ swOn: false, swD: null, swE: '' })),
+        save: ev(() => { const def = SW.filter((r) => r[1] === '自动防御' && dr[r[0]] && !sv[r[0]]).length; S({ swS: Object.assign({}, dr), swD: null, swOn: false, swE: '' });
+          toast(def ? '已保存，' + def + ' 项自动防御将在 1 分钟内对 64 台主机生效' : '已保存，设置将在 1 分钟内下发到 64 台主机'); }) };
+    }
     const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
     const HOST = {
       '正常': ['共 62 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
@@ -3019,6 +3336,240 @@ class Component extends DCLogic {
     sx.rows.forEach((r) => { r.go = RG[r.t] ? ev(RG[r.t]) : undefined; });
     const KP = { '入侵检测': '入侵防御', '漏洞风险': '漏洞检测', '基线风险': '基线检查', '网络风险': '网络防火墙' };
     sx.rcat.forEach((k) => { k.go = navT(KP[k.n] || k.n); });
+    // dn139: 总览每个数字直达对应对象 + 条件
+    { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
+      const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
+      sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
+      Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
+        wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
+      const PID = ['R1', 'R3', 'U1', 'R6'];
+      sx.pri.forEach((p, i) => { p.goT = GO('SecRiskDetail', {}, PID[i]); });
+      const CF = { '入侵检测': { '类型': '入侵' }, '漏洞检测': { '类型': '漏洞' }, '基线检查': { '类型': '基线' }, '威胁猎杀': { '检测项': '威胁猎杀' }, '病毒查杀': { '检测项': '病毒查杀' }, 'AI 研判': { 'AI 研判': '已研判' } };
+      const CH = { '入侵检测': { '风险类型': '入侵' }, '漏洞检测': { '风险类型': '漏洞' }, '基线检查': { '风险类型': '基线' }, '威胁猎杀': { '检测项': '威胁猎杀' }, '病毒查杀': { '检测项': '病毒查杀' }, 'AI 研判': { 'AI 研判': '已研判' } };
+      sx.caps.forEach((c) => { const z = !Number(c.f); c.zc = z ? 'z' : ''; c.goR = z ? ev(() => {}) : GO('SecRisks', CF[c.n] || {}); c.goH = z ? ev(() => {}) : GO('SecHosts', CH[c.n] || {}); });
+      sx.dist.forEach((d) => { d.go = d.v ? GO('SecHosts', { '保护状态': d.n === '有风险' || d.n === '正常' || d.n === '未受保护' || d.n === '接入中' || d.n === '已停机' ? d.n : '全部' }) : ev(() => {}); });
+      (sx.grades || []).forEach((g) => { g.go = g.v ? GO('SecHosts', { '风险等级': g.l }) : ev(() => {}); (g.hosts || []).forEach((h) => { h.go = HOSTGO(h.t); h.href = '#'; }); });
+      const HF = { '离线 1 台': { '在线状态': '离线' }, '异常 3 台': { '客户端': '异常' }, '未生效 2 台': { '策略': '未生效' }, '未覆盖 4 台': { '防护覆盖': '未覆盖' } };
+      sx.health.forEach((h) => { h.go = GO('SecHosts', HF[h.l] || {}); });
+      const PF = { '新发现': { '状态': '全部', '时间': '近 7 天' }, '已解决': { '状态': '已解决', '时间': '近 7 天' }, '待复检': { '状态': '待复检', '时间': '近 7 天' }, '已忽略': { '状态': '已忽略', '时间': '近 7 天' }, '旧环境归档': { '状态': '已归档', '时间': '近 7 天' } };
+      sx.prog.forEach((x) => { x.go = GO('SecRisks', PF[x.n] || {}); });
+      sx.ev.forEach((x) => { if (x.o !== '去复检') x.go = GO('SecRisks', { '状态': '已解决', '验证': '已验证', '时间': '近 7 天' }); });
+      if ((st.ni || 0) === 0) { sx.nb = Object.assign({}, sx.nb, { o: '查看影响主机', h: '#' }); sx.nbGo = GO('SecRiskDetail', {}, 'R3'); }
+      if (st.shDw === 'score') { const SM = { 'OpenSSH 远程代码执行漏洞': 'R3', '异常登录': 'R1', '弱口令（3 个账号）': 'R6', '客户端已卸载': 'U1', '高危端口开放': 'R11' };
+        sx.dw.r.forEach((r) => { r.o = '查看'; r.go = SM[r.a] ? GO('SecRiskDetail', {}, SM[r.a]) : GO('SecRisks', { '类型': '基线' }); }); sx.dw.lk = '在告警与风险中查看全部'; sx.dw.lkGo = GO('SecRisks', { '状态': '待处置' }); }
+      if (st.shDw === 'ai') { const AM = { '异常登录': 'R1', 'OpenSSH 漏洞': 'R3', '客户端已卸载': 'U1' }; sx.dw.r.forEach((r) => { const id = AM[r.a]; if (id) { r.o = '查看'; r.go = GO('SecRiskDetail', {}, id); } }); }
+      // 告警与风险卡片：与列表同一份数据
+      const pend = RK.filter((r) => PEND.indexOf(r.st) >= 0);
+      const AT = [['全部', ''], ['紧急', '紧急'], ['未受保护', '未受保护'], ['可疑', '可疑'], ['提醒', '提醒']];
+      const at = st.atab || '全部'; const ak = (AT.find((x) => x[0] === at) || AT[0])[1];
+      sx.tabs = AT.map(([n, k]) => ({ n, c: pend.filter((r) => !k || r.lv === k).length, on: n === at, cls: n === at ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }));
+      const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
+      const RG2 = { R1: () => openDw('judge'), R3: () => openMd('fix'), U1: () => openMd('install'), R6: () => openMd('retry') };
+      sx.rows = pend.filter((r) => !ak || r.lv === ak).sort((a, b) => ORD[a.lv] - ORD[b.lv]).slice(0, 6).map((r) => ({ lv: LVC[r.lv], lvT: r.lv, t: r.n, a: r.as, p: r.prod, sc: 'sh-st', st: r.st === '处置中' ? '自动清洗中' : r.st, tm: r.t.slice(-5) === '00:00' ? r.t.slice(0, 5) : r.t,
+        dh: r.ext || '#', goD: r.ext ? undefined : GO('SecRiskDetail', {}, r.id), ah: '#', goA: r.ext ? GOX(r.ext) : r.hs.length > 1 ? GO('SecRiskDetail', {}, r.id) : HOSTGO(r.hs[0]),
+        op: r.ext ? r.act : RG2[r.id] ? r.act : '查看', href: r.ext || '#', go: r.ext ? undefined : RG2[r.id] ? ev(RG2[r.id]) : GO('SecRiskDetail', {}, r.id) }));
+      sx.allAl = GO('SecRisks', ak ? { '状态': '待处置', '级别': ak } : { '状态': '待处置' }); sx.go.allAl = sx.allAl;
+      sx.alN = pend.filter((r) => !ak || r.lv === ak).length;
+    }
+  }
+  _sd() {
+    if (this.__sd) return this.__sd;
+    const SD = 'IdcServerDetail.dc.html';
+    const EYE = 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', CDN = 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-15dd8cd198dd', ATK = 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', CERT = 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-0ca68509871c';
+    // 主机：名称, IP, 机房, 保护状态, 原因, 风险等级, 客户端, 客户端说明, 策略, 防护覆盖, 在线, 版本, 最近检测
+    const X = [
+      ['web-prod-01', '115.231.**.12', '德迅服务器', '有风险', '', 'E', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:42'],
+      ['app-03', '10.0.2.23', '其他机房', '有风险', '', 'C', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:40'],
+      ['backup-02', '60.191.**.40', '德迅服务器', '未受保护', '客户端已卸载（10-29 由 root 卸载）', '—', '异常', '已卸载', '—', '未覆盖', '在线', '—', '10-29 16:20'],
+      ['db-new-01', '10.0.4.61', '其他机房', '接入中', '首次检测中，约 10 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
+      ['db-new-02', '10.0.4.62', '其他机房', '接入中', '首次检测中，约 10 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
+      ['test-07', '10.0.9.17', '其他机房', '已停机', '停机 3 天，开机后自动恢复检测', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.1', '10-30 09:12'],
+      ['db-01', '115.231.**.13', '德迅服务器', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:28'],
+      ['cache-02', '10.0.3.32', '其他机房', '正常', '', 'A', '异常', '心跳超时 12 分钟', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:30'],
+      ['app-05', '10.0.2.25', '其他机房', '正常', '', 'A', '异常', '版本过旧，建议升级', '生效', '已覆盖', '在线', 'V4.1.0', '11-02 10:31'],
+      ['web-prod-02', '10.0.1.12', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:36'],
+      ['web-prod-03', '10.0.1.13', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:36'],
+      ['api-01', '10.0.2.21', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35'],
+      ['cache-01', '10.0.3.31', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35']];
+    for (let i = 1; X.length < 68; i++) { const p = String(i).padStart(2, '0'); X.push(['node-' + p, '10.0.' + (6 + Math.floor(i / 40)) + '.' + (10 + i % 40), '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:' + String(10 + i % 30)]); }
+    const HS = X.map(([n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk]) => ({ n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk, dx: room === '德迅服务器' }));
+    const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
+    // 风险：编号, 名称, 类型, 级别, 影响主机, 状态, 检测项, 来源产品, 发现时间, 近7天, AI 研判, 已验证, 外部链接, 资产, 主操作
+    const R = [
+      ['R1', '异常登录', '入侵', '紧急', ['web-prod-01'], '待处理', '入侵检测', '德迅安全卫士', '11-02 10:12', 1, 1, 0, '', '', 'AI 研判'],
+      ['R2', '可疑进程外联', '入侵', '可疑', ['web-prod-01'], '待处理', '威胁猎杀', '德迅安全卫士', '10-24 22:41', 0, 1, 0, '', '', '处理'],
+      ['R3', 'OpenSSH 远程代码执行漏洞', '漏洞', '紧急', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-21 03:00', 0, 1, 0, '', '', '一键修复'],
+      ['R4', 'Nginx 拒绝服务漏洞', '漏洞', '可疑', ['app-03'], '待处理', '漏洞检测', '德迅安全卫士', '10-20 03:00', 0, 1, 0, '', '', '一键修复'],
+      ['R5', 'sudo 本地提权漏洞', '漏洞', '提醒', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-18 03:00', 0, 0, 0, '', '', '一键修复'],
+      ['R6', '弱口令（3 个账号）', '基线', '可疑', ['web-prod-01'], '处置失败', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 1, 0, '', '', '重试'],
+      ['R7', 'SSH 允许 root 直接登录', '基线', '提醒', ['web-prod-01', 'app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R8', '未设置密码有效期', '基线', '提醒', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R9', '未开启操作审计日志', '基线', '提醒', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R10', '/tmp 未单独挂载', '基线', '提醒', ['web-prod-01'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '查看方法'],
+      ['R11', '高危端口 3389 对公网开放', '网络', '可疑', ['app-03'], '待处理', '网络防火墙', '德迅安全卫士', '10-22 11:05', 0, 1, 0, '', '', '关闭端口'],
+      ['U1', '客户端已卸载', '主机状态', '未受保护', ['backup-02'], '待处理', '客户端', '德迅安全卫士', '10-29 16:20', 0, 0, 0, '', '', '重新安装'],
+      ['W1', 'Web 高危漏洞', 'Web 安全', '紧急', [], '待处理', '网站监测', '德迅云眼', '11-02 09:30', 1, 0, 0, EYE, 'www.example.com', '修复'],
+      ['C1', 'CC 攻击未拦截', 'Web 攻击', '紧急', [], '待处理', 'CC 防护', 'SCDN', '11-02 10:41', 1, 0, 0, CDN, 'shop.example.com', '开启防护'],
+      ['D1', 'DDoS 攻击（UDP Flood）', 'DDoS 攻击', '可疑', [], '处置中', '流量清洗', 'DDoS 高防 IP', '11-02 10:24', 1, 0, 0, ATK, '高防-002', '查看'],
+      ['O1', '源站 IP 暴露', 'Web 安全', '可疑', [], '待处理', '源站保护', 'SCDN', '10-29 14:00', 1, 0, 0, CDN, 'shop.example.com', '查看'],
+      ['S1', 'SSL 证书 12 天后到期', '证书', '提醒', [], '待处理', '证书管理', 'SCDN', '10-28 09:00', 1, 0, 0, CERT, 'www.example.com', '续费'],
+      ['H1', '未开启 HTTPS', 'Web 安全', '提醒', [], '待处理', '证书管理', 'SCDN', '10-26 09:00', 0, 0, 0, CDN, 'm.example.com', '开启'],
+      ['EVT-0998', '恶意文件已阻断', '入侵', '紧急', ['web-prod-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-31 14:02', 1, 0, 1, '', '', '查看'],
+      ['EVT-1003', '高危端口 22 对公网开放', '网络', '可疑', ['app-03'], '已解决', '网络防火墙', '德迅安全卫士', '10-30 11:20', 1, 0, 1, '', '', '查看'],
+      ['EVT-1001', 'Redis 未授权访问', '漏洞', '紧急', ['cache-01'], '已解决', '漏洞检测', '德迅安全卫士', '10-28 03:00', 1, 0, 1, '', '', '查看'],
+      ['EVT-0996', '挖矿程序', '入侵', '紧急', ['api-01'], '已解决', '入侵检测', '德迅安全卫士', '10-27 23:10', 1, 0, 1, '', '', '查看'],
+      ['EVT-0997', 'Log4j 远程代码执行漏洞', '漏洞', '可疑', ['web-prod-02'], '已解决', '漏洞检测', '德迅安全卫士', '10-29 03:00', 1, 0, 0, '', '', '查看'],
+      ['EVT-1002', '账号异常提权', '入侵', '可疑', ['web-prod-03'], '已解决', '入侵检测', '德迅安全卫士', '10-30 15:42', 1, 0, 0, '', '', '查看'],
+      ['EVT-1006', 'SSH 暴力破解', '入侵', '可疑', ['db-01'], '已解决', '入侵检测', '德迅安全卫士', '11-01 02:15', 1, 0, 0, '', '', '查看'],
+      ['EVT-1000', '未设置登录失败锁定', '基线', '提醒', ['cache-01'], '已解决', '基线检查', '德迅安全卫士', '10-28 03:10', 1, 0, 0, '', '', '查看'],
+      ['EVT-1004', 'Docker API 未授权访问', '漏洞', '可疑', ['node-07'], '已解决', '漏洞检测', '德迅安全卫士', '10-31 03:00', 1, 0, 0, '', '', '查看'],
+      ['EVT-0999', '可疑进程已隔离', '入侵', '可疑', ['cache-01'], '待复检', '入侵检测', '德迅安全卫士', '10-31 20:05', 1, 0, 0, '', '', '复检'],
+      ['EVT-1005', 'Nginx 版本过低', '漏洞', '提醒', ['web-prod-02'], '待复检', '漏洞检测', '德迅安全卫士', '11-01 03:00', 1, 0, 0, '', '', '复检'],
+      ['EVT-0990', '弱口令（测试账号）', '基线', '提醒', ['api-01'], '已忽略', '基线检查', '德迅安全卫士', '10-29 03:10', 1, 0, 0, '', '', '恢复'],
+      ['EVT-0981', '重装前的 3 条风险', '主机状态', '提醒', ['backup-02'], '已归档', '客户端', '德迅安全卫士', '10-28 10:00', 1, 0, 0, '', '', '查看']];
+    const TXT = {
+      R1: ['web-prod-01 在 10:12 被 45.142.xx.xx（荷兰）以 root 登录，此前 1 小时该 IP 尝试登录 312 次，登录后下载并执行了 /tmp/.x。', '先确认是不是本人登录。不是本人：封禁该 IP、修改 root 密码，并对主机做一次全面检测。', [['来源 IP', '45.142.xx.xx · 荷兰'], ['登录账号', 'root'], ['登录前', '1 小时内失败 312 次']]],
+      R2: ['威胁猎杀发现 web-prod-01 上的进程 /tmp/.x 持续连接境外地址 45.142.xx.xx:4444，与异常登录为同一来源。', '终止进程并隔离文件，再检查计划任务和启动项里有没有同名程序。', [['进程', '/tmp/.x（PID 26796）'], ['外联地址', '45.142.xx.xx:4444']]],
+      R3: ['OpenSSH 服务端存在竞态条件，攻击者无需认证即可远程以 root 执行代码。影响 8.5p1 至 9.7p1，22 端口对公网开放时风险最高。', '升级 OpenSSH 到 9.8p1 或以上。升级时会重启 sshd，已建立的连接不受影响，完成后自动复检。', [['漏洞编号', 'CVE-2024-6387'], ['CVSS 评分', '8.1'], ['是否有 EXP', '是，已公开']]],
+      R4: ['Nginx 处理特定请求时可能崩溃，导致网站无法访问。', '升级 Nginx 到 1.26.2 或以上，升级后需要 reload。', [['当前版本', 'nginx 1.24.0']]],
+      R5: ['本地普通用户可能通过 sudo 漏洞获得 root 权限。', '升级 sudo 到 1.9.15p5 或以上。', [['当前版本', 'sudo 1.9.5p2']]],
+      R6: ['web-prod-01 上有 3 个账号使用常见弱口令。上次自动修复失败：客户端没有修改密码的权限。', '确认客户端以 root 运行后重试，或手动修改这 3 个账号的密码。', [['账号', 'admin、test、deploy'], ['失败原因', '客户端没有改密权限']]],
+      R7: ['sshd 配置允许 root 直接登录，被暴力破解后攻击者可以直接拿到最高权限。', '把 PermitRootLogin 改为 no，改用普通账号登录后 sudo。修改后重启 sshd。', [['配置项', 'PermitRootLogin yes']]],
+      R8: ['账号密码永不过期，泄露后长期有效。', '设置 PASS_MAX_DAYS 为 90 天。', [['配置项', 'PASS_MAX_DAYS 99999']]],
+      R9: ['未开启 auditd，出了问题无法追查谁做了什么操作。', '开启 auditd 并设置为开机启动。', [['服务', 'auditd 未运行']]],
+      R10: ['/tmp 与根目录在同一分区，恶意程序可以在 /tmp 中执行。', '将 /tmp 单独挂载并加上 noexec 选项。该项需要停机操作，建议在维护窗口处理。', []],
+      R11: ['app-03 的 3389 端口对公网开放，常被用来暴力破解远程桌面。', '关闭该端口的公网访问，或只允许办公网 IP 访问。', [['端口', '3389 / TCP'], ['开放范围', '0.0.0.0/0']]],
+      U1: ['backup-02 的客户端在 10-29 由 root 手动卸载，这台主机目前不受检测，也不会产生告警。', '以 root 运行安装命令重新安装客户端，约 1 分钟后自动上线。', [['卸载时间', '10-29 16:20'], ['操作账号', 'root']]]
+    };
+    const RK = R.map(([id, n, ty, lv, hs, st, src, prod, t, d7, ai, ver, ext, as, act]) => Object.assign({ id, n, ty, lv, hs, st, src, prod, t, d7: !!d7, ai: !!ai, ver: !!ver, ext, as: as || (hs.length > 1 ? hs[0] + ' 等 ' + hs.length + ' 台' : hs[0] || ''), act },
+      { desc: (TXT[id] || [])[0] || n + '，详细信息见处置记录。', fix: (TXT[id] || [])[1] || '', kv: ((TXT[id] || [])[2] || []).map(([k, v]) => ({ k, v })) }));
+    const LVC = { '紧急': 'kc-lv3 r', '未受保护': 'kc-lv3 o', '可疑': 'kc-lv3 y', '提醒': 'kc-lv3 b' };
+    const PEND = ['待处理', '处置中', '处置失败'];
+    const GO = (p, f, x) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation();
+      const sc = (this.state || {}).scope || ''; const ff = Object.assign({}, f || {}); if (p !== 'SecRiskDetail') { if (sc.indexOf('德迅服务器') === 0) ff['机房'] = '德迅服务器'; else if (sc.indexOf('其他机房') === 0) ff['机房'] = '其他机房'; }
+      try { localStorage.setItem('dxSecNav', JSON.stringify({ p, f: ff, x: x || null, t: Date.now() })); } catch (y) {} try { window.dispatchEvent(new Event('dxSecNav')); } catch (y) {}
+      const a = document.createElement('a'); a.href = p + '.dc.html'; a.style.display = 'none'; (document.querySelector('x-dc') || document.body).appendChild(a); a.click(); setTimeout(() => a.remove(), 0); };
+    const GOX = (href) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); const a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; a.style.display = 'none'; (document.querySelector('x-dc') || document.body).appendChild(a); a.click(); setTimeout(() => a.remove(), 0); };
+    const HOSTGO = (n) => (HM[n] && HM[n].dx ? GO('IdcServerDetail', {}) : GO('SecHosts', { '主机': n }));
+    this.__sd = { HS, HM, RK, LVC, PEND, GO, GOX, HOSTGO, SD };
+    return this.__sd;
+  }
+  _sl() {
+    const PGN = 'SecHome';
+    if (PGN === 'SecHome') return {};
+    const st = this.state || {}; const S = (o) => this.setState(o);
+    const { HS, HM, RK, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
+    const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(); };
+    const toast = (t, k) => { S({ slT: { t, c: 'sh-ti ' + (k || 'ok') } }); clearTimeout(this.__slTo); this.__slTo = setTimeout(() => this.setState({ slT: null }), 2400); };
+    if (!this.__lis && typeof window !== 'undefined') { this.__lis = 1; const kick = () => { try { this.setState({ navTick: Date.now() }); } catch (x) {} }; window.addEventListener('storage', (e) => { if (!e || e.key === 'dxSecNav') kick(); }); window.addEventListener('dxSecNav', kick); window.addEventListener('focus', kick); }
+    { let n = null; try { n = JSON.parse(localStorage.getItem('dxSecNav') || 'null'); } catch (x) {}
+      if (n && n.p === PGN && n.t > (this.__nt || 0) && Date.now() - n.t < 60000) { this.__nt = n.t; this.__nf = n.f || {}; this.__nx = n.x; this.__nok = true; } }
+    const fresh = (k) => (st[k + 'T'] || 0) > (this.__nt || 0);
+    const rst = st.rst || {};
+    const RS = (r) => rst[r.id] || r.st;
+    const rk = RK.map((r) => Object.assign({}, r, { st: RS(r) }));
+    const pend = rk.filter((r) => PEND.indexOf(r.st) >= 0);
+    const hasR = (h, f) => pend.some((r) => r.hs.indexOf(h.n) >= 0 && f(r));
+    const base = { ts: st.ts || '' };
+    const out = { ls: Object.assign(base, { tsOn: !!st.slT, toast: st.slT || { t: '', c: '' } }) };
+    const ls = out.ls;
+    const chipsOf = (lf, skip, label) => Object.keys(lf).filter((k) => k !== skip).map((k) => ({ k: (label && label[k]) || k, v: lf[k], x: ev(() => { const f = Object.assign({}, lf); delete f[k]; S({ lfT: Date.now(), pgT: Date.now(), lf: f, pg: 1 }); }) }));
+    const picker = (lf, ATTR) => { const fa = fresh('fa') ? (st.fa || '') : ''; const on = !!fa; const isV = on && fa !== '*';
+      ls.faW = on ? 'dd-w on' : 'dd-w'; ls.faOn = on; ls.faV = isV; ls.faK = isV ? fa : '';
+      ls.faT = ev(() => S({ faT: Date.now(), fa: on ? '' : '*' })); ls.faX = ev(() => S({ faT: Date.now(), fa: '' })); ls.faB = ev(() => S({ faT: Date.now(), fa: '*' }));
+      ls.faL = isV ? (ATTR[fa] || []).map((v) => ({ n: v, cls: lf[fa] === v ? 'on' : '', pick: ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: Object.assign({}, lf, { [fa]: v }), fa: '', pg: 1 })) }))
+        : Object.keys(ATTR).map((k) => ({ n: k, cls: lf[k] ? 'on' : '', pick: ev(() => S({ faT: Date.now(), fa: k })) })); };
+    const pager = (n, per) => { const pages = Math.max(1, Math.ceil(n / per)); const pg = Math.min((fresh('pg') && st.pg) || 1, pages);
+      ls.pgs = Array.from({ length: pages }, (_, i) => i + 1).map((p) => ({ n: String(p), cls: p === pg ? 'on' : '', pick: ev(() => S({ pgT: Date.now(), pg: p })) }));
+      ls.pPrev = ev(() => S({ pgT: Date.now(), pg: Math.max(1, pg - 1) })); ls.pNext = ev(() => S({ pgT: Date.now(), pg: Math.min(pages, pg + 1) })); ls.many = pages > 1; return pg; };
+    const uniq = (a) => a.filter((v, i) => v && a.indexOf(v) === i);
+
+    if (PGN === 'SecRisks') {
+      const lf = (fresh('lf') && st.lf) || this.__nf || {};
+      const tab = lf['状态'] || '待处置';
+      const q = fresh('q') ? (st.q || '') : '';
+      const m = (r, f) => Object.keys(f).every((k) => { const v = f[k]; switch (k) {
+        case '状态': return v === '全部' ? true : v === '待处置' ? PEND.indexOf(r.st) >= 0 : r.st === v;
+        case '级别': return r.lv === v; case '类型': return r.ty === v; case '主机': return r.hs.indexOf(v) >= 0;
+        case '机房': return r.hs.some((h) => HM[h] && HM[h].room === v); case '来源产品': return r.prod === v; case '检测项': return r.src === v;
+        case 'AI 研判': return r.ai; case '时间': return r.d7; case '验证': return r.ver; default: return true; } });
+      const qm = (r) => !q || (r.n + ' ' + r.hs.join(' ') + ' ' + r.as + ' ' + r.id).toLowerCase().indexOf(q.toLowerCase()) >= 0;
+      ls.tabs = ['待处置', '待复检', '已解决', '已忽略', '已归档', '全部'].map((t) => { const c = rk.filter((r) => qm(r) && m(r, Object.assign({}, lf, { '状态': t }))).length;
+        return { n: t, c, cls: t === tab ? 'kc-tab on' : 'kc-tab', on: t === tab, pick: ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: Object.assign({}, lf, { '状态': t }), pg: 1 })) }; });
+      const ATTR = { '级别': ['紧急', '可疑', '提醒', '未受保护'], '类型': uniq(RK.map((r) => r.ty)), '主机': uniq([].concat.apply([], RK.map((r) => r.hs))), '机房': ['德迅服务器', '其他机房'],
+        '来源产品': uniq(RK.map((r) => r.prod)), '检测项': uniq(RK.map((r) => r.src)), 'AI 研判': ['已研判'], '时间': ['近 7 天'], '验证': ['已验证'] };
+      picker(lf, ATTR);
+      ls.chips = chipsOf(lf, '状态', { '时间': '发现时间' }); ls.hasF = ls.chips.length > 0;
+      ls.clear = ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: { '状态': tab }, pg: 1, q: '' }));
+      ls.q = q; ls.onQ = (e) => S({ q: e.target.value, qT: Date.now(), pg: 1, pgT: Date.now() });
+      const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
+      const rows = rk.filter((r) => qm(r) && m(r, Object.assign({}, lf, { '状态': tab }))).sort((a, b) => ORD[a.lv] - ORD[b.lv]);
+      ls.n = rows.length; ls.empty = !rows.length; ls.has = !!rows.length;
+      const pg = pager(rows.length, 10);
+      ls.rows = rows.slice((pg - 1) * 10, pg * 10).map((r) => { const ext = !!r.ext; const ac = r.act;
+        const doAct = ext ? GOX(r.ext) : ac === '查看' || ac === '查看方法' ? GO('SecRiskDetail', {}, r.id)
+          : ev(() => { if (PEND.indexOf(r.st) < 0 && ac !== '复检' && ac !== '恢复') return; S({ rst: Object.assign({}, rst, { [r.id]: ac === '恢复' ? '待处理' : ac === '复检' ? '已解决' : '处置中' }) }); toast(ac === '复检' ? '复检通过，已标记为已解决' : ac === '恢复' ? '已恢复为待处理' : '已下发「' + ac + '」，完成后自动复检'); });
+        return { id: r.id, n: r.n, lv: LVC[r.lv], lvT: r.lv, sub: r.ty + ' · ' + r.src + (ext ? '' : ' · ' + r.id), go: ext ? GOX(r.ext) : GO('SecRiskDetail', {}, r.id),
+          hs: r.hs.slice(0, 2).map((h) => ({ n: h, go: HOSTGO(h) })), more: r.hs.length > 2 ? '+' + (r.hs.length - 2) : '', hasMore: r.hs.length > 2, noH: !r.hs.length, as: r.as, prod: r.prod,
+          st: r.st, stc: r.st === '处置失败' ? 'sl-st r' : 'sl-st', t: r.t, act: ext ? '去' + r.prod + '处理' : r.st === '处置中' ? '处置中' : ac, doAct, ad: !ext && r.st === '处置中' ? 'sl-op dis' : 'sl-op' }; });
+      return out;
+    }
+    if (PGN === 'SecHosts') {
+      const lf = (fresh('lf') && st.lf) || this.__nf || {};
+      const tab = lf['保护状态'] || '全部';
+      const q = fresh('q') ? (st.q || '') : '';
+      const m = (h, f) => Object.keys(f).every((k) => { const v = f[k]; switch (k) {
+        case '保护状态': return v === '全部' || h.ps === v; case '主机': return h.n === v; case '机房': return h.room === v; case '风险等级': return h.gr === v;
+        case '客户端': return h.ag === v; case '策略': return h.po === v; case '防护覆盖': return h.cv === v; case '在线状态': return h.on === v;
+        case '风险类型': return hasR(h, (r) => r.ty === v); case '检测项': return hasR(h, (r) => r.src === v); case 'AI 研判': return hasR(h, (r) => r.ai);
+        case '风险': return hasR(h, (r) => r.id === v); default: return true; } });
+      const qm = (h) => !q || (h.n + ' ' + h.ip).toLowerCase().indexOf(q.toLowerCase()) >= 0;
+      ls.tabs = ['全部', '正常', '有风险', '未受保护', '接入中', '已停机'].map((t) => { const c = HS.filter((h) => qm(h) && m(h, Object.assign({}, lf, { '保护状态': t }))).length;
+        return { n: t, c, cls: t === tab ? 'kc-tab on' : 'kc-tab', on: t === tab, pick: ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: Object.assign({}, lf, { '保护状态': t }), pg: 1 })) }; });
+      const ATTR = { '风险类型': ['入侵', '漏洞', '基线', '网络'], '风险等级': ['E', 'D', 'C', 'B', 'A', '—'], '机房': ['德迅服务器', '其他机房'], '客户端': ['正常', '异常'],
+        '策略': ['生效', '未生效'], '防护覆盖': ['已覆盖', '未覆盖'], '在线状态': ['在线', '离线'], '检测项': ['入侵检测', '威胁猎杀', '漏洞检测', '基线检查', '网络防火墙'], 'AI 研判': ['已研判'] };
+      picker(lf, ATTR);
+      const RN = {}; RK.forEach((r) => { RN[r.id] = r.n; });
+      ls.chips = chipsOf(lf, '保护状态', {}).map((c) => (c.k === '风险' ? Object.assign(c, { v: RN[c.v] || c.v }) : c)); ls.hasF = ls.chips.length > 0;
+      ls.clear = ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: { '保护状态': tab }, pg: 1, q: '' }));
+      ls.q = q; ls.onQ = (e) => S({ q: e.target.value, qT: Date.now(), pg: 1, pgT: Date.now() });
+      const ins = st.ins2 || {};
+      const rows = HS.filter((h) => qm(h) && m(h, Object.assign({}, lf, { '保护状态': tab })));
+      ls.n = rows.length; ls.empty = !rows.length; ls.has = !!rows.length;
+      const pg = pager(rows.length, 10);
+      const PC = { '正常': 'sl-d g', '有风险': 'sl-d r', '未受保护': 'sl-d o', '接入中': 'sl-d b', '已停机': 'sl-d x' };
+      ls.rows = rows.slice((pg - 1) * 10, pg * 10).map((h) => { const my = pend.filter((r) => r.hs.indexOf(h.n) >= 0 && r.ty !== '主机状态');
+        const ty = ['入侵', '漏洞', '基线', '网络'].map((t) => ({ t, c: my.filter((r) => r.ty === t).length })).filter((x) => x.c).map((x) => ({ n: x.t + ' ' + x.c, go: GO('SecRisks', { '主机': h.n, '类型': x.t }) }));
+        const ps = ins[h.n] ? '接入中' : h.ps;
+        const ops = [];
+        if (my.length) ops.push({ n: '查看风险', go: GO('SecRisks', { '主机': h.n }) });
+        if (h.ps === '未受保护') ops.push({ n: ins[h.n] ? '安装中' : '重新安装', go: ev(() => { if (ins[h.n]) return; S({ ins2: Object.assign({}, ins, { [h.n]: 1 }) }); toast('已记录，客户端上线后状态会自动更新', 'info'); }) });
+        if (h.ag === '异常' && h.ps !== '未受保护') ops.push({ n: h.ver === 'V4.1.0' ? '升级客户端' : '排查', go: ev(() => toast(h.ver === 'V4.1.0' ? '已下发升级任务' : '已发起连通性检测，约 1 分钟出结果', 'info')) });
+        if (h.dx) ops.push({ n: '详情', go: GO('IdcServerDetail', {}) });
+        return { n: h.n, ip: h.ip, room: h.room, dx: h.dx, nx: !h.dx, go: GO('IdcServerDetail', {}), ps, pc: PC[ps] || 'sl-d', why: ins[h.n] ? '正在安装，约 2 分钟' : h.why, ty, noTy: !ty.length, gr: h.gr,
+          ag: h.ver, agw: h.ag === '异常' ? h.agw : h.on === '离线' ? '离线' : '', agc: h.ag === '异常' ? 'kc-sub o' : 'kc-sub', chk: h.chk, ops }; });
+      return out;
+    }
+    if (PGN === 'SecRiskDetail') {
+      const rid = this.__nx || 'R3';
+      const r0 = rk.find((x) => x.id === rid) || rk[2];
+      const hst = st.hst || {};
+      const HST = (h) => hst[r0.id + '|' + h] || r0.st;
+      const done = PEND.indexOf(r0.st) < 0;
+      Object.assign(ls, { id: r0.id, n: r0.n, lv: LVC[r0.lv], lvT: r0.lv, st: r0.st, stc: r0.st === '处置失败' ? 'sl-st r' : 'sl-st', ty: r0.ty, src: r0.src, prod: r0.prod, t: r0.t, hn: r0.hs.length,
+        desc: r0.desc, fix: r0.fix, hasFix: !!r0.fix, kv: r0.kv, hasKv: !!r0.kv.length, act: r0.act, canAct: !done, back: GO('SecRisks', {}),
+        doAct: ev(() => { const o = Object.assign({}, hst); r0.hs.forEach((h) => { o[r0.id + '|' + h] = '处置中'; }); S({ hst: o, rst: Object.assign({}, rst, { [r0.id]: '处置中' }) }); toast('已对 ' + r0.hs.length + ' 台主机下发「' + r0.act + '」，完成后自动复检'); }),
+        ign: ev(() => { S({ rst: Object.assign({}, rst, { [r0.id]: '已忽略' }) }); toast('已忽略，可在「已忽略」中恢复', 'info'); }),
+        hrows: r0.hs.map((h) => { const H = HM[h] || { ip: '', room: '', chk: '' }; const s = HST(h); return { n: h, go: HOSTGO(h), ip: H.ip, room: H.room, st: s, stc: s === '处置失败' ? 'sl-st r' : 'sl-st', chk: H.chk,
+          other: pend.filter((x) => x.id !== r0.id && x.hs.indexOf(h) >= 0).length, goO: GO('SecRisks', { '主机': h }), goHost: GO('SecHosts', { '主机': h }),
+          a: PEND.indexOf(s) >= 0 && s !== '处置中' ? r0.act : '', hasA: PEND.indexOf(s) >= 0 && s !== '处置中',
+          doA: ev(() => { S({ hst: Object.assign({}, hst, { [r0.id + '|' + h]: '处置中' }) }); toast('已对 ' + h + ' 下发「' + r0.act + '」'); }),
+          ig: ev(() => { S({ hst: Object.assign({}, hst, { [r0.id + '|' + h]: '已忽略' }) }); toast('已忽略 ' + h + ' 上的这条风险', 'info'); }) }; }),
+        log: [{ t: r0.t, n: '发现', s: r0.src + '检测到' }].concat(r0.st === '处置失败' ? [{ t: '10-30 14:20', n: '自动修复失败', s: '客户端没有改密权限' }] : []).concat(done ? [{ t: '—', n: r0.st, s: r0.ver ? '复检通过' : '' }] : []) });
+      ls.goHosts = GO('SecHosts', { '风险': r0.id });
+      return out;
+    }
+    return out;
   }
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
@@ -3042,7 +3593,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '安全总览';
-    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html' };
+    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警与风险': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -3050,7 +3601,7 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警与风险", 'bell', '10'), P("资产中心", 'layers', ['资产列表', '资产指纹'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警与风险", 'bell', '18'), P("资产中心", 'layers', ['资产列表', '资产指纹'])] },
       { label: '能力区', items: [P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("入侵防御", 'shield', ['威胁猎杀', '主机防护', '应用运行防护', '病毒与威胁防护', '文件安全防护']), P("远程安全", 'lock', ['登录日志', '防护规则', '在线用户']), P("网络防火墙", 'link', ['外联管控', '网络访问防护', '安全组']), P("插件", 'box', ['防勒索', '网页防篡改']), P("辅助功能", 'gear', ['数据备份', '全局黑白名单']), P("日志与报表", 'chart', ['日志检索', '安全报告'])] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
@@ -3078,16 +3629,16 @@ class Component extends DCLogic {
 
     // sechome: 德迅安全卫士总览
     const SD = 'IdcServerDetail.dc.html', SL = 'IdcServers.dc.html', EYE = 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', CDN = 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-15dd8cd198dd', ATK = 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', CERT = 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-0ca68509871c';
-    const AL = [['hi', '紧急', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'kc-tag err', '10:12', '处理', SD],
-      ['hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'kc-tag warn', '10:05', '修复', SD],
-      ['hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'kc-tag warn', '09:30', '修复', EYE],
-      ['hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'kc-tag err', '10:41', '开启防护', CDN],
-      ['un', '未受保护', '客户端已卸载', 'backup-02', '德迅安全卫士', '待处理', 'kc-tag mut', '10-29', '重新安装', SL],
-      ['md', '可疑', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'kc-tag ok', '10:24', '查看', ATK],
-      ['md', '可疑', '弱口令（3 个账号）', 'web-prod-01', '德迅安全卫士', '待修复', 'kc-tag warn', '10:05', '处理', SD],
-      ['md', '可疑', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'kc-tag mut', '10-29', '查看', CDN],
-      ['lo', '提醒', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'kc-tag mut', '10-28', '续费', CERT],
-      ['lo', '提醒', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'kc-tag mut', '10-26', '开启', CDN]];
+    const AL = [['hi', '紧急', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'sh-st', '10:12', '处理', SD],
+      ['hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '修复', SD],
+      ['hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'sh-st', '09:30', '修复', EYE],
+      ['hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'sh-st', '10:41', '开启防护', CDN],
+      ['un', '未受保护', '客户端已卸载', 'backup-02', '德迅安全卫士', '待处理', 'sh-st', '10-29', '重新安装', SL],
+      ['md', '可疑', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'sh-st', '10:24', '查看', ATK],
+      ['md', '可疑', '弱口令（3 个账号）', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '处理', SD],
+      ['md', '可疑', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'sh-st', '10-29', '查看', CDN],
+      ['lo', '提醒', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'sh-st', '10-28', '续费', CERT],
+      ['lo', '提醒', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'sh-st', '10-26', '开启', CDN]];
     const LV = { hi: 'kc-lv3 r', un: 'kc-lv3 o', md: 'kc-lv3 y', lo: 'kc-lv3 b' };
     const atab = st.atab || '全部';
     const ATABS = [['全部', ''], ['紧急', 'hi'], ['未受保护', 'un'], ['可疑', 'md'], ['提醒', 'lo']];
@@ -3110,6 +3661,9 @@ class Component extends DCLogic {
       ['授权', 'sh-nk o', '企业版授权 10-25 已到期，保留至 11-08；18 台主机超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：新增网页防篡改插件', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
+      scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',
+      scT: () => this.setState({ scOpen: !this.state.scOpen }), scX: () => this.setState({ scOpen: false }),
+      scL: ['全部主机 · 68 台', '德迅服务器 · 3 台', '其他机房接入 · 65 台'].map((n) => ({ n, cls: n === (st.scope || '全部主机 · 68 台') ? 'on' : '', pick: () => this.setState({ scope: n, scOpen: false }) })),
       pv: ['按状态', '按风险等级'].map((n) => ({ n, on: n === pv, cls: n === pv ? 'on' : '', pick: () => this.setState({ pv: n }) })),
       byRisk: pv === '按风险等级', byState: pv !== '按风险等级',
       grades: [['E', 'g-e', '有紧急风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 62, []], ['—', 'g-x', '未检测', '未受保护 1 · 接入中 2 · 已停机 1', 4, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
@@ -3117,6 +3671,8 @@ class Component extends DCLogic {
       refT: rf === 'ing' ? '刷新中…' : '手动刷新',
       refresh: () => { if (rf === 'ing') return; this.setState({ rf: 'ing' }); setTimeout(() => this.setState({ rf: 'ok' }), 1000); },
       ranges: ['近 24 小时', '近 7 天'].map((n) => ({ n, on: n === rng, cls: n === rng ? 'on' : '', pick: () => this.setState({ rng: n }) })),
+      lic: (() => { const ed = (this.state || {}).ed || '企业版'; const ent = ed === '企业版'; return { ed, ent, cls: ent ? 'ent' : 'base', tag: ent ? 'AI 研判已开启' : '不含 AI 研判', pb: ent ? '扩容授权' : '升级企业版', flip: () => this.setState({ ed: ent ? '基础版' : '企业版' }) }; })(),
+      gOn: scan !== 'ing', gOff: scan === 'ing',
       arc: 'stroke-dasharray:' + (2 * Math.PI * 56 * 0.82).toFixed(1) + ' 400',
       nIdx: (ni + 1) + ' / ' + NB.length, nb: NB[ni],
       nPrev: () => this.setState({ ni: (ni + NB.length - 1) % NB.length }), nNext: () => this.setState({ ni: (ni + 1) % NB.length }),
@@ -3133,15 +3689,15 @@ class Component extends DCLogic {
       harc: 'stroke-dasharray:' + (Math.PI * 72 * (9 + Object.keys(pd).length) / 14).toFixed(1) + ' 400',
       trend: TR.map(([n, a, b]) => ({ n, a: 'height:' + (a / 6 * 100) + '%', b: 'height:' + (b / 6 * 100) + '%' })),
       health: [['资产在线', '99%', 67, 68, '67 / 68', '离线 1 台'], ['Agent 健康', '96%', 64, 67, '64 / 67', '异常 3 台'], ['策略生效', '97%', 62, 64, '62 / 64', '未生效 2 台'], ['防护覆盖', '94%', 64, 68, '64 / 68', '未覆盖 4 台']].map(([n, p, a, b, f, l]) => ({ n, p, f, l, w: 'width:' + (a / b * 100).toFixed(1) + '%' })),
-      ev: [['已验证完成 · 4', 'kc-tag ok', 'EVT-0998 恶意文件已阻断，复检通过', '验证详情'], ['待验证 · 2', 'kc-tag warn', 'EVT-0999 可疑进程已隔离，等待复检', '去复检']].map(([k, c, t, o]) => ({ k, c, t, o })),
+      ev: [['已验证完成 · 4', 'sh-evk', 'EVT-0998 恶意文件已阻断，复检通过', '验证详情'], ['待验证 · 2', 'sh-evk', 'EVT-0999 可疑进程已隔离，等待复检', '去复检']].map(([k, c, t, o]) => ({ k, c, t, o })),
       scanT: scan === 'ing' ? '检测中…' : scan === 'ok' ? '检测完成' : '立即全面检测',
       scan: () => { if (scan) return; this.setState({ scan: 'ing' }); setTimeout(() => this.setState({ scan: 'ok' }), 1800); },
       dist: [['正常', 62, 'ok', '持续检测中'], ['有风险', 2, 'err', 'web-prod-01 等'], ['未受保护', 1, 'warn', '客户端已卸载'], ['接入中', 2, 'info', '首次检测中'], ['重装中', 0, 'mut2', ''], ['已停机', 1, 'mut', '不检测']].map(([n, v, c, s2]) => ({ n, v, s: s2, c: 'sh-' + c, lc: v ? '' : 'z', w: 'flex:' + v })),
-      tabs: ATABS.map(([n, k]) => { const c = AL.filter((r) => !k || r[0] === k).length; return { n, c, on: n === atab, cls: n === atab ? 'kc-tab on' : 'kc-tab', cc: k === 'hi' || k === 'un' ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ atab: n }) }; }),
+      tabs: ATABS.map(([n, k]) => { const c = AL.filter((r) => !k || r[0] === k).length; return { n, c, on: n === atab, cls: n === atab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }; }),
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
       prog: [['新发现', '14', '其中紧急 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
       caps: CAP.map(([n, k, m, fl, f, mm, d]) => { const ps = plug[n] || ''; const isP = m === 'plug'; const on = !isP || ps === 'ok';
-        return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'kc-tag info' : 'kc-tag ok', cls: on ? 'sh-cc' : 'sh-cc off',
+        return { n, k, ic: 'sh-ci ic' + ["入侵检测", "漏洞检测", "基线检查", "威胁猎杀", "病毒查杀", "AI 研判", "防勒索", "网页防篡改"].indexOf(n), d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'sh-ent' : 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })
     } };
     this._shx(SXD.sx);
