@@ -2036,24 +2036,24 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1909709bb28d" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
-        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-de5201e8a0c7"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1909709bb28d">控制台总览</a></li><li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-0bd5ab5fb47a">我的产品</a></li><li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8e83e0b89da5">费用</a></li></ul>
+        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
         <div class="tp-cols"><sc-for list="{{hd.cats}}" as="c" hint-placeholder-count="4"><div><h5>{{c.n}}</h5><ul><sc-for list="{{c.items}}" as="p" hint-placeholder-count="5"><li><a href="{{p.href}}" title="{{p.s}}"><i class="{{p.di}}"></i><b>{{p.n}}</b><small>{{p.s}}</small></a><button type="button" class="{{p.fc}}" aria-label="{{p.fl}}" onClick="{{p.fav}}"><svg class="rx rx-star" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path><path class="rx-sf" fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg></button></li></sc-for></ul></div></sc-for></div>
-        <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c">提交工单</a>或拨打 0577-26676666</div></sc-if>
+        <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
       </div>
-      <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+      <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1909709bb28d">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="Main.dc.html">SCDN</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="ScdnWaf.dc.html">防护策略</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>API 安全</b></nav>
+    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="Main.dc.html">SCDN</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="ScdnWaf.dc.html">防护策略</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>API 安全</b></nav>
     <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -2066,40 +2066,40 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
         </sc-if>
         <sc-if value="{{hd.isIp}}" hint-placeholder-val="{{false}}"><h6><span>对 IP {{hd.q}} 可以</span></h6><ul class="tp-rs"><sc-for list="{{hd.ipActs}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em class="go">{{r.e}}</em></a></li></sc-for></ul></sc-if>
         <sc-for list="{{hd.groups}}" as="g" hint-placeholder-count="0"><h6>{{g.n}}<span>{{g.c}} 条</span></h6><ul class="tp-rs"><sc-for list="{{g.items}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul></sc-for>
-        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn" target="_blank" rel="noopener">搜帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a><a class="kc-btn" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
+        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn" target="_blank" rel="noopener">搜帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
       </div>
       <div class="tp-sf"><span>Ctrl K 随时打开</span><span>Esc 关闭</span><a href="#" onClick="{{hd.toProd}}">按产品浏览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if>
     <nav class="kc-tl ac-tl" aria-label="快捷入口">
-      <a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-036a55ff5109">工单</a><a href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn" target="_blank" rel="noopener">文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a>
+      <a href="SupTickets.dc.html">工单</a><a href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn" target="_blank" rel="noopener">文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a>
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
         <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
           <div class="ac-ph"><small>待付款（1 笔）</small><b class="amt">¥ 320.00</b><em>对公转账 · 另有 1 笔汇款核验未匹配，补充信息即可</em>
-            <div class="ac-pbtn"><a class="kc-btn" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-4ab1237f99cc">付款管理</a><a class="kc-btn pri" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-f652d6276a76">去付款</a></div></div>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">去付款</a></div></div>
           <ul class="ac-rows">
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-4ab1237f99cc">付款核验中<em>1 笔 · ¥4,200.00</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1485656c1a39">即将到期<em>5 项 · 30 天内</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-05cf95a88fb3">可开票金额<em>¥1,169.84</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillInvoice.dc.html">可开票金额<em>¥1,169.84</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><span>代金券<em>1 张可用</em></span></li>
           </ul>
-          <div class="ac-qk"><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-094b594265d1">我的订单</a><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-05cf95a88fb3">发票</a><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-ba64a36f03c2">合同</a><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8e83e0b89da5">账务概览</a></div>
-          <div class="ac-pf" style="justify-content:center"><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8e83e0b89da5">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
-          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2282494ce44b">消息设置</a></div>
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
           <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
           <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
-          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2282494ce44b">查看全部消息<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
           <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
           <ul class="ac-rows">
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2c61206fbe61">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-7d0ed99f0705">安全设置<em>安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-42d2ad7b7c9a">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8e83e0b89da5">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
+            <li><a href="OrgSecurity.dc.html">安全设置<em>安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
           </ul>
           <ul class="ac-rows" style="border-bottom:0">
             <li><a href="#">切换账号</a></li>
@@ -2226,31 +2226,31 @@ class Component extends DCLogic {
     const st = this.state || {}; const dd = st.dd || ''; const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const tog = (v) => (e) => { ev(e); this.setState({ dd: dd === v ? '' : v, gq: '', gpq: '' }); };
     // 产品切换
-    const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
-        ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-0bd5ab5fb47a', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-0bd5ab5fb47a', 1, 'vss 漏洞']]],
-      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-de5201e8a0c7', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
-      ['安全运营', [['德迅云眼', '网站安全监测', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
-      ['计算与 IDC', [['服务器租用', '独享物理服务器', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-e1a7a42a37df', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
+    const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
+        ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
+      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
+      ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
     const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
     let openN = 0, allN = 0; const favList = [];
     const cats = P.map(([cn, ps]) => ({ n: cn, items: ps.filter(([n, s, href, op, al]) => { allN++; if (op) openN++; if (favs.indexOf(n) >= 0) favList.push({ n, di: this.__di(n), cat: cn, href: op ? href : '#' }); return !pq || (n + ' ' + s + ' ' + al).toLowerCase().indexOf(pq) >= 0; })
       .map(([n, s, href, op]) => { const on = favs.indexOf(n) >= 0; return { n, di: this.__di(n), s: s || cn, href: op ? href : '#', st: op ? '已开通' : '未开通', tc: op ? 'kc-tag ok' : 'kc-tag mut', fc: on ? 'on' : '', star: on ? '★' : '☆', fl: on ? '取消收藏' : '收藏',
         fav: (e) => { ev(e); this.setState({ pfav: on ? favs.filter((x) => x !== n) : favs.concat([n]) }); } }; }) })).filter((c) => c.items.length);
-    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c'], ['服务器租用', 'web-prod-01', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
+    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
     // 全局搜索
     const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
     const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],
-      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', 'ScdnAcl.dc.html', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-30a76a13a57e', 'chart', '攻击 报表 流量'],
-      ['防护策略', 'DDoS 高防 IP', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ea9d532696aa', 'shield', '规则 转发'],
-      ['风险中心', '德迅云眼', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-016aa10632c3', 'layers', '资产 监测'],
-      ['服务器列表', '服务器租用', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-e1a7a42a37df', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-08b1aa0cfe1b', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314', 'gear', '重启 关机'],
-      ['我的订单', '费用', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-094b594265d1', 'doc', '订单'], ['合并付款', '费用', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-f652d6276a76', 'doc', '付款 转账 对公'], ['申请开票', '费用 › 发票管理', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-f7d3546c83c2', 'doc', '发票 开票 专票'],
-      ['续费', '我的产品 › 订阅与资源', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1485656c1a39', 'box', '续费 到期'], ['提交工单', '支持服务', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c', 'help', '工单 客服 报障'], ['成员管理', '企业', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-42d2ad7b7c9a', 'users', '成员 子用户 权限'],
-      ['安全设置', '企业', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-7d0ed99f0705', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-3d4eab0695df', 'users', '认证 营业执照'], ['消息', '消息中心', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2282494ce44b', 'bell', '消息 通知 告警']];
-    const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', 'box', '203.0.113.13 ddos-1e8d07'],
-      ['web-prod-01', '服务器租用 · 115.231.**.12', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314', 'box', 'idc-wz-0194'],
+      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', 'ScdnAcl.dc.html', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
+      ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
+      ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
+      ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
+      ['我的订单', '费用', 'BillOrders.dc.html', 'doc', '订单'], ['合并付款', '费用', 'BillPayment.dc.html', 'doc', '付款 转账 对公'], ['申请开票', '费用 › 发票管理', 'BillInvoiceApply.dc.html', 'doc', '发票 开票 专票'],
+      ['续费', '我的产品 › 订阅与资源', 'AcctSubs.dc.html', 'box', '续费 到期'], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', '工单 客服 报障'], ['成员管理', '企业', 'OrgMembers.dc.html', 'users', '成员 子用户 权限'],
+      ['安全设置', '企业', 'OrgSecurity.dc.html', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业', 'OrgVerify.dc.html', 'users', '认证 营业执照'], ['消息', '消息中心', 'Notifications.dc.html', 'bell', '消息 通知 告警']];
+    const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.13 ddos-1e8d07'],
+      ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
       ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
-      ['www.example.com', '德迅云眼资产 · 首页暗链', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ee815ed15b77', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2e680091f33e', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-036a55ff5109', 'help', '工单']];
+      ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillPayFix.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
     const DC = [['回源 502 怎么排查', 'SCDN 文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn&q=%E5%9B%9E%E6%BA%90%20502%20%E6%80%8E%E4%B9%88%E6%8E%92%E6%9F%A5', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn&q=%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%20CNAME%20%E6%8E%A5%E5%85%A5%20SCDN', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=idc&q=%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%BC%9A%E6%B8%85%E7%A9%BA%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE', 'doc', '重装 数据'],
       ['如何封禁 IP', '防护策略文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=ddos&q=%E5%A6%82%E4%BD%95%E5%B0%81%E7%A6%81%20IP', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing&q=%E5%AF%B9%E5%85%AC%E8%BD%AC%E8%B4%A6%E5%A4%9A%E4%B9%85%E6%A0%B8%E9%AA%8C%E5%88%B0%E8%B4%A6', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing&q=%E4%B8%93%E7%A5%A8%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E8%B5%84%E6%96%99', 'doc', '发票 专票']];
     const hit = (x) => !ql || (x[0] + ' ' + x[1] + ' ' + x[4]).toLowerCase().indexOf(ql) >= 0;
@@ -2261,12 +2261,12 @@ class Component extends DCLogic {
     const stabs = ['全部', '功能', '资源', '文档'].map((n) => ({ n, c: n === '全部' ? total : (G0.find((g) => g[0] === n) || ['', []])[1].length, cls: n === stab ? 'on' : '', go: () => this.setState({ gstab: n }) }));
     const groups = ql ? G0.filter((g) => g[1].length && (stab === '全部' || g[0] === stab)).map(([n, items]) => ({ n, c: items.length, items: stab === '全部' ? items.slice(0, 4) : items })) : [];
     if (groups[0] && groups[0].items[0]) groups[0].items[0].lc = 'on';
-    const ipActs = isIp ? [['查拦截记录', '在 SCDN 和 DDoS 高防日志里查这个 IP', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', 'chart', '查看'], ['加入黑名单', '在访问控制里封禁这个 IP', '#', 'shield', '封禁'], ['查看所属实例', '如果是你的高防 IP 或服务器 IP', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b', 'box', '打开']]
+    const ipActs = isIp ? [['查拦截记录', '在 SCDN 和 DDoS 高防日志里查这个 IP', 'DdosLogs.dc.html', 'chart', '查看'], ['加入黑名单', '在访问控制里封禁这个 IP', '#', 'shield', '封禁'], ['查看所属实例', '如果是你的高防 IP 或服务器 IP', 'DdosInstances.dc.html', 'box', '打开']]
       .map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e })) : [];
     const tries = ['封 IP', '发票', '203.0.113.12', '重装'].map((n) => ({ n, go: () => this.setState({ gq: n, gstab: '全部' }) }));
-    const sRecent = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '10 分钟前'], ['攻击报表', 'DDoS 高防 IP', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-30a76a13a57e', 'chart', '1 小时前'], ['web-prod-01', '服务器租用', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314', 'box', '昨天']]
+    const sRecent = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '10 分钟前'], ['攻击报表', 'DDoS 高防 IP', 'DdosReport.dc.html', 'chart', '1 小时前'], ['web-prod-01', '服务器租用', 'IdcServerDetail.dc.html', 'box', '昨天']]
       .map(([n, p, href, ic, e], i) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: i ? '' : 'on' }));
-    const quick = [['添加域名', 'SCDN', 'Main.dc.html', 'link', ''], ['提交工单', '支持服务', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c', 'help', ''], ['续费到期资源', '5 项 30 天内到期', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1485656c1a39', 'box', '']].map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e }));
+    const quick = [['添加域名', 'SCDN', 'Main.dc.html', 'link', ''], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', ''], ['续费到期资源', '5 项 30 天内到期', 'AcctSubs.dc.html', 'box', '']].map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e }));
     return { prodOn: dd === 'prod', prodEx: dd === 'prod' ? 'true' : 'false', prodCls: dd === 'prod' ? 'kc-prod on' : 'kc-prod', prod: tog('prod'),
       cats, recent, favList, noFav: !favList.length, pq: st.gpq || '', onPq: (e) => this.setState({ gpq: e && e.target ? e.target.value : '' }), openN, allN, pNone: !cats.length,
       srchOn: dd === 'srch', srch: tog('srch'), q, onQ: (e) => this.setState({ gq: e && e.target ? e.target.value : '', gstab: '全部' }), hasQ: !!ql && !isIp, noQ: !ql, isIp, ipActs, stabs, groups,
@@ -2379,31 +2379,31 @@ class Component extends DCLogic {
   var P = '';
   var pre = function (p) { return P.indexOf(p) === 0; };
   var ctxPage = function (kind) {
-    if (pre('Ddos')) return { rep: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-30a76a13a57e', log: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', ana: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-8a77f72b110f' }[kind];
-    if (pre('Game')) return { rep: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-143495e64c56', log: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-7642657479cc', ana: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-7642657479cc' }[kind];
-    if (pre('Eye')) return { rep: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', log: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', ana: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343' }[kind];
+    if (pre('Ddos')) return { rep: 'DdosReport.dc.html', log: 'DdosLogs.dc.html', ana: 'DdosMonitor.dc.html' }[kind];
+    if (pre('Game')) return { rep: 'GameOverview.dc.html', log: 'GameOnline.dc.html', ana: 'GameOnline.dc.html' }[kind];
+    if (pre('Eye')) return { rep: 'EyeRisk.dc.html', log: 'EyeRisk.dc.html', ana: 'EyeRisk.dc.html' }[kind];
     return { rep: 'ScdnStats.dc.html', log: 'ScdnBlocks.dc.html', ana: 'ScdnStats.dc.html' }[kind];
   };
   var nav = function () { return {
-    '帮助支持': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-dd8f95be69bf', '系统设置': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-7d0ed99f0705', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
-    '续费': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50', '续费证书': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50', '去续费': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50', '升级套餐': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c', '升级防护': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c',
-    '升级业务带宽': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c', '升级': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c', '购买 SSL 证书': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c', '申请免费试用': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c',
+    '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
+    '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
+    '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
     '接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '产品文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '查看接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '完整服务内容与使用说明': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '接入指引': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn',
-    '提交工单': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c', '资产发现': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-016aa10632c3', '处理记录': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2282494ce44b', '查看全部': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2282494ce44b',
-    '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', '访问控制': pre('Ddos') ? 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720' : 'ScdnCC.dc.html'
+    '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
+    '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };
-  var DETAIL = { SupTickets: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-94f64ae52291', BillInvoice: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-6fa1368679d6', BillContract: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-43df2b8ebcd3', BillOrders: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-dc23753e4b07', BillPay: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-dc23753e4b07', AcctUsage: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-06ca407b9cb8', AcctProducts: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-06ca407b9cb8', AcctSubs: 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-06ca407b9cb8', EyeAssets: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ee815ed15b77', GameAccess: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-fe337ecc0454', DdosInstances: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', IdcServers: 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314' };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
   var regNav = function (t) {
-    if (/^DX\d{11}$/.test(t)) return 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-dc23753e4b07';
-    if (/^DX-\d{8}-\d{3}$/.test(t)) return 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-43df2b8ebcd3';
-    if (/^高防-\d+/.test(t)) return 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c';
-    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314';
+    if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
+    if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
+    if (/^高防-\d+/.test(t)) return 'DdosInstanceDetail.dc.html';
+    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'IdcServerDetail.dc.html';
     if (/^ssl-/.test(t)) return 'ScdnCerts.dc.html';
-    if (/^HB\d+/.test(t)) return 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-f652d6276a76';
-    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ee815ed15b77' : pre('Ddos') ? 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-bf0cca1d1832' : 'ScdnDomainDetail.dc.html';
+    if (/^HB\d+/.test(t)) return 'BillPayment.dc.html';
+    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'EyeAssetDetail.dc.html' : pre('Ddos') ? 'DdosAccess.dc.html' : 'ScdnDomainDetail.dc.html';
     return null;
   };
-  var PROD = [['SCDN', 'Main.dc.html'], ['DDoS', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b'], ['高防', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b'], ['游戏盾', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4'], ['云眼', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343'], ['服务器', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-e1a7a42a37df']];
+  var PROD = [['SCDN', 'Main.dc.html'], ['DDoS', 'DdosInstances.dc.html'], ['高防', 'DdosInstances.dc.html'], ['游戏盾', 'GameAccess.dc.html'], ['云眼', 'EyeRisk.dc.html'], ['服务器', 'IdcServers.dc.html']];
   var tabClick = function (name) { var b = [].slice.call(D.querySelectorAll('.kc-dtabs button')).find(function (x) { return txt(x).indexOf(name) === 0; }); if (b) { b.click(); var m = D.querySelector('.kc-main'); if (m && m.scrollIntoView) window.scrollTo(0, 0); return true; } return false; };
   var segToggle = function (el) {
     var p = el.parentElement; [].slice.call(p.children).forEach(function (c) { c.classList.remove('on'); c.setAttribute && c.getAttribute('aria-selected') !== null && c.setAttribute('aria-selected', 'false'); });
@@ -2514,13 +2514,13 @@ class Component extends DCLogic {
     '查看规则': ['规则（412 条）', '<div class="li"><span>SQL 注入 · 98 条</span></div><div class="li"><span>XSS · 76 条</span></div><div class="li"><span>命令注入 · 41 条</span></div><div class="li"><span>文件包含 · 37 条</span></div><div class="li"><span>其他 · 160 条</span></div>', false]
   };
   var NAVX = {
-    '查看操作日志': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', '在防护日志中查看全部': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', '以表格查看': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', '告警联系人': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-0340cb7b7a1d',
-    '从其他厂商迁移': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c', '去「访问分析」查看': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-4ce97623eba8', '掉线率': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-4ce97623eba8', '网站可用性': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-fbd5a249d004',
-    '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8e83e0b89da5',
-    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-bf0cca1d1832', '3 个端口': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-bf0cca1d1832',
-    '续费到期资源': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1485656c1a39', '提交工单': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-35307ce48e3c', '查看': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720',
-    '用户中心': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-1909709bb28d', '费用': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8e83e0b89da5', '游戏盾': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4', '德迅云眼': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', '服务器租用': 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-e1a7a42a37df', '查看全部产品与价格': 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c',
-    '监控报表': 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314'
+    '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
+    '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
+    '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
+    '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
   };
   var ix = function (el, t) {
     var key = t.split(' ')[0];
@@ -2538,7 +2538,7 @@ class Component extends DCLogic {
     if (/^(接入文档|完整文档|接入指引|产品文档|查看接入文档)$/.test(t)) { window.open(DOCS + (prodOf() ? '?product=' + prodOf() : ''), '_blank', 'noopener'); return true; }
     // 跳转
     var nv = NAVX[t] || NAVX[key] || NAVX[Object.keys(NAVX).filter(function (k) { return k.length >= 4 && t.indexOf(k) >= 0; })[0]];
-    if (el.closest('.sw-p,.ps-l,.ps-r') || P === 'Switcher') { var nm = t.split(' ')[0]; nv = NAVX[nm] || NAVX[t] || 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-8b7e5ba1733c'; }
+    if (el.closest('.sw-p,.ps-l,.ps-r') || P === 'Switcher') { var nm = t.split(' ')[0]; nv = NAVX[nm] || NAVX[t] || 'AcctPurchase.dc.html'; }
     if (nv && !(t === '查看' && P !== 'DdosTemplates') && !(t === '告警设置' && P === 'EyeUptime') && !(t === '费用' && P !== 'Switcher') && !(t === '用户中心' && P !== 'Switcher')) { go(el, nv); return true; }
     // 气泡弹层
     var pp = POPS[t] || POPS[key];
@@ -2655,7 +2655,7 @@ class Component extends DCLogic {
       var SW = { '按端口': ['端口', ['203.0.113.10:7000', '1.2 Gbps', '1.6 Gbps', '—', '—', '0%'], ['203.0.113.10:7101', '0.9 Gbps', '1.3 Gbps', '—', '—', '0.01%'], ['203.0.113.10:8443', '0.2 Gbps', '0.4 Gbps', '—', '—', '3.2%'], ['203.0.113.10:9000', '0.1 Gbps', '0.2 Gbps', '—', '—', '0%']] };
       var tbd = card && card.querySelector('tbody'); var th0 = card && card.querySelector('thead th');
       if (tbd && !tbd.__lp0) { tbd.__lp0 = tbd.innerHTML; th0.__lp0 = th0.textContent; }
-      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9">日志</a></td></tr>'; }).join(''); return; }
+      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="DdosLogs.dc.html">日志</a></td></tr>'; }).join(''); return; }
       if (tbd && tbd.__lp0 && /^按/.test(key)) { tbd.innerHTML = tbd.__lp0; th0.textContent = th0.__lp0; return; }
       var rows = card ? [].slice.call(card.querySelectorAll('tbody tr:not(.lp-empty)')) : []; var shown = 0;
       rows.forEach(function (tr) { var hit = /^全部/.test(key) || txt(tr).indexOf(key.replace(/^按/, '')) >= 0; tr.style.display = hit ? '' : 'none'; if (hit) shown++; });
@@ -2703,7 +2703,7 @@ class Component extends DCLogic {
     // 菜单
     if (t === '更多') {
       var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'ScdnStats.dc.html'); }], ['拦截记录', function () { go(el, 'ScdnBlocks.dc.html'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['防护策略', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
-        : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2282494ce44b'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
+        : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
       menu(el, items); return;
     }
     // 抽屉类
@@ -2714,7 +2714,7 @@ class Component extends DCLogic {
         '通知设置': sw([['严重 / 高危风险', '短信 + 站内信', true], ['中危风险', '站内信', true], ['低危风险', '每周汇总', false]]),
         '到期提醒设置': sw([['到期前 30 天', '站内信', true], ['到期前 7 天', '短信 + 站内信', true], ['到期当天', '短信 + 电话', true]]),
         '日志存储设置': '<label class="lp-f"><span>保存时长</span><input class="kc-in" value="180 天"></label>' + sw([['推送到日志服务', '实时推送攻击日志', false]]),
-        '告警联系人': sw([['张三 · 177****1234', '短信 + 站内信', true], ['李四 · 139****5678', '站内信', true], ['王五 · 186****9012', '短信', true]]) + '<p class="lp-hint"><a href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-42d2ad7b7c9a">在成员管理里添加联系人</a></p>' };
+        '告警联系人': sw([['张三 · 177****1234', '短信 + 站内信', true], ['李四 · 139****5678', '站内信', true], ['王五 · 186****9012', '短信', true]]) + '<p class="lp-hint"><a href="OrgMembers.dc.html">在成员管理里添加联系人</a></p>' };
       drawer(el, t.replace(/\s*\d+$/, ''), B[t.replace(/\s*\d+$/, '')] || sw([['开启', '', true]])); return;
     }
     if (/^(分组管理)$/.test(t)) { drawer(el, '分组管理', ['商城', '官网', '移动站', '未分组'].map(function (g) { return '<label class="lp-f"><span>分组</span><input class="kc-in" value="' + g + '"></label>'; }).join('') + '<p class="lp-hint"><a href="#" onclick="return false">+ 新建分组</a></p>'); return; }
@@ -2793,11 +2793,11 @@ class Component extends DCLogic {
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
     const M = [
-      ['安全', '高防-002 正在遭受 UDP Flood 攻击', '峰值 86 Gbps，已超过保底 80 Gbps', '10:12', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b', 1],
-      ['产品', '德迅云眼发现 3 个高危风险', '其中 www.example.com 首页被植入暗链', '09:40', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', 1],
-      ['费用', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-2e680091f33e', 1],
-      ['费用', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-05cf95a88fb3', 0],
-      ['账号', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-7d0ed99f0705', 0],
+      ['安全', '高防-002 正在遭受 UDP Flood 攻击', '峰值 86 Gbps，已超过保底 80 Gbps', '10:12', 'DdosInstances.dc.html', 1],
+      ['产品', '德迅云眼发现 3 个高危风险', '其中 www.example.com 首页被植入暗链', '09:40', 'EyeRisk.dc.html', 1],
+      ['费用', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPayFix.dc.html', 1],
+      ['费用', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'BillInvoice.dc.html', 0],
+      ['账号', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'OrgSecurity.dc.html', 0],
       ['产品', 'SCDN 证书 8 天后到期', 'shop.example.com', '10-23', 'ScdnDomainDetail.dc.html', 0]
     ];
     const read = !!st.allRead; const mt = st.mt || '全部';

@@ -1423,31 +1423,31 @@ class Component extends DCLogic {
   var P = '';
   var pre = function (p) { return P.indexOf(p) === 0; };
   var ctxPage = function (kind) {
-    if (pre('Ddos')) return { rep: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-30a76a13a57e', log: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', ana: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-8a77f72b110f' }[kind];
-    if (pre('Game')) return { rep: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-143495e64c56', log: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-7642657479cc', ana: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-7642657479cc' }[kind];
-    if (pre('Eye')) return { rep: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', log: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', ana: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343' }[kind];
-    return { rep: 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-f4326426c68b', log: 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-75cbd3218678', ana: 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-f4326426c68b' }[kind];
+    if (pre('Ddos')) return { rep: 'DdosReport.dc.html', log: 'DdosLogs.dc.html', ana: 'DdosMonitor.dc.html' }[kind];
+    if (pre('Game')) return { rep: 'GameOverview.dc.html', log: 'GameOnline.dc.html', ana: 'GameOnline.dc.html' }[kind];
+    if (pre('Eye')) return { rep: 'EyeRisk.dc.html', log: 'EyeRisk.dc.html', ana: 'EyeRisk.dc.html' }[kind];
+    return { rep: 'ScdnStats.dc.html', log: 'ScdnBlocks.dc.html', ana: 'ScdnStats.dc.html' }[kind];
   };
   var nav = function () { return {
-    '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-75cbd3218678', '拦截日志': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-75cbd3218678',
+    '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
     '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
     '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
     '接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html', '产品文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html', '查看接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html', '完整服务内容与使用说明': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html', '接入指引': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html',
-    '提交工单': 'SupTicketNew.dc.html', '资产发现': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-016aa10632c3', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
-    '证书管理': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-0ca68509871c', '更换': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-0ca68509871c', '更换证书': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-0ca68509871c', '去「报告管理」查看': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', '访问控制': pre('Ddos') ? 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720' : 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-09e0d58be122', 'CC 防护': pre('Ddos') ? 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720' : 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-106aff7bdea1'
+    '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
+    '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };
-  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ee815ed15b77', GameAccess: 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-fe337ecc0454', DdosInstances: 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', IdcServers: 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314' };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
   var regNav = function (t) {
     if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
     if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
-    if (/^高防-\d+/.test(t)) return 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c';
-    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314';
-    if (/^ssl-/.test(t)) return 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-0ca68509871c';
+    if (/^高防-\d+/.test(t)) return 'DdosInstanceDetail.dc.html';
+    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'IdcServerDetail.dc.html';
+    if (/^ssl-/.test(t)) return 'ScdnCerts.dc.html';
     if (/^HB\d+/.test(t)) return 'BillPayment.dc.html';
-    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ee815ed15b77' : pre('Ddos') ? 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-bf0cca1d1832' : 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-6f409d41d4b5';
+    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'EyeAssetDetail.dc.html' : pre('Ddos') ? 'DdosAccess.dc.html' : 'ScdnDomainDetail.dc.html';
     return null;
   };
-  var PROD = [['SCDN', 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-15dd8cd198dd'], ['DDoS', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b'], ['高防', 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b'], ['游戏盾', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4'], ['云眼', 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343'], ['服务器', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-e1a7a42a37df']];
+  var PROD = [['SCDN', 'Main.dc.html'], ['DDoS', 'DdosInstances.dc.html'], ['高防', 'DdosInstances.dc.html'], ['游戏盾', 'GameAccess.dc.html'], ['云眼', 'EyeRisk.dc.html'], ['服务器', 'IdcServers.dc.html']];
   var tabClick = function (name) { var b = [].slice.call(D.querySelectorAll('.kc-dtabs button')).find(function (x) { return txt(x).indexOf(name) === 0; }); if (b) { b.click(); var m = D.querySelector('.kc-main'); if (m && m.scrollIntoView) window.scrollTo(0, 0); return true; } return false; };
   var segToggle = function (el) {
     var p = el.parentElement; [].slice.call(p.children).forEach(function (c) { c.classList.remove('on'); c.setAttribute && c.getAttribute('aria-selected') !== null && c.setAttribute('aria-selected', 'false'); });
@@ -1558,13 +1558,13 @@ class Component extends DCLogic {
     '查看规则': ['规则（412 条）', '<div class="li"><span>SQL 注入 · 98 条</span></div><div class="li"><span>XSS · 76 条</span></div><div class="li"><span>命令注入 · 41 条</span></div><div class="li"><span>文件包含 · 37 条</span></div><div class="li"><span>其他 · 160 条</span></div>', false]
   };
   var NAVX = {
-    '查看操作日志': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c', '在防护日志中查看全部': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', '以表格查看': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9', '告警联系人': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-0340cb7b7a1d',
-    '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-4ce97623eba8', '掉线率': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-4ce97623eba8', '网站可用性': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-fbd5a249d004',
-    '去「攻击报表」查看': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-f4326426c68b', '今日拦截攻击': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-f4326426c68b', '流量包剩余': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-ae77d480070e', '本月弹性费用': 'BillOverview.dc.html',
-    '上传新证书': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-f8b0ac939f12', '编辑配置': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-6f409d41d4b5', '4 个域名': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-bf0cca1d1832', '3 个端口': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-bf0cca1d1832',
-    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-39b11a2d2720',
-    '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4', '德迅云眼': 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343', '服务器租用': 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-e1a7a42a37df', '查看全部产品与价格': 'AcctPurchase.dc.html',
-    '监控报表': 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314', '查看拦截记录': 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-75cbd3218678', '操作记录': 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-723301564314'
+    '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
+    '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
+    '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
+    '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
   };
   var ix = function (el, t) {
     var key = t.split(' ')[0];
@@ -1699,7 +1699,7 @@ class Component extends DCLogic {
       var SW = { '按端口': ['端口', ['203.0.113.10:7000', '1.2 Gbps', '1.6 Gbps', '—', '—', '0%'], ['203.0.113.10:7101', '0.9 Gbps', '1.3 Gbps', '—', '—', '0.01%'], ['203.0.113.10:8443', '0.2 Gbps', '0.4 Gbps', '—', '—', '3.2%'], ['203.0.113.10:9000', '0.1 Gbps', '0.2 Gbps', '—', '—', '0%']] };
       var tbd = card && card.querySelector('tbody'); var th0 = card && card.querySelector('thead th');
       if (tbd && !tbd.__lp0) { tbd.__lp0 = tbd.innerHTML; th0.__lp0 = th0.textContent; }
-      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-460fd3ae69a9">日志</a></td></tr>'; }).join(''); return; }
+      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="DdosLogs.dc.html">日志</a></td></tr>'; }).join(''); return; }
       if (tbd && tbd.__lp0 && /^按/.test(key)) { tbd.innerHTML = tbd.__lp0; th0.textContent = th0.__lp0; return; }
       var rows = card ? [].slice.call(card.querySelectorAll('tbody tr:not(.lp-empty)')) : []; var shown = 0;
       rows.forEach(function (tr) { var hit = /^全部/.test(key) || txt(tr).indexOf(key.replace(/^按/, '')) >= 0; tr.style.display = hit ? '' : 'none'; if (hit) shown++; });
@@ -1746,7 +1746,7 @@ class Component extends DCLogic {
     if (/^(显示真实 IP|自动更新)$/.test(t)) { var tg = el.classList.toggle('on'); toast(el, (tg ? '已开启' : '已关闭') + t.replace('显示', '')); return; }
     // 菜单
     if (t === '更多') {
-      var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-f4326426c68b'); }], ['拦截记录', function () { go(el, 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-75cbd3218678'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['防护策略', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
+      var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'ScdnStats.dc.html'); }], ['拦截记录', function () { go(el, 'ScdnBlocks.dc.html'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['防护策略', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
         : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
       menu(el, items); return;
     }
