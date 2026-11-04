@@ -2431,6 +2431,22 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .sh .sh-kl2 a{color:#737a87;font-size:12px}
 .sh .sh-kl2 a:hover{color:#1664ff}
 .sh .sh-kl2 i{width:1px;height:10px;background:#d9dde3}
+
+.sn-ppl{display:flex;flex-wrap:wrap;gap:8px}
+.sn-p{display:flex;align-items:center;gap:6px;height:36px;padding:0 12px 0 8px;border:1px solid #e5e6eb;border-radius:2px;background:#fff;font:inherit;font-size:13px;color:#0c0d0e;cursor:pointer;transition:border-color .15s,background-color .15s}
+.sn-p:hover{border-color:#94bfff}
+.sn-p.on{border-color:#165dff;background:#f2f6ff}
+.sn-p small{color:#737a87;font-size:12px}
+.sn-p .sh-av{margin:0;box-shadow:none}
+.sn-tip{margin:8px 0 0;font-size:12px;color:#737a87}
+.sn-t{border:1px solid #eef0f3;border-radius:2px}
+.sn-r{display:grid;grid-template-columns:minmax(0,1fr) 72px 56px 56px;align-items:center;gap:8px;min-height:52px;padding:6px 12px;font-size:13px;border-top:1px solid #eef0f3}
+.sn-r.sn-h{min-height:36px;border-top:0;background:#f7f8fa;font-size:12px;color:#737a87}
+.sn-r b{display:block;font-weight:500;color:#0c0d0e}
+.sn-r small{display:block;margin-top:2px;font-size:12px;color:#737a87}
+.sn-fix{font-size:12px;color:#737a87}
+.sn-fq{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sn-fq small{font-size:12px;color:#737a87}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -2541,7 +2557,7 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
       <section class="kc-card kc-hero sh-hero">
         <div class="sh-score">
           <div class="sh-ring sh-gauge2" role="img" aria-label="安全评分 82 分，满分 100"><svg width="220" height="170" viewBox="0 0 220 170" aria-hidden="true"><defs><linearGradient id="shGg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#7aa7ff"></stop><stop offset="1" stop-color="#1664ff"></stop></linearGradient></defs><g class="sh-gt"><line x1="35.5" y1="155.0" x2="27.7" y2="159.5" class="mj"></line><line x1="31.4" y1="147.0" x2="26.0" y2="149.4" class=""></line><line x1="28.2" y1="138.6" x2="22.5" y2="140.4" class=""></line><line x1="25.9" y1="129.9" x2="20.0" y2="131.1" class=""></line><line x1="24.5" y1="121.0" x2="18.5" y2="121.6" class=""></line><line x1="24.0" y1="112.0" x2="18.0" y2="112.0" class=""></line><line x1="24.5" y1="103.0" x2="18.5" y2="102.4" class=""></line><line x1="25.9" y1="94.1" x2="20.0" y2="92.9" class=""></line><line x1="28.2" y1="85.4" x2="22.5" y2="83.6" class=""></line><line x1="31.4" y1="77.0" x2="26.0" y2="74.6" class=""></line><line x1="35.5" y1="69.0" x2="27.7" y2="64.5" class="mj"></line><line x1="40.4" y1="61.5" x2="35.6" y2="57.9" class=""></line><line x1="46.1" y1="54.5" x2="41.6" y2="50.4" class=""></line><line x1="52.5" y1="48.1" x2="48.4" y2="43.6" class=""></line><line x1="59.5" y1="42.4" x2="55.9" y2="37.6" class=""></line><line x1="67.0" y1="37.5" x2="64.0" y2="32.3" class=""></line><line x1="75.0" y1="33.4" x2="72.6" y2="28.0" class=""></line><line x1="83.4" y1="30.2" x2="81.6" y2="24.5" class=""></line><line x1="92.1" y1="27.9" x2="90.9" y2="22.0" class=""></line><line x1="101.0" y1="26.5" x2="100.4" y2="20.5" class=""></line><line x1="110.0" y1="26.0" x2="110.0" y2="17.0" class="mj"></line><line x1="119.0" y1="26.5" x2="119.6" y2="20.5" class=""></line><line x1="127.9" y1="27.9" x2="129.1" y2="22.0" class=""></line><line x1="136.6" y1="30.2" x2="138.4" y2="24.5" class=""></line><line x1="145.0" y1="33.4" x2="147.4" y2="28.0" class=""></line><line x1="153.0" y1="37.5" x2="156.0" y2="32.3" class=""></line><line x1="160.5" y1="42.4" x2="164.1" y2="37.6" class=""></line><line x1="167.5" y1="48.1" x2="171.6" y2="43.6" class=""></line><line x1="173.9" y1="54.5" x2="178.4" y2="50.4" class=""></line><line x1="179.6" y1="61.5" x2="184.4" y2="57.9" class=""></line><line x1="184.5" y1="69.0" x2="192.3" y2="64.5" class="mj"></line><line x1="188.6" y1="77.0" x2="194.0" y2="74.6" class=""></line><line x1="191.8" y1="85.4" x2="197.5" y2="83.6" class=""></line><line x1="194.1" y1="94.1" x2="200.0" y2="92.9" class=""></line><line x1="195.5" y1="103.0" x2="201.5" y2="102.4" class=""></line><line x1="196.0" y1="112.0" x2="202.0" y2="112.0" class=""></line><line x1="195.5" y1="121.0" x2="201.5" y2="121.6" class=""></line><line x1="194.1" y1="129.9" x2="200.0" y2="131.1" class=""></line><line x1="191.8" y1="138.6" x2="197.5" y2="140.4" class=""></line><line x1="188.6" y1="147.0" x2="194.0" y2="149.4" class=""></line><line x1="184.5" y1="155.0" x2="192.3" y2="159.5" class="mj"></line></g><g class="sh-gl"><text x="18.2" y="169.0">0</text><text x="18.2" y="63.0">25</text><text x="110.0" y="10.0">50</text><text x="201.8" y="63.0">75</text><text x="201.8" y="169.0">100</text></g><path class="sh-gtr" d="M47.6 148.0A72 72 0 1 1 172.4 148.0" fill="none" stroke-width="12" stroke-linecap="round"></path><sc-if value="{{sx.gOn}}" hint-placeholder-val="{{true}}"><path class="sh-gv" d="M47.6 148.0A72 72 0 1 1 172.4 148.0" fill="none" stroke="url(#shGg)" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="82 100"></path><circle class="sh-gk" cx="180.1" cy="95.6" r="5"></circle></sc-if></svg><div class="sh-rv"><sc-if value="{{sx.gOn}}" hint-placeholder-val="{{true}}"><b>82</b><span>良好</span></sc-if><sc-if value="{{sx.gOff}}" hint-placeholder-val="{{false}}"><b class="sh-gnil"><i></i><i></i></b><span class="sh-gst">检测中</span></sc-if></div></div>
-          <div class="sh-sd sh-sd2"><div class="sh-sdh"><span class="sh-kn">安全评分</span><em class="sh-kd2">较昨天 +3</em></div><p class="sh-fc">修复 2 项紧急风险后预计 <b>91</b> 分</p><div class="sh-unp2"><i></i><a class="sh-ul" href="#" onClick="{{sx.go.unp}}">未受保护 1 台 · backup-02</a><a class="sh-ins" href="#" onClick="{{sx.go.install}}">去安装</a></div><div class="sh-kl sh-kl2"><a href="#">评分规则</a><i></i><a href="#">扣分项 6</a></div></div>
+          <div class="sh-sd sh-sd2"><div class="sh-sdh"><span class="sh-kn">安全评分</span><em class="sh-kd2">较昨天 +3</em></div><p class="sh-fc">修复 2 项紧急风险后预计 <b>91</b> 分</p><div class="sh-unp2"><i></i><a class="sh-ul" href="#" onClick="{{sx.go.unp}}">未受保护 1 台 · backup-02</a><a class="sh-ins" href="#" onClick="{{sx.go.install}}">去安装</a></div><div class="sh-kl sh-kl2"><a href="#" onClick="{{sx.go.rule}}">评分规则</a><i></i><a href="#" onClick="{{sx.go.score}}">扣分项 {{sx.scN}}</a></div></div>
         </div>
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><div class="sh-rc1"><a class="sh-rch" href="#" onClick="{{k.goR}}"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></a><div class="sh-rcv"><a href="#" onClick="{{k.goR}}" title="查看这些风险"><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></a><a href="#" onClick="{{k.goH}}" title="查看这些主机"><small>影响主机</small><b>{{k.m}}</b><i>台</i></a></div></div></sc-for></div>
       </section>
@@ -2595,9 +2611,9 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
           </section>
           <section class="kc-card sh-ntf"><div class="sh-ntf-h"><i class="sh-ntf-ic" aria-hidden="true"></i><h2>告警通知</h2><a href="#" onClick="{{sx.go.notify}}">设置</a></div>
             <ul class="sh-ntf-l">
-              <li><i class="sh-ntf-ri r1" aria-hidden="true"></i><span>接收人</span><em><b class="sh-av">W</b><b class="sh-av b">李</b>wangqi、李四</em></li>
-              <li><i class="sh-ntf-ri r2" aria-hidden="true"></i><span>方式</span><em><b class="sh-pill">站内信</b><b class="sh-pill">短信 · 紧急</b></em></li>
-              <li><i class="sh-ntf-ri r3" aria-hidden="true"></i><span>未受保护提醒</span><em>每天 1 次</em></li>
+              <li><i class="sh-ntf-ri r1" aria-hidden="true"></i><span>接收人</span><em><sc-for list="{{sx.ntf.avs}}" as="v" hint-placeholder-count="2"><b class="{{v.c}}">{{v.i}}</b></sc-for>{{sx.ntf.names}}</em></li>
+              <li><i class="sh-ntf-ri r2" aria-hidden="true"></i><span>方式</span><em><b class="sh-pill">站内信</b><sc-if value="{{sx.ntf.sms}}" hint-placeholder-val="{{true}}"><b class="sh-pill">{{sx.ntf.sms}}</b></sc-if><sc-if value="{{sx.ntf.mail}}" hint-placeholder-val="{{false}}"><b class="sh-pill">{{sx.ntf.mail}}</b></sc-if></em></li>
+              <li><i class="sh-ntf-ri r3" aria-hidden="true"></i><span>未受保护提醒</span><em>{{sx.ntf.freq}}</em></li>
             </ul></section>
         </div>
       </div>
@@ -2613,6 +2629,14 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
             <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
           </sc-for></div></div>
         <footer><span class="sh-swch">{{sx.sw.chg}}</span><button type="button" class="kc-btn" onClick="{{sx.sw.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.sw.save}}">保存设置</button></footer></aside></sc-if>
+      <sc-if value="{{sx.ntf.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.ntf.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="告警通知设置"><header><h3>告警通知设置</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.ntf.x}}">×</button></header>
+        <div class="sh-dwb"><p class="sh-dp">安全告警按级别通知到下面的接收人。站内信始终开启，短信和邮件按级别选择。</p>
+          <h4 class="sh-dh4">接收人</h4><div class="sn-ppl"><sc-for list="{{sx.ntf.people}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" aria-pressed="{{o.on}}" onClick="{{o.pick}}"><b class="{{o.ac}}">{{o.i}}</b>{{o.n}}<small>{{o.d}}</small></button></sc-for></div>
+          <p class="sn-tip">接收人来自成员管理。<a href="OrgMembers.dc.html">在成员管理里添加联系人</a></p>
+          <h4 class="sh-dh4">通知方式</h4><div class="sn-t"><div class="sn-r sn-h"><span>告警级别</span><span>站内信</span><span>短信</span><span>邮件</span></div><sc-for list="{{sx.ntf.rows}}" as="r" hint-placeholder-count="3"><div class="sn-r"><span><b>{{r.n}}</b><small>{{r.d}}</small></span><span class="sn-fix">始终开启</span><span><button type="button" class="{{r.sc}}" role="switch" aria-checked="{{r.sa}}" aria-label="{{r.sl}}" onClick="{{r.st}}"></button></span><span><button type="button" class="{{r.mc}}" role="switch" aria-checked="{{r.ma}}" aria-label="{{r.ml}}" onClick="{{r.mt}}"></button></span></div></sc-for></div>
+          <h4 class="sh-dh4">未受保护提醒</h4><div class="sn-fq"><span class="sh-swm"><sc-for list="{{sx.ntf.freqs}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span><small>主机客户端未安装或已卸载时提醒</small></div>
+        </div>
+        <footer><button type="button" class="kc-btn" onClick="{{sx.ntf.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.ntf.save}}">保存设置</button></footer></aside></sc-if>
       <sc-if value="{{sx.dwOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.dwX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{sx.dw.t}}"><header><h3>{{sx.dw.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.dwX}}">×</button></header>
         <div class="sh-dwb"><sc-if value="{{sx.dw.p}}" hint-placeholder-val="{{true}}"><p class="sh-dp">{{sx.dw.p}}</p></sc-if><sc-if value="{{sx.dw.hasKv}}" hint-placeholder-val="{{false}}"><div class="sh-dkv"><sc-for list="{{sx.dw.kv}}" as="k" hint-placeholder-count="4"><div><small>{{k.k}}</small><span class="{{k.c}}">{{k.v}}</span></div></sc-for></div></sc-if><sc-if value="{{sx.dw.desc}}" hint-placeholder-val="{{false}}"><div class="sh-dsec"><h4>漏洞描述</h4><p class="sh-ddesc">{{sx.dw.desc}}</p></div></sc-if><sc-if value="{{sx.dw.code}}" hint-placeholder-val="{{false}}"><div class="sh-dsec"><h4>修复建议</h4><p class="sh-dok">{{sx.dw.fix}}</p><div class="sh-code"><code>{{sx.dw.code}}</code><button type="button" class="sh-op" onClick="{{sx.dwCopy}}">{{sx.dwCpT}}</button></div></div></sc-if><sc-if value="{{sx.dw.tT}}" hint-placeholder-val="{{false}}"><h4 class="sh-dh4">{{sx.dw.tT}}</h4></sc-if>
           <div class="kc-tw"><table class="kc-t"><thead><tr><sc-for list="{{sx.dw.h}}" as="h" hint-placeholder-count="4"><th>{{h.t}}</th></sc-for></tr></thead><tbody><sc-for list="{{sx.dw.r}}" as="r" hint-placeholder-count="3"><tr><td><b class="sh-dn">{{r.a}}</b></td><td>{{r.b}}</td><td><span class="{{r.cc}}">{{r.c}}</span></td><td><sc-if value="{{r.o}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.go}}">{{r.o}}</button></sc-if></td></tr></sc-for></tbody></table></div>
@@ -3273,7 +3297,13 @@ class Component extends DCLogic {
     const recDw = (f) => ({ t: f ? '处置记录 · ' + f : '处置记录 · 近 7 天', p: f === '新发现' ? '近 7 天新发现 14 项，其中紧急 4 项。' : '', h: ['事件', '主机', '结果', '说明'],
       r: REC.filter((r) => !f || f === '新发现' || r[2] === f).map(([a, b, c, cc, d]) => ({ a, b, c, cc, o: '', go: undefined, d })).map((x) => Object.assign(x, { b: x.b + ' · ' + x.d })), lk: '查看全部处置记录', lkGo: navT('处置记录') });
     const DW = {
-      score: { t: '评分详情', p: '安全评分 = 100 − 扣分。修复后下次检测时更新评分。', h: ['扣分项', '主机', '扣分', '操作'],
+      rule: { t: '评分规则', p: '安全评分 = 100 − 全部待处理主机风险的扣分，最低 0 分。只统计德迅安全卫士检测到的主机风险，SCDN、DDoS 高防 IP 等其他产品的风险不计入。', kv: [{ k: '优秀', v: '90–100', c: '' }, { k: '良好（当前）', v: '75–89', c: '' }, { k: '一般', v: '60–74', c: '' }, { k: '危险', v: '0–59', c: '' }],
+        tT: '扣分标准', h: ['风险', '说明', '每项扣分', '当前'], r: [], more: '已解决、已忽略的风险不扣分。评分在每次检测后更新，修复后下次检测恢复对应分数。', lk: '查看当前扣分项', lkGo: ev(() => openDw('score')) },
+      report: { t: '安全报告', p: '每周一 08:00 自动生成，覆盖全部 68 台主机，包含风险趋势、处置结果和基线合规情况。', h: ['报告', '周期', '状态', '操作'],
+        r: H([['安全周报', '10-26 — 11-01', '已生成', 'kc-tag ok', '下载', () => toast('已开始下载「安全周报 10-26 — 11-01」')], ['安全月报', '2026 年 10 月', '已生成', 'kc-tag ok', '下载', () => toast('已开始下载「安全月报 2026 年 10 月」')], ['安全周报', '10-19 — 10-25', '已生成', 'kc-tag ok', '下载', () => toast('已开始下载「安全周报 10-19 — 10-25」')], ['安全周报', '10-12 — 10-18', '已生成', 'kc-tag ok', '下载', () => toast('已开始下载「安全周报 10-12 — 10-18」')]]), pb: '生成本周报告', pbGo: ev(() => toast('已开始生成，约 1 分钟后可下载', 'info')), lk: '', lkGo: undefined },
+      news: { t: '产品播报 · V4.3.2', p: '德迅安全卫士 V4.3.2 已发布，新增网页防篡改插件。', tT: '本次更新', h: ['更新', '说明', '状态', '操作'],
+        r: ((st.plug || {})['网页防篡改'] === 'ok' ? H([['网页防篡改插件', '防止网页文件被篡改', '已安装', 'kc-tag ok']]) : H([['网页防篡改插件', '防止网页文件被篡改', '未安装', 'kc-tag mut', '安装', () => openMd('plug:网页防篡改')]])), lk: '', lkGo: undefined },
+      score: { t: '扣分明细', p: '', h: ['扣分项', '主机', '扣分', '操作'],
         r: H([['OpenSSH 远程代码执行漏洞', 'web-prod-01', '−6', 'sh-red', '去修复', () => openDw('vuln')], ['异常登录', 'web-prod-01', '−4', 'sh-red', 'AI 研判', () => openDw('judge')], ['弱口令（3 个账号）', 'web-prod-01', '−3', 'sh-red', '处理', () => openMd('retry')],
           ['基线不合规 5 项', '2 台', '−2', 'sh-red', '查看', () => toast('跳转到「基线检查」页', 'info')], ['客户端已卸载', 'backup-02', '−2', 'sh-red', '重新安装', () => openMd('install')], ['高危端口开放', 'app-03', '−1', 'sh-red', '查看', () => toast('跳转到「网络防火墙」页', 'info')]]), lk: '', lkGo: undefined },
       ai: { t: 'AI 分析详情', p: '基于近 24 小时的告警、日志和资产信息生成，结论供参考，处置前请确认。', h: ['事件', '研判结论', '可信度', '操作'],
@@ -3307,8 +3337,8 @@ class Component extends DCLogic {
     const hdDone = { '已人工处理': '已标记为已处理', '加入白名单': '已加入白名单，同类告警不再提醒', '端上处理': '已下发端上处理，进程已终止并隔离文件' };
     const md = MD[mk] || { t: '', p: '', ok: '', code: '' };
     Object.assign(sx, {
-      go: { report: navT('安全报告'), install: ev(() => openMd('install')), score: ev(() => openDw('score')), ai: ev(() => openDw('ai')), allPri: navT('告警与风险'), allAl: navT('告警与风险'), rec: ev(() => openDw('rec:')), assets: navT('资产中心'), notify: navT('通知设置') },
-      nbGo: (st.ni || 0) === 0 ? ev(() => openMd('scanOne')) : (st.ni || 0) === 2 ? navT('产品动态') : undefined,
+      go: { report: ev(() => openDw('report')), rule: ev(() => openDw('rule')), install: ev(() => openMd('install')), score: ev(() => openDw('score')), ai: ev(() => openDw('ai')), allPri: navT('告警与风险'), allAl: navT('告警与风险'), rec: ev(() => openDw('rec:')), assets: navT('资产中心'), notify: navT('通知设置') },
+      nbGo: (st.ni || 0) === 0 ? ev(() => openMd('scanOne')) : (st.ni || 0) === 2 ? ev(() => openDw('news')) : undefined,
       scan: () => { if (st.scan === 'ing') return; openMd('scanAll'); },
       refresh: () => { if (st.rf === 'ing') return; S({ rf: 'ing' }); setTimeout(() => { this.setState({ rf: 'ok' }); toast('数据已更新'); }, 900); },
       rfC: st.rf === 'ing' ? 'sh-rf spin' : 'sh-rf',
@@ -3355,9 +3385,33 @@ class Component extends DCLogic {
       sx.prog.forEach((x) => { x.go = GO('SecRisks', PF[x.n] || {}); });
       sx.ev.forEach((x) => { if (x.o !== '去复检') x.go = GO('SecRisks', { '状态': '已解决', '验证': '已验证', '时间': '近 7 天' }); });
       if ((st.ni || 0) === 0) { sx.nb = Object.assign({}, sx.nb, { o: '查看影响主机', h: '#' }); sx.nbGo = GO('SecRiskDetail', {}, 'R3'); }
-      if (st.shDw === 'score') { const SM = { 'OpenSSH 远程代码执行漏洞': 'R3', '异常登录': 'R1', '弱口令（3 个账号）': 'R6', '客户端已卸载': 'U1', '高危端口开放': 'R11' };
-        sx.dw.r.forEach((r) => { r.o = '查看'; r.go = SM[r.a] ? GO('SecRiskDetail', {}, SM[r.a]) : GO('SecRisks', { '类型': '基线' }); }); sx.dw.lk = '在告警与风险中查看全部'; sx.dw.lkGo = GO('SecRisks', { '状态': '待处置' }); }
+      const DED = (r) => (r.lv === '紧急' ? (r.ty === '漏洞' ? 5 : 4) : r.lv === '未受保护' ? 2 : r.lv === '可疑' ? 1 : 0.6);
+      const hostR = RK.filter((r) => !r.ext && PEND.indexOf(r.st) >= 0).sort((a, b) => DED(b) - DED(a));
+      const dedSum = Math.round(hostR.reduce((n, r) => n + DED(r), 0) * 10) / 10;
+      sx.scN = hostR.length;
+      if (st.shDw === 'score') { sx.dw.p = '安全评分 = 100 − 扣分合计 ' + dedSum + ' = ' + (100 - dedSum) + ' 分。修复后下次检测时更新评分。';
+        sx.dw.r = hostR.map((r) => ({ a: r.n, b: r.as, c: '−' + DED(r), cc: 'sh-red', o: '查看', go: GO('SecRiskDetail', {}, r.id) })); sx.dw.lk = '查看评分规则'; sx.dw.lkGo = ev(() => openDw('rule')); }
+      if (st.shDw === 'rule') { const RL = [['紧急 · 漏洞', '可被远程利用，或已有公开利用代码', '−5', (r) => r.lv === '紧急' && r.ty === '漏洞', { '级别': '紧急', '类型': '漏洞' }], ['紧急 · 入侵', '已确认或高度疑似被入侵', '−4', (r) => r.lv === '紧急' && r.ty === '入侵', { '级别': '紧急', '类型': '入侵' }], ['未受保护', '客户端未安装或已卸载，主机不被检测', '−2', (r) => r.lv === '未受保护', { '级别': '未受保护' }], ['可疑', '需要判断或修复的中等风险', '−1', (r) => r.lv === '可疑', { '级别': '可疑' }], ['提醒', '配置优化类，不影响当前运行', '−0.6', (r) => r.lv === '提醒', { '级别': '提醒' }]];
+        sx.dw.r = RL.map(([a, b, c, f, q]) => ({ a, b, c, cc: 'sh-red', o: hostR.filter(f).length + ' 项', go: GO('SecRisks', Object.assign({ '状态': '待处置', '来源产品': '德迅安全卫士' }, q)) })); }
       if (st.shDw === 'ai') { const AM = { '异常登录': 'R1', 'OpenSSH 漏洞': 'R3', '客户端已卸载': 'U1' }; sx.dw.r.forEach((r) => { const id = AM[r.a]; if (id) { r.o = '查看'; r.go = GO('SecRiskDetail', {}, id); } }); }
+      // 告警通知设置
+      { const PPL = [['wangqi', 'W', '主账号'], ['李四', '李', '安全负责人'], ['王五', '王', '运维']];
+        const LV = [['紧急', '已确认的入侵、可远程利用的漏洞'], ['可疑', '需要判断或修复的风险'], ['提醒', '配置优化类']];
+        const FQ = ['每天 1 次', '每 3 天 1 次', '不提醒'];
+        const sv = st.ntfS || { p: ['wangqi', '李四'], sms: { '紧急': 1 }, mail: {}, fq: '每天 1 次' };
+        const dr = st.ntfD || sv; const setD = (o) => this.setState({ ntfD: Object.assign({}, dr, o) });
+        const lvs = (m) => LV.map((l) => l[0]).filter((n) => m[n]).join('、');
+        const avc = (i) => (i % 2 ? 'sh-av b' : 'sh-av');
+        const close = ev(() => this.setState({ ntfOn: false, ntfD: null }));
+        sx.ntf = { on: !!st.ntfOn, x: close, names: sv.p.join('、'),
+          avs: sv.p.slice(0, 2).map((n, i) => ({ i: (PPL.find((x) => x[0] === n) || [n, n[0]])[1], c: avc(i) })),
+          sms: lvs(sv.sms) ? '短信 · ' + lvs(sv.sms) : '', mail: lvs(sv.mail) ? '邮件 · ' + lvs(sv.mail) : '', freq: sv.fq,
+          people: PPL.map(([n, i, d], k) => { const on = dr.p.indexOf(n) >= 0; return { n, i, d, on: on ? 'true' : 'false', c: on ? 'sn-p on' : 'sn-p', ac: avc(k),
+            pick: ev(() => { if (on && dr.p.length === 1) { toast('至少保留 1 位接收人', 'info'); return; } setD({ p: on ? dr.p.filter((x) => x !== n) : PPL.map((x) => x[0]).filter((x) => x === n || dr.p.indexOf(x) >= 0) }); }) }; }),
+          rows: LV.map(([n, d]) => ({ n, d, sc: dr.sms[n] ? 'kc-sw on' : 'kc-sw', sa: dr.sms[n] ? 'true' : 'false', sl: n + '告警短信通知', st: ev(() => setD({ sms: Object.assign({}, dr.sms, { [n]: dr.sms[n] ? 0 : 1 }) })), mc: dr.mail[n] ? 'kc-sw on' : 'kc-sw', ma: dr.mail[n] ? 'true' : 'false', ml: n + '告警邮件通知', mt: ev(() => setD({ mail: Object.assign({}, dr.mail, { [n]: dr.mail[n] ? 0 : 1 }) })) })),
+          freqs: FQ.map((n) => ({ n, cls: n === dr.fq ? 'on' : '', pick: ev(() => setD({ fq: n })) })),
+          save: ev(() => { this.setState({ ntfS: dr, ntfD: null, ntfOn: false }); toast('通知设置已保存'); }) };
+        sx.go.notify = ev(() => this.setState({ ntfOn: true, ntfD: null, shDw: '', shMd: '' })); }
       // 告警与风险卡片：与列表同一份数据
       const pend = RK.filter((r) => PEND.indexOf(r.st) >= 0);
       const AT = [['全部', ''], ['紧急', '紧急'], ['未受保护', '未受保护'], ['可疑', '可疑'], ['提醒', '提醒']];
