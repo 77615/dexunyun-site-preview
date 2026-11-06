@@ -1244,13 +1244,13 @@ class Component extends DCLogic {
     ];
     const plg = st.plg || {};
     const P0 = [['入侵检测', '异常登录、暴力破解、木马、挖矿', 'base'], ['漏洞检测', '系统和软件漏洞，给出修复方法', 'base'], ['基线检查', '弱口令、危险配置', 'base'], ['威胁猎杀', '攻击链溯源与节点证据', 'base'],
-      ['防勒索', '识别勒索加密行为，自动备份关键文件', 'plug'], ['网页防篡改', '网站目录被改动时立即还原', 'plug'], ['AI 研判', '自动分析告警真假、给出处置建议（企业版）', 'ent']];
+      ['防勒索', '识别勒索加密行为，自动备份关键文件', 'base'], ['网页防篡改', '网站目录被改动时立即还原', 'base'], ['AI 研判', '自动分析告警真假、给出处置建议（企业版）', 'ent']];
     const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
       cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
       go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (v) return; this.setState({ plg: Object.assign({}, plg, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plg: Object.assign({}, this.state.plg || {}, { [n]: 'ok' }) }), 1500); } }; });
     const cqP = st.cqP || 'def'; const cqS = st.cqS || ''; const isDb = cqP === 'db';
     const cqCap = [['入侵检测', '暴力破解、异常登录、反弹 Shell、高危命令', 'on'], ['病毒查杀', '实时恶意文件检测、网页后门、每天 04:00 定时扫描', 'on'], ['网络防护', '暴力破解、端口扫描、可疑外联', 'al'], ['漏洞与基线扫描', '漏洞每天 03:00，基线每 7 天', 'on'],
-      ['自动处置', isDb ? '恶意文件自动隔离' : '默认策略只告警，不自动隔离或封禁', isDb ? 'au' : 'off'], ['防勒索（插件）', isDb ? '策略已开启，这台未安装插件，安装后生效' : '策略未开启', isDb ? 'np' : 'off'], ['AI 研判', '企业版能力，当前未开通', 'ent']];
+      ['自动处置', isDb ? '恶意文件自动隔离' : '默认策略只告警，不自动隔离或封禁', isDb ? 'au' : 'off'], ['防勒索与防篡改', '诱饵文件、关键目录与网站目录保护', 'on'], ['AI 研判', '企业版能力，当前未开通', 'ent']];
     const CT = { on: ['已开启', 'kc-tag ok'], al: ['开启 · 只告警', 'kc-tag ok'], au: ['自动处置', 'kc-tag info'], off: ['未开启', 'kc-tag mut'], np: ['未安装插件', 'kc-tag mut'], ent: ['未开通', 'kc-tag mut'] };
     const cq = { n: isDb ? '数据库加强' : '默认策略', as: isDb ? '指定策略' : '跟随默认', asC: 'kc-tag info', st: cqS ? '等待生效' : '已生效', stC: cqS ? 'kc-tag warn' : 'kc-tag ok',
       d: cqS ? '已提交更换，等待客户端回执；离线时会在上线后下发。' : isDb ? '基于标准防护，开启恶意文件自动隔离和防勒索 · v1 · 11-02 10:20 生效' : '基于标准防护，只检测和告警，不自动拦截 · v3 · 11-02 10:20 生效',

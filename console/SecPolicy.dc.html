@@ -660,6 +660,24 @@ main.kc-main > .pl-al{margin:0 24px 12px}
 .pl.sl .dd-p.pq-tm button b,.pl.sl .dd-p.pq-tm button span{display:block}
 .pl.sl .dd-p.pq-tm button b{color:#0c0d0e!important;font-size:13px}
 .pl.sl .dd-p.pq-tm button span{color:#737a87!important;font-size:12px}
+.pq-lvs{grid-template-columns:repeat(3,1fr)}
+.pq-lvs .pq-pk span{line-height:18px}
+.pq-adv{display:inline-block;margin-top:10px;font-size:13px;color:var(--kc-primary,#1664ff);text-decoration:none}
+.pq-advb{margin-top:4px;padding:4px 16px 8px;background:#f7f8fa;border-radius:4px}
+.pq-advb .pl-swr,.pq-advb .pq-dgi{border-color:#e5e6eb}
+.pq-mds{margin-top:4px}
+.pq-mds button.dis{color:#c9cdd4;cursor:not-allowed}
+.pq-mdn{margin:8px 0 0}
+.pq-aus{margin-top:4px}
+.pq-dg b{font-weight:400;color:#1d2129}
+.pq-dgn{margin-left:8px;font-size:12px;color:#86909c}
+.pq-dgx{margin-left:12px;font-size:12px;color:var(--kc-primary,#1664ff);text-decoration:none}
+.pq-dgi{padding:2px 0 6px 16px;border-bottom:1px solid #f2f3f5}
+.pq-ci{display:flex;justify-content:space-between;align-items:center;height:34px;font-size:13px;color:#42464e}
+.pq-pg2{display:flex;justify-content:space-between;align-items:center}
+.pq-pgs{font-size:12px;color:#86909c}
+.pq-pgs .pq-lk{margin-left:8px}
+.pq-adjt{margin-left:6px;color:#D25F00;background:#FFF3E8;border:0}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -753,25 +771,26 @@ main.kc-main > .pl-al{margin:0 24px 12px}
       </nav>
     <div class="kc-foldbar"><label for="kcf-SecPolicy" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecPolicy" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecPolicy" class="kc-main sh sl pl">
-      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">防护策略</h1><p class="kc-desc">每台主机使用一份策略：跟随默认策略，或指定一份。</p></div></div>
+      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">防护策略</h1><p class="kc-desc">每台主机使用一种防护模式，新接入的主机用默认模式。</p></div></div>
         <div class="kc-btns"><span class="pl-rl"><span>预览身份</span><span class="pl-seg"><sc-for list="{{pl.roles}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.cls}}" onClick="{{r.pick}}">{{r.n}}</button></sc-for></span></span><button type="button" class="{{pl.cfgC}}" title="{{pl.cfgT}}" onClick="{{pl.cfgGo}}">配置防护</button></div></div>
       <sc-if value="{{pl.ro}}" hint-placeholder-val="{{false}}"><div class="ac-al i pl-al"><i>!</i><span>{{pl.roT}}</span></div></sc-if>
       <section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{pl.tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}<sc-if value="{{t.c}}" hint-placeholder-val="{{false}}"> <span class="kc-cnt">{{t.c}}</span></sc-if></button></sc-for></div>
         <sc-if value="{{pl.tPol}}" hint-placeholder-val="{{true}}"><div class="pl-pn">
           <sc-if value="{{pl.wOn}}" hint-placeholder-val="{{true}}"><div class="ac-al pq-al"><i>!</i><span>{{pl.wT}}</span><a href="#" onClick="{{pl.wGo}}">查看主机</a></div></sc-if>
-          <div class="pq-tb"><span class="hs-bw"><button type="button" class="kc-btn" aria-haspopup="menu" onClick="{{pl.tmT}}">从系统模板新建<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tmOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tmX}}"></span><span class="dd-p pq-tm" role="menu"><sc-for list="{{pl.tpls}}" as="o" hint-placeholder-count="3"><button type="button" role="menuitem" onClick="{{o.view}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></span></sc-if></span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
-          <div class="kc-tw"><table class="kc-t pq-tbl"><thead><tr><th>策略名称</th><th>防护能力</th><th>使用主机</th><th>生效情况</th><th>更新时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.pols}}" as="p" hint-placeholder-count="2"><tr>
+          <div class="pq-tb"><span class="pq-tbn">在能力页单独改过开关的主机算「单独调整」，可以随时恢复跟随模式。</span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
+          <div class="kc-tw"><table class="kc-t pq-tbl"><thead><tr><th>防护模式</th><th>防护能力</th><th>使用主机</th><th>单独调整</th><th>生效情况</th><th>更新时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.pols}}" as="p" hint-placeholder-count="2"><tr>
             <td><div class="pq-nm"><b>{{p.n}}</b><sc-if value="{{p.isDef}}" hint-placeholder-val="{{true}}"><span class="kc-tag info" title="新接入的主机自动使用">默认</span></sc-if><sc-if value="{{p.zero}}" hint-placeholder-val="{{false}}"><span class="kc-tag mut">未被使用</span></sc-if></div><div class="sl-sub">{{p.d}}</div></td>
             <td>开启 {{p.on}} 项<div class="sl-sub">{{p.auT}}</div></td>
             <td><a href="#" class="sl-op" onClick="{{p.goH}}">{{p.hn}}</a><div class="sl-sub">{{p.hs}}</div></td>
+            <td><sc-if value="{{p.adjN}}" hint-placeholder-val="{{false}}"><a href="#" class="sl-op" onClick="{{p.goA}}">{{p.adjN}} 台</a></sc-if><sc-if value="{{p.adj0}}" hint-placeholder-val="{{true}}">—</sc-if></td>
             <td><span class="{{p.stc}}">{{p.st}}</span></td>
             <td>{{p.t}}<div class="sl-sub">{{p.by}}</div></td>
             <td><span class="pq-ops"><a href="#" class="{{p.eC}}" title="{{p.eT}}" onClick="{{p.edit}}">编辑</a><sc-if value="{{p.canDefShow}}" hint-placeholder-val="{{false}}"><a href="#" class="{{p.hC}}" onClick="{{p.hosts}}">管理主机</a><a href="#" class="{{p.dC}}" title="{{p.dT}}" onClick="{{p.setDef}}">设为默认</a></sc-if><sc-if value="{{p.canArc}}" hint-placeholder-val="{{false}}"><a href="#" class="sl-op" onClick="{{p.arc}}">归档</a></sc-if></span></td>
           </tr></sc-for></tbody></table></div>
         </div></sc-if>
         <sc-if value="{{pl.tHost}}" hint-placeholder-val="{{false}}"><sc-if value="{{pl.hfOn}}" hint-placeholder-val="{{false}}"><div class="pq-hf">筛选：<b>{{pl.hfT}}</b><a href="#" onClick="{{pl.hfX}}">查看全部主机</a></div></sc-if><div class="sl-bar tb"><span class="hs-bw"><button type="button" class="{{pl.tb.bdc}}" aria-haspopup="menu" onClick="{{pl.tb.bdT}}"><b>{{pl.tb.bdN}}</b><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tb.bdOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tb.bdX}}"></span><span class="dd-p" role="menu"><sc-for list="{{pl.tb.bat}}" as="o" hint-placeholder-count="3"><button type="button" role="menuitem" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for><button type="button" role="menuitem" class="hs-bx" onClick="{{pl.tb.selX}}">取消选择</button></span></sc-if></span><label class="sl-q"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索主机名称或 IP" placeholder="搜索主机名称或 IP" value="{{pl.tb.q}}" onChange="{{pl.tb.onQ}}"></label><span class="{{pl.tb.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{pl.tb.faT}}"><b>添加筛选</b><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tb.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tb.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{pl.tb.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{pl.tb.faB}}">‹ {{pl.tb.faK}}</button></sc-if><sc-for list="{{pl.tb.faL}}" as="o" hint-placeholder-count="5"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><sc-for list="{{pl.tb.chips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{pl.tb.hasF}}" hint-placeholder-val="{{false}}"><a class="sl-clr" href="#" onClick="{{pl.tb.clear}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{pl.tb.n}}</b> {{pl.tb.u}}</span><span class="hs-tools"><button type="button" class="hs-ib i-ex" title="导出" aria-label="导出" onClick="{{pl.tb.exp}}"></button></span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th class="hs-ck"><button type="button" class="{{pl.tb.allC}}" role="checkbox" aria-checked="{{pl.tb.allA}}" aria-label="全选本页" onClick="{{pl.tb.allT}}"></button></th><th>主机</th><th>所用策略</th><th>生效状态</th><th>生效时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.hosts}}" as="h" hint-placeholder-count="8"><tr class="{{h.trc}}"><td class="hs-ck"><button type="button" class="{{h.ckc}}" role="checkbox" aria-checked="{{h.cka}}" aria-label="选择" onClick="{{h.ck}}"></button></td>
-          <td><div class="sl-a">{{h.n}}</div><div class="sl-sub">{{h.ip}}</div></td><td>{{h.po}}<div class="sl-sub">{{h.as}}</div></td><td><span class="{{h.sc}}">{{h.st}}</span><div class="sl-sub">{{h.why}}</div></td><td>{{h.t}}</td>
-          <td><sc-if value="{{h.can}}" hint-placeholder-val="{{true}}"><span class="{{h.ddW}}"><a class="{{h.opC}}" href="#" title="{{h.opT}}" onClick="{{h.dd}}">更换策略</a><sc-if value="{{h.ddOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{h.ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{h.opts}}" as="o" hint-placeholder-count="2"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><a class="{{h.opC}}" href="#" title="{{h.opT}}" onClick="{{h.pz}}">{{h.pzN}}</a></sc-if><sc-if value="{{h.noC}}" hint-placeholder-val="{{false}}"><a class="sl-op" href="SecAgent.dc.html">重新安装</a></sc-if></td></tr></sc-for></tbody></table></div><sc-if value="{{pl.tb.many}}" hint-placeholder-val="{{false}}"><div class="sl-ft"><div class="kc-pg"><button type="button" aria-label="上一页" onClick="{{pl.tb.pPrev}}">‹</button><sc-for list="{{pl.tb.pgs}}" as="x" hint-placeholder-count="3"><button type="button" class="{{x.cls}}" onClick="{{x.pick}}">{{x.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{pl.tb.pNext}}">›</button></div></div></sc-if></sc-if>
+          <td><div class="sl-a">{{h.n}}</div><div class="sl-sub">{{h.ip}}</div></td><td>{{h.po}}<sc-if value="{{h.adj}}" hint-placeholder-val="{{false}}"><span class="kc-tag pq-adjt">已调整</span></sc-if><div class="sl-sub">{{h.as}}</div><sc-if value="{{h.adj}}" hint-placeholder-val="{{false}}"><a href="#" class="sl-op" onClick="{{h.rsT}}">恢复跟随模式</a></sc-if></td><td><span class="{{h.sc}}">{{h.st}}</span><div class="sl-sub">{{h.why}}</div></td><td>{{h.t}}</td>
+          <td><sc-if value="{{h.can}}" hint-placeholder-val="{{true}}"><span class="{{h.ddW}}"><a class="{{h.opC}}" href="#" title="{{h.opT}}" onClick="{{h.dd}}">更换模式</a><sc-if value="{{h.ddOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{h.ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{h.opts}}" as="o" hint-placeholder-count="2"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><a class="{{h.opC}}" href="#" title="{{h.opT}}" onClick="{{h.pz}}">{{h.pzN}}</a></sc-if><sc-if value="{{h.noC}}" hint-placeholder-val="{{false}}"><a class="sl-op" href="SecAgent.dc.html">重新安装</a></sc-if></td></tr></sc-for></tbody></table></div><sc-if value="{{pl.tb.many}}" hint-placeholder-val="{{false}}"><div class="sl-ft"><div class="kc-pg"><button type="button" aria-label="上一页" onClick="{{pl.tb.pPrev}}">‹</button><sc-for list="{{pl.tb.pgs}}" as="x" hint-placeholder-count="3"><button type="button" class="{{x.cls}}" onClick="{{x.pick}}">{{x.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{pl.tb.pNext}}">›</button></div></div></sc-if></sc-if>
         <sc-if value="{{pl.tList}}" hint-placeholder-val="{{false}}"><div class="sl-bar"><span class="pl-seg"><sc-for list="{{pl.lsegs}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.cls}}" onClick="{{x.pick}}">{{x.n}} {{x.c}}</button></sc-for></span><span class="sl-n">{{pl.lHint}}</span><button type="button" class="{{pl.addC}}" title="{{pl.addT}}" onClick="{{pl.addGo}}">添加</button></div>
           <div class="kc-tw"><table class="kc-t"><thead><tr><th>类型</th><th>内容</th><th>生效范围</th><th>来源</th><th>添加时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.lrows}}" as="w" hint-placeholder-count="4"><tr>
           <td>{{w.ty}}</td><td><code class="pl-code">{{w.v}}</code><div class="sl-sub">{{w.note}}</div></td><td>{{w.sc}}</td><td>{{w.src}}<div class="sl-sub">{{w.by}}</div></td><td>{{w.t}}</td><td><a class="{{w.rmC}}" href="#" title="{{w.rmT}}" onClick="{{w.rm}}">移除</a></td></tr></sc-for></tbody></table></div></sc-if>
@@ -787,7 +806,18 @@ main.kc-main > .pl-al{margin:0 24px 12px}
           <sc-if value="{{pl.dw.showDef}}" hint-placeholder-val="{{false}}"><div class="pq-st"><h4>选择新的默认策略</h4><div class="pq-pks" role="radiogroup"><sc-for list="{{pl.dw.defs}}" as="o" hint-placeholder-count="2"><button type="button" role="radio" aria-checked="{{o.ra}}" class="{{o.rc}}" onClick="{{o.pick}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></div></div></sc-if>
           <sc-if value="{{pl.dw.showName}}" hint-placeholder-val="{{false}}"><div class="pq-st"><h4>策略名称</h4><label class="pq-in"><input type="text" aria-label="策略名称" placeholder="{{pl.dw.nmPh}}" value="{{pl.dw.nm}}" onChange="{{pl.dw.onNm}}"></label></div></sc-if>
           <sc-if value="{{pl.dw.showCaps}}" hint-placeholder-val="{{false}}"><div class="pq-st"><h4>{{pl.dw.cStep}}</h4><sc-if value="{{pl.dw.cHint}}" hint-placeholder-val="{{false}}"><p class="pq-hm">{{pl.dw.cHint}}</p></sc-if>
-            <sc-for list="{{pl.dw.groups}}" as="g" hint-placeholder-count="5"><h5 class="pl-gh">{{g.g}}</h5><sc-for list="{{g.items}}" as="c" hint-placeholder-count="3"><div class="{{c.rc}}"><div>{{c.n}}<sc-if value="{{c.hasTag}}" hint-placeholder-val="{{false}}"> <span class="{{c.tc}}">{{c.tag}}</span></sc-if><div class="kc-sub">{{c.d}}</div><sc-if value="{{c.hasNote}}" hint-placeholder-val="{{false}}"><div class="pq-nt">{{c.note}}</div></sc-if><sc-if value="{{c.lk}}" hint-placeholder-val="{{false}}"><a class="pq-lk" href="SecLicense.dc.html">开通企业版</a></sc-if></div><button type="button" class="{{c.swc}}" role="switch" aria-checked="{{c.a}}" aria-label="{{c.n}}" title="{{c.tt}}" onClick="{{c.tog}}"></button></div></sc-for></sc-for></div></sc-if>
+            <sc-if value="{{pl.dw.lvOn}}" hint-placeholder-val="{{true}}"><h5 class="pl-gh">防护模式</h5>
+            <div class="pq-pks pq-lvs" role="radiogroup" aria-label="防护模式"><sc-for list="{{pl.dw.lvs}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.ra}}" class="{{o.rc}}" title="{{o.tt}}" onClick="{{o.pick}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></div>
+            <p class="pq-hm pq-mdn">{{pl.dw.mdN}}</p></sc-if>
+            <sc-if value="{{pl.dw.advLk}}" hint-placeholder-val="{{true}}"><a href="#" class="pq-adv" aria-expanded="{{pl.dw.advA}}" onClick="{{pl.dw.advX}}">{{pl.dw.advN}}</a></sc-if>
+            <sc-if value="{{pl.dw.advOn}}" hint-placeholder-val="{{false}}"><div class="pq-advb">
+            <sc-if value="{{pl.dw.auOn}}" hint-placeholder-val="{{true}}"><h5 class="pl-gh">自动处置</h5><sc-for list="{{pl.dw.aus}}" as="c" hint-placeholder-count="3"><div class="kc-sw-row pl-swr"><div>{{c.n}}<div class="kc-sub">{{c.d}}</div></div><button type="button" class="{{c.swc}}" role="switch" aria-checked="{{c.a}}" aria-label="{{c.n}}" onClick="{{c.tog}}"></button></div></sc-for></sc-if>
+            <h5 class="pl-gh">检测项</h5>
+            <sc-for list="{{pl.dw.dg}}" as="g" hint-placeholder-count="4"><div class="kc-sw-row pl-swr pq-dg"><div><b>{{g.g}}</b><span class="pq-dgn">{{g.cnt}}</span><a href="#" class="pq-dgx" aria-expanded="{{g.ae}}" onClick="{{g.x}}">{{g.xn}}</a></div><button type="button" class="{{g.swc}}" role="switch" aria-checked="{{g.a}}" aria-label="{{g.g}}" onClick="{{g.tog}}"></button></div>
+              <sc-if value="{{g.open}}" hint-placeholder-val="{{false}}"><div class="pq-dgi"><sc-for list="{{g.items}}" as="c" hint-placeholder-count="3"><div class="kc-sw-row pq-ci"><span>{{c.n}}</span><button type="button" class="{{c.swc}}" role="switch" aria-checked="{{c.a}}" aria-label="{{c.n}}" onClick="{{c.tog}}"></button></div></sc-for></div></sc-if></sc-for>
+            </div></sc-if>
+            <h5 class="pl-gh">企业版</h5>
+            <sc-for list="{{pl.dw.pg}}" as="c" hint-placeholder-count="3"><div class="kc-sw-row pl-swr pq-pg2"><span>{{c.n}}</span><span class="pq-pgs">{{c.s}}<sc-if value="{{c.hasLk}}" hint-placeholder-val="{{false}}"><a class="pq-lk" href="{{c.href}}">{{c.lk}}</a></sc-if></span></div></sc-for></div></sc-if>
           <sc-if value="{{pl.dw.showImp}}" hint-placeholder-val="{{false}}"><div class="pq-st pq-cf"><h4>确认影响</h4><sc-for list="{{pl.dw.imp}}" as="x" hint-placeholder-count="2"><p class="{{x.c}}">{{x.t}}</p></sc-for></div></sc-if>
         </div>
         <footer><span class="sh-swch">{{pl.dw.chg}}</span><button type="button" class="kc-btn" onClick="{{pl.dw.x}}">取消</button><sc-if value="{{pl.dw.isView}}" hint-placeholder-val="{{false}}"><button type="button" class="{{pl.dw.useC}}" onClick="{{pl.dw.use}}">用它配置主机</button></sc-if><sc-if value="{{pl.dw.showImp}}" hint-placeholder-val="{{true}}"><button type="button" class="{{pl.dw.okC}}" onClick="{{pl.dw.ok}}">{{pl.dw.okN}}</button></sc-if></footer></aside></sc-if>
@@ -1597,21 +1627,23 @@ class Component extends DCLogic {
       ['网络防护', '网络访问防护', '检测暴力破解、端口扫描、CC；是否封禁由「自动处置」决定', ''], ['网络防护', '外联管控', '主机主动连接的地址按规则告警', ''],
       ['风险检测', '漏洞检测', '每天 03:00', ''], ['风险检测', '基线定时扫描', '每 7 天，含弱口令检查', ''],
       ['自动处置', '恶意文件自动隔离', '命中后直接隔离文件，可能影响业务进程', 'au'], ['自动处置', '高危命令自动拦截', '命中后直接阻断命令，可能拦截运维脚本', 'au'], ['自动处置', '攻击来源 IP 自动封禁', '暴力破解、扫描、CC 来源自动封禁 3600 秒', 'au'],
-      ['插件与企业版', '防勒索', '插件 · 诱饵文件 + 关键目录保护', 'pg'], ['插件与企业版', '网页防篡改', '插件 · 网站目录写保护', 'pg'], ['插件与企业版', 'AI 研判', '企业版 · 告警自动研判与处置建议', 'ent']];
+      ['防勒索与防篡改', '防勒索', '诱饵文件 + 关键目录保护', ''], ['防勒索与防篡改', '网页防篡改', '网站目录写保护', ''], ['企业版', 'AI 研判', '企业版 · 告警自动研判与处置建议', 'ent']];
     const NC = CAPS.length; const AU = [12, 13, 14];
     const PLUG = { 15: ['db-01', 'web-prod-01', 'web-prod-02', 'web-prod-03'], 16: ['web-prod-01', 'web-prod-02', 'web-prod-03'] }; // 已安装插件的主机
     const ENT = false; // 企业版未开通
     const on = (idx) => CAPS.map((c, i) => idx.indexOf(i) >= 0);
     const TPL = [['lite', '轻量防护', '资源占用最低，只保留核心检测', on([0, 1, 5, 7, 10, 11])],
-      ['std', '标准防护', '推荐给大多数业务主机，全部检测、只告警', on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])],
+      ['std', '标准防护', '推荐给大多数业务主机，全部检测、只告警', on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16])],
       ['max', '重保防护', '重保期间使用，开启全部检测和自动处置', on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])]];
     const TN = {}; TPL.forEach((t) => { TN[t[0]] = t; });
-    const P0 = [{ id: 'pdef', n: '默认策略', src: '标准防护', d: '新接入主机自动使用；只告警，不自动处置', caps: on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), ver: 3, t: '10-12 09:00', by: 'wangqi' },
-      { id: 'pdb', n: '数据库加强', src: '标准防护', d: '数据库主机：恶意文件自动隔离 + 防勒索', caps: on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15]), ver: 2, t: '10-28 15:20', by: 'wangqi' }];
+    const P0 = [{ id: 'pstd', n: '标准模式', src: '标准防护', d: '新接入主机自动使用；全部检测，只告警', caps: on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16]), ver: 3, t: '10-12 09:00', by: 'wangqi' },
+      { id: 'plite', n: '轻量模式', src: '轻量防护', d: '资源占用最低，只保留核心检测', caps: on([0, 1, 5, 7, 10, 11]), ver: 1, t: '10-02 10:00', by: '系统' },
+      { id: 'pmax', n: '重保模式', src: '重保防护', d: '全部检测，命中后自动处置', caps: on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]), ver: 2, t: '10-28 15:20', by: 'wangqi' }];
+    const ADJ0 = { 'app-03': ['远程安全 · 远程桌面防护：关'], 'web-prod-02': ['入侵检测 · 高危命令：关', '病毒查杀 · 定时扫描：关'] };
     const pols = (st.plPols || P0).filter((p) => !p.arc);
     const PM = {}; pols.forEach((p) => { PM[p.id] = p; });
-    const defId = st.plDef || 'pdef';
-    const hp = st.plHp || {}; const HP0 = { 'db-01': 'pdb', 'cache-01': 'pdb' };
+    const defId = st.plDef || 'pstd';
+    const hp = st.plHp || {}; const HP0 = { 'db-01': 'pmax', 'cache-01': 'pmax', 'app-05': 'plite' }; const adjM = st.plAdj || ADJ0; const adjOf = (h) => adjM[h.n] || [];
     const pz = st.plPz || {};
     const asg = (h) => (h.n in hp ? hp[h.n] : HP0[h.n] || '');
     const polOf = (h) => (h.ps === '未受保护' ? '' : (asg(h) && PM[asg(h)] ? asg(h) : defId));
@@ -1640,12 +1672,12 @@ class Component extends DCLogic {
     pl.cfgC = btn(adm, true); pl.cfgT = adm ? '' : NOP; pl.cfgGo = ev(() => { if (!adm) return; S({ plDw: 'cfg', plSel: null, plPick: '', plDr: null, plNm: '', plQ: '' }); });
     // 使用中的策略
     pl.pols = pols.map((p) => { const hs = hostsOf(p.id); const ok = hs.filter((h) => stOf(h)[0] === '已生效').length; const isDef = p.id === defId; const hasAu = auN(p.caps) > 0;
-      const nOk = hs.length - ok; return { n: p.n, isDef, d: p.d, auT: auN(p.caps) ? '自动处置 ' + auN(p.caps) + ' 项' : '只告警', hn: hs.length + ' 台', hs: isDef ? '跟随默认' : '指定', st: !hs.length ? '—' : nOk ? nOk + ' 台未生效' : '全部生效', stc: !hs.length ? '' : nOk ? 'kc-tag warn' : 'kc-tag ok', t: p.t, by: 'v' + p.ver + ' · ' + p.by, goH: ev(() => S({ plTab: '生效资产', plHf: '', plPf: p.n })), segs: segs(p.caps), on: capsN(p.caps), au: auN(p.caps), cls: isDef ? 'pq-c def' : 'pq-c',
+      const nOk = hs.length - ok; return { n: p.n, isDef, d: p.d, auT: auN(p.caps) ? '自动处置 ' + auN(p.caps) + ' 项' : '只告警', hn: hs.length + ' 台', hs: isDef ? '含新接入主机' : '指定', adjN: hs.filter((h) => adjOf(h).length).length || '', adj0: !hs.filter((h) => adjOf(h).length).length, goA: ev(() => S({ plTab: '生效资产', plHf: '已调整', plPf: p.n })), st: !hs.length ? '—' : nOk ? nOk + ' 台未生效' : '全部生效', stc: !hs.length ? '' : nOk ? 'kc-tag warn' : 'kc-tag ok', t: p.t, by: 'v' + p.ver + ' · ' + p.by, goH: ev(() => S({ plTab: '生效资产', plHf: '', plPf: p.n })), segs: segs(p.caps), on: capsN(p.caps), au: auN(p.caps), cls: isDef ? 'pq-c def' : 'pq-c',
         useT: hs.length ? (isDef ? folN + ' 台跟随默认' : hs.length + ' 台使用') + ' · ' + ok + ' 台已生效' + (hs.length - ok ? ' · ' + (hs.length - ok) + ' 台未生效' : '') : '未被使用', zero: !hs.length && !isDef,
         eC: adm ? 'sl-op' : 'sl-op dis', eT: adm ? '' : NOP, edit: ev(() => { if (!adm) return; S({ plDw: 'edit:' + p.id, plDr: null }); }),
         hN: isDef ? '查看主机' : '管理主机', hC: adm || isDef ? 'sl-op' : 'sl-op dis', hosts: ev(() => { if (isDef) { S({ plTab: '生效资产', plHf: '', plPf: p.n }); return; } if (!adm) return; S({ plDw: 'hosts:' + p.id, plSel: hs.map((h) => h.n), plQ: '' }); }),
         canDefShow: !isDef, dC: adm && !hasAu ? 'sl-op' : 'sl-op dis', dT: !adm ? NOP : hasAu ? '含自动处置，不能设为默认策略' : '', setDef: ev(() => { if (!adm || hasAu) return; S({ plDw: 'def', plPick: p.id }); }),
-        canArc: !hs.length && !isDef, arc: ev(() => { if (!adm) { toast(NOP, 'info'); return; } S({ plPols: (st.plPols || P0).map((x) => (x.id === p.id ? Object.assign({}, x, { arc: 1 }) : x)) }); toast('已归档「' + p.n + '」，可在操作审计里找回'); }) }; });
+        canArc: false, arc: ev(() => { if (!adm) { toast(NOP, 'info'); return; } S({ plPols: (st.plPols || P0).map((x) => (x.id === p.id ? Object.assign({}, x, { arc: 1 }) : x)) }); toast('已归档「' + p.n + '」，可在操作审计里找回'); }) }; });
     pl.tmOn = !!st.plTm; pl.tmT = ev(() => S({ plTm: !st.plTm })); pl.tmX = ev(() => S({ plTm: false }));
     pl.wOn = !!(waitN || offN); pl.wT = [offN ? offN + ' 台未受保护' : '', waitN ? waitN + ' 台等待生效' : ''].filter(Boolean).join('，') + '，其余主机已按策略生效。'; pl.wGo = goHost(offN ? '未受保护' : '等待生效');
     pl.tpls = TPL.map((t) => ({ n: t[1], d: t[2], segs: segs(t[3]), on: capsN(t[3]), au: auN(t[3]), uC: btn(adm, false), uT: adm ? '' : NOP,
@@ -1659,7 +1691,7 @@ class Component extends DCLogic {
     // 生效资产
     const NM = {}; pols.forEach((p) => { NM[p.id] = p.n; });
     const hf = st.plHf || ''; const pf = st.plPf || '';
-    const HSf = HS.filter((h) => (!hf || (hf === '未受保护' ? ['不下发', '已暂停'].indexOf(stOf(h)[0]) >= 0 : hf === '等待生效' ? ['等待生效', '下发中'].indexOf(stOf(h)[0]) >= 0 : stOf(h)[0] === hf)) && (!pf || NM[polOf(h)] === pf));
+    const HSf = HS.filter((h) => (!hf || (hf === '已调整' ? adjOf(h).length > 0 : hf === '未受保护' ? ['不下发', '已暂停'].indexOf(stOf(h)[0]) >= 0 : hf === '等待生效' ? ['等待生效', '下发中'].indexOf(stOf(h)[0]) >= 0 : stOf(h)[0] === hf)) && (!pf || NM[polOf(h)] === pf));
     pl.hfOn = !!(hf || pf); pl.hfT = [hf, pf ? '策略：' + pf : ''].filter(Boolean).join(' · '); pl.hfX = ev(() => S({ plHf: '', plPf: '' }));
     const dd = st.plDd || '';
     pl.tb = this._tb('SecPolicyHost', HSf, { toast, unit: '台', what: '主机', id: (h) => h.n, per: 10,
@@ -1667,7 +1699,7 @@ class Component extends DCLogic {
       match: (h, k, v) => k === '策略' ? NM[polOf(h)] === v : k === '分配方式' ? (v === '跟随默认' ? isFol(h) : !isFol(h) && h.ps !== '未受保护') : k === '下发状态' ? stOf(h)[0] === v : k === '机房' ? h.room === v : true, text: (h) => h.n + ' ' + h.ip,
       batch: pols.map((p) => ['改用「' + p.n + '」', (ids) => { if (!adm) { toast(NOP, 'info'); return; } const o2 = Object.assign({}, hp); ids.forEach((n) => { o2[n] = p.id === defId ? '' : p.id; }); S({ plHp: o2 }); toast('已提交 ' + ids.length + ' 台改用「' + p.n + '」'); }]) });
     pl.hosts = pl.tb.page.map((h) => { const p = polOf(h); const [s1, sc, why] = stOf(h); const can = h.ps !== '未受保护'; const pzd = !!pz[h.n];
-      return Object.assign(pl.tb.ck(h), { n: h.n, ip: h.ip, room: h.room, po: p ? NM[p] : '—', as: !can ? '' : isFol(h) ? '跟随默认' : '指定策略', st: s1, sc, why, t: s1 === '已生效' ? h.chk : '—', can, noC: !can,
+      return Object.assign(pl.tb.ck(h), { n: h.n, ip: h.ip, room: h.room, po: p ? NM[p] : '—', as: !can ? '' : adjOf(h).length ? '已单独调整 ' + adjOf(h).length + ' 项：' + adjOf(h).join('；') : isFol(h) ? '跟随默认' : '指定', adj: can && adjOf(h).length > 0, rsT: ev(() => { const o2 = Object.assign({}, adjM); delete o2[h.n]; S({ plAdj: o2 }); toast(h.n + ' 已恢复跟随「' + (p ? NM[p] : '') + '」'); }), st: s1, sc, why, t: s1 === '已生效' ? h.chk : '—', can, noC: !can,
         opC: adm ? 'sl-op' : 'sl-op dis', opT: adm ? '' : NOP, ddW: dd === h.n ? 'dd-w on' : 'dd-w', ddOn: dd === h.n, dd: ev(() => { if (!adm) return; S({ plDd: dd === h.n ? '' : h.n }); }), ddX: ev(() => S({ plDd: '' })),
         opts: pols.map((x) => ({ n: x.n + (x.id === defId ? '（默认）' : ''), cls: x.id === p ? 'on' : '', pick: ev(() => { S({ plHp: Object.assign({}, hp, { [h.n]: x.id === defId ? '' : x.id }), plDd: '' }); toast(h.n + ' 已改用「' + x.n + '」，只影响这台主机'); }) })),
         pzN: pzd ? '恢复防护' : '暂停防护', pz: ev(() => { if (!adm) return; if (pzd) { const o = Object.assign({}, pz); delete o[h.n]; S({ plPz: o }); toast(h.n + ' 已恢复防护，按「' + NM[p] + '」重新下发'); return; } S({ plPzH: h.n, plPzW: '', plPzU: '24 小时后' }); }) }); });
@@ -1691,7 +1723,7 @@ class Component extends DCLogic {
     pl.lrows = WL0.map((w, i) => ({ w, i })).filter(({ w, i }) => !rmd[i] && w[0] === lt).map(({ w, i }) => ({ ty: w[1], v: w[2], note: w[3], sc: w[4], src: w[5], by: w[6], t: w[7], rmC: adm ? 'sl-op' : 'sl-op dis', rmT: adm ? '' : NOP,
       rm: ev(() => { if (!adm) return; S({ plRm: Object.assign({}, rmd, { [i]: 1 }) }); toast('已移除，提交到主机后生效'); }) }));
     // 配置抽屉：cfg（选主机 → 选防护）/ tpl:x（模板 → 新策略）/ edit:p（改共享策略）/ hosts:p（调整范围）/ def（更换默认）/ view:x（查看模板）
-    const dw = st.plDw !== undefined ? st.plDw : (() => { try { const v = /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search).get('edit') : ''; return { def: 'edit:pdef', db: 'edit:pdb' }[v] || ''; } catch (x) { return ''; } })(); const [mode, key] = dw.split(':');
+    const dw = st.plDw !== undefined ? st.plDw : (() => { try { const v = /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search).get('edit') : ''; return { def: 'edit:pstd', max: 'edit:pmax', db: 'edit:pmax' }[v] || ''; } catch (x) { return ''; } })(); const [mode, key] = dw.split(':');
     const D = { on: !!dw, x: ev(() => S({ plDw: '', plDr: null })) };
     if (dw) {
       const sel = st.plSel || []; const pick = st.plPick || ''; const q = st.plQ || ''; const dr = st.plDr || {};
@@ -1700,7 +1732,7 @@ class Component extends DCLogic {
       const baseCaps = editP ? editP.caps : pickT ? pickT[3] : pickP ? pickP.caps : mode === 'view' ? TN[key][3] : null;
       const capsEd = !!(editP || pickT) && adm; const isDefEd = editP && editP.id === defId;
       const cur = baseCaps ? baseCaps.map((v, i) => (dr[i] !== undefined ? dr[i] : v)) : null;
-      D.title = mode === 'cfg' ? '配置防护' : mode === 'tpl' ? '用「' + TN[key][1] + '」配置主机' : mode === 'edit' ? '编辑策略：' + editP.n : mode === 'hosts' ? '管理主机：' + hostP.n : mode === 'def' ? '更换默认策略' : '系统模板：' + TN[key][1];
+      D.title = mode === 'cfg' ? '配置防护' : mode === 'tpl' ? '用「' + TN[key][1] + '」配置主机' : mode === 'edit' ? '编辑模式：' + editP.n : mode === 'hosts' ? '管理主机：' + hostP.n : mode === 'def' ? '更换默认模式' : '系统模板：' + TN[key][1];
       // 第 1 步：主机
       D.showHosts = mode === 'cfg' || mode === 'tpl' || mode === 'hosts';
       D.hStep = mode === 'hosts' ? '使用这份策略的主机' : '1 选择主机';
@@ -1713,12 +1745,12 @@ class Component extends DCLogic {
       D.hMore = !ql ? '其余主机输入名称或 IP 搜索' : '';
       // 第 2 步：选择防护（仅 cfg）
       D.showPick = mode === 'cfg';
-      D.picks = pols.map((p, i) => ({ id: p.id, n: p.n + (p.id === defId ? '（默认）' : ''), d: p.d, gh: i ? '' : '已有策略' })).concat(TPL.map((t, i) => ({ id: t[0], n: t[1], d: t[2], gh: i ? '' : '从系统模板新建（复制成一份新策略）' }))).map((o) => ({ n: o.n, d: o.d, gh: o.gh, rc: o.id === pick ? 'pq-pk on' : 'pq-pk', ra: o.id === pick ? 'true' : 'false', pick: ev(() => S({ plPick: o.id, plDr: null })) }));
+      D.picks = pols.map((p, i) => ({ id: p.id, n: p.n + (p.id === defId ? '（默认）' : ''), d: p.d, gh: '' })).map((o) => ({ n: o.n, d: o.d, gh: o.gh, rc: o.id === pick ? 'pq-pk on' : 'pq-pk', ra: o.id === pick ? 'true' : 'false', pick: ev(() => S({ plPick: o.id, plDr: null })) }));
       // 名称（新建）
       D.showName = !!pickT && mode !== 'view'; const nm = st.plNm || ''; D.nm = nm; D.nmPh = '例如：' + (pickT ? pickT[1].replace('防护', '') : '') + '业务主机'; D.onNm = (e) => this.setState({ plNm: e && e.target ? e.target.value : '' });
       // 能力
       D.showCaps = !!cur; D.cStep = mode === 'cfg' ? '3 防护内容' : mode === 'tpl' ? '2 防护内容' : mode === 'view' ? '防护内容（只读）' : '防护内容';
-      D.cHint = pickP ? '使用已有策略，内容不变；要修改请到策略卡片上「编辑」' : isDefEd ? '默认策略只告警，不能开启自动处置' : pickT ? '基于模板调整；保存为一份新策略，系统模板不变' : '';
+      D.cHint = pickP ? '使用已有策略，内容不变；要修改请到策略卡片上「编辑」' : isDefEd ? '' : pickT ? '基于模板调整；保存为一份新策略，系统模板不变' : '';
       const groups = []; if (cur) CAPS.forEach(([g, n, d, ty], i) => { let x = groups.find((y) => y.g === g); if (!x) { x = { g, items: [] }; groups.push(x); }
         const lock = ty === 'ent' && !ENT; const noAu = ty === 'au' && isDefEd; const ed = capsEd && !lock && !noAu && !pickP;
         const tgt = mode === 'edit' ? hostsOf(editP.id).map((h) => h.n) : sel; const miss = ty === 'pg' && cur[i] ? tgt.filter((n2) => PLUG[i].indexOf(n2) < 0) : [];
@@ -1728,6 +1760,24 @@ class Component extends DCLogic {
           lk: lock, tt: lock ? '需开通企业版' : !adm ? NOP : '',
           tog: ev(() => { if (!ed) return; S({ plDr: Object.assign({}, dr, { [i]: !cur[i] }) }); }) }); });
       D.groups = groups;
+      { const capOk = capsEd && !pickP; const tg = (o) => S({ plDr: Object.assign({}, dr, o) }); const anyAu = !!cur && AU.some((i) => cur[i]);
+        const K15 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; const mt = cur ? TPL.find((t) => K15.every((i) => t[3][i] === cur[i])) : null;
+        const near = cur && !mt ? TPL.map((t) => [t, K15.filter((i) => t[3][i] !== cur[i]).length]).sort((x, y) => x[1] - y[1])[0] : null;
+        D.lvs = TPL.map((t) => { const au = AU.some((i) => t[3][i]); const no = (au && isDefEd) || !capOk; const on2 = mt === t;
+          return { n: t[1], d: t[2], ra: on2 ? 'true' : 'false', rc: 'pq-pk' + (on2 ? ' on' : '') + (no ? ' dis' : ''), tt: au && isDefEd ? '默认策略只告警，不能用重保防护' : '',
+            pick: ev(() => { if (no) return; const o = Object.assign({}, dr); K15.forEach((i) => { o[i] = t[3][i]; }); S({ plDr: o }); }) }; });
+        D.mdN = mt ? (isDefEd ? '默认策略只告警，不会自动处置。' : '') : near ? '自定义：在「' + near[0][1] + '」基础上调整了 ' + near[1] + ' 项。' : '';
+        const adv = !!st.plAdv || !!editP; D.lvOn = !editP; D.advLk = !editP; D.advOn = adv; D.advA = adv ? 'true' : 'false'; D.advN = adv ? '收起自定义细项' : '自定义细项'; D.advX = ev(() => S({ plAdv: !adv }));
+        D.auOn = !isDefEd && !!cur;
+        D.aus = !cur ? [] : AU.map((i) => ({ n: CAPS[i][1], d: CAPS[i][2], a: cur[i] ? 'true' : 'false', swc: 'kc-sw' + (cur[i] ? ' on' : '') + (capOk ? '' : ' dis'), tog: ev(() => { if (!capOk) return; tg({ [i]: !cur[i] }); }) }));
+        const DG = ['入侵检测', '病毒查杀', '网络防护', '风险检测', '防勒索与防篡改']; const dgo = st.plDgo || {};
+        D.dg = !cur ? [] : DG.map((g) => { const ix = CAPS.map((c, i) => (c[0] === g ? i : -1)).filter((i) => i >= 0); const n = ix.filter((i) => cur[i]).length; const allOn = n === ix.length; const op = !!dgo[g];
+          return { g, cnt: n === ix.length ? '全部开启' : n ? '已开 ' + n + '/' + ix.length : '已关闭', a: n ? 'true' : 'false', swc: 'kc-sw' + (n ? ' on' : '') + (capOk ? '' : ' dis'), open: op, ae: op ? 'true' : 'false', xn: op ? '收起' : '细项',
+            x: ev(() => S({ plDgo: Object.assign({}, dgo, { [g]: !op }) })),
+            tog: ev(() => { if (!capOk) return; const o = {}; ix.forEach((i) => { o[i] = !allOn; }); tg(o); }),
+            items: ix.map((i) => ({ n: CAPS[i][1], a: cur[i] ? 'true' : 'false', swc: 'kc-sw' + (cur[i] ? ' on' : '') + (capOk ? '' : ' dis'), tog: ev(() => { if (!capOk) return; tg({ [i]: !cur[i] }); }) })) }; });
+        const tgt2 = mode === 'edit' ? hostsOf(editP.id).map((h) => h.n) : sel;
+        D.pg = [].concat([{ n: 'AI 研判', s: ENT ? '已开通' : '未开通', hasLk: !ENT, lk: '开通企业版', href: 'SecLicense.dc.html' }]); }
       // 更换默认
       D.showDef = mode === 'def';
       D.defs = pols.map((p) => { const au = auN(p.caps) > 0; return { n: p.n, d: au ? '含自动处置，不能设为默认' : p.d, rc: (pick || defId) === p.id ? 'pq-pk on' : au ? 'pq-pk dis' : 'pq-pk', ra: (pick || defId) === p.id ? 'true' : 'false', pick: ev(() => { if (au) return; S({ plPick: p.id }); }) }; });
@@ -1967,8 +2017,8 @@ class Component extends DCLogic {
   }
   /* /hdr62 */
   _rv() {
-    const cur = { '策略': '策略与模板', '生效资产': '生效资产', '全局黑白名单': '全局黑白名单' }[(this.state || {}).plTab || (() => { try { const v = new URLSearchParams(location.search).get('tab'); return { host: '生效资产', list: '全局黑白名单' }[v] || ''; } catch (x) { return ''; } })() || '策略'];
-    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const cur = '防护策略';
+    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecRules.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联规则', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1976,8 +2026,8 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), P("主机运维", 'robot', ['批量任务', '任务记录']), P("防护策略", 'policy', ['策略与模板', '生效资产', '全局黑白名单'])] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['入侵检测规则', '病毒查杀', '应用运行防护', ['防勒索', '插件'], '数据备份', ['网页防篡改', '插件']]), P("远程安全", 'lock', ['登录防护', '在线用户']), P("网络防火墙", 'link', ['网络访问防护', '外联管控', '安全组']), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['检测规则', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
@@ -2020,7 +2070,7 @@ class Component extends DCLogic {
     const ATABS = [['全部', ''], ['紧急', 'hi'], ['未受保护', 'un'], ['可疑', 'md'], ['提醒', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
-    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '插件', 'plug', '拦截勒索', 0, 0, '安装后自动备份关键文件，拦截勒索加密'], ['网页防篡改', '插件', 'plug', '拦截篡改', 0, 0, '安装后锁定网站目录，篡改后自动还原']];
+    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
     const scan = st.scan || '';
     const rng = st.rng || '近 24 小时', rf = st.rf || '';
     const TR = rng === '近 24 小时'
@@ -2035,7 +2085,7 @@ class Component extends DCLogic {
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
       ['授权', 'sh-nk o', '企业版授权 10-25 已到期，保留至 11-08；18 台主机超出授权上限', '续费并扩容', 'BillConfirm.dc.html'],
-      ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：新增网页防篡改插件', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
+      ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',
       scT: () => this.setState({ scOpen: !this.state.scOpen }), scX: () => this.setState({ scOpen: false }),

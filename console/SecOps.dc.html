@@ -1723,8 +1723,8 @@ class Component extends DCLogic {
   }
   /* /hdr62 */
   _rv() {
-    const cur = ((this.state || {}).opTab || ((() => { try { return new URLSearchParams(location.search).get('tab') === 'log' ? '任务记录' : ''; } catch (x) { return ''; } })()) || '批量任务');
-    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const cur = '主机运维';
+    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecRules.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联规则', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1732,8 +1732,8 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), P("主机运维", 'robot', ['批量任务', '任务记录']), P("防护策略", 'policy', ['策略与模板', '生效资产', '全局黑白名单'])] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['入侵检测规则', '病毒查杀', '应用运行防护', ['防勒索', '插件'], '数据备份', ['网页防篡改', '插件']]), P("远程安全", 'lock', ['登录防护', '在线用户']), P("网络防火墙", 'link', ['网络访问防护', '外联管控', '安全组']), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['检测规则', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
@@ -1776,7 +1776,7 @@ class Component extends DCLogic {
     const ATABS = [['全部', ''], ['紧急', 'hi'], ['未受保护', 'un'], ['可疑', 'md'], ['提醒', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
-    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '插件', 'plug', '拦截勒索', 0, 0, '安装后自动备份关键文件，拦截勒索加密'], ['网页防篡改', '插件', 'plug', '拦截篡改', 0, 0, '安装后锁定网站目录，篡改后自动还原']];
+    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
     const scan = st.scan || '';
     const rng = st.rng || '近 24 小时', rf = st.rf || '';
     const TR = rng === '近 24 小时'
@@ -1791,7 +1791,7 @@ class Component extends DCLogic {
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
       ['授权', 'sh-nk o', '企业版授权 10-25 已到期，保留至 11-08；18 台主机超出授权上限', '续费并扩容', 'BillConfirm.dc.html'],
-      ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：新增网页防篡改插件', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
+      ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',
       scT: () => this.setState({ scOpen: !this.state.scOpen }), scX: () => this.setState({ scOpen: false }),
