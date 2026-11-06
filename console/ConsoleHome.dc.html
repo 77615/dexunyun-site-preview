@@ -352,7 +352,7 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <aside class="kc-side" aria-label="控制台菜单">
+    <input type="checkbox" id="kcf-ConsoleHome" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="控制台菜单">
       <div class="kc-sh"><b>控制台</b><span>德迅科技 · 主账号</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
@@ -365,7 +365,7 @@
         </sc-for>
       </sc-for>
       </nav>
-    </aside>
+    <div class="kc-foldbar"><label for="kcf-ConsoleHome" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-ConsoleHome" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="ConsoleHome" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi</h1></div></div>

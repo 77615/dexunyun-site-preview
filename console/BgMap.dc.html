@@ -1330,7 +1330,7 @@ class Component extends DCLogic {
   // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
   var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
     '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
-    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['大促模式', '默认防护', '官网默认'] };
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['默认策略', '数据库加强'] };
   var flAdd = function (tok, k, v) {
     [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
     var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';

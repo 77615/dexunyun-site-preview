@@ -515,11 +515,18 @@
 .sl .tb-sel{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#4e5969}
 .sl .kc-tw:has(.dd-w.on),.sl .kc-card:has(.sl-bar .dd-w.on){overflow:visible}
 /*/tb166*/
+/*bx167*/
+.sl .hs-bxg{display:inline-flex;align-items:center;gap:8px;margin-right:4px}
+.sl .hs-bxg .kc-btn.hs-dis{opacity:.45;cursor:not-allowed}
+.sl .hs-bxg .kc-dd.hs-dis{color:#c9cdd4;cursor:not-allowed}.sl .hs-bxg .kc-dd.hs-dis b{color:#c9cdd4}
+.sl .tb-sel a{margin-left:8px;color:var(--kc-primary,#1664ff);text-decoration:none}
+.sl .hs-lay .sl-bar .sl-q{width:200px}
+/*/bx167*/
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">安全中心</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
@@ -593,7 +600,7 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <aside class="kc-side" aria-label="德迅安全卫士菜单">
+    <input type="checkbox" id="kcf-SecBaseline" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="德迅安全卫士菜单">
       <div class="kc-sh"><b>德迅安全卫士</b><span>企业版 · 68 台主机</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
@@ -606,10 +613,10 @@
         </sc-for>
       </sc-for>
       </nav>
-    </aside>
+    <div class="kc-foldbar"><label for="kcf-SecBaseline" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecBaseline" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecRisks" class="kc-main sh sl">
       <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">基线检查</h1></div></div><div class="kc-btns"><button type="button" class="kc-btn">检查设置</button></div></div>
-      <section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{ls.tabs}}" as="t" hint-placeholder-count="6"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div><div class="sl-bar"><span class="hs-bw"><button type="button" class="{{ls.bdc}}" aria-haspopup="menu" onClick="{{ls.bdT}}"><b>{{ls.bdN}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ls.bdOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.bdX}}"></span><span class="dd-p" role="menu"><sc-for list="{{ls.bat}}" as="o" hint-placeholder-count="3"><button type="button" role="menuitem" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for><button type="button" role="menuitem" class="hs-bx" onClick="{{ls.selX}}">取消选择</button></span></sc-if></span><label class="sl-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索风险名称、主机或编号" placeholder="搜索风险名称、主机或编号" value="{{ls.q}}" onChange="{{ls.onQ}}"></label><span class="{{ls.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ls.faT}}"><b>添加筛选</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ls.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{ls.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{ls.faB}}">‹ {{ls.faK}}</button></sc-if><sc-for list="{{ls.faL}}" as="o" hint-placeholder-count="5"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><sc-for list="{{ls.chips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{ls.hasF}}" hint-placeholder-val="{{true}}"><a class="sl-clr" href="#" onClick="{{ls.clear}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{ls.n}}</b> 条</span><span class="hs-tools"><button type="button" class="hs-ib i-ex" title="导出" aria-label="导出" onClick="{{ls.exp}}"></button></span></div>
+      <section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{ls.tabs}}" as="t" hint-placeholder-count="6"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div><div class="sl-bar"><span class="hs-bxg"><sc-for list="{{ls.bxB}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for><sc-if value="{{ls.bxM}}" hint-placeholder-val="{{true}}"><span class="hs-bw"><button type="button" class="{{ls.bmc}}" aria-haspopup="menu" onClick="{{ls.bdT}}"><b>更多</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ls.bdOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.bdX}}"></span><span class="dd-p" role="menu"><sc-for list="{{ls.bxR}}" as="o" hint-placeholder-count="1"><button type="button" role="menuitem" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></span></sc-if></span></sc-if><sc-if value="{{ls.selOn}}" hint-placeholder-val="{{false}}"><span class="tb-sel">已选 <b>{{ls.selNs}}</b> 项<a href="#" onClick="{{ls.selX}}">取消选择</a></span></sc-if></span><label class="sl-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索风险名称、主机或编号" placeholder="搜索风险名称、主机或编号" value="{{ls.q}}" onChange="{{ls.onQ}}"></label><span class="{{ls.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ls.faT}}"><b>添加筛选</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ls.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{ls.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{ls.faB}}">‹ {{ls.faK}}</button></sc-if><sc-for list="{{ls.faL}}" as="o" hint-placeholder-count="5"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><sc-for list="{{ls.chips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{ls.hasF}}" hint-placeholder-val="{{true}}"><a class="sl-clr" href="#" onClick="{{ls.clear}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{ls.n}}</b> 条</span><span class="hs-tools"><button type="button" class="hs-ib i-ex" title="导出" aria-label="导出" onClick="{{ls.exp}}"></button></span></div>
         <sc-if value="{{ls.has}}" hint-placeholder-val="{{true}}"><div class="kc-tw"><table class="kc-t">
           <thead><tr><th class="hs-ck"><button type="button" class="{{ls.allC}}" role="checkbox" aria-checked="{{ls.allA}}" aria-label="全选本页" onClick="{{ls.allT}}"></button></th><th>检查项</th><th>影响对象</th><th>检测项</th><th>状态</th><th>发现时间</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{ls.rows}}" as="r" hint-placeholder-count="8"><tr class="{{r.trc}}"><td class="hs-ck"><button type="button" class="{{r.ckc}}" role="checkbox" aria-checked="{{r.cka}}" aria-label="选择" onClick="{{r.ck}}"></button></td>
@@ -1167,7 +1174,7 @@ class Component extends DCLogic {
   // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
   var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
     '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
-    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['大促模式', '默认防护', '官网默认'] };
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['默认策略', '数据库加强'] };
   var flAdd = function (tok, k, v) {
     [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
     var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';
@@ -1451,6 +1458,15 @@ class Component extends DCLogic {
     return o;
   }
   /*/tb166js*/
+  /*bx167js*/
+  _bx(o, selN, k) {
+    const b = o.bat || []; const n = k[0], pri = !!k[1];
+    o.bxB = b.slice(0, n).map((x, i) => ({ n: x.n, c: 'kc-btn' + (i === 0 && pri ? ' pri' : '') + (x.c === 'tb-dg' ? ' dg' : '') + (selN ? '' : ' hs-dis'),
+      go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (!selN) { o.bdT(e); return; } x.go(e); } }));
+    o.bxR = b.slice(n); o.bxM = o.bxR.length > 0; o.bmc = selN ? 'kc-dd' : 'kc-dd hs-dis'; o.selOn = selN > 0; o.selNs = String(selN);
+    return o;
+  }
+  /*/bx167js*/
   _sl() {
     const PGN = 'SecBaseline';
     if (PGN === 'SecHome') return {};
@@ -1519,8 +1535,9 @@ class Component extends DCLogic {
       { const sel = st.rsel || {}; const ids = Object.keys(sel).filter((k) => sel[k]); const selN = ids.length;
         ls.bdN = selN ? '批量操作（' + selN + '）' : '批量操作'; ls.bdc = selN ? 'kc-dd' : 'kc-dd hs-dis'; ls.bdOn = !!st.rbd && selN > 0;
         ls.bdT = ev(() => { if (!selN) { toast('请先勾选要处理的' + (PGN === 'SecRisks' ? '告警' : '风险'), 'info'); return; } S({ rbd: !st.rbd }); }); ls.bdX = ev(() => S({ rbd: false })); ls.selX = ev(() => S({ rsel: {}, rbd: false }));
-        const BA = PGN === 'SecRisks' ? [['标记为已处理', '已处理'], ['忽略', '已忽略'], ['加白', '已加白']] : PGN === 'SecVuln' ? [['修复', '处置中'], ['重新检测', '__re'], ['忽略', '已忽略']] : [['一键加固', '处置中'], ['重新检测', '__re'], ['忽略', '已忽略']];
+        const BA = PGN === 'SecRisks' ? [['标记为已处理', '已处理'], ['加白', '已加白'], ['忽略', '已忽略']] : PGN === 'SecVuln' ? [['修复', '处置中'], ['重新检测', '__re'], ['忽略', '已忽略']] : [['一键加固', '处置中'], ['重新检测', '__re'], ['忽略', '已忽略']];
         ls.bat = BA.map(([n, v]) => ({ n, c: '', go: ev(() => { const o2 = Object.assign({}, rst); if (v !== '__re') ids.forEach((id) => { o2[id] = v; }); S({ rst: o2, rsel: {}, rbd: false }); toast(v === '__re' ? '已对 ' + selN + ' 项下发重新检测，约 5 分钟出结果' : '已对 ' + selN + ' 项执行「' + n + '」' + (v === '已加白' ? '，可在「防护策略 · 全局黑白名单」撤销' : ''), v === '__re' ? 'info' : 'ok'); }) }));
+        this._bx(ls, selN, [2, 1]);
         const pIds = ls.rows.map((r) => r.id); const allOn = pIds.length > 0 && pIds.every((k) => sel[k]);
         ls.allC = allOn ? 'hs-cb on' : pIds.some((k) => sel[k]) ? 'hs-cb mid' : 'hs-cb'; ls.allA = allOn ? 'true' : 'false';
         ls.allT = ev(() => { const g = Object.assign({}, sel); pIds.forEach((k) => { if (allOn) delete g[k]; else g[k] = 1; }); S({ rsel: g }); });
@@ -1609,7 +1626,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '基线检查';
-    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '默认防护': 'SecPolicy.dc.html', '策略模板': 'SecPolicy.dc.html?tab=tpl', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1617,7 +1634,7 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), P("主机运维", 'robot', ['批量任务', '任务记录']), P("防护策略", 'policy', ['默认防护', '策略模板', '生效资产', '全局黑白名单'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), P("主机运维", 'robot', ['批量任务', '任务记录']), P("防护策略", 'policy', ['策略与模板', '生效资产', '全局黑白名单'])] },
       { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['入侵检测规则', '病毒查杀', '应用运行防护', ['防勒索', '插件'], '数据备份', ['网页防篡改', '插件']]), P("远程安全", 'lock', ['登录防护', '在线用户']), P("网络防火墙", 'link', ['网络访问防护', '外联管控', '安全组']), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];

@@ -1816,3 +1816,122 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .tp-l a.sx-pin i{flex:none;width:18px;height:18px}
 .tp-l a.sx-pin b{font-weight:500}
 .tp-l a.sx-pin small.r{color:var(--danger-6,#f53f3f)}
+
+/* 2026-11-05 77：火山式顶栏中心名 / 固定前缀筛选框 / 页面一级卡片页签 */
+
+/* 1. 顶栏中心名：默认显示当前中心（费用中心、SCDN…），悬停换成「德迅云控制台」 */
+.kc-logo .kc-ln{display:inline-grid;overflow:hidden}
+.kc-logo .kc-ln>span{grid-area:1/1;transition:opacity .18s ease,transform .18s ease}
+.kc-logo .kc-ln-b{opacity:0;transform:translateY(8px)}
+.kc-logo:hover{opacity:1}
+.kc-logo:hover .kc-ln-c{opacity:0;transform:translateY(-8px)}
+.kc-logo:hover .kc-ln-b{opacity:1;transform:none}
+
+/* 2. 固定前缀下拉框：kc-dd 里第一个 span 是前缀，变成带分隔线的固定格 */
+.kc-dd:has(>span:first-child){padding:0 10px 0 0;gap:0;background:#fff}
+.kc-dd>span:first-child{align-self:stretch;display:flex;align-items:center;padding:0 12px;margin-right:12px;border-right:1px solid var(--kc-border-2,#dde2e9);color:var(--kc-text-2,#42464e)}
+.kc-dd>span:first-child + b{min-width:56px;text-align:left}
+.kc-dd:has(>span:first-child) svg{margin-left:12px}
+.kc-dd:has(>span:first-child):hover{background:#fff}
+.lf-fk{background:#fff;border-right-color:var(--kc-border-2,#dde2e9)}
+
+/* 3. 页面一级页签（ia-tabs）：卡片式，选中白底 + 顶部蓝条 */
+.ia-tabs{gap:4px;margin:-4px 0 20px;border-bottom:1px solid var(--kc-border-2,#dde2e9)}
+.ia-tabs a{display:flex;align-items:center;height:38px;padding:0 20px;margin-bottom:-1px;border:1px solid var(--kc-border-3,#eaedf1);border-bottom-color:var(--kc-border-2,#dde2e9);border-radius:4px 4px 0 0;background:var(--kc-fill-2,#f6f8fa);color:var(--kc-text-2,#42464e)}
+.ia-tabs a:hover{color:var(--kc-primary,#1664ff);background:#fff}
+.ia-tabs a.on{background:#fff;border-color:var(--kc-border-2,#dde2e9);border-bottom-color:#fff;color:var(--kc-primary,#1664ff)}
+.ia-tabs a.on::after{top:-1px;bottom:auto;left:-1px;right:-1px;height:2px;border-radius:4px 4px 0 0}
+
+/* 2026-11-05 fix: SCDN top-level tabs are <nav class="ia-tabs sp-tabs"> with <button>s (13 boards), and the board's own .sp-tabs button rules collapsed them under the new gap:4px. Same card style for buttons; specificity beats the board's inline .sp-tabs rules. */
+.ia-tabs.sp-tabs>button{display:flex;align-items:center;height:38px;padding:0 20px;margin-bottom:-1px;border:1px solid var(--kc-border-3,#eaedf1);border-bottom-color:var(--kc-border-2,#dde2e9);border-radius:4px 4px 0 0;background:var(--kc-fill-2,#f6f8fa);color:var(--kc-text-2,#42464e);font-size:14px}
+.ia-tabs.sp-tabs>button:hover{color:var(--kc-primary,#1664ff);background:#fff}
+.ia-tabs.sp-tabs>button.on{background:#fff;border-color:var(--kc-border-2,#dde2e9);border-bottom-color:#fff;color:var(--kc-primary,#1664ff)}
+.ia-tabs.sp-tabs>button.on::after{top:-1px;bottom:auto;left:-1px;right:-1px;height:2px;border-radius:4px 4px 0 0}
+
+/* 2026-11-05 77: the page's top-most tab row is card-style. On pages without an ia-tabs row, the first kc-tabs row at the top of a card is the top level (告警中心/漏洞/基线 status tabs etc.), so it gets the card style too, sitting on the card's top edge like 腾讯云 漏洞治理. */
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child{gap:0;padding:0;background:var(--kc-fill-3,#fafbfc);border-bottom:1px solid var(--kc-border-2,#e4eaf0);border-radius:var(--kc-card-radius,8px) var(--kc-card-radius,8px) 0 0;overflow:visible}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab{position:relative;height:46px;padding:0 24px;border:0;border-right:1px solid var(--kc-border-3,#eaedf1);margin-bottom:-1px;font-weight:400;color:var(--kc-text-2,#42464e)}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab:first-child{border-top-left-radius:var(--kc-card-radius,8px)}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab:hover{color:var(--kc-primary,#1664ff)}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab.on{background:#fff;color:var(--kc-primary,#1664ff);font-weight:500;border-bottom:1px solid #fff}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab.on::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--kc-primary,#1664ff)}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab:first-child.on::before{border-top-left-radius:var(--kc-card-radius,8px)}
+/* A kc-tabs row placed directly under the page header (not inside a card) is also the page's top level, e.g. 资产列表 主机/容器/数据库: same card style as .ia-tabs. */
+.kc-main>.kc-tabs{gap:4px;padding:0;margin-bottom:16px;border-bottom:1px solid var(--kc-border-2,#dde2e9);overflow:visible}
+.kc-main>.kc-tabs>.kc-tab{position:relative;height:38px;padding:0 20px;margin-bottom:-1px;border:1px solid var(--kc-border-3,#eaedf1);border-bottom-color:var(--kc-border-2,#dde2e9);border-radius:4px 4px 0 0;background:var(--kc-fill-2,#f6f8fa);font-weight:400;color:var(--kc-text-2,#42464e)}
+.kc-main>.kc-tabs>.kc-tab:hover{color:var(--kc-primary,#1664ff);background:#fff}
+.kc-main>.kc-tabs>.kc-tab.on{background:#fff;border-color:var(--kc-border-2,#dde2e9);border-bottom-color:#fff;color:var(--kc-primary,#1664ff);font-weight:500}
+.kc-main>.kc-tabs>.kc-tab.on::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:2px;background:var(--kc-primary,#1664ff);border-radius:4px 4px 0 0}
+
+/* === 火山智能搜索 v2 (requests/smart-search-v2.css, replaces smart-search.css) === */
+/* 2026-11-05 v2 — 1:1 with the live 火山 console search (read from console.volcengine.com):
+   box 192×32, radius 12px, 0.5px #D2D1E0 border, placeholder 「搜索」 13px #737A87;
+   icon = 火山's own 15px ring + sparkle (#3A3A3A); on hover the ring turns into their conic gradient (yellow → blue → purple) and the sparkle #006AFF;
+   on hover the border fades to their gradient ring (1.2s, in-and-out) while a light runs once around the edge (2s, #006AFF→#7861FF→#9CC5FF→#FFCC6B).
+   CSS only: ::after = ring, kbd = sparkle, span::after = running light, ::before = gradient ring. Supersedes smart-search.css. */
+@property --kc-sa{syntax:"<angle>";inherits:false;initial-value:0deg}
+.kc-top .kc-search.tp-sb{position:relative;isolation:isolate;flex:0 0 192px;width:192px;min-width:92px;height:32px;padding:0 8px 0 31px;gap:0;border:.5px solid #d2d1e0;border-radius:12px;background:#fff;box-shadow:none;font-size:13px;color:#737a87;transition:none}
+.kc-top .kc-search.tp-sb:hover,.kc-top .kc-search.tp-sb:focus-visible{background:#fff;box-shadow:none;outline:0;animation:kcSrchBd 1.2s ease-out forwards}
+.kc-top .kc-search.tp-sb > svg.rx-q{display:none}
+.kc-top .kc-search.tp-sb > span{font-size:0;line-height:22px}
+.kc-top .kc-search.tp-sb > span::before{content:"搜索";font-size:13px;font-weight:400;color:#737a87}
+/* icon: ring (::after) + sparkle (kbd) */
+.kc-top .kc-search.tp-sb::after{content:"";position:absolute;left:10px;top:50%;width:15px;height:15px;margin-top:-7.5px;transform:none;clip-path:none;background:#3a3a3a;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 15 15%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M6.56211 0.94675C6.73428 0.937176 6.87436 1.07808 6.87461 1.25046V1.87546C6.87461 2.0479 6.73503 2.18715 6.56308 2.19968C5.80771 2.25372 5.07658 2.50255 4.44394 2.92527C3.72448 3.406 3.16375 4.08971 2.83261 4.88913C2.50157 5.68838 2.41492 6.56799 2.58359 7.41648C2.75237 8.26498 3.1692 9.04491 3.78086 9.65671C4.39263 10.2685 5.17255 10.6851 6.02109 10.854C6.86976 11.0228 7.74998 10.9361 8.54941 10.605C9.34866 10.2738 10.0317 9.71297 10.5123 8.99362C10.9349 8.36103 11.1848 7.63077 11.2389 6.87546C11.2513 6.70349 11.3897 6.5631 11.5621 6.56296H12.1871C12.3596 6.56296 12.5002 6.70326 12.4908 6.87546C12.4351 7.87826 12.1124 8.85069 11.5523 9.68894C11.4291 9.87343 11.2941 10.0487 11.151 10.2163L14.152 13.2173C14.2738 13.3393 14.2739 13.5367 14.152 13.6587L13.6559 14.1557C13.5339 14.2776 13.3355 14.2776 13.2135 14.1557L10.1744 11.1167C9.82009 11.3734 9.4364 11.591 9.02793 11.7602C8.00024 12.1859 6.86893 12.2975 5.77793 12.0805C4.68678 11.8635 3.68374 11.3272 2.89707 10.5405C2.11059 9.75388 1.57501 8.75159 1.35801 7.66062C1.14101 6.56952 1.2526 5.4384 1.67832 4.41062C2.10407 3.38291 2.82468 2.50423 3.74961 1.8862C4.58774 1.32618 5.55944 1.00257 6.56211 0.94675Z%22/%3E%3C/svg%3E") center/15px 15px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 15 15%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M6.56211 0.94675C6.73428 0.937176 6.87436 1.07808 6.87461 1.25046V1.87546C6.87461 2.0479 6.73503 2.18715 6.56308 2.19968C5.80771 2.25372 5.07658 2.50255 4.44394 2.92527C3.72448 3.406 3.16375 4.08971 2.83261 4.88913C2.50157 5.68838 2.41492 6.56799 2.58359 7.41648C2.75237 8.26498 3.1692 9.04491 3.78086 9.65671C4.39263 10.2685 5.17255 10.6851 6.02109 10.854C6.86976 11.0228 7.74998 10.9361 8.54941 10.605C9.34866 10.2738 10.0317 9.71297 10.5123 8.99362C10.9349 8.36103 11.1848 7.63077 11.2389 6.87546C11.2513 6.70349 11.3897 6.5631 11.5621 6.56296H12.1871C12.3596 6.56296 12.5002 6.70326 12.4908 6.87546C12.4351 7.87826 12.1124 8.85069 11.5523 9.68894C11.4291 9.87343 11.2941 10.0487 11.151 10.2163L14.152 13.2173C14.2738 13.3393 14.2739 13.5367 14.152 13.6587L13.6559 14.1557C13.5339 14.2776 13.3355 14.2776 13.2135 14.1557L10.1744 11.1167C9.82009 11.3734 9.4364 11.591 9.02793 11.7602C8.00024 12.1859 6.86893 12.2975 5.77793 12.0805C4.68678 11.8635 3.68374 11.3272 2.89707 10.5405C2.11059 9.75388 1.57501 8.75159 1.35801 7.66062C1.14101 6.56952 1.2526 5.4384 1.67832 4.41062C2.10407 3.38291 2.82468 2.50423 3.74961 1.8862C4.58774 1.32618 5.55944 1.00257 6.56211 0.94675Z%22/%3E%3C/svg%3E") center/15px 15px no-repeat;pointer-events:none}
+.kc-top .kc-search.tp-sb > kbd{display:block;position:absolute;left:10px;top:50%;width:15px;height:15px;margin:-7.5px 0 0;padding:0;border:0;border-radius:0;font-size:0;color:transparent;background:#3a3a3a;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 15 15%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M9.54332 2.04443C9.42314 2.49332 9.07285 2.84414 8.62415 2.96499L8.00673 3.13127C7.53942 3.25713 7.53942 3.92013 8.00673 4.04599L8.62013 4.21119C9.06816 4.33186 9.41812 4.68183 9.53879 5.12986L9.704 5.74327C9.82986 6.21058 10.4929 6.21058 10.6187 5.74327L10.785 5.12585C10.9059 4.67714 11.2567 4.32685 11.7056 4.20668L12.3051 4.04617C12.7733 3.92082 12.7733 3.25644 12.3051 3.13109L11.7015 2.96951C11.252 2.84916 10.9008 2.49801 10.7805 2.04845L10.6189 1.44491C10.4936 0.976695 9.82916 0.976695 9.70382 1.44491L9.54332 2.04443Z%22/%3E%3C/svg%3E") center/15px 15px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 15 15%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M9.54332 2.04443C9.42314 2.49332 9.07285 2.84414 8.62415 2.96499L8.00673 3.13127C7.53942 3.25713 7.53942 3.92013 8.00673 4.04599L8.62013 4.21119C9.06816 4.33186 9.41812 4.68183 9.53879 5.12986L9.704 5.74327C9.82986 6.21058 10.4929 6.21058 10.6187 5.74327L10.785 5.12585C10.9059 4.67714 11.2567 4.32685 11.7056 4.20668L12.3051 4.04617C12.7733 3.92082 12.7733 3.25644 12.3051 3.13109L11.7015 2.96951C11.252 2.84916 10.9008 2.49801 10.7805 2.04845L10.6189 1.44491C10.4936 0.976695 9.82916 0.976695 9.70382 1.44491L9.54332 2.04443Z%22/%3E%3C/svg%3E") center/15px 15px no-repeat;pointer-events:none}
+.kc-top .kc-search.tp-sb:hover::after,.kc-top .kc-search.tp-sb:focus-visible::after{background:conic-gradient(from 9deg at 7.75px 5.82px,#ffcc6b 0deg,#ffcc6b 93.5deg,#006aff 106deg,#006aff 182.5deg,#7861ff 308.3deg,#ffcc6b 335.3deg,#ffcc6b 360deg)}
+.kc-top .kc-search.tp-sb:hover > kbd,.kc-top .kc-search.tp-sb:focus-visible > kbd{background:#006aff}
+/* hover: gradient ring fades in and out */
+.kc-top .kc-search.tp-sb::before{content:"";position:absolute;inset:-2px;z-index:-1;padding:2px;border-radius:13px;background:linear-gradient(89.08deg,#d9f7ff -4.22%,#cee0ff 10.03%,#d8d9ff 54.9%,#fff0d5 87.51%,#eef1f6 99.03%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;animation:none;pointer-events:none}
+.kc-top .kc-search.tp-sb:hover::before,.kc-top .kc-search.tp-sb:focus-visible::before{background-position:0 0;background-size:auto;animation:kcSrchFade 1.2s ease-out forwards}
+/* hover: one lap of light around the edge */
+.kc-top .kc-search.tp-sb > span::after{content:"";position:absolute;inset:-1px;border-radius:12px;padding:1px;background:linear-gradient(90deg,#006aff,#7861ff 33%,#9cc5ff 66%,#ffcc6b);-webkit-mask:conic-gradient(from var(--kc-sa) at 50% 50%,transparent 0deg,transparent 250deg,rgba(0,0,0,.25) 300deg,#000 358deg,transparent 360deg),linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:source-in,xor;mask:conic-gradient(from var(--kc-sa) at 50% 50%,transparent 0deg,transparent 250deg,rgba(0,0,0,.25) 300deg,#000 358deg,transparent 360deg),linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:intersect,exclude;opacity:0;pointer-events:none}
+.kc-top .kc-search.tp-sb:hover > span::after,.kc-top .kc-search.tp-sb:focus-visible > span::after{animation:kcSrchFlow 2s ease-in-out forwards}
+@keyframes kcSrchBd{0%{border-color:#d2d1e0}10%,90%{border-color:transparent}100%{border-color:#d2d1e0}}
+@keyframes kcSrchFade{0%{opacity:0}20%,80%{opacity:1}100%{opacity:0}}
+@keyframes kcSrchFlow{0%{opacity:0;--kc-sa:-60deg}10%,80%{opacity:1}100%{opacity:0;--kc-sa:300deg}}
+@media (prefers-reduced-motion:reduce){.kc-top .kc-search.tp-sb:hover > span::after{animation:none}}
+
+/* === 火山智能搜索 v3 淡出 + v3b 光带 (requests/smart-search-v3-fade.css) === */
+/* 2026-11-05 v3 (77: 边框淡出不够，消失太快): the gradient ring no longer fades out by itself after 1.2s. It fades in (0.4s) and stays while hovered, then fades out slowly (2.4s, slow start) after the pointer leaves; the grey border does the reverse. The running light's tail fades more gently. Append after smart-search-v2. */
+.kc-top .kc-search.tp-sb{transition:border-color 2.4s cubic-bezier(.5,0,.75,0)}
+.kc-top .kc-search.tp-sb:hover,.kc-top .kc-search.tp-sb:focus-visible{animation:none;border-color:transparent;transition:border-color .4s ease}
+.kc-top .kc-search.tp-sb::before{transition:opacity 2.4s cubic-bezier(.5,0,.75,0)}
+.kc-top .kc-search.tp-sb:hover::before,.kc-top .kc-search.tp-sb:focus-visible::before{animation:none;opacity:1;transition:opacity .4s ease-out}
+.kc-top .kc-search.tp-sb:hover > span::after,.kc-top .kc-search.tp-sb:focus-visible > span::after{animation:kcSrchFlow 2.4s ease-in-out forwards}
+@keyframes kcSrchFlow{0%{opacity:0;--kc-sa:-60deg}10%{opacity:1}60%{opacity:1}100%{opacity:0;--kc-sa:300deg}}
+/* v3b (77: 光运动时模糊度再大、路径更平滑): softer, blurred light. The band is thicker and blurred (3px), the head fades in and out softly instead of a hard edge, the angle moves linearly (no ease jerk at corners), and opacity fades on its own curve. */
+.kc-top .kc-search.tp-sb > span::after{inset:-2.5px;padding:2.5px;border-radius:14px;filter:blur(3px);-webkit-mask:conic-gradient(from var(--kc-sa) at 50% 50%,transparent 0deg,transparent 200deg,rgba(0,0,0,.18) 260deg,rgba(0,0,0,.7) 320deg,#000 340deg,rgba(0,0,0,.5) 352deg,transparent 360deg),linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:source-in,xor;mask:conic-gradient(from var(--kc-sa) at 50% 50%,transparent 0deg,transparent 200deg,rgba(0,0,0,.18) 260deg,rgba(0,0,0,.7) 320deg,#000 340deg,rgba(0,0,0,.5) 352deg,transparent 360deg),linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:intersect,exclude}
+.kc-top .kc-search.tp-sb:hover > span::after,.kc-top .kc-search.tp-sb:focus-visible > span::after{animation:kcSrchSpin 2.6s linear forwards,kcSrchGlow 2.6s ease-in-out forwards}
+@keyframes kcSrchSpin{from{--kc-sa:-60deg}to{--kc-sa:300deg}}
+@keyframes kcSrchGlow{0%{opacity:0}15%{opacity:1}65%{opacity:1}100%{opacity:0}}
+
+/* === 火山提示框 (requests/notice-volc.css) === */
+/* 2026-11-05 77 (comment on SecPolicy): notices (.ac-al) follow 火山: no outer border, small radius, and the left icon is a proper status icon (info = filled circle with "i", warning = filled circle with "!", error = filled circle with "×") instead of a bare "!" glyph. Width alignment is handled by .kc-main > * margins; boards must not override them. */
+.ac-al,.ac-al.i,.ac-al.e{border:0;border-radius:var(--kc-control-radius,4px);padding:11px 16px;align-items:flex-start;line-height:20px}
+.ac-al > i{width:16px;height:16px;margin-top:2px;border-radius:0;font-size:0;color:transparent;background:var(--warning-6,#ff7d00);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z'/%3E%3C/svg%3E") center/contain no-repeat}
+.ac-al.i > i{background:var(--kc-primary,#1664ff);-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z'/%3E%3C/svg%3E")}
+.ac-al.e > i{background:var(--danger-6,#f53f3f);-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z'/%3E%3C/svg%3E")}
+.ac-al.i{background:var(--kc-primary-bg-2,#eaf2ff);color:var(--kc-text-1,#0c0d0e)}
+
+/* ov: 弹窗和抽屉盖住整个界面（含顶栏），不再从顶栏下方开始（77，2026-11-06） */
+.kc-dmask,.sh-mask,.vf-mask{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;margin:0!important;width:auto!important;height:auto!important;max-width:none!important;z-index:1000!important}
+.kc-dw,.ac-drw,.sh-dw{position:fixed!important;top:0!important;bottom:0!important;right:0!important;margin:0!important;height:auto!important;z-index:1001!important}
+.sh-mask .sh-md,.sh-mask .kc-mdl,.vf-mask > *{z-index:1002}
+/* 内容区带 view-transition-name，会自成层叠上下文，把里面的弹窗压在顶栏和侧栏下面；有弹窗时把内容区整体抬到最上层 */
+.kc-main:has(.sh-mask,.kc-dmask,.vf-mask,.sh-dw,.kc-dw,.ac-drw,.pq-md){position:relative;z-index:1000}
+.kc-demo .kc-dmask,.kc-demo .kc-dw{position:absolute!important}
+
+/* st: 页面很长时顶栏固定在顶部，左侧菜单固定在顶栏下方、自己滚动（77，2026-11-06） */
+.kc-top{position:sticky!important;top:0;z-index:50}
+.kc-side{position:sticky;top:56px;align-self:flex-start;height:calc(100vh - 56px);min-height:0!important;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+
+/* fold: 左侧菜单折叠（火山式：菜单底部按钮收起，收起后左下角按钮展开）（77，2026-11-06） */
+.kc-fold-ck{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;margin:0}
+.kc-foldbar{position:sticky;bottom:0;margin-top:auto;padding:8px 4px 12px;background:#f6f6fc;border-top:1px solid var(--kc-border-2,#e5e6eb)}
+.kc-fold,.kc-unfold{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;color:var(--kc-text-2,#42464e);cursor:pointer}
+.kc-fold:hover,.kc-unfold:hover{background:#e8ebf2;color:var(--kc-primary,#1664ff)}
+.kc-unfold{display:none;position:fixed;left:12px;bottom:16px;z-index:60;background:#fff;box-shadow:0 2px 8px rgba(29,33,41,.12)}
+.kc-fold-ck:checked ~ .kc-side{display:none!important}
+.kc-fold-ck:checked ~ .kc-unfold{display:inline-flex}
+.kc-fold-ck:focus-visible ~ .kc-side .kc-fold,.kc-fold-ck:focus-visible ~ .kc-unfold{outline:2px solid var(--kc-primary,#1664ff);outline-offset:1px}
+.kc-fold-ck:checked ~ .kc-main{min-height:calc(100vh - 56px);margin-left:12px}

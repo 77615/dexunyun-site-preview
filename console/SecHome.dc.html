@@ -678,11 +678,13 @@
 .kc-ic.i-hunt{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13 1L13.001 4.06201C16.6192 4.51365 19.4869 7.38163 19.9381 11L23 11V13L19.938 13.001C19.4864 16.6189 16.6189 19.4864 13.001 19.938L13 23H11L11 19.9381C7.38163 19.4869 4.51365 16.6192 4.06201 13.001L1 13V11L4.06189 11C4.51312 7.38129 7.38129 4.51312 11 4.06189L11 1H13ZM12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10Z"/%3E%3C/svg%3E')}
 .kc-ic.i-robot{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.5 2C13.5 2.44425 13.3069 2.84339 13 3.11805V5H18C19.6569 5 21 6.34315 21 8V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H11V3.11805C10.6931 2.84339 10.5 2.44425 10.5 2C10.5 1.17157 11.1716 0.5 12 0.5C12.8284 0.5 13.5 1.17157 13.5 2ZM0 10H2V16H0V10ZM24 10H22V16H24V10ZM9 14.5C9.82843 14.5 10.5 13.8284 10.5 13C10.5 12.1716 9.82843 11.5 9 11.5C8.17157 11.5 7.5 12.1716 7.5 13C7.5 13.8284 8.17157 14.5 9 14.5ZM16.5 13C16.5 12.1716 15.8284 11.5 15 11.5C14.1716 11.5 13.5 12.1716 13.5 13C13.5 13.8284 14.1716 14.5 15 14.5C15.8284 14.5 16.5 13.8284 16.5 13Z"/%3E%3C/svg%3E')}
 .kc-ic.i-policy{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21 10H11V17.3823C11 18.9449 11.7775 20.4053 13.074 21.2742L14.1569 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H15.9968L21 7V10ZM13 12H21V17.3823C21 18.2786 20.5544 19.1156 19.8125 19.6128L17 21.4978L14.1875 19.6128C13.4456 19.1156 13 18.2786 13 17.3823V12Z"/%3E%3C/svg%3E')}
+
+.kc-sw.dis{opacity:.45;cursor:not-allowed}
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">安全中心</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
@@ -756,7 +758,7 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <aside class="kc-side" aria-label="德迅安全卫士菜单">
+    <input type="checkbox" id="kcf-SecHome" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="德迅安全卫士菜单">
       <div class="kc-sh"><b>德迅安全卫士</b><span>企业版 · 68 台主机</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
@@ -769,7 +771,7 @@
         </sc-for>
       </sc-for>
       </nav>
-    </aside>
+    <div class="kc-foldbar"><label for="kcf-SecHome" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecHome" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecHome" class="kc-main sh">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">安全总览</h1></div></div>
@@ -849,15 +851,15 @@
         </div>
       </div>
           <sc-if value="{{sx.sw.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.sw.x}}"></div><aside class="sh-dw sh-fx sh-swd" role="dialog" aria-modal="true" aria-label="安全开关"><header><h3>安全开关</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.sw.x}}">×</button></header>
-        <div class="sh-dwb"><div class="sh-swtop"><div><b>{{sx.sw.sum}}</b><span>项已开启 · 来自策略「标准防护」（默认策略），对 64 台主机生效。这里的修改会直接保存到该策略</span></div><a href="#" class="sh-op" onClick="{{sx.sw.pol}}">在防护策略中管理</a></div>
+        <div class="sh-dwb"><div class="sh-swtop"><div><b>{{sx.sw.sum}}</b><span>项已开启 · 改的是「默认策略」，作用于 65 台跟随默认的主机；另有 2 台使用「数据库加强」，不受影响。客户端与插件是全局设置</span></div><a href="SecPolicy.dc.html" class="sh-op">管理全部策略</a></div>
           <div class="sh-swt"><div class="sh-swh"><span>设置项</span><span>内容</span><span>生效范围</span><span>开关</span><span>操作</span></div><sc-for list="{{sx.sw.rows}}" as="r" hint-placeholder-count="6">
             <sc-if value="{{r.gh}}" hint-placeholder-val="{{false}}"><div class="sh-swg"><div class="sh-swgh"><b>{{r.g}}</b><span class="{{r.gtc}}">{{r.gt}}</span><sc-if value="{{r.bulk}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.all}}">全部开启</button></sc-if></div><sc-if value="{{r.tip}}" hint-placeholder-val="{{false}}"><div class="ac-al i sh-swtip"><i>!</i><span>{{r.tip}}</span></div></sc-if></div></sc-if>
             <sc-if value="{{r.it}}" hint-placeholder-val="{{true}}"><div class="{{r.rc}}"><div><span class="sh-swn">{{r.n}}</span><sc-if value="{{r.rec}}" hint-placeholder-val="{{false}}"><span class="kc-tag info sh-rec">推荐开启</span></sc-if></div>
               <div><sc-if value="{{r.hasM}}" hint-placeholder-val="{{false}}"><span class="sh-swm"><sc-for list="{{r.modes}}" as="m" hint-placeholder-count="2"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}" title="{{m.tip}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noM}}" hint-placeholder-val="{{true}}"><span class="sh-swdsc">{{r.d}}</span></sc-if></div>
               <div><span class="sh-swdsc">{{r.sc}}</span></div>
-              <div><button type="button" class="{{r.swc}}" role="switch" aria-checked="{{r.ac}}" aria-label="{{r.n}}" onClick="{{r.tog}}"></button></div>
-              <div><button type="button" class="sh-op" onClick="{{r.ed}}">{{r.edT}}</button></div></div></sc-if>
-            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
+              <div><button type="button" class="{{r.swc}}" role="switch" aria-checked="{{r.ac}}" aria-label="{{r.n}}" aria-disabled="{{r.lk}}" onClick="{{r.tog}}"></button></div>
+              <div><sc-if value="{{r.canE}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.ed}}">{{r.edT}}</button></sc-if><sc-if value="{{r.noE}}" hint-placeholder-val="{{false}}"><span class="sh-swdsc">—</span></sc-if></div></div></sc-if>
+            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><sc-if value="{{r.hasR}}" hint-placeholder-val="{{true}}"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noR}}" hint-placeholder-val="{{false}}"><span>生效范围</span><span class="sh-swdsc">跟随默认的主机都使用这一项；个别主机要不同设置，请在「防护策略」给它分配别的策略</span></sc-if><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
           </sc-for></div></div>
         <footer><span class="sh-swch">{{sx.sw.chg}}</span><button type="button" class="kc-btn" onClick="{{sx.sw.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.sw.save}}">保存设置</button></footer></aside></sc-if>
       <sc-if value="{{sx.ntf.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.ntf.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="告警通知设置"><header><h3>告警通知设置</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.ntf.x}}">×</button></header>
@@ -1429,7 +1431,7 @@ class Component extends DCLogic {
   // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
   var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
     '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
-    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['大促模式', '默认防护', '官网默认'] };
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['默认策略', '数据库加强'] };
   var flAdd = function (tok, k, v) {
     [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
     var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';
@@ -1473,22 +1475,31 @@ class Component extends DCLogic {
 
     // g144 安全开关 drawer
     { const SW = [
-        ['c1', '客户端与授权', '客户端离线清理', '离线超过 15 天的主机自动移出列表，释放授权', '全部主机', 1, 0],
-        ['c2', '客户端与授权', '客户端自保护 - 防卸载', '卸载需二次校验，被恶意卸载后自动重装', '全部主机', 1, 1],
-        ['c3', '客户端与授权', '客户端自保护 - 进程守护', '驱动级守护客户端进程，防止被结束', '全部主机', 1, 0],
-        ['c4', '客户端与授权', '新主机自动安装客户端', '德迅云新开服务器预装客户端并自动绑定授权', '德迅云服务器', 1, 1],
-        ['c5', '客户端与授权', '客户端轻量化', '扫描跳过数据盘，降低 CPU 与磁盘占用', '—', 0, 0],
-        ['s1', '定时扫描', '漏洞定时扫描', '每 3 天 · 00:00–02:00', '全部主机', 1, 0, 0, 1],
-        ['s2', '定时扫描', '文件定时扫描', '每天 · 04:00–07:00，查杀病毒与木马', '全部主机', 1, 0, 0, 1],
-        ['s3', '定时扫描', '基线定时扫描', '每 7 天 · 05:15，含弱密码检查', '全部主机', 1, 1, 0, 1],
-        ['d1', '自动防御', '恶意文件自动隔离', '', '全部主机', 0, 1, 1],
-        ['d2', '自动防御', '暴力破解自动阻断', '封禁来源 IP 24 小时，可在白名单中放行', '全部主机', 0, 1],
-        ['d3', '自动防御', '反弹 Shell 自动拦截', '', '全部主机', 0, 0, 1],
-        ['d4', '自动防御', '高危命令自动拦截', '', '全部主机', 0, 0, 1],
-        ['p1', '插件', '插件自动下载', '新版本发布后自动下载到主机，不自动安装', '全部主机', 1, 0],
-        ['p2', '插件', '插件安装后自动开启', '安装防勒索、网页防篡改后立即生效', '全部主机', 1, 0]];
-      const GT = { '客户端与授权': ['', ''], '定时扫描': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动防御': ['默认仅告警', 'kc-tag warn'], '插件': ['', ''] };
-      const TIP = { '自动防御': '客户端默认只告警、不拦截。开启后会自动隔离文件或阻断连接，可能影响业务进程，建议先选择部分主机试运行。' };
+        ['k0', '入侵检测', '暴力破解检测', 'SSH / RDP 短时间内多次失败登录', '默认策略主机', 1, 0],
+        ['k1', '入侵检测', '异常登录检测', '异地、非常用时间或新 IP 登录', '默认策略主机', 1, 0],
+        ['k2', '入侵检测', '反弹 Shell 检测', '', '默认策略主机', 1, 0],
+        ['k3', '入侵检测', '本地提权检测', '', '默认策略主机', 1, 0],
+        ['k4', '入侵检测', '高危命令检测', '如删除系统文件、清空日志', '默认策略主机', 1, 0],
+        ['k5', '病毒查杀', '实时恶意文件检测', '新增和修改的文件实时检测', '默认策略主机', 1, 0],
+        ['k6', '病毒查杀', '网页后门检测', 'Web 目录下的 WebShell', '默认策略主机', 1, 0],
+        ['k7', '病毒查杀', '文件定时扫描', '每天 · 04:00–07:00', '默认策略主机', 1, 0, 0, 1],
+        ['k8', '网络防护', '网络访问防护', '发现暴力破解、端口扫描、CC 时告警', '默认策略主机', 1, 0],
+        ['k9', '网络防护', '外联管控', '主机主动连接可疑地址时告警', '默认策略主机', 1, 0],
+        ['k10', '风险检测', '漏洞检测', '每天 · 03:00', '默认策略主机', 1, 0, 0, 1],
+        ['k11', '风险检测', '基线定时扫描', '每 7 天 · 05:15，含弱口令检查', '默认策略主机', 1, 0, 0, 1],
+        ['k12', '自动处置', '恶意文件自动隔离', '', '默认策略主机', 0, 0],
+        ['k13', '自动处置', '高危命令自动拦截', '', '默认策略主机', 0, 0],
+        ['k14', '自动处置', '攻击来源 IP 自动封禁', '', '默认策略主机', 0, 0],
+        ['c1', '客户端与插件', '客户端离线清理', '离线超过 15 天的主机自动移出列表，释放授权', '全部主机', 1, 0],
+        ['c2', '客户端与插件', '客户端自保护 - 防卸载', '卸载需二次校验，被恶意卸载后自动重装', '全部主机', 1, 1],
+        ['c3', '客户端与插件', '客户端自保护 - 进程守护', '驱动级守护客户端进程，防止被结束', '全部主机', 1, 0],
+        ['c4', '客户端与插件', '新主机自动安装客户端', '德迅云新开服务器预装客户端；是否自动绑定授权见「授权管理」', '德迅云服务器', 1, 1],
+        ['c5', '客户端与插件', '客户端轻量化', '扫描跳过数据盘，降低 CPU 与磁盘占用', '—', 0, 0],
+        ['p1', '客户端与插件', '插件自动下载', '新版本发布后自动下载到主机，不自动安装', '全部主机', 1, 0],
+        ['p2', '客户端与插件', '插件安装后自动开启', '安装防勒索、网页防篡改后立即生效', '全部主机', 1, 0]];
+      const GT = { '入侵检测': ['默认策略 · 基于标准防护', 'sh-swgt'], '病毒查杀': ['', ''], '网络防护': ['', ''], '风险检测': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动处置': ['默认策略不开启', 'kc-tag mut'], '客户端与插件': ['全局设置，不随策略变化', 'sh-swgt'] };
+      const TIP = { '自动处置': '默认策略只告警、不拦截，避免误伤业务。需要自动处置的主机，请在「防护策略」中新建策略（如基于重保防护）并分配给这些主机。' };
+      const LOCK = { k12: 1, k13: 1, k14: 1 };
       const base = {}; SW.forEach((r) => { base[r[0]] = !!r[5]; });
       const sv = st.swS || base; const dr = st.swD || sv; const md = st.swMd || {}; const rg = st.swRg || {}; const pr = st.swPr || {};
       const setD = (o) => S({ swD: Object.assign({}, dr, o) });
@@ -1497,20 +1508,19 @@ class Component extends DCLogic {
       const rows = []; let lastG = '';
       SW.forEach(([id, g, n, d, sc, on, rec, hm, hp]) => {
         if (g !== lastG) { lastG = g; const ids = SW.filter((r) => r[1] === g).map((r) => r[0]);
-          rows.push({ gh: true, it: false, eOn: false, g, gt: GT[g][0], gtc: GT[g][1], tip: TIP[g] || '', bulk: g !== '自动防御', all: ev(() => { const o = {}; ids.forEach((k) => { o[k] = true; }); setD(o); }) }); }
-        const v = !!dr[id]; const mv = md[id] || '标准模式'; const rv = rg[id] || sc; const pv = pr[id] || '';
-        rows.push({ gh: false, it: true, n, rec: !!rec && !v, d, sc: rv, rc: v ? 'sh-swr' : 'sh-swr off', swc: v ? 'kc-sw on' : 'kc-sw', ac: v ? 'true' : 'false',
-          tog: ev(() => setD({ [id]: !v })), hasM: !!hm, noM: !hm,
+          rows.push({ gh: true, it: false, eOn: false, g, gt: GT[g][0], gtc: GT[g][1], tip: TIP[g] || '', bulk: g !== '自动处置', lockG: g === '自动处置', all: ev(() => { const o = {}; ids.forEach((k) => { o[k] = true; }); setD(o); }) }); }
+        const lk = !!LOCK[id]; const v = !lk && !!dr[id]; const mv = md[id] || '标准模式'; const rv = rg[id] || sc; const pv = pr[id] || '';
+        rows.push({ gh: false, it: true, n, rec: !!rec && !v, d, sc: lk ? '默认策略不开启' : rv === '默认策略主机' ? '跟随默认 65 台' : rv, rc: v ? 'sh-swr' : 'sh-swr off', swc: lk ? 'kc-sw dis' : v ? 'kc-sw on' : 'kc-sw', ac: v ? 'true' : 'false', lk, nlk: !lk,
+          tog: ev(() => { if (lk) return; setD({ [id]: !v }); }), hasM: !!hm, noM: !hm,
           modes: ['标准模式', '重保模式'].map((m) => ({ n: m, tip: m === '标准模式' ? '只处置高置信度威胁，误报少' : '处置范围更广，适合重保期间', cls: m === mv ? 'on' : '', pick: ev(() => S({ swMd: Object.assign({}, md, { [id]: m }) })) })),
-          ed: ev(() => S({ swE: st.swE === id ? '' : id })), edT: st.swE === id ? '收起' : '编辑',
+          ed: ev(() => S({ swE: st.swE === id ? '' : id })), edT: st.swE === id ? '收起' : '编辑', hasR: sc !== '默认策略主机', noR: sc === '默认策略主机', canE: !lk && (sc !== '默认策略主机' || !!hp), noE: lk || (sc === '默认策略主机' && !hp),
           eOn: st.swE === id, ranges: (sc === '—' ? ['全部主机', '指定主机组', '指定主机'] : [sc === '德迅云服务器' ? '德迅云服务器' : '全部主机', '指定主机组', '指定主机']).map((m) => ({ n: m, cls: m === rv || (rv === '—' && m === '全部主机') ? 'on' : '', pick: ev(() => S({ swRg: Object.assign({}, rg, { [id]: m }) })) })),
           hasP: !!hp, pers: ['每天', '每 3 天', '每 7 天'].map((m) => ({ n: m, cls: m === (pv || (d.indexOf('每天') === 0 ? '每天' : d.indexOf('每 3 天') === 0 ? '每 3 天' : '每 7 天')) ? 'on' : '', pick: ev(() => S({ swPr: Object.assign({}, pr, { [id]: m }) })) })) });
       });
       sx.sw = { on: !!st.swOn, sum: cnt(sv) + ' / ' + SW.length, rows, chg: chg ? '有 ' + chg + ' 项修改未保存' : '',
         open: ev(() => S({ swOn: true, swD: null, swE: '' })), x: ev(() => S({ swOn: false, swD: null, swE: '' })),
-        save: ev(() => { const def = SW.filter((r) => r[1] === '自动防御' && dr[r[0]] && !sv[r[0]]).length; S({ swS: Object.assign({}, dr), swD: null, swOn: false, swE: '' });
-          toast(def ? '已保存到策略「标准防护」，' + def + ' 项自动防御将在 1 分钟内对 64 台主机生效' : '已保存到策略「标准防护」，1 分钟内下发到 64 台主机'); }),
-        pol: ev(() => toast('跳转到「防护策略 · 默认防护」页', 'info')) };
+        save: ev(() => { const def = SW.filter((r) => r[1] === '自动处置' && dr[r[0]] && !sv[r[0]]).length; S({ swS: Object.assign({}, dr), swD: null, swOn: false, swE: '' });
+          toast('已保存为「默认策略」新版本，已提交 65 台跟随默认的主机，等待客户端回执。结果在「防护策略 › 生效资产」查看'); }) };
     }
     const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
     const HOST = {
@@ -1656,7 +1666,7 @@ class Component extends DCLogic {
       sx.go.alAgo = GO('SecRisks', { '状态': '待处置' }); sx.go.alVgo = GO('SecRisks', { '状态': '待处置', '类型': '漏洞' }); sx.go.alBgo = GO('SecBaseline', { '状态': '待处置' });
       sx.go.allPri = ev(() => { const el = document.getElementById('sh-pend'); if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
       const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
-      const RG2 = { R1: () => openDw('judge'), R3: () => openMd('fix'), U1: () => openMd('install'), R6: () => openMd('retry'), P1: () => { if (st.polRe) return; S({ polRe: 1 }); toast('已重新下发策略「标准防护」到 2 台主机'); } };
+      const RG2 = { R1: () => openDw('judge'), R3: () => openMd('fix'), U1: () => openMd('install'), R6: () => openMd('retry'), P1: () => { if (st.polRe) return; S({ polRe: 1 }); toast('已重新下发「默认策略」到 2 台主机，等待客户端回执'); } };
       sx.rows = pend.filter((r) => inK(r, ak)).sort((a, b) => ORD[a.lv] - ORD[b.lv]).slice(0, 6).map((r) => ({ lv: LVC[r.lv], lvT: r.lv, t: r.n, a: r.as, p: KND(r), sc: 'sh-st', st: r.st === '处置中' ? '自动清洗中' : r.st, tm: r.t.slice(-5) === '00:00' ? r.t.slice(0, 5) : r.t,
         dh: r.ext || '#', goD: r.ext ? undefined : r.ty === '策略' ? GO('SecPolicy', {}) : GO('SecRiskDetail', {}, r.id), ah: '#', goA: r.ext ? GOX(r.ext) : r.hs.length > 1 ? GO('SecRiskDetail', {}, r.id) : HOSTGO(r.hs[0]),
         op: r.ext ? r.act : RG2[r.id] ? r.act : '查看', href: r.ext || '#', go: r.ext ? undefined : RG2[r.id] ? ev(RG2[r.id]) : GO('SecRiskDetail', {}, r.id) }));
@@ -1894,7 +1904,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '安全总览';
-    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '默认防护': 'SecPolicy.dc.html', '策略模板': 'SecPolicy.dc.html?tab=tpl', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1902,7 +1912,7 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), P("主机运维", 'robot', ['批量任务', '任务记录']), P("防护策略", 'policy', ['默认防护', '策略模板', '生效资产', '全局黑白名单'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), P("主机运维", 'robot', ['批量任务', '任务记录']), P("防护策略", 'policy', ['策略与模板', '生效资产', '全局黑白名单'])] },
       { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['入侵检测规则', '病毒查杀', '应用运行防护', ['防勒索', '插件'], '数据备份', ['网页防篡改', '插件']]), P("远程安全", 'lock', ['登录防护', '在线用户']), P("网络防火墙", 'link', ['网络访问防护', '外联管控', '安全组']), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];

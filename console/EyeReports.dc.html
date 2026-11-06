@@ -147,7 +147,7 @@
 </helmet>
 <div class="kc">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">德迅云眼</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
@@ -221,8 +221,8 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <aside class="kc-side" aria-label="德迅云眼 菜单">
-      <div class="kc-sh"><b>德迅云眼</b><span>德迅科技 · 云眼-001 ⌄</span></div>
+    <input type="checkbox" id="kcf-EyeReports" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="德迅云眼 菜单">
+      <div class="kc-sh"><b>德迅云眼</b><span>德迅科技 · 全部实例</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -234,7 +234,7 @@
         </sc-for>
       </sc-for>
       </nav>
-    </aside>
+    <div class="kc-foldbar"><label for="kcf-EyeReports" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-EyeReports" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="EyeReports" class="kc-main">
       <div class="kc-hd"><div class="kc-hdl"><span class="kc-ico" aria-hidden="true"><svg class="rx" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 7H13V17H11V7ZM15 11H17V17H15V11ZM7 13H9V17H7V13ZM15 4H5V20H19V8H15V4ZM3 2.9918C3 2.44405 3.44749 2 3.9985 2H16L20.9997 7L21 20.9925C21 21.5489 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918Z"></path></svg></span><div><h1 class="kc-h1">报告管理</h1><p class="kc-desc">每月 1 日自动生成上月的安全监测报告，也可以按时间和资产手动生成。</p></div></div><div class="kc-btns"><button class="kc-btn" type="button">订阅设置</button><button class="kc-btn pri" type="button">生成报告</button></div></div><section class="kc-card"><div class="kc-bar pg-bar"><div class="pg-seg" role="group"><button type="button" class="on" aria-pressed="true">全部</button><button type="button" class="" aria-pressed="false">月报</button><button type="button" class="" aria-pressed="false">手动生成</button></div><input class="kc-in pg-q" type="search" aria-label="搜索报告" placeholder="搜索报告"><span class="pg-sp"></span></div><div class="kc-tw"><table class="kc-t pg-t op-fix"><thead><tr><th>报告</th><th>范围</th><th>资产</th><th>生成时间</th><th>状态</th><th>操作</th></tr></thead><tbody><tr><td>2026 年 9 月安全监测月报</td><td>09-01 至 09-30</td><td>全部 36 个</td><td>10-01 08:00</td><td><span class="kc-tag ok">已生成</span></td><td><span class="dn-ops"><a href="#">预览</a><a href="#">下载 PDF</a></span></td></tr><tr><td>大促前专项检查</td><td>10-20 至 10-27</td><td>shop.example.com 等 4 个</td><td>10-27 18:20</td><td><span class="kc-tag ok">已生成</span></td><td><span class="dn-ops"><a href="#">预览</a><a href="#">下载 PDF</a></span></td></tr><tr><td>2026 年 8 月安全监测月报</td><td>08-01 至 08-31</td><td>全部 34 个</td><td>09-01 08:00</td><td><span class="kc-tag ok">已生成</span></td><td><span class="dn-ops"><a href="#">预览</a><a href="#">下载 PDF</a></span></td></tr><tr><td>等保自查报告</td><td>10-28</td><td>全部 36 个</td><td>10-28 14:02</td><td><span class="kc-tag info">生成中</span></td><td><span class="dn-ops"><a href="#">取消</a></span></td></tr></tbody></table></div><div class="kc-foot pg-foot"><span>共 14 条</span></div></section>
     </main>

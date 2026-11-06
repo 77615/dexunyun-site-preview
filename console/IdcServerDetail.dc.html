@@ -258,11 +258,27 @@
 .ss-rb .ac-al{margin:0}
 .ss-ra{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ss-ra .ss-op{margin-left:8px}
+
+/* cq: 安全配置按主机使用的策略展示 */
+.cq-pol{border:1px solid #e5e6eb;border-radius:4px;padding:14px 16px;background:#fafbfc;display:grid;gap:8px}
+.cq-ph{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cq-ph small{font-size:12px;color:#737a87}
+.cq-ph b{font-size:15px;font-weight:600;color:#0c0d0e}
+.cq-pd{margin:0;font-size:12px;color:#42464e;line-height:18px}
+.cq-po{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cq-pn{margin-left:auto;font-size:12px;color:#737a87}
+.cq-pk{display:grid;gap:6px;border-top:1px solid #e5e6eb;padding-top:10px}
+.cq-pk button{display:grid;gap:2px;text-align:left;padding:8px 12px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;cursor:pointer}
+.cq-pk button b{font-size:13px;font-weight:600;color:#0c0d0e}
+.cq-pk button span{font-size:12px;color:#737a87}
+.cq-pk button.on{border-color:#1664ff;background:#f2f7ff}
+.cq-pkh{margin:0;font-size:12px;color:#737a87;line-height:18px}
+.kc-sw-row.cq-off{opacity:.55}
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">服务器租用</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
@@ -336,7 +352,7 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <aside class="kc-side" aria-label="服务器租用菜单">
+    <input type="checkbox" id="kcf-IdcServerDetail" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="服务器租用菜单">
       <div class="kc-sh"><b>服务器租用</b><span>德迅科技 · 3 台服务器</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
@@ -349,7 +365,7 @@
         </sc-for>
       </sc-for>
       </nav>
-    </aside>
+    <div class="kc-foldbar"><label for="kcf-IdcServerDetail" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-IdcServerDetail" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="IdcServerDetail" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><span class="kc-ico" aria-hidden="true"><svg class="rx" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.00488 2.99979H21.0049C21.5572 2.99979 22.0049 3.4475 22.0049 3.99979V19.9998C22.0049 20.5521 21.5572 20.9998 21.0049 20.9998H3.00488C2.4526 20.9998 2.00488 20.5521 2.00488 19.9998V3.99979C2.00488 3.4475 2.4526 2.99979 3.00488 2.99979ZM20.0049 10.9998H4.00488V18.9998H20.0049V10.9998ZM20.0049 8.99979V4.99979H4.00488V8.99979H20.0049ZM14.0049 14.9998H18.0049V16.9998H14.0049V14.9998Z"></path></svg></span><div>
@@ -445,14 +461,19 @@
   <aside class="kc-dw" role="dialog" aria-label="安全配置">
     <div class="kc-dwh">安全配置<button class="kc-x" type="button" aria-label="关闭" onClick="{{close}}">×</button></div>
     <div class="kc-dwb">
-      <p class="kc-sub cf-tip">web-prod-01 · 德迅安全卫士。改动即时生效，不需要重启服务器。<!-- gap161 --></p><div class="ac-al i"><i>!</i><span>这台服务器使用策略「标准防护」。下面的开关会直接修改该策略，同一策略下的 64 台主机一起生效。<a href="SecPolicy.dc.html">在防护策略中查看</a></span></div>
+      <p class="kc-sub cf-tip">web-prod-01 · 德迅安全卫士。这台服务器的防护设置跟着它使用的策略走，这里只看不改。</p>
+      <div class="cq-pol"><div class="cq-ph"><small>使用策略</small><b>{{cq.n}}</b><span class="{{cq.asC}}">{{cq.as}}</span><span class="{{cq.stC}}">{{cq.st}}</span></div>
+        <p class="cq-pd">{{cq.d}}</p>
+        <div class="cq-po"><button type="button" class="kc-btn sm" onClick="{{cq.pick}}">更换策略</button><a class="ss-op" href="{{cq.edH}}">编辑这份策略</a><span class="cq-pn">{{cq.share}}</span></div>
+        <sc-if value="{{cq.pkOn}}" hint-placeholder-val="{{false}}"><div class="cq-pk"><sc-for list="{{cq.opts}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.c}}" onClick="{{o.go}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for><p class="cq-pkh">只能在已有策略之间切换，不会为这台单独复制一份。需要不同设置时，请在「防护策略」新建可复用的策略。</p></div></sc-if>
+      </div>
       <h4 class="cf-h">客户端</h4>
       <div class="kc-sw-row"><div>{{cliTxt}}<div class="kc-sub">{{cliSub}}</div></div><sc-if value="{{secOnC}}" hint-placeholder-val="{{true}}"><a href="#" class="ss-op" onClick="{{uninstall}}">卸载客户端</a></sc-if><sc-if value="{{secGoneC}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn sm pri" onClick="{{reinstall}}">{{reTxt}}</button></sc-if></div>
-      <h4 class="cf-h">发现风险时</h4>
-      <div class="kc-sw-row"><div>自动拦截<div class="kc-sub">{{blockTip}}</div></div><button type="button" class="{{blockSw}}" role="switch" aria-label="自动拦截" aria-checked="{{blockP}}" onClick="{{togBlock}}"></button></div>
-      <div class="kc-sw-row"><div>风险短信<div class="kc-sub">紧急、高危风险发送到 177****1234，夜间顺延到早上 8 点（紧急除外）</div></div><button type="button" class="{{smsSw}}" role="switch" aria-label="风险短信" aria-checked="{{smsP}}" onClick="{{togSms}}"></button></div>
-      <h4 class="cf-h">登录</h4>
-      <div class="kc-sw-row"><div>登录 IP 白名单<div class="kc-sub">{{wlTip}}</div></div><button type="button" class="kc-btn sm" onClick="{{addWl}}">{{wlBtn}}</button></div>
+      <h4 class="cf-h">策略中的防护能力</h4>
+      <sc-for list="{{cq.caps}}" as="c" hint-placeholder-count="6"><div class="{{c.rc}}"><div>{{c.n}}<div class="kc-sub">{{c.d}}</div></div><span class="{{c.tc}}">{{c.t}}</span></div></sc-for>
+      <h4 class="cf-h">通知与登录</h4>
+      <div class="kc-sw-row"><div>风险通知<div class="kc-sub">紧急、高危风险发送到 177****1234，接收人和方式是全局设置</div></div><a href="SecNotify.dc.html" class="ss-op">在通知设置中修改</a></div>
+      <div class="kc-sw-row"><div>登录 IP 白名单<div class="kc-sub">{{wlTip}}</div></div><a href="SecPolicy.dc.html?tab=list" class="ss-op">在全局黑白名单中管理</a></div>
     </div>
     <div class="kc-dwf"><button class="kc-btn pri" type="button" onClick="{{close}}">完成</button></div>
   </aside>
@@ -1035,7 +1056,7 @@ class Component extends DCLogic {
   // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
   var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
     '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
-    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['大促模式', '默认防护', '官网默认'] };
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['默认策略', '数据库加强'] };
   var flAdd = function (tok, k, v) {
     [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
     var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';
@@ -1227,11 +1248,21 @@ class Component extends DCLogic {
     const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
       cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
       go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (v) return; this.setState({ plg: Object.assign({}, plg, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plg: Object.assign({}, this.state.plg || {}, { [n]: 'ok' }) }), 1500); } }; });
-    const secV = { secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone', secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
+    const cqP = st.cqP || 'def'; const cqS = st.cqS || ''; const isDb = cqP === 'db';
+    const cqCap = [['入侵检测', '暴力破解、异常登录、反弹 Shell、高危命令', 'on'], ['病毒查杀', '实时恶意文件检测、网页后门、每天 04:00 定时扫描', 'on'], ['网络防护', '暴力破解、端口扫描、可疑外联', 'al'], ['漏洞与基线扫描', '漏洞每天 03:00，基线每 7 天', 'on'],
+      ['自动处置', isDb ? '恶意文件自动隔离' : '默认策略只告警，不自动隔离或封禁', isDb ? 'au' : 'off'], ['防勒索（插件）', isDb ? '策略已开启，这台未安装插件，安装后生效' : '策略未开启', isDb ? 'np' : 'off'], ['AI 研判', '企业版能力，当前未开通', 'ent']];
+    const CT = { on: ['已开启', 'kc-tag ok'], al: ['开启 · 只告警', 'kc-tag ok'], au: ['自动处置', 'kc-tag info'], off: ['未开启', 'kc-tag mut'], np: ['未安装插件', 'kc-tag mut'], ent: ['未开通', 'kc-tag mut'] };
+    const cq = { n: isDb ? '数据库加强' : '默认策略', as: isDb ? '指定策略' : '跟随默认', asC: 'kc-tag info', st: cqS ? '等待生效' : '已生效', stC: cqS ? 'kc-tag warn' : 'kc-tag ok',
+      d: cqS ? '已提交更换，等待客户端回执；离线时会在上线后下发。' : isDb ? '基于标准防护，开启恶意文件自动隔离和防勒索 · v1 · 11-02 10:20 生效' : '基于标准防护，只检测和告警，不自动拦截 · v3 · 11-02 10:20 生效',
+      share: isDb ? '3 台主机共用' : '65 台主机共用，修改影响全部', edH: isDb ? 'SecPolicy.dc.html?edit=db' : 'SecPolicy.dc.html?edit=def', pkOn: !!st.cqK,
+      pick: () => this.setState({ cqK: !st.cqK }),
+      opts: [['def', '默认策略（跟随默认）', '只告警，不自动拦截；默认策略变化时跟着变'], ['db', '数据库加强', '基于标准防护，开启恶意文件自动隔离和防勒索']].map(([k, n, d]) => ({ n, d, c: k === cqP ? 'on' : '', go: () => this.setState(k === cqP ? { cqK: false } : { cqP: k, cqK: false, cqS: 'wait' }) })),
+      caps: cqCap.map(([n, d, k]) => ({ n, d, t: CT[k][0], tc: CT[k][1], rc: k === 'np' || k === 'ent' ? 'kc-sw-row cq-off' : 'kc-sw-row' })) };
+    const secV = { cq, secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone', secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
       modeTxt: blk ? '自动拦截' : '仅告警', riskTxt: sec === 'risk' ? '高危 2 · 中危 1' : '0', riskCls: sec === 'risk' ? 'r' : 'g',
-      blockTip: blk ? '已开启：按德迅安全卫士默认策略拦截暴力破解和已知木马' : '已关闭：发现风险只告警，不影响业务进程', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
+      blockTip: blk ? '按所用策略自动处置' : '所用策略未开启自动处置，发现风险只告警', blockTag: blk ? 'kc-tag ok' : 'kc-tag mut', blockSt: blk ? '已开启' : '未开启', smsTag: sms ? 'kc-tag ok' : 'kc-tag mut', smsSt: sms ? '已开启' : '未开启', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
       smsSw: sms ? 'kc-sw on' : 'kc-sw', smsP: sms ? 'true' : 'false', togSms: () => this.setState({ sms: !sms }),
-      wlTip: wl ? '已添加 1 个：183.134.**.20（本次登录地）' : '未设置。白名单内 IP 的登录不会触发异常登录告警', wlBtn: wl ? '管理' : '添加', addWl: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ wl: true }); },
+      wlTip: wl ? '对这台生效 1 个：183.134.**.20' : '对这台没有生效的白名单 IP', wlBtn: wl ? '管理' : '添加', addWl: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ wl: true }); },
       uninstall: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dlg: 'un' }); }, unOpen: dlg === 'un', doUn: () => this.setState({ dlg: '', sec: 'gone', re: '' }), reTxt: re === 'ing' ? '正在安装…约 2 分钟' : '一键重新安装', reinstall: () => { if (re) return; this.setState({ re: 'ing' }); setTimeout(() => this.setState({ sec: 'ok', re: '' }), 1600); } };
     return Object.assign({ nav }, secV, { tabs, tRep: tab === '监控与报表', tInfo: tab === '基本信息', tSec: tab === '安全', tLog: tab === '操作记录',
       goSec: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '安全' }); }, secStTxt: secV.secGone ? '未受保护' : todo ? '有风险' : '正常', secStSub: secV.secGone ? '原因：客户端已卸载' : todo ? todo + ' 项待处理' + (todoH ? '，' + todoH + ' 项需立即处理' : '') : '今天 10:28 已检测', runB: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中', runS: '已运行 37 天 · ' + os.replace(' 64 位', ''), secStCls: secV.secGone ? 'ss-x' : todoH ? 'ss-r' : todo ? 'ss-o' : 'ss-g', secStGo: secV.secGone ? '重新安装' : todo ? '去处理' : '查看', rngs, ax, charts, mets, tmc, logs,

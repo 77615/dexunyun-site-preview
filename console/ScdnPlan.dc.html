@@ -261,7 +261,7 @@
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">SCDN</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
@@ -335,8 +335,8 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <aside class="kc-side" aria-label="SCDN 菜单">
-      <div class="kc-sh"><b>SCDN</b><span>德迅科技 · SCDN-001 · 企业版</span></div>
+    <input type="checkbox" id="kcf-ScdnPlan" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="SCDN 菜单">
+      <div class="kc-sh"><b>SCDN</b><span>德迅科技 · 全部实例</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -348,12 +348,13 @@
         </sc-for>
       </sc-for>
       </nav>
-    </aside>
+    <div class="kc-foldbar"><label for="kcf-ScdnPlan" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-ScdnPlan" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="ScdnPlan" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">实例与套餐</h1></div></div>
         <div class="kc-btns"></div>
       </div>
+      <section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2>全部实例 · 2</h2></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>实例</th><th>套餐</th><th>状态</th><th>域名</th><th>本月流量</th><th>到期</th><th>操作</th></tr></thead><tbody><tr style="background:#f2f6ff"><td><b>SCDN-001</b><div class="kc-sub">scdn-wz-8f2a1c</div></td><td>企业版</td><td><span class="kc-tag ok">运行中</span></td><td>6 / 50</td><td>1.24 / 3 TB</td><td>2027-03-01</td><td><span class="kc-sub">当前查看</span></td></tr><tr><td><a href="#">SCDN-002</a><div class="kc-sub">scdn-wz-3c71d0</div></td><td>标准版</td><td><span class="kc-tag info">待接入域名</span></td><td>0 / 10</td><td>0 / 1 TB</td><td>2027-10-30</td><td><a href="#">查看</a></td></tr></tbody></table></div></section>
       <div class="sp-plan"><div class="sp-pc"><h3>SCDN-001 <span class="kc-tag ok">运行中</span></h3><dl><div><dt>套餐</dt><dd>企业版</dd></div><div><dt>计费</dt><dd>包年</dd></div><div><dt>到期</dt><dd>2027-03-01（剩 125 天）</dd></div><div><dt>开通时间</dt><dd>2025-03-01</dd></div><div><dt>地域</dt><dd>中国内地</dd></div><div><dt>实例 ID</dt><dd class="sp-mono">scdn-wz-8f2a1c</dd></div></dl><div class="sv-act"><button class="kc-btn pri" type="button" onClick="{{op_up}}">升级套餐</button><button class="kc-btn" type="button" onClick="{{op_tp}}">加流量包</button><a class="kc-btn" href="BillConfirm.dc.html">续费</a></div></div><div class="sp-pc"><h3>本月用量</h3><div class="sp-use"><div><p><span>流量</span><b>1.24 TB / 3 TB</b></p><u style="--w:41%"></u></div><div><p><span>域名</span><b>6 / 50</b></p><u style="--w:12%"></u></div><div><p><span>QPS 峰值</span><b>18,400 / 20,000</b></p><u class="o" style="--w:92%"></u></div><div><p><span>证书</span><b>4 / 20</b></p><u style="--w:20%"></u></div></div></div></div>
       <section class="kc-card sp-card">
         <header class="sp-ch"><div><b>套餐包含</b><p>QPS 峰值接近上限，大促前建议升级或临时扩容</p></div></header>
