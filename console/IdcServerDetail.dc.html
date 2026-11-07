@@ -275,6 +275,26 @@
 .cq-pkh{margin:0;font-size:12px;color:#737a87;line-height:18px}
 .kc-sw-row.cq-off{opacity:.55}
 </style>
+<style data-s2="1">
+.ig7-mask{position:fixed;left:0;right:0;top:56px;bottom:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(29,33,41,.28)}
+.ig7-md{width:480px;max-width:92vw;padding:24px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18);text-align:left}
+.ig7-md h3{margin:0;font-size:16px;font-weight:500;color:#0c0d0e}
+.ig7-md p{margin:10px 0 0;font-size:13px;line-height:1.7;color:#42464e}
+.ig7-fs{margin-top:20px}.ig7-fs>b{display:block;margin-bottom:10px;font-size:13px;font-weight:500;color:#0c0d0e}
+.ig7-rad{display:flex;flex-wrap:wrap;gap:8px 20px}
+.ig7-o{display:inline-flex;align-items:center;gap:8px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1d2129;cursor:pointer}
+.ig7-o i{width:14px;height:14px;border:1px solid #c9cdd4;border-radius:50%;box-sizing:border-box;background:#fff}
+.ig7-o.on i{border:4px solid #1664ff}
+.ig7-ta{display:block;width:100%;height:72px;margin-top:12px;padding:6px 10px;box-sizing:border-box;border:1px solid #e5e8ef;border-radius:4px;font:inherit;font-size:13px;resize:none}
+.ig7-ta:focus{outline:0;border-color:#1664ff}
+.ig7-h{margin:8px 0 0 !important;font-size:12px !important;color:#86909c !important}
+.ig7-f{display:flex;justify-content:flex-end;gap:8px;margin-top:24px}
+.ig7-f .dis{opacity:.45;cursor:not-allowed}
+.ig7-bn{display:flex;align-items:flex-start;gap:8px;margin:0 0 16px;padding:10px 14px;border-radius:4px;font-size:13px;line-height:1.6;background:#e8f3ff;color:#1d2129}
+.ig7-bn.e{background:#ffece8}.ig7-bn.ok{background:#e8ffea}
+.ig7-bn>i{flex:none;font-style:normal;font-weight:600;color:#1664ff}.ig7-bn.e>i{color:#f53f3f}.ig7-bn.ok>i{color:#00b42a}
+.ig7-bn>span{flex:1}.ig7-bn a{color:#1664ff;cursor:pointer;margin-left:8px;white-space:nowrap}
+</style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
@@ -399,6 +419,7 @@
         </sc-if>
         <sc-if value="{{tSec}}" hint-placeholder-val="{{false}}">
         <div class="kc-cb" id="sec">
+          <sc-if value="{{dlOn}}" hint-placeholder-val="{{false}}"><div class="ig7-bn"><i>i</i><span>{{dlTxt}}链接 7 天内有效，刷新页面也会停在这里。</span><a href="#" onClick="{{dlX}}">知道了</a></div></sc-if>
           <div class="ss-top"><div class="sc-demo" role="group" aria-label="演示状态"><span>演示</span><sc-for list="{{secTabs}}" as="s" hint-placeholder-count="3"><button type="button" class="{{s.cls}}" onClick="{{s.go}}">{{s.n}}</button></sc-for></div></div>
           <sc-if value="{{secOn}}" hint-placeholder-val="{{true}}">
           <div class="kc-steps ss-steps" style="grid-template-columns:repeat(4,minmax(0,1fr))"><sc-for list="{{ov}}" as="o" hint-placeholder-count="4"><div class="{{o.cls}}"><i>{{o.i}}</i><div><span>{{o.q}}</span><b>{{o.b}}</b><span>{{o.d}}</span></div></div></sc-for></div>
@@ -426,9 +447,13 @@
             </tr></sc-for>
           </tbody></table></div>
                     </sc-if>
+<sc-if value="{{ig.igOn}}" hint-placeholder-val="{{false}}"><div class="ig7-mask"><div class="ig7-md" role="dialog" aria-modal="true" aria-label="忽略风险"><h3>{{ig.igT}}</h3><p>{{ig.igSub}}</p>
+        <div class="ig7-fs"><b>忽略原因（必填）</b><div class="ig7-rad" role="radiogroup" aria-label="忽略原因"><sc-for list="{{ig.igR}}" as="o" hint-placeholder-count="4"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div>
+          <textarea class="ig7-ta" aria-label="补充说明" placeholder="{{ig.igP}}" value="{{ig.igW}}" onChange="{{ig.igOnW}}"></textarea><p class="ig7-h">忽略后不再提醒，也不计入待处理和安全分扣分；可在「已忽略」中恢复。忽略人、时间和原因记在处置记录和操作审计里。</p></div>
+        <div class="ig7-f"><button type="button" class="kc-btn" onClick="{{ig.igX}}">取消</button><button type="button" class="{{ig.igOkC}}" onClick="{{ig.igOk}}">确定忽略</button></div></div></div></sc-if>
           <sc-if value="{{secGone}}" hint-placeholder-val="{{false}}">
           <div class="ac-al e"><i>!</i><span><b>这台服务器未受保护</b>德迅安全卫士客户端已于 2026-10-20 卸载，不再检测入侵、漏洞和基线，发生风险也不会收到短信。</span><button type="button" class="kc-btn sm pri" onClick="{{reinstall}}">{{reTxt}}</button></div>
-          <div class="kc-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵检测</span><div class="kc-sub">异常登录、暴力破解、木马、挖矿</div></div><div class="kc-tile"><span>漏洞检测</span><div class="kc-sub">系统和软件漏洞，给出修复方法</div></div><div class="kc-tile"><span>基线检查</span><div class="kc-sub">弱口令、危险配置</div></div><div class="kc-tile"><span>威胁猎杀</span><div class="kc-sub">攻击链溯源与节点证据</div></div></div>
+          <div class="kc-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵检测</span><div class="kc-sub">异常登录、暴力破解、木马、挖矿</div></div><div class="kc-tile"><span>漏洞检测</span><div class="kc-sub">系统和软件漏洞，给出修复方法</div></div><div class="kc-tile"><span>基线检查</span><div class="kc-sub">弱口令、危险配置</div></div><div class="kc-tile"><span>威胁狩猎</span><div class="kc-sub">攻击链溯源与节点证据</div></div></div>
           </sc-if>
         </div>
         </sc-if>
@@ -1135,8 +1160,8 @@ class Component extends DCLogic {
     const os = st.os || 'CentOS 7.9 64 位';
     const job = st.job || '';
     const dlg = st.dlg || '';
-    const tab = st.tab || '基本信息'; const R0n = 3;
-    const tabs = ['基本信息', '安全', '监控与报表', '操作记录'].map((n) => ({ n, c: n === '安全' && (st.sec || 'risk') === 'risk' ? (R0n - Object.keys(st.hd || {}).filter((k) => ['ok', 'me'].indexOf((st.hd || {})[k]) >= 0).length || '') : '', cc: 'kc-cnt r', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ tab: n }) }));
+    if (this.__dl === undefined) { this.__dl = (() => { try { const q = new URLSearchParams(location.search).get('risk'); if (q) return q; const n = JSON.parse(localStorage.getItem('dxSmsGo') || 'null'); if (n && Date.now() - n.t < 120000) { localStorage.removeItem('dxSmsGo'); return n.k; } } catch (x) {} return ''; })(); } const tab = st.tab || (this.__dl ? '安全' : '基本信息'); const R0n = 3;
+    const tabs = ['基本信息', '安全', '监控与报表', '操作记录'].map((n) => ({ n, c: n === '安全' && (st.sec || 'risk') === 'risk' ? (R0n - Object.keys(st.hd || {}).filter((k) => ['ok', 'me', 'ign'].indexOf((st.hd || {})[k]) >= 0).length || '') : '', cc: 'kc-cnt r', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ tab: n }) }));
     const rng = st.rng || '24 小时';
     const rngs = ['24 小时', '7 天', '30 天'].map((n) => ({ n, cls: n === rng ? 'on' : '', go: () => this.setState({ rng: n }) }));
     const N = rng === '24 小时' ? 24 : rng === '7 天' ? 28 : 30;
@@ -1213,24 +1238,26 @@ class Component extends DCLogic {
         steps: ['给这 3 个账号设置 12 位以上、包含字母和数字的密码', '用不到的账号（例如 test）建议直接删除', '点「我已修改，重新检测」'],
         okTxt: '已解决：复检通过（今天 10:38）。3 个账号都已使用复杂密码。', failTxt: '复检未通过：backup 账号仍在使用常见密码。请修改后再检测。' }
     ];
-    const rop = st.rop === undefined ? null : st.rop;
+    const rop = st.rop === undefined ? (this.__dl ? Math.max(0, R0.findIndex((r) => r.k === this.__dl)) : null) : st.rop; const igw = st.igw || {}; const IGR = ['业务需要，暂不处理', '已有其他防护措施', '测试或废弃环境', '其他'];
     const isOk = (v) => v === 'ok' || v === 'me';
     const firstOpen = R0.findIndex((r) => !isOk(hd[r.k]));
     const risks = R0.map((r, i) => { const v = hd[r.k] || '';
-      const S = isOk(v) ? ['kc-tag ok', '已解决'] : v === 'chk' ? ['kc-tag info', '检测中'] : v === 'fail' ? ['kc-tag err', '未解决'] : v === 'block' ? ['kc-tag warn', '还差一步'] : r.lv === '高危' ? ['kc-tag err', '需立即处理'] : ['kc-tag warn', '待处理'];
-      const M = v === 'chk' ? ['ac-al i', 'i', '正在重新检测，大约 10 秒…'] : v === 'fail' ? ['ac-al e', '!', r.failTxt] : v === 'ok' ? ['ac-al i', '✓', r.okTxt] : v === 'me' ? ['ac-al i', '✓', '已解决：确认是你本人登录，这个登录地已加入白名单，以后不再提醒。'] : v === 'block' ? ['ac-al', '!', '已封禁 185.220.**.4 并让对方下线。还差一步：修改 root 密码，改完点下面的按钮重新检测。'] : null;
+      const S = v === 'ign' ? ['kc-tag mut', '已忽略'] : isOk(v) ? ['kc-tag ok', '已解决'] : v === 'chk' ? ['kc-tag info', '检测中'] : v === 'fail' ? ['kc-tag err', '未解决'] : v === 'block' ? ['kc-tag warn', '还差一步'] : r.lv === '高危' ? ['kc-tag err', '需立即处理'] : ['kc-tag warn', '待处理'];
+      const M = v === 'ign' ? ['ac-al', 'i', '已忽略，原因：' + (igw[r.k] || '') + '。不再提醒，也不计入待处理；操作人 wangqi，记在操作审计里。'] : v === 'chk' ? ['ac-al i', 'i', '正在重新检测，大约 10 秒…'] : v === 'fail' ? ['ac-al e', '!', r.failTxt] : v === 'ok' ? ['ac-al i', '✓', r.okTxt] : v === 'me' ? ['ac-al i', '✓', '已解决：确认是你本人登录，这个登录地已加入白名单，以后不再提醒。'] : v === 'block' ? ['ac-al', '!', '已封禁 185.220.**.4 并让对方下线。还差一步：修改 root 密码，改完点下面的按钮重新检测。'] : null;
       let acts = [];
       if (r.k === 'login') acts = v === '' ? [['是我本人', 'kc-btn', () => setR('login', 'me', { wl: true })], ['不是我，立即封禁', 'kc-btn pri', () => setR('login', 'block')]] : (v === 'block' || v === 'fail') ? [['我已改密码，重新检测', 'kc-btn pri', () => recheck('login')]] : [];
       if (r.k === 'vul') acts = (v === '' || v === 'fail') ? [['我已修复，重新检测', 'kc-btn pri', () => recheck('vul')]] : [];
       if (r.k === 'pwd') acts = v === '' ? [['我已修改，重新检测', 'kc-btn pri', () => { recheck('pwd', !st.pwdTry); this.setState({ pwdTry: true }); }]] : v === 'fail' ? [['我已修改，再次检测', 'kc-btn pri', () => recheck('pwd')]] : [];
+      if ((r.k === 'vul' || r.k === 'pwd') && (v === '' || v === 'fail')) acts = acts.concat([['忽略', 'kc-btn', () => this.setState({ igK: r.k, igR: '', igW: '' })]]);
       if (isOk(v)) acts = [['重新打开（演示）', 'kc-btn', () => setR(r.k, '')]];
+      if (v === 'ign') acts = [['恢复提醒', 'kc-btn', () => setR(r.k, '')]];
       const open = rop === null ? i === firstOpen : rop === i;
       return { lv: r.lv, lc: r.lc, t: r.t, time: r.time, link: r.link, what: r.what, imp: r.imp, steps: r.steps, tc: S[0], st: S[1],
         hasMsg: !!M, mc: M ? M[0] : '', mi: M ? M[1] : '', msg: M ? M[2] : '', open, ex: open ? 'true' : 'false', cls: isOk(v) ? 'ss-ri done' + (open ? ' on' : '') : 'ss-ri' + (open ? ' on' : ''),
         tog: () => this.setState({ rop: open ? -1 : i }), acts: acts.map(([n, c, f]) => ({ n, cls: c, go: (e) => { pv(e); f(); } })) }; });
-    const todo = sec === 'risk' ? R0.filter((r) => !isOk(hd[r.k])).length : 0;
-    const todoH = sec === 'risk' ? R0.filter((r) => !isOk(hd[r.k]) && r.lv === '高危').length : 0;
-    const solved = sec === 'risk' ? 3 - todo : 0;
+    const todo = sec === 'risk' ? R0.filter((r) => !isOk(hd[r.k]) && hd[r.k] !== 'ign').length : 0;
+    const todoH = sec === 'risk' ? R0.filter((r) => !isOk(hd[r.k]) && hd[r.k] !== 'ign' && r.lv === '高危').length : 0;
+    const solved = sec === 'risk' ? R0.filter((r) => isOk(hd[r.k])).length : 0;
     const ov = sec === 'risk' ? [
       ['kc-step done', '✓', '安全服务正常吗', '正常运行', '客户端在线，今天 10:28 完成检测' + (sms ? '，风险会短信通知你' : '')],
       [todo ? 'kc-step' : 'kc-step done', todo ? '!' : '✓', '有什么风险', '发现 3 个风险', todoH ? '其中 ' + todoH + ' 个需要立即处理' : '高危风险已处理完'],
@@ -1243,7 +1270,7 @@ class Component extends DCLogic {
       ['kc-step done', '✓', '解决了吗', '无待解决问题', '每天自动检测一次']
     ];
     const plg = st.plg || {};
-    const P0 = [['入侵检测', '异常登录、暴力破解、木马、挖矿', 'base'], ['漏洞检测', '系统和软件漏洞，给出修复方法', 'base'], ['基线检查', '弱口令、危险配置', 'base'], ['威胁猎杀', '攻击链溯源与节点证据', 'base'],
+    const P0 = [['入侵检测', '异常登录、暴力破解、木马、挖矿', 'base'], ['漏洞检测', '系统和软件漏洞，给出修复方法', 'base'], ['基线检查', '弱口令、危险配置', 'base'], ['威胁狩猎', '攻击链溯源与节点证据', 'base'],
       ['防勒索', '识别勒索加密行为，自动备份关键文件', 'base'], ['网页防篡改', '网站目录被改动时立即还原', 'base'], ['AI 研判', '自动分析告警真假、给出处置建议（企业版）', 'ent']];
     const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
       cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
@@ -1258,7 +1285,13 @@ class Component extends DCLogic {
       pick: () => this.setState({ cqK: !st.cqK }),
       opts: [['def', '默认策略（跟随默认）', '只告警，不自动拦截；默认策略变化时跟着变'], ['db', '数据库加强', '基于标准防护，开启恶意文件自动隔离和防勒索']].map(([k, n, d]) => ({ n, d, c: k === cqP ? 'on' : '', go: () => this.setState(k === cqP ? { cqK: false } : { cqP: k, cqK: false, cqS: 'wait' }) })),
       caps: cqCap.map(([n, d, k]) => ({ n, d, t: CT[k][0], tc: CT[k][1], rc: k === 'np' || k === 'ent' ? 'kc-sw-row cq-off' : 'kc-sw-row' })) };
-    const secV = { cq, secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone', secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
+    const igM = st.igK ? (() => { const r = R0.find((x) => x.k === st.igK) || R0[0]; const w = (st.igW || '').trim(); const ok = !!st.igR && (st.igR !== '其他' || !!w);
+      return { igOn: true, igT: '忽略「' + r.t + '」', igSub: '只对这台服务器生效。忽略后不再提醒，也不计入待处理。', igW: st.igW || '', igOnW: (e) => this.setState({ igW: e && e.target ? e.target.value : '' }),
+        igR: IGR.map((n) => ({ n, c: n === st.igR ? 'ig7-o on' : 'ig7-o', a: n === st.igR ? 'true' : 'false', t: (e) => { pv(e); this.setState({ igR: n }); } })),
+        igP: st.igR === '其他' ? '请写明原因（必填）' : '补充说明（选填）', igOkC: 'kc-btn pri' + (ok ? '' : ' dis'), igX: (e) => { pv(e); this.setState({ igK: '' }); },
+        igOk: (e) => { pv(e); if (!ok) return; const why = st.igR === '其他' ? w : st.igR + (w ? '：' + w : ''); setR(r.k, 'ign', { igK: '', igw: Object.assign({}, igw, { [r.k]: why }) }); } }; })() : { igOn: false };
+    const dlR = this.__dl ? R0.find((r) => r.k === this.__dl) : null;
+    const secV = { ig: igM, dlOn: !!dlR && !st.dlX, dlTxt: dlR ? '你从短信链接进入，已为你展开「' + dlR.t + '」。' : '', dlX: (e) => { pv(e); this.setState({ dlX: true }); }, cq, secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone', secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
       modeTxt: blk ? '自动拦截' : '仅告警', riskTxt: sec === 'risk' ? '高危 2 · 中危 1' : '0', riskCls: sec === 'risk' ? 'r' : 'g',
       blockTip: blk ? '按所用策略自动处置' : '所用策略未开启自动处置，发现风险只告警', blockTag: blk ? 'kc-tag ok' : 'kc-tag mut', blockSt: blk ? '已开启' : '未开启', smsTag: sms ? 'kc-tag ok' : 'kc-tag mut', smsSt: sms ? '已开启' : '未开启', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
       smsSw: sms ? 'kc-sw on' : 'kc-sw', smsP: sms ? 'true' : 'false', togSms: () => this.setState({ sms: !sms }),

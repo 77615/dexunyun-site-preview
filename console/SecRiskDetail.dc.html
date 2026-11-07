@@ -495,6 +495,26 @@
 .sl .tri-inc{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:12px;padding:12px;background:#f7f8fa;border-radius:4px}
 .sl .tri-md .sh-fs{margin-top:16px}
 </style>
+<style data-s2="1">
+.ig7-mask{position:fixed;left:0;right:0;top:56px;bottom:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(29,33,41,.28)}
+.ig7-md{width:480px;max-width:92vw;padding:24px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18);text-align:left}
+.ig7-md h3{margin:0;font-size:16px;font-weight:500;color:#0c0d0e}
+.ig7-md p{margin:10px 0 0;font-size:13px;line-height:1.7;color:#42464e}
+.ig7-fs{margin-top:20px}.ig7-fs>b{display:block;margin-bottom:10px;font-size:13px;font-weight:500;color:#0c0d0e}
+.ig7-rad{display:flex;flex-wrap:wrap;gap:8px 20px}
+.ig7-o{display:inline-flex;align-items:center;gap:8px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1d2129;cursor:pointer}
+.ig7-o i{width:14px;height:14px;border:1px solid #c9cdd4;border-radius:50%;box-sizing:border-box;background:#fff}
+.ig7-o.on i{border:4px solid #1664ff}
+.ig7-ta{display:block;width:100%;height:72px;margin-top:12px;padding:6px 10px;box-sizing:border-box;border:1px solid #e5e8ef;border-radius:4px;font:inherit;font-size:13px;resize:none}
+.ig7-ta:focus{outline:0;border-color:#1664ff}
+.ig7-h{margin:8px 0 0 !important;font-size:12px !important;color:#86909c !important}
+.ig7-f{display:flex;justify-content:flex-end;gap:8px;margin-top:24px}
+.ig7-f .dis{opacity:.45;cursor:not-allowed}
+.ig7-bn{display:flex;align-items:flex-start;gap:8px;margin:0 0 16px;padding:10px 14px;border-radius:4px;font-size:13px;line-height:1.6;background:#e8f3ff;color:#1d2129}
+.ig7-bn.e{background:#ffece8}.ig7-bn.ok{background:#e8ffea}
+.ig7-bn>i{flex:none;font-style:normal;font-weight:600;color:#1664ff}.ig7-bn.e>i{color:#f53f3f}.ig7-bn.ok>i{color:#00b42a}
+.ig7-bn>span{flex:1}.ig7-bn a{color:#1664ff;cursor:pointer;margin-left:8px;white-space:nowrap}
+</style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
@@ -588,7 +608,8 @@
     <div class="kc-foldbar"><label for="kcf-SecRiskDetail" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecRiskDetail" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecRiskDetail" class="kc-main sh sl">
       <div class="kc-hd"><div class="kc-hdl"><div class="sl-hd"><a class="sl-bk" href="#" onClick="{{ls.back}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg><span>{{ls.backN}}</span></a><h1 class="kc-h1">{{ls.n}}</h1><span class="sl-tg"><i class="{{ls.lv}}"></i>{{ls.lvT}}</span><span class="{{ls.stc}}">{{ls.st}}</span></div></div>
-        <div class="kc-btns"><sc-if value="{{ls.canAct}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{ls.ign}}">忽略</button><button type="button" class="kc-btn pri" onClick="{{ls.doAct}}">{{ls.act}}</button></sc-if><sc-if value="{{ls.canRe}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{ls.re}}">恢复为待研判</button></sc-if></div></div>
+        <div class="kc-btns"><sc-if value="{{ls.rcOn}}" hint-placeholder-val="{{false}}"><button type="button" class="{{ls.rcC}}" onClick="{{ls.rcGo}}">{{ls.rcN}}</button></sc-if><sc-if value="{{ls.canAct}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{ls.ign}}">忽略</button><button type="button" class="kc-btn pri" onClick="{{ls.doAct}}">{{ls.act}}</button></sc-if><sc-if value="{{ls.canRe}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{ls.re}}">{{ls.reN}}</button></sc-if></div></div>
+      <sc-if value="{{ls.rcMsgOn}}" hint-placeholder-val="{{false}}"><div class="{{ls.rcMc}}"><i>{{ls.rcMi}}</i><span>{{ls.rcMsg}}</span></div></sc-if>
       <section class="kc-card"><div class="kc-ch"><h2>基本信息</h2></div>
         <div class="sl-kv"><div><small>编号</small><span>{{ls.id}}</span></div><div><small>类型</small><span>{{ls.ty}}</span></div><div><small>检测项</small><span>{{ls.src}}</span></div><div><small>首次发现</small><span>{{ls.t}}</span></div>
           <div><small>影响主机</small><a href="#" onClick="{{ls.goHosts}}">{{ls.hn}} 台</a></div><sc-if value="{{ls.isAl}}" hint-placeholder-val="{{true}}"><div><small>所属事件</small><sc-if value="{{ls.hasInc}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{ls.incGo}}">{{ls.incN}}</a></sc-if><sc-if value="{{ls.noInc}}" hint-placeholder-val="{{false}}"><span>未归入事件</span></sc-if></div></sc-if><sc-for list="{{ls.kv}}" as="k" hint-placeholder-count="3"><div><small>{{k.k}}</small><span>{{k.v}}</span></div></sc-for></div></section>
@@ -611,6 +632,10 @@
           <p class="sh-fh">{{ls.tmHint}}</p></div></sc-if>
         <sc-if value="{{ls.tmWhyOn}}" hint-placeholder-val="{{false}}"><div class="sh-fs"><b>原因（必填）</b><textarea class="tri-ta" aria-label="原因" placeholder="{{ls.tmWhyP}}" value="{{ls.tmWhy}}" onChange="{{ls.tmOnWhy}}"></textarea><p class="sh-fh">{{ls.tmWhyH}}</p></div></sc-if>
         <div class="sh-mf"><button type="button" class="kc-btn" onClick="{{ls.tmX}}">取消</button><button type="button" class="{{ls.tmOkC}}" onClick="{{ls.tmOk}}">确定</button></div></div></div></sc-if>
+<sc-if value="{{ls.igOn}}" hint-placeholder-val="{{false}}"><div class="ig7-mask"><div class="ig7-md" role="dialog" aria-modal="true" aria-label="忽略风险"><h3>{{ls.igT}}</h3><p>{{ls.igSub}}</p>
+        <div class="ig7-fs"><b>忽略原因（必填）</b><div class="ig7-rad" role="radiogroup" aria-label="忽略原因"><sc-for list="{{ls.igR}}" as="o" hint-placeholder-count="4"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div>
+          <textarea class="ig7-ta" aria-label="补充说明" placeholder="{{ls.igP}}" value="{{ls.igW}}" onChange="{{ls.igOnW}}"></textarea><p class="ig7-h">忽略后不再提醒，也不计入待处理和安全分扣分；可在「已忽略」中恢复。忽略人、时间和原因记在处置记录和操作审计里。</p></div>
+        <div class="ig7-f"><button type="button" class="kc-btn" onClick="{{ls.igX}}">取消</button><button type="button" class="{{ls.igOkC}}" onClick="{{ls.igOk}}">确定忽略</button></div></div></div></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
     </main>
   </div>
@@ -1418,6 +1443,15 @@ class Component extends DCLogic {
     const base = { ts: st.ts || '' };
     const out = { ls: Object.assign(base, { tsOn: !!st.slT, toast: st.slT || { t: '', c: '' } }) };
     const ls = out.ls;
+ /* s2ig */ const IGR = ['业务需要，暂不处理', '已有其他防护措施', '测试或废弃环境', '其他']; const igw = st.igw || {}; ls.reN = '恢复为待研判';
+    const igOpen = (spec) => S(Object.assign({ igM: Object.assign({ r: '', w: '' }, spec) }, spec.host ? {} : { rbd: false }));
+    { const m = st.igM; ls.igOn = !!m; if (m) { const T = (o) => S({ igM: Object.assign({}, m, o) }); const w = (m.w || '').trim(); const ok = !!m.r && (m.r !== '其他' || !!w);
+      Object.assign(ls, { igT: m.t, igSub: m.sub, igR: IGR.map((n) => ({ n, c: n === m.r ? 'ig7-o on' : 'ig7-o', a: n === m.r ? 'true' : 'false', t: ev(() => T({ r: n })) })), igW: m.w || '', igOnW: (e) => T({ w: e && e.target ? e.target.value : '' }),
+        igP: m.r === '其他' ? '请写明原因（必填）' : '补充说明（选填），例如：22 端口已在防火墙只对办公网开放', igOkC: 'kc-btn pri' + (ok ? '' : ' dis'), igX: ev(() => S({ igM: null })),
+        igOk: ev(() => { if (!ok) { toast(m.r ? '请写明原因' : '请选择忽略原因', 'info'); return; } const why = m.r === '其他' ? w : m.r + (w ? '：' + w : ''); const keys = m.keys || []; const o = Object.assign({}, igw); keys.forEach((k) => { o[k] = why; });
+          const mk = (base) => Object.assign({}, base || {}, keys.reduce((a, k) => Object.assign(a, { [k]: '已忽略' }), {}));
+          S(m.host ? { igM: null, igw: o, hst: mk(st.hst) } : { igM: null, igw: o, rsel: {}, rbd: false, rst: mk(st.rst) });
+          toast((keys.length > 1 ? '已忽略 ' + keys.length + ' 项' : '已忽略') + '，原因：' + why, 'info'); }) }); } }
     const chipsOf = (lf, skip, label) => Object.keys(lf).filter((k) => k !== skip).map((k) => ({ k: (label && label[k]) || k, v: lf[k], x: ev(() => { const f = Object.assign({}, lf); delete f[k]; S({ lfT: Date.now(), pgT: Date.now(), lf: f, pg: 1 }); }) }));
     const picker = (lf, ATTR) => { const fa = fresh('fa') ? (st.fa || '') : ''; const on = !!fa; const isV = on && fa !== '*';
       ls.faW = on ? 'dd-w on' : 'dd-w'; ls.faOn = on; ls.faV = isV; ls.faK = isV ? fa : '';
@@ -1566,15 +1600,27 @@ class Component extends DCLogic {
       Object.assign(ls, { id: r0.id, n: r0.n, lv: LVC[r0.lv], lvT: r0.lv, st: r0.st, stc: r0.st === '处置失败' ? 'sl-st r' : 'sl-st', ty: r0.ty, src: r0.src, prod: r0.prod, t: r0.t, hn: r0.hs.length,
         desc: r0.desc, fix: r0.fix, hasFix: !!r0.fix, kv: r0.kv, hasKv: !!r0.kv.length, act: r0.act, canAct: !done, back: GO('SecRisks', { '类型': r0.ty }), backN: r0.ty === '入侵' ? '告警中心' : r0.ty === '漏洞' ? '漏洞管理' : '基线检查', dN: r0.ty === '入侵' ? '告警详情' : '风险详情',
         doAct: ev(() => { const o = Object.assign({}, hst); r0.hs.forEach((h) => { o[r0.id + '|' + h] = '处置中'; }); S({ hst: o, rst: Object.assign({}, rst, { [r0.id]: '处置中' }) }); toast('已对 ' + r0.hs.length + ' 台主机下发「' + r0.act + '」，完成后自动复检'); }),
-        ign: ev(() => { S({ rst: Object.assign({}, rst, { [r0.id]: '已忽略' }) }); toast('已忽略，可在「已忽略」中恢复', 'info'); }), isAl,
+        ign: ev(() => igOpen({ t: '忽略「' + r0.n + '」', sub: '影响 ' + r0.hs.length + ' 台主机。忽略后这条风险在所有主机上都不再提醒。', keys: [r0.id] })), isAl,
         wl: ev(() => { S({ rst: Object.assign({}, rst, { [r0.id]: '已加白' }) }); toast('已加白：同一进程和来源以后不再产生这条告警，可在「防护策略 · 全局黑白名单」撤销'); }),
         hrows: r0.hs.map((h) => { const H = HM[h] || { ip: '', room: '', chk: '' }; const s = HST(h); return { n: h, go: HOSTGO(h), ip: H.ip, room: H.room, st: s, stc: s === '处置失败' ? 'sl-st r' : 'sl-st', chk: H.chk,
           other: pend.filter((x) => x.hs.indexOf(h) >= 0).length, goO: GO('SecRisks', { '主机': h }), goHost: GO('SecHosts', { '主机': h }),
           a: PEND.indexOf(s) >= 0 && s !== '处置中' ? r0.act : '', hasA: PEND.indexOf(s) >= 0 && s !== '处置中',
           doA: ev(() => { S({ hst: Object.assign({}, hst, { [r0.id + '|' + h]: '处置中' }) }); toast('已对 ' + h + ' 下发「' + r0.act + '」'); }),
-          ig: ev(() => { S({ hst: Object.assign({}, hst, { [r0.id + '|' + h]: '已忽略' }) }); toast('已忽略 ' + h + ' 上的这条风险', 'info'); }) }; }),
+          ig: ev(() => igOpen({ t: '忽略 ' + h + ' 上的这条风险', sub: '只忽略这台主机，其他主机上的同一风险照常提醒。', keys: [r0.id + '|' + h], host: 1 })) }; }),
         log: [{ t: r0.t, n: '发现', s: r0.src + '检测到' }].concat(r0.st === '处置失败' ? [{ t: '10-30 14:20', n: '自动修复失败', s: '客户端没有改密权限' }] : []).concat(done ? [{ t: '—', n: r0.st, s: r0.ver ? '复检通过' : '' }] : []) });
       ls.goHosts = GO('SecHosts', { '风险': r0.id });
+      /* s2rc */ if (!isAl) { const rc = (st.rc || {})[r0.id] || ''; const tries = (st.rcN || {})[r0.id] || 0; const canRc = (r0.ty === '漏洞' || r0.ty === '基线') && r0.st !== '已忽略' && r0.st !== '已解决' && r0.st !== '已归档';
+        const FAIL = { R3: r0.hs[0] + ' 上 OpenSSH 仍是 8.7p1，没有升级到 9.8p1。请按「怎么处理」升级并重启 sshd 后再检测。' };
+        const run = ev(() => { if (rc === 'chk') return; const n = tries + 1; S({ rc: Object.assign({}, st.rc || {}, { [r0.id]: 'chk' }), rcN: Object.assign({}, st.rcN || {}, { [r0.id]: n }) });
+          setTimeout(() => { const s2 = this.state || {}; const pass = n > 1; this.setState({ rc: Object.assign({}, s2.rc || {}, { [r0.id]: pass ? 'ok' : 'fail' }), rst: pass ? Object.assign({}, s2.rst || {}, { [r0.id]: '已解决' }) : (s2.rst || {}) }); }, 1400); });
+        ls.rcOn = canRc || rc === 'chk'; ls.rcN = rc === 'chk' ? '检测中…' : rc === 'fail' ? '修复后再次检测' : '我已修复，重新检测'; ls.rcC = rc === 'chk' ? 'kc-btn dis' : 'kc-btn'; ls.rcGo = run;
+        const M = rc === 'chk' ? ['ig7-bn', 'i', '正在对 ' + r0.hs.length + ' 台主机重新检测，大约 10 秒。'] : rc === 'fail' ? ['ig7-bn e', '!', '复检未通过：' + (FAIL[r0.id] || r0.hs[0] + ' 上仍检测到这个问题，请修复后再检测。')] : rc === 'ok' ? ['ig7-bn ok', '✓', '复检通过，已解决。只有复检通过才会关闭这类风险。'] : null;
+        ls.rcMsgOn = !!M; ls.rcMc = M ? M[0] : ''; ls.rcMi = M ? M[1] : ''; ls.rcMsg = M ? M[2] : '';
+        if (rc === 'chk') { ls.st = '检测中'; ls.stc = 'sl-st'; } else if (rc === 'fail') { ls.st = '未解决'; ls.stc = 'sl-st r'; }
+        if (rc === 'chk' || rc === 'fail') ls.hrows.forEach((h) => { if (h.st === '已忽略') return; h.st = rc === 'chk' ? '检测中' : '未解决'; h.stc = rc === 'fail' ? 'sl-st r' : 'sl-st'; h.hasA = rc === 'fail'; });
+        if (rc) ls.log = ls.log.filter((l) => l.n !== '已解决').concat(tries > 1 ? [{ t: '刚刚', n: '重新检测', s: '未通过 · ' + (FAIL[r0.id] ? 'OpenSSH 仍是 8.7p1' : '问题仍在') }] : []).concat(rc === 'chk' ? [{ t: '刚刚', n: '重新检测', s: '检测中' }] : rc === 'fail' ? [{ t: '刚刚', n: '重新检测', s: '未通过 · ' + (FAIL[r0.id] ? 'OpenSSH 仍是 8.7p1' : '问题仍在') }] : [{ t: '刚刚', n: '已解决', s: '复检通过' }]);
+        const why = igw[r0.id]; if (why && r0.st === '已忽略') { ls.log = ls.log.filter((l) => l.n !== '已忽略').concat([{ t: '刚刚', n: '已忽略', s: '原因：' + why + ' · 操作人 wangqi' }]); ls.canRe = true; ls.reN = '恢复为待处理'; ls.re = ev(() => S({ rst: Object.assign({}, st.rst || {}, { [r0.id]: '待处理' }) })); }
+        r0.hs.forEach((h) => { const w2 = igw[r0.id + '|' + h]; if (w2) ls.log = ls.log.concat([{ t: '刚刚', n: '忽略 ' + h, s: '原因：' + w2 + ' · 操作人 wangqi' }]); }); }
       ls.noInc = true;
       if (isAl) { const t = triOf(r0);
         Object.assign(ls, { st: t.s + (t.why ? ' · ' + t.why : ''), stc: 'sl-st', canAct: t.s === '待研判', act: t.inc ? '去事件研判' : '研判',

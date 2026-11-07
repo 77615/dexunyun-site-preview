@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>短信与站内信规格 · 德迅安全卫士</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#f5f7fb}
+.sm{width:1440px;box-sizing:border-box;padding:40px 48px 56px;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#1d2129;font-size:14px;background:#f5f7fb}
+.sm h1{margin:0;font-size:24px;font-weight:600}.sm .sm-sub{margin:8px 0 0;color:#4e5969;line-height:1.7}
+.sm h2{margin:36px 0 14px;font-size:16px;font-weight:600;display:flex;align-items:center;gap:10px}.sm h2 small{font-weight:400;font-size:12px;color:#86909c}
+.sm-card{background:#fff;border:1px solid #e5e8ef;border-radius:8px;padding:20px 24px}
+.sm-t{width:100%;border-collapse:collapse;font-size:13px}.sm-t th{text-align:left;font-weight:500;color:#4e5969;background:#f7f8fa;padding:10px 12px;border-bottom:1px solid #e5e8ef}.sm-t td{padding:12px;border-bottom:1px solid #f2f3f5;vertical-align:top;line-height:1.6}.sm-t tr:last-child td{border-bottom:0}
+.sm-t code{font-family:"JetBrains Mono",Menlo,monospace;font-size:12px;color:#1664ff;background:#e8f3ff;padding:1px 6px;border-radius:3px;white-space:nowrap}
+.sm-phs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sm-ph{background:#fff;border:1px solid #e5e8ef;border-radius:20px;padding:18px 18px 16px}
+.sm-ph-top{display:flex;justify-content:space-between;font-size:12px;color:#86909c;margin-bottom:12px}
+.sm-bub{background:#f2f3f5;border-radius:14px 14px 14px 4px;padding:12px 14px;line-height:1.75;font-size:14px}.sm-bub u{color:#1664ff;text-decoration:none}
+.sm-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:12px;color:#4e5969}
+.sm-tg{display:inline-block;padding:1px 8px;border-radius:3px;font-size:12px;line-height:20px;white-space:nowrap}
+.sm-tg.r{background:#ffece8;color:#cb2634}.sm-tg.o{background:#fff3e8;color:#cc5120}.sm-tg.b{background:#e8f3ff;color:#1664ff}.sm-tg.g{background:#fff7e8;color:#b85e00}.sm-tg.m{background:#f2f3f5;color:#4e5969}
+.sm-when{margin:8px 0 0;font-size:12px;color:#86909c;line-height:1.6}
+.sm-go{display:block;margin-top:14px;padding-top:12px;border-top:1px dashed #e5e8ef;color:#1664ff;font-size:13px;text-decoration:none}
+.sm-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sm-in{list-style:none;margin:0;padding:0}.sm-in li{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #f2f3f5}.sm-in li:last-child{border-bottom:0}
+.sm-in li div{flex:1}.sm-in b{font-weight:500}.sm-in p{margin:4px 0 0;font-size:13px;color:#4e5969;line-height:1.6}.sm-in a{color:#1664ff;font-size:13px;text-decoration:none;white-space:nowrap}
+.sm-fl{list-style:none;margin:0;padding:0;display:grid;gap:14px}.sm-fl li{display:flex;gap:12px}.sm-fl i{flex:none;width:22px;height:22px;border-radius:50%;background:#1664ff;color:#fff;font-style:normal;font-size:12px;display:flex;align-items:center;justify-content:center}
+.sm-fl b{display:block;font-weight:500}.sm-fl span{display:block;font-size:13px;color:#4e5969;margin-top:2px;line-height:1.6}
+.sm-note{margin:14px 0 0;font-size:12px;color:#86909c;line-height:1.7}
+</style>
+</helmet>
+<div class="sm">
+  <h1>短信与站内信规格</h1>
+  <p class="sm-sub">PG-14 · 对应需求 NT-01 至 NT-10、LC-12。通知只影响「客户知不知道」，不改变风险状态。通知规则只在<a href="SecNotify.dc.html" style="color:#1664ff">通知设置</a>里配置。下面的手机和站内信都可以点，会直达对应的落地页。</p>
+
+  <h2>发送规则</h2>
+  <div class="sm-card" style="padding:0"><table class="sm-t"><thead><tr><th style="width:110px">类型</th><th>包括</th><th style="width:130px">渠道</th><th style="width:280px">什么时候发</th><th style="width:220px">去重</th><th style="width:110px">需求</th></tr></thead><tbody><tr><td><b>紧急</b></td><td>入侵成功类：异常登录成功、木马、反弹 Shell、勒索</td><td>短信 + 站内信</td><td>立即，任何时间</td><td>同一服务器同类 30 分钟内只发 1 次</td><td><code>NT-02、NT-06</code></td></tr><tr><td><b>高危</b></td><td>可被远程利用的漏洞、弱口令、暴力破解</td><td>短信 + 站内信</td><td>22:00–08:00 顺延到 08:00；顺延期间已处理的不再发</td><td>同上</td><td><code>NT-03</code></td></tr><tr><td><b>中危 / 低危</b></td><td>一般漏洞、基线不合规</td><td>站内信 + 待办</td><td>立即</td><td>每天合并 1 条</td><td><code>NT-04</code></td></tr><tr><td><b>未受保护</b></td><td>未安装、已卸载、部署失败、离线、检测过期、未授权</td><td>站内信</td><td>原因首次出现时 1 次；重启、重装引起的离线 10 分钟内恢复不发</td><td>同一原因持续存在不重复发</td><td><code>NT-05</code></td></tr><tr><td><b>存量告知</b></td><td>老客户服务器分批开启卫士</td><td>短信 + 站内信</td><td>上线前分批</td><td>每台服务器只告知 1 次</td><td><code>LC-12</code></td></tr></tbody></table></div>
+
+  <h2>短信样式 <small>真实字数按含签名计算</small></h2>
+  <div class="sm-phs"><div class="sm-ph"><div class="sm-ph-top"><span>106 9xxx xxxx</span><small>10:12</small></div>
+      <div class="sm-bub">【德迅云】紧急：服务器 web-prod-01 有人从陌生地点（荷兰）登录成功。不是你本人请立即处理 <u>dxy.cn/s/8kQ2</u> 回T退订</div>
+      <div class="sm-meta"><span class="sm-tg r">紧急</span><span>NT-02</span><span>69 字 · 1 条计费</span></div>
+      <p class="sm-when">任何时间立即发送</p>
+      <a class="sm-go" href="IdcServerDetail.dc.html?tab=安全&amp;risk=login" onClick="{{go_login}}">打开落地页：服务器详情 · 安全，展开「异常登录」 →</a>
+    </div><div class="sm-ph"><div class="sm-ph-top"><span>106 9xxx xxxx</span><small>08:00</small></div>
+      <div class="sm-bub">【德迅云】高危：服务器 web-prod-01 有可被远程入侵的漏洞（OpenSSH），请今天内修复 <u>dxy.cn/s/3mZ7</u> 回T退订</div>
+      <div class="sm-meta"><span class="sm-tg o">高危</span><span>NT-03</span><span>69 字 · 1 条计费</span></div>
+      <p class="sm-when">22:00–08:00 发现的顺延到 08:00；发送前已处理的取消</p>
+      <a class="sm-go" href="IdcServerDetail.dc.html?tab=安全&amp;risk=vul" onClick="{{go_vul}}">打开落地页：服务器详情 · 安全，展开「OpenSSH 漏洞」 →</a>
+    </div><div class="sm-ph"><div class="sm-ph-top"><span>106 9xxx xxxx</span><small>昨天 15:00</small></div>
+      <div class="sm-bub">【德迅云】你的 12 台服务器将于 11 月 20 日起免费开启德迅安全卫士，发现高危风险会短信提醒。不需要可回复 N 或在控制台关闭 <u>dxy.cn/s/a1B9</u></div>
+      <div class="sm-meta"><span class="sm-tg b">存量告知</span><span>LC-12</span><span>81 字 · 2 条计费</span></div>
+      <p class="sm-when">上线前分批发送，每批间隔 1 天</p>
+      <a class="sm-go" href="IdcServers.dc.html">打开落地页：服务器列表 →</a>
+    </div></div>
+
+  <div class="sm-2">
+    <div><h2>站内信样式 <small>右上角铃铛 · 安全</small></h2><div class="sm-card"><ul class="sm-in"><li><span class="sm-tg r">紧急</span><div><b>web-prod-01 有人从陌生地点登录成功</b><p>今天 10:12 root 从荷兰 185.220.**.4 登录。不是你本人请点「不是我」，我们会封禁这个 IP。</p></div><a href="IdcServerDetail.dc.html?tab=安全&amp;risk=login" onClick="{{go_login}}">去处理</a></li><li><span class="sm-tg o">高危</span><div><b>web-prod-01 有可被远程入侵的漏洞</b><p>OpenSSH 8.5 存在 CVE-2024-6387。升级到 9.8p1 后点「我已修复，重新检测」。</p></div><a href="IdcServerDetail.dc.html?tab=安全&amp;risk=vul" onClick="{{go_vul}}">去处理</a></li><li><span class="sm-tg g">中危</span><div><b>3 个账号的密码太简单</b><p>admin、test、backup 使用常见密码。已放进待办。</p></div><a href="IdcServerDetail.dc.html?tab=安全&amp;risk=pwd" onClick="{{go_pwd}}">去处理</a></li><li><span class="sm-tg m">未受保护</span><div><b>backup-02 未受保护：已卸载</b><p>德迅安全卫士客户端已于 10-20 卸载，这台服务器不再检测。同一原因不会重复提醒。</p></div><a href="SecHosts.dc.html">重新安装</a></li></ul></div></div>
+    <div><h2>点链接之后</h2><div class="sm-card"><ol class="sm-fl"><li><i>1</i><div><b>点短信或站内信里的链接</b><span>短链带服务器 ID + 风险 ID</span></div></li><li><i>2</i><div><b>没登录就先登录</b><span>登录后自动回到原链接，不落到首页</span></div></li><li><i>3</i><div><b>打开服务器详情 · 安全页签</b><span>顶部提示「你从短信链接进入」，对应风险已展开</span></div></li><li><i>4</i><div><b>按大白话步骤处理</b><span>异常登录：是我本人 / 不是我；漏洞和弱口令：我已修复，重新检测；也可以选原因忽略</span></div></li><li><i>5</i><div><b>复检通过才关闭</b><span>不通过写明原因，留在「未解决」</span></div></li></ol><p class="sm-note">落地页统一是「服务器详情 · 安全」页签，不是安全卫士里的告警详情，因为收短信的多是只租了服务器的客户。安全卫士用户点站内信时也走同一个落地页，页内有「在德迅安全卫士查看」入口。</p></div></div>
+  </div>
+
+  <h2>字段规则</h2>
+  <div class="sm-card" style="padding:0"><table class="sm-t"><thead><tr><th style="width:140px">字段</th><th>规则</th></tr></thead><tbody><tr><td>签名</td><td>【德迅云】，计入字数</td></tr><tr><td>等级</td><td>紧急 / 高危，放在签名后第一个词</td></tr><tr><td>服务器名</td><td>优先用客户备注名，没有就用主机名；超过 16 字截断为前 15 字 + …</td></tr><tr><td>风险标题</td><td>大白话标题（RK-01），不出现 CVE 编号和英文术语，产品名可以保留</td></tr><tr><td>直达链接</td><td>短链，7 天有效；带服务器 ID 和风险 ID。未登录先登录，登录后回到原链接；刷新后仍停在这条风险（NT-07）</td></tr><tr><td>退订</td><td>「回T退订」只关短信；站内信和待办照常（NT-09，开关在通知设置）</td></tr><tr><td>字数</td><td>单条 70 字以内（含签名），超过按 67 字一条拆分计费；紧急和高危必须 1 条以内</td></tr><tr><td>接收人</td><td>资产负责人 + 主账号；服务器转移后只发新归属（NT-01）</td></tr></tbody></table></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const go = (k) => () => { try { localStorage.setItem('dxSmsGo', JSON.stringify({ k, t: Date.now() })); } catch (x) {} };
+    return { go_login: go('login'), go_vul: go('vul'), go_pwd: go('pwd') };
+  }
+}
+</script>
+</body>
+</html>
