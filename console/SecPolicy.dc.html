@@ -1716,6 +1716,8 @@ class Component extends DCLogic {
       ['w', '文件哈希', 'a3f1…9c2e', 'Zabbix agent', '全部 Linux 主机', '手动添加', '李四', '10-18 16:30'],
       ['b', 'IP', '45.142.xx.xx', '异常登录来源（荷兰）', '全部主机', '告警处置', '来自告警 R1 · AI 研判建议', '11-02 10:20'],
       ['b', '域名', 'pool.minexmr.com', '矿池地址', '全部主机', '手动添加', 'wangqi', '10-27 23:30']];
+    /* tri171 告警加白 → 全局白名单 */
+    try { const T = JSON.parse(localStorage.getItem('dxTri') || '{}') || {}; Object.keys(T).forEach((k) => { const t = T[k]; if (t && t.why === '加白' && t.wl) WL0.unshift(['w', t.wl.ty, t.wl.v, t.note || '', t.wl.h, '告警加白', '来自告警 ' + k + ' · wangqi', '刚刚']); }); } catch (y) {}
     const rmd = st.plRm || {}; const lt = st.plLt || 'w'; const wl = WL0.filter((w, i) => !rmd[i]);
     pl.lsegs = [['w', '白名单'], ['b', '黑名单']].map(([k, n]) => ({ n, c: wl.filter((w) => w[0] === k).length, cls: k === lt ? 'on' : '', pick: ev(() => S({ plLt: k })) }));
     pl.lHint = lt === 'w' ? '误报优先在这里加白，不要关闭整项能力；命中白名单的进程、IP 或文件不再产生告警' : '命中黑名单的 IP 或域名直接拦截';

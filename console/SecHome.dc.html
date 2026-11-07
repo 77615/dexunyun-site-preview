@@ -680,6 +680,7 @@
 .kc-ic.i-policy{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21 10H11V17.3823C11 18.9449 11.7775 20.4053 13.074 21.2742L14.1569 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H15.9968L21 7V10ZM13 12H21V17.3823C21 18.2786 20.5544 19.1156 19.8125 19.6128L17 21.4978L14.1875 19.6128C13.4456 19.1156 13 18.2786 13 17.3823V12Z"/%3E%3C/svg%3E')}
 
 .kc-sw.dis{opacity:.45;cursor:not-allowed}
+.sh-hdm .sh-hdw{display:block;flex:none;width:100%;height:72px;box-sizing:border-box}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -859,7 +860,7 @@
               <div><span class="sh-swdsc">{{r.sc}}</span></div>
               <div><button type="button" class="{{r.swc}}" role="switch" aria-checked="{{r.ac}}" aria-label="{{r.n}}" aria-disabled="{{r.lk}}" onClick="{{r.tog}}"></button></div>
               <div><sc-if value="{{r.canE}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.ed}}">{{r.edT}}</button></sc-if><sc-if value="{{r.noE}}" hint-placeholder-val="{{false}}"><span class="sh-swdsc">—</span></sc-if></div></div></sc-if>
-            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><sc-if value="{{r.hasR}}" hint-placeholder-val="{{true}}"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noR}}" hint-placeholder-val="{{false}}"><span>生效范围</span><span class="sh-swdsc">跟随默认的主机都使用这一项；个别主机要不同设置，请在「防护策略」给它分配别的策略</span></sc-if><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
+            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><sc-if value="{{r.hasR}}" hint-placeholder-val="{{true}}"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noR}}" hint-placeholder-val="{{false}}"><span>生效范围</span><span class="sh-swdsc">对跟随默认策略的主机生效；单独设置过的主机不受影响，可在「防护策略」里查看</span></sc-if><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
           </sc-for></div></div>
         <footer><span class="sh-swch">{{sx.sw.chg}}</span><button type="button" class="kc-btn" onClick="{{sx.sw.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.sw.save}}">保存设置</button></footer></aside></sc-if>
       <sc-if value="{{sx.ntf.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.ntf.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="告警通知设置"><header><h3>告警通知设置</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.ntf.x}}">×</button></header>
@@ -878,10 +879,11 @@
       <sc-if value="{{sx.mdOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md" role="dialog" aria-modal="true" aria-label="{{sx.md.t}}"><h3>{{sx.md.t}}</h3><p>{{sx.md.p}}</p>
         <sc-if value="{{sx.md.code}}" hint-placeholder-val="{{false}}"><div class="sh-code"><code>{{sx.md.code}}</code><button type="button" class="sh-op" onClick="{{sx.mdCopy}}">{{sx.mdCpT}}</button></div></sc-if>
         <div class="sh-mf"><button type="button" class="kc-btn" onClick="{{sx.mdX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.mdOk}}">{{sx.md.ok}}</button></div></div></div></sc-if>
-      <sc-if value="{{sx.hdOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md sh-hdm" role="dialog" aria-modal="true" aria-label="处理告警"><h3>处理告警 · 异常登录</h3><p>web-prod-01 · 10:12 被 45.142.xx.xx 以 root 登录</p>
-        <div class="sh-fs"><b>处理方式</b><div class="sh-rad" role="radiogroup"><sc-for list="{{sx.hdM}}" as="m" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{m.on}}" class="{{m.c}}" onClick="{{m.pick}}"><i></i>{{m.n}}</button></sc-for></div><p class="sh-fh">{{sx.hdHint}}</p></div>
+      <sc-if value="{{sx.hdOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md sh-hdm" role="dialog" aria-modal="true" aria-label="研判告警"><h3>研判告警 · 异常登录</h3><p>web-prod-01 · 10:12 被 45.142.xx.xx 以 root 登录</p>
+        <div class="sh-fs"><b>研判结论</b><div class="sh-rad" role="radiogroup" aria-label="研判结论"><sc-for list="{{sx.hdT}}" as="t" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{t.on}}" class="{{t.c}}" onClick="{{t.pick}}"><i></i>{{t.n}}</button></sc-for></div></div>
+        <sc-if value="{{sx.hdReal}}" hint-placeholder-val="{{true}}"><div class="sh-fs"><b>下一步</b><div class="sh-rad" role="radiogroup" aria-label="下一步"><sc-for list="{{sx.hdM}}" as="m" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{m.on}}" class="{{m.c}}" onClick="{{m.pick}}"><i></i>{{m.n}}</button></sc-for></div><p class="sh-fh">{{sx.hdHint}}</p></div></sc-if>
         <sc-if value="{{sx.hdEnd}}" hint-placeholder-val="{{false}}"><div class="sh-proc"><sc-for list="{{sx.hdP}}" as="q" hint-placeholder-count="2"><div class="sh-pr"><button type="button" role="checkbox" aria-checked="{{q.on}}" class="{{q.c}}" onClick="{{q.pick}}"></button><div><b>{{q.n}}</b><code>{{q.cmd}}</code></div></div></sc-for><small>终止后建议继续排查是否有其他进程调用链。</small></div></sc-if>
-        <div class="sh-fs"><b>告警标签</b><div class="sh-rad" role="radiogroup"><sc-for list="{{sx.hdT}}" as="t" hint-placeholder-count="4"><button type="button" role="radio" aria-checked="{{t.on}}" class="{{t.c}}" onClick="{{t.pick}}"><i></i>{{t.n}}</button></sc-for></div></div>
+        <sc-if value="{{sx.hdFp}}" hint-placeholder-val="{{false}}"><div class="sh-fs"><b>原因（必填）</b><textarea class="sh-hdw" aria-label="原因" placeholder="{{sx.hdWP}}" value="{{sx.hdW}}" onChange="{{sx.hdOnW}}"></textarea><p class="sh-fh">{{sx.hdWH}}</p></div></sc-if>
         <div class="sh-mf"><button type="button" class="kc-btn" onClick="{{sx.hdX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.hdOk}}">确定</button></div></div></div></sc-if>
       <sc-if value="{{sx.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{sx.ts.c}}"></i>{{sx.ts.t}}</div></sc-if>
     </main>
@@ -1549,7 +1551,7 @@ class Component extends DCLogic {
       ai: { t: 'AI 分析详情', p: '基于近 24 小时的告警、日志和资产信息生成，结论供参考，处置前请确认。', h: ['事件', '研判结论', '可信度', '操作'],
         r: H([['异常登录', '疑似撞库成功，来源 IP 近 1 小时尝试 312 次', '高', 'kc-tag err', '封禁 IP', () => toast('已封禁 45.142.xx.xx，24 小时后自动解封')], ['OpenSSH 漏洞', '端口对公网开放，可被远程利用', '高', 'kc-tag err', '去修复', () => openMd('fix')], ['客户端已卸载', '10-29 由 root 手动卸载', '中', 'kc-tag warn', '重新安装', () => openMd('install')]]), lk: '', lkGo: undefined },
       judge: { t: 'AI 研判 · 异常登录', p: 'web-prod-01 在 10:12 被 45.142.xx.xx（荷兰）以 root 登录，此前 1 小时该 IP 尝试登录 312 次。', h: ['证据', '内容', '判断', '操作'],
-        r: H([['登录来源', '45.142.xx.xx · 荷兰', '首次出现', 'kc-tag err'], ['登录前行为', '1 小时内失败 312 次', '暴力破解', 'kc-tag err'], ['登录后行为', '下载 /tmp/.x 并执行', '可疑', 'kc-tag warn', '隔离文件', () => toast('已隔离 /tmp/.x')]]), pb: '处理', pbGo: ev(() => S({ shDw: '', shHd: 1 })), lk: '确认是本人登录', lkGo: ev(() => { S({ shDw: '', pd: Object.assign({}, this.state.pd || {}, { 0: 1 }) }); toast('已标记为本人登录，同类告警 7 天内不再提醒'); }) },
+        r: H([['登录来源', '45.142.xx.xx · 荷兰', '首次出现', 'kc-tag err'], ['登录前行为', '1 小时内失败 312 次', '暴力破解', 'kc-tag err'], ['登录后行为', '下载 /tmp/.x 并执行', '可疑', 'kc-tag warn', '隔离文件', () => toast('已隔离 /tmp/.x')]]), pb: '研判', pbGo: ev(() => S({ shDw: '', shHd: 1 })), lk: '确认是本人登录', lkGo: ev(() => { S({ shDw: '', pd: Object.assign({}, this.state.pd || {}, { 0: 1 }) }); toast('已标记为本人登录，同类告警 7 天内不再提醒'); }) },
       vuln: { t: 'OpenSSH 远程代码执行漏洞', p: '', hasKv: 1, kv: [{ k: '漏洞编号', v: 'CVE-2024-6387', c: '' }, { k: '风险级别', v: '严重', c: 'sh-red' }, { k: '是否有 EXP', v: '是，已公开', c: 'sh-red' }, { k: 'CVSS 评分', v: '8.1', c: '' }],
         desc: 'OpenSSH 服务端存在竞态条件，攻击者无需认证即可远程以 root 执行代码。影响 8.5p1 至 9.7p1 版本，22 端口对公网开放时风险最高。',
         fix: '升级 OpenSSH 到 9.8p1 或以上，升级时会重启 sshd，已建立的连接不受影响。', code: 'yum update -y openssh openssh-server && systemctl restart sshd',
@@ -1571,10 +1573,19 @@ class Component extends DCLogic {
     const dk = st.shDw || '', mk = st.shMd || '';
     const dw = dk.indexOf('host:') === 0 ? hostDw(dk.slice(5)) : dk.indexOf('rec:') === 0 ? recDw(dk.slice(4)) : DW[dk] || { t: '', p: '', h: [], r: [], lk: '' };
     dw.h = (dw.h || []).map((t) => ({ t })); dw.more = dw.more || ''; ['p', 'desc', 'code', 'fix', 'tT', 'pb', 'lk'].forEach((k) => { dw[k] = dw[k] || ''; }); dw.kv = dw.kv || []; dw.hasKv = !!dw.kv.length;
-    const HM = [['已人工处理', '已经完成人工排查并处理时选择，告警标记为已处理。'], ['加入白名单', '同一主机、同一来源的告警以后不再提醒，可在「告警白名单」中撤销。'], ['端上处理', '由客户端在主机上终止可疑进程并隔离文件，无需登录服务器。']];
-    const hm = st.hdM || '端上处理', ht = st.hdT || '真实入侵', hk = st.hdK || { 0: 1, 1: 1 };
-    const PROC = [['终止进程 26796 并隔离文件', '/tmp/.x -c 45.142.xx.xx:4444'], ['断开该 IP 的 SSH 会话并封禁 24 小时', 'sshd: root@pts/1 from 45.142.xx.xx']];
-    const hdDone = { '已人工处理': '已标记为已处理', '加入白名单': '已加入白名单，同类告警不再提醒', '端上处理': '已下发端上处理，进程已终止并隔离文件' };
+    const HM = [['在告警里直接处置', '由客户端在主机上执行下面的动作，结果记在告警详情的「处置动作」里。'], ['升级为安全事件', '创建事件 INC-3206（待研判），在「威胁狩猎」里统一研判、处置和结案。'], ['关联到已有事件', '归入同主机上的 INC-3201（WebShell 植入并反弹连接），跟随事件处置。']];
+    const hm = st.hdM || '在告警里直接处置', ht = st.hdT || '真实攻击', hk = st.hdK || { 0: 1, 1: 1 }, hwhy = st.hdW || '';
+    const PROC = [['终止进程并隔离文件', '/tmp/.x（PID 3990）'], ['断开 SSH 会话并封禁来源 IP 24 小时', '45.142.xx.xx']];
+    const hdReal = ht === '真实攻击';
+    const hdSave = () => { let cur = {}; try { cur = JSON.parse(localStorage.getItem('dxTri') || '{}') || {}; } catch (y) {}
+      if (hdReal) { const inc = hm === '升级为安全事件' ? 'INC-3206' : hm === '关联到已有事件' ? 'INC-3201' : '';
+        const acts = {}; if (!inc) PROC.forEach(([n], i) => { if (hk[i]) acts[n] = 'ok'; });
+        cur.R1 = { s: '已确认', inc, acts }; if (inc === 'INC-3206') try { localStorage.setItem('dxIncNew', JSON.stringify({ id: inc, al: ['R1'], h: 'web-prod-01', t: Date.now() })); } catch (y) {}
+        try { localStorage.setItem('dxTri', JSON.stringify(cur)); } catch (y) {}
+        return inc ? '已确认，并' + (inc === 'INC-3206' ? '创建事件 INC-3206' : '归入 INC-3201') + '，在「威胁狩猎」里处置' : '已确认，已执行 ' + Object.keys(acts).length + ' 个处置动作，结果见告警详情'; }
+      cur.R1 = { s: '已忽略', why: ht === '误报' ? '误报' : '加白', note: hwhy.trim(), wl: ht === '误报' ? null : { ty: '告警特征', v: '异常登录（入侵检测）', h: 'web-prod-01' } };
+      try { localStorage.setItem('dxTri', JSON.stringify(cur)); } catch (y) {}
+      return ht === '误报' ? '已标记为误报，告警移到「已忽略」' : '已加白，同类告警以后不再提醒，可在「防护策略 · 全局黑白名单」撤销'; };
     const md = MD[mk] || { t: '', p: '', ok: '', code: '' };
     Object.assign(sx, {
       go: { report: ev(() => openDw('report')), rule: ev(() => openDw('rule')), install: ev(() => openMd('install')), score: ev(() => openDw('score')), ai: ev(() => openDw('ai')), allPri: navT('告警中心'), allAl: navT('告警中心'), rec: ev(() => openDw('rec:')), assets: navT('资产管理'), notify: navT('通知设置') },
@@ -1586,11 +1597,12 @@ class Component extends DCLogic {
       mdOn: !!mk, md: Object.assign({ code: '' }, md), mdX: ev(() => S({ shMd: '' })), mdOk: ev(() => md.run && md.run()),
       mdCpT: st.shCp ? '已复制' : '复制', mdCopy: ev(() => { try { navigator.clipboard.writeText(md.code).catch(() => {}); } catch (x) {} S({ shCp: 1 }); }),
       tsOn: !!st.shT, ts: st.shT || { t: '', c: '' },
-      hdOn: !!st.shHd, hdX: ev(() => S({ shHd: 0 })), hdHint: (HM.find((x) => x[0] === hm) || HM[0])[1], hdEnd: hm === '端上处理',
+      hdOn: !!st.shHd, hdX: ev(() => S({ shHd: 0 })), hdHint: (HM.find((x) => x[0] === hm) || HM[0])[1], hdEnd: hdReal && hm === '在告警里直接处置', hdReal, hdFp: !hdReal, hdW: hwhy, hdOnW: (e) => S({ hdW: e && e.target ? e.target.value : '' }),
+      hdWP: ht === '误报' ? '例如：内部漏洞扫描器触发' : '例如：运维人员从跳板机登录', hdWH: ht === '误报' ? '告警移到「已忽略」，可以随时恢复。' : '加白后同一来源以后不再告警，规则出现在「防护策略 · 全局黑白名单」。',
       hdM: HM.map(([n]) => ({ n, on: n === hm ? 'true' : 'false', c: n === hm ? 'sh-ro on' : 'sh-ro', pick: ev(() => S({ hdM: n })) })),
-      hdT: ['真实入侵', '误报', '已重复', '自定义标记'].map((n) => ({ n, on: n === ht ? 'true' : 'false', c: n === ht ? 'sh-ro on' : 'sh-ro', pick: ev(() => S({ hdT: n })) })),
+      hdT: ['真实攻击', '误报', '正常业务行为（加白）'].map((n) => ({ n, on: n === ht ? 'true' : 'false', c: n === ht ? 'sh-ro on' : 'sh-ro', pick: ev(() => S({ hdT: n })) })),
       hdP: PROC.map(([n, cmd], i) => ({ n, cmd, on: hk[i] ? 'true' : 'false', c: hk[i] ? 'sh-ck on' : 'sh-ck', pick: ev(() => S({ hdK: Object.assign({}, hk, { [i]: hk[i] ? 0 : 1 }) })) })),
-      hdOk: ev(() => { S({ shHd: 0, pd: Object.assign({}, this.state.pd || {}, { 0: 1 }) }); toast(hdDone[hm] + ' · 标签：' + ht); }),
+      hdOk: ev(() => { if (!hdReal && !hwhy.trim()) { toast('请填写原因', 'info'); return; } const msg = hdSave(); S({ shHd: 0, hdW: '', pd: Object.assign({}, this.state.pd || {}, { 0: 1 }) }); toast(msg); }),
       dwCpT: st.shDc ? '已复制' : '复制', dwCopy: ev(() => { try { navigator.clipboard.writeText(dw.code).catch(() => {}); } catch (x) {} S({ shDc: 1 }); }),
       fbUp: ev(() => toast('感谢反馈，AI 会参考你的评价')), fbDown: ev(() => toast('已记录，AI 会据此调整排序', 'info'))
     });
@@ -1939,7 +1951,7 @@ class Component extends DCLogic {
 
     // sechome: 德迅安全卫士总览
     const SD = 'IdcServerDetail.dc.html', SL = 'IdcServers.dc.html', EYE = 'EyeRisk.dc.html', CDN = 'Main.dc.html', ATK = 'DdosInstanceDetail.dc.html', CERT = 'ScdnCerts.dc.html';
-    const AL = [['hi', '紧急', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'sh-st', '10:12', '处理', SD],
+    const AL = [['hi', '紧急', '异常登录', 'web-prod-01', '德迅安全卫士', '待研判', 'sh-st', '10:12', '处理', SD],
       ['hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '修复', SD],
       ['hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'sh-st', '09:30', '修复', EYE],
       ['hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'sh-st', '10:41', '开启防护', CDN],

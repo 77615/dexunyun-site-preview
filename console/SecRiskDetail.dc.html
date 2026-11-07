@@ -489,6 +489,11 @@
 .kc-ic.i-hunt{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13 1L13.001 4.06201C16.6192 4.51365 19.4869 7.38163 19.9381 11L23 11V13L19.938 13.001C19.4864 16.6189 16.6189 19.4864 13.001 19.938L13 23H11L11 19.9381C7.38163 19.4869 4.51365 16.6192 4.06201 13.001L1 13V11L4.06189 11C4.51312 7.38129 7.38129 4.51312 11 4.06189L11 1H13ZM12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10Z"/%3E%3C/svg%3E')}
 .kc-ic.i-robot{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13.5 2C13.5 2.44425 13.3069 2.84339 13 3.11805V5H18C19.6569 5 21 6.34315 21 8V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V8C3 6.34315 4.34315 5 6 5H11V3.11805C10.6931 2.84339 10.5 2.44425 10.5 2C10.5 1.17157 11.1716 0.5 12 0.5C12.8284 0.5 13.5 1.17157 13.5 2ZM0 10H2V16H0V10ZM24 10H22V16H24V10ZM9 14.5C9.82843 14.5 10.5 13.8284 10.5 13C10.5 12.1716 9.82843 11.5 9 11.5C8.17157 11.5 7.5 12.1716 7.5 13C7.5 13.8284 8.17157 14.5 9 14.5ZM16.5 13C16.5 12.1716 15.8284 11.5 15 11.5C14.1716 11.5 13.5 12.1716 13.5 13C13.5 13.8284 14.1716 14.5 15 14.5C15.8284 14.5 16.5 13.8284 16.5 13Z"/%3E%3C/svg%3E')}
 .kc-ic.i-policy{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21 10H11V17.3823C11 18.9449 11.7775 20.4053 13.074 21.2742L14.1569 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H15.9968L21 7V10ZM13 12H21V17.3823C21 18.2786 20.5544 19.1156 19.8125 19.6128L17 21.4978L14.1875 19.6128C13.4456 19.1156 13 18.2786 13 17.3823V12Z"/%3E%3C/svg%3E')}
+.sl .sl-axh{display:flex;align-items:center;gap:12px;font-size:12px;color:#86909c}
+.sl .sl-code{font-family:"JetBrains Mono",Menlo,monospace;font-size:12px;color:#42464e}
+.sl .tri-ta{display:block;flex:none;width:100%;height:72px;box-sizing:border-box}
+.sl .tri-inc{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:12px;padding:12px;background:#f7f8fa;border-radius:4px}
+.sl .tri-md .sh-fs{margin-top:16px}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -583,12 +588,14 @@
     <div class="kc-foldbar"><label for="kcf-SecRiskDetail" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecRiskDetail" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecRiskDetail" class="kc-main sh sl">
       <div class="kc-hd"><div class="kc-hdl"><div class="sl-hd"><a class="sl-bk" href="#" onClick="{{ls.back}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg><span>{{ls.backN}}</span></a><h1 class="kc-h1">{{ls.n}}</h1><span class="sl-tg"><i class="{{ls.lv}}"></i>{{ls.lvT}}</span><span class="{{ls.stc}}">{{ls.st}}</span></div></div>
-        <div class="kc-btns"><sc-if value="{{ls.canAct}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{ls.ign}}">忽略</button><sc-if value="{{ls.isAl}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{ls.wl}}">加白</button></sc-if><button type="button" class="kc-btn pri" onClick="{{ls.doAct}}">{{ls.act}}</button></sc-if></div></div>
+        <div class="kc-btns"><sc-if value="{{ls.canAct}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{ls.ign}}">忽略</button><button type="button" class="kc-btn pri" onClick="{{ls.doAct}}">{{ls.act}}</button></sc-if><sc-if value="{{ls.canRe}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{ls.re}}">恢复为待研判</button></sc-if></div></div>
       <section class="kc-card"><div class="kc-ch"><h2>基本信息</h2></div>
         <div class="sl-kv"><div><small>编号</small><span>{{ls.id}}</span></div><div><small>类型</small><span>{{ls.ty}}</span></div><div><small>检测项</small><span>{{ls.src}}</span></div><div><small>首次发现</small><span>{{ls.t}}</span></div>
-          <div><small>影响主机</small><a href="#" onClick="{{ls.goHosts}}">{{ls.hn}} 台</a></div><sc-for list="{{ls.kv}}" as="k" hint-placeholder-count="3"><div><small>{{k.k}}</small><span>{{k.v}}</span></div></sc-for></div></section>
+          <div><small>影响主机</small><a href="#" onClick="{{ls.goHosts}}">{{ls.hn}} 台</a></div><sc-if value="{{ls.isAl}}" hint-placeholder-val="{{true}}"><div><small>所属事件</small><sc-if value="{{ls.hasInc}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{ls.incGo}}">{{ls.incN}}</a></sc-if><sc-if value="{{ls.noInc}}" hint-placeholder-val="{{false}}"><span>未归入事件</span></sc-if></div></sc-if><sc-for list="{{ls.kv}}" as="k" hint-placeholder-count="3"><div><small>{{k.k}}</small><span>{{k.v}}</span></div></sc-for></div></section>
       <div class="sl-2"><section class="kc-card"><div class="kc-ch"><h2>发生了什么</h2></div><p class="sl-p">{{ls.desc}}</p></section>
         <section class="kc-card"><div class="kc-ch"><h2>怎么处理</h2></div><p class="sl-p">{{ls.fix}}</p></section></div>
+      <sc-if value="{{ls.axOn}}" hint-placeholder-val="{{false}}"><section class="kc-card"><div class="kc-ch"><h2>处置动作</h2><div class="sl-axh"><span>{{ls.axS}}</span><sc-if value="{{ls.axAllOn}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn pri" onClick="{{ls.axAll}}">全部执行</button></sc-if></div></div>
+        <div class="kc-tw"><table class="kc-t"><thead><tr><th>动作</th><th>对象</th><th>结果</th><th>操作</th></tr></thead><tbody><sc-for list="{{ls.ax}}" as="a" hint-placeholder-count="2"><tr><td>{{a.n}}</td><td><code class="sl-code">{{a.tg}}</code></td><td><span class="{{a.sc}}">{{a.s}}</span></td><td><sc-if value="{{a.can}}" hint-placeholder-val="{{true}}"><a class="sl-op" href="#" onClick="{{a.go}}">{{a.op}}</a></sc-if></td></tr></sc-for></tbody></table></div></section></sc-if>
       <section class="kc-card"><div class="kc-ch"><h2>影响对象（{{ls.hn}}）</h2></div>
         <div class="kc-tw"><table class="kc-t"><thead><tr><th>主机</th><th>机房</th><th>在这台主机上</th><th>该主机待处理风险</th><th>最近检测</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{ls.hrows}}" as="h" hint-placeholder-count="2"><tr>
@@ -597,6 +604,13 @@
             <td><sc-if value="{{h.hasA}}" hint-placeholder-val="{{true}}"><a class="sl-op" href="#" onClick="{{h.doA}}">{{h.a}}</a><a class="sl-op" href="#" onClick="{{h.ig}}">忽略</a></sc-if><a class="sl-op" href="#" onClick="{{h.goHost}}">查看主机</a></td>
           </tr></sc-for></tbody></table></div></section>
       <section class="kc-card"><div class="kc-ch"><h2>处置记录</h2></div><ul class="sl-log"><sc-for list="{{ls.log}}" as="l" hint-placeholder-count="2"><li><span>{{l.t}}</span><b>{{l.n}}</b><span>{{l.s}}</span></li></sc-for></ul></section>
+      <sc-if value="{{ls.tmOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md tri-md" role="dialog" aria-modal="true" aria-label="研判告警"><h3>研判告警</h3><p>{{ls.tmSub}}</p>
+        <div class="sh-fs"><b>研判结论</b><div class="sh-rad" role="radiogroup" aria-label="研判结论"><sc-for list="{{ls.tmV}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div></div>
+        <sc-if value="{{ls.tmReal}}" hint-placeholder-val="{{true}}"><div class="sh-fs"><b>下一步</b><div class="sh-rad" role="radiogroup" aria-label="下一步"><sc-for list="{{ls.tmN}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div>
+          <sc-if value="{{ls.tmLink}}" hint-placeholder-val="{{false}}"><div class="tri-inc" role="radiogroup" aria-label="选择事件"><sc-for list="{{ls.tmI}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div></sc-if>
+          <p class="sh-fh">{{ls.tmHint}}</p></div></sc-if>
+        <sc-if value="{{ls.tmWhyOn}}" hint-placeholder-val="{{false}}"><div class="sh-fs"><b>原因（必填）</b><textarea class="tri-ta" aria-label="原因" placeholder="{{ls.tmWhyP}}" value="{{ls.tmWhy}}" onChange="{{ls.tmOnWhy}}"></textarea><p class="sh-fh">{{ls.tmWhyH}}</p></div></sc-if>
+        <div class="sh-mf"><button type="button" class="kc-btn" onClick="{{ls.tmX}}">取消</button><button type="button" class="{{ls.tmOkC}}" onClick="{{ls.tmOk}}">确定</button></div></div></div></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
     </main>
   </div>
@@ -1414,14 +1428,68 @@ class Component extends DCLogic {
       ls.pgs = Array.from({ length: pages }, (_, i) => i + 1).map((p) => ({ n: String(p), cls: p === pg ? 'on' : '', pick: ev(() => S({ pgT: Date.now(), pg: p })) }));
       ls.pPrev = ev(() => S({ pgT: Date.now(), pg: Math.max(1, pg - 1) })); ls.pNext = ev(() => S({ pgT: Date.now(), pg: Math.min(pages, pg + 1) })); ls.many = pages > 1; return pg; };
     const uniq = (a) => a.filter((v, i) => v && a.indexOf(v) === i);
+    /* tri170 告警研判（双对象模型：告警 待研判/已确认/已忽略 + 所属事件） */
+    const TRI = (() => { let o = {}; try { o = JSON.parse(localStorage.getItem('dxTri') || '{}') || {}; } catch (y) {} return Object.assign(o, st.tri || {}); })();
+    const INCOF = { R2: 'INC-3202' };
+    const INCN = { 'INC-3201': 'WebShell 植入并反弹连接', 'INC-3202': '可疑进程持续外联', 'INC-3198': 'SSH 暴力破解后登录', 'INC-3205': '可疑编码命令执行', 'INC-3190': 'SSH 暴力破解后登录', 'INC-3206': '异常登录后执行可疑文件' };
+    const INCH = { 'INC-3201': 'web-prod-01', 'INC-3202': 'web-prod-01', 'INC-3198': 'web-prod-01', 'INC-3205': 'app-03', 'INC-3190': 'api-01' };
+    /* tri171 事件状态回写告警 + 告警里的处置动作 */
+    const IST = (() => { try { return JSON.parse(localStorage.getItem('dxIncSt') || '{}') || {}; } catch (y) { return {}; } })();
+    const ACTS = { R1: [['终止进程并隔离文件', '/tmp/.x（PID 3990）'], ['断开 SSH 会话并封禁来源 IP 24 小时', '45.142.xx.xx']], R2: [['终止进程', '/tmp/.x（PID 26796）'], ['封禁外联地址', '45.142.xx.xx:4444']] };
+    const triOf = (r) => { const t = triOf0(r); const s = t.inc && IST[t.inc]; if (!s) return t;
+      if (s === '已关闭 · 误报') return Object.assign({}, t, { s: '已忽略', why: '误报', note: '所属事件 ' + t.inc + ' 研判为误报', incSt: s });
+      if (s !== '待研判' && t.s === '待研判') return Object.assign({}, t, { s: '已确认', incSt: s }); return Object.assign({}, t, { incSt: s }); };
+    const patchTri = (id, f) => { let cur = {}; try { cur = JSON.parse(localStorage.getItem('dxTri') || '{}') || {}; } catch (y) {} cur = Object.assign(cur, (this.state || {}).tri || {});
+      cur[id] = f(cur[id] || { s: '已确认', inc: '' }); try { localStorage.setItem('dxTri', JSON.stringify(cur)); } catch (y) {} this.setState({ tri: cur }); };
+    const axOf = (r, t) => (t.s === '已确认' && !t.inc ? ACTS[r.id] || [] : []).map(([n, tg]) => ({ n, tg, r: (t.acts || {})[n] || '' }));
+    const triOf0 = (r) => { const t = TRI[r.id]; if (t) return t; const s = rst[r.id] || r.st;
+      if (s === '已加白') return { s: '已忽略', why: '加白' }; if (s === '已忽略') return { s: '已忽略', why: '误报' };
+      if (s === '已解决' || s === '待复检' || s === '已处理') return { s: '已确认', inc: INCOF[r.id] || '' };
+      return { s: '待研判', inc: INCOF[r.id] || '' }; };
+    const saveTri = (o) => { const n = Object.assign({}, TRI, o); try { localStorage.setItem('dxTri', JSON.stringify(n)); } catch (y) {} S({ tri: n }); };
+    const triOpen = (ids, v) => S({ tm: { ids, v: v || '', nx: '', inc: '', why: '' }, rbd: false });
+    const triModal = (all) => { const m = st.tm; ls.tmOn = !!m; if (!m) return;
+      const ids = m.ids; const rs = ids.map((id) => all.find((x) => x.id === id)).filter(Boolean); const one = rs.length === 1 ? rs[0] : null;
+      const hs = uniq([].concat.apply([], rs.map((x) => x.hs)));
+      const T = (o) => S({ tm: Object.assign({}, m, o) });
+      let nw = null; try { nw = JSON.parse(localStorage.getItem('dxIncNew') || 'null'); } catch (y) {}
+      const H2 = Object.assign({}, INCH, nw && nw.id ? { [nw.id]: nw.h } : {});
+      const cands = Object.keys(H2).filter((k) => hs.indexOf(H2[k]) >= 0);
+      ls.tmSub = one ? one.n + ' · ' + one.hs.join('、') : '已选 ' + rs.length + ' 条告警 · 涉及 ' + hs.join('、');
+      ls.tmV = [['real', '真实攻击'], ['fp', '误报'], ['wl', '正常业务行为（加白）']].map(([k, n]) => ({ n, c: m.v === k ? 'sh-ro on' : 'sh-ro', a: m.v === k ? 'true' : 'false', t: ev(() => T({ v: k })) }));
+      ls.tmReal = m.v === 'real';
+      ls.tmN = [['self', '在告警里直接处理'], ['new', '升级为新安全事件'], ['link', '关联到已有事件']].filter(([k]) => k !== 'link' || cands.length)
+        .map(([k, n]) => ({ n, c: m.nx === k ? 'sh-ro on' : 'sh-ro', a: m.nx === k ? 'true' : 'false', t: ev(() => T({ nx: k })) }));
+      ls.tmLink = m.nx === 'link';
+      ls.tmI = cands.map((k) => ({ n: k + ' · ' + (INCN[k] || '') + ' · ' + H2[k], c: m.inc === k ? 'sh-ro on' : 'sh-ro', a: m.inc === k ? 'true' : 'false', t: ev(() => T({ inc: k })) }));
+      ls.tmHint = m.nx === 'self' ? '告警标记为「已确认」，按「怎么处理」里的建议处置，不创建事件。适合影响范围小、一个动作就能处理完的告警。'
+        : m.nx === 'new' ? '将创建事件 INC-3206（待研判），这些告警归入该事件，在「威胁狩猎」里统一研判、处置和结案。'
+        : m.nx === 'link' ? '告警归入所选事件，跟随事件的处置方案统一处理。' : '确认是真实攻击后，选择在哪里处置。';
+      ls.tmWhyOn = m.v === 'fp' || m.v === 'wl'; ls.tmWhy = m.why || ''; ls.tmOnWhy = (e) => T({ why: e && e.target ? e.target.value : '' });
+      ls.tmWhyP = m.v === 'wl' ? '例如：运维备份脚本，每天 02:00 执行' : '例如：内部漏洞扫描器触发';
+      ls.tmWhyH = m.v === 'wl' ? '加白是一个动作：告警移到「已忽略」，同一进程和来源以后不再告警，可在「防护策略 · 全局黑白名单」撤销。' : '告警移到「已忽略」，可以随时恢复。';
+      const ok = !!m.v && (m.v === 'real' ? !!m.nx && (m.nx !== 'link' || !!m.inc) : !!(m.why || '').trim());
+      ls.tmOkC = 'kc-btn pri' + (ok ? '' : ' hs-dis'); ls.tmX = ev(() => S({ tm: null }));
+      ls.tmOk = ev(() => { if (!ok) { toast(!m.v ? '请选择研判结论' : m.v === 'real' ? (m.nx === 'link' ? '请选择要关联的事件' : '请选择下一步') : '请填写原因', 'info'); return; }
+        const o = {}; let msg = '';
+        if (m.v === 'real') { let inc = '';
+          if (m.nx === 'new') { inc = 'INC-3206'; try { localStorage.setItem('dxIncNew', JSON.stringify({ id: inc, al: ids, h: hs[0] || '', t: Date.now() })); } catch (y) {} }
+          else if (m.nx === 'link') inc = m.inc;
+          ids.forEach((id) => { o[id] = { s: '已确认', inc }; });
+          msg = m.nx === 'self' ? '已确认 ' + ids.length + ' 条告警，可在告警详情里执行处置动作' : m.nx === 'new' ? '已确认，并创建事件 INC-3206（待研判），在「威胁狩猎」里处置' : '已确认，并归入 ' + inc; }
+        else { ids.forEach((id) => { const rr = all.find((x) => x.id === id) || { n: id, hs: [], src: '' }; o[id] = { s: '已忽略', why: m.v === 'wl' ? '加白' : '误报', note: (m.why || '').trim(), wl: m.v === 'wl' ? { ty: '告警特征', v: rr.n + '（' + rr.src + '）', h: rr.hs.join('、') || '全部主机' } : null }; });
+          msg = m.v === 'wl' ? '已加白 ' + ids.length + ' 条告警，同一进程和来源以后不再告警' : '已将 ' + ids.length + ' 条告警标记为误报'; }
+        saveTri(o); S({ tm: null, rsel: {}, rbd: false }); toast(msg); });
+    };
+    /* /tri170 */
 
     if (PGN === 'SecRisks' || PGN === 'SecVuln' || PGN === 'SecBaseline') {
       const SCP = PGN === 'SecRisks' ? (r) => r.ty === '入侵' : PGN === 'SecVuln' ? (r) => r.ty === '漏洞' : (r) => r.ty === '基线' || r.ty === '网络';
       const AST = (v) => (PGN === 'SecRisks' && (v === '已解决' || v === '待复检') ? '已处理' : v);
-      const RK = this._sd().RK.filter(SCP); const rk = RK.map((r) => Object.assign({}, r, { st: AST(RS(r)) }));
+      const RK = this._sd().RK.filter(SCP); const rk = RK.map((r) => { const t = PGN === 'SecRisks' ? triOf(r) : null; return Object.assign({}, r, { st: t ? t.s : AST(RS(r)), why: t ? t.why || '' : '', inc: t ? t.inc || '' : '', incSt: t ? t.incSt || '' : '', ax: t ? axOf(r, t) : [] }); });
       const lf = (fresh('lf') && st.lf) || this.__nf || {};
-      const TBS = PGN === 'SecRisks' ? ['待处理', '已处理', '已忽略', '已加白', '全部'] : PGN === 'SecBaseline' ? ['待处置', '待复检', '已解决', '已忽略', '全部', '修复任务'] : ['待处置', '待复检', '已解决', '已忽略', '全部'];
-      const tab0 = lf['状态'] || TBS[0]; const tab = PGN === 'SecRisks' ? (tab0 === '待处置' ? '待处理' : tab0 === '已解决' || tab0 === '待复检' ? '已处理' : tab0) : tab0;
+      const TBS = PGN === 'SecRisks' ? ['待研判', '已确认', '已忽略', '全部'] : PGN === 'SecBaseline' ? ['待处置', '待复检', '已解决', '已忽略', '全部', '修复任务'] : ['待处置', '待复检', '已解决', '已忽略', '全部'];
+      const tab0 = lf['状态'] || TBS[0]; const tab = PGN === 'SecRisks' ? (tab0 === '待处置' || tab0 === '待处理' ? '待研判' : tab0 === '已解决' || tab0 === '待复检' || tab0 === '已处理' ? '已确认' : tab0 === '已加白' ? '已忽略' : tab0) : tab0;
       const q = fresh('q') ? (st.q || '') : '';
       const m = (r, f) => Object.keys(f).every((k) => { const v = f[k]; switch (k) {
         case '状态': return v === '全部' ? true : v === '待处置' || v === '待处理' ? PEND.indexOf(r.st) >= 0 : r.st === v;
@@ -1507,6 +1575,23 @@ class Component extends DCLogic {
           ig: ev(() => { S({ hst: Object.assign({}, hst, { [r0.id + '|' + h]: '已忽略' }) }); toast('已忽略 ' + h + ' 上的这条风险', 'info'); }) }; }),
         log: [{ t: r0.t, n: '发现', s: r0.src + '检测到' }].concat(r0.st === '处置失败' ? [{ t: '10-30 14:20', n: '自动修复失败', s: '客户端没有改密权限' }] : []).concat(done ? [{ t: '—', n: r0.st, s: r0.ver ? '复检通过' : '' }] : []) });
       ls.goHosts = GO('SecHosts', { '风险': r0.id });
+      ls.noInc = true;
+      if (isAl) { const t = triOf(r0);
+        Object.assign(ls, { st: t.s + (t.why ? ' · ' + t.why : ''), stc: 'sl-st', canAct: t.s === '待研判', act: t.inc ? '去事件研判' : '研判',
+          doAct: t.inc ? GO('SecHunt', { '事件': t.inc }) : ev(() => triOpen([r0.id])), ign: ev(() => triOpen([r0.id], 'fp')),
+          hasInc: !!t.inc, noInc: !t.inc, incGo: GO('SecHunt', { '事件': t.inc }), incN: t.inc ? t.inc + ' · ' + (INCN[t.inc] || '') : '',
+          canRe: t.s === '已忽略', re: ev(() => { saveTri({ [r0.id]: { s: '待研判', inc: INCOF[r0.id] || '' } }); toast('已恢复为待研判'); }) });
+        ls.hrows.forEach((h) => { h.st = t.s; h.stc = 'sl-st'; h.hasA = false; });
+        if (t.incSt) ls.incN += ' · ' + t.incSt;
+        const ax = axOf(r0, t); const RW = { ok: ['成功', 'kc-tag ok'], ing: ['执行中', 'kc-tag info'], '': ['未执行', 'kc-tag mut'] };
+        const runAx = (names) => { patchTri(r0.id, (o) => Object.assign({}, o, { acts: Object.assign({}, o.acts || {}, names.reduce((a, n) => Object.assign(a, { [n]: 'ing' }), {})) }));
+          setTimeout(() => { patchTri(r0.id, (o) => Object.assign({}, o, { acts: Object.assign({}, o.acts || {}, names.reduce((a, n) => Object.assign(a, { [n]: 'ok' }), {})) })); toast(names.length > 1 ? '已执行 ' + names.length + ' 个处置动作，全部成功' : '「' + names[0] + '」执行成功'); }, 1200); };
+        ls.axOn = ax.length > 0; const left = ax.filter((a) => !a.r);
+        ls.axS = ax.filter((a) => a.r === 'ok').length + ' / ' + ax.length + ' 已完成'; ls.axAllOn = left.length > 1; ls.axAll = ev(() => runAx(left.map((a) => a.n)));
+        ls.ax = ax.map((a) => ({ n: a.n, tg: a.tg, s: RW[a.r][0], sc: RW[a.r][1], can: !a.r, op: '执行', go: ev(() => runAx([a.n])) }));
+        ls.log = [{ t: r0.t, n: '发现', s: r0.src + '检测到' }].concat(t.inc && t.s === '待研判' ? [{ t: r0.t, n: '自动归入事件', s: t.inc + ' · 同一攻击来源' }] : [])
+          .concat(t.s === '已确认' ? [{ t: '—', n: '已确认', s: t.inc ? '真实攻击，归入事件 ' + t.inc + (t.incSt ? '（事件' + t.incSt + '）' : '') : '真实攻击，在告警里处置' }].concat(axOf(r0, t).filter((a) => a.r === 'ok').map((a) => ({ t: '刚刚', n: a.n, s: '成功 · ' + a.tg }))) : t.s === '已忽略' ? [{ t: '—', n: '已忽略 · ' + (t.why || '误报'), s: t.note || '' }] : []);
+        triModal(rk); }
       return out;
     }
     return out;
