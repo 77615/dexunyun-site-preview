@@ -1210,9 +1210,9 @@ class Component extends DCLogic {
     const pd = st.pd || {}; const plug = st.plug || {};
     const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
     const HOST = {
-      '正常': ['共 62 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
+      '正常': ['共 57 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
       '有风险': ['', [['web-prod-01', '10.0.1.11', '紧急 2 · 高危 1', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
-      '未受保护': ['客户端未安装或已卸载的主机不会被检测。', [['backup-02', '10.0.5.52', '客户端已卸载', 'kc-tag warn', '重新安装', () => openMd('install')]]],
+      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，未授权去绑定。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '未授权', 'kc-tag warn', '绑定授权', () => toast('跳转到「授权管理」', 'info')]]],
       '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
       '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
       '离线': ['', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
@@ -1280,7 +1280,7 @@ class Component extends DCLogic {
     sx.pri.forEach((x, i) => { x.go = pd[i] ? ev(() => toast('已提交，处理中', 'info')) : ev(PG[i]); });
     sx.caps.forEach((c) => { if (c.btn) c.go = ev(() => { if ((plug[c.n] || '') === '') openMd('plug:' + c.n); }); });
     sx.dist.forEach((d) => { d.go = d.v ? ev(() => openDw('host:' + d.n)) : ev(() => {}); });
-    const HK = { '离线 1 台': '离线', '异常 3 台': 'Agent 异常', '未生效 2 台': '策略未生效', '未覆盖 4 台': '未覆盖' };
+    const HK = { '离线 1 台': '离线', '异常 3 台': 'Agent 异常', '未生效 2 台': '策略未生效', '未覆盖 9 台': '未覆盖' };
     sx.health.forEach((h) => { h.go = ev(() => openDw('host:' + HK[h.l])); });
     sx.prog.forEach((x) => { x.go = ev(() => openDw('rec:' + x.n)); });
     sx.ev.forEach((x) => { x.go = x.o === '去复检' ? ev(() => openMd('recheck')) : ev(() => openDw('verify')); });
@@ -1292,6 +1292,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '未授权'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
@@ -1301,7 +1302,7 @@ class Component extends DCLogic {
       sx.caps.forEach((c) => { const z = !Number(c.f); c.zc = z ? 'z' : ''; c.goR = z ? ev(() => {}) : GO('SecRisks', CF[c.n] || {}); c.goH = z ? ev(() => {}) : GO('SecHosts', CH[c.n] || {}); });
       sx.dist.forEach((d) => { d.go = d.v ? GO('SecHosts', { '保护状态': d.n === '有风险' || d.n === '正常' || d.n === '未受保护' || d.n === '接入中' || d.n === '已停机' ? d.n : '全部' }) : ev(() => {}); });
       (sx.grades || []).forEach((g) => { g.go = g.v ? GO('SecHosts', { '风险等级': g.l }) : ev(() => {}); (g.hosts || []).forEach((h) => { h.go = HOSTGO(h.t); h.href = '#'; }); });
-      const HF = { '离线 1 台': { '在线状态': '离线' }, '异常 3 台': { '客户端': '异常' }, '未生效 2 台': { '策略': '未生效' }, '未覆盖 4 台': { '防护覆盖': '未覆盖' } };
+      const HF = { '离线 1 台': { '在线状态': '离线' }, '异常 3 台': { '客户端': '异常' }, '未生效 2 台': { '策略': '未生效' }, '未覆盖 9 台': { '防护覆盖': '未覆盖' } };
       sx.health.forEach((h) => { h.go = GO('SecHosts', HF[h.l] || {}); });
       const PF = { '新发现': { '状态': '全部', '时间': '近 7 天' }, '已解决': { '状态': '已解决', '时间': '近 7 天' }, '待复检': { '状态': '待复检', '时间': '近 7 天' }, '已忽略': { '状态': '已忽略', '时间': '近 7 天' }, '旧环境归档': { '状态': '已归档', '时间': '近 7 天' } };
       sx.prog.forEach((x) => { x.go = GO('SecRisks', PF[x.n] || {}); });
@@ -1332,7 +1333,7 @@ class Component extends DCLogic {
     const X = [
       ['web-prod-01', '115.231.**.12', '德迅服务器', '有风险', '', 'E', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:42'],
       ['app-03', '10.0.2.23', '其他机房', '有风险', '', 'C', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:40'],
-      ['backup-02', '60.191.**.40', '德迅服务器', '未受保护', '客户端已卸载（10-29 由 root 卸载）', '—', '异常', '已卸载', '—', '未覆盖', '在线', '—', '10-29 16:20'],
+      ['backup-02', '60.191.**.40', '德迅服务器', '未受保护', '已卸载 · 10-29 由 root 卸载', '—', '异常', '已卸载', '—', '未覆盖', '在线', '—', '10-29 16:20'],
       ['db-new-01', '10.0.4.61', '其他机房', '接入中', '首次检测中，约 10 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
       ['db-new-02', '10.0.4.62', '其他机房', '接入中', '首次检测中，约 10 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
       ['test-07', '10.0.9.17', '其他机房', '已停机', '停机 3 天，开机后自动恢复检测', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.1', '10-30 09:12'],
@@ -1342,7 +1343,12 @@ class Component extends DCLogic {
       ['web-prod-02', '10.0.1.12', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:36'],
       ['web-prod-03', '10.0.1.13', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:36'],
       ['api-01', '10.0.2.21', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35'],
-      ['cache-01', '10.0.3.31', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35']];
+      ['cache-01', '10.0.3.31', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35'],
+      ['web-new-03', '115.231.**.21', '德迅服务器', '未受保护', '未安装 · 11-01 开通，还没装客户端', '—', '异常', '未安装', '—', '未覆盖', '在线', '—', '—'],
+      ['web-new-04', '115.231.**.22', '德迅服务器', '未受保护', '部署失败 · 自动安装超时，连不上安装源', '—', '异常', '部署失败', '—', '未覆盖', '在线', '—', '—'],
+      ['cache-03', '10.0.3.33', '其他机房', '未受保护', '离线 · 客户端 2 小时没有心跳', '—', '离线', '客户端离线', '生效', '未覆盖', '离线', 'V4.3.2', '11-02 08:31'],
+      ['app-06', '10.0.2.26', '其他机房', '未受保护', '检测过期 · 超过 3 天没有完成检测', '—', '异常', '检测过期', '生效', '未覆盖', '在线', 'V4.3.2', '10-29 03:00'],
+      ['app-07', '10.0.2.27', '其他机房', '未受保护', '未授权 · 授权已用完，这台没有绑定', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
     for (let i = 1; X.length < 68; i++) { const p = String(i).padStart(2, '0'); X.push(['node-' + p, '10.0.' + (6 + Math.floor(i / 40)) + '.' + (10 + i % 40), '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:' + String(10 + i % 30)]); }
     const HS = X.map(([n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk]) => ({ n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk, dx: room === '德迅服务器' }));
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
@@ -1690,7 +1696,7 @@ class Component extends DCLogic {
       scL: ['全部主机 · 68 台', '德迅服务器 · 3 台', '其他机房接入 · 65 台'].map((n) => ({ n, cls: n === (st.scope || '全部主机 · 68 台') ? 'on' : '', pick: () => this.setState({ scope: n, scOpen: false }) })),
       pv: ['按状态', '按风险等级'].map((n) => ({ n, on: n === pv, cls: n === pv ? 'on' : '', pick: () => this.setState({ pv: n }) })),
       byRisk: pv === '按风险等级', byState: pv !== '按风险等级',
-      grades: [['E', 'g-e', '有紧急风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 62, []], ['—', 'g-x', '未检测', '未受保护 1 · 接入中 2 · 已停机 1', 4, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
+      grades: [['E', 'g-e', '有紧急风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 57, []], ['—', 'g-x', '未检测', '未受保护 6 · 接入中 2 · 已停机 1', 9, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
       upd: rf === 'ok' ? '11-02 10:45' : '11-02 10:42',
       refT: rf === 'ing' ? '刷新中…' : '手动刷新',
       refresh: () => { if (rf === 'ing') return; this.setState({ rf: 'ing' }); setTimeout(() => this.setState({ rf: 'ok' }), 1000); },
@@ -1702,19 +1708,19 @@ class Component extends DCLogic {
       vT: scan === 'ing' ? '检测中…' : scan === 'ok' ? '检测完成' : '立即检测',
       kpi: [['风险主机', '2', '/ 68 台', '较上次检测 +1', 'r', 'err', SL],
         ['待处置事件', '9', '项', '较昨天 −2', 'up', 'warn', '#'],
-        ['未受保护', '1', '台', '客户端已卸载', '', 'warn2', SL],
-        ['防护覆盖率', '94', '%', '较上周 +3%', 'up', 'ok', SL]].map(([n, v, u, d, dc, bc, h]) => ({ n, v, u, d, h, dc: 'sh-kd ' + dc, bc: 'sh-bl ' + bc })),
+        ['未受保护', '6', '台', '6 种原因，点开按原因处理', '', 'warn2', SL],
+        ['防护覆盖率', '87', '%', '较上周 +3%', 'up', 'ok', SL]].map(([n, v, u, d, dc, bc, h]) => ({ n, v, u, d, h, dc: 'sh-kd ' + dc, bc: 'sh-bl ' + bc })),
       pri: PRI.map(([lv, lc, t, id, a, st2, sc, s2, d, dh, bt, p], i) => ({ lv, lc, t, id, a, st: pd[i] ? '处理中' : st2, sc: pd[i] ? 'kc-tag info' : sc, s: s2, d, dh,
         bt: pd[i] ? '已提交' : bt, dot: 'sh-tdot ' + ({ '高危': 'r', '未受保护': 'o', '中危': 'y' }[lv] || ''), fail: st2 === '处置失败' && !pd[i], tcls: (lv === '高危' || lv === '未受保护') && !pd[i] ? 'sh-task hot' : 'sh-task', bc: 'sh-op', go: () => this.setState({ pd: Object.assign({}, pd, { [i]: 1 }) }) })),
       done: 9 + Object.keys(pd).length, left: 5 - Object.keys(pd).length,
       wkw: 'width:' + Math.round((9 + Object.keys(pd).length) / 14 * 100) + '%',
       harc: 'stroke-dasharray:' + (Math.PI * 72 * (9 + Object.keys(pd).length) / 14).toFixed(1) + ' 400',
       trend: TR.map(([n, a, b]) => ({ n, a: 'height:' + (a / 6 * 100) + '%', b: 'height:' + (b / 6 * 100) + '%' })),
-      health: [['资产在线', '99%', 67, 68, '67 / 68', '离线 1 台'], ['Agent 健康', '96%', 64, 67, '64 / 67', '异常 3 台'], ['策略生效', '97%', 62, 64, '62 / 64', '未生效 2 台'], ['防护覆盖', '94%', 64, 68, '64 / 68', '未覆盖 4 台']].map(([n, p, a, b, f, l]) => ({ n, p, f, l, w: 'width:' + (a / b * 100).toFixed(1) + '%' })),
+      health: [['资产在线', '99%', 67, 68, '67 / 68', '离线 1 台'], ['Agent 健康', '96%', 64, 67, '64 / 67', '异常 3 台'], ['策略生效', '97%', 62, 64, '62 / 64', '未生效 2 台'], ['防护覆盖', '87%', 59, 68, '59 / 68', '未覆盖 9 台']].map(([n, p, a, b, f, l]) => ({ n, p, f, l, w: 'width:' + (a / b * 100).toFixed(1) + '%' })),
       ev: [['已验证完成 · 4', 'sh-evk', 'EVT-0998 恶意文件已阻断，复检通过', '验证详情'], ['待验证 · 2', 'sh-evk', 'EVT-0999 可疑进程已隔离，等待复检', '去复检']].map(([k, c, t, o]) => ({ k, c, t, o })),
       scanT: scan === 'ing' ? '检测中…' : scan === 'ok' ? '检测完成' : '立即全面检测',
       scan: () => { if (scan) return; this.setState({ scan: 'ing' }); setTimeout(() => this.setState({ scan: 'ok' }), 1800); },
-      dist: [['正常', 62, 'ok', '持续检测中'], ['有风险', 2, 'err', 'web-prod-01 等'], ['未受保护', 1, 'warn', '客户端已卸载'], ['接入中', 2, 'info', '首次检测中'], ['重装中', 0, 'mut2', ''], ['已停机', 1, 'mut', '不检测']].map(([n, v, c, s2]) => ({ n, v, s: s2, c: 'sh-' + c, lc: v ? '' : 'z', w: 'flex:' + v })),
+      dist: [['正常', 57, 'ok', '持续检测中'], ['有风险', 2, 'err', 'web-prod-01 等'], ['未受保护', 6, 'warn', '按原因分 6 种'], ['接入中', 2, 'info', '首次检测中'], ['重装中', 0, 'mut2', ''], ['已停机', 1, 'mut', '不检测']].map(([n, v, c, s2]) => ({ n, v, s: s2, c: 'sh-' + c, lc: v ? '' : 'z', w: 'flex:' + v })),
       tabs: ATABS.map(([n, k]) => { const c = AL.filter((r) => !k || r[0] === k).length; return { n, c, on: n === atab, cls: n === atab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }; }),
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
       prog: [['新发现', '14', '其中紧急 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
