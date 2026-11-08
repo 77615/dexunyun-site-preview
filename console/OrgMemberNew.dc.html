@@ -151,7 +151,7 @@
           <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
           <ul class="ac-rows">
             <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
-            <li><a href="OrgSecurity.dc.html">安全设置<em>安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
           </ul>
@@ -204,6 +204,11 @@
       <div class="fl-row"><span>手机号</span><div><input class="kc-in" type="text" aria-label="手机号" value="186****7788"><p class="kc-hint">初始密码通过短信发送，首次登录需修改</p></div></div>
       <div class="fl-row" style="align-items:start"><span style="padding-top:8px">角色</span><div class="fl-radio"><sc-for list="{{roles}}" as="r" hint-placeholder-count="4"><button type="button" class="{{r.cls}}" onClick="{{r.go}}"><i></i>{{r.n}}<small>{{r.s}}</small></button></sc-for></div></div>
       <sc-if value="{{scoped}}" hint-placeholder-val="{{true}}"><div class="fl-row" style="align-items:start"><span>可管理产品</span><div class="fm-chk"><sc-for list="{{prods}}" as="p" hint-placeholder-count="5"><label><button type="button" class="{{p.cls}}" aria-label="{{p.n}}" onClick="{{p.go}}"></button>{{p.n}}</label></sc-for></div></div></sc-if>
+      <sc-if value="{{m5.srvOn}}" hint-placeholder-val="{{false}}"><div class="fl-row" style="align-items:start"><span>可管理的服务器</span><div><div style="display:flex;gap:8px"><button type="button" class="{{m5.sSomeC}}" onClick="{{m5.pickSome}}">指定服务器</button><button type="button" class="{{m5.sAllC}}" onClick="{{m5.pickAll}}">全部服务器（含以后新开通的）</button></div>
+        <sc-if value="{{m5.sSome}}" hint-placeholder-val="{{true}}"><div class="fm-chk" style="margin-top:10px"><sc-for list="{{m5.srvs}}" as="p" hint-placeholder-count="7"><label><button type="button" class="{{p.cls}}" aria-label="{{p.n}}" onClick="{{p.go}}"></button>{{p.n}}</label></sc-for></div></sc-if>
+        <p class="kc-sub" style="margin:8px 0 0">TA 登录后只能看到这些服务器，以及它们在德迅安全卫士里的主机和风险。</p></div></div>
+        <div class="fl-row" style="align-items:start"><span>资产负责人</span><div><label style="display:flex;align-items:center;gap:8px"><button type="button" class="{{m5.ownC}}" aria-label="设为资产负责人" onClick="{{m5.togOwn}}"></button>设为这些服务器的资产负责人</label><p class="kc-sub" style="margin:6px 0 0">这些服务器有风险时，短信和站内信同时发给 TA 和主账号。</p></div></div></sc-if>
+      <sc-if value="{{m5.gdOn}}" hint-placeholder-val="{{false}}"><div class="fl-row" style="align-items:start"><span>德迅安全卫士权限</span><div class="fl-radio"><sc-for list="{{m5.gds}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.cls}}" onClick="{{r.go}}"><i></i>{{r.n}}<small>{{r.d}}</small></button></sc-for></div></div></sc-if>
     </div>
     <footer style="justify-content:flex-end"><button class="kc-btn" type="button" onClick="{{closeD}}">取消</button><button class="kc-btn pri" type="button" onClick="{{ask}}">确定</button></footer>
   </div>
@@ -866,7 +871,7 @@ class Component extends DCLogic {
       [[{ t: '赵敏', a: '#' }, 'zhaomin', '137****2266', { t: '管理员', tag: 'info' }, { t: '已启用', tag: 'ok' }, '2026-10-26 18:20'], [['编辑'], ['停用']], 'on'],
       [[{ t: '李四', a: '#' }, 'lisi', '139****4321', { t: '财务管理员', tag: 'warn' }, { t: '已启用', tag: 'ok' }, '2026-10-26 15:20'], [['编辑'], ['停用']], 'on'],
       [[{ t: '张三', a: '#' }, 'zhangsan', '138****5678', { t: '运维工程师', tag: 'info', s: 'SCDN、DDoS 高防 IP' }, { t: '已启用', tag: 'ok' }, '2026-10-27 08:05'], [['编辑'], ['停用']], 'on'],
-      [[{ t: '王五', a: '#' }, 'wangwu', '136****8888', { t: '普通成员', tag: 'mut' }, { t: '已启用', tag: 'ok' }, '2026-10-18 11:02'], [['编辑'], ['停用']], 'on'],
+      [[{ t: '王五', a: '#' }, 'wangwu', '136****8888', { t: '运维工程师', tag: 'info', s: '服务器租用、德迅安全卫士 · 2 台服务器 · 资产负责人' }, { t: '已启用', tag: 'ok' }, '2026-10-18 11:02'], [['编辑'], ['停用']], 'on'],
       [[{ t: '赵六', a: '#' }, 'zhaoliu', '135****0909', { t: '普通成员', tag: 'mut' }, { t: '已停用', tag: 'mut' }, { t: '从未登录', c: 'm' }], [['编辑'], ['启用']], 'off']
     ];
     const RL = [['管理员', '管理成员、下单、付款'], ['财务管理员', '付款、发票、合同'], ['运维工程师', '指定产品的配置与续费'], ['普通成员', '只读查看、提交工单']];
@@ -874,9 +879,15 @@ class Component extends DCLogic {
     const roles = RL.map(([n, s]) => ({ n, s, cls: n === role ? 'on' : '', go: () => this.setState({ role: n }) }));
     const scoped = role === '运维工程师' || role === '普通成员';
     const ps = st.ps || ['SCDN', '游戏盾'];
-    const prods = ['SCDN', 'DDoS 高防 IP', '游戏盾', '德迅云眼', '德迅安全卫士'].map((n) => { const on = ps.indexOf(n) >= 0; return { n, cls: on ? 'ac-cbx on' : 'ac-cbx', go: () => this.setState({ ps: on ? ps.filter((x) => x !== n) : ps.concat([n]) }) }; });
-    if (added) R.unshift([[{ t: '孙七', a: '#', s: '新成员 · 待首次登录' }, 'sunqi', '186****7788', { t: role, tag: 'info', s: scoped ? ps.join('、') : '' }, { t: '已启用', tag: 'ok' }, { t: '从未登录', c: 'm' }], [['编辑'], ['停用']], 'on']);
+    const prods = ['SCDN', 'DDoS 高防 IP', '游戏盾', '德迅云眼', '服务器租用', '德迅安全卫士'].map((n) => { const on = ps.indexOf(n) >= 0; return { n, cls: on ? 'ac-cbx on' : 'ac-cbx', go: () => this.setState({ ps: on ? ps.filter((x) => x !== n) : ps.concat([n]) }) }; });
+    if (added) R.unshift([[{ t: '孙七', a: '#', s: '新成员 · 待首次登录' }, 'sunqi', '186****7788', { t: role, tag: 'info', s: scoped ? ps.join('、') + (srvOn ? ' · ' + (sAll ? '全部服务器' : sv.length + ' 台服务器') + (st.own === false ? '' : ' · 资产负责人') : '') : '' }, { t: '已启用', tag: 'ok' }, { t: '从未登录', c: 'm' }], [['编辑'], ['停用']], 'on']);
 
+    const srvOn = scoped && (ps.indexOf('服务器租用') >= 0 || ps.indexOf('德迅安全卫士') >= 0); const gdOn = scoped && ps.indexOf('德迅安全卫士') >= 0;
+    const sAll = st.sAll === undefined ? false : st.sAll; const sv = st.sv || ['web-prod-01', 'db-01'];
+    const m5 = { srvOn, gdOn, sAllC: sAll ? 'kc-btn sm pri' : 'kc-btn sm', sSomeC: sAll ? 'kc-btn sm' : 'kc-btn sm pri', pickAll: () => this.setState({ sAll: true }), pickSome: () => this.setState({ sAll: false }), sSome: !sAll,
+      srvs: ['web-prod-01', 'db-01', 'backup-02', 'web-new-03', 'web-new-04', 'web-new-05', 'web-old-01'].map((n) => { const on = sv.indexOf(n) >= 0; return { n, cls: on ? 'ac-cbx on' : 'ac-cbx', go: () => this.setState({ sv: on ? sv.filter((x) => x !== n) : sv.concat([n]) }) }; }),
+      gds: [['卫士管理', '改策略、卸载客户端、管理授权'], ['安全运营', '处置风险；忽略必须填原因'], ['只读', '只看，不能操作']].map(([n, d]) => ({ n, d, cls: n === (st.gd || '安全运营') ? 'on' : '', go: () => this.setState({ gd: n }) })),
+      ownC: st.own === false ? 'ac-cbx' : 'ac-cbx on', togOwn: () => this.setState({ own: st.own === false }) };
     const offs = st.offs || {}; const edits = st.edits || {};
     R.forEach((r, i) => { const lg = r[0][1]; if (edits[lg]) { r[0][3] = Object.assign({}, r[0][3], { t: edits[lg] }); r.rc = 'fm-new'; }
       if (offs[lg]) { const wasOn = r[2] === 'on'; r[0][4] = wasOn ? { t: '已停用', tag: 'mut' } : { t: '已启用', tag: 'ok' }; r[1] = [['编辑'], [wasOn ? '启用' : '停用']]; r[2] = wasOn ? 'off' : 'on'; }
@@ -891,7 +902,7 @@ class Component extends DCLogic {
     const sent = !!st.sent; const vOpen = !!st.v;
 
 
-    const __R = Object.assign({ nav }, { ed: !!edRow, ed_x: () => this.setState({ ed: null }), edN: edRow ? edRow[0][0].t : '', edL: edRow ? edRow[0][1] : '', edP: edRow ? edRow[0][2] : '', eroles, rstT: st.rst ? '已发送新密码短信' : '重置并短信发送', rst: () => this.setState({ rst: true }), saveE: () => edRow && this.setState({ ed: null, edits: Object.assign({}, edits, { [edRow[0][1]]: erole }) }), sp: !!spRow, sp_x: () => this.setState({ sp: null }), spT: spOn ? '停用' : '启用', spCls: spOn ? 'kc-btn pri' : 'kc-btn pri', spD: spRow ? (spOn ? '停用后「' + spRow[0][0].t + '」立即退出登录且不能再登录，已创建的订单和工单保留。可以随时重新启用。' : '启用后「' + spRow[0][0].t + '」可以用原登录名和密码登录。') : '', doSp: () => spRow && this.setState({ sp: null, offs: Object.assign({}, offs, { [spRow[0][1]]: !offs[spRow[0][1]] }) }) }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, cnt: added ? 6 : 5, dOpen: !!st.d && !vOpen, closeD: () => this.setState({ d: false }), openD: (e) => { ev(e); this.setState({ d: true, added: false }); }, roles, role, scoped, prods, ask: () => this.setState({ v: true }), vOpen, closeV: () => this.setState({ v: false, sent: false }), send: () => this.setState({ sent: true }), sendTxt: sent ? '59 秒后重发' : '获取验证码', sendCls: sent ? 'kc-btn dis' : 'kc-btn', code: sent ? '382916' : '', okCls: sent ? 'kc-btn pri' : 'kc-btn pri dis', confirm: () => this.setState({ v: false, d: false, sent: false, added: true }) });
+    const __R = Object.assign({ nav }, { m5 }, { ed: !!edRow, ed_x: () => this.setState({ ed: null }), edN: edRow ? edRow[0][0].t : '', edL: edRow ? edRow[0][1] : '', edP: edRow ? edRow[0][2] : '', eroles, rstT: st.rst ? '已发送新密码短信' : '重置并短信发送', rst: () => this.setState({ rst: true }), saveE: () => edRow && this.setState({ ed: null, edits: Object.assign({}, edits, { [edRow[0][1]]: erole }) }), sp: !!spRow, sp_x: () => this.setState({ sp: null }), spT: spOn ? '停用' : '启用', spCls: spOn ? 'kc-btn pri' : 'kc-btn pri', spD: spRow ? (spOn ? '停用后「' + spRow[0][0].t + '」立即退出登录且不能再登录，已创建的订单和工单保留。可以随时重新启用。' : '启用后「' + spRow[0][0].t + '」可以用原登录名和密码登录。') : '', doSp: () => spRow && this.setState({ sp: null, offs: Object.assign({}, offs, { [spRow[0][1]]: !offs[spRow[0][1]] }) }) }, { tabs: T.tabs, rows: T.rows, total: T.rows.length, cnt: added ? 6 : 5, dOpen: !!st.d && !vOpen, closeD: () => this.setState({ d: false }), openD: (e) => { ev(e); this.setState({ d: true, added: false }); }, roles, role, scoped, prods, ask: () => this.setState({ v: true }), vOpen, closeV: () => this.setState({ v: false, sent: false }), send: () => this.setState({ sent: true }), sendTxt: sent ? '59 秒后重发' : '获取验证码', sendCls: sent ? 'kc-btn dis' : 'kc-btn', code: sent ? '382916' : '', okCls: sent ? 'kc-btn pri' : 'kc-btn pri dis', confirm: () => this.setState({ v: false, d: false, sent: false, added: true }) });
 
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
