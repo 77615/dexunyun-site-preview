@@ -6,6 +6,17 @@
 <script src="./support.js"></script>
 <link rel="stylesheet" href="ds/dexun/tokens.css">
 <link rel="stylesheet" href="ds/dexun/components/bundle.css">
+<style>
+.s4-ul{margin:12px 0 0;padding:0 0 0 18px;font-size:13px;line-height:1.9;color:#4e5969}
+.s4-rs{margin-top:16px}
+.s4-rs>b{display:block;font-size:13px;font-weight:500;color:#1d2129;margin-bottom:8px}
+.s4-rs>b em{font-style:normal;color:#f53f3f;margin-left:2px}
+.s4-who{margin:12px 0 0;font-size:12px;color:#86909c}
+.s4-sec{margin:0 0 16px;padding:10px 14px;border-radius:4px;background:#f7f8fa;font-size:13px;line-height:1.7;color:#4e5969}
+.s4-sec b{display:block;color:#1d2129;font-weight:500;margin-bottom:2px}
+.s4-sec ul{margin:0;padding-left:18px}
+.vf-dlg .kc-btn.dis,.vf-dlg button.dis{opacity:.45;pointer-events:none}
+</style>
 </head>
 <body>
 <x-dc>
@@ -92,7 +103,7 @@
   </header>
   <div class="kc-body">
     <input type="checkbox" id="kcf-IdcReinstall" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="服务器租用菜单">
-      <div class="kc-sh"><b>服务器租用</b><span>德迅科技 · 6 台服务器</span></div>
+      <div class="kc-sh"><b>服务器租用</b><span>德迅科技 · 7 台服务器</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -161,6 +172,7 @@
     <header><b>重装系统 · web-prod-01</b><button type="button" aria-label="关闭" onClick="{{close}}">×</button></header>
     <div class="bd">
       <div class="sv-warn"><b>系统盘数据会被全部清空且无法恢复。</b>重装约需 10 分钟，期间业务中断。</div>
+      <div class="s4-sec"><b>德迅安全卫士</b>重装期间暂停检测，也不发离线提醒；完成后自动重新安装客户端并做首次检测（约 10 分钟）。当前未处理的 3 个风险会按「旧环境归档」关闭（不算已解决），新系统里仍存在的会重新提醒，并标「重装后问题仍在」。</div>
       <div class="fl-row"><span>镜像</span><div class="sv-os"><sc-for list="{{oss}}" as="o" hint-placeholder-count="6"><button type="button" class="{{o.cls}}" onClick="{{o.go}}">{{o.n}}<small>{{o.s}}</small></button></sc-for></div></div>
       <div class="fl-row"><span>登录密码</span><div class="sv-rb"><div class="sv-seg"><sc-for list="{{pws}}" as="p" hint-placeholder-count="2"><button type="button" class="{{p.cls}}" onClick="{{p.go}}">{{p.n}}</button></sc-for></div>
         <sc-if value="{{pwSet}}" hint-placeholder-val="{{true}}"><input class="kc-in" type="password" aria-label="新密码" placeholder="8–30 位，包含大小写字母和数字" style="width:100%"></sc-if>
@@ -832,7 +844,7 @@ class Component extends DCLogic {
       idle: !job, busy: !!job, busyTxt: job === 'rb' ? '正在重启…' : '正在重装 ' + pick + '…', pct: job === 'rb' ? 60 : 35, pgw: 'width:' + (job === 'rb' ? 60 : 35) + '%',
       busyTip: job === 'rb' ? '约 1 分钟后恢复' : '约 7 分钟，完成后短信通知', doneMsg: st.doneMsg || '', hideMsg: () => this.setState({ doneMsg: '' }),
       finish: () => { const ri = job === 'ri'; const ls = (st.logs || []).slice(); if (ls[0]) ls[0] = ls[0].slice(0, 4).concat(['成功']);
-        this.setState({ job: '', logs: ls, os: ri ? pick + ' ' + (OS.find((o) => o[0] === pick) || ['', ''])[1] : os, doneMsg: ri ? '重装完成：' + pick + (pw === '设置新密码' ? '，请用新密码登录' : '，随机密码已短信发送') : '重启完成，服务器已恢复运行' }); },
+        this.setState({ job: '', logs: ls, os: ri ? pick + ' ' + (OS.find((o) => o[0] === pick) || ['', ''])[1] : os, doneMsg: ri ? '重装完成：' + pick + (pw === '设置新密码' ? '，请用新密码登录' : '，随机密码已短信发送') + '。德迅安全卫士已自动重新安装，正在首次检测' : '重启完成，服务器已恢复运行' }); },
       rbOpen: dlg === 'rb', riOpen: dlg === 'ri', openRb: () => this.setState({ dlg: 'rb' }), openRi: () => this.setState({ dlg: 'ri', bk: false, sent: false }), close: () => this.setState({ dlg: '' }),
       rbm, doRb: () => start('rb', [now, '重启', rbm0, 'wangqi', '进行中']),
       oss, pws, pwSet: pw === '设置新密码', pwSms: pw !== '设置新密码',
