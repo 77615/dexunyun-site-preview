@@ -6,6 +6,43 @@
 <script src="./support.js"></script>
 <link rel="stylesheet" href="ds/dexun/tokens.css">
 <link rel="stylesheet" href="ds/dexun/components/bundle.css">
+<style>
+.s1-steps{list-style:none;margin:12px 0 16px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #e5e6eb;border-radius:4px}
+.s1-steps li{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-left:1px solid #e5e6eb;position:relative}
+.s1-steps li:first-child{border-left:0}
+.s1-steps li>i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:600;background:#f2f3f5;color:#86909c}
+.s1-steps li.ok>i{background:#e8ffea;color:#00875a}
+.s1-steps li.ing>i{background:#e8f3ff;color:#165dff}
+.s1-steps li.err>i{background:#ffece8;color:#f53f3f}
+.s1-steps li>div{flex:1;min-width:0}
+.s1-steps li>div>b{display:block;font-size:14px;color:#1d2129;font-weight:500;margin-bottom:2px}
+.s1-steps li>div>span{display:block;font-size:12px;color:#86909c;line-height:1.6}
+.s1-steps li.err>div>span{color:#cb2634}
+.s1-steps em{font-style:normal;font-size:12px;color:#86909c;white-space:nowrap}
+.s1-steps li.ing em{color:#165dff}
+.s1-md .s1-steps{grid-template-columns:1fr;margin:4px 0 12px}
+.s1-md .s1-steps li{border-left:0;border-top:1px solid #e5e6eb}
+.s1-md .s1-steps li:first-child{border-top:0}
+.s1-mask{position:fixed;inset:0;background:rgba(29,33,41,.45);z-index:80}
+.s1-md{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:520px;max-width:calc(100vw - 32px);background:#fff;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:81;padding:20px 24px}
+.s1-md header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.s1-md header b{font-size:16px;font-weight:500;color:#1d2129}
+.s1-md header button{border:0;background:none;font-size:20px;color:#86909c;cursor:pointer;line-height:1}
+.s1-md footer{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+.s1-note{font-size:12px;color:#4e5969;line-height:1.7;background:#f7f8fa;border-radius:4px;padding:8px 12px;margin:0}
+.s1-lk{display:inline-block;margin-top:2px;font-size:12px;color:#165dff;text-decoration:none}
+.s1-lk:hover{text-decoration:underline}
+.s1-x{margin-left:auto;font-size:13px;color:#165dff;text-decoration:none;white-space:nowrap;align-self:center}
+.ss-b{color:#165dff}
+td .sl-st.b{color:#165dff}
+.kc-tile b.s1-tv{font-size:16px;line-height:24px;margin:4px 0 2px}
+.s1-pr{display:inline-flex;gap:4px}
+.s1-pr i{font-style:normal;font-size:12px;line-height:20px;padding:0 6px;border-radius:2px;background:#f2f3f5;color:#86909c}
+.s1-pr i.ok{background:#e8ffea;color:#00875a}
+.s1-pr i.ing{background:#e8f3ff;color:#165dff}
+.s1-pr i.err{background:#ffece8;color:#f53f3f}
+.kc-t td.s1-why{white-space:normal;min-width:300px;max-width:380px;font-size:13px;color:#4e5969;line-height:1.6}
+</style>
 </head>
 <body>
 <x-dc>
@@ -373,7 +410,7 @@
   </header>
   <div class="kc-body">
     <input type="checkbox" id="kcf-IdcServerDetail" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="服务器租用菜单">
-      <div class="kc-sh"><b>服务器租用</b><span>德迅科技 · 5 台服务器</span></div>
+      <div class="kc-sh"><b>服务器租用</b><span>德迅科技 · 6 台服务器</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -451,6 +488,11 @@
         <div class="ig7-fs"><b>忽略原因（必填）</b><div class="ig7-rad" role="radiogroup" aria-label="忽略原因"><sc-for list="{{ig.igR}}" as="o" hint-placeholder-count="4"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div>
           <textarea class="ig7-ta" aria-label="补充说明" placeholder="{{ig.igP}}" value="{{ig.igW}}" onChange="{{ig.igOnW}}"></textarea><p class="ig7-h">忽略后不再提醒，也不计入待处理和安全分扣分；可在「已忽略」中恢复。忽略人、时间和原因记在处置记录和操作审计里。</p></div>
         <div class="ig7-f"><button type="button" class="kc-btn" onClick="{{ig.igX}}">取消</button><button type="button" class="{{ig.igOkC}}" onClick="{{ig.igOk}}">确定忽略</button></div></div></div></sc-if>
+          <sc-if value="{{secAcc}}" hint-placeholder-val="{{false}}">
+          <div class="ac-al i"><i>i</i><span><b>德迅安全卫士正在接入这台服务器</b>客户端已装好，正在做第一次检测。完成后会发站内信；发现风险默认只告警，不会拦截业务。</span><button type="button" class="kc-btn sm" onClick="{{accDone}}">演示：首检完成</button></div>
+          <ol class="s1-steps"><sc-for list="{{accS}}" as="s" hint-placeholder-count="3"><li class="{{s.c}}"><i>{{s.i}}</i><div><b>{{s.n}}</b><span>{{s.d}}</span></div><em>{{s.t}}</em></li></sc-for></ol>
+          <div class="kc-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵检测</span><b class="s1-tv ss-g">已完成</b><div class="kc-sub">未发现异常</div></div><div class="kc-tile"><span>漏洞检测</span><b class="s1-tv ss-g">已完成</b><div class="kc-sub">结果在首检结束后一起出</div></div><div class="kc-tile"><span>弱口令</span><b class="s1-tv ss-b">检测中</b><div class="kc-sub">SSH、MySQL、Redis</div></div><div class="kc-tile"><span>基线与资产</span><b class="s1-tv">排队中</b><div class="kc-sub">危险配置、端口和软件清单</div></div></div>
+          </sc-if>
           <sc-if value="{{secGone}}" hint-placeholder-val="{{false}}">
           <div class="ac-al e"><i>!</i><span><b>这台服务器未受保护</b>德迅安全卫士客户端已于 2026-10-20 卸载，不再检测入侵、漏洞和基线，发生风险也不会收到短信。</span><button type="button" class="kc-btn sm pri" onClick="{{reinstall}}">{{reTxt}}</button></div>
           <div class="kc-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵检测</span><div class="kc-sub">异常登录、暴力破解、木马、挖矿</div></div><div class="kc-tile"><span>漏洞检测</span><div class="kc-sub">系统和软件漏洞，给出修复方法</div></div><div class="kc-tile"><span>基线检查</span><div class="kc-sub">弱口令、危险配置</div></div><div class="kc-tile"><span>威胁狩猎</span><div class="kc-sub">攻击链溯源与节点证据</div></div></div>
@@ -1160,8 +1202,8 @@ class Component extends DCLogic {
     const os = st.os || 'CentOS 7.9 64 位';
     const job = st.job || '';
     const dlg = st.dlg || '';
-    if (this.__dl === undefined) { this.__dl = (() => { try { const q = new URLSearchParams(location.search).get('risk'); if (q) return q; const n = JSON.parse(localStorage.getItem('dxSmsGo') || 'null'); if (n && Date.now() - n.t < 120000) { localStorage.removeItem('dxSmsGo'); return n.k; } } catch (x) {} return ''; })(); } const tab = st.tab || (this.__dl ? '安全' : '基本信息'); const R0n = 3;
-    const tabs = ['基本信息', '安全', '监控与报表', '操作记录'].map((n) => ({ n, c: n === '安全' && (st.sec || 'risk') === 'risk' ? (R0n - Object.keys(st.hd || {}).filter((k) => ['ok', 'me', 'ign'].indexOf((st.hd || {})[k]) >= 0).length || '') : '', cc: 'kc-cnt r', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ tab: n }) }));
+    if (this.__dl === undefined) { this.__dl = (() => { try { const q = new URLSearchParams(location.search).get('risk'); if (q) return q; const n = JSON.parse(localStorage.getItem('dxSmsGo') || 'null'); if (n && Date.now() - n.t < 120000) { localStorage.removeItem('dxSmsGo'); return n.k; } } catch (x) {} return ''; })(); } if (this.__qs1 === undefined) { this.__qs1 = (() => { try { return new URLSearchParams(location.search).get('sec') || ''; } catch (x) { return ''; } })(); } const tab = st.tab || (this.__dl || this.__qs1 ? '安全' : '基本信息'); const R0n = 3;
+    const tabs = ['基本信息', '安全', '监控与报表', '操作记录'].map((n) => ({ n, c: n === '安全' && (st.sec || this.__qs1 || 'risk') === 'risk' ? (R0n - Object.keys(st.hd || {}).filter((k) => ['ok', 'me', 'ign'].indexOf((st.hd || {})[k]) >= 0).length || '') : '', cc: 'kc-cnt r', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ tab: n }) }));
     const rng = st.rng || '24 小时';
     const rngs = ['24 小时', '7 天', '30 天'].map((n) => ({ n, cls: n === rng ? 'on' : '', go: () => this.setState({ rng: n }) }));
     const N = rng === '24 小时' ? 24 : rng === '7 天' ? 28 : 30;
@@ -1214,8 +1256,8 @@ class Component extends DCLogic {
     const start = (j, row) => this.setState({ dlg: '', job: j, logs: [row].concat(st.logs || []), doneMsg: '' });
 
 
-    const sec = st.sec || 'risk'; const blk = !!st.blk; const sms = st.sms === undefined ? true : st.sms; const wl = !!st.wl; const re = st.re || '';
-    const secTabs = [['risk', '有风险'], ['ok', '正常'], ['gone', '已卸载']].map(([k, n]) => ({ n, cls: k === sec ? 'on' : '', go: () => this.setState({ sec: k, re: '', hd: {}, rop: undefined, pwdTry: false }) }));
+    const sec = st.sec || this.__qs1 || 'risk'; const blk = !!st.blk; const sms = st.sms === undefined ? true : st.sms; const wl = !!st.wl; const re = st.re || '';
+    const secTabs = [['acc', '接入中'], ['risk', '有风险'], ['ok', '正常'], ['gone', '已卸载']].map(([k, n]) => ({ n, cls: k === sec ? 'on' : '', go: () => this.setState({ sec: k, re: '', hd: {}, rop: undefined, pwdTry: false }) }));
 
     const hd = st.hd || {};
     const pv = (e) => { if (e && e.preventDefault) e.preventDefault(); };
@@ -1291,21 +1333,23 @@ class Component extends DCLogic {
         igP: st.igR === '其他' ? '请写明原因（必填）' : '补充说明（选填）', igOkC: 'kc-btn pri' + (ok ? '' : ' dis'), igX: (e) => { pv(e); this.setState({ igK: '' }); },
         igOk: (e) => { pv(e); if (!ok) return; const why = st.igR === '其他' ? w : st.igR + (w ? '：' + w : ''); setR(r.k, 'ign', { igK: '', igw: Object.assign({}, igw, { [r.k]: why }) }); } }; })() : { igOn: false };
     const dlR = this.__dl ? R0.find((r) => r.k === this.__dl) : null;
-    const secV = { ig: igM, dlOn: !!dlR && !st.dlX, dlTxt: dlR ? '你从短信链接进入，已为你展开「' + dlR.t + '」。' : '', dlX: (e) => { pv(e); this.setState({ dlX: true }); }, cq, secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone', secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
-      modeTxt: blk ? '自动拦截' : '仅告警', riskTxt: sec === 'risk' ? '高危 2 · 中危 1' : '0', riskCls: sec === 'risk' ? 'r' : 'g',
+    const secV = { ig: igM, dlOn: !!dlR && !st.dlX, dlTxt: dlR ? '你从短信链接进入，已为你展开「' + dlR.t + '」。' : '', dlX: (e) => { pv(e); this.setState({ dlX: true }); }, cq, secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', noRisk: sec === 'ok',  secOn: sec !== 'gone' && sec !== 'acc', secAcc: sec === 'acc',
+      accS: [['ok', '✓', '服务器就绪', '运行中 · ' + (st.os || 'CentOS 7.9 64 位').replace(' 64 位', ''), '10:02'], ['ok', '✓', '安装客户端', 'V4.3.2 已上线，跟随默认策略（标准模式）', '10:04'], ['ing', '3', '首次检测', '已完成 2/5 项：入侵、漏洞；还剩弱口令、基线、资产', '约 6 分钟']].map(([c, i, n, d, t]) => ({ c, i, n, d, t })),
+      accDone: () => this.setState({ sec: 'risk', hd: {}, doneMsg: '首次检测完成：发现 2 项高危、1 项中危，已发站内信和短信。默认只告警，不会拦截业务' }), secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
+      modeTxt: blk ? '自动拦截' : '仅告警', riskTxt: sec === 'acc' ? '检测中' : sec === 'risk' ? '高危 2 · 中危 1' : '0', riskCls: sec === 'risk' ? 'r' : 'g',
       blockTip: blk ? '按所用策略自动处置' : '所用策略未开启自动处置，发现风险只告警', blockTag: blk ? 'kc-tag ok' : 'kc-tag mut', blockSt: blk ? '已开启' : '未开启', smsTag: sms ? 'kc-tag ok' : 'kc-tag mut', smsSt: sms ? '已开启' : '未开启', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
       smsSw: sms ? 'kc-sw on' : 'kc-sw', smsP: sms ? 'true' : 'false', togSms: () => this.setState({ sms: !sms }),
       wlTip: wl ? '对这台生效 1 个：183.134.**.20' : '对这台没有生效的白名单 IP', wlBtn: wl ? '管理' : '添加', addWl: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ wl: true }); },
-      uninstall: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dlg: 'un' }); }, unOpen: dlg === 'un', doUn: () => this.setState({ dlg: '', sec: 'gone', re: '' }), reTxt: re === 'ing' ? '正在安装…约 2 分钟' : '一键重新安装', reinstall: () => { if (re) return; this.setState({ re: 'ing' }); setTimeout(() => this.setState({ sec: 'ok', re: '' }), 1600); } };
+      uninstall: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dlg: 'un' }); }, unOpen: dlg === 'un', doUn: () => this.setState({ dlg: '', sec: 'gone', re: '' }), reTxt: re === 'ing' ? '正在安装…约 2 分钟' : '一键重新安装', reinstall: () => { if (re) return; this.setState({ re: 'ing' }); setTimeout(() => this.setState({ sec: 'acc', re: '' }), 1600); } };
     return Object.assign({ nav }, secV, { tabs, tRep: tab === '监控与报表', tInfo: tab === '基本信息', tSec: tab === '安全', tLog: tab === '操作记录',
-      goSec: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '安全' }); }, secStTxt: secV.secGone ? '未受保护' : todo ? '有风险' : '正常', secStSub: secV.secGone ? '原因：客户端已卸载' : todo ? todo + ' 项待处理' + (todoH ? '，' + todoH + ' 项需立即处理' : '') : '今天 10:28 已检测', runB: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中', runS: '已运行 37 天 · ' + os.replace(' 64 位', ''), secStCls: secV.secGone ? 'ss-x' : todoH ? 'ss-r' : todo ? 'ss-o' : 'ss-g', secStGo: secV.secGone ? '重新安装' : todo ? '去处理' : '查看', rngs, ax, charts, mets, tmc, logs,
+      goSec: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '安全' }); }, secStTxt: sec === 'acc' ? '接入中' : secV.secGone ? '未受保护' : todo ? '有风险' : '正常', secStSub: sec === 'acc' ? '首次检测中，约 6 分钟' : secV.secGone ? '原因：客户端已卸载' : todo ? todo + ' 项待处理' + (todoH ? '，' + todoH + ' 项需立即处理' : '') : '今天 10:28 已检测', runB: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中', runS: '已运行 37 天 · ' + os.replace(' 64 位', ''), secStCls: sec === 'acc' ? 'ss-b' : secV.secGone ? 'ss-x' : todoH ? 'ss-r' : todo ? 'ss-o' : 'ss-g', secStGo: sec === 'acc' ? '查看进度' : secV.secGone ? '重新安装' : todo ? '去处理' : '查看', rngs, ax, charts, mets, tmc, logs,
       goRep: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '监控与报表' }); }, goLog: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: '操作记录' }); },
       osName: os, runTxt: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中 · 37 天', osLine: '最近一次重启 2026-10-12 23:05',
       idle: !job, busy: !!job, busyTxt: job === 'rb' ? '正在重启…' : '正在重装 ' + pick + '…', pct: job === 'rb' ? 60 : 35, pgw: 'width:' + (job === 'rb' ? 60 : 35) + '%',
       busyTip: job === 'rb' ? '约 1 分钟后恢复' : '约 7 分钟，完成后短信通知', doneMsg: st.doneMsg || '', hideMsg: () => this.setState({ doneMsg: '' }),
       finish: () => { const ri = job === 'ri'; const ls = (st.logs || []).slice(); if (ls[0]) ls[0] = ls[0].slice(0, 4).concat(['成功']);
         this.setState({ job: '', logs: ls, os: ri ? pick + ' ' + (OS.find((o) => o[0] === pick) || ['', ''])[1] : os, doneMsg: ri ? '重装完成：' + pick + (pw === '设置新密码' ? '，请用新密码登录' : '，随机密码已短信发送') : '重启完成，服务器已恢复运行' }); },
-      riSecTip: sec === 'gone' ? '这台服务器已卸载德迅安全卫士，重装后不会自动装回，可在「安全配置」里一键安装。' : '重装期间暂停安全检测；完成后自动重新安装德迅安全卫士并检测。当前未处理的安全风险会归档（不算已解决），新系统里仍存在的问题会重新提醒。', cfgOpen: dlg === 'cfg', openCfg: () => this.setState({ dlg: 'cfg' }), cliTxt: sec === 'gone' ? '已卸载' : '在线', cliSub: sec === 'gone' ? (re === 'ing' ? '正在安装，约 2 分钟' : '2026-10-20 已卸载，这台服务器目前不受保护') : 'v3.2.1 · 今天 10:28 完成检测 · 2026-02-20 起保护', secOnC: sec !== 'gone', secGoneC: sec === 'gone', rbOpen: dlg === 'rb', riOpen: dlg === 'ri', openRb: () => this.setState({ dlg: 'rb' }), openRi: () => this.setState({ dlg: 'ri', bk: false, sent: false }), close: () => this.setState({ dlg: '' }),
+      riSecTip: sec === 'gone' ? '这台服务器已卸载德迅安全卫士，重装后不会自动装回，可在「安全配置」里一键安装。' : '重装期间暂停安全检测；完成后自动重新安装德迅安全卫士并检测。当前未处理的安全风险会归档（不算已解决），新系统里仍存在的问题会重新提醒。', cfgOpen: dlg === 'cfg', openCfg: () => this.setState({ dlg: 'cfg' }), cliTxt: sec === 'gone' ? '已卸载' : sec === 'acc' ? '在线 · 接入中' : '在线', cliSub: sec === 'acc' ? 'V4.3.2 · 刚装好，首次检测中' : sec === 'gone' ? (re === 'ing' ? '正在安装，约 2 分钟' : '2026-10-20 已卸载，这台服务器目前不受保护') : 'v3.2.1 · 今天 10:28 完成检测 · 2026-02-20 起保护', secOnC: sec !== 'gone', secGoneC: sec === 'gone', rbOpen: dlg === 'rb', riOpen: dlg === 'ri', openRb: () => this.setState({ dlg: 'rb' }), openRi: () => this.setState({ dlg: 'ri', bk: false, sent: false }), close: () => this.setState({ dlg: '' }),
       rbm, doRb: () => start('rb', [now, '重启', rbm0, 'wangqi', '进行中']),
       oss, pws, pwSet: pw === '设置新密码', pwSms: pw !== '设置新密码',
       keepCls: keep ? 'ac-cbx on' : 'ac-cbx', togKeep: () => this.setState({ keep: !keep }), bkCls: bk ? 'ac-cbx on' : 'ac-cbx', togBk: () => this.setState({ bk: !bk }),

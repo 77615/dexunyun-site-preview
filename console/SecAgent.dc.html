@@ -6,6 +6,43 @@
 <script src="./support.js"></script>
 <link rel="stylesheet" href="ds/dexun/tokens.css">
 <link rel="stylesheet" href="ds/dexun/components/bundle.css">
+<style>
+.s1-steps{list-style:none;margin:12px 0 16px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #e5e6eb;border-radius:4px}
+.s1-steps li{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-left:1px solid #e5e6eb;position:relative}
+.s1-steps li:first-child{border-left:0}
+.s1-steps li>i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:600;background:#f2f3f5;color:#86909c}
+.s1-steps li.ok>i{background:#e8ffea;color:#00875a}
+.s1-steps li.ing>i{background:#e8f3ff;color:#165dff}
+.s1-steps li.err>i{background:#ffece8;color:#f53f3f}
+.s1-steps li>div{flex:1;min-width:0}
+.s1-steps li>div>b{display:block;font-size:14px;color:#1d2129;font-weight:500;margin-bottom:2px}
+.s1-steps li>div>span{display:block;font-size:12px;color:#86909c;line-height:1.6}
+.s1-steps li.err>div>span{color:#cb2634}
+.s1-steps em{font-style:normal;font-size:12px;color:#86909c;white-space:nowrap}
+.s1-steps li.ing em{color:#165dff}
+.s1-md .s1-steps{grid-template-columns:1fr;margin:4px 0 12px}
+.s1-md .s1-steps li{border-left:0;border-top:1px solid #e5e6eb}
+.s1-md .s1-steps li:first-child{border-top:0}
+.s1-mask{position:fixed;inset:0;background:rgba(29,33,41,.45);z-index:80}
+.s1-md{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:520px;max-width:calc(100vw - 32px);background:#fff;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:81;padding:20px 24px}
+.s1-md header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.s1-md header b{font-size:16px;font-weight:500;color:#1d2129}
+.s1-md header button{border:0;background:none;font-size:20px;color:#86909c;cursor:pointer;line-height:1}
+.s1-md footer{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+.s1-note{font-size:12px;color:#4e5969;line-height:1.7;background:#f7f8fa;border-radius:4px;padding:8px 12px;margin:0}
+.s1-lk{display:inline-block;margin-top:2px;font-size:12px;color:#165dff;text-decoration:none}
+.s1-lk:hover{text-decoration:underline}
+.s1-x{margin-left:auto;font-size:13px;color:#165dff;text-decoration:none;white-space:nowrap;align-self:center}
+.ss-b{color:#165dff}
+td .sl-st.b{color:#165dff}
+.kc-tile b.s1-tv{font-size:16px;line-height:24px;margin:4px 0 2px}
+.s1-pr{display:inline-flex;gap:4px}
+.s1-pr i{font-style:normal;font-size:12px;line-height:20px;padding:0 6px;border-radius:2px;background:#f2f3f5;color:#86909c}
+.s1-pr i.ok{background:#e8ffea;color:#00875a}
+.s1-pr i.ing{background:#e8f3ff;color:#165dff}
+.s1-pr i.err{background:#ffece8;color:#f53f3f}
+.kc-t td.s1-why{white-space:normal;min-width:300px;max-width:380px;font-size:13px;color:#4e5969;line-height:1.6}
+</style>
 </head>
 <body>
 <x-dc>
@@ -617,6 +654,7 @@
         <sc-if value="{{st.tIns}}" hint-placeholder-val="{{true}}"><div class="st-pn"><div class="st-row"><span class="st-seg"><sc-for list="{{st.oss}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span><span class="sl-n">德迅服务器开通时已默认安装，这里用于其他机房的主机</span></div>
           <h4 class="st-h">{{st.insT}}</h4><div class="sh-code"><code>{{st.cmd}}</code><button type="button" class="sh-op" onClick="{{st.copy}}">{{st.cpT}}</button></div>
           <p class="st-p">{{st.insP}}</p><p class="st-p">安装后约 1 分钟上线，自动跟随默认策略（标准模式）并开始首次检测。</p></div></sc-if>
+        <sc-if value="{{st.tAcc}}" hint-placeholder-val="{{false}}"><div class="kc-tw"><table class="kc-t"><thead><tr><th>主机</th><th>来源</th><th>接入进度</th><th>状态</th><th>说明</th><th>操作</th></tr></thead><tbody><sc-for list="{{st.accs}}" as="r" hint-placeholder-count="4"><tr><td><div class="sl-a">{{r.h}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.src}}<div class="sl-sub">{{r.t}}</div></td><td><span class="s1-pr"><sc-for list="{{r.ps}}" as="p" hint-placeholder-count="3"><i class="{{p.c}}">{{p.n}}</i></sc-for></span></td><td><span class="{{r.sc}}">{{r.st}}</span></td><td class="s1-why">{{r.d}}</td><td><sc-if value="{{r.op}}" hint-placeholder-val="{{true}}"><a class="sl-op" href="#" onClick="{{r.go}}">{{r.op}}</a></sc-if></td></tr></sc-for></tbody></table></div><div class="sl-ft" style="justify-content:flex-start"><span class="sl-n" style="margin:0">德迅服务器交付后自动安装客户端。装不上会自动重试 3 次（间隔 5 分钟、15 分钟），还失败就发站内信通知你。首次检测约 10 分钟，发现风险默认只告警，不拦截。</span></div></sc-if>
         <sc-if value="{{st.tVer}}" hint-placeholder-val="{{false}}"><div class="st-pn"><div class="kc-sw-row" style="padding:0 0 12px;border-bottom:1px solid #f2f3f5"><div>自动升级<div class="kc-sub">新版本发布 7 天后，在每天 02:00–05:00 自动升级，升级时不中断防护</div></div><button type="button" class="{{st.auC}}" role="switch" aria-checked="{{st.auA}}" aria-label="自动升级" onClick="{{st.auT}}"></button></div>
           <div class="kc-tw"><table class="kc-t"><thead><tr><th>版本</th><th>主机</th><th>说明</th><th>操作</th></tr></thead><tbody><sc-for list="{{st.vers}}" as="v" hint-placeholder-count="3"><tr><td><b>{{v.v}}</b> <span class="{{v.tc}}">{{v.tag}}</span></td><td>{{v.n}} 台</td><td>{{v.d}}</td><td><sc-if value="{{v.can}}" hint-placeholder-val="{{false}}"><a class="sl-op" href="#" onClick="{{v.go}}">{{v.op}}</a></sc-if></td></tr></sc-for></tbody></table></div></div></sc-if>
         <sc-if value="{{st.tOff}}" hint-placeholder-val="{{false}}"><div class="kc-tw"><table class="kc-t"><thead><tr><th>主机</th><th>事件</th><th>时间</th><th>操作人 / 原因</th><th>当前状态</th><th>操作</th></tr></thead><tbody><sc-for list="{{st.offs}}" as="r" hint-placeholder-count="4"><tr><td><div class="sl-a">{{r.h}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.e}}</td><td>{{r.t}}</td><td>{{r.by}}</td><td><span class="{{r.sc}}">{{r.st}}</span></td><td><sc-if value="{{r.op}}" hint-placeholder-val="{{true}}"><a class="sl-op" href="#" onClick="{{r.go}}">{{r.op}}</a></sc-if></td></tr></sc-for></tbody></table></div><div class="sl-ft" style="justify-content:flex-start"><span class="sl-n" style="margin:0">卸载时会提示原因并通知管理员；离线超过 24 小时会进「待处理」</span></div></sc-if>
@@ -1337,8 +1375,8 @@ class Component extends DCLogic {
       ['web-prod-01', '115.231.**.12', '德迅服务器', '有风险', '', 'E', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:42'],
       ['app-03', '10.0.2.23', '其他机房', '有风险', '', 'C', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:40'],
       ['backup-02', '60.191.**.40', '德迅服务器', '未受保护', '已卸载 · 10-29 由 root 卸载', '—', '异常', '已卸载', '—', '未覆盖', '在线', '—', '10-29 16:20'],
-      ['db-new-01', '10.0.4.61', '其他机房', '接入中', '首次检测中，约 10 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
-      ['db-new-02', '10.0.4.62', '其他机房', '接入中', '首次检测中，约 10 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
+      ['db-new-01', '10.0.4.61', '其他机房', '接入中', '首次检测中 · 3/5 项，约 4 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
+      ['db-new-02', '10.0.4.62', '其他机房', '接入中', '首次检测中 · 1/5 项，约 9 分钟', '—', '正常', '', '未生效', '未覆盖', '在线', 'V4.3.2', '—'],
       ['test-07', '10.0.9.17', '其他机房', '已停机', '停机 3 天，开机后自动恢复检测', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.1', '10-30 09:12'],
       ['db-01', '115.231.**.13', '德迅服务器', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:28'],
       ['cache-02', '10.0.3.32', '其他机房', '正常', '', 'A', '异常', '心跳超时 12 分钟', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:30'],
@@ -1348,7 +1386,7 @@ class Component extends DCLogic {
       ['api-01', '10.0.2.21', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35'],
       ['cache-01', '10.0.3.31', '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:35'],
       ['web-new-03', '115.231.**.21', '德迅服务器', '未受保护', '未安装 · 11-01 开通，还没装客户端', '—', '异常', '未安装', '—', '未覆盖', '在线', '—', '—'],
-      ['web-new-04', '115.231.**.22', '德迅服务器', '未受保护', '部署失败 · 自动安装超时，连不上安装源', '—', '异常', '部署失败', '—', '未覆盖', '在线', '—', '—'],
+      ['web-new-04', '115.231.**.22', '德迅服务器', '未受保护', '部署失败 · 已自动重试 3 次，连不上安装源', '—', '异常', '部署失败', '—', '未覆盖', '在线', '—', '—'],
       ['cache-03', '10.0.3.33', '其他机房', '未受保护', '离线 · 客户端 2 小时没有心跳', '—', '离线', '客户端离线', '生效', '未覆盖', '离线', 'V4.3.2', '11-02 08:31'],
       ['app-06', '10.0.2.26', '其他机房', '未受保护', '检测过期 · 超过 3 天没有完成检测', '—', '异常', '检测过期', '生效', '未覆盖', '在线', 'V4.3.2', '10-29 03:00'],
       ['app-07', '10.0.2.27', '其他机房', '未受保护', '未授权 · 授权已用完，这台没有绑定', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
@@ -1437,10 +1475,21 @@ class Component extends DCLogic {
         .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops: ops.concat(id.indexOf('LIC') === 0 ? [{ n: '绑定主机', href: '#', go: ev(() => toast('打开绑定主机列表：50 台已绑定', 'info')) }] : []) }));
     }
     if (PG === 'SecAgent') {
-      const QT = (() => { try { return { ver: '版本与升级', off: '卸载与离线' }[new URLSearchParams(location.search).get('tab')] || ''; } catch (x) { return ''; } })();
+      const QT = (() => { try { return { acc: '接入记录', ver: '版本与升级', off: '卸载与离线' }[new URLSearchParams(location.search).get('tab')] || ''; } catch (x) { return ''; } })();
       const tab = st.agTab || QT || '安装客户端';
-      o.tabs = [['安装客户端', 0], ['版本与升级', 0], ['卸载与离线', 3]].map(([n, c]) => ({ n, c: c ? String(c) : '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ agTab: n })) }));
-      o.tIns = tab === '安装客户端'; o.tVer = tab === '版本与升级'; o.tOff = tab === '卸载与离线'; o.tPlg = tab === '插件';
+      const aj = st.agJ || 0;
+      const P3 = (a, b, c, x) => [[x || '交付', a], ['安装', b], ['首检', c]].map(([n, k]) => ({ n, c: k }));
+      o.accs = [['db-new-01', '10.0.4.61', '德迅服务器交付', '11-08 10:02', P3('ok', 'ok', 'ing'), '接入中', 'sl-st b', '首次检测中 · 3/5 项，约 4 分钟', '查看主机', () => toast('跳转到 db-new-01 主机详情', 'info')],
+        ['db-new-02', '10.0.4.62', '德迅服务器交付', '11-08 10:05', P3('ok', 'ok', 'ing'), '接入中', 'sl-st b', '首次检测中 · 1/5 项，约 9 分钟', '', null],
+        ['web-new-04', '115.231.**.22', '德迅服务器交付', '11-01 15:30', aj === 0 ? P3('ok', 'err', '') : aj === 1 ? P3('ok', 'ing', '') : aj === 2 ? P3('ok', 'ok', 'ing') : P3('ok', 'ok', 'ok'), aj === 0 ? '部署失败' : aj === 3 ? '正常' : '接入中', aj === 0 ? 'sl-st r' : aj === 3 ? 'sl-st g' : 'sl-st b',
+          aj === 0 ? '已自动重试 3 次（15:31、15:36、15:51），都连不上安装源 agent.dexunyun.com:443' : aj === 1 ? '正在用备用安装源重新安装，约 2 分钟' : aj === 2 ? '首次检测中，约 10 分钟' : '首检完成 · 未发现风险', aj === 0 ? '重试安装' : '',
+          () => { S({ agJ: 1 }); toast('已换用备用安装源重新安装，约 2 分钟', 'info'); setTimeout(() => this.setState({ agJ: 2 }), 1800); setTimeout(() => { this.setState({ agJ: 3 }); toast('web-new-04 接入完成，首次检测未发现风险'); }, 4600); }],
+        ['cache-01', '10.0.3.31', '安装命令 · 其他机房', '11-06 14:20', P3('ok', 'ok', 'ok', '上线'), '正常', 'sl-st g', '首检完成 · 未发现风险', '', null],
+        ['app-03', '10.0.2.23', '德迅服务器交付', '11-05 09:40', P3('ok', 'ok', 'ok'), '有风险', 'sl-st r', '首检完成 · 发现 1 项中危，已发站内信（只告警，未拦截）', '查看风险', () => toast('跳转到风险列表，已筛选 app-03', 'info')]]
+        .map(([h, ip, src, t, ps, s2, sc, d, op, fn]) => ({ h, ip, src, t, ps, st: s2, sc, d, op, go: fn ? ev(fn) : ev(() => {}) }));
+      const accN = o.accs.filter((r) => r.st === '接入中' || r.st === '部署失败').length;
+      o.tabs = [['安装客户端', 0], ['接入记录', accN], ['版本与升级', 0], ['卸载与离线', 3]].map(([n, c]) => ({ n, c: c ? String(c) : '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ agTab: n })) }));
+      o.tIns = tab === '安装客户端'; o.tAcc = tab === '接入记录'; o.tVer = tab === '版本与升级'; o.tOff = tab === '卸载与离线'; o.tPlg = tab === '插件';
       const os = st.agOs || 'Linux';
       o.oss = ['Linux', 'Windows'].map((n) => ({ n, cls: n === os ? 'on' : '', pick: ev(() => S({ agOs: n, agCp: 0 })) }));
       o.insT = os === 'Linux' ? '以 root 身份在主机上运行' : '以管理员身份打开 PowerShell 运行';
