@@ -1507,8 +1507,9 @@ class Component extends DCLogic {
         const D0 = { SecVirus: [{ m: '标准', sc: ALLSC }, { m: '重保', sc: { m: '按分组', s: ['db 组'], n: 6 } }] };
         const W = typeof window !== 'undefined' ? window : {};
         if (W.__dxCM === undefined) { try { W.__dxCM = JSON.parse(localStorage.getItem('dxCapMode2') || '{}') || {}; } catch (e) { W.__dxCM = {}; } }
+        if (W.__dxCI === undefined) { try { W.__dxCI = JSON.parse(localStorage.getItem('dxCapItem') || '{}') || {}; } catch (e) { W.__dxCI = {}; } }
         if (W.__dxTmp === undefined) { try { W.__dxTmp = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) { W.__dxTmp = null; } }
-        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
+        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); localStorage.setItem('dxCapItem', JSON.stringify(W.__dxCI || {})); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
         const rules = (k) => W.__dxCM[k] || D0[k] || [{ m: '标准', sc: ALLSC }];
         const isAll = (sc) => !sc || sc.m === '全部主机';
         const inSc = (n, sc) => isAll(sc) || (sc.m === '按分组' ? sc.s.some((g) => GP[g] && n.indexOf(GP[g][0]) === 0) : sc.s.indexOf(n) >= 0);
@@ -1521,6 +1522,11 @@ class Component extends DCLogic {
         const apply = (k, m, sc) => { W.__dxCM = Object.assign({}, W.__dxCM, { [k]: isAll(sc) ? [{ m, sc: ALLSC }] : rules(k).concat([{ m, sc }]) }); save(); };
         const drop = (k, i) => { const rs = rules(k).filter((r, j) => j !== i); W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
         const setTmp = (t) => { W.__dxTmp = t; save(); };
+        /* pmi 2026-11-09：能力细项在模式基础上调整（对全部主机生效） */
+        const items = (k) => W.__dxCI[k] || {};
+        const setItem = (k, i, v) => { const o = Object.assign({}, items(k)); if (v === null) delete o[i]; else o[i] = v; W.__dxCI = Object.assign({}, W.__dxCI, { [k]: o }); save(); };
+        const resetItems = (k) => { W.__dxCI = Object.assign({}, W.__dxCI); delete W.__dxCI[k]; save(); };
+        const setBase = (k, m) => { const rs = rules(k).slice(); rs[0] = { m, sc: ALLSC }; W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
         const scN = (m, s) => (m === '全部主机' ? 68 : m === '按分组' ? s.reduce((a, g) => a + (GP[g] ? GP[g][1] : 0), 0) : s.length);
 
         /* hpk 2026-11-09：选择主机（全部主机 / 自选主机 + 左右树形穿梭框） */
@@ -1555,7 +1561,7 @@ class Component extends DCLogic {
             add: ev(() => { if (lc.length) set({ s: sel.concat(lc.filter((x) => sel.indexOf(x) < 0)), lc: [] }); }), rm: ev(() => { if (rc.length) set({ s: sel.filter((x) => rc.indexOf(x) < 0), rc: [] }); }),
             sc: m === '全部主机' ? ALLSC : { m: '指定主机', s: sel, n: sel.length }, ok: m === '全部主机' || sel.length > 0,
             hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : sel.length ? '已选 ' + sel.length + ' 台，范围外的主机保持当前模式' : '请把要切换的主机移到右侧', hc: m === '指定主机' && !sel.length ? 'bad' : '' }; };
-        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS }; })(); const T = PMX.T && PMX.isAll(PMX.T.sc) ? PMX.T : null;
+        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS, items, setItem, resetItems, setBase }; })(); const T = PMX.T && PMX.isAll(PMX.T.sc) ? PMX.T : null;
         const ms = K.map((k) => PMX.uniform(k)); const u = ms.every((m) => m && m === ms[0]) ? ms[0] : '';
         sx.pm = { n: T && !(T.sc && T.sc.m !== '全部主机') ? '重保（临时）' : u ? u + '模式' : '自定义', t: T ? '重保进行中，至 ' + T.end + ' 自动恢复' : u ? '全部能力都是' + u + '模式' : '各能力模式不同，点击查看' }; }
       const GT = { '入侵检测': ['', ''], '病毒查杀': ['', ''], '网络防护': ['', ''], '风险检测': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动处置': ['由能力模式决定，重保时开启', 'sh-swgt'], '客户端': ['全局设置，不随策略变化', 'sh-swgt'] };

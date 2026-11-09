@@ -1761,8 +1761,9 @@ class Component extends DCLogic {
         const D0 = { SecVirus: [{ m: '标准', sc: ALLSC }, { m: '重保', sc: { m: '按分组', s: ['db 组'], n: 6 } }] };
         const W = typeof window !== 'undefined' ? window : {};
         if (W.__dxCM === undefined) { try { W.__dxCM = JSON.parse(localStorage.getItem('dxCapMode2') || '{}') || {}; } catch (e) { W.__dxCM = {}; } }
+        if (W.__dxCI === undefined) { try { W.__dxCI = JSON.parse(localStorage.getItem('dxCapItem') || '{}') || {}; } catch (e) { W.__dxCI = {}; } }
         if (W.__dxTmp === undefined) { try { W.__dxTmp = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) { W.__dxTmp = null; } }
-        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
+        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); localStorage.setItem('dxCapItem', JSON.stringify(W.__dxCI || {})); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
         const rules = (k) => W.__dxCM[k] || D0[k] || [{ m: '标准', sc: ALLSC }];
         const isAll = (sc) => !sc || sc.m === '全部主机';
         const inSc = (n, sc) => isAll(sc) || (sc.m === '按分组' ? sc.s.some((g) => GP[g] && n.indexOf(GP[g][0]) === 0) : sc.s.indexOf(n) >= 0);
@@ -1775,6 +1776,11 @@ class Component extends DCLogic {
         const apply = (k, m, sc) => { W.__dxCM = Object.assign({}, W.__dxCM, { [k]: isAll(sc) ? [{ m, sc: ALLSC }] : rules(k).concat([{ m, sc }]) }); save(); };
         const drop = (k, i) => { const rs = rules(k).filter((r, j) => j !== i); W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
         const setTmp = (t) => { W.__dxTmp = t; save(); };
+        /* pmi 2026-11-09：能力细项在模式基础上调整（对全部主机生效） */
+        const items = (k) => W.__dxCI[k] || {};
+        const setItem = (k, i, v) => { const o = Object.assign({}, items(k)); if (v === null) delete o[i]; else o[i] = v; W.__dxCI = Object.assign({}, W.__dxCI, { [k]: o }); save(); };
+        const resetItems = (k) => { W.__dxCI = Object.assign({}, W.__dxCI); delete W.__dxCI[k]; save(); };
+        const setBase = (k, m) => { const rs = rules(k).slice(); rs[0] = { m, sc: ALLSC }; W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
         const scN = (m, s) => (m === '全部主机' ? 68 : m === '按分组' ? s.reduce((a, g) => a + (GP[g] ? GP[g][1] : 0), 0) : s.length);
 
         /* hpk 2026-11-09：选择主机（全部主机 / 自选主机 + 左右树形穿梭框） */
@@ -1809,13 +1815,13 @@ class Component extends DCLogic {
             add: ev(() => { if (lc.length) set({ s: sel.concat(lc.filter((x) => sel.indexOf(x) < 0)), lc: [] }); }), rm: ev(() => { if (rc.length) set({ s: sel.filter((x) => rc.indexOf(x) < 0), rc: [] }); }),
             sc: m === '全部主机' ? ALLSC : { m: '指定主机', s: sel, n: sel.length }, ok: m === '全部主机' || sel.length > 0,
             hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : sel.length ? '已选 ' + sel.length + ' 台，范围外的主机保持当前模式' : '请把要切换的主机移到右侧', hc: m === '指定主机' && !sel.length ? 'bad' : '' }; };
-        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS }; })();
+        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS, items, setItem, resetItems, setBase }; })();
       const TMP = PMX.T; const TP = !!(TMP && !PMX.isAll(TMP.sc)); const lock = !!TMP && !TP; const hm = (n) => PMX.hostMode(PG, n); const cm0 = PMX.uniform(PG) || '标准'; const cmode = cm0;
       const HL = [['web-prod-01', '115.231.**.12', 'CentOS 7.9', '标准', 1], ['web-prod-02', '115.231.**.14', 'CentOS 7.9', '标准', 1], ['web-prod-03', '115.231.**.15', 'Ubuntu 22.04', '标准', 1], ['app-03', '10.0.2.23', 'Ubuntu 22.04', '标准', 1], ['app-05', '10.0.2.25', 'Ubuntu 22.04', '轻量', 0],
         ['db-01', '115.231.**.13', 'Rocky Linux 9', '重保', 1], ['cache-01', '10.0.3.31', 'Rocky Linux 9', '重保', 1], ['fin-win-01', '10.0.5.11', 'Windows Server 2019', '标准', 1], ['ops-01', '10.0.6.10', 'CentOS 7.9', '轻量', 1], ['test-07', '10.0.9.17', 'Ubuntu 20.04', '标准', 0]];
       const OV0 = CAP.ov0 || {};
       const ov = st.fxOv || OV0; const mOn = st.fxM === undefined ? true : st.fxM; const plug = CAP.plug || null;
-      const base = (h, i) => MODE[hm(h[0])].indexOf(i) < 0; const val = (h, i) => (ov[h[0]] && ov[h[0]][i] !== undefined ? ov[h[0]][i] : base(h, i));
+      const CI = PMX.items(PG); const base = (h, i) => (CI[i] !== undefined ? CI[i] : MODE[hm(h[0])].indexOf(i) < 0); const val = (h, i) => (ov[h[0]] && ov[h[0]][i] !== undefined ? ov[h[0]][i] : base(h, i));
       const has = (h) => !plug || plug.indexOf(h[0]) >= 0; const adj = (h) => !!ov[h[0]] && Object.keys(ov[h[0]]).some((k) => ov[h[0]][k] !== base(h, +k));
       const effN = mOn ? HL.filter((h) => has(h) && CAP.subs.some((x, i) => val(h, i))).length : 0;
       o.capN = CAP.n; o.mSw = 'kc-sw' + (mOn ? ' on' : ''); o.mA = mOn ? 'true' : 'false'; o.mS = mOn ? '已开启' : '已关闭'; o.mC = 'kc-tag ' + (mOn ? 'ok' : 'mut');
