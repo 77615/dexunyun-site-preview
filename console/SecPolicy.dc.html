@@ -519,7 +519,9 @@
 .pl .pm-sc.bad{color:#f53f3f}
 .pl .pm-rs{margin-top:2px}
 .pl td .pq-adjt{margin:0 6px 0 0}
-.pl .pm-md{width:520px}
+.pl .pm-md{width:560px}
+.pl .pm-md.wide{width:800px}
+.pl .pm-hk{margin:14px 0 0}
 .pl .pm-chg{margin:12px 0 0;padding:8px 12px;background:#f7f8fa;border-radius:4px}
 .pl .pm-chg > div{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:#4e5969}
 .pl .pm-chg > div > span.same{color:#86909c}
@@ -714,6 +716,36 @@ main.kc-main > .pl-al{margin:0 24px 12px}
 .pq-pgs{font-size:12px;color:#86909c}
 .pq-pgs .pq-lk{margin-left:8px}
 .pq-adjt{margin-left:6px;color:#D25F00;background:#FFF3E8;border:0}
+/* hpk 2026-11-09 选择主机 */
+.hpk{margin:0 0 10px}
+.hpk-r{display:flex;align-items:center;gap:20px;font-size:13px;color:#4e5969}
+.hpk-o{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;font:inherit;font-size:13px;color:#1d2129;cursor:pointer}
+.hpk-o b{font-weight:400;color:#1664ff;margin-left:4px}
+.hpk-rd{width:14px;height:14px;border:1px solid #c9cdd4;border-radius:50%;background:#fff;box-sizing:border-box}
+.hpk-rd.on{border:4px solid #1664ff}
+.hpk-t{display:flex;align-items:stretch;gap:12px;margin-top:12px}
+.hpk-p{flex:1;min-width:0}
+.hpk-h{display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;color:#1d2129}
+.hpk-h a{color:#1664ff;text-decoration:none}
+.hpk-b{border:1px solid #e5e6eb;border-radius:4px;padding:10px}
+.hpk-q{display:flex;align-items:center;height:30px;padding:0 10px;background:#f2f3f5;border-radius:4px;color:#86909c}
+.hpk-q input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:13px;outline:none;color:#1d2129}
+.hpk-c{margin:8px 0 4px;padding:6px 10px;background:#f2f3f5;border-radius:4px;font-size:12px;color:#4e5969}
+.hpk-l{height:240px;overflow:auto}
+.hpk-row{display:flex;align-items:center;gap:8px;height:30px;font-size:13px;color:#1d2129}
+.hpk-row.a b{font-weight:500}
+.hpk-row.g{padding-left:0}
+.hpk-row.h{padding-left:42px}
+.hpk-row em{margin-left:auto;font-style:normal;font-size:12px;color:#86909c;white-space:nowrap}
+.hpk-row.dis span{color:#c9cdd4}
+.hpk-row .hs-cb.dis{background:#f2f3f5;border-color:#e5e6eb;cursor:not-allowed}
+.hpk-ar{width:16px;height:16px;border:0;background:none;padding:0;cursor:pointer;position:relative}
+.hpk-ar::before{content:"";position:absolute;left:4px;top:5px;border:4px solid transparent;border-left:5px solid #4e5969;border-right:0}
+.hpk-ar.on::before{left:3px;top:6px;border:4px solid transparent;border-top:5px solid #4e5969;border-bottom:0}
+.hpk-m{display:flex;flex-direction:column;justify-content:center;gap:12px}
+.hpk-mv{width:32px;height:32px;border:0;border-radius:50%;background:#f2f3f5;color:#c9cdd4;font-size:18px;line-height:1;cursor:not-allowed}
+.hpk-mv.on{background:#1664ff;color:#fff;cursor:pointer}
+.hpk-e{margin:24px 0;text-align:center;font-size:12px;color:#86909c}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -864,9 +896,9 @@ main.kc-main > .pl-al{margin:0 24px 12px}
         <label class="pq-in"><span>原因（必填）</span><input type="text" aria-label="暂停原因" placeholder="例如：排查业务性能问题" value="{{pl.pzW}}" onChange="{{pl.pzOnW}}"></label>
         <div class="pq-in"><span>自动恢复</span><span class="pl-seg"><sc-for list="{{pl.pzUs}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div>
         <div class="pq-mf"><button type="button" class="kc-btn" onClick="{{pl.pzX}}">取消</button><button type="button" class="{{pl.pzOk}}" onClick="{{pl.pzGo}}">暂停防护</button></div></div></sc-if>
-      <sc-if value="{{pl.ps.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{pl.ps.x}}"></div><div class="pq-md sh-fx pm-md" role="dialog" aria-modal="true" aria-label="{{pl.ps.t}}"><h3>{{pl.ps.t}}</h3><p class="pq-hm">{{pl.ps.d}}</p>
+      <sc-if value="{{pl.ps.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{pl.ps.x}}"></div><div class="{{pl.ps.mdC}}" role="dialog" aria-modal="true" aria-label="{{pl.ps.t}}"><h3>{{pl.ps.t}}</h3><p class="pq-hm">{{pl.ps.d}}</p>
         <sc-if value="{{pl.ps.hasRows}}" hint-placeholder-val="{{true}}"><div class="pm-chg"><sc-for list="{{pl.ps.rows}}" as="r" hint-placeholder-count="3"><div><span>{{r.n}}</span><span class="{{r.c}}">{{r.f}} → <b>{{r.to}}</b></span></div></sc-for></div></sc-if>
-        <sc-if value="{{pl.ps.isNew}}" hint-placeholder-val="{{false}}"><div class="pq-in"><span>生效主机</span><span class="pl-seg"><sc-for list="{{pl.ps.scs}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div><sc-if value="{{pl.ps.chOn}}" hint-placeholder-val="{{false}}"><div class="pm-chs"><sc-for list="{{pl.ps.chs}}" as="o" hint-placeholder-count="5"><button type="button" class="{{o.c}}" aria-pressed="{{o.a}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><p class="{{pl.ps.scC}}">{{pl.ps.scT}}</p></sc-if><sc-if value="{{pl.ps.isMax}}" hint-placeholder-val="{{false}}"><div class="pq-in"><span>持续时间</span><span class="pl-seg"><sc-for list="{{pl.ps.us}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div><p class="pq-hm pm-end">{{pl.ps.endT}}</p></sc-if>
+        <sc-if value="{{pl.ps.isNew}}" hint-placeholder-val="{{false}}"><div class="pm-hk"><div class="hpk"><div class="hpk-r"><span>选择主机：</span><button type="button" class="hpk-o" onClick="{{pl.ps.tr.allGo}}"><i class="{{pl.ps.tr.allC}}"></i>全部主机</button><button type="button" class="hpk-o" onClick="{{pl.ps.tr.cusGo}}"><i class="{{pl.ps.tr.cusC}}"></i>自选主机 <b>已选择 {{pl.ps.tr.n}} 台</b></button></div><sc-if value="{{pl.ps.tr.cus}}" hint-placeholder-val="{{false}}"><div class="hpk-t"><div class="hpk-p"><div class="hpk-h"><span>选择主机</span><a href="#" onClick="{{pl.ps.tr.lReset}}">重置</a></div><div class="hpk-b"><label class="hpk-q"><input type="search" aria-label="搜索名称/IP" placeholder="搜索名称/IP" value="{{pl.ps.tr.lq}}" onChange="{{pl.ps.tr.lOnQ}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"></path></svg></label><div class="hpk-c">可选择终端 {{pl.ps.tr.lN}} 台</div><div class="hpk-l"><div class="hpk-row a"><button type="button" class="{{pl.ps.tr.lAllC}}" role="checkbox" aria-label="全选" onClick="{{pl.ps.tr.lAll}}"></button><b>全选</b></div><sc-for list="{{pl.ps.tr.lt}}" as="g" hint-placeholder-count="2"><div class="hpk-row g"><button type="button" class="{{g.ar}}" aria-label="展开" onClick="{{g.tg}}"></button><button type="button" class="{{g.ck}}" role="checkbox" aria-label="{{g.n}}" onClick="{{g.go}}"></button><span>{{g.n}}</span><em>{{g.c}}</em></div><sc-if value="{{g.open}}" hint-placeholder-val="{{true}}"><sc-for list="{{g.hs}}" as="h" hint-placeholder-count="3"><div class="{{h.rc}}"><button type="button" class="{{h.ck}}" role="checkbox" aria-label="{{h.n}}" onClick="{{h.go}}"></button><span>{{h.n}}</span><em>{{h.ip}}</em></div></sc-for></sc-if></sc-for><sc-if value="{{pl.ps.tr.lEmpty}}" hint-placeholder-val="{{false}}"><p class="hpk-e">暂无主机</p></sc-if></div></div></div><div class="hpk-m"><button type="button" class="{{pl.ps.tr.toR}}" aria-label="加入已选" onClick="{{pl.ps.tr.add}}">›</button><button type="button" class="{{pl.ps.tr.toL}}" aria-label="移出已选" onClick="{{pl.ps.tr.rm}}">‹</button></div><div class="hpk-p"><div class="hpk-h"><span>已选择主机</span><a href="#" onClick="{{pl.ps.tr.rAllSel}}">选择全部</a></div><div class="hpk-b"><label class="hpk-q"><input type="search" aria-label="搜索" placeholder="搜索" value="{{pl.ps.tr.rq}}" onChange="{{pl.ps.tr.rOnQ}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"></path></svg></label><div class="hpk-c">已选择终端 {{pl.ps.tr.rN}} 台</div><div class="hpk-l"><div class="hpk-row a"><button type="button" class="{{pl.ps.tr.rAllC}}" role="checkbox" aria-label="全选" onClick="{{pl.ps.tr.rAll}}"></button><b>全选</b></div><sc-for list="{{pl.ps.tr.rt}}" as="g" hint-placeholder-count="2"><div class="hpk-row g"><button type="button" class="{{g.ar}}" aria-label="展开" onClick="{{g.tg}}"></button><button type="button" class="{{g.ck}}" role="checkbox" aria-label="{{g.n}}" onClick="{{g.go}}"></button><span>{{g.n}}</span><em>{{g.c}}</em></div><sc-if value="{{g.open}}" hint-placeholder-val="{{true}}"><sc-for list="{{g.hs}}" as="h" hint-placeholder-count="3"><div class="{{h.rc}}"><button type="button" class="{{h.ck}}" role="checkbox" aria-label="{{h.n}}" onClick="{{h.go}}"></button><span>{{h.n}}</span><em>{{h.ip}}</em></div></sc-for></sc-if></sc-for><sc-if value="{{pl.ps.tr.rEmpty}}" hint-placeholder-val="{{false}}"><p class="hpk-e">暂无主机</p></sc-if></div></div></div></div></sc-if></div></div><p class="{{pl.ps.scC}}">{{pl.ps.scT}}</p></sc-if><sc-if value="{{pl.ps.isMax}}" hint-placeholder-val="{{false}}"><div class="pq-in"><span>持续时间</span><span class="pl-seg"><sc-for list="{{pl.ps.us}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div><p class="pq-hm pm-end">{{pl.ps.endT}}</p></sc-if>
         <p class="pq-hm">{{pl.ps.n2}}</p>
         <div class="pq-mf"><button type="button" class="kc-btn" onClick="{{pl.ps.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{pl.ps.go}}">{{pl.ps.okN}}</button></div></div></sc-if>
       <sc-if value="{{pl.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{pl.toast.c}}"></i>{{pl.toast.t}}</div></sc-if>
@@ -1741,7 +1773,7 @@ class Component extends DCLogic {
     pl.tabs = [['防护模式', ''], ['生效资产', ''], ['全局黑白名单', '']].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ plTab: n })) }));
 
     /* pmB 2026-11-09：能力模式可按主机范围设置；整体模式 = 一键预设；重保为临时切换，到期恢复 */
-    const PMX = (() => { /* pmB 2026-11-09：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
+    const PMX = (() => { /* pmB 2026-11-09 · hpk：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
         const GP = { 'web 组': ['web-', 24], 'app 组': ['app-', 12], 'db 组': ['db-', 6], 'cache 组': ['cache-', 4] };
         const ALLSC = { m: '全部主机', s: [], n: 68 };
         const D0 = { SecVirus: [{ m: '标准', sc: ALLSC }, { m: '重保', sc: { m: '按分组', s: ['db 组'], n: 6 } }] };
@@ -1762,12 +1794,40 @@ class Component extends DCLogic {
         const drop = (k, i) => { const rs = rules(k).filter((r, j) => j !== i); W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
         const setTmp = (t) => { W.__dxTmp = t; save(); };
         const scN = (m, s) => (m === '全部主机' ? 68 : m === '按分组' ? s.reduce((a, g) => a + (GP[g] ? GP[g][1] : 0), 0) : s.length);
-        /* 生效主机选择：返回 { scs, chOn, chs, sc, ok, hint, hc } */
-        const picker = (m, s, hosts, set) => { const n = scN(m, s);
-          return { scs: ['全部主机', '按分组', '指定主机'].map((x) => ({ n: x, a: x === m ? 'true' : 'false', c: x === m ? 'on' : '', cls: x === m ? 'on' : '', go: () => set(x, []) })), chOn: m !== '全部主机',
-            chs: (m === '按分组' ? Object.keys(GP) : hosts).map((x) => { const on = s.indexOf(x) >= 0; return { n: m === '按分组' ? x + ' · ' + GP[x][1] + ' 台' : x, a: on ? 'true' : 'false', c: on ? 'on' : '', go: () => set(m, on ? s.filter((y) => y !== x) : s.concat([x])) }; }),
-            sc: { m, s, n }, ok: m === '全部主机' || n > 0, hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : n ? '已选 ' + n + ' 台，范围外的主机保持当前模式' : '请至少选择一' + (m === '按分组' ? '个分组' : '台主机'), hc: m !== '全部主机' && !n ? 'bad' : '' }; };
-        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, picker }; })();
+
+        /* hpk 2026-11-09：选择主机（全部主机 / 自选主机 + 左右树形穿梭框） */
+        const HOSTS = (() => { const L = []; const add = (g, n, ip, dis) => L.push({ g, n, ip, dis: dis || '' });
+          [['web-prod-01', '115.231.**.12'], ['web-prod-02', '115.231.**.14'], ['web-prod-03', '115.231.**.15'], ['web-new-05', '10.0.1.25'], ['web-old-01', '115.231.**.21']].forEach((x) => add('web 组', x[0], x[1]));
+          for (let i = 6; L.length < 24; i++) add('web 组', 'web-node-' + String(i).padStart(2, '0'), '10.0.1.' + (30 + i));
+          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '未授权']].forEach((x) => add('app 组', x[0], x[1], x[2]));
+          for (let i = 8; L.length < 36; i++) add('app 组', 'app-' + String(i).padStart(2, '0'), '10.0.2.' + (20 + i));
+          [['db-01', '115.231.**.13'], ['db-02', '10.0.4.12'], ['db-new-01', '10.0.4.61'], ['db-new-02', '10.0.4.62'], ['db-03', '10.0.4.13'], ['db-04', '10.0.4.14']].forEach((x) => add('db 组', x[0], x[1]));
+          [['cache-01', '10.0.3.31'], ['cache-02', '10.0.3.32'], ['cache-03', '10.0.3.33'], ['cache-04', '10.0.3.34']].forEach((x) => add('cache 组', x[0], x[1]));
+          [['fin-win-01', '10.0.5.11'], ['ops-01', '10.0.6.10'], ['test-07', '10.0.9.17'], ['backup-02', '60.191.**.40', '客户端已卸载']].forEach((x) => add('未分组', x[0], x[1], x[2]));
+          for (let i = 1; L.length < 68; i++) add('未分组', 'node-' + String(i).padStart(2, '0'), '10.0.8.' + (10 + i));
+          return L; })();
+        const HG = ['web 组', 'app 组', 'db 组', 'cache 组', '未分组'];
+        const hp = (P, set, ev) => { P = P || {}; const m = P.m || '全部主机'; const sel = P.s || []; const lc = P.lc || []; const rc = P.rc || []; const col = P.col || {};
+          const q1 = (P.lq || '').trim(); const q2 = (P.rq || '').trim(); const ok = (h) => !h.dis;
+          const tree = (side) => { const q = side === 'l' ? q1 : q2; const ck = side === 'l' ? lc : rc; const key = side === 'l' ? 'lc' : 'rc';
+            const pool = HOSTS.filter((h) => (side === 'l' ? sel.indexOf(h.n) < 0 : sel.indexOf(h.n) >= 0) && (!q || (h.n + h.ip).indexOf(q) >= 0));
+            const avail = pool.filter(ok).map((h) => h.n); const all = avail.length > 0 && avail.every((n) => ck.indexOf(n) >= 0);
+            const tog = (ns, on) => set({ [key]: on ? ck.filter((x) => ns.indexOf(x) < 0) : ck.concat(ns.filter((x) => ck.indexOf(x) < 0)) });
+            const gs = HG.map((g) => { const hs = pool.filter((h) => h.g === g); if (!hs.length) return null; const av = hs.filter(ok).map((h) => h.n); const k = av.filter((n) => ck.indexOf(n) >= 0).length; const open = q ? true : !col[side + g];
+              return { n: g, c: hs.length + ' 台', open, ar: 'hpk-ar' + (open ? ' on' : ''), tg: ev(() => set({ col: Object.assign({}, col, { [side + g]: open }) })), ck: 'hs-cb' + (!av.length ? ' dis' : k && k === av.length ? ' on' : k ? ' mid' : ''), go: ev(() => { if (av.length) tog(av, k === av.length); }),
+                hs: hs.map((h) => { const on = ck.indexOf(h.n) >= 0; return { n: h.n, ip: h.dis ? h.ip + ' · ' + h.dis : h.ip, rc: 'hpk-row h' + (h.dis ? ' dis' : ''), ck: 'hs-cb' + (h.dis ? ' dis' : on ? ' on' : ''), go: ev(() => { if (!h.dis) tog([h.n], on); }) }; }) }; }).filter(Boolean);
+            return { gs, n: pool.filter(ok).length, allC: 'hs-cb' + (!avail.length ? ' dis' : all ? ' on' : ck.length ? ' mid' : ''), all: ev(() => { if (avail.length) set({ [key]: all ? [] : avail }); }), empty: !gs.length }; };
+          const L = tree('l'); const R = tree('r');
+          return { cus: m === '指定主机', allC: 'hpk-rd' + (m === '全部主机' ? ' on' : ''), cusC: 'hpk-rd' + (m === '指定主机' ? ' on' : ''), n: m === '全部主机' ? 68 : sel.length,
+            allGo: ev(() => set({ m: '全部主机' })), cusGo: ev(() => set({ m: '指定主机' })),
+            lt: L.gs, lN: L.n, lAllC: L.allC, lAll: L.all, lEmpty: L.empty, rt: R.gs, rN: sel.length, rAllC: R.allC, rAll: R.all, rEmpty: R.empty,
+            lq: P.lq || '', rq: P.rq || '', lOnQ: (e) => set({ lq: e && e.target ? e.target.value : '' }), rOnQ: (e) => set({ rq: e && e.target ? e.target.value : '' }),
+            lReset: ev(() => set({ lc: [], lq: '' })), rAllSel: ev(() => set({ s: HOSTS.filter(ok).map((h) => h.n), lc: [] })),
+            toR: 'hpk-mv' + (lc.length ? ' on' : ''), toL: 'hpk-mv' + (rc.length ? ' on' : ''),
+            add: ev(() => { if (lc.length) set({ s: sel.concat(lc.filter((x) => sel.indexOf(x) < 0)), lc: [] }); }), rm: ev(() => { if (rc.length) set({ s: sel.filter((x) => rc.indexOf(x) < 0), rc: [] }); }),
+            sc: m === '全部主机' ? ALLSC : { m: '指定主机', s: sel, n: sel.length }, ok: m === '全部主机' || sel.length > 0,
+            hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : sel.length ? '已选 ' + sel.length + ' 台，范围外的主机保持当前模式' : '请把要切换的主机移到右侧', hc: m === '指定主机' && !sel.length ? 'bad' : '' }; };
+        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS }; })();
     const CAPL = [['SecRules', '入侵检测', ['暴力破解', '异常登录', '反弹 Shell', '本地提权', '高危命令'], [2, 3, 4], '按规则阻断进程或连接', ['web-prod-02']],
       ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描'], [1], '自动隔离病毒文件', ['web-prod-02']],
       ['SecFirewall', '网络防火墙', ['网络访问防护', '外联管控'], [1], '自动封禁攻击来源 IP', []],
@@ -1788,7 +1848,7 @@ class Component extends DCLogic {
         ext: ev(() => { if (!adm) return; S({ plPs: 'ext', plPsU: '3 天' }); }),
         end: ev(() => { if (!adm) return; PMX.setTmp(null); S({ plCmV: Date.now(), plLog: [['提前结束重保', '已恢复为切换前的模式', now + ' · wangqi']].concat(st.plLog || []) }); toast('已结束重保，恢复为切换前的模式'); }) };
       pl.ov.ps = ['轻量', '标准', '重保'].map((n) => ({ n: n === '重保' ? '临时重保' : n + '模式', d: n === '重保' ? '到期自动恢复' : DS[n], a: 'false',
-        c: adm ? '' : 'dis', t: adm ? '' : NOP, go: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (n === '重保' && TMP) { toast('已有重保进行中，可以延长或提前结束', 'info'); return; } S({ plPs: n, plPsU: '3 天', plScM: '全部主机', plScS: [] }); }) }));
+        c: adm ? '' : 'dis', t: adm ? '' : NOP, go: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (n === '重保' && TMP) { toast('已有重保进行中，可以延长或提前结束', 'info'); return; } S({ plPs: n, plPsU: '3 天', plHk: null }); }) }));
       const tmpBack = TMP && !part;
       pl.caps = CAPL.map((c, i) => { const u = us[i]; const m = tmpBack ? '重保' : u; const rs = PMX.rules(c[0]); const off = m === '轻量' ? c[3] : []; const same = tmpBack || u === ref;
         const hasMax = tmpBack || !!PMX.dist(c[0])['重保'] || part;
@@ -1806,12 +1866,12 @@ class Component extends DCLogic {
       const ps = st.plPs || ''; const U = { '3 天': '11-12 18:00', '7 天': '11-16 18:00', '14 天': '11-23 18:00' }; const pu = st.plPsU || '3 天';
       const isMax = ps === '重保' || ps === 'ext';
       const live = HS.filter((h) => h.ps !== '未受保护').map((h) => h.n).slice(0, 14);
-      const pk = PMX.picker(st.plScM || '全部主机', st.plScS || [], live, (m, s2) => S({ plScM: m, plScS: s2 }));
+      const pk = PMX.hp(st.plHk, (x) => S({ plHk: Object.assign({}, (this.state || {}).plHk || {}, x) }), ev);
       pl.ps = { on: !!ps, isMax, isNew: !!ps && ps !== 'ext', x: ev(() => S({ plPs: '' })),
         t: ps === 'ext' ? '延长重保' : ps === '重保' ? '临时切到重保模式' : '全部能力切到' + ps + '模式',
         d: ps === 'ext' ? '当前重保至 ' + (TMP ? TMP.end : '') + '，选择新的结束时间。' : isMax ? '范围内的主机全部能力命中后自动处置，可能拦截正常业务。到期自动恢复为切换前的模式，也可以提前结束。' : '把所选主机上全部能力的模式改成' + ps + '模式。',
         rows: ps === 'ext' ? [] : CAPL.map((c) => { const f = PMX.lbl(c[0]); return { n: c[1], f: f, to: ps, c: f === ps + '模式' ? 'same' : '' }; }), hasRows: ps !== 'ext',
-        scs: pk.scs.map((x) => ({ n: x.n, cls: x.cls, pick: ev(x.go) })), chOn: pk.chOn, chs: pk.chs.map((x) => Object.assign(x, { go: ev(x.go) })), scC: 'pm-sc ' + pk.hc, scT: pk.hint,
+        tr: pk, mdC: 'pq-md sh-fx pm-md' + (pk.cus && ps !== 'ext' ? ' wide' : ''), scC: 'pm-sc ' + pk.hc, scT: pk.hint,
         us: Object.keys(U).map((n) => ({ n, cls: n === pu ? 'on' : '', pick: ev(() => S({ plPsU: n })) })), endT: '结束时间：' + U[pu] + '，到期后恢复为切换前的模式。',
         n2: '单独调整过的 ' + CAPL.reduce((a, c) => a + c[5].length, 0) + ' 处主机开关保持不变。约 1 分钟下发。',
         okN: ps === 'ext' ? '确定延长' : isMax ? '开始重保' : '确定切换',
