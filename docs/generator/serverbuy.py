@@ -317,6 +317,6 @@ def build(base_css, qnav, console_pay):
 
 if __name__ == "__main__":
     base, qn, out = sys.argv[1:4]
-    pay = sys.argv[4] if len(sys.argv) > 4 else "console/BillPay.dc.html"
+    pay = sys.argv[4] if len(sys.argv) > 4 else "console/BillPayment.dc.html"
     open(out, "w").write(build(open(base).read(), open(qn).read(), pay))
     print("wrote", out)
