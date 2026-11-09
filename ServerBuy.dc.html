@@ -289,7 +289,7 @@ a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px 
     <div class="sb-blk">
       <h2>类型与机房</h2>
       <div class="sb-row"><div class="sb-lb">类型</div>
-        <div class="sb-types"><sc-for list="{{ types }}" as="o" hint-placeholder-count="6"><button type="button" class="sb-type {{ o.cls }}" onClick="{{ o.go }}"><img src="img/{{ o.ic }}.webp" alt="" aria-hidden="true"><div><b>{{ o.n }}</b><span>{{ o.d }}</span></div></button></sc-for></div>
+        <div class="sb-types"><button type="button" class="sb-type {{ tyC0 }}" onClick="{{ tyP0 }}"><img src="img/ic-hfserver.webp" alt="" aria-hidden="true"><div><b>BGP 服务器</b><span>多线智能选路，12 个机房</span></div></button><button type="button" class="sb-type {{ tyC1 }}" onClick="{{ tyP1 }}"><img src="img/ic-ecs.webp" alt="" aria-hidden="true"><div><b>电信服务器</b><span>骨干直连，¥399/月起</span></div></button><button type="button" class="sb-type {{ tyC2 }}" onClick="{{ tyP2 }}"><img src="img/ic-baremetal.webp" alt="" aria-hidden="true"><div><b>高性能服务器</b><span>单核性能约 1.5 倍</span></div></button><button type="button" class="sb-type {{ tyC3 }}" onClick="{{ tyP3 }}"><img src="img/ic-accel.webp" alt="" aria-hidden="true"><div><b>大带宽服务器</b><span>骨干网独享大带宽</span></div></button><button type="button" class="sb-type {{ tyC4 }}" onClick="{{ tyP4 }}"><img src="img/ic-ddos.webp" alt="" aria-hidden="true"><div><b>UDP 高防专区</b><span>游戏与实时应用首选</span></div></button><button type="button" class="sb-type {{ tyC5 }}" onClick="{{ tyP5 }}"><img src="img/ic-wall.webp" alt="" aria-hidden="true"><div><b>抗 D 弹性计费</b><span>按需调整，以报价为准</span></div></button></div>
       </div>
       <div class="sb-row"><div class="sb-lb">地区</div>
         <div><div class="sb-opts"><sc-for list="{{ regs }}" as="o" hint-placeholder-count="8"><button type="button" class="sb-opt {{ o.cls }} {{ o.tjc }}" onClick="{{ o.go }}" title="{{ o.n }}">{{ o.n }}<sc-if value="{{ o.tj }}" hint-placeholder-val="{{ false }}"><em>推荐</em></sc-if></button></sc-for></div>
@@ -384,7 +384,6 @@ const mi = s.m ?? 0, Mo = D.M[mi], q = s.q ?? 1, ar = !!s.ar, ag = !!s.ag;
 const fmt = (n) => n.toLocaleString('en-US');
 const total = Cf[4] * Mo[0] * q;
 const o = {
-  types: D.T.map((x, i) => ({ n: x[0], d: x[1], ic: x[2], cls: i === t ? 'sb-on' : '', go: () => set({ t: i, r: 0, f: 0, c: 0 }) })),
   regs: rNames.map((n, i) => ({ n, tj: !!D.R[n].tj, tjc: D.R[n].tj ? 'has-tj' : '', cls: i === ri ? 'sb-on' : '', go: () => set({ r: i, f: 0, c: 0 }) })),
   regDesc: R.d,
   fhs: R.fh.map((x, i) => ({ n: x[0] + ' 防御', cls: i === fi ? 'sb-on' : '', go: () => set({ f: i, c: 0 }) })),
@@ -403,6 +402,7 @@ const o = {
   submit: () => { if (ag) set({ dlg: 2, ord: String(Math.floor(100000 + Math.random() * 899999)) }); },
   ordNo: s.ord || '000000',
 };
+D.T.forEach((x, i) => { o['tyC' + i] = i === t ? 'sb-on' : ''; o['tyP' + i] = () => set({ t: i, r: 0, f: 0, c: 0 }); });
 return o;
 }
 }

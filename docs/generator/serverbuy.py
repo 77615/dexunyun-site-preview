@@ -188,7 +188,7 @@ BODY = """
     <div class="sb-blk">
       <h2>类型与机房</h2>
       <div class="sb-row"><div class="sb-lb">类型</div>
-        <div class="sb-types"><sc-for list="{{ types }}" as="o" hint-placeholder-count="6"><button type="button" class="sb-type {{ o.cls }}" onClick="{{ o.go }}"><img src="img/{{ o.ic }}.webp" alt="" aria-hidden="true"><div><b>{{ o.n }}</b><span>{{ o.d }}</span></div></button></sc-for></div>
+        <div class="sb-types">TYPES_STATIC</div>
       </div>
       <div class="sb-row"><div class="sb-lb">地区</div>
         <div><div class="sb-opts"><sc-for list="{{ regs }}" as="o" hint-placeholder-count="8"><button type="button" class="sb-opt {{ o.cls }} {{ o.tjc }}" onClick="{{ o.go }}" title="{{ o.n }}">{{ o.n }}<sc-if value="{{ o.tj }}" hint-placeholder-val="{{ false }}"><em>推荐</em></sc-if></button></sc-for></div>
@@ -284,7 +284,6 @@ const mi = s.m ?? 0, Mo = D.M[mi], q = s.q ?? 1, ar = !!s.ar, ag = !!s.ag;
 const fmt = (n) => n.toLocaleString('en-US');
 const total = Cf[4] * Mo[0] * q;
 const o = {
-  types: D.T.map((x, i) => ({ n: x[0], d: x[1], ic: x[2], cls: i === t ? 'sb-on' : '', go: () => set({ t: i, r: 0, f: 0, c: 0 }) })),
   regs: rNames.map((n, i) => ({ n, tj: !!D.R[n].tj, tjc: D.R[n].tj ? 'has-tj' : '', cls: i === ri ? 'sb-on' : '', go: () => set({ r: i, f: 0, c: 0 }) })),
   regDesc: R.d,
   fhs: R.fh.map((x, i) => ({ n: x[0] + ' 防御', cls: i === fi ? 'sb-on' : '', go: () => set({ f: i, c: 0 }) })),
@@ -303,15 +302,19 @@ const o = {
   submit: () => { if (ag) set({ dlg: 2, ord: String(Math.floor(100000 + Math.random() * 899999)) }); },
   ordNo: s.ord || '000000',
 };
+D.T.forEach((x, i) => { o['tyC' + i] = i === t ? 'sb-on' : ''; o['tyP' + i] = () => set({ t: i, r: 0, f: 0, c: 0 }); });
 return o;
 }
 }
 </script>
 """
 
+def types_static():
+    return ''.join('<button type="button" class="sb-type {{ tyC%d }}" onClick="{{ tyP%d }}"><img src="img/%s.webp" alt="" aria-hidden="true"><div><b>%s</b><span>%s</span></div></button>' % (i, i, t[2], t[0], t[1]) for i, t in enumerate(T))
+
 def build(base_css, qnav, console_pay):
     head = '<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<title>服务器租用</title>\n<script src="./support.js"></script>\n</head>\n<body>\n<x-dc>\n<helmet>\n'
-    body = BODY.replace("QNAV", qnav.strip()).replace("CONSOLE_PAY", console_pay)
+    body = BODY.replace("TYPES_STATIC", types_static()).replace("QNAV", qnav.strip()).replace("CONSOLE_PAY", console_pay)
     logic = LOGIC.replace("__DATA__", json.dumps(DATA, ensure_ascii=False))
     return head + base_css.rstrip() + "\n" + CSS + "</style>\n</helmet>\n" + body + "</x-dc>\n" + logic + "</body>\n</html>\n"
 
