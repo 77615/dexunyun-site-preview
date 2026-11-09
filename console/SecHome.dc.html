@@ -1638,7 +1638,7 @@ class Component extends DCLogic {
       const PF = { '新发现': { '状态': '全部', '时间': '近 7 天' }, '已解决': { '状态': '已解决', '时间': '近 7 天' }, '待复检': { '状态': '待复检', '时间': '近 7 天' }, '已忽略': { '状态': '已忽略', '时间': '近 7 天' }, '旧环境归档': { '状态': '已归档', '时间': '近 7 天' } };
       sx.prog.forEach((x) => { x.go = GO('SecRisks', PF[x.n] || {}); });
       sx.ev.forEach((x) => { if (x.o !== '去复检') x.go = GO('SecRisks', { '状态': '已解决', '验证': '已验证', '时间': '近 7 天' }); });
-      if ((st.ni || 0) === 0) { sx.nb = Object.assign({}, sx.nb, { o: '查看影响主机', h: '#' }); sx.nbGo = GO('SecRiskDetail', {}, 'R3'); }
+      if ((st.ni || 0) === 1) { sx.nb = Object.assign({}, sx.nb, { o: '查看影响主机', h: '#' }); sx.nbGo = GO('SecRiskDetail', {}, 'R3'); }
       const DED = (r) => (r.lv === '紧急' ? (r.ty === '漏洞' ? 5 : 4) : r.lv === '未受保护' ? 2 : r.lv === '可疑' ? 1 : 0.6);
       const UNPX = this._sd().HS.filter((h) => h.ps === '未受保护' && !RK.some((r) => !r.ext && r.lv === '未受保护' && (r.as || '').indexOf(h.n) >= 0)).map((h) => ({ n: '未受保护 · ' + (h.why || '').split(' · ')[0], as: h.n, lv: '未受保护', ty: '主机状态', hgo: GO('SecHosts', { '保护状态': '未受保护', '原因': (h.why || '').split(' · ')[0] }) }));
       const hostR = RK.filter((r) => !r.ext && PEND.indexOf(r.st) >= 0).concat(UNPX).sort((a, b) => DED(b) - DED(a));
