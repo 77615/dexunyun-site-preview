@@ -662,7 +662,7 @@
 .sl .hd-chip button{display:flex;align-items:center;justify-content:center;width:18px;height:18px;border:0;border-radius:2px;background:none;color:#86909c;cursor:pointer;padding:0}
 .sl .hd-chip button:hover{background:#f2f3f5;color:#0c0d0e}
 .sl .hd-dw{position:relative;display:inline-flex}
-.sl .hd-dw .kc-dd{height:28px;background:#fff;border:1px dashed #c9cdd4}
+.sl .hd-dw .kc-dd{height:28px;background:#fff;border:1px solid #dde2e9}
 .sl .hd-dw .kc-dd:hover{border-color:#1664ff;background:#fff}
 .sl .hd-dm{position:fixed;inset:0;z-index:39}
 .sl .hd-cas{position:absolute;top:calc(100% + 4px);left:0;z-index:40;width:420px;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.12);overflow:hidden}
@@ -1241,7 +1241,7 @@
 .sl .hu-sla.r{color:#cb2634}
 .sl .hu-cl{margin:0 0 12px;font-size:12px;line-height:20px;color:#42464e}
 .sl .hu-ia{align-items:center}
-.sl .hu-ownb.no{color:#cb2634}
+.sl .hu-ownb.no b{color:#cb2634}
 .sl .hu-slaal{margin:12px 0 0}
 .sl .hu-nt{padding:8px 0;border-bottom:1px solid #f2f3f5;font-size:12px}
 .sl .hu-nt div{display:flex;gap:8px;align-items:baseline}
@@ -1249,7 +1249,7 @@
 .sl .hu-nt time{color:#86909c}
 .sl .hu-nt p{margin:4px 0 0;color:#42464e;line-height:20px}
 .sl .hu-nti{display:flex;gap:8px;align-items:flex-end;margin-top:10px}
-.sl .hu-nti textarea{height:56px}
+.sl .hu-nti textarea{flex:1;min-width:0;height:64px;resize:none}
 .sl .hu-hint a{margin-left:4px;color:#1664ff;text-decoration:none}
 </style>
 </helmet>
@@ -1382,7 +1382,7 @@
         <section class="kc-card hu-c">
           <div class="hu-ih"><div class="hu-im"><small class="hu-id">{{ls.inc.id}} · 主机调查</small><div class="hu-tt"><h2>{{ls.inc.n}}</h2><span class="{{ls.inc.lvC}}">{{ls.inc.lv}}</span><span class="{{ls.inc.stC}}">{{ls.inc.st}}</span></div>
             <div class="hu-meta"><span>入口：{{ls.inc.entry}}</span><a href="#" onClick="{{ls.inc.hostGo}}">主机：{{ls.inc.host}} · {{ls.inc.ip}}</a><span>{{ls.inc.first}} — {{ls.inc.last}}</span><sc-if value="{{ls.inc.sla}}" hint-placeholder-val="{{true}}"><span class="{{ls.inc.slaC}}">{{ls.inc.sla}}</span></sc-if></div></div>
-            <div class="hu-ia"><span class="{{ls.ownW}}"><button type="button" class="{{ls.ownC}}" aria-haspopup="listbox" aria-expanded="{{ls.ownOn}}" onClick="{{ls.ownT}}">负责人：{{ls.ownN}}</button><sc-if value="{{ls.ownOn}}" hint-placeholder-val="{{false}}"><div class="dd-m" onClick="{{ls.ownX}}"></div><div class="dd-p" role="listbox" aria-label="负责人"><sc-for list="{{ls.owns}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.c}}" onClick="{{o.t}}">{{o.n}}</button></sc-for></div></sc-if></span><button type="button" class="kc-btn pri" onClick="{{ls.planO}}">处置方案</button><sc-if value="{{ls.inc.pend}}" hint-placeholder-val="{{true}}"><span class="hu-pend">{{ls.inc.pend}} 条待研判</span></sc-if></div></div>
+            <div class="hu-ia"><span class="{{ls.ownW}}"><button type="button" class="{{ls.ownC}}" aria-haspopup="listbox" aria-expanded="{{ls.ownOn}}" onClick="{{ls.ownT}}"><span>负责人</span><b>{{ls.ownN}}</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.17l4.95-4.95 1.41 1.41L12 16 5.64 9.64l1.41-1.41z"></path></svg></button><sc-if value="{{ls.ownOn}}" hint-placeholder-val="{{false}}"><div class="dd-m" onClick="{{ls.ownX}}"></div><div class="dd-p" role="listbox" aria-label="负责人"><sc-for list="{{ls.owns}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.c}}" onClick="{{o.t}}">{{o.n}}</button></sc-for></div></sc-if></span><button type="button" class="kc-btn pri" onClick="{{ls.planO}}">处置方案</button><sc-if value="{{ls.inc.pend}}" hint-placeholder-val="{{true}}"><span class="hu-pend">{{ls.inc.pend}} 条待研判</span></sc-if></div></div>
           <sc-if value="{{ls.inc.slaAl}}" hint-placeholder-val="{{false}}"><div class="ac-al e hu-slaal"><i>!</i><span>{{ls.inc.slaAlT}}</span></div></sc-if>
           <div class="hu-ai2"><i class="hu-av" aria-hidden="true"></i><div class="hu-aw"><div class="hu-al"><b>AI 研判</b><time>{{ls.ai.t}}</time></div>
             <div class="hu-bub"><div class="hu-aiv"><span class="{{ls.ai.vc}}">{{ls.ai.v}}</span><span class="kc-tag mut">{{ls.ai.confT}}</span></div><p class="hu-as">{{ls.ai.s}}</p>

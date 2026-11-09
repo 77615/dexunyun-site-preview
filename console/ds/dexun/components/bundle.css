@@ -1935,3 +1935,9 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 .kc-fold-ck:checked ~ .kc-unfold{display:inline-flex}
 .kc-fold-ck:focus-visible ~ .kc-side .kc-fold,.kc-fold-ck:focus-visible ~ .kc-unfold{outline:2px solid var(--kc-primary,#1664ff);outline-offset:1px}
 .kc-fold-ck:checked ~ .kc-main{min-height:calc(100vh - 56px);margin-left:12px}
+/* fix 2026-11-09: overlays skip the entrance stagger; base textarea */
+.kc-main > :is(.sh-fx,[class*="mask"],[class*="-dw"],[class*="drw"],[class*="-md"],[class*="dlg"],[class*="modal"],.dd-m,.hd-dm){animation-delay:0s !important}
+.kc-main > *{animation-fill-mode:both !important}
+:where(.kc-main,.kc-dw,.sh-dw,.sh-md,.ac-drw) textarea{box-sizing:border-box;font:inherit;font-size:13px;line-height:20px;color:var(--kc-text-1,#0c0d0e);padding:5px 10px;border:1px solid #dde2e9;border-radius:var(--kc-control-radius,4px);background:#fff;outline:0;transition:border-color .15s,box-shadow .15s}
+:where(.kc-main,.kc-dw,.sh-dw,.sh-md,.ac-drw) textarea:hover{border-color:#6694ff}
+:where(.kc-main,.kc-dw,.sh-dw,.sh-md,.ac-drw) textarea:focus{border-color:var(--kc-primary,#1664ff);box-shadow:0 0 0 2px rgba(22,93,255,.1)}
