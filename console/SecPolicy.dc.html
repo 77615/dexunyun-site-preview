@@ -519,8 +519,6 @@
 .pl .pm-sc.bad{color:#f53f3f}
 .pl .pm-rs{margin-top:2px}
 .pl td .pq-adjt{margin:0 6px 0 0}
-.pl .pm-md{width:560px}
-.pl .pm-md.wide{width:800px}
 .pl .pm-hk{margin:14px 0 0}
 .pl .pm-chg{margin:12px 0 0;padding:8px 12px;background:#f7f8fa;border-radius:4px}
 .pl .pm-chg > div{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:#4e5969}
@@ -746,6 +744,18 @@ main.kc-main > .pl-al{margin:0 24px 12px}
 .hpk-mv{width:32px;height:32px;border:0;border-radius:50%;background:#f2f3f5;color:#c9cdd4;font-size:18px;line-height:1;cursor:not-allowed}
 .hpk-mv.on{background:#1664ff;color:#fff;cursor:pointer}
 .hpk-e{margin:24px 0;text-align:center;font-size:12px;color:#86909c}
+/* hpk-fit：弹窗宽度不变，穿梭框收窄 */
+.hpk-t{gap:8px}
+.hpk-b{padding:8px}
+.hpk-row{gap:6px}
+.hpk-row span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hpk-row em{flex:none;max-width:48%;overflow:hidden;text-overflow:ellipsis}
+.hpk-row.h{padding-left:28px}
+.hpk-l{height:220px}
+.hpk-mv{width:28px;height:28px;font-size:16px}
+.hpk-row.h em{display:none}
+.hpk,.hpk-t,.pm-hk{min-width:0}
+.pq-md > *{min-width:0}
 </style>
 </helmet>
 <div class="kc ux-wrap">
