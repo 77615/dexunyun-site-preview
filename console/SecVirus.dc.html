@@ -643,6 +643,58 @@
 .sh-dw.sh-fx .fx-note{margin:0 0 12px;padding:10px 12px;background:#f7f8fa;border-radius:4px;color:#4e5969;font-size:13px;line-height:20px}
 .sh-dw.sh-fx .fx-swr{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f2f3f5}
 .sh-dw.sh-fx .fx-rs{display:inline-block;margin-top:16px}
+
+/* cap 2026-11-09：防护状态栏背景 + 病毒查杀扫描动画 */
+.sl.fx .fx-cap{position:relative;overflow:hidden;border:1px solid #e3ebfb;background:linear-gradient(90deg,#fff 0%,#f7faff 45%,#e9f1ff 100%);min-height:52px;box-sizing:border-box}
+.sl.fx .fx-cap::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 52%,rgba(255,255,255,.9) 58%,transparent 64%),linear-gradient(115deg,transparent 66%,rgba(170,200,255,.28) 72%,transparent 80%),linear-gradient(115deg,transparent 80%,rgba(255,255,255,.75) 84%,transparent 88%)}
+.sl.fx .fx-cap::after{content:"";position:absolute;top:0;bottom:0;left:-30%;width:30%;pointer-events:none;background:linear-gradient(115deg,transparent,rgba(255,255,255,.7),transparent);animation:fx-shine 6s ease-in-out infinite}
+@keyframes fx-shine{0%,60%{left:-30%}100%{left:110%}}
+.sl.fx .fx-cap > *{position:relative;z-index:1}
+.sl.fx .fx-pl{display:inline-flex;align-items:center;gap:8px;margin-left:auto}
+.sl.fx .fx-pl i{font-style:normal;color:#737a87}
+.sl.fx .fx-cap span.fx-pl::before{display:none}
+.sl.fx .fx-plb{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 8px 0 8px;border-radius:4px;background:linear-gradient(90deg,#f1ecff,#e9efff);color:#5b3fd9;text-decoration:none;font-size:13px;transition:background .15s}
+.sl.fx .fx-cap .fx-plb b{font-weight:500;font-size:13px;color:inherit}
+.sl.fx .fx-plb:hover{background:linear-gradient(90deg,#e8e0ff,#dfe8ff)}
+.sl.fx .vs{position:relative;overflow:hidden;display:grid;grid-template-columns:132px minmax(0,1fr) auto auto;align-items:center;gap:28px;margin:0 24px 12px;padding:20px 24px;background:linear-gradient(100deg,#fff 0%,#f5f9ff 55%,#eaf2ff 100%);border:1px solid #e3ebfb;border-radius:4px}
+.sl.fx .vs::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 55%,rgba(255,255,255,.85) 61%,transparent 67%),linear-gradient(115deg,transparent 70%,rgba(170,200,255,.22) 76%,transparent 84%)}
+.sl.fx .vs > *{position:relative}
+.sl.fx .vs-orb{position:relative;width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fff 0%,#eef4ff 55%,#dce8ff 100%);box-shadow:inset 0 0 0 2px #c6d9ff,0 8px 24px rgba(22,93,255,.12)}
+.sl.fx .vs-orb i{position:absolute;border-radius:50%;pointer-events:none}
+.sl.fx .vs-r1{inset:-8px;border:1px solid rgba(60,123,255,.25)}
+.sl.fx .vs-r2{inset:-8px;border:1px solid rgba(60,123,255,.25);opacity:0}
+.sl.fx .vs-sw{inset:6px;opacity:0;background:conic-gradient(from 0deg,rgba(60,123,255,0) 0deg,rgba(60,123,255,0) 250deg,rgba(60,123,255,.45) 360deg);-webkit-mask:radial-gradient(circle,transparent 52%,#000 53%);mask:radial-gradient(circle,transparent 52%,#000 53%)}
+.sl.fx .vs-sh{position:relative;filter:drop-shadow(0 6px 10px rgba(29,79,216,.25));animation:vs-float 4s ease-in-out infinite}
+.sl.fx .vs-ck{stroke-dasharray:32;stroke-dashoffset:0;transition:stroke-dashoffset .4s}
+.sl.fx .vs.run .vs-ck,.sl.fx .vs.pause .vs-ck{stroke-dashoffset:32}
+.sl.fx .vs.run .vs-sw{opacity:1;animation:vs-spin 1.6s linear infinite}
+.sl.fx .vs.run .vs-r1,.sl.fx .vs.run .vs-r2{animation:vs-pulse 2.4s ease-out infinite}
+.sl.fx .vs.run .vs-r2{animation-delay:1.2s}
+.sl.fx .vs.pause .vs-sw{opacity:.6}
+.sl.fx .vs.done .vs-ck{animation:vs-draw .6s ease-out both}
+@keyframes vs-spin{to{transform:rotate(360deg)}}
+@keyframes vs-pulse{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.18);opacity:0}}
+@keyframes vs-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes vs-draw{from{stroke-dashoffset:32}to{stroke-dashoffset:0}}
+.sl.fx .vs-m{min-width:0}
+.sl.fx .vs-m h2{margin:0 0 6px;font-size:20px;font-weight:600;color:#1d2129;line-height:28px}
+.sl.fx .vs-p{margin:0;font-size:13px;color:#737a87;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sl.fx .vs.run .vs-p{font-family:var(--kc-mono,ui-monospace,SFMono-Regular,Menlo,monospace);font-size:12px;color:#42464e}
+.sl.fx .vs-bar{position:relative;height:16px;margin-top:14px;max-width:520px;background:repeating-linear-gradient(90deg,#dfe6f2 0 4px,transparent 4px 8px)}
+.sl.fx .vs-bar i{position:absolute;left:0;top:0;bottom:0;background:repeating-linear-gradient(90deg,#1664ff 0 4px,transparent 4px 8px);transition:width .3s linear}
+.sl.fx .vs.run .vs-bar i::after{content:"";position:absolute;right:-1px;top:-3px;bottom:-3px;width:2px;background:#1664ff;box-shadow:0 0 8px 2px rgba(22,100,255,.45)}
+.sl.fx .vs-pn{display:flex;justify-content:space-between;max-width:520px;margin-top:6px;font-size:12px;color:#86909c}
+.sl.fx .vs-a{display:flex;align-items:center;gap:16px}
+.sl.fx .vs-a .kc-btn.pri{min-width:88px}
+.sl.fx .vs-st{display:grid;grid-template-columns:repeat(3,auto);gap:0;margin:0;padding:0 0 0 24px;list-style:none;border-left:1px solid #e3ebfb}
+.sl.fx .vs-st li{display:grid;grid-template-columns:auto auto;justify-content:start;align-items:baseline;column-gap:4px;row-gap:2px;padding:0 16px;min-width:76px}
+.sl.fx .vs-st li > span{grid-column:1 / -1}
+.sl.fx .vs-st li > span{font-size:12px;color:#86909c}
+.sl.fx .vs-st b{font-size:22px;font-weight:600;color:#1d2129;line-height:30px}
+.sl.fx .vs-st b.r{color:#cb2634}
+.sl.fx .vs-st em{font-style:normal;font-size:12px;color:#86909c}
+@media (max-width:1280px){.sl.fx .vs{grid-template-columns:120px minmax(0,1fr) auto}.sl.fx .vs-st{display:none}}
+@media (prefers-reduced-motion:reduce){.sl.fx .vs *,.sl.fx .fx-cap::after{animation:none!important}}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -737,7 +789,8 @@
     <div class="kc-foldbar"><label for="kcf-SecVirus" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecVirus" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecVirus" class="kc-main sh sl fx">
       <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">{{fx.h1}}</h1></div></div><div class="kc-btns"><sc-for list="{{fx.btns}}" as="b" hint-placeholder-count="1"><button type="button" class="{{b.c}}" onClick="{{b.go}}">{{b.n}}</button></sc-for></div></div>
-      <sc-if value="{{fx.hasCap}}" hint-placeholder-val="{{true}}"><div class="fx-cap"><b>{{fx.capN}}</b><button type="button" class="{{fx.mSw}}" role="switch" aria-checked="{{fx.mA}}" aria-label="{{fx.capN}}总开关" onClick="{{fx.mT}}"></button><i class="{{fx.mC}}">{{fx.mS}}</i><span>生效范围 <em>{{fx.mR}}</em> 台</span><sc-if value="{{fx.hasPlug}}" hint-placeholder-val="{{false}}"><span>{{fx.plugN}}</span></sc-if><sc-if value="{{fx.hasAdj}}" hint-placeholder-val="{{true}}"><span>{{fx.adjN}} 台已单独调整</span></sc-if><a class="fx-cl" href="SecPolicy.dc.html">按模式设置</a></div></sc-if>
+      <sc-if value="{{fx.hasCap}}" hint-placeholder-val="{{true}}"><div class="fx-cap"><b>{{fx.capN}}</b><button type="button" class="{{fx.mSw}}" role="switch" aria-checked="{{fx.mA}}" aria-label="{{fx.capN}}总开关" onClick="{{fx.mT}}"></button><i class="{{fx.mC}}">{{fx.mS}}</i><span>生效范围 <em>{{fx.mR}}</em> 台</span><sc-if value="{{fx.hasPlug}}" hint-placeholder-val="{{false}}"><span>{{fx.plugN}}</span></sc-if><sc-if value="{{fx.hasAdj}}" hint-placeholder-val="{{true}}"><span>{{fx.adjN}} 台已单独调整</span></sc-if><span class="fx-pl"><i>防护策略</i><a class="fx-plb" href="SecPolicy.dc.html" title="按防护模式设置，每台主机使用一种模式"><svg class="fx-pls" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" fill="url(#fxg1)"></path><path d="M12 2v20c4.6-1.6 8-6 8-11V5l-8-3Z" fill="#fff" opacity=".35"></path><defs><linearGradient id="fxg1" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#7b61ff"></stop><stop offset="1" stop-color="#3c7bff"></stop></linearGradient></defs></svg><b>{{fx.plN}}</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.17 12 8.22 7.05l1.41-1.41L16 12l-6.37 6.36-1.41-1.41z"></path></svg></a></span></div></sc-if>
+      <sc-if value="{{fx.isVs}}" hint-placeholder-val="{{false}}"><div class="{{fx.vs.c}}"><div class="vs-orb" aria-hidden="true"><i class="vs-r1"></i><i class="vs-r2"></i><i class="vs-sw"></i><svg class="vs-sh" width="64" height="72" viewBox="0 0 64 72"><defs><linearGradient id="vsg1" x1="8" y1="4" x2="56" y2="68" gradientUnits="userSpaceOnUse"><stop stop-color="#9ec2ff"></stop><stop offset=".55" stop-color="#3c7bff"></stop><stop offset="1" stop-color="#1d4fd8"></stop></linearGradient></defs><path d="M32 4 8 13v18c0 16 10.2 30.4 24 36 13.8-5.6 24-20 24-36V13L32 4Z" fill="url(#vsg1)"></path><path d="M32 4v63c13.8-5.6 24-20 24-36V13L32 4Z" fill="#fff" opacity=".22"></path><path class="vs-ck" d="m22 36 7 7 14-15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="vs-m"><h2>{{fx.vs.t}}</h2><p class="vs-p">{{fx.vs.p}}</p><sc-if value="{{fx.vs.bar}}" hint-placeholder-val="{{false}}"><div class="vs-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{fx.vs.pc}}" aria-label="扫描进度"><i style="width:{{fx.vs.pw}}"></i></div><div class="vs-pn"><span>{{fx.vs.pt}}</span><span>{{fx.vs.pcT}}</span></div></sc-if></div><div class="vs-a"><sc-if value="{{fx.vs.run}}" hint-placeholder-val="{{false}}"><a class="sl-op" href="#" onClick="{{fx.vs.stop}}">停止</a><button type="button" class="kc-btn pri" onClick="{{fx.vs.pause}}">{{fx.vs.pauseN}}</button></sc-if><sc-if value="{{fx.vs.idle}}" hint-placeholder-val="{{true}}"><div class="kc-sg" role="radiogroup" aria-label="扫描方式"><sc-for list="{{fx.vs.md}}" as="m" hint-placeholder-count="2"><button type="button" role="radio" aria-checked="{{m.a}}" class="{{m.c}}" onClick="{{m.go}}">{{m.n}}</button></sc-for></div><button type="button" class="kc-btn pri" onClick="{{fx.vs.go}}">立即扫描</button></sc-if></div><ul class="vs-st"><sc-for list="{{fx.vs.st}}" as="x" hint-placeholder-count="3"><li><span>{{x.k}}</span><b class="{{x.c}}">{{x.v}}</b><em>{{x.u}}</em></li></sc-for></ul></div></sc-if>
       <sc-if value="{{fx.hasAl}}" hint-placeholder-val="{{true}}"><div class="ac-al i fx-al"><i>!</i><span>{{fx.al}}<sc-for list="{{fx.alL}}" as="l" hint-placeholder-count="2"><a href="{{l.h}}">{{l.n}}</a></sc-for></span></div></sc-if>
       <section class="kc-card fx-c"><div class="kc-tabs" role="tablist"><sc-for list="{{fx.tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
         <sc-if value="{{fx.isCap}}" hint-placeholder-val="{{true}}"><div class="sl-bar tb"><button type="button" class="{{fx.bC}}" onClick="{{fx.bOn}}">批量开启</button><button type="button" class="{{fx.bC}}" onClick="{{fx.bOff}}">批量关闭</button><button type="button" class="{{fx.bC}}" onClick="{{fx.bRs}}">恢复跟随模式</button><sc-if value="{{fx.selOn}}" hint-placeholder-val="{{false}}"><span class="fx-seln">已选 {{fx.selN}} 台 · <a href="#" onClick="{{fx.bX}}">取消选择</a></span></sc-if><label class="sl-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"></path></svg><input type="search" aria-label="搜索主机名或 IP" placeholder="搜索主机名或 IP" value="{{fx.q}}" onChange="{{fx.onQ}}"></label></div>
@@ -1575,6 +1628,27 @@ class Component extends DCLogic {
     const o = { tsOn: !!st.fxT, toast: st.fxT || { t: '', c: '' }, h1: C0.h1, hasAl: !!C0.al, al: C0.al, alL: (C0.alL || []).map(([n, h]) => ({ n, h })) };
     const hdBtn = (n) => ev(() => { if (/^立即/.test(n)) toast(n === '立即采集' ? '已开始采集，约 5 分钟完成' : '已开始扫描，约 15 分钟完成'); });
     o.btns = (C0.btns || []).map(([n, k]) => ({ n, c: 'kc-btn' + (k ? ' ' + k : ''), go: hdBtn(n) }));
+
+    // cap 2026-11-09：防护策略入口 + 病毒查杀扫描面板
+    o.plN = '按主机模式生效';
+    o.isVs = PG === 'SecVirus'; o.vs = { c: 'vs', md: [], st: [] };
+    if (o.isVs) { o.btns = o.btns.filter((b) => b.n !== '立即扫描'); const sc = st.vsS || null; const md = st.vsM || '快速扫描';
+      const PATHS = ['/usr/bin/sshd', '/etc/cron.d/0hourly', '/tmp/.ICE-unix', '/var/www/html/index.php', '/var/www/html/upload/', '/usr/lib/systemd/system/', '/root/.ssh/authorized_keys', '/usr/local/bin/', '/var/spool/cron/root', '/opt/app/lib/', 'C:\\Windows\\System32\\drivers\\', 'C:\\Windows\\System32\\Tasks\\', 'C:\\Users\\Public\\', '/proc/1347/exe', '/dev/shm/'];
+      const tick = () => { const s0 = (this.state || {}).vsS; if (!s0 || s0.ps || s0.done) return; const step = s0.md === '全盘扫描' ? 0.6 : 1.6; const p = Math.min(100, s0.p + step);
+        this.setState({ vsS: Object.assign({}, s0, { p, f: s0.f + 1, done: p >= 100 }) }); if (p >= 100) { clearInterval(this.__vsT); this.__vsT = null; toast('扫描完成：68 台主机未发现新的病毒'); } };
+      const start = () => { clearInterval(this.__vsT); S({ vsS: { p: 0, f: 0, ps: false, done: false, md } }); this.__vsT = setInterval(tick, 160); };
+      const run = !!(sc && !sc.done && !sc.ps), ps = !!(sc && sc.ps), dn = !!(sc && sc.done);
+      const hs = sc ? Math.round(sc.p / 100 * 68) : 0;
+      o.vs = { c: 'vs' + (run ? ' run' : ps ? ' pause' : dn ? ' done' : ''), run: run || ps, idle: !run && !ps, bar: !!sc,
+        t: run ? '正在进行' + sc.md + '…' : ps ? sc.md + '已暂停' : dn ? '扫描完成，未发现新的病毒' : '上次快速扫描未发现病毒',
+        p: run ? PATHS[sc.f % PATHS.length] + '……' : ps ? '已扫描 ' + hs + ' 台，继续后从暂停处开始' : dn ? '共扫描 68 台主机，用时 ' + (sc.md === '全盘扫描' ? '1 小时 12 分' : '4 分 26 秒') + '。实时检测仍在运行。' : '11-06 04:21 · 68 台主机 · 实时检测运行中',
+        pc: sc ? Math.round(sc.p) : 0, pw: (sc ? sc.p : 0) + '%', pt: '已扫描 ' + hs + '/68 台', pcT: (sc ? Math.round(sc.p) : 0) + '%',
+        pauseN: ps ? '继续' : '暂停',
+        pause: ev(() => { const s0 = this.state.vsS; if (!s0) return; if (s0.ps) { S({ vsS: Object.assign({}, s0, { ps: false }) }); clearInterval(this.__vsT); this.__vsT = setInterval(tick, 160); } else { S({ vsS: Object.assign({}, s0, { ps: true }) }); } }),
+        stop: ev(() => { clearInterval(this.__vsT); this.__vsT = null; S({ vsS: null }); toast('已停止扫描，已扫描的结果会保留', 'info'); }),
+        go: ev(start),
+        md: ['快速扫描', '全盘扫描'].map((n) => ({ n: n.replace('扫描', ''), a: n === md ? 'true' : 'false', c: n === md ? 'on' : '', go: ev(() => S({ vsM: n })) })),
+        st: [{ k: '已防护主机', v: '66', u: '/ 68 台', c: '' }, { k: '本月发现', v: '3', u: '个病毒', c: 'r' }, { k: '隔离区', v: String(((st.fxR || {})['隔离区'] || [1, 2]).length), u: '个文件', c: '' }] }; }
     o.tabs = TABS.map(([n, t]) => ({ n, c: n === '防护范围' ? '' : String((RS[n] || t.rows).length), on: n === tabN ? 'true' : 'false', cls: n === tabN ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ fxTab: n, fxDw: null, fxCf: null, fxIn: null, fxV: null })) }));
 
     // 能力：总开关 + 主机开关表（模式为底，单台调整标「已调整」）
