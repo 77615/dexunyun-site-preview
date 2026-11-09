@@ -1941,3 +1941,20 @@ html:not(.mo-ready) .kc-sub2,html:not(.mo-ready) .kc-main > *,html:not(.mo-ready
 :where(.kc-main,.kc-dw,.sh-dw,.sh-md,.ac-drw) textarea{box-sizing:border-box;font:inherit;font-size:13px;line-height:20px;color:var(--kc-text-1,#0c0d0e);padding:5px 10px;border:1px solid #dde2e9;border-radius:var(--kc-control-radius,4px);background:#fff;outline:0;transition:border-color .15s,box-shadow .15s}
 :where(.kc-main,.kc-dw,.sh-dw,.sh-md,.ac-drw) textarea:hover{border-color:#6694ff}
 :where(.kc-main,.kc-dw,.sh-dw,.sh-md,.ac-drw) textarea:focus{border-color:var(--kc-primary,#1664ff);box-shadow:0 0 0 2px rgba(22,93,255,.1)}
+
+/* tabs 2026-11-09：页签统一（高度 44、字号 14、未选中底色 #f7f8fa、选中白底 + 顶部蓝线） */
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child{background:#f7f8fa !important}
+.kc-main:not(:has(.ia-tabs)) .kc-card>.kc-tabs:first-child>.kc-tab{height:44px !important;padding:0 24px !important;font-size:14px !important}
+.kc-main>.kc-tabs,.ia-tabs:has(> a),.ia-tabs.sp-tabs{gap:0 !important}
+.kc-main>.kc-tabs>.kc-tab,.ia-tabs a,.ia-tabs.sp-tabs>button{height:44px !important;padding:0 24px !important;font-size:14px !important;font-weight:400;color:var(--kc-text-2,#42464e);background:#f7f8fa !important;border-radius:0 !important;border-color:var(--kc-border-3,#eaedf1) var(--kc-border-3,#eaedf1) var(--kc-border-2,#dde2e9) !important}
+.kc-main>.kc-tabs>.kc-tab+.kc-tab,.ia-tabs a+a,.ia-tabs.sp-tabs>button+button{margin-left:-1px !important}
+.kc-main>.kc-tabs>.kc-tab:first-child,.ia-tabs a:first-child,.ia-tabs.sp-tabs>button:first-child{border-top-left-radius:4px !important}
+.kc-main>.kc-tabs>.kc-tab:last-child,.ia-tabs a:last-child,.ia-tabs.sp-tabs>button:last-child{border-top-right-radius:4px !important}
+.kc-main>.kc-tabs>.kc-tab:hover,.ia-tabs a:hover,.ia-tabs.sp-tabs>button:hover{color:var(--kc-primary,#1664ff);background:#fff !important}
+.kc-main>.kc-tabs>.kc-tab.on,.ia-tabs a.on,.ia-tabs.sp-tabs>button.on{position:relative;z-index:1;background:#fff !important;color:var(--kc-primary,#1664ff);font-weight:500;border-color:var(--kc-border-2,#dde2e9) var(--kc-border-2,#dde2e9) #fff !important}
+.kc-main>.kc-tabs>.kc-tab .kc-cnt,.ia-tabs .kc-cnt{font-size:13px}
+.kc-dtabs button,.kc-main .kc-card>.kc-tabs:not(:first-child)>.kc-tab,.kc-main:has(.ia-tabs) .kc-card>.kc-tabs>.kc-tab,.kc-card .kc-tabs:not(:first-child)>.kc-tab{height:44px !important;font-size:14px !important}
+.kc-dtabs button{font-weight:400;color:var(--kc-text-2,#42464e)}
+.kc-dtabs button.on{font-weight:500}
+.kc-main .kc-tab{font-weight:400}
+.kc-main .kc-tab.on{font-weight:500}
