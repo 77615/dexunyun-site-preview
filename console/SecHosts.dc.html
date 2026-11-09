@@ -605,6 +605,34 @@
 .sl .tb-sel a{margin-left:8px;color:var(--kc-primary,#1664ff);text-decoration:none}
 .sl .hs-lay .sl-bar .sl-q{width:200px}
 /*/bx167*/
+
+/* hx 2026-11-09 */
+.sl .hx-form{display:grid;gap:20px}
+.sl .hx-f{display:grid;gap:8px;font-size:13px;color:#42464e}
+.sl .hx-f.sm .kc-in{width:160px}
+.sl .hx-f .kc-in{width:100%;box-sizing:border-box}
+.sl .hx-fl{display:flex;align-items:center;gap:4px;line-height:20px}
+.sl .hx-fl em{font-style:normal;color:#cb2634}
+.sl .hx-f .kc-sg{justify-self:start;flex-wrap:wrap}
+.sl .hx-f .kc-ckg{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sl .hx-f.sw{grid-template-columns:1fr auto;align-items:start;column-gap:24px;padding:12px 14px;border:1px solid #e5e6eb;border-radius:4px}
+.sl .hx-f.sw .hx-fl{font-weight:500;color:#1d2129}
+.sl .hx-f.sw .hx-sd{grid-column:1;margin:0;font-size:12px;line-height:18px;color:#86909c}
+.sl .hx-f.sw .kc-sw{grid-column:2;grid-row:1 / span 2;align-self:center}
+.sl .hx-chs{display:flex;flex-wrap:wrap;gap:8px}
+.sl .hx-chip{height:28px;padding:0 12px;border:1px solid #dde2e9;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.sl .hx-chip:hover{border-color:#6694ff;color:var(--kc-primary,#1664ff)}
+.sl .hx-chip.on{border-color:var(--kc-primary,#1664ff);background:var(--kc-primary-bg,#f2f7ff);color:var(--kc-primary,#1664ff)}
+.sl .hx-chip.on::before{content:"✓";margin-right:4px;font-size:12px}
+.sl .hx-h{margin:0;font-size:12px;line-height:18px;color:#86909c}
+.sl .hx-f.nt .hx-h{padding:10px 12px;background:#f7f8fa;border-radius:4px;color:#42464e;font-size:13px;line-height:20px}
+.sl .hx-err{margin:0;font-size:12px;color:#cb2634}
+.sl .hx-f.bad .kc-in{border-color:#cb2634!important}
+.sl .hx-f.bad .hx-chip{border-color:#f0b3b8}
+.sl .hx-mono,.sl .hx-code code{font-family:"JetBrains Mono",SFMono-Regular,Menlo,Consolas,monospace}
+.sl .hx-code{position:relative;padding:12px 84px 12px 14px;background:#1d2129;border-radius:4px;color:#e5e6eb;font-size:12.5px;line-height:20px;word-break:break-all}
+.sl .hx-code button{position:absolute;top:8px;right:8px;height:26px;padding:0 10px;border:1px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:12px;cursor:pointer}
+.sl .hx-code button:hover{background:rgba(255,255,255,.16)}
 </style>
 <style data-s3="1">
 .s3-rs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 14px 12px 20px;font-size:13px}
@@ -706,7 +734,7 @@
       </nav>
     <div class="kc-foldbar"><label for="kcf-SecHosts" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecHosts" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecHosts" class="kc-main sh sl">
-      <div class="kc-hd"><div class="kc-hdl"><div class="hs-ht"><h1 class="kc-h1">资产列表</h1></div></div><div class="kc-btns"><button type="button" class="kc-btn pri">安装客户端</button></div></div>
+      <div class="kc-hd"><div class="kc-hdl"><div class="hs-ht"><h1 class="kc-h1">资产列表</h1></div></div><div class="kc-btns"><button type="button" onClick="{{ls.hxGo}}" class="kc-btn pri">安装客户端</button></div></div>
       <div class="kc-tabs hs-at" role="tablist"><sc-for list="{{ls.at}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
       <sc-if value="{{ls.atOther}}" hint-placeholder-val="{{false}}"><section class="kc-card hs-ph"><b>{{ls.atN}}</b><p>{{ls.atD}}</p></section></sc-if>
       <sc-if value="{{ls.atHost}}" hint-placeholder-val="{{true}}"><div class="{{ls.layC}}"><sc-if value="{{ls.colOpen}}" hint-placeholder-val="{{true}}"><aside class="kc-card hs-tree"><div class="hs-th"><b>主机分类</b><a href="#" onClick="{{ls.colT}}">收起筛选</a></div><ul class="hs-cat"><sc-for list="{{ls.cat}}" as="g" hint-placeholder-count="6"><li><button type="button" class="{{g.cls}}" onClick="{{g.pick}}"><span>{{g.n}}</span><em>{{g.c}}</em></button></li></sc-for></ul><div class="hs-th hs-th2"><b>分组</b></div><div class="hs-seg"><sc-for list="{{ls.tm}}" as="t" hint-placeholder-count="2"><button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div><ul><sc-for list="{{ls.tree}}" as="g" hint-placeholder-count="6"><li><button type="button" class="{{g.cls}}" onClick="{{g.pick}}"><span>{{g.n}}</span><em>{{g.c}}</em></button></li></sc-for></ul></aside></sc-if>
@@ -727,6 +755,7 @@
             <td><div class="hs-ops"><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="1"><a class="sl-op" href="#" onClick="{{o.go}}">{{o.n}}</a></sc-for><span class="hs-mw"><a class="sl-op hs-more" href="#" onClick="{{r.mT}}">更多<i></i></a><sc-if value="{{r.mOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{r.mX}}"></span><span class="hs-mm" role="menu"><sc-if value="{{r.mAsk}}" hint-placeholder-val="{{false}}"><span class="hs-mq"><em class="hs-mqt">从资产列表删除 <b>{{r.n}}</b>？客户端会停止上报，授权释放。</em><em class="hs-mqb"><button type="button" class="kc-btn" onClick="{{r.mX}}">取消</button><button type="button" class="kc-btn hs-del" onClick="{{r.delOk}}">删除</button></em></span></sc-if><sc-if value="{{r.mList}}" hint-placeholder-val="{{true}}"><sc-for list="{{r.more}}" as="m" hint-placeholder-count="3"><button type="button" role="menuitem" class="{{m.c}}" onClick="{{m.go}}">{{m.n}}</button></sc-for></sc-if></span></sc-if></span></div></td>
           </tr></sc-for></tbody></table></div></sc-if><sc-if value="{{ls.empty}}" hint-placeholder-val="{{false}}"><div class="sl-empty">没有符合条件的主机<a href="#" onClick="{{ls.clear}}">清除条件</a></div></sc-if><sc-if value="{{ls.has}}" hint-placeholder-val="{{true}}"><div class="sl-ft hs-ft"><span></span><sc-if value="{{ls.many}}" hint-placeholder-val="{{true}}"><div class="kc-pg"><button type="button" aria-label="上一页" onClick="{{ls.pPrev}}">‹</button><sc-for list="{{ls.pgs}}" as="p" hint-placeholder-count="3"><button type="button" class="{{p.cls}}" onClick="{{p.pick}}">{{p.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{ls.pNext}}">›</button></div></sc-if></div></sc-if>
       </section></div></sc-if>
+      <sc-if value="{{ls.hxOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.hx.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{ls.hx.t}}"><header><h3>{{ls.hx.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.hx.x}}">×</button></header><div class="sh-dwb"><div class="hx-form"><sc-for list="{{ls.hx.f}}" as="f" hint-placeholder-count="4"><div class="{{f.c}}"><sc-if value="{{f.hasK}}" hint-placeholder-val="{{true}}"><div class="hx-fl"><span>{{f.k}}</span><sc-if value="{{f.req}}" hint-placeholder-val="{{false}}"><em>*</em></sc-if></div></sc-if><sc-if value="{{f.isSw}}" hint-placeholder-val="{{false}}"><p class="hx-sd">{{f.d}}</p><button type="button" class="{{f.swc}}" role="switch" aria-checked="{{f.swa}}" aria-label="{{f.k}}" onClick="{{f.swt}}"></button></sc-if><sc-if value="{{f.isT}}" hint-placeholder-val="{{false}}"><input class="{{f.ic}}" type="text" value="{{f.v}}" placeholder="{{f.ph}}" aria-label="{{f.k}}" onChange="{{f.on}}"></sc-if><sc-if value="{{f.isSg}}" hint-placeholder-val="{{false}}"><div class="kc-sg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCk}}" hint-placeholder-val="{{false}}"><div class="kc-ckg"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="checkbox" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}"><i></i><div><b>{{o.n}}</b><span>{{o.d}}</span></div></button></sc-for></div></sc-if><sc-if value="{{f.isCh}}" hint-placeholder-val="{{false}}"><div class="hx-chs"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCode}}" hint-placeholder-val="{{false}}"><div class="hx-code"><code>{{f.code}}</code><button type="button" onClick="{{f.cp}}">复制</button></div></sc-if><sc-if value="{{f.hasH}}" hint-placeholder-val="{{false}}"><p class="hx-h">{{f.h}}</p></sc-if><sc-if value="{{f.err}}" hint-placeholder-val="{{false}}"><p class="hx-err">{{f.em}}</p></sc-if></div></sc-for></div></div><footer><button type="button" class="kc-btn" onClick="{{ls.hx.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{ls.hx.ok}}">{{ls.hx.okN}}</button></footer></aside></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
     </main>
   </div>
@@ -1551,6 +1580,55 @@ class Component extends DCLogic {
     const base = { ts: st.ts || '' };
     const out = { ls: Object.assign(base, { tsOn: !!st.slT, toast: st.slT || { t: '', c: '' } }) };
     const ls = out.ls;
+    /* hx 2026-11-09：页头设置按钮的专用抽屉（检查设置 / 漏洞设置 / 安装客户端） */ {
+      const HXG = ['web 组 · 24 台', 'app 组 · 12 台', 'db 组 · 6 台', 'cache 组 · 4 台', '未分组 · 22 台'];
+      const HX = {
+        SecVuln: { t: '漏洞设置', ok: '保存', msg: '已保存，下次扫描按新设置执行', f: [
+          { id: 'as', k: '自动扫描', t: 'sw', d: '按下面的周期对全部主机扫描漏洞，关闭后只能手动扫描。' },
+          { id: 'fq', k: '扫描周期', t: 'sg', o: ['每天', '每周', '每月'], when: 'as' },
+          { id: 'tm', k: '扫描时间', t: 'text', w: 'sm', ph: 'HH:MM', when: 'as', h: '扫描时 CPU 占用上限 10%，建议放在业务低峰。' },
+          { id: 'ty', k: '扫描类型', t: 'ckm', o: ['系统漏洞', '应用漏洞', 'Web-CMS 漏洞', '应急漏洞'], d: ['操作系统和内核的 CVE 漏洞', 'Nginx、OpenSSH、Redis、MySQL 等常见软件', 'WordPress、Discuz、ThinkPHP 等建站程序', '德迅安全团队发布的在野漏洞，发布后立即检测'] },
+          { id: 'lw', k: '低危漏洞', t: 'sg', o: ['正常展示', '不展示'], h: (V) => (V.lw === '不展示' ? '低危漏洞不计入风险数，也不发通知，可以随时改回。' : '低危漏洞和其他漏洞一样展示在列表里。') },
+          { id: 'nt', k: '通知', t: 'ch', o: ['紧急', '高危', '中危'], h: '发现这些级别的新漏洞时通知你，通知方式在「通知设置」里配置。' },
+          { id: 're', k: '修复后复检', t: 'note', h: '修复后系统会自动复检，确认修复成功才会把漏洞标为已修复，不需要手动操作。' }],
+          def: { as: true, fq: '每天', tm: '02:00', ty: ['系统漏洞', '应用漏洞', 'Web-CMS 漏洞', '应急漏洞'], lw: '正常展示', nt: ['紧急', '高危'] } },
+        SecBaseline: { t: '检查设置', ok: '保存', msg: '已保存，下次检查按新设置执行', f: [
+          { id: 'ac', k: '自动检查', t: 'sw', d: '按下面的周期自动检查配置基线，关闭后只能手动检查。' },
+          { id: 'fq', k: '检查周期', t: 'sg', o: ['每天', '每周', '每月'], when: 'ac' },
+          { id: 'tm', k: '检查时间', t: 'text', w: 'sm', ph: 'HH:MM', when: 'ac' },
+          { id: 'std', k: '检查标准', t: 'ckm', o: ['德迅安全基线', '等保 2.0 三级', 'CIS Benchmark'], d: ['账号、口令、SSH、服务、日志等 120 项，推荐', '按等保 2.0 三级要求检查 86 项，测评前使用', '国际通用 Level 1 标准，共 210 项'] },
+          { id: 'wp', k: '弱口令检测', t: 'sw', d: '检查系统账号和 MySQL、Redis、FTP 等服务的弱口令，使用内置 1 万条字典。' },
+          { id: 'sc', k: '检查范围', t: 'sg', o: ['全部主机', '按分组'] },
+          { id: 'gp', k: '分组', t: 'ch', o: HXG, when: 'sc=按分组', req: 1 }],
+          def: { ac: true, fq: '每天', tm: '03:00', std: ['德迅安全基线'], wp: true, sc: '全部主机', gp: [] } },
+        SecHosts: { t: '安装客户端', ok: '完成', msg: '主机上线后会出现在列表里，约 1 分钟', f: [
+          { id: 'os', k: '操作系统', t: 'sg', o: ['Linux', 'Windows'] },
+          { id: 'net', k: '下载方式', t: 'sg', o: ['公网下载', '内网代理'], h: (V) => (V.net === '内网代理' ? '主机不能访问公网时使用：先在一台能访问公网的主机上部署代理，再填写代理地址。' : '主机需要能访问 dl.dexunyun.com（443 端口）。') },
+          { id: 'px', k: '代理地址', t: 'text', ph: '例如 10.0.0.5:8080', when: 'net=内网代理', req: 1, mono: 1 },
+          { id: 'grp', k: '安装后加入分组', t: 'one', o: ['不分组', 'web 组', 'app 组', 'db 组', 'cache 组'] },
+          { id: 'cmd', k: '安装命令', t: 'code' },
+          { id: 'tip', k: '', t: 'note', h: (V) => (V.os === 'Windows' ? '用管理员身份打开 PowerShell 运行。' : '以 root 身份运行。') + '安装完成后约 1 分钟，主机会自动出现在「接入中」，首次检测约 10 分钟。安装 Key 30 天内有效，可在「授权管理」重置。' }],
+          def: { os: 'Linux', net: '公网下载', grp: '不分组' },
+          code: (V) => { const g = V.grp && V.grp !== '不分组' ? V.grp.replace(' 组', '') : ''; const px = V.net === '内网代理' ? (V.px || '<代理地址>').trim() : '';
+            return V.os === 'Windows' ? 'powershell -c "' + (px ? '$env:HTTPS_PROXY=\'http://' + px + '\'; ' : '') + 'iwr https://dl.dexunyun.com/agent/install.ps1 -UseB | iex; Install-DxAgent -Key DX-8F3A-2C7E-K29Q' + (g ? ' -Group ' + g : '') + '"'
+              : 'curl -sSL ' + (px ? '-x http://' + px + ' ' : '') + 'https://dl.dexunyun.com/agent/install.sh | sudo bash -s -- --key DX-8F3A-2C7E-K29Q' + (g ? ' --group ' + g : ''); } } };
+      const C = HX['SecHosts']; ls.hxGo = ev(() => S({ hxO: 1, hxV: null, hxE: 0 })); ls.hxOn = !!(C && st.hxO);
+      ls.hx = { t: C ? C.t : '', okN: C ? C.ok : '', f: [], x: ev(() => S({ hxO: 0, hxV: null, hxE: 0 })), ok: ev(() => {}) };
+      if (C && st.hxO) { const V = Object.assign({}, C.def, st.hxV || {}); const setV = (id, v) => S({ hxV: Object.assign({}, (this.state || {}).hxV || {}, { [id]: v }) });
+        const vis1 = (f) => { if (!f.when) return true; const [a, b] = f.when.split('='); return b == null ? !!V[a] : V[a] === b; };
+        const empty = (f) => (Array.isArray(V[f.id]) ? !V[f.id].length : !String(V[f.id] == null ? '' : V[f.id]).trim());
+        const opt = (list, on, pick, d) => list.map((n, j) => ({ n, d: d ? d[j] : '', a: on(n) ? 'true' : 'false', c: on(n) ? 'on' : '', go: ev(() => pick(n)) }));
+        ls.hx.f = C.f.filter(vis1).map((f) => { const v = V[f.id]; const h = typeof f.h === 'function' ? f.h(V) : f.h || ''; const bad = !!st.hxE && f.req && empty(f);
+          const x = { k: f.k, hasK: !!f.k, req: !!f.req, c: 'hx-f' + (f.w === 'sm' ? ' sm' : '') + (f.t === 'note' ? ' nt' : '') + (f.t === 'sw' ? ' sw' : '') + (bad ? ' bad' : ''), isT: f.t === 'text', isSg: f.t === 'sg', isCk: f.t === 'ckm', isCh: f.t === 'ch' || f.t === 'one', isSw: f.t === 'sw', isCode: f.t === 'code',
+            v: v == null ? '' : v, ph: f.ph || '', ic: 'kc-in' + (f.mono ? ' hx-mono' : ''), hasH: !!h, h, err: bad, em: f.t === 'text' ? '请填写' + f.k : '请至少选择一项', d: f.d || '', on: (e) => setV(f.id, e && e.target ? e.target.value : ''), o: [] };
+          if (f.t === 'sg') x.o = opt(f.o, (n) => n === v, (n) => setV(f.id, n));
+          if (f.t === 'ckm') { const a = v || []; x.o = opt(f.o, (n) => a.indexOf(n) >= 0, (n) => setV(f.id, a.indexOf(n) >= 0 ? a.filter((y) => y !== n) : a.concat([n])), f.d).map((o) => Object.assign(o, { c: 'kc-ck' + (o.c ? ' on' : '') })); }
+          if (f.t === 'ch') { const a = v || []; x.o = opt(f.o, (n) => a.indexOf(n) >= 0, (n) => setV(f.id, a.indexOf(n) >= 0 ? a.filter((y) => y !== n) : a.concat([n]))).map((o) => Object.assign(o, { c: 'hx-chip' + (o.c ? ' on' : '') })); }
+          if (f.t === 'one') x.o = opt(f.o, (n) => n === v, (n) => setV(f.id, n)).map((o) => Object.assign(o, { c: 'hx-chip' + (o.c ? ' on' : '') }));
+          if (f.t === 'sw') { x.swc = 'kc-sw' + (v ? ' on' : ''); x.swa = v ? 'true' : 'false'; x.swt = ev(() => setV(f.id, !v)); }
+          if (f.t === 'code') { x.code = C.code(V); x.cp = ev(() => { try { navigator.clipboard.writeText(C.code(V)); } catch (e) {} toast('已复制安装命令'); }); }
+          return x; });
+        ls.hx.ok = ev(() => { if (C.f.filter(vis1).some((f) => f.req && empty(f))) { S({ hxE: 1 }); return; } S({ hxO: 0, hxV: null, hxE: 0 }); toast(C.msg, C.ok === '完成' ? 'info' : undefined); }); } }
     const chipsOf = (lf, skip, label) => Object.keys(lf).filter((k) => k !== skip).map((k) => ({ k: (label && label[k]) || k, v: lf[k], x: ev(() => { const f = Object.assign({}, lf); delete f[k]; S({ lfT: Date.now(), pgT: Date.now(), lf: f, pg: 1 }); }) }));
     const picker = (lf, ATTR) => { const fa = fresh('fa') ? (st.fa || '') : ''; const on = !!fa; const isV = on && fa !== '*';
       ls.faW = on ? 'dd-w on' : 'dd-w'; ls.faOn = on; ls.faV = isV; ls.faK = isV ? fa : '';
