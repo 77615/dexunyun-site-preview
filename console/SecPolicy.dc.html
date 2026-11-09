@@ -509,6 +509,14 @@
 .pl .pm-tmp a{margin-left:12px}
 .pl .pm-tmp a.dis{color:#c9cdd4;pointer-events:none}
 .pl .pm-cn{font-weight:500}
+.pl .pm-gh td{background:#f7f8fa;padding-top:10px;padding-bottom:10px}
+.pl .pm-gh b{font-weight:500;color:#1d2129;margin-right:8px}
+.pl .pm-gh span{font-size:12px;color:#86909c}
+.pl .pm-chs{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.pl .pm-chs button{height:28px;padding:0 10px;border:1px solid #dde2e9;border-radius:4px;background:#fff;font:inherit;font-size:12px;color:#4e5969;cursor:pointer}
+.pl .pm-chs button.on{border-color:#1664ff;background:#eaf2ff;color:#1664ff}
+.pl .pm-sc{margin:8px 0 0;font-size:12px;color:#86909c}
+.pl .pm-sc.bad{color:#f53f3f}
 .pl .pm-rs{margin-top:2px}
 .pl td .pq-adjt{margin:0 6px 0 0}
 .pl .pm-md{width:520px}
@@ -799,28 +807,28 @@ main.kc-main > .pl-al{margin:0 24px 12px}
       </nav>
     <div class="kc-foldbar"><label for="kcf-SecPolicy" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecPolicy" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecPolicy" class="kc-main sh sl pl">
-      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">防护策略</h1><p class="kc-desc">每项防护能力有自己的模式，在能力页切换。这里查看全部能力的模式，也可以一键把全部能力切到同一模式。</p></div></div>
+      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">防护策略</h1><p class="kc-desc">每项防护能力有自己的模式，可以按主机范围设置，在能力页切换。这里查看全部能力的模式，也可以一键切换所选主机上的全部能力。<!-- pmB2 2026-11-09 --></p></div></div>
         <div class="kc-btns"><span class="pl-rl"><span>预览身份</span><span class="pl-seg"><sc-for list="{{pl.roles}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.cls}}" onClick="{{r.pick}}">{{r.n}}</button></sc-for></span></span></div></div>
       <sc-if value="{{pl.ro}}" hint-placeholder-val="{{false}}"><div class="ac-al i pl-al"><i>!</i><span>{{pl.roT}}</span></div></sc-if>
       <section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{pl.tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}<sc-if value="{{t.c}}" hint-placeholder-val="{{false}}"> <span class="kc-cnt">{{t.c}}</span></sc-if></button></sc-for></div>
         <sc-if value="{{pl.tPol}}" hint-placeholder-val="{{true}}"><div class="pl-pn">
           <sc-if value="{{pl.wOn}}" hint-placeholder-val="{{true}}"><div class="ac-al pq-al"><i>!</i><span>{{pl.wT}}</span><a href="#" onClick="{{pl.wGo}}">查看主机</a></div></sc-if>
           <div class="pm-ov"><div class="pm-ovl"><span class="pm-k">整体模式</span><div class="pm-vr"><b class="pm-v">{{pl.ov.n}}</b><sc-if value="{{pl.ov.tmp}}" hint-placeholder-val="{{false}}"><span class="kc-tag warn">临时</span></sc-if></div><p class="pm-d">{{pl.ov.d}}</p></div>
-            <div class="pm-ovr"><span class="pm-k">一键切换全部能力</span><div class="pm-ps" role="group" aria-label="一键切换全部能力"><sc-for list="{{pl.ov.ps}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" title="{{o.t}}" aria-pressed="{{o.a}}" onClick="{{o.go}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></div></div></div>
+            <div class="pm-ovr"><span class="pm-k">一键切换（可选生效主机）</span><div class="pm-ps" role="group" aria-label="一键切换全部能力"><sc-for list="{{pl.ov.ps}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" title="{{o.t}}" aria-pressed="{{o.a}}" onClick="{{o.go}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></div></div></div>
           <sc-if value="{{pl.ov.tmp}}" hint-placeholder-val="{{false}}"><div class="ac-al pm-tmp"><i>!</i><span>{{pl.ov.tmpT}}</span><a href="#" class="{{pl.ov.opC}}" onClick="{{pl.ov.ext}}">延长</a><a href="#" class="{{pl.ov.opC}}" onClick="{{pl.ov.end}}">提前结束</a></div></sc-if>
-          <div class="pq-tb"><span class="pq-tbn">生效总览：每项能力的模式对全部主机生效；在能力页「单独设置」过开关的主机算单独调整，保留各自的开关。</span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
-          <div class="kc-tw"><table class="kc-t pq-tbl pm-tbl"><thead><tr><th>防护能力</th><th>当前模式</th><th>{{pl.ov.cmpH}}</th><th>命中后</th><th>开启检测</th><th>单独调整</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.caps}}" as="c" hint-placeholder-count="6"><tr>
+          <div class="pq-tb"><span class="pq-tbn">生效总览：每项能力的模式可以按主机范围设置，每台主机最终用哪种模式见「生效资产」；在能力页「单独设置」过开关的主机算单独调整，保留各自的开关。</span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
+          <div class="kc-tw"><table class="kc-t pq-tbl pm-tbl"><thead><tr><th>防护能力</th><th>当前模式</th><th>{{pl.ov.cmpH}}</th><th>命中后</th><th>开启检测</th><th>单独调整</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.caps}}" as="c" hint-placeholder-count="6"><sc-if value="{{c.gh}}" hint-placeholder-val="{{false}}"><tr class="pm-gh"><td colspan="7"><b>{{c.gh}}</b><span>{{c.ghd}}</span></td></tr></sc-if><tr>
             <td><a class="sl-op pm-cn" href="{{c.href}}">{{c.n}}</a><div class="sl-sub">{{c.subs}}</div></td>
             <td><span class="{{c.mc}}">{{c.m}}</span><sc-if value="{{c.back}}" hint-placeholder-val="{{false}}"><div class="sl-sub">{{c.back}}</div></sc-if></td>
-            <td><span class="{{c.cc}}">{{c.cmp}}</span></td>
+            <td><sc-if value="{{c.cc}}" hint-placeholder-val="{{true}}"><span class="{{c.cc}}">{{c.cmp}}</span></sc-if><sc-if value="{{c.noC}}" hint-placeholder-val="{{false}}">—</sc-if></td>
             <td>{{c.act}}</td>
             <td>{{c.on}}<sc-if value="{{c.off}}" hint-placeholder-val="{{false}}"><div class="sl-sub">关闭：{{c.off}}</div></sc-if></td>
             <td><sc-if value="{{c.adjN}}" hint-placeholder-val="{{false}}"><a href="#" class="sl-op" onClick="{{c.goA}}">{{c.adjN}} 台</a><div class="sl-sub">{{c.adjH}}</div></sc-if><sc-if value="{{c.adj0}}" hint-placeholder-val="{{true}}">—</sc-if></td>
-            <td><a class="sl-op" href="{{c.href}}">切换模式</a></td>
+            <td><a class="sl-op" href="{{c.href}}">{{c.op}}</a></td>
           </tr></sc-for></tbody></table></div>
         </div></sc-if>
-        <sc-if value="{{pl.tHost}}" hint-placeholder-val="{{false}}"><sc-if value="{{pl.hfOn}}" hint-placeholder-val="{{false}}"><div class="pq-hf">筛选：<b>{{pl.hfT}}</b><a href="#" onClick="{{pl.hfX}}">查看全部主机</a></div></sc-if><div class="sl-bar tb"><span class="hs-bw"><button type="button" class="{{pl.tb.bdc}}" aria-haspopup="menu" onClick="{{pl.tb.bdT}}"><b>{{pl.tb.bdN}}</b><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tb.bdOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tb.bdX}}"></span><span class="dd-p" role="menu"><sc-for list="{{pl.tb.bat}}" as="o" hint-placeholder-count="3"><button type="button" role="menuitem" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for><button type="button" role="menuitem" class="hs-bx" onClick="{{pl.tb.selX}}">取消选择</button></span></sc-if></span><label class="sl-q"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索主机名称或 IP" placeholder="搜索主机名称或 IP" value="{{pl.tb.q}}" onChange="{{pl.tb.onQ}}"></label><span class="{{pl.tb.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{pl.tb.faT}}"><b>添加筛选</b><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tb.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tb.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{pl.tb.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{pl.tb.faB}}">‹ {{pl.tb.faK}}</button></sc-if><sc-for list="{{pl.tb.faL}}" as="o" hint-placeholder-count="5"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><sc-for list="{{pl.tb.chips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{pl.tb.hasF}}" hint-placeholder-val="{{false}}"><a class="sl-clr" href="#" onClick="{{pl.tb.clear}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{pl.tb.n}}</b> {{pl.tb.u}}</span><span class="hs-tools"><button type="button" class="hs-ib i-ex" title="导出" aria-label="导出" onClick="{{pl.tb.exp}}"></button></span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th class="hs-ck"><button type="button" class="{{pl.tb.allC}}" role="checkbox" aria-checked="{{pl.tb.allA}}" aria-label="全选本页" onClick="{{pl.tb.allT}}"></button></th><th>主机</th><th>单独调整</th><th>生效状态</th><th>生效时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.hosts}}" as="h" hint-placeholder-count="8"><tr class="{{h.trc}}"><td class="hs-ck"><button type="button" class="{{h.ckc}}" role="checkbox" aria-checked="{{h.cka}}" aria-label="选择" onClick="{{h.ck}}"></button></td>
-          <td><div class="sl-a">{{h.n}}</div><div class="sl-sub">{{h.ip}}</div></td><td><sc-if value="{{h.adj}}" hint-placeholder-val="{{false}}"><span class="kc-tag warn pq-adjt">已调整</span></sc-if>{{h.as}}<sc-if value="{{h.adj}}" hint-placeholder-val="{{false}}"><div class="pm-rs"><a href="#" class="sl-op" onClick="{{h.rsT}}">恢复跟随模式</a></div></sc-if></td><td><span class="{{h.sc}}">{{h.st}}</span><div class="sl-sub">{{h.why}}</div></td><td>{{h.t}}</td>
+        <sc-if value="{{pl.tHost}}" hint-placeholder-val="{{false}}"><sc-if value="{{pl.hfOn}}" hint-placeholder-val="{{false}}"><div class="pq-hf">筛选：<b>{{pl.hfT}}</b><a href="#" onClick="{{pl.hfX}}">查看全部主机</a></div></sc-if><div class="sl-bar tb"><span class="hs-bw"><button type="button" class="{{pl.tb.bdc}}" aria-haspopup="menu" onClick="{{pl.tb.bdT}}"><b>{{pl.tb.bdN}}</b><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tb.bdOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tb.bdX}}"></span><span class="dd-p" role="menu"><sc-for list="{{pl.tb.bat}}" as="o" hint-placeholder-count="3"><button type="button" role="menuitem" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for><button type="button" role="menuitem" class="hs-bx" onClick="{{pl.tb.selX}}">取消选择</button></span></sc-if></span><label class="sl-q"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索主机名称或 IP" placeholder="搜索主机名称或 IP" value="{{pl.tb.q}}" onChange="{{pl.tb.onQ}}"></label><span class="{{pl.tb.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{pl.tb.faT}}"><b>添加筛选</b><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{pl.tb.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{pl.tb.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{pl.tb.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{pl.tb.faB}}">‹ {{pl.tb.faK}}</button></sc-if><sc-for list="{{pl.tb.faL}}" as="o" hint-placeholder-count="5"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><sc-for list="{{pl.tb.chips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{pl.tb.hasF}}" hint-placeholder-val="{{false}}"><a class="sl-clr" href="#" onClick="{{pl.tb.clear}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{pl.tb.n}}</b> {{pl.tb.u}}</span><span class="hs-tools"><button type="button" class="hs-ib i-ex" title="导出" aria-label="导出" onClick="{{pl.tb.exp}}"></button></span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th class="hs-ck"><button type="button" class="{{pl.tb.allC}}" role="checkbox" aria-checked="{{pl.tb.allA}}" aria-label="全选本页" onClick="{{pl.tb.allT}}"></button></th><th>主机</th><th>防护模式</th><th>单独调整</th><th>生效状态</th><th>生效时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.hosts}}" as="h" hint-placeholder-count="8"><tr class="{{h.trc}}"><td class="hs-ck"><button type="button" class="{{h.ckc}}" role="checkbox" aria-checked="{{h.cka}}" aria-label="选择" onClick="{{h.ck}}"></button></td>
+          <td><div class="sl-a">{{h.n}}</div><div class="sl-sub">{{h.ip}}</div></td><td><span class="{{h.pmc}}">{{h.pm}}</span><sc-if value="{{h.pmd}}" hint-placeholder-val="{{false}}"><div class="sl-sub">{{h.pmd}}</div></sc-if></td><td><sc-if value="{{h.adj}}" hint-placeholder-val="{{false}}"><span class="kc-tag warn pq-adjt">已调整</span></sc-if>{{h.as}}<sc-if value="{{h.adj}}" hint-placeholder-val="{{false}}"><div class="pm-rs"><a href="#" class="sl-op" onClick="{{h.rsT}}">恢复跟随模式</a></div></sc-if></td><td><span class="{{h.sc}}">{{h.st}}</span><div class="sl-sub">{{h.why}}</div></td><td>{{h.t}}</td>
           <td><sc-if value="{{h.can}}" hint-placeholder-val="{{true}}"><a class="{{h.opC}}" href="#" title="{{h.opT}}" onClick="{{h.pz}}">{{h.pzN}}</a></sc-if><sc-if value="{{h.noC}}" hint-placeholder-val="{{false}}"><a class="sl-op" href="SecAgent.dc.html">重新安装</a></sc-if></td></tr></sc-for></tbody></table></div><sc-if value="{{pl.tb.many}}" hint-placeholder-val="{{false}}"><div class="sl-ft"><div class="kc-pg"><button type="button" aria-label="上一页" onClick="{{pl.tb.pPrev}}">‹</button><sc-for list="{{pl.tb.pgs}}" as="x" hint-placeholder-count="3"><button type="button" class="{{x.cls}}" onClick="{{x.pick}}">{{x.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{pl.tb.pNext}}">›</button></div></div></sc-if></sc-if>
         <sc-if value="{{pl.tList}}" hint-placeholder-val="{{false}}"><div class="sl-bar"><span class="pl-seg"><sc-for list="{{pl.lsegs}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.cls}}" onClick="{{x.pick}}">{{x.n}} {{x.c}}</button></sc-for></span><span class="sl-n">{{pl.lHint}}</span><button type="button" class="{{pl.addC}}" title="{{pl.addT}}" onClick="{{pl.addGo}}">添加</button></div>
           <div class="kc-tw"><table class="kc-t"><thead><tr><th>类型</th><th>内容</th><th>生效范围</th><th>来源</th><th>添加时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.lrows}}" as="w" hint-placeholder-count="4"><tr>
@@ -858,7 +866,7 @@ main.kc-main > .pl-al{margin:0 24px 12px}
         <div class="pq-mf"><button type="button" class="kc-btn" onClick="{{pl.pzX}}">取消</button><button type="button" class="{{pl.pzOk}}" onClick="{{pl.pzGo}}">暂停防护</button></div></div></sc-if>
       <sc-if value="{{pl.ps.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{pl.ps.x}}"></div><div class="pq-md sh-fx pm-md" role="dialog" aria-modal="true" aria-label="{{pl.ps.t}}"><h3>{{pl.ps.t}}</h3><p class="pq-hm">{{pl.ps.d}}</p>
         <sc-if value="{{pl.ps.hasRows}}" hint-placeholder-val="{{true}}"><div class="pm-chg"><sc-for list="{{pl.ps.rows}}" as="r" hint-placeholder-count="3"><div><span>{{r.n}}</span><span class="{{r.c}}">{{r.f}} → <b>{{r.to}}</b></span></div></sc-for></div></sc-if>
-        <sc-if value="{{pl.ps.isMax}}" hint-placeholder-val="{{false}}"><div class="pq-in"><span>持续时间</span><span class="pl-seg"><sc-for list="{{pl.ps.us}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div><p class="pq-hm pm-end">{{pl.ps.endT}}</p></sc-if>
+        <sc-if value="{{pl.ps.isNew}}" hint-placeholder-val="{{false}}"><div class="pq-in"><span>生效主机</span><span class="pl-seg"><sc-for list="{{pl.ps.scs}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div><sc-if value="{{pl.ps.chOn}}" hint-placeholder-val="{{false}}"><div class="pm-chs"><sc-for list="{{pl.ps.chs}}" as="o" hint-placeholder-count="5"><button type="button" class="{{o.c}}" aria-pressed="{{o.a}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><p class="{{pl.ps.scC}}">{{pl.ps.scT}}</p></sc-if><sc-if value="{{pl.ps.isMax}}" hint-placeholder-val="{{false}}"><div class="pq-in"><span>持续时间</span><span class="pl-seg"><sc-for list="{{pl.ps.us}}" as="u" hint-placeholder-count="3"><button type="button" class="{{u.cls}}" onClick="{{u.pick}}">{{u.n}}</button></sc-for></span></div><p class="pq-hm pm-end">{{pl.ps.endT}}</p></sc-if>
         <p class="pq-hm">{{pl.ps.n2}}</p>
         <div class="pq-mf"><button type="button" class="kc-btn" onClick="{{pl.ps.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{pl.ps.go}}">{{pl.ps.okN}}</button></div></div></sc-if>
       <sc-if value="{{pl.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{pl.toast.c}}"></i>{{pl.toast.t}}</div></sc-if>
@@ -1732,49 +1740,85 @@ class Component extends DCLogic {
     // 页签
     pl.tabs = [['防护模式', ''], ['生效资产', ''], ['全局黑白名单', '']].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ plTab: n })) }));
 
-    /* pm-ov 2026-11-09：能力模式是真实状态；整体模式 = 一键预设；重保为临时切换，到期恢复 */
-    { const CAPL = [['SecRules', '入侵检测', ['暴力破解', '异常登录', '反弹 Shell', '本地提权', '高危命令'], [2, 3, 4], '按规则阻断进程或连接', ['web-prod-02']],
-        ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描'], [1], '自动隔离病毒文件', ['web-prod-02']],
-        ['SecFirewall', '网络防火墙', ['网络访问防护', '外联管控'], [1], '自动封禁攻击来源 IP', []],
-        ['SecRansom', '防勒索', ['勒索拦截', '诱饵文件', '自动备份'], [0, 1, 2], '拦截加密行为并结束进程', []],
-        ['SecTamper', '网页防篡改', ['防篡改'], [0], '拦截篡改并还原文件', []],
-        ['SecRemote', '远程安全', ['远程桌面防护', '二次认证', '常用登录地'], [1, 2], '自动封禁暴力破解来源 IP', ['app-03']]];
-      const CM0 = { SecVirus: '重保' }; let CMS = {}; let TMP0 = null; try { CMS = JSON.parse(localStorage.getItem('dxCapMode') || '{}') || {}; TMP0 = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) {}
-      const cmS = st.plCm || CMS; const TMP = st.plTmp !== undefined ? st.plTmp : TMP0;
-      const cm = (k) => cmS[k] || CM0[k] || '标准';
-      const save = (m, t) => { try { localStorage.setItem('dxCapMode', JSON.stringify(m)); if (t) localStorage.setItem('dxPmTmp', JSON.stringify(t)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
-      const eff = (k) => (TMP ? '重保' : cm(k));
-      const ms = CAPL.map((c) => cm(c[0])); const uni = ms.every((m) => m === ms[0]) ? ms[0] : '';
-      const ref = TMP ? '重保' : uni || '标准';
-      const DS = { '轻量': '资源占用最低', '标准': '全部检测，只告警', '重保': '全部检测，自动处置' };
+    /* pmB 2026-11-09：能力模式可按主机范围设置；整体模式 = 一键预设；重保为临时切换，到期恢复 */
+    const PMX = (() => { /* pmB 2026-11-09：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
+        const GP = { 'web 组': ['web-', 24], 'app 组': ['app-', 12], 'db 组': ['db-', 6], 'cache 组': ['cache-', 4] };
+        const ALLSC = { m: '全部主机', s: [], n: 68 };
+        const D0 = { SecVirus: [{ m: '标准', sc: ALLSC }, { m: '重保', sc: { m: '按分组', s: ['db 组'], n: 6 } }] };
+        const W = typeof window !== 'undefined' ? window : {};
+        if (W.__dxCM === undefined) { try { W.__dxCM = JSON.parse(localStorage.getItem('dxCapMode2') || '{}') || {}; } catch (e) { W.__dxCM = {}; } }
+        if (W.__dxTmp === undefined) { try { W.__dxTmp = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) { W.__dxTmp = null; } }
+        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
+        const rules = (k) => W.__dxCM[k] || D0[k] || [{ m: '标准', sc: ALLSC }];
+        const isAll = (sc) => !sc || sc.m === '全部主机';
+        const inSc = (n, sc) => isAll(sc) || (sc.m === '按分组' ? sc.s.some((g) => GP[g] && n.indexOf(GP[g][0]) === 0) : sc.s.indexOf(n) >= 0);
+        const T = W.__dxTmp;
+        const hostMode = (k, n) => { if (T && inSc(n, T.sc)) return '重保'; let m = '标准'; rules(k).forEach((r) => { if (inSc(n, r.sc)) m = r.m; }); return m; };
+        const dist = (k) => { const d = {}; const rs = rules(k); let rest = 68; rs.slice(1).forEach((r) => { d[r.m] = (d[r.m] || 0) + r.sc.n; rest -= r.sc.n; }); d[rs[0].m] = (d[rs[0].m] || 0) + Math.max(rest, 0); Object.keys(d).forEach((x) => { if (!d[x]) delete d[x]; }); return d; };
+        const uniform = (k) => { const ks = Object.keys(dist(k)); return ks.length === 1 ? ks[0] : ''; };
+        const lbl = (k) => { const d = dist(k); const ks = ['轻量', '标准', '重保'].filter((x) => d[x]); return ks.length === 1 ? ks[0] + '模式' : ks.map((x) => x + ' ' + d[x]).join(' · '); };
+        const scTxt = (sc) => (isAll(sc) ? '全部主机' : sc.m === '按分组' ? sc.s.join('、') + ' · ' + sc.n + ' 台' : (sc.s.length <= 3 ? sc.s.join('、') : sc.s.slice(0, 2).join('、') + ' 等 ' + sc.s.length + ' 台'));
+        const apply = (k, m, sc) => { W.__dxCM = Object.assign({}, W.__dxCM, { [k]: isAll(sc) ? [{ m, sc: ALLSC }] : rules(k).concat([{ m, sc }]) }); save(); };
+        const drop = (k, i) => { const rs = rules(k).filter((r, j) => j !== i); W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
+        const setTmp = (t) => { W.__dxTmp = t; save(); };
+        const scN = (m, s) => (m === '全部主机' ? 68 : m === '按分组' ? s.reduce((a, g) => a + (GP[g] ? GP[g][1] : 0), 0) : s.length);
+        /* 生效主机选择：返回 { scs, chOn, chs, sc, ok, hint, hc } */
+        const picker = (m, s, hosts, set) => { const n = scN(m, s);
+          return { scs: ['全部主机', '按分组', '指定主机'].map((x) => ({ n: x, a: x === m ? 'true' : 'false', c: x === m ? 'on' : '', cls: x === m ? 'on' : '', go: () => set(x, []) })), chOn: m !== '全部主机',
+            chs: (m === '按分组' ? Object.keys(GP) : hosts).map((x) => { const on = s.indexOf(x) >= 0; return { n: m === '按分组' ? x + ' · ' + GP[x][1] + ' 台' : x, a: on ? 'true' : 'false', c: on ? 'on' : '', go: () => set(m, on ? s.filter((y) => y !== x) : s.concat([x])) }; }),
+            sc: { m, s, n }, ok: m === '全部主机' || n > 0, hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : n ? '已选 ' + n + ' 台，范围外的主机保持当前模式' : '请至少选择一' + (m === '按分组' ? '个分组' : '台主机'), hc: m !== '全部主机' && !n ? 'bad' : '' }; };
+        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, picker }; })();
+    const CAPL = [['SecRules', '入侵检测', ['暴力破解', '异常登录', '反弹 Shell', '本地提权', '高危命令'], [2, 3, 4], '按规则阻断进程或连接', ['web-prod-02']],
+      ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描'], [1], '自动隔离病毒文件', ['web-prod-02']],
+      ['SecFirewall', '网络防火墙', ['网络访问防护', '外联管控'], [1], '自动封禁攻击来源 IP', []],
+      ['SecRansom', '防勒索', ['勒索拦截', '诱饵文件', '自动备份'], [0, 1, 2], '拦截加密行为并结束进程', []],
+      ['SecTamper', '网页防篡改', ['防篡改'], [0], '拦截篡改并还原文件', []],
+      ['SecRemote', '远程安全', ['远程桌面防护', '二次认证', '常用登录地'], [1, 2], '自动封禁暴力破解来源 IP', ['app-03']]];
+    const hostPm = (n) => { const ms = CAPL.map((c) => PMX.hostMode(c[0], n)); const u = ms.every((m) => m === ms[0]) ? ms[0] : ''; return { u, ms, diff: CAPL.filter((c, i) => ms[i] !== '标准').map((c, i) => c[1] + ' ' + PMX.hostMode(c[0], n)) }; };
+    { const TMP = PMX.T; const part = !!(TMP && !PMX.isAll(TMP.sc));
       const MCC = { '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' };
-      const diffS = CAPL.filter((c) => cm(c[0]) !== '标准').map((c) => c[1] + ' ' + cm(c[0])); const diffL = CAPL.filter((c) => cm(c[0]) !== ref).map((c) => c[1] + ' ' + cm(c[0]));
-      pl.ov = { n: TMP ? '重保模式' : uni ? uni + '模式' : '自定义', tmp: !!TMP, cmpH: '与' + ref + '模式相比',
-        d: TMP ? '全部 ' + CAPL.length + ' 项能力临时使用重保模式，命中后自动处置。' : uni ? '全部 ' + CAPL.length + ' 项能力都是' + uni + '模式。' : CAPL.length + ' 项能力中 ' + diffL.length + ' 项与标准模式不同：' + diffL.join('、') + '。',
-        tmpT: TMP ? '重保进行中，至 ' + (TMP.end || '') + ' 结束。结束后自动恢复为切换前的模式：' + (uni ? '全部' + uni + '模式' : diffS.join('、') + '，其余标准模式') + '。' : '',
+      const DS = { '轻量': '资源占用最低', '标准': '全部检测，只告警', '重保': '全部检测，自动处置' };
+      const us = CAPL.map((c) => PMX.uniform(c[0])); const uni = us.every((m) => m && m === us[0]) ? us[0] : '';
+      const ref = uni || '标准';
+      const diffC = CAPL.filter((c, i) => us[i] !== '标准');
+      pl.ov = { n: TMP && !part ? '重保模式' : uni ? uni + '模式' : '自定义', tmp: !!TMP, cmpH: '与' + (TMP && !part ? '重保' : ref) + '模式相比',
+        d: TMP && !part ? '全部 ' + CAPL.length + ' 项能力临时使用重保模式，命中后自动处置。' : uni ? '全部 ' + CAPL.length + ' 项能力都是' + uni + '模式，对全部主机生效。' : CAPL.length + ' 项可切换模式的能力中 ' + diffC.length + ' 项与标准模式不同：' + diffC.map((c) => c[1] + '（' + PMX.lbl(c[0]) + '）').join('、') + '。',
+        tmpT: TMP ? '重保进行中（' + PMX.scTxt(TMP.sc) + '），至 ' + (TMP.end || '') + ' 结束。结束后这些主机恢复为各能力原来的模式。' : '',
         opC: adm ? '' : 'dis',
         ext: ev(() => { if (!adm) return; S({ plPs: 'ext', plPsU: '3 天' }); }),
-        end: ev(() => { if (!adm) return; save(cmS, null); S({ plTmp: null, plLog: [['提前结束重保', '已恢复为切换前的模式', now + ' · wangqi']].concat(st.plLog || []) }); toast('已结束重保，全部能力恢复为切换前的模式'); }) };
-      pl.ov.ps = ['轻量', '标准', '重保'].map((n) => { const cur = TMP ? n === '重保' : uni === n; return { n: n === '重保' ? '临时重保' : n + '模式', d: n === '重保' ? '到期自动恢复' : DS[n], a: cur ? 'true' : 'false',
-        c: (cur ? 'on' : '') + (adm ? '' : ' dis'), t: adm ? (cur ? '当前已是' + n + '模式' : '') : NOP, go: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (cur) return; S({ plPs: n, plPsU: '3 天' }); }) }; });
-      pl.caps = CAPL.map((c) => { const m = eff(c[0]); const off = m === '轻量' ? c[3] : []; const same = m === ref;
-        return { n: c[1], href: c[0] + '.dc.html', subs: c[2].join(' · '), m: m + '模式', mc: MCC[m], back: TMP ? '结束后恢复为' + cm(c[0]) + '模式' : '',
-          cmp: same ? '一致' : '不同', cc: same ? 'kc-tag ok' : 'kc-tag warn', act: m === '重保' ? c[4] : '只告警',
-          on: (c[2].length - off.length) + '/' + c[2].length + ' 项', off: c[2].filter((x, i) => off.indexOf(i) >= 0).join('、'),
-          adjN: c[5].length || '', adj0: !c[5].length, adjH: c[5].join('、'), goA: ev(() => S({ plTab: '生效资产', plHf: '已调整', plPf: '' })) }; });
-      // 预设确认
+        end: ev(() => { if (!adm) return; PMX.setTmp(null); S({ plCmV: Date.now(), plLog: [['提前结束重保', '已恢复为切换前的模式', now + ' · wangqi']].concat(st.plLog || []) }); toast('已结束重保，恢复为切换前的模式'); }) };
+      pl.ov.ps = ['轻量', '标准', '重保'].map((n) => ({ n: n === '重保' ? '临时重保' : n + '模式', d: n === '重保' ? '到期自动恢复' : DS[n], a: 'false',
+        c: adm ? '' : 'dis', t: adm ? '' : NOP, go: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (n === '重保' && TMP) { toast('已有重保进行中，可以延长或提前结束', 'info'); return; } S({ plPs: n, plPsU: '3 天', plScM: '全部主机', plScS: [] }); }) }));
+      const tmpBack = TMP && !part;
+      pl.caps = CAPL.map((c, i) => { const u = us[i]; const m = tmpBack ? '重保' : u; const rs = PMX.rules(c[0]); const off = m === '轻量' ? c[3] : []; const same = tmpBack || u === ref;
+        const hasMax = tmpBack || !!PMX.dist(c[0])['重保'] || part;
+        return { n: c[1], href: c[0] + '.dc.html', subs: c[2].join(' · '), m: tmpBack ? '重保模式' : PMX.lbl(c[0]), mc: m ? MCC[m] : 'kc-tag info',
+          back: tmpBack ? '结束后恢复为' + PMX.lbl(c[0]) : rs.slice(1).map((r) => PMX.scTxt(r.sc) + '：' + r.m).join('；') + (part ? (rs.length > 1 ? '；' : '') + '临时重保 ' + TMP.sc.n + ' 台' : ''),
+          cmp: same ? '一致' : u ? '不同' : '部分不同', cc: same ? 'kc-tag ok' : 'kc-tag warn', noC: false, act: hasMax ? (u === '重保' || tmpBack ? c[4] : '重保主机' + c[4] + '，其余只告警') : '只告警',
+          on: (c[2].length - off.length) + '/' + c[2].length + ' 项', off: c[2].filter((x, j) => off.indexOf(j) >= 0).join('、'),
+          adjN: c[5].length || '', adj0: !c[5].length, adjH: c[5].join('、'), goA: ev(() => S({ plTab: '生效资产', plHf: '已调整', plPf: '' })), op: '切换模式' }; });
+      if (pl.caps.length) Object.assign(pl.caps[0], { gh: '可切换模式的能力', ghd: '命中后只告警还是自动处置，由模式决定；可以按主机范围设置不同模式' });
+      const NOM = [['SecVuln', '漏洞检测', '系统漏洞 · 应用漏洞 · Web-CMS 漏洞 · 应急漏洞', '每天 02:00 自动扫描', '发现后提醒，给出修复方法', '已开启', 'kc-tag ok', '漏洞设置'], ['SecBaseline', '基线检查', '德迅安全基线 · 弱口令检测', '每天 03:00 自动检查', '发现后提醒，给出加固方法', '已开启', 'kc-tag ok', '检查设置'],
+        ['SecHunt', '威胁狩猎', '攻击链溯源 · 节点证据', '全部主机', '生成调查线索，由你研判', '已开启', 'kc-tag ok', '功能设置'], ['SecFinger', '资产指纹', '进程 · 端口 · 账号 · 软件 · 启动项等', '每天 01:00 采集', '只采集，不告警', '已开启', 'kc-tag ok', '采集设置'],
+        ['SecLicense', 'AI 研判', '告警自动研判与处置建议', '企业版能力', '给出研判结论和处置建议', '未开通', 'kc-tag mut', '去开通']];
+      NOM.forEach((c, i) => pl.caps.push({ n: c[1], href: c[0] + '.dc.html', subs: c[2], m: c[5], mc: c[6], back: c[3], cmp: '', cc: '', noC: true, act: c[4], on: c[5] === '未开通' ? '—' : '按设置', off: '', adjN: '', adj0: true, adjH: '', op: c[7], gh: i ? '' : '不区分模式的能力', ghd: i ? '' : '只做检测和扫描，在各自页面单独设置' }));
+      // 一键切换确认
       const ps = st.plPs || ''; const U = { '3 天': '11-12 18:00', '7 天': '11-16 18:00', '14 天': '11-23 18:00' }; const pu = st.plPsU || '3 天';
       const isMax = ps === '重保' || ps === 'ext';
-      pl.ps = { on: !!ps, isMax, x: ev(() => S({ plPs: '' })),
-        t: ps === 'ext' ? '延长重保' : ps === '重保' ? '全部能力临时切到重保模式' : '全部能力切到' + ps + '模式',
-        d: ps === 'ext' ? '当前重保至 ' + (TMP ? TMP.end : '') + '，选择新的结束时间。' : isMax ? '重保期间全部能力命中后自动处置，可能拦截正常业务。到期自动恢复为切换前的模式，也可以提前结束。' : '会改掉每项能力当前的模式。' + (TMP ? '正在进行的重保会同时结束，不再恢复切换前的模式。' : ''),
-        rows: ps === 'ext' ? [] : CAPL.map((c) => { const f = eff(c[0]); return { n: c[1], f: f, to: ps, c: f === ps ? 'same' : '' }; }), hasRows: ps !== 'ext',
-        us: Object.keys(U).map((n) => ({ n, cls: n === pu ? 'on' : '', pick: ev(() => S({ plPsU: n })) })), endT: '结束时间：' + U[pu] + '，到期后恢复为：' + (uni ? '全部' + uni + '模式' : diffS.join('、') + '，其余标准模式'),
-        n2: '单独调整过的 ' + CAPL.reduce((a, c) => a + c[5].length, 0) + ' 处主机开关保持不变。约 1 分钟下发到全部主机。',
+      const live = HS.filter((h) => h.ps !== '未受保护').map((h) => h.n).slice(0, 14);
+      const pk = PMX.picker(st.plScM || '全部主机', st.plScS || [], live, (m, s2) => S({ plScM: m, plScS: s2 }));
+      pl.ps = { on: !!ps, isMax, isNew: !!ps && ps !== 'ext', x: ev(() => S({ plPs: '' })),
+        t: ps === 'ext' ? '延长重保' : ps === '重保' ? '临时切到重保模式' : '全部能力切到' + ps + '模式',
+        d: ps === 'ext' ? '当前重保至 ' + (TMP ? TMP.end : '') + '，选择新的结束时间。' : isMax ? '范围内的主机全部能力命中后自动处置，可能拦截正常业务。到期自动恢复为切换前的模式，也可以提前结束。' : '把所选主机上全部能力的模式改成' + ps + '模式。',
+        rows: ps === 'ext' ? [] : CAPL.map((c) => { const f = PMX.lbl(c[0]); return { n: c[1], f: f, to: ps, c: f === ps + '模式' ? 'same' : '' }; }), hasRows: ps !== 'ext',
+        scs: pk.scs.map((x) => ({ n: x.n, cls: x.cls, pick: ev(x.go) })), chOn: pk.chOn, chs: pk.chs.map((x) => Object.assign(x, { go: ev(x.go) })), scC: 'pm-sc ' + pk.hc, scT: pk.hint,
+        us: Object.keys(U).map((n) => ({ n, cls: n === pu ? 'on' : '', pick: ev(() => S({ plPsU: n })) })), endT: '结束时间：' + U[pu] + '，到期后恢复为切换前的模式。',
+        n2: '单独调整过的 ' + CAPL.reduce((a, c) => a + c[5].length, 0) + ' 处主机开关保持不变。约 1 分钟下发。',
         okN: ps === 'ext' ? '确定延长' : isMax ? '开始重保' : '确定切换',
-        go: ev(() => { if (ps === 'ext') { const t = Object.assign({}, TMP, { end: U[pu] }); save(cmS, t); S({ plTmp: t, plPs: '' }); toast('重保已延长至 ' + U[pu]); return; }
-          if (isMax) { const t = { end: U[pu] }; save(cmS, t); S({ plTmp: t, plPs: '', plLog: [['开始重保', '全部能力临时切到重保模式，至 ' + U[pu] + '，到期自动恢复', now + ' · wangqi']].concat(st.plLog || []) }); toast('已开始重保，至 ' + U[pu] + ' 自动恢复'); return; }
-          const m2 = {}; CAPL.forEach((c) => { m2[c[0]] = ps; }); save(m2, null); S({ plCm: m2, plTmp: null, plPs: '', plLog: [['全部能力切到' + ps + '模式', '一键切换', now + ' · wangqi']].concat(st.plLog || []) }); toast('全部能力已切到' + ps + '模式，约 1 分钟下发'); }) }; }
+        go: ev(() => { if (ps === 'ext') { PMX.setTmp(Object.assign({}, TMP, { end: U[pu] })); S({ plCmV: Date.now(), plPs: '' }); toast('重保已延长至 ' + U[pu]); return; }
+          if (!pk.ok) return;
+          if (isMax) { PMX.setTmp({ end: U[pu], sc: pk.sc }); S({ plCmV: Date.now(), plPs: '', plLog: [['开始重保', '范围：' + PMX.scTxt(pk.sc) + '；全部能力临时切到重保模式，至 ' + U[pu] + '，到期自动恢复', now + ' · wangqi']].concat(st.plLog || []) }); toast('已开始重保（' + PMX.scTxt(pk.sc) + '），至 ' + U[pu] + ' 自动恢复'); return; }
+          CAPL.forEach((c) => PMX.apply(c[0], ps, pk.sc)); S({ plCmV: Date.now(), plPs: '', plLog: [['全部能力切到' + ps + '模式', '范围：' + PMX.scTxt(pk.sc), now + ' · wangqi']].concat(st.plLog || []) }); toast(PMX.scTxt(pk.sc) + ' 的全部能力已切到' + ps + '模式，约 1 分钟下发'); }) }; }
     pl.tPol = tab === '防护模式'; pl.tHost = tab === '生效资产'; pl.tList = tab === '全局黑白名单';
     // 生效资产
     const NM = {}; pols.forEach((p) => { NM[p.id] = p.n; });
@@ -1783,11 +1827,11 @@ class Component extends DCLogic {
     pl.hfOn = !!(hf || pf); pl.hfT = [hf === '已调整' ? '单独调整过开关' : hf, pf ? '策略：' + pf : ''].filter(Boolean).join(' · '); pl.hfX = ev(() => S({ plHf: '', plPf: '' }));
     const dd = st.plDd || '';
     pl.tb = this._tb('SecPolicyHost', HSf, { toast, unit: '台', what: '主机', id: (h) => h.n, per: 10,
-      attrs: { '单独调整': ['有', '无'], '下发状态': ['已生效', '等待生效', '已暂停', '不下发'], '机房': ['德迅服务器', '其他机房'] },
-      match: (h, k, v) => k === '单独调整' ? (v === '有') === (adjOf(h).length > 0) : k === '下发状态' ? stOf(h)[0] === v : k === '机房' ? h.room === v : true, text: (h) => h.n + ' ' + h.ip,
+      attrs: { '防护模式': ['轻量模式', '标准模式', '重保模式', '自定义'], '单独调整': ['有', '无'], '下发状态': ['已生效', '等待生效', '已暂停', '不下发'], '机房': ['德迅服务器', '其他机房'] },
+      match: (h, k, v) => k === '防护模式' ? (h.ps !== '未受保护' && ((hostPm(h.n).u ? hostPm(h.n).u + '模式' : '自定义') === v)) : k === '单独调整' ? (v === '有') === (adjOf(h).length > 0) : k === '下发状态' ? stOf(h)[0] === v : k === '机房' ? h.room === v : true, text: (h) => h.n + ' ' + h.ip,
       batch: [['恢复跟随能力模式', (ids) => { if (!adm) { toast(NOP, 'info'); return; } const o2 = Object.assign({}, adjM); ids.forEach((n) => { delete o2[n]; }); S({ plAdj: o2 }); toast(ids.length + ' 台已恢复跟随各能力的模式'); }]] });
     pl.hosts = pl.tb.page.map((h) => { const p = polOf(h); const [s1, sc, why] = stOf(h); const can = h.ps !== '未受保护'; const pzd = !!pz[h.n];
-      return Object.assign(pl.tb.ck(h), { n: h.n, ip: h.ip, room: h.room, po: p ? NM[p] : '—', as: !can ? '—' : adjOf(h).length ? adjOf(h).join('；') : '跟随各能力的模式', adj: can && adjOf(h).length > 0, rsT: ev(() => { const o2 = Object.assign({}, adjM); delete o2[h.n]; S({ plAdj: o2 }); toast(h.n + ' 已恢复跟随各能力的模式'); }), st: s1, sc, why, t: s1 === '已生效' ? h.chk : '—', can, noC: !can,
+      const hp2 = hostPm(h.n); return Object.assign(pl.tb.ck(h), { pm: !can ? '—' : hp2.u ? hp2.u + '模式' : '自定义', pmc: !can ? '' : hp2.u ? ({ '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' })[hp2.u] : 'kc-tag warn', pmd: can && !hp2.u ? hp2.diff.join('、') : '', n: h.n, ip: h.ip, room: h.room, po: p ? NM[p] : '—', as: !can ? '—' : adjOf(h).length ? adjOf(h).join('；') : '跟随各能力的模式', adj: can && adjOf(h).length > 0, rsT: ev(() => { const o2 = Object.assign({}, adjM); delete o2[h.n]; S({ plAdj: o2 }); toast(h.n + ' 已恢复跟随各能力的模式'); }), st: s1, sc, why, t: s1 === '已生效' ? h.chk : '—', can, noC: !can,
         opC: adm ? 'sl-op' : 'sl-op dis', opT: adm ? '' : NOP, ddW: dd === h.n ? 'dd-w on' : 'dd-w', ddOn: dd === h.n, dd: ev(() => { if (!adm) return; S({ plDd: dd === h.n ? '' : h.n }); }), ddX: ev(() => S({ plDd: '' })),
         opts: pols.map((x) => ({ n: x.n + (x.id === defId ? '（默认）' : ''), cls: x.id === p ? 'on' : '', pick: ev(() => { S({ plHp: Object.assign({}, hp, { [h.n]: x.id === defId ? '' : x.id }), plDd: '' }); toast(h.n + ' 已改用「' + x.n + '」，只影响这台主机'); }) })),
         pzN: pzd ? '恢复防护' : '暂停防护', pz: ev(() => { if (!adm) return; if (pzd) { const o = Object.assign({}, pz); delete o[h.n]; S({ plPz: o }); toast(h.n + ' 已恢复防护，按各能力的模式重新下发'); return; } S({ plPzH: h.n, plPzW: '', plPzU: '24 小时后' }); }) }); });

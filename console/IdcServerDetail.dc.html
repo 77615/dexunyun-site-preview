@@ -1344,15 +1344,41 @@ class Component extends DCLogic {
     const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: n === 'AI 研判' ? '企业版' : t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
       cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
       go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (v) return; this.setState({ plg: Object.assign({}, plg, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plg: Object.assign({}, this.state.plg || {}, { [n]: 'ok' }) }), 1500); } }; });
-    /* pmd 2026-11-09 */ let CMS = {}; let TMP = null; try { CMS = JSON.parse(localStorage.getItem('dxCapMode') || '{}') || {}; TMP = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) {}
-    const cmOf = (k) => (TMP ? '重保' : CMS[k] || ({ SecVirus: '重保' })[k] || '标准');
+    /* pmd 2026-11-09 · pmB2 */ const PMX = (() => { /* pmB 2026-11-09：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
+        const GP = { 'web 组': ['web-', 24], 'app 组': ['app-', 12], 'db 组': ['db-', 6], 'cache 组': ['cache-', 4] };
+        const ALLSC = { m: '全部主机', s: [], n: 68 };
+        const D0 = { SecVirus: [{ m: '标准', sc: ALLSC }, { m: '重保', sc: { m: '按分组', s: ['db 组'], n: 6 } }] };
+        const W = typeof window !== 'undefined' ? window : {};
+        if (W.__dxCM === undefined) { try { W.__dxCM = JSON.parse(localStorage.getItem('dxCapMode2') || '{}') || {}; } catch (e) { W.__dxCM = {}; } }
+        if (W.__dxTmp === undefined) { try { W.__dxTmp = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) { W.__dxTmp = null; } }
+        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
+        const rules = (k) => W.__dxCM[k] || D0[k] || [{ m: '标准', sc: ALLSC }];
+        const isAll = (sc) => !sc || sc.m === '全部主机';
+        const inSc = (n, sc) => isAll(sc) || (sc.m === '按分组' ? sc.s.some((g) => GP[g] && n.indexOf(GP[g][0]) === 0) : sc.s.indexOf(n) >= 0);
+        const T = W.__dxTmp;
+        const hostMode = (k, n) => { if (T && inSc(n, T.sc)) return '重保'; let m = '标准'; rules(k).forEach((r) => { if (inSc(n, r.sc)) m = r.m; }); return m; };
+        const dist = (k) => { const d = {}; const rs = rules(k); let rest = 68; rs.slice(1).forEach((r) => { d[r.m] = (d[r.m] || 0) + r.sc.n; rest -= r.sc.n; }); d[rs[0].m] = (d[rs[0].m] || 0) + Math.max(rest, 0); Object.keys(d).forEach((x) => { if (!d[x]) delete d[x]; }); return d; };
+        const uniform = (k) => { const ks = Object.keys(dist(k)); return ks.length === 1 ? ks[0] : ''; };
+        const lbl = (k) => { const d = dist(k); const ks = ['轻量', '标准', '重保'].filter((x) => d[x]); return ks.length === 1 ? ks[0] + '模式' : ks.map((x) => x + ' ' + d[x]).join(' · '); };
+        const scTxt = (sc) => (isAll(sc) ? '全部主机' : sc.m === '按分组' ? sc.s.join('、') + ' · ' + sc.n + ' 台' : (sc.s.length <= 3 ? sc.s.join('、') : sc.s.slice(0, 2).join('、') + ' 等 ' + sc.s.length + ' 台'));
+        const apply = (k, m, sc) => { W.__dxCM = Object.assign({}, W.__dxCM, { [k]: isAll(sc) ? [{ m, sc: ALLSC }] : rules(k).concat([{ m, sc }]) }); save(); };
+        const drop = (k, i) => { const rs = rules(k).filter((r, j) => j !== i); W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
+        const setTmp = (t) => { W.__dxTmp = t; save(); };
+        const scN = (m, s) => (m === '全部主机' ? 68 : m === '按分组' ? s.reduce((a, g) => a + (GP[g] ? GP[g][1] : 0), 0) : s.length);
+        /* 生效主机选择：返回 { scs, chOn, chs, sc, ok, hint, hc } */
+        const picker = (m, s, hosts, set) => { const n = scN(m, s);
+          return { scs: ['全部主机', '按分组', '指定主机'].map((x) => ({ n: x, a: x === m ? 'true' : 'false', c: x === m ? 'on' : '', cls: x === m ? 'on' : '', go: () => set(x, []) })), chOn: m !== '全部主机',
+            chs: (m === '按分组' ? Object.keys(GP) : hosts).map((x) => { const on = s.indexOf(x) >= 0; return { n: m === '按分组' ? x + ' · ' + GP[x][1] + ' 台' : x, a: on ? 'true' : 'false', c: on ? 'on' : '', go: () => set(m, on ? s.filter((y) => y !== x) : s.concat([x])) }; }),
+            sc: { m, s, n }, ok: m === '全部主机' || n > 0, hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : n ? '已选 ' + n + ' 台，范围外的主机保持当前模式' : '请至少选择一' + (m === '按分组' ? '个分组' : '台主机'), hc: m !== '全部主机' && !n ? 'bad' : '' }; };
+        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, picker }; })(); let TMP = PMX.T && PMX.inSc('web-prod-01', PMX.T.sc) ? PMX.T : null;
+        const cmOf = (k) => PMX.hostMode(k, 'web-prod-01');
     const cqCap = [['入侵检测', 'SecRules', '暴力破解、异常登录、反弹 Shell、高危命令', '按规则阻断进程或连接'], ['病毒查杀', 'SecVirus', '实时检测、网页后门、每天 04:00 定时扫描', '自动隔离病毒文件'], ['网络防火墙', 'SecFirewall', '网络访问防护、外联管控', '自动封禁攻击来源 IP'],
       ['防勒索', 'SecRansom', '勒索拦截、诱饵文件、自动备份', '拦截加密行为并结束进程'], ['网页防篡改', 'SecTamper', '网站目录写保护', '拦截篡改并还原文件'], ['远程安全', 'SecRemote', '远程桌面防护、二次认证、常用登录地', '自动封禁暴力破解来源 IP']];
     const MT = { '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' };
     const ms = cqCap.map((c) => cmOf(c[1])); const uni = ms.every((m) => m === ms[0]) ? ms[0] : '';
     const cq = { n: TMP ? '重保模式（临时）' : uni ? uni + '模式' : '自定义', st: '已生效', stC: 'kc-tag ok',
-      d: TMP ? '重保进行中，至 ' + TMP.end + ' 结束，全部能力命中后自动处置。' : uni ? '全部能力都是' + uni + '模式。' : cqCap.filter((c, i) => ms[i] !== '标准').map((c, i) => c[0]).join('、') + ' 是重保模式，其余能力是标准模式。',
-      share: '这台服务器没有单独调整，跟随各能力的模式',
+      d: TMP ? '这台在临时重保范围内，至 ' + TMP.end + ' 结束，全部能力命中后自动处置。' : uni ? '全部能力都是' + uni + '模式。' : cqCap.filter((c, i) => ms[i] !== '标准').map((c) => c[0] + ' ' + cmOf(c[1])).join('、') + '，其余能力是标准模式。',
+      share: '模式按主机范围设置，在能力页或防护策略里修改',
       caps: cqCap.map((c) => { const m = cmOf(c[1]); return { n: c[0], d: c[2] + ' · 命中后' + (m === '重保' ? c[3] : '只告警'), t: m + '模式', tc: MT[m], rc: 'kc-sw-row' }; })
         .concat([{ n: '漏洞与基线扫描', d: '漏洞每天 03:00，基线每 7 天', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }, { n: 'AI 研判', d: '企业版能力，自动分析告警真假', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }]) };
     const igM = st.igK ? (() => { const r = R0.find((x) => x.k === st.igK) || R0[0]; const w = (st.igW || '').trim(); const ok = !!st.igR && (st.igR !== '其他' || !!w);

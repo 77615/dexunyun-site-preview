@@ -1501,9 +1501,35 @@ class Component extends DCLogic {
         ['c3', '客户端', '客户端自保护 - 进程守护', '驱动级守护客户端进程，防止被结束', '全部主机', 1, 0],
         ['c4', '客户端', '新主机自动安装客户端', '德迅云新开服务器预装客户端；是否自动绑定授权见「授权管理」', '德迅云服务器', 1, 1],
         ['c5', '客户端', '客户端轻量化', '扫描跳过数据盘，降低 CPU 与磁盘占用', '—', 0, 0]];
-      /* pmh 2026-11-09 */ { const K = ['SecRules', 'SecVirus', 'SecFirewall', 'SecRansom', 'SecTamper', 'SecRemote']; let M = {}; let T = null; try { M = JSON.parse(localStorage.getItem('dxCapMode') || '{}') || {}; T = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) {}
-        const ms = K.map((k) => M[k] || ({ SecVirus: '重保' })[k] || '标准'); const u = ms.every((m) => m === ms[0]) ? ms[0] : '';
-        sx.pm = { n: T ? '重保（临时）' : u ? u + '模式' : '自定义', t: T ? '重保进行中，至 ' + T.end + ' 自动恢复' : u ? '全部能力都是' + u + '模式' : '各能力模式不同，点击查看' }; }
+      /* pmh 2026-11-09 · pmB2 */ { const K = ['SecRules', 'SecVirus', 'SecFirewall', 'SecRansom', 'SecTamper', 'SecRemote']; const PMX = (() => { /* pmB 2026-11-09：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
+        const GP = { 'web 组': ['web-', 24], 'app 组': ['app-', 12], 'db 组': ['db-', 6], 'cache 组': ['cache-', 4] };
+        const ALLSC = { m: '全部主机', s: [], n: 68 };
+        const D0 = { SecVirus: [{ m: '标准', sc: ALLSC }, { m: '重保', sc: { m: '按分组', s: ['db 组'], n: 6 } }] };
+        const W = typeof window !== 'undefined' ? window : {};
+        if (W.__dxCM === undefined) { try { W.__dxCM = JSON.parse(localStorage.getItem('dxCapMode2') || '{}') || {}; } catch (e) { W.__dxCM = {}; } }
+        if (W.__dxTmp === undefined) { try { W.__dxTmp = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) { W.__dxTmp = null; } }
+        const save = () => { try { localStorage.setItem('dxCapMode2', JSON.stringify(W.__dxCM)); if (W.__dxTmp) localStorage.setItem('dxPmTmp', JSON.stringify(W.__dxTmp)); else localStorage.removeItem('dxPmTmp'); } catch (e) {} };
+        const rules = (k) => W.__dxCM[k] || D0[k] || [{ m: '标准', sc: ALLSC }];
+        const isAll = (sc) => !sc || sc.m === '全部主机';
+        const inSc = (n, sc) => isAll(sc) || (sc.m === '按分组' ? sc.s.some((g) => GP[g] && n.indexOf(GP[g][0]) === 0) : sc.s.indexOf(n) >= 0);
+        const T = W.__dxTmp;
+        const hostMode = (k, n) => { if (T && inSc(n, T.sc)) return '重保'; let m = '标准'; rules(k).forEach((r) => { if (inSc(n, r.sc)) m = r.m; }); return m; };
+        const dist = (k) => { const d = {}; const rs = rules(k); let rest = 68; rs.slice(1).forEach((r) => { d[r.m] = (d[r.m] || 0) + r.sc.n; rest -= r.sc.n; }); d[rs[0].m] = (d[rs[0].m] || 0) + Math.max(rest, 0); Object.keys(d).forEach((x) => { if (!d[x]) delete d[x]; }); return d; };
+        const uniform = (k) => { const ks = Object.keys(dist(k)); return ks.length === 1 ? ks[0] : ''; };
+        const lbl = (k) => { const d = dist(k); const ks = ['轻量', '标准', '重保'].filter((x) => d[x]); return ks.length === 1 ? ks[0] + '模式' : ks.map((x) => x + ' ' + d[x]).join(' · '); };
+        const scTxt = (sc) => (isAll(sc) ? '全部主机' : sc.m === '按分组' ? sc.s.join('、') + ' · ' + sc.n + ' 台' : (sc.s.length <= 3 ? sc.s.join('、') : sc.s.slice(0, 2).join('、') + ' 等 ' + sc.s.length + ' 台'));
+        const apply = (k, m, sc) => { W.__dxCM = Object.assign({}, W.__dxCM, { [k]: isAll(sc) ? [{ m, sc: ALLSC }] : rules(k).concat([{ m, sc }]) }); save(); };
+        const drop = (k, i) => { const rs = rules(k).filter((r, j) => j !== i); W.__dxCM = Object.assign({}, W.__dxCM, { [k]: rs }); save(); };
+        const setTmp = (t) => { W.__dxTmp = t; save(); };
+        const scN = (m, s) => (m === '全部主机' ? 68 : m === '按分组' ? s.reduce((a, g) => a + (GP[g] ? GP[g][1] : 0), 0) : s.length);
+        /* 生效主机选择：返回 { scs, chOn, chs, sc, ok, hint, hc } */
+        const picker = (m, s, hosts, set) => { const n = scN(m, s);
+          return { scs: ['全部主机', '按分组', '指定主机'].map((x) => ({ n: x, a: x === m ? 'true' : 'false', c: x === m ? 'on' : '', cls: x === m ? 'on' : '', go: () => set(x, []) })), chOn: m !== '全部主机',
+            chs: (m === '按分组' ? Object.keys(GP) : hosts).map((x) => { const on = s.indexOf(x) >= 0; return { n: m === '按分组' ? x + ' · ' + GP[x][1] + ' 台' : x, a: on ? 'true' : 'false', c: on ? 'on' : '', go: () => set(m, on ? s.filter((y) => y !== x) : s.concat([x])) }; }),
+            sc: { m, s, n }, ok: m === '全部主机' || n > 0, hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : n ? '已选 ' + n + ' 台，范围外的主机保持当前模式' : '请至少选择一' + (m === '按分组' ? '个分组' : '台主机'), hc: m !== '全部主机' && !n ? 'bad' : '' }; };
+        return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, picker }; })(); const T = PMX.T && PMX.isAll(PMX.T.sc) ? PMX.T : null;
+        const ms = K.map((k) => PMX.uniform(k)); const u = ms.every((m) => m && m === ms[0]) ? ms[0] : '';
+        sx.pm = { n: T && !(T.sc && T.sc.m !== '全部主机') ? '重保（临时）' : u ? u + '模式' : '自定义', t: T ? '重保进行中，至 ' + T.end + ' 自动恢复' : u ? '全部能力都是' + u + '模式' : '各能力模式不同，点击查看' }; }
       const GT = { '入侵检测': ['', ''], '病毒查杀': ['', ''], '网络防护': ['', ''], '风险检测': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动处置': ['由能力模式决定，重保时开启', 'sh-swgt'], '客户端': ['全局设置，不随策略变化', 'sh-swgt'] };
       const TIP = { '自动处置': '默认策略只告警、不拦截，避免误伤业务。需要自动处置的主机，请在「防护策略」中改用重保模式。' };
       const LOCK = { k12: 1, k13: 1, k14: 1 };
