@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>服务器租用</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#FFFFFF;color:#1D2129;font-family:Inter,"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans SC",-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#165DFF;text-decoration:none;transition:color .2s}a:hover{color:#4080FF}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:128px;padding:0 28px;border-radius:2px;font-size:16px;font-weight:500;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap;box-sizing:border-box;transition:all .2s}
+.btn-p{background:linear-gradient(96deg,#165DFF 0%,#4E5BFF 100%);color:#FFFFFF;}.btn-p:hover{color:#FFFFFF;background:linear-gradient(96deg,#3C7EFF 0%,#6670FF 100%);}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#EAEDF1;}.btn-s:hover{color:#165DFF;border-color:#94BFFF}
+.btn-sm{height:34px;min-width:0;padding:0 16px;font-size:14px}
+.tag{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:2px;font-size:12px;background:transparent;border:1px solid rgba(161,161,161,0.5);color:#6B7380;white-space:nowrap;box-sizing:border-box}
+.card{background:#FFFFFF;border:1px solid #EAEDF1;border-radius:2px;box-sizing:border-box}
+div.card{background:#F7F8FB;border-color:transparent}
+.soft div.card,.hero-bg div.card,div.card.on-white{background:#FFFFFF;border-color:#EAEDF1}
+.lift{position:relative;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease,background .2s ease}a.lift:hover{transform:translateY(-4px);border-color:transparent;background:linear-gradient(#FFFFFF,#FFFFFF) padding-box,linear-gradient(135deg,#BEDAFF 0%,#165DFF 45%,#5CE1E6 100%) border-box;}
+.lift .t{transition:color .2s}a.lift:hover .t{color:#165DFF}
+.lift .go{display:inline-flex;transition:transform .25s,color .25s;color:#C9CDD4}a.lift:hover .go{transform:translateX(4px);color:#165DFF}
+.qn{transition:color .2s}.qn:hover{color:#165DFF}
+.lift .zoom{transition:transform .5s cubic-bezier(.2,.8,.2,1)}a.lift:hover .zoom{transform:scale(1.04)}
+.lift .reveal{opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}a.lift:hover .reveal{opacity:1;transform:none}
+.cells{display:grid;border-top:1px solid #E8EBF2;border-left:1px solid #E8EBF2;border-radius:2px;overflow:hidden;background:#FFFFFF}
+.cell{position:relative;display:flex;flex-direction:column;gap:6px;padding:26px 28px;min-height:120px;border-right:1px solid #E8EBF2;border-bottom:1px solid #E8EBF2;color:#1D2129;box-sizing:border-box;overflow:hidden;transition:background .3s,color .3s}
+.cell::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.2px) 0 0/10px 10px,radial-gradient(120% 140% at 100% 0%,#FFB98A 0%,rgba(255,185,138,0) 38%),linear-gradient(120deg,#0E42D2 0%,#165DFF 45%,#4D8BFF 100%);opacity:0;transition:opacity .3s}
+.cell>*{position:relative}.cell:hover::before{opacity:1}
+.cell .cd{font-size:14px;line-height:22px;color:#6B7380;transition:color .3s}
+.cell .cp{margin-top:auto;padding-top:10px;font-size:13px;color:#165DFF;font-weight:600;transition:color .3s}
+.cell .cb{position:absolute;right:24px;top:50%;margin-top:-17px;height:34px;padding:0 16px;border-radius:2px;background:#FFFFFF;color:#165DFF;font-size:13px;font-weight:500;display:inline-flex;align-items:center;opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s}.cell:hover .cb{opacity:1;transform:none}
+.badge{display:inline-flex;align-items:center;height:18px;padding:0 6px;border-radius:999px;border:1px solid currentColor;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:1}
+.b-hot{color:#F53F3F}.b-new{color:#165DFF}
+.ic{width:44px;height:44px;border-radius:2px;background:linear-gradient(135deg,#EAF2FF 0%,#F7FAFF 100%);box-shadow:inset 0 0 0 1px rgba(22,93,255,0.12);color:#165DFF;display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:22px;height:22px}
+.ph{background:linear-gradient(135deg,#F2F6FF 0%,#F7F8FA 100%);border:1px solid #EAECF0;border-radius:2px;color:#6B7380;font-size:13px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;box-sizing:border-box}
+.eyebrow{display:none;align-items:center;gap:6px;align-self:flex-start;height:28px;padding:0 12px;border-radius:999px;background:#EAF2FF;font-size:13px;font-weight:500;color:#165DFF;letter-spacing:.04em}
+.sec-t{margin:0;font-size:40px;line-height:52px;font-weight:600;text-wrap:balance;color:#1D2129}
+.sub-dash{display:flex;align-items:center;gap:16px;justify-content:center;color:#6B7380}.sub-dash::before,.sub-dash::after{content:"";flex:0 1 140px;border-top:1px dashed #C9CED6}
+.sec-d{margin:0;font-size:16px;line-height:28px;color:#4E5969}
+.grad{background:linear-gradient(90deg,#165DFF 0%,#3C7EFF 55%,#14C9C9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:14px 4px;font-size:16px;color:#4E5969;cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .2s}
+.tab:hover{color:#165DFF}
+.tab-on{color:#165DFF;border-bottom-color:#165DFF;font-weight:500}
+.num{font-variant-numeric:tabular-nums;font-family:Inter,"DIN Alternate","Bahnschrift","Helvetica Neue",Arial,sans-serif}
+.hero-bg{background:radial-gradient(60% 80% at 85% 0%,rgba(22,93,255,0.16) 0%,rgba(22,93,255,0) 60%),radial-gradient(40% 60% at 0% 100%,rgba(20,201,201,0.10) 0%,rgba(20,201,201,0) 60%),linear-gradient(180deg,#F3F7FF 0%,#FFFFFF 100%);position:relative;overflow:hidden}
+.ring{position:absolute;border:1px solid rgba(22,93,255,0.10);border-radius:50%;pointer-events:none}
+.gridline{position:absolute;inset:0;background-image:linear-gradient(rgba(22,93,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(22,93,255,0.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);mask-image:radial-gradient(70% 70% at 70% 30%,#000 0%,transparent 100%);pointer-events:none}
+.deep .gridline{background-image:radial-gradient(rgba(255,255,255,0.14) 1px,transparent 1.3px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
+.deep{background:radial-gradient(50% 70% at 80% 0%,rgba(22,93,255,0.35) 0%,rgba(22,93,255,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(20,201,201,0.15) 0%,rgba(20,201,201,0) 70%),#071028;color:#FFFFFF}
+.deep-card{background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.03) 100%);border:1px solid rgba(255,255,255,0.12);border-radius:2px;backdrop-filter:blur(8px)}
+.glass{background:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.9);border-radius:2px;backdrop-filter:blur(12px)}
+.soft{background:linear-gradient(180deg,#F7F9FC 0%,#F2F5FA 100%)}
+.crumb{font-size:13px;color:#6B7380}.crumb a{color:#6B7380}.crumb a:hover{color:#165DFF}
+.lbl{font-size:14px;color:#1D2129;font-weight:500}
+.field{height:40px;border:1px solid #E5E6EB;background:#FFFFFF;border-radius:2px;padding:0 12px;font:inherit;font-size:14px;color:#1D2129;box-sizing:border-box;width:100%;transition:border-color .2s,box-shadow .2s}
+.field:focus{outline:none;border-color:#165DFF;box-shadow:0 0 0 3px rgba(22,93,255,0.12)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:880px}
+.tbl th{background:#F7F9FC;color:#4E5969;font-weight:500;text-align:left;padding:14px 16px;border-bottom:1px solid #EAECF0;white-space:nowrap}
+.tbl td{padding:16px;border-bottom:1px solid #EAECF0;color:#1D2129}
+.tbl tr:hover td{background:#F7FAFF}
+.pg{min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:2px;font-size:14px;color:#4E5969;border:1px solid #EAECF0}
+.chk{position:relative;display:inline-flex;align-items:center;padding-left:24px}
+.chk::before{content:"";position:absolute;left:0;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:999px;background:#E8FFEA}
+.chk::after{content:"";position:absolute;left:5px;top:50%;width:4px;height:7px;margin-top:-5px;border-right:1.6px solid #00B42A;border-bottom:1.6px solid #00B42A;transform:rotate(45deg)}
+button.tb{font:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;color:inherit;text-align:left}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 18px;border-radius:999px;font-size:14px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;cursor:pointer;font-family:inherit;transition:all .2s}.pill:hover{color:#165DFF;border-color:#94BFFF}
+.pill-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}.pill-on:hover{color:#FFFFFF;border-color:#165DFF}
+.side{display:block;width:100%;box-sizing:border-box;padding:10px 16px;border-radius:2px;font-size:14px;color:#4E5969;background:none;border:0;text-align:left;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}.side:hover{color:#165DFF;background:#F2F6FF}
+.side-on{background:#E8F3FF;color:#165DFF;font-weight:500}
+.pg{min-width:32px;height:32px;border-radius:2px;border:1px solid #E5E6EB;background:#FFFFFF;color:#4E5969;font-size:14px;cursor:pointer;font-family:inherit}.pg:hover{color:#165DFF;border-color:#94BFFF}
+.btn-s-on{color:#165DFF;border-color:#165DFF}
+.pkg{transition:border-color .2s,box-shadow .2s}.pkg:hover{border-color:#94BFFF}.pkg-on,.pkg-on:hover{border-color:#165DFF;box-shadow:0 0 0 1px #165DFF,0 18px 40px -12px rgba(22,93,255,0.25)}
+.hc-on{background:#FFFFFF !important}.hcbar{position:absolute;left:0;top:0;height:3px;width:0;background:#165DFF;transition:width .3s}.hc-on .hcbar{width:60%}.hc-on .hct{color:#165DFF !important;font-weight:600}
+.ht{border:0;font:inherit;font-size:15px;cursor:pointer;height:38px;padding:0 20px;background:transparent;color:#4E5969}.ht-on{background:#FFFFFF;color:#165DFF;font-weight:600}
+.hs{border:1px solid rgba(255,255,255,0.16);font:inherit;font-size:14px;cursor:pointer;height:36px;padding:0 18px;background:rgba(255,255,255,0.04);color:#FFFFFF}.hs-on{background:#165DFF;border-color:#165DFF}
+.pg-on{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+@media (prefers-reduced-motion:reduce){.lift,.btn{transition:none}.lift:hover,.btn-p:hover{transform:none}}
+
+.spot{--mx:72%;--my:40%}
+.spot-cv,.spot-glow{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.spot:hover .spot-cv,.spot:hover .spot-glow{opacity:1}
+.spot-cv{width:100%;height:100%;-webkit-mask-image:radial-gradient(340px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.85) 30%,transparent 78%);mask-image:radial-gradient(340px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.85) 30%,transparent 78%)}
+.spot-glow{background:radial-gradient(360px circle at var(--mx) var(--my),rgba(48,84,170,0.32),rgba(22,40,90,0.12) 50%,transparent 80%)}
+
+
+/* ---- 火山引擎风格覆盖 ---- */
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1D2129}
+.btn{height:48px;padding:0 28px;border-radius:2px;font-size:14px;font-weight:400;min-width:0;transition:background .16s,color .16s,border-color .16s}
+.btn-p{background:#165DFF;color:#FFFFFF}.btn-p:hover{background:#0E42D2;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#1D2129;border-color:#C9CDD4}.btn-s:hover{color:#165DFF;border-color:#165DFF}
+.btn-sm{height:40px;padding:0 20px;font-size:14px}
+.card{border-radius:2px;border-color:#EAEDF1}
+div.card{background:#F4F8FC}
+.sec-t{font-size:32px;line-height:44px;font-weight:400}
+.hero-bn h1{font-size:42px !important;line-height:58px !important;font-weight:400 !important}
+.lift{transition:color .2s}
+a.lift::before,div.lift::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s;pointer-events:none;z-index:0}
+a.lift::before{background:radial-gradient(rgba(255,255,255,0.28) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+div.lift::before{background:radial-gradient(rgba(255,255,255,0.22) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(120deg,#1664FF,#2C8AD8,#2EB2C3,#24B291,#1EA077)}
+a.lift>*:not([style*="position:absolute"]),div.lift>*:not([style*="position:absolute"]){position:relative;z-index:1}
+
+
+
+
+a.lift:hover .zoom{transform:none}
+.cells{border-radius:0;border-color:#EAEDF1}.cell{border-color:#EAEDF1}
+.cell::before{background:radial-gradient(rgba(255,255,255,0.26) 1px,transparent 1.3px) 0 0/10px 10px,linear-gradient(26deg,#0F49D6,#1F5CE8 18%,#3B75F2 38%,#73A4FF 56%,#FFC196 80%,#FF8F5A)}
+.cell .cb{border-radius:2px}
+.tab-on{font-weight:500}
+.pill,.pg,.field,.side,.tag{border-radius:2px}
+
+/* ---- 卡片悬停：跟随鼠标的光斑（替代整块变色） ---- */
+.lift,.cell{transition:border-color .25s,background-color .25s}
+.spot-l{position:relative;isolation:isolate}
+.spot-l>.spot-cv,.spot-l>.spot-glow{position:absolute !important;inset:0;z-index:0 !important}
+.spot-l>.spot-cv{-webkit-mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%);mask-image:radial-gradient(220px circle at var(--mx) var(--my),#000 0%,rgba(0,0,0,0.7) 35%,transparent 80%)}
+.spot-l>.spot-glow{background:radial-gradient(300px circle at var(--mx) var(--my),rgba(255,255,255,0.55),rgba(255,255,255,0.2) 50%,transparent 80%)}
+a.lift::before,div.lift::before,.cell::before{display:block !important;background:linear-gradient(115deg,#DCEBFF 0%,#E0F1F8 50%,#DCF5EA 100%) !important;opacity:0;transition:opacity .35s ease}
+a.lift:hover::before,div.lift:hover::before,.cell:hover::before{opacity:1}
+a.lift:hover,div.lift:hover{transform:none;box-shadow:none;border-color:#DFE3EA}a.lift:hover{background:#FFFFFF}
+.cell:hover{color:#1D2129;box-shadow:inset 0 0 0 1px #DFE3EA}
+.cell .cb{border:1px solid #165DFF;z-index:1}
+/* ---- v56 卡片悬停 ---- */
+.card{border-color:#F0F2F5}.cells{border-color:#F0F2F5;overflow:visible}.cell{border-color:#F0F2F5}
+a.lift::before,div.lift::before,.cell::before{background:linear-gradient(115deg,#C4DAFF 0%,#C9E7F7 50%,#C2EDD8 100%) !important;inset:-1px !important}
+.lift,.cell{transition:border-color .3s,background-color .3s,box-shadow .35s ease}
+a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.cell:hover{z-index:2;box-shadow:-12px 16px 32px -16px rgba(96,124,180,0.18),12px 16px 32px -16px rgba(96,160,140,0.14),0 6px 14px -8px rgba(80,100,140,0.08)}
+.lg-sk{display:flex;flex-direction:column;gap:12px;padding:6px 0}.lg-sk i{display:block;height:10px;border-radius:999px;background:#EEF1F5}
+
+/* ---- v88 字阶：H1/H2 加粗放大，正文 14-16px，辅助文字加深 ---- */.hero-bn h1{font-size:52px !important;line-height:64px !important;font-weight:700 !important;letter-spacing:-.01em}.hero-bn p{font-size:17px !important;line-height:30px !important;color:#4E5969 !important}.sec-t{font-size:34px !important;line-height:46px !important;font-weight:600 !important;letter-spacing:-.005em}.sec-d{font-size:16px !important;line-height:28px !important;color:#4E5969 !important}.v88-big{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif !important;font-weight:700 !important;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* v88 AI assistant button */
+.qai{position:relative;width:56px;height:56px;border-radius:999px;background:linear-gradient(135deg,#3C7EFF 0%,#165DFF 55%,#4E5BFF 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(22,93,255,.28);transition:transform .2s,box-shadow .2s}
+.qai:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(22,93,255,.34)}
+.qai span{position:absolute;right:-2px;top:-2px;height:16px;padding:0 5px;border-radius:8px;background:#fff;color:#165DFF;font:600 10px/16px Inter,sans-serif;box-shadow:0 0 0 1px #DCE6FF}
+.qai::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(22,93,255,.35);animation:qaiP 2.8s ease-out infinite}
+@keyframes qaiP{0%{box-shadow:0 0 0 0 rgba(22,93,255,.35)}70%,100%{box-shadow:0 0 0 12px rgba(22,93,255,0)}}
+@media (prefers-reduced-motion:reduce){.qai::after{animation:none}}
+
+/* v90 semantic + stats */
+:root{--sem-threat:#F53F3F;--sem-risk:#FF7D00;--sem-safe:#00B42A;--sem-brand:#165DFF}
+.ax-hl ~ .ax-c{background:linear-gradient(90deg,#AFF0B5,#23C343)}
+.ax-hl ~ .ax-c::after{border-color:#23C343}
+.ax-hl ~ .ax-n{color:#00B42A}
+.v88-big{color:#165DFF!important}
+.deep .v88-big{color:#FFFFFF!important}
+.hh-n{font-family:"DIN Alternate",Bahnschrift,Inter,"Helvetica Neue",Arial,sans-serif!important;font-weight:700!important;font-size:40px!important;line-height:48px!important;color:#165DFF!important;letter-spacing:-.02em}
+.hh-n small{font-size:18px!important;font-weight:600;margin-left:2px;color:#165DFF!important}
+
+/* ---- v97 腾讯云式（.tcx 作用域，内容页通用） ---- */
+.tcx .sec-t{font-size:36px;line-height:48px;font-weight:600;color:#000000;letter-spacing:.01em}
+.tcx .deep .sec-t,.tcx .sec-t[style*="#FFFFFF"]{color:#FFFFFF}
+.tcx .grad{background:linear-gradient(90deg,#00A2ED 0%,#165DFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tcx .deep .grad{background:linear-gradient(90deg,#5CE1E6 0%,#94BFFF 100%);-webkit-background-clip:text;background-clip:text}
+.tcx .soft{background:linear-gradient(180deg,#F1F6FF 0%,#F8FAFF 55%,#FFFFFF 100%)}
+.tcx .tc-more{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:#1D2129;white-space:nowrap;transition:color .25s}
+.tcx .tc-more i{width:22px;height:22px;border-radius:999px;background:#1D2129;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;transition:background .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.tcx .tc-more:hover{color:#165DFF}.tcx .tc-more:hover i{background:#165DFF;transform:rotate(45deg)}
+.tcx .deep .tc-more{color:#FFFFFF}.tcx .deep .tc-more i{background:#FFFFFF;color:#071028}
+@property --tcA{syntax:'<angle>';inherits:false;initial-value:0deg}
+.tcx a.lift::before,.tcx div.lift::before,.tcx .cell::before{inset:-1px!important;padding:1px;box-sizing:border-box;z-index:2;background:conic-gradient(from var(--tcA),rgba(27,110,247,0) 0deg,rgba(27,110,247,0) 220deg,rgba(27,110,247,.55) 290deg,rgba(127,178,255,.75) 325deg,rgba(27,110,247,.6) 360deg)!important;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0!important;transition:opacity .35s;pointer-events:none}
+.tcx a.lift:hover::before,.tcx div.lift:hover::before,.tcx .cell:hover::before{opacity:1!important;animation:tcFlow 5s linear infinite}
+@keyframes tcFlow{to{--tcA:360deg}}
+.tcx .lift .spot-cv,.tcx .lift .spot-glow,.tcx .cell .spot-cv,.tcx .cell .spot-glow{display:none!important}
+.tcx a.lift:hover,.tcx div.lift:hover,.tcx .cell:hover{transform:none!important;background:#FFFFFF!important;border-color:transparent!important;box-shadow:0 18px 44px -14px rgba(0,58,140,.18),0 2px 8px rgba(0,58,140,.05)!important}
+.tcx .deep a.lift:hover,.tcx .deep div.lift:hover{background:rgba(255,255,255,.08)!important}
+.tcx .lift:hover .t,.tcx .cell:hover .t{color:#165DFF}
+.tcx div.lift .zoom{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.tcx div.lift:hover .zoom{transform:scale(1.04)}
+.tcx div.lift:hover .btn-s{background:#165DFF;border-color:#165DFF;color:#FFFFFF}
+.tcx .v88-big{white-space:nowrap}
+.tcx .rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.tcx .rv-wait{opacity:0;transform:translateY(36px)}
+@media (prefers-reduced-motion:reduce){.tcx .rv-wait{opacity:1;transform:none}.tcx .lift:hover::before,.tcx .cell:hover::before{animation:none}}
+
+/* ---- 服务器租用直达购买页（.sb 作用域） ---- */
+.sb{background:#F7F8FA}
+.sb-top{background:#FFFFFF;border-bottom:1px solid #E5E6EB}
+.sb-gift{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;color:#4E5969}
+.sb-gift span{display:inline-flex;align-items:center;gap:6px}
+.sb-gift i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;height:18px;padding:0 6px;font-size:12px;color:#165DFF;background:#E8F3FF;border-radius:2px}
+.sb-main{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start;padding-top:20px;padding-bottom:64px}
+.sb-blk{background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px;padding:24px 24px;margin-bottom:16px}
+.sb-blk h2{margin:0 0 20px;font-size:18px;line-height:26px;font-weight:600;color:#1D2129;display:flex;align-items:center;gap:12px}
+.sb-blk h2 small{font-size:13px;font-weight:400;color:#86909C}
+.sb-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:16px;align-items:start}
+.sb-row+.sb-row{margin-top:20px}
+.sb-lb{font-size:14px;color:#4E5969;line-height:40px}
+.sb-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sb-type{position:relative;display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF;cursor:pointer;text-align:left;font-family:inherit;transition:border-color .2s,background .2s;overflow:hidden}
+.sb-type:hover{border-color:#94BFFF}
+.sb-type img{width:40px;height:40px;object-fit:contain;flex:none}
+.sb-type b{display:block;font-size:15px;font-weight:600;color:#1D2129}
+.sb-type span{display:block;font-size:12px;line-height:18px;color:#86909C;margin-top:2px}
+.sb-on{border-color:#165DFF !important;background:#F2F7FF !important}
+.sb-on::after{content:"";position:absolute;right:0;top:0;border-style:solid;border-width:0 22px 22px 0;border-color:transparent #165DFF transparent transparent}
+.sb-on::before{content:"";position:absolute;right:3px;top:3px;width:7px;height:4px;border-left:1.5px solid #FFFFFF;border-bottom:1.5px solid #FFFFFF;transform:rotate(-45deg);z-index:1}
+.sb-opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sb-opts.f6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.sb-opts.f7{grid-template-columns:repeat(7,minmax(0,1fr))}
+.sb-opts.fx{display:flex;flex-wrap:wrap}.sb-opts.fx{gap:8px}.sb-opts.fx .sb-opt{min-width:0;padding:0 14px}
+.sb-opt.has-tj{padding-right:34px}
+.sb-opt{position:relative;height:40px;padding:0 10px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF;font-size:14px;color:#1D2129;cursor:pointer;font-family:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:border-color .2s,color .2s,background .2s}
+.sb-opt:hover{border-color:#94BFFF;color:#165DFF}
+.sb-opt.sb-on{color:#165DFF;font-weight:500}
+.sb-opt em{position:absolute;right:-1px;top:-1px;font-style:normal;font-size:11px;line-height:16px;padding:0 5px;background:#FF7D00;color:#FFFFFF;border-radius:0 2px 0 2px}
+.sb-note{margin-top:10px;display:flex;gap:6px;align-items:flex-start;font-size:13px;line-height:20px;color:#86909C}
+.sb-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.sb-tbl th{text-align:left;font-weight:500;color:#4E5969;background:#F7F8FA;height:40px;padding:0 12px;border-bottom:1px solid #E5E6EB}
+.sb-tbl td{padding:12px;border-bottom:1px solid #F2F3F5;vertical-align:middle}
+.sb-tbl tr.sb-tr{cursor:pointer;transition:background .15s}
+.sb-tbl tr.sb-tr:hover{background:#F7F9FC}
+.sb-tbl tr.sb-tr-on,.sb-tbl tr.sb-tr-on:hover{background:#F2F7FF}
+.sb-rd{width:16px;height:16px;border-radius:50%;border:1px solid #C9CDD4;box-sizing:border-box;display:inline-block;vertical-align:middle;transition:border .15s}
+.sb-tr-on .sb-rd{border:5px solid #165DFF}
+.sb-cpu{font-weight:500;color:#1D2129;white-space:nowrap}
+.sb-mem{font-size:12px;color:#86909C;margin-top:2px}
+.sb-pr{color:#F53F3F;font-weight:600;font-family:"DIN Alternate",Bahnschrift,Inter,Arial,sans-serif;font-size:18px;white-space:nowrap}
+.sb-pr small{font-size:12px;color:#86909C;font-weight:400;margin-left:2px;font-family:inherit}
+.sb-hot{display:inline-flex;align-items:center;height:18px;padding:0 6px;margin-left:8px;font-size:11px;color:#F53F3F;border:1px solid #FDCDC5;background:#FFF2EE;border-radius:2px;vertical-align:2px}
+.sb-sel{height:40px;min-width:280px;padding:0 36px 0 12px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2386909C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;font-size:14px;color:#1D2129;font-family:inherit;-webkit-appearance:none;appearance:none;margin-top:10px}
+.sb-sel:focus{outline:none;border-color:#165DFF}
+.sb-step{display:inline-flex;height:40px;border:1px solid #E5E6EB;border-radius:2px;overflow:hidden}
+.sb-step button{width:40px;border:0;background:#F7F8FA;font-size:18px;color:#4E5969;cursor:pointer;font-family:inherit}
+.sb-step button:hover{color:#165DFF}
+.sb-step span{width:56px;display:flex;align-items:center;justify-content:center;font-size:14px;border-left:1px solid #E5E6EB;border-right:1px solid #E5E6EB}
+.sb-ck{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#4E5969;cursor:pointer;background:none;border:0;padding:0;font-family:inherit}
+.sb-ck i{width:16px;height:16px;border:1px solid #C9CDD4;border-radius:2px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center}
+.sb-ck-on i{background:#165DFF;border-color:#165DFF}
+.sb-ck-on i::after{content:"";width:7px;height:4px;border-left:1.5px solid #FFFFFF;border-bottom:1.5px solid #FFFFFF;transform:translateY(-1px) rotate(-45deg)}
+.sb-ta{width:100%;box-sizing:border-box;min-height:84px;padding:10px 12px;border:1px solid #E5E6EB;border-radius:2px;font-size:14px;font-family:inherit;resize:vertical;color:#1D2129}
+.sb-ta:focus{outline:none;border-color:#165DFF}
+.sb-side{position:sticky;top:80px}
+.sb-sum{background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px}
+.sb-sum h3{margin:0;padding:18px 24px;font-size:16px;font-weight:600;border-bottom:1px solid #F2F3F5}
+.sb-dl{margin:0;padding:16px 24px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px 12px;font-size:13px;line-height:20px}
+.sb-dl dt{color:#86909C}.sb-dl dd{margin:0;color:#1D2129;word-break:break-all}
+.sb-tot{padding:16px 24px 24px;border-top:1px solid #F2F3F5}
+.sb-calc{font-size:12px;color:#86909C}
+.sb-big{display:flex;align-items:baseline;gap:4px;margin:8px 0 16px;color:#F53F3F;font-family:"DIN Alternate",Bahnschrift,Inter,Arial,sans-serif;font-weight:700}
+.sb-big small{font-size:18px}.sb-big b{font-size:34px;line-height:40px;letter-spacing:-.01em}
+.sb-buy{width:100%;height:44px;border:0;border-radius:2px;background:#165DFF;color:#FFFFFF;font-size:16px;font-weight:500;cursor:pointer;font-family:inherit;transition:background .15s}
+.sb-buy:hover{background:#0E42D2}
+.sb-sub{margin-top:12px;display:flex;justify-content:space-between;font-size:13px;color:#4E5969}
+.sb-mini{margin-top:12px;font-size:12px;line-height:18px;color:#86909C}
+.sb-help{margin-top:16px;background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px;padding:16px 24px;font-size:13px;line-height:22px;color:#4E5969}
+.sb-faq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.sb-faq div{background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px;padding:20px}
+.sb-faq b{display:block;font-size:15px;font-weight:600;margin-bottom:8px}
+.sb-faq p{margin:0;font-size:13px;line-height:22px;color:#4E5969}
+.sb-mask{position:fixed;inset:0;z-index:50;background:rgba(29,33,41,0.45);display:flex;align-items:center;justify-content:center}
+.sb-dlg{width:560px;max-width:calc(100vw - 32px);background:#FFFFFF;border-radius:2px;box-shadow:0 12px 40px rgba(0,0,0,0.18)}
+.sb-dlg header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid #F2F3F5;font-size:16px;font-weight:600}
+.sb-x{width:28px;height:28px;border:0;background:none;font-size:20px;color:#86909C;cursor:pointer}
+.sb-x:hover{color:#1D2129}
+.sb-dlg .sb-dl{grid-template-columns:96px minmax(0,1fr)}
+.sb-pay{margin:0 24px;padding:12px 16px;background:#F2F7FF;border-radius:2px;font-size:13px;line-height:22px;color:#4E5969}
+.sb-ft{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;border-top:1px solid #F2F3F5;margin-top:16px}
+.sb-ft .sb-buy{width:auto;padding:0 28px;height:40px;font-size:14px}
+.sb-buy[disabled]{background:#94BFFF;cursor:not-allowed}
+.sb-ok{padding:36px 24px 8px;text-align:center}
+.sb-ok i{display:inline-flex;width:48px;height:48px;border-radius:50%;background:#E8FFEA;align-items:center;justify-content:center}
+.sb-ok h4{margin:16px 0 8px;font-size:18px}
+.sb-ok p{margin:0;font-size:14px;line-height:22px;color:#4E5969}
+@media (max-width:1100px){.sb-main{grid-template-columns:1fr}.sb-side{position:static}.sb-types{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-opts,.sb-opts.f6,.sb-opts.f7{grid-template-columns:repeat(3,minmax(0,1fr))}.sb-faq{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</helmet>
+
+<div class="tcx sb" data-pg="ServerBuy" style="min-width:0">
+<div style="position:sticky;top:0;z-index:5"><dc-import name="Header" active="products" hint-size="100%,60px"></dc-import></div>
+<section class="sb-top">
+  <div class="wrap" style="padding-top:20px;padding-bottom:20px;display:flex;flex-direction:column;gap:12px">
+    <nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Products.dc.html">产品与服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">服务器租用</span></nav>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div><h1 style="margin:0;font-size:28px;line-height:38px;font-weight:600;color:#1D2129">服务器租用</h1>
+      <p style="margin:6px 0 0;font-size:14px;line-height:22px;color:#4E5969">T 级数据中心，BGP 多线与电信骨干直连，自带 DDoS 原生防护，选好配置即可下单。</p></div>
+      <div class="sb-gift"><span><i>赠</i>自主化管理平台</span><span><i>赠</i><a href="ProductHost.dc.html" style="color:inherit">德迅卫士主机防护</a></span><span><i>赠</i>Web 云防护</span><span><i>赠</i>1V1 专家 7×24 支撑</span></div>
+    </div>
+  </div>
+</section>
+<section>
+<div class="wrap sb-main">
+  <div style="min-width:0">
+    <div class="sb-blk">
+      <h2>类型与机房</h2>
+      <div class="sb-row"><div class="sb-lb">类型</div>
+        <div class="sb-types"><sc-for list="{{ types }}" as="o" hint-placeholder-count="6"><button type="button" class="sb-type {{ o.cls }}" onClick="{{ o.go }}"><img src="img/{{ o.ic }}.webp" alt="" aria-hidden="true"><div><b>{{ o.n }}</b><span>{{ o.d }}</span></div></button></sc-for></div>
+      </div>
+      <div class="sb-row"><div class="sb-lb">地区</div>
+        <div><div class="sb-opts"><sc-for list="{{ regs }}" as="o" hint-placeholder-count="8"><button type="button" class="sb-opt {{ o.cls }} {{ o.tjc }}" onClick="{{ o.go }}" title="{{ o.n }}">{{ o.n }}<sc-if value="{{ o.tj }}" hint-placeholder-val="{{ false }}"><em>推荐</em></sc-if></button></sc-for></div>
+        <div class="sb-note"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#86909C" stroke-width="2" aria-hidden="true" style="flex:none;margin-top:3px"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg><span>{{ regDesc }}</span></div></div>
+      </div>
+      <div class="sb-row"><div class="sb-lb">DDoS 防护</div>
+        <div class="sb-opts f6"><sc-for list="{{ fhs }}" as="o" hint-placeholder-count="5"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
+      </div>
+    </div>
+    <div class="sb-blk">
+      <h2>配置选择<small>以下为该机房当前在售机型，价格为每台每月</small></h2>
+      <table class="sb-tbl">
+        <thead><tr><th style="width:44px"></th><th>配置</th><th style="width:96px">IP 数</th><th style="width:150px">带宽</th><th style="width:110px;text-align:right">价格</th></tr></thead>
+        <tbody><sc-for list="{{ cfgs }}" as="o" hint-placeholder-count="6"><tr class="sb-tr {{ o.cls }}" onClick="{{ o.go }}"><td><span class="sb-rd"></span></td><td><div class="sb-cpu">{{ o.cpu }}<sc-if value="{{ o.hot }}" hint-placeholder-val="{{ false }}"><span class="sb-hot">爆款</span></sc-if></div><div class="sb-mem">{{ o.mem }}</div></td><td>{{ o.ip }}</td><td>{{ o.bw }}</td><td style="text-align:right"><span class="sb-pr">¥{{ o.p }}<small>/月</small></span></td></tr></sc-for></tbody>
+      </table>
+    </div>
+    <div class="sb-blk">
+      <h2>系统与购买量</h2>
+      <div class="sb-row"><div class="sb-lb">操作系统</div>
+        <div><div class="sb-opts fx"><sc-for list="{{ osf }}" as="o" hint-placeholder-count="7"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
+        <select class="sb-sel" value="{{ osV }}" onChange="{{ osPick }}" aria-label="系统版本"><sc-for list="{{ osvs }}" as="v" hint-placeholder-count="4"><option value="{{ v.n }}">{{ v.n }}</option></sc-for></select></div>
+      </div>
+      <div class="sb-row"><div class="sb-lb">购买时长</div>
+        <div class="sb-opts f7"><sc-for list="{{ months }}" as="o" hint-placeholder-count="7"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
+      </div>
+      <div class="sb-row"><div class="sb-lb">购买数量</div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap"><div class="sb-step"><button type="button" onClick="{{ qDec }}" aria-label="减少">−</button><span>{{ q }}</span><button type="button" onClick="{{ qInc }}" aria-label="增加">+</button></div><span style="font-size:13px;color:#86909C">台，单次最多 20 台</span>
+        <button type="button" class="sb-ck {{ arCls }}" onClick="{{ arTog }}"><i></i>到期自动续费</button></div>
+      </div>
+      <div class="sb-row"><div class="sb-lb">特殊要求</div>
+        <div><textarea class="sb-ta" placeholder="如需定制分区、额外 IP、指定上架时间等，请在此说明，工程师会在交付前与您确认"></textarea></div>
+      </div>
+    </div>
+  </div>
+  <aside class="sb-side">
+    <div class="sb-sum">
+      <h3>当前配置</h3>
+      <dl class="sb-dl"><dt>类型</dt><dd>{{ sType }}</dd><dt>机房</dt><dd>{{ sReg }}</dd><dt>DDoS 防护</dt><dd>{{ sFh }}</dd><dt>CPU</dt><dd>{{ sCpu }}</dd><dt>内存/硬盘</dt><dd>{{ sMem }}</dd><dt>IP / 带宽</dt><dd>{{ sIp }} / {{ sBw }}</dd><dt>操作系统</dt><dd>{{ osV }}</dd><dt>时长 × 数量</dt><dd>{{ sM }} × {{ q }} 台</dd></dl>
+      <div class="sb-tot">
+        <div class="sb-calc">¥{{ sP }}/月 × {{ sMn }} 个月 × {{ q }} 台</div>
+        <div class="sb-big"><small>¥</small><b>{{ total }}</b></div>
+        <button type="button" class="sb-buy" onClick="{{ openDlg }}">立即购买</button>
+        <div class="sb-sub"><a href="Contact.dc.html">咨询售前</a><span>热线 0577-26676666</span></div>
+        <div class="sb-mini">购买即表示同意《SLA 服务等级协议》《信息安全协议》</div>
+      </div>
+    </div>
+    <div class="sb-help"><b style="color:#1D2129">付款与交付</b><br>下单后通过对公转账付款，财务核验到账后安排交付，进度可在控制台「我的订单」查看。</div>
+  </aside>
+</div>
+</section>
+<section style="padding:0 0 72px">
+  <div class="wrap">
+    <h2 style="margin:0 0 20px;font-size:20px;font-weight:600">购买须知</h2>
+    <div class="sb-faq">
+      <div><b>防护承诺</b><p>标注「承诺打死按天退款」的机房，在防护峰值内被攻击打死，按天退还服务费。</p></div>
+      <div><b>付款方式</b><p>目前支持对公转账。提交订单后在控制台付款页查看收款账户，到账核验后开通。</p></div>
+      <div><b>赠送服务</b><p>每台服务器赠送自主化管理平台、德迅卫士主机防护、Web 云防护和 1V1 专家支撑。</p></div>
+      <div><b>配置与升级</b><p>如需更高防护、更大带宽或其他机型，可在特殊要求中说明，或联系售前定制。</p></div>
+    </div>
+  </div>
+</section>
+<dc-import name="Footer" hint-size="100%,480px"></dc-import>
+<aside class="qnav" aria-label="快捷咨询" style="position:fixed;right:16px;bottom:96px;z-index:6;display:flex;flex-direction:column;align-items:center;gap:10px"><a href="Contact.dc.html" title="AI 安全助手" class="qai" aria-label="AI 安全助手"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3.2c-.4.3-.8 0-.8-.4V17h.5A2.5 2.5 0 0 1 4 14.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 7.4l.9 2.2 2.2.9-2.2.9-.9 2.2-.9-2.2-2.2-.9 2.2-.9z" fill="#fff"/></svg><span>AI</span></a><div style="width:56px;display:flex;flex-direction:column;background:#FFFFFF;border-radius:999px;padding:10px 0"><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 17V10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10V17C20 19.7614 17.7614 22 15 22H11M9 13V14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14V13M1 10V17M23 10V17M11 21H15"></path></svg>售前</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 14H9M15 10H9M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.6624 3.04042 17.0817 4.73686 18.8737L3 22H12Z" stroke-linecap="square"></path></svg>咨询</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12Z"></path><path d="M16 11V9M8 11V9M8.54 15C9.23 16.2 10.52 17 12 17C13.48 17 14.77 16.2 15.47 15" stroke-linecap="square"></path></svg>反馈<span style="position:absolute;right:12px;top:12px;width:6px;height:6px;border-radius:2px;background:#F53F3F"></span></a></div></aside>
+<sc-if value="{{ dlg1 }}" hint-placeholder-val="{{ false }}"><div class="sb-mask" onClick="{{ closeDlg }}"><div class="sb-dlg" role="dialog" aria-modal="true" aria-label="确认订单" onClick="{{ stop }}">
+  <header>确认订单<button type="button" class="sb-x" onClick="{{ closeDlg }}" aria-label="关闭">×</button></header>
+  <dl class="sb-dl"><dt>产品</dt><dd>{{ sType }} · {{ sReg }}</dd><dt>DDoS 防护</dt><dd>{{ sFh }}</dd><dt>配置</dt><dd>{{ sCpu }} · {{ sMem }}</dd><dt>IP / 带宽</dt><dd>{{ sIp }} / {{ sBw }}</dd><dt>操作系统</dt><dd>{{ osV }}</dd><dt>时长 × 数量</dt><dd>{{ sM }} × {{ q }} 台{{ arTxt }}</dd><dt>应付金额</dt><dd><span class="sb-pr">¥{{ total }}</span></dd></dl>
+  <div class="sb-pay">付款方式：对公转账。提交后在控制台付款页查看收款账户，财务核验到账后安排交付。未登录时会先进入登录页。</div>
+  <div class="sb-ft"><button type="button" class="sb-ck {{ agCls }}" onClick="{{ agTog }}"><i></i>我已阅读并同意《SLA 服务等级协议》《信息安全协议》</button><button type="button" class="sb-buy" disabled="{{ noAg }}" onClick="{{ submit }}">提交订单</button></div>
+</div></div></sc-if>
+<sc-if value="{{ dlg2 }}" hint-placeholder-val="{{ false }}"><div class="sb-mask" onClick="{{ closeDlg }}"><div class="sb-dlg" role="dialog" aria-modal="true" aria-label="订单已提交" onClick="{{ stop }}">
+  <div class="sb-ok"><i><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#00B42A" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></i><h4>订单已提交</h4><p>订单号 DX20261109{{ ordNo }} · 应付 ¥{{ total }}<br>请在控制台完成对公转账，到账核验后安排交付。</p></div>
+  <div class="sb-ft" style="justify-content:flex-end"><button type="button" class="btn btn-s btn-sm" onClick="{{ closeDlg }}">继续选购</button><a class="btn btn-p btn-sm" href="console/BillPay.dc.html">前往控制台付款</a></div>
+</div></div></sc-if>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+componentDidMount() {
+  try { const m = /[?&]t=(\d)/.exec(window.location.search || ''); if (m) this.setState({ t: +m[1] }); } catch (e) {}
+}
+renderVals() {
+const D = {"T": [["BGP 服务器", "多线智能选路，12 个机房", "ic-hfserver", ["杭州BGP", "温州BGP", "宁波BGP", "龙港BGP", "襄阳BGP", "山东BGP", "杭州BGP 高性能", "温州BGP 高性能", "宁波BGP 高性能", "龙港BGP 高性能", "襄阳BGP 高性能", "山东BGP 高性能"]], ["电信服务器", "骨干直连，¥399/月起", "ic-ecs", ["杭州电信", "宁波电信", "襄阳电信", "宁波电信 高性能"]], ["高性能服务器", "单核性能约 1.5 倍", "ic-baremetal", ["杭州BGP 高性能", "温州BGP 高性能", "宁波BGP 高性能", "龙港BGP 高性能", "襄阳BGP 高性能", "山东BGP 高性能", "宁波电信 高性能"]], ["大带宽服务器", "骨干网独享大带宽", "ic-accel", ["温州BGP（核心骨干）", "宁波BGP（核心骨干）", "襄阳电信（核心骨干）", "宁波电信（国干直联）"]], ["UDP 高防专区", "游戏与实时应用首选", "ic-ddos", ["UDP高防（BGP）", "UDP高防（电信）"]], ["抗 D 弹性计费", "按需调整，以报价为准", "ic-wall", ["杭州BGP", "杭州BGP 高性能", "UDP高防（BGP）"]]], "R": {"杭州BGP": {"tj": 0, "d": "攻击打不死，专接扛不住。承诺打死按天退款。", "fh": [["200G", [["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "50Mbps", 1399, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1499, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1599, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 1999, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2099, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2199, 0]]], ["300G", [["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 2999, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 3099, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 3199, 0]]], ["400G", [["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 4500, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 4600, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 4700, 0]]], ["500G", [["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 9800, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 9900, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 10000, 0]]], ["600G", [["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 19800, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 19900, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 20000, 0]]]]}, "温州BGP": {"tj": 1, "d": "浙江省核心骨干网，线路极优质，网络稳定性高达99.9%。", "fh": [["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "50Mbps", 899, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "50Mbps", 999, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1099, 1], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1299, 0], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1299, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 1399, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1499, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1699, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1999, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 2099, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2199, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2399, 0]]], ["400G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 2999, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 3099, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 3199, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 3399, 0]]]]}, "宁波BGP": {"tj": 0, "d": "浙江省星级数据中心，网络稳定性高达99.9%。", "fh": [["120G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "50Mbps", 899, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "50Mbps", 949, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "50Mbps", 999, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1299, 0]]], ["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1299, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 1349, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1399, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1699, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1999, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100Mbps", 2099, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2199, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2399, 0]]]]}, "龙港BGP": {"tj": 0, "d": "BGP线路质量安全稳定，辐射整个东南区域。", "fh": [["100G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "30Mbps", 599, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "30Mbps", 699, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "30Mbps", 799, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "30Mbps", 999, 0]]], ["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "50Mbps", 899, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "50Mbps", 999, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1099, 1], ["E5-2696V4*2(88线程)", "内存 128G", "1 个 · BGP", "50Mbps", 1299, 0]]]]}, "襄阳BGP": {"tj": 0, "d": "国家骨干网，优化互联互通，T级集群联动，UDP业务专享。", "fh": [["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "50Mbps", 599, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "50Mbps", 699, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1199, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1299, 0]]], ["400G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "150Mbps", 2199, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "150Mbps", 2299, 0]]]]}, "山东BGP": {"tj": 0, "d": "省骨干直连，网络高速稳定，适合高负载UDP应用。", "fh": [["100G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "50Mbps", 599, 0], ["Gold-6138*2(80线程)", "内存 128G · 硬盘 1T固态", "1 个 · BGP", "50Mbps", 799, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 999, 0], ["Gold-6138*2(80线程)", "内存 128G · 硬盘 1T固态", "1 个 · BGP", "100Mbps", 1099, 0]]], ["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1099, 0], ["Gold-6138*2(80线程)", "内存 128G · 硬盘 1T固态", "1 个 · BGP", "100Mbps", 1299, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 2099, 0], ["Gold-6138*2(80线程)", "内存 128G · 硬盘 1T固态", "1 个 · BGP", "100Mbps", 2299, 0]]]]}, "杭州BGP 高性能": {"tj": 0, "d": "攻击打不死，专接扛不住。承诺打死按天退款。", "fh": [["200G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "50Mbps", 1500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1999, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1999, 0], ["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 2200, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2699, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2699, 0]]], ["300G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 3200, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 3699, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 3699, 0]]], ["400G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 4700, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 5200, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 5200, 0]]], ["500G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 10000, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 10500, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 10500, 0]]], ["600G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 20000, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 20500, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 20500, 0]]]]}, "温州BGP 高性能": {"tj": 1, "d": "针对高性能计算应用领域，单核心计算性能达到传统服务器的1.5倍，适合高负载应用。", "fh": [["200G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "50Mbps", 1200, 0], ["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 1500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1699, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1699, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1999, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1999, 0]]], ["300G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 2500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2999, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2999, 0]]], ["400G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 3500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 3999, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 3999, 0]]]]}, "宁波BGP 高性能": {"tj": 0, "d": "针对高性能计算应用领域，单核心计算性能达到传统服务器的1.5倍，适合高负载应用。", "fh": [["200G", [["I9-10900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1200, 0], ["I9-10900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1599, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1599, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1899, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1899, 0]]], ["300G", [["I9-10900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2699, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 2699, 0]]]]}, "龙港BGP 高性能": {"tj": 0, "d": "针对高性能计算应用领域，单核心计算性能达到传统服务器的1.5倍，适合高负载应用。", "fh": [["100G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "50Mbps", 999, 0], ["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 1299, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1500, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1799, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1799, 0]]], ["200G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "50Mbps", 1200, 0], ["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · BGP", "100Mbps", 1500, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1799, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "50Mbps", 1799, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1999, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1999, 0]]]]}, "襄阳BGP 高性能": {"tj": 0, "d": "针对高性能计算应用领域，单核心计算性能达到传统服务器的1.5倍，适合高负载UDP应用。", "fh": [["200G", [["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1500, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "100Mbps", 1500, 0]]], ["300G", [["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "150Mbps", 2500, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "150Mbps", 2500, 0]]], ["400G", [["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "200Mbps", 3500, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · BGP", "200Mbps", 3500, 0]]]]}, "山东BGP 高性能": {"tj": 0, "d": "针对高性能计算应用领域，单核心计算性能达到传统服务器的1.5倍，适合高负载UDP应用。", "fh": [["200G", [["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 U.2 1T固态", "1 个 · BGP", "50Mbps", 1499, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 U.2 1T固态", "1 个 · BGP", "100Mbps", 1799, 0], ["R9-9950X", "内存 192G(DDR5 5600Mhz) · 硬盘 U.2 1T固态", "1 个 · BGP", "50Mbps", 1799, 0], ["R9-9950X", "内存 192G(DDR5 5600Mhz) · 硬盘 U.2 1T固态", "1 个 · BGP", "100Mbps", 1999, 0]]], ["300G", [["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 U.2 1T固态", "1 个 · BGP", "100Mbps", 2799, 0], ["R9-9950X", "内存 192G(DDR5 5600Mhz) · 硬盘 U.2 1T固态", "1 个 · BGP", "100Mbps", 2999, 0]]], ["400G", [["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 U.2 1T固态", "1 个 · BGP", "100Mbps", 3799, 0], ["R9-9950X", "内存 192G(DDR5 5600Mhz) · 硬盘 U.2 1T固态", "1 个 · BGP", "100Mbps", 3999, 0]]]]}, "杭州电信": {"tj": 0, "d": "T级集群联动，阻断海外恶意流量，国家级骨干直连点，网络稳定性高达99.99%。", "fh": [["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "30Mbps", 399, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 499, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 599, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "30Mbps", 499, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 599, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 699, 0]]], ["400G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "30Mbps", 699, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 799, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 899, 0]]], ["500G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "30Mbps", 1299, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 1399, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 1499, 0]]]]}, "宁波电信": {"tj": 0, "d": "国家骨干网，优化互联互通，网络稳定性高达99.99%。", "fh": [["100G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "30Mbps", 399, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "30Mbps", 449, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 499, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "50Mbps", 549, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 599, 1], ["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 699, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "100Mbps", 749, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "100Mbps", 799, 1]]]]}, "襄阳电信": {"tj": 0, "d": "国家骨干网，优化互联互通，T级集群联动，UDP业务专享。", "fh": [["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 399, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 599, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 699, 1], ["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 799, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "100Mbps", 899, 1]]], ["400G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "50Mbps", 1299, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "50Mbps", 1399, 1], ["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 1499, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个", "100Mbps", 1599, 1]]]]}, "宁波电信 高性能": {"tj": 0, "d": "针对高性能计算应用领域，单核心计算性能达到传统服务器的1.5倍，适合高负载应用。", "fh": [["100G", [["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · 电信", "30Mbps", 599, 0], ["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · 电信", "50Mbps", 699, 0], ["I9-9900K", "内存 64G(DDR4 3200Hz) · 硬盘 M.2 512G固态", "1 个 · 电信", "100Mbps", 899, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · 电信", "30Mbps", 1099, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · 电信", "50Mbps", 1299, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · 电信", "50Mbps", 1299, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · 电信", "100Mbps", 1499, 0], ["R9-9950X", "内存 128G(DDR5 5600Hz) · 硬盘 M.2 1T固态", "1 个 · 电信", "100Mbps", 1499, 0], ["I9-14900K", "内存 128G(DDR4 3200Hz) · 硬盘 M.2 1T固态", "1 个 · 电信", "200Mbps", 1999, 0]]]]}, "温州BGP（核心骨干）": {"tj": 0, "d": "浙江省核心骨干网，线路极优质，网络稳定性高达99.9%。", "fh": [["100G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100M 峰值（50M 独享）", 899, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "100M 峰值（50M 独享）", 999, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "300M 峰值（100M 独享）", 1099, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "300M 峰值（100M 独享）", 1199, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "500M 峰值（200M 独享）", 1799, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "500M 峰值（200M 独享）", 1899, 0]]]]}, "宁波BGP（核心骨干）": {"tj": 0, "d": "浙江省核心骨干网，BGP线路质量安全稳定。", "fh": [["100G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "300M 峰值（100M 独享）", 1099, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "300M 峰值（100M 独享）", 1199, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "500M 峰值（200M 独享）", 1799, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个 · BGP", "500M 峰值（200M 独享）", 1899, 0]]]]}, "襄阳电信（核心骨干）": {"tj": 1, "d": "华中骨干网，优化互联互通，T级集群联动，UDP业务专享。", "fh": [["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "300M 峰值（100M 独享）", 799, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "500M 峰值（200M 独享）", 1599, 0]]]]}, "宁波电信（国干直联）": {"tj": 0, "d": "国家骨干网，优化互联互通，网络稳定性高达99.99%。", "fh": [["100G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "300M 峰值（100M 独享）", 799, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "300M 峰值（100M 独享）", 899, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个", "500M 峰值（200M 独享）", 1599, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "500M 峰值（200M 独享）", 1699, 0]]]]}, "UDP高防（BGP）": {"tj": 0, "d": "攻击打不死，专接扛不住。承诺打死按天退款。", "fh": [["200G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1199, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1299, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "200Mbps", 1899, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "200Mbps", 1999, 0]]], ["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 1699, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 1799, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "200Mbps", 2499, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "200Mbps", 2599, 0]]], ["400G", [["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "100Mbps", 2199, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "100Mbps", 2299, 0], ["E5-2670*2(32线程)", "内存 32G", "1 个 · BGP", "200Mbps", 2999, 0], ["Gold-6138*2(80线程)", "内存 128G", "1 个 · BGP", "200Mbps", 3099, 0]]]]}, "UDP高防（电信）": {"tj": 0, "d": "攻击打不死，专接扛不住。承诺打死按天退款。", "fh": [["300G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 1399, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "100Mbps", 1499, 0]]], ["400G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 1999, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "100Mbps", 2099, 0]]], ["500G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 2999, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "100Mbps", 3099, 0]]], ["600G", [["E5-2670*2(32线程)", "内存 32G", "1 个", "100Mbps", 4999, 0], ["E5-2697V2*2(48线程)", "内存 64G", "1 个", "100Mbps", 5099, 0]]]]}}, "OS": [["Windows", ["Windows Server 2025 64位", "Windows Server 2022 64位", "Windows Server 2019 64位", "Windows Server 2016 64位", "Windows Server 2012 R2 64位", "Windows Server 2008 R2 64位", "Windows 10 64位", "Windows 7 64位"]], ["CentOS", ["CentOS 7.9 64位", "CentOS 7.6 64位", "CentOS 8.5 64位", "CentOS 8 Stream 64位", "CentOS 9 Stream 64位", "CentOS 6.9 64位"]], ["Ubuntu", ["Ubuntu 22.04 64位", "Ubuntu 20.04 64位", "Ubuntu 18.04 64位", "Ubuntu 16.04 64位"]], ["Debian", ["Debian 11.6 64位", "Debian 11.3 64位", "Debian 10.1 64位", "Debian 9.4 64位"]], ["Rocky", ["Rocky Linux 10", "Rocky Linux 9.6", "Rocky Linux 9.5", "Rocky Linux 8.9"]], ["Fedora", ["Fedora 35.0", "Fedora 34.0"]], ["FreeBSD", ["FreeBSD 15.0", "FreeBSD 14.3", "FreeBSD 13.5", "FreeBSD 12.1"]]], "M": [[1, "1 个月"], [2, "2 个月"], [3, "3 个月"], [6, "6 个月"], [12, "1 年"], [24, "2 年"], [36, "3 年"]]};
+const s = this.state || {};
+const set = (o) => this.setState(o);
+const t = s.t ?? 0, T = D.T[t] || D.T[0];
+const rNames = T[3], ri = Math.min(s.r ?? 0, rNames.length - 1), rn = rNames[ri], R = D.R[rn];
+const fi = Math.min(s.f ?? 0, R.fh.length - 1), F = R.fh[fi];
+const ci = Math.min(s.c ?? 0, F[1].length - 1), Cf = F[1][ci];
+const osF = s.osF ?? 0, OSF = D.OS[osF], osV = s.osV && OSF[1].indexOf(s.osV) > -1 ? s.osV : OSF[1][0];
+const mi = s.m ?? 0, Mo = D.M[mi], q = s.q ?? 1, ar = !!s.ar, ag = !!s.ag;
+const fmt = (n) => n.toLocaleString('en-US');
+const total = Cf[4] * Mo[0] * q;
+const o = {
+  types: D.T.map((x, i) => ({ n: x[0], d: x[1], ic: x[2], cls: i === t ? 'sb-on' : '', go: () => set({ t: i, r: 0, f: 0, c: 0 }) })),
+  regs: rNames.map((n, i) => ({ n, tj: !!D.R[n].tj, tjc: D.R[n].tj ? 'has-tj' : '', cls: i === ri ? 'sb-on' : '', go: () => set({ r: i, f: 0, c: 0 }) })),
+  regDesc: R.d,
+  fhs: R.fh.map((x, i) => ({ n: x[0] + ' 防御', cls: i === fi ? 'sb-on' : '', go: () => set({ f: i, c: 0 }) })),
+  cfgs: F[1].map((x, i) => ({ cpu: x[0], mem: x[1], ip: x[2], bw: x[3], p: fmt(x[4]), hot: !!x[5], cls: i === ci ? 'sb-tr-on' : '', go: () => set({ c: i }) })),
+  osf: D.OS.map((x, i) => ({ n: x[0], cls: i === osF ? 'sb-on' : '', go: () => set({ osF: i, osV: null }) })),
+  osvs: OSF[1].map((n) => ({ n })),
+  osV, osPick: (e) => set({ osV: e.target.value }),
+  months: D.M.map((x, i) => ({ n: x[1], cls: i === mi ? 'sb-on' : '', go: () => set({ m: i }) })),
+  q, qDec: () => set({ q: Math.max(1, q - 1) }), qInc: () => set({ q: Math.min(20, q + 1) }),
+  arCls: ar ? 'sb-ck-on' : '', arTog: () => set({ ar: !ar }), arTxt: ar ? ' · 到期自动续费' : '',
+  sType: T[0], sReg: rn, sFh: F[0] + ' 防御', sCpu: Cf[0], sMem: Cf[1], sIp: Cf[2], sBw: Cf[3],
+  sP: fmt(Cf[4]), sM: Mo[1], sMn: Mo[0], total: fmt(total),
+  dlg1: s.dlg === 1, dlg2: s.dlg === 2,
+  openDlg: () => set({ dlg: 1 }), closeDlg: () => set({ dlg: 0 }), stop: (e) => e && e.stopPropagation && e.stopPropagation(),
+  agCls: ag ? 'sb-ck-on' : '', agTog: () => set({ ag: !ag }), noAg: !ag,
+  submit: () => { if (ag) set({ dlg: 2, ord: String(Math.floor(100000 + Math.random() * 899999)) }); },
+  ordNo: s.ord || '000000',
+};
+return o;
+}
+}
+</script>
+</body>
+</html>
