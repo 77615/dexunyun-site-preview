@@ -543,15 +543,14 @@ td .sl-st.b{color:#165dff}
   <aside class="kc-dw" role="dialog" aria-label="安全配置">
     <div class="kc-dwh">安全配置<button class="kc-x" type="button" aria-label="关闭" onClick="{{close}}">×</button></div>
     <div class="kc-dwb">
-      <p class="kc-sub cf-tip">web-prod-01 · 德迅安全卫士。这台服务器的防护设置跟着它使用的策略走，这里只看不改。</p>
-      <div class="cq-pol"><div class="cq-ph"><small>使用策略</small><b>{{cq.n}}</b><span class="{{cq.asC}}">{{cq.as}}</span><span class="{{cq.stC}}">{{cq.st}}</span></div>
+      <p class="kc-sub cf-tip">web-prod-01 · 德迅安全卫士。每项防护能力有自己的模式，对全部主机生效，这里只看不改。</p>
+      <div class="cq-pol"><div class="cq-ph"><small>防护模式</small><b>{{cq.n}}</b><span class="{{cq.stC}}">{{cq.st}}</span></div>
         <p class="cq-pd">{{cq.d}}</p>
-        <div class="cq-po"><button type="button" class="kc-btn sm" onClick="{{cq.pick}}">更换策略</button><a class="ss-op" href="{{cq.edH}}">编辑这份策略</a><span class="cq-pn">{{cq.share}}</span></div>
-        <sc-if value="{{cq.pkOn}}" hint-placeholder-val="{{false}}"><div class="cq-pk"><sc-for list="{{cq.opts}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.c}}" onClick="{{o.go}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for><p class="cq-pkh">只能在已有策略之间切换，不会为这台单独复制一份。需要不同设置时，请在「防护策略」新建可复用的策略。</p></div></sc-if>
+        <div class="cq-po"><a class="kc-btn sm" href="SecPolicy.dc.html">查看防护模式</a><span class="cq-pn">{{cq.share}}</span></div>
       </div>
       <h4 class="cf-h">客户端</h4>
       <div class="kc-sw-row"><div>{{cliTxt}}<div class="kc-sub">{{cliSub}}</div></div><sc-if value="{{secOnC}}" hint-placeholder-val="{{true}}"><a href="#" class="ss-op" onClick="{{uninstall}}">卸载客户端</a></sc-if><sc-if value="{{secGoneC}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn sm pri" onClick="{{reinstall}}">{{reTxt}}</button></sc-if></div>
-      <h4 class="cf-h">策略中的防护能力</h4>
+      <h4 class="cf-h">防护能力与模式</h4>
       <sc-for list="{{cq.caps}}" as="c" hint-placeholder-count="6"><div class="{{c.rc}}"><div>{{c.n}}<div class="kc-sub">{{c.d}}</div></div><span class="{{c.tc}}">{{c.t}}</span></div></sc-for>
       <h4 class="cf-h">通知与登录</h4>
       <div class="kc-sw-row"><div>风险通知<div class="kc-sub">紧急、高危风险发送到 177****1234，接收人和方式是全局设置</div></div><a href="SecNotify.dc.html" class="ss-op">在通知设置中修改</a></div>
@@ -1345,16 +1344,17 @@ class Component extends DCLogic {
     const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: n === 'AI 研判' ? '企业版' : t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
       cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
       go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (v) return; this.setState({ plg: Object.assign({}, plg, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plg: Object.assign({}, this.state.plg || {}, { [n]: 'ok' }) }), 1500); } }; });
-    const cqP = st.cqP || 'def'; const cqS = st.cqS || ''; const isDb = cqP === 'db';
-    const cqCap = [['入侵检测', '暴力破解、异常登录、反弹 Shell、高危命令', 'on'], ['病毒查杀', '实时恶意文件检测、网页后门、每天 04:00 定时扫描', 'on'], ['网络防护', '暴力破解、端口扫描、可疑外联', 'al'], ['漏洞与基线扫描', '漏洞每天 03:00，基线每 7 天', 'on'],
-      ['自动处置', isDb ? '恶意文件自动隔离' : '默认策略只告警，不自动隔离或封禁', isDb ? 'au' : 'off'], ['防勒索与防篡改', '诱饵文件、关键目录与网站目录保护', 'on'], ['AI 研判', '企业版能力，自动分析告警真假', 'on']];
-    const CT = { on: ['已开启', 'kc-tag ok'], al: ['开启 · 只告警', 'kc-tag ok'], au: ['自动处置', 'kc-tag info'], off: ['未开启', 'kc-tag mut'], np: ['未安装插件', 'kc-tag mut'], ent: ['未开通', 'kc-tag mut'] };
-    const cq = { n: isDb ? '数据库加强' : '默认策略', as: isDb ? '指定策略' : '跟随默认', asC: 'kc-tag info', st: cqS ? '等待生效' : '已生效', stC: cqS ? 'kc-tag warn' : 'kc-tag ok',
-      d: cqS ? '已提交更换，等待客户端回执；离线时会在上线后下发。' : isDb ? '基于标准防护，开启恶意文件自动隔离和防勒索 · v1 · 11-02 10:20 生效' : '基于标准防护，只检测和告警，不自动拦截 · v3 · 11-02 10:20 生效',
-      share: isDb ? '3 台主机共用' : '65 台主机共用，修改影响全部', edH: isDb ? 'SecPolicy.dc.html?edit=db' : 'SecPolicy.dc.html?edit=def', pkOn: !!st.cqK,
-      pick: () => this.setState({ cqK: !st.cqK }),
-      opts: [['def', '默认策略（跟随默认）', '只告警，不自动拦截；默认策略变化时跟着变'], ['db', '数据库加强', '基于标准防护，开启恶意文件自动隔离和防勒索']].map(([k, n, d]) => ({ n, d, c: k === cqP ? 'on' : '', go: () => this.setState(k === cqP ? { cqK: false } : { cqP: k, cqK: false, cqS: 'wait' }) })),
-      caps: cqCap.map(([n, d, k]) => ({ n, d, t: CT[k][0], tc: CT[k][1], rc: k === 'np' || k === 'ent' ? 'kc-sw-row cq-off' : 'kc-sw-row' })) };
+    /* pmd 2026-11-09 */ let CMS = {}; let TMP = null; try { CMS = JSON.parse(localStorage.getItem('dxCapMode') || '{}') || {}; TMP = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) {}
+    const cmOf = (k) => (TMP ? '重保' : CMS[k] || ({ SecVirus: '重保' })[k] || '标准');
+    const cqCap = [['入侵检测', 'SecRules', '暴力破解、异常登录、反弹 Shell、高危命令', '按规则阻断进程或连接'], ['病毒查杀', 'SecVirus', '实时检测、网页后门、每天 04:00 定时扫描', '自动隔离病毒文件'], ['网络防火墙', 'SecFirewall', '网络访问防护、外联管控', '自动封禁攻击来源 IP'],
+      ['防勒索', 'SecRansom', '勒索拦截、诱饵文件、自动备份', '拦截加密行为并结束进程'], ['网页防篡改', 'SecTamper', '网站目录写保护', '拦截篡改并还原文件'], ['远程安全', 'SecRemote', '远程桌面防护、二次认证、常用登录地', '自动封禁暴力破解来源 IP']];
+    const MT = { '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' };
+    const ms = cqCap.map((c) => cmOf(c[1])); const uni = ms.every((m) => m === ms[0]) ? ms[0] : '';
+    const cq = { n: TMP ? '重保模式（临时）' : uni ? uni + '模式' : '自定义', st: '已生效', stC: 'kc-tag ok',
+      d: TMP ? '重保进行中，至 ' + TMP.end + ' 结束，全部能力命中后自动处置。' : uni ? '全部能力都是' + uni + '模式。' : cqCap.filter((c, i) => ms[i] !== '标准').map((c, i) => c[0]).join('、') + ' 是重保模式，其余能力是标准模式。',
+      share: '这台服务器没有单独调整，跟随各能力的模式',
+      caps: cqCap.map((c) => { const m = cmOf(c[1]); return { n: c[0], d: c[2] + ' · 命中后' + (m === '重保' ? c[3] : '只告警'), t: m + '模式', tc: MT[m], rc: 'kc-sw-row' }; })
+        .concat([{ n: '漏洞与基线扫描', d: '漏洞每天 03:00，基线每 7 天', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }, { n: 'AI 研判', d: '企业版能力，自动分析告警真假', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }]) };
     const igM = st.igK ? (() => { const r = R0.find((x) => x.k === st.igK) || R0[0]; const w = (st.igW || '').trim(); const ok = !!st.igR && (st.igR !== '其他' || !!w);
       return { igOn: true, igT: '忽略「' + r.t + '」', igSub: '只对这台服务器生效。忽略后不再提醒，也不计入待处理。', igW: st.igW || '', igOnW: (e) => this.setState({ igW: e && e.target ? e.target.value : '' }),
         igR: IGR.map((n) => ({ n, c: n === st.igR ? 'ig7-o on' : 'ig7-o', a: n === st.igR ? 'true' : 'false', t: (e) => { pv(e); this.setState({ igR: n }); } })),
@@ -1364,10 +1364,10 @@ class Component extends DCLogic {
     const secV = { ig: igM, dlOn: !!dlR && !st.dlX, dlTxt: dlR ? '你从短信链接进入，已为你展开「' + dlR.t + '」。' : '', dlX: (e) => { pv(e); this.setState({ dlX: true }); }, cq, secTabs, plgs, plgOn: plgs.filter((g) => g.on).length, risks, ov: ov.map(([cls, i, q, b, d]) => ({ cls, i, q, b, d })), todoN: todo, hasRisk: sec === 'risk', goneRk: sec === 'gone', noRisk: sec === 'ok',  goneWhy: st.unBy ? '德迅安全卫士客户端今天由 wangqi 卸载（原因：' + st.unBy + '），' : '德迅安全卫士客户端已于 2026-10-20 卸载，',
       riBusy: job === 'ri',
       secOn: sec !== 'gone' && sec !== 'acc' && job !== 'ri', secAcc: sec === 'acc',
-      accS: [['ok', '✓', '服务器就绪', '运行中 · ' + (st.os || 'CentOS 7.9 64 位').replace(' 64 位', ''), '10:02'], ['ok', '✓', '安装客户端', 'V4.3.2 已上线，跟随默认策略（标准模式）', '10:04'], ['ing', '3', '首次检测', '已完成 2/5 项：入侵、漏洞；还剩弱口令、基线、资产', '约 6 分钟']].map(([c, i, n, d, t]) => ({ c, i, n, d, t })),
+      accS: [['ok', '✓', '服务器就绪', '运行中 · ' + (st.os || 'CentOS 7.9 64 位').replace(' 64 位', ''), '10:02'], ['ok', '✓', '安装客户端', 'V4.3.2 已上线，按各能力的模式生效', '10:04'], ['ing', '3', '首次检测', '已完成 2/5 项：入侵、漏洞；还剩弱口令、基线、资产', '约 6 分钟']].map(([c, i, n, d, t]) => ({ c, i, n, d, t })),
       accDone: () => this.setState(st.arch ? { sec: 'risk', hd: { login: 'arc', vul: 'arc' }, rr: true, rop: undefined, arch: 0, doneMsg: '首次检测完成：重装前的 ' + st.arch + ' 个风险已按「旧环境归档」关闭；其中弱口令在新系统里仍然存在，已重新提醒' } : { sec: 'risk', hd: {}, doneMsg: '首次检测完成：发现 2 项高危、1 项中危，已发站内信和短信。默认只告警，不会拦截业务' }), secRisk: sec === 'risk', secOk: sec === 'ok', secGone: sec === 'gone',
       modeTxt: blk ? '自动拦截' : '仅告警', riskTxt: sec === 'acc' ? '检测中' : sec === 'risk' ? '高危 2 · 中危 1' : '0', riskCls: sec === 'risk' ? 'r' : 'g',
-      blockTip: blk ? '按所用策略自动处置' : '所用策略未开启自动处置，发现风险只告警', blockTag: blk ? 'kc-tag ok' : 'kc-tag mut', blockSt: blk ? '已开启' : '未开启', smsTag: sms ? 'kc-tag ok' : 'kc-tag mut', smsSt: sms ? '已开启' : '未开启', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
+      blockTip: blk ? '按能力模式自动处置' : '标准模式的能力只告警，重保模式的能力会自动处置', blockTag: blk ? 'kc-tag ok' : 'kc-tag mut', blockSt: blk ? '已开启' : '未开启', smsTag: sms ? 'kc-tag ok' : 'kc-tag mut', smsSt: sms ? '已开启' : '未开启', blockSw: blk ? 'kc-sw on' : 'kc-sw', blockP: blk ? 'true' : 'false', togBlock: () => this.setState({ blk: !blk }),
       smsSw: sms ? 'kc-sw on' : 'kc-sw', smsP: sms ? 'true' : 'false', togSms: () => this.setState({ sms: !sms }),
       wlTip: wl ? '对这台生效 1 个：183.134.**.20' : '对这台没有生效的白名单 IP', wlBtn: wl ? '管理' : '添加', addWl: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ wl: true }); },
       uninstall: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dlg: 'un', unR: '', unW: '' }); }, unOpen: dlg === 'un', doUn: () => { if (!unOk) return; this.setState({ dlg: '', sec: 'gone', re: '', unBy: unR === '其他' ? (st.unW || '').trim() : unR }); },

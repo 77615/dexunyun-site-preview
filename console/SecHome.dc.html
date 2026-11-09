@@ -603,7 +603,10 @@
 .sh .sh-av.b{background:#2bb673}
 /* g144 安全开关 */
 .sh .sh-capc .kc-ch{gap:12px}
-.sh .sh-swe{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.sh .sh-pmc{margin-right:8px;text-decoration:none}
+.sh-pmc b{font-weight:500;color:#1664ff}
+.sh-pmi{width:12px;height:12px;border-radius:2px;background:linear-gradient(135deg,#7b61ff,#3c7bff);clip-path:polygon(50% 0,100% 18%,100% 55%,50% 100%,0 55%,0 18%)}
+.sh-swe{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
 .sh .sh-swe:hover{border-color:#b9c3d1}
 .sh .sh-swe b{font-weight:500;color:#0c0d0e;font-variant-numeric:tabular-nums}
 .sh .sh-swe em{font-style:normal;color:#1664ff;padding-left:8px;border-left:1px solid #e5e6eb}
@@ -805,7 +808,7 @@
             <button type="button" class="{{p.bc}}" onClick="{{p.go}}">{{p.bt}}</button>
           </li></sc-for></ul>
         </div><div class="sh-aif"><span>由 AI 根据风险等级、可利用性和影响范围排序，结论仅供参考</span><span class="sh-fb"><button type="button" aria-label="有帮助" title="有帮助" onClick="{{sx.fbUp}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助" title="没帮助" onClick="{{sx.fbDown}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></section>
-      <section class="sh-capc"><div class="kc-ch"><h2>防护能力</h2><span class="sh-upd">守护主机 57 / 68 台</span><button type="button" class="sh-swe" onClick="{{sx.sw.open}}"><i class="sh-swi" aria-hidden="true"></i>安全开关<b>{{sx.sw.sum}}</b><em>设置</em></button></div>
+      <section class="sh-capc"><div class="kc-ch"><h2>防护能力</h2><span class="sh-upd">守护主机 57 / 68 台</span><a class="sh-swe sh-pmc" href="SecPolicy.dc.html" title="{{sx.pm.t}}"><i class="sh-pmi" aria-hidden="true"></i>防护模式<b>{{sx.pm.n}}</b></a><button type="button" class="sh-swe" onClick="{{sx.sw.open}}"><i class="sh-swi" aria-hidden="true"></i>安全开关<b>{{sx.sw.sum}}</b><em>设置</em></button></div>
         <div class="kc-cb"><div class="sh-cg"><sc-for list="{{sx.caps}}" as="c" hint-placeholder-count="8"><div class="{{c.cls}}">
           <div class="sh-ch"><i class="{{c.ic}}"></i><b>{{c.n}}</b><sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><span class="{{c.tc}}">{{c.st}}</span></sc-if><sc-if value="{{c.lock}}" hint-placeholder-val="{{false}}"><span class="sh-lk"><i class="sh-lki"></i>{{c.k}}</span></sc-if></div>
           <sc-if value="{{c.tag}}" hint-placeholder-val="{{true}}"><div class="sh-cs"><a href="#" class="{{c.zc}}" onClick="{{c.goR}}"><small>{{c.fl}}</small><b class="{{c.fc}}">{{c.f}}</b></a><a href="#" class="{{c.zc}}" onClick="{{c.goH}}"><small>影响主机</small><b class="{{c.fc}}">{{c.m}}</b></a></div></sc-if>
@@ -853,7 +856,7 @@
         </div>
       </div>
           <sc-if value="{{sx.sw.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.sw.x}}"></div><aside class="sh-dw sh-fx sh-swd" role="dialog" aria-modal="true" aria-label="安全开关"><header><h3>安全开关</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.sw.x}}">×</button></header>
-        <div class="sh-dwb"><div class="sh-swtop"><div><b>{{sx.sw.sum}}</b><span>项已开启 · 改的是「标准模式」，作用于使用标准模式的主机；在能力页单独调整过的主机保留调整。客户端设置是全局的</span></div><a href="SecPolicy.dc.html" class="sh-op">管理全部策略</a></div>
+        <div class="sh-dwb"><div class="sh-swtop"><div><b>{{sx.sw.sum}}</b><span>项已开启 · 开关对全部主机生效；命中后是否自动处置由各能力的模式决定（当前：{{sx.pm.n}}）。在能力页单独调整过的主机保留调整。</span></div><a href="SecPolicy.dc.html" class="sh-op">查看防护模式</a></div>
           <div class="sh-swt"><div class="sh-swh"><span>设置项</span><span>内容</span><span>生效范围</span><span>开关</span><span>操作</span></div><sc-for list="{{sx.sw.rows}}" as="r" hint-placeholder-count="6">
             <sc-if value="{{r.gh}}" hint-placeholder-val="{{false}}"><div class="sh-swg"><div class="sh-swgh"><b>{{r.g}}</b><span class="{{r.gtc}}">{{r.gt}}</span><sc-if value="{{r.bulk}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.all}}">全部开启</button></sc-if></div><sc-if value="{{r.tip}}" hint-placeholder-val="{{false}}"><div class="ac-al i sh-swtip"><i>!</i><span>{{r.tip}}</span></div></sc-if></div></sc-if>
             <sc-if value="{{r.it}}" hint-placeholder-val="{{true}}"><div class="{{r.rc}}"><div><span class="sh-swn">{{r.n}}</span><sc-if value="{{r.rec}}" hint-placeholder-val="{{false}}"><span class="kc-tag info sh-rec">推荐开启</span></sc-if></div>
@@ -861,7 +864,7 @@
               <div><span class="sh-swdsc">{{r.sc}}</span></div>
               <div><button type="button" class="{{r.swc}}" role="switch" aria-checked="{{r.ac}}" aria-label="{{r.n}}" aria-disabled="{{r.lk}}" onClick="{{r.tog}}"></button></div>
               <div><sc-if value="{{r.canE}}" hint-placeholder-val="{{true}}"><button type="button" class="sh-op" onClick="{{r.ed}}">{{r.edT}}</button></sc-if><sc-if value="{{r.noE}}" hint-placeholder-val="{{false}}"><span class="sh-swdsc">—</span></sc-if></div></div></sc-if>
-            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><sc-if value="{{r.hasR}}" hint-placeholder-val="{{true}}"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noR}}" hint-placeholder-val="{{false}}"><span>生效范围</span><span class="sh-swdsc">对跟随默认策略的主机生效；单独设置过的主机不受影响，可在「防护策略」里查看</span></sc-if><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
+            <sc-if value="{{r.eOn}}" hint-placeholder-val="{{false}}"><div class="sh-swedr"><div class="sh-swed"><sc-if value="{{r.hasR}}" hint-placeholder-val="{{true}}"><span>生效范围</span><span class="sh-swm"><sc-for list="{{r.ranges}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if><sc-if value="{{r.noR}}" hint-placeholder-val="{{false}}"><span>生效范围</span><span class="sh-swdsc">对全部主机生效；在能力页单独设置过的主机不受影响</span></sc-if><sc-if value="{{r.hasP}}" hint-placeholder-val="{{false}}"><span>扫描周期</span><span class="sh-swm"><sc-for list="{{r.pers}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}">{{m.n}}</button></sc-for></span></sc-if></div></div></sc-if>
           </sc-for></div></div>
         <footer><span class="sh-swch">{{sx.sw.chg}}</span><button type="button" class="kc-btn" onClick="{{sx.sw.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{sx.sw.save}}">保存设置</button></footer></aside></sc-if>
       <sc-if value="{{sx.ntf.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{sx.ntf.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="告警通知设置"><header><h3>告警通知设置</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{sx.ntf.x}}">×</button></header>
@@ -1498,7 +1501,10 @@ class Component extends DCLogic {
         ['c3', '客户端', '客户端自保护 - 进程守护', '驱动级守护客户端进程，防止被结束', '全部主机', 1, 0],
         ['c4', '客户端', '新主机自动安装客户端', '德迅云新开服务器预装客户端；是否自动绑定授权见「授权管理」', '德迅云服务器', 1, 1],
         ['c5', '客户端', '客户端轻量化', '扫描跳过数据盘，降低 CPU 与磁盘占用', '—', 0, 0]];
-      const GT = { '入侵检测': ['标准模式', 'sh-swgt'], '病毒查杀': ['', ''], '网络防护': ['', ''], '风险检测': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动处置': ['标准模式不开启', 'kc-tag mut'], '客户端': ['全局设置，不随策略变化', 'sh-swgt'] };
+      /* pmh 2026-11-09 */ { const K = ['SecRules', 'SecVirus', 'SecFirewall', 'SecRansom', 'SecTamper', 'SecRemote']; let M = {}; let T = null; try { M = JSON.parse(localStorage.getItem('dxCapMode') || '{}') || {}; T = JSON.parse(localStorage.getItem('dxPmTmp') || 'null'); } catch (e) {}
+        const ms = K.map((k) => M[k] || ({ SecVirus: '重保' })[k] || '标准'); const u = ms.every((m) => m === ms[0]) ? ms[0] : '';
+        sx.pm = { n: T ? '重保（临时）' : u ? u + '模式' : '自定义', t: T ? '重保进行中，至 ' + T.end + ' 自动恢复' : u ? '全部能力都是' + u + '模式' : '各能力模式不同，点击查看' }; }
+      const GT = { '入侵检测': ['', ''], '病毒查杀': ['', ''], '网络防护': ['', ''], '风险检测': ['已扫描 68 台 · 最近 11-02 04:00', 'sh-swgt'], '自动处置': ['由能力模式决定，重保时开启', 'sh-swgt'], '客户端': ['全局设置，不随策略变化', 'sh-swgt'] };
       const TIP = { '自动处置': '默认策略只告警、不拦截，避免误伤业务。需要自动处置的主机，请在「防护策略」中改用重保模式。' };
       const LOCK = { k12: 1, k13: 1, k14: 1 };
       const base = {}; SW.forEach((r) => { base[r[0]] = !!r[5]; });
@@ -1511,7 +1517,7 @@ class Component extends DCLogic {
         if (g !== lastG) { lastG = g; const ids = SW.filter((r) => r[1] === g).map((r) => r[0]);
           rows.push({ gh: true, it: false, eOn: false, g, gt: GT[g][0], gtc: GT[g][1], tip: TIP[g] || '', bulk: g !== '自动处置', lockG: g === '自动处置', all: ev(() => { const o = {}; ids.forEach((k) => { o[k] = true; }); setD(o); }) }); }
         const lk = !!LOCK[id]; const v = !lk && !!dr[id]; const mv = md[id] || '标准模式'; const rv = rg[id] || sc; const pv = pr[id] || '';
-        rows.push({ gh: false, it: true, n, rec: !!rec && !v, d, sc: lk ? '默认策略不开启' : rv === '默认策略主机' ? '跟随默认 65 台' : rv, rc: v ? 'sh-swr' : 'sh-swr off', swc: lk ? 'kc-sw dis' : v ? 'kc-sw on' : 'kc-sw', ac: v ? 'true' : 'false', lk, nlk: !lk,
+        rows.push({ gh: false, it: true, n, rec: !!rec && !v, d, sc: lk ? '重保模式时开启' : rv === '默认策略主机' ? '全部主机' : rv, rc: v ? 'sh-swr' : 'sh-swr off', swc: lk ? 'kc-sw dis' : v ? 'kc-sw on' : 'kc-sw', ac: v ? 'true' : 'false', lk, nlk: !lk,
           tog: ev(() => { if (lk) return; setD({ [id]: !v }); }), hasM: !!hm, noM: !hm,
           modes: ['标准模式', '重保模式'].map((m) => ({ n: m, tip: m === '标准模式' ? '只处置高置信度威胁，误报少' : '处置范围更广，适合重保期间', cls: m === mv ? 'on' : '', pick: ev(() => S({ swMd: Object.assign({}, md, { [id]: m }) })) })),
           ed: ev(() => S({ swE: st.swE === id ? '' : id })), edT: st.swE === id ? '收起' : '编辑', hasR: sc !== '默认策略主机', noR: sc === '默认策略主机', canE: !lk && (sc !== '默认策略主机' || !!hp), noE: lk || (sc === '默认策略主机' && !hp),
@@ -1521,7 +1527,7 @@ class Component extends DCLogic {
       sx.sw = { on: !!st.swOn, sum: cnt(sv) + ' / ' + SW.length, rows, chg: chg ? '有 ' + chg + ' 项修改未保存' : '',
         open: ev(() => S({ swOn: true, swD: null, swE: '' })), x: ev(() => S({ swOn: false, swD: null, swE: '' })),
         save: ev(() => { const def = SW.filter((r) => r[1] === '自动处置' && dr[r[0]] && !sv[r[0]]).length; S({ swS: Object.assign({}, dr), swD: null, swOn: false, swE: '' });
-          toast('已保存为「默认策略」新版本，已提交 65 台跟随默认的主机，等待客户端回执。结果在「防护策略 › 生效资产」查看'); }) };
+          toast('已保存，约 1 分钟下发到全部主机，结果在「防护策略 › 生效资产」查看'); }) };
     }
     const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
     const HOST = {
