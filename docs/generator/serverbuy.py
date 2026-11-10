@@ -178,7 +178,7 @@ BODY = """
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
       <div><h1 style="margin:0;font-size:28px;line-height:38px;font-weight:600;color:#1D2129">服务器租用</h1>
       <p style="margin:6px 0 0;font-size:14px;line-height:22px;color:#4E5969">T 级数据中心，BGP 多线与电信骨干直连，自带 DDoS 原生防护，选好配置即可下单。</p></div>
-      <div class="sb-gift"><span><i>赠</i>自主化管理平台</span><span><i>赠</i><a href="ProductHost.dc.html" style="color:inherit">德迅卫士主机防护</a></span><span><i>赠</i>Web 云防护</span><span><i>赠</i>1V1 专家 7×24 支撑</span></div>
+      <div class="sb-gift"><span><i>赠</i>自主化管理平台</span><span><i>赠</i><a href="ProductHost.dc.html" style="color:inherit">德迅安全卫士</a></span><span><i>赠</i>Web 云防护</span><span><i>赠</i>1V1 专家 7×24 支撑</span></div>
     </div>
   </div>
 </section>
@@ -215,8 +215,7 @@ BODY = """
         <div class="sb-opts f7"><sc-for list="{{ months }}" as="o" hint-placeholder-count="7"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
       </div>
       <div class="sb-row"><div class="sb-lb">购买数量</div>
-        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap"><div class="sb-step"><button type="button" onClick="{{ qDec }}" aria-label="减少">−</button><span>{{ q }}</span><button type="button" onClick="{{ qInc }}" aria-label="增加">+</button></div><span style="font-size:13px;color:#86909C">台，单次最多 20 台</span>
-        <button type="button" class="sb-ck {{ arCls }}" onClick="{{ arTog }}"><i></i>到期自动续费</button></div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap"><div class="sb-step"><button type="button" onClick="{{ qDec }}" aria-label="减少">−</button><span>{{ q }}</span><button type="button" onClick="{{ qInc }}" aria-label="增加">+</button></div><span style="font-size:13px;color:#86909C">台，单次最多 20 台</span></div>
       </div>
       <div class="sb-row"><div class="sb-lb">特殊要求</div>
         <div><textarea class="sb-ta" placeholder="如需定制分区、额外 IP、指定上架时间等，请在此说明，工程师会在交付前与您确认"></textarea></div>
@@ -245,7 +244,7 @@ BODY = """
     <div class="sb-faq">
       <div><b>防护承诺</b><p>标注「承诺打死按天退款」的机房，在防护峰值内被攻击打死，按天退还服务费。</p></div>
       <div><b>付款方式</b><p>目前支持对公转账。提交订单后在控制台付款页查看收款账户，到账核验后开通。</p></div>
-      <div><b>赠送服务</b><p>每台服务器赠送自主化管理平台、德迅卫士主机防护、Web 云防护和 1V1 专家支撑。</p></div>
+      <div><b>赠送服务</b><p>每台服务器赠送自主化管理平台、德迅安全卫士、Web 云防护和 1V1 专家支撑。</p></div>
       <div><b>配置与升级</b><p>如需更高防护、更大带宽或其他机型，可在特殊要求中说明，或联系售前定制。</p></div>
     </div>
   </div>
@@ -254,7 +253,7 @@ BODY = """
 """ + "QNAV" + """
 <sc-if value="{{ dlg1 }}" hint-placeholder-val="{{ false }}"><div class="sb-mask" onClick="{{ closeDlg }}"><div class="sb-dlg" role="dialog" aria-modal="true" aria-label="确认订单" onClick="{{ stop }}">
   <header>确认订单<button type="button" class="sb-x" onClick="{{ closeDlg }}" aria-label="关闭">×</button></header>
-  <dl class="sb-dl"><dt>产品</dt><dd>{{ sType }} · {{ sReg }}</dd><dt>DDoS 防护</dt><dd>{{ sFh }}</dd><dt>配置</dt><dd>{{ sCpu }} · {{ sMem }}</dd><dt>IP / 带宽</dt><dd>{{ sIp }} / {{ sBw }}</dd><dt>操作系统</dt><dd>{{ osV }}</dd><dt>时长 × 数量</dt><dd>{{ sM }} × {{ q }} 台{{ arTxt }}</dd><dt>应付金额</dt><dd><span class="sb-pr">¥{{ total }}</span></dd></dl>
+  <dl class="sb-dl"><dt>产品</dt><dd>{{ sType }} · {{ sReg }}</dd><dt>DDoS 防护</dt><dd>{{ sFh }}</dd><dt>配置</dt><dd>{{ sCpu }} · {{ sMem }}</dd><dt>IP / 带宽</dt><dd>{{ sIp }} / {{ sBw }}</dd><dt>操作系统</dt><dd>{{ osV }}</dd><dt>时长 × 数量</dt><dd>{{ sM }} × {{ q }} 台</dd><dt>应付金额</dt><dd><span class="sb-pr">¥{{ total }}</span></dd></dl>
   <div class="sb-pay">付款方式：对公转账。提交后在控制台付款页查看收款账户，财务核验到账后安排交付。未登录时会先进入登录页。</div>
   <div class="sb-ft"><button type="button" class="sb-ck {{ agCls }}" onClick="{{ agTog }}"><i></i>我已阅读并同意《SLA 服务等级协议》《信息安全协议》</button><button type="button" class="sb-buy" disabled="{{ noAg }}" onClick="{{ submit }}">提交订单</button></div>
 </div></div></sc-if>
@@ -293,7 +292,6 @@ const o = {
   osV, osPick: (e) => set({ osV: e.target.value }),
   months: D.M.map((x, i) => ({ n: x[1], cls: i === mi ? 'sb-on' : '', go: () => set({ m: i }) })),
   q, qDec: () => set({ q: Math.max(1, q - 1) }), qInc: () => set({ q: Math.min(20, q + 1) }),
-  arCls: ar ? 'sb-ck-on' : '', arTog: () => set({ ar: !ar }), arTxt: ar ? ' · 到期自动续费' : '',
   sType: T[0], sReg: rn, sFh: F[0] + ' 防御', sCpu: Cf[0], sMem: Cf[1], sIp: Cf[2], sBw: Cf[3],
   sP: fmt(Cf[4]), sM: Mo[1], sMn: Mo[0], total: fmt(total),
   dlg1: s.dlg === 1, dlg2: s.dlg === 2,

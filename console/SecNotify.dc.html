@@ -616,8 +616,8 @@
       <section class="kc-card"><div class="kc-ch"><h2>接收人</h2><a class="sl-op" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">在用户中心添加成员</a></div><div class="st-pn"><div class="st-pp"><sc-for list="{{st.ppl}}" as="p" hint-placeholder-count="4"><button type="button" class="{{p.c}}" aria-pressed="{{p.on}}" onClick="{{p.pick}}"><i>{{p.i}}</i>{{p.n}}<span class="sl-sub" style="margin:0">{{p.d}}</span></button></sc-for></div><p class="sl-n" style="margin:12px 0 0">另外，每台服务器的风险还会通知它的<b>资产负责人</b>（在「企业 › 成员」里按服务器指定）；子账号只收到自己负责的服务器的通知，主账号始终能收到全部。</p></div></section>
       <section class="kc-card"><div class="kc-ch"><h2>通知规则</h2><span class="sl-n">站内信始终开启</span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>通知内容</th><th>站内信</th><th>短信</th><th>邮件</th><th>企业微信</th></tr></thead><tbody>
         <sc-for list="{{st.rules}}" as="r" hint-placeholder-count="6"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.d}}</div></td><sc-for list="{{r.ch}}" as="c" hint-placeholder-count="4"><td><button type="button" class="{{c.c}}" role="switch" aria-checked="{{c.a}}" aria-label="{{c.l}}" onClick="{{c.tog}}"></button></td></sc-for></tr></sc-for></tbody></table></div></section>
-      <section class="kc-card"><div class="kc-ch"><h2>免打扰</h2></div><div class="st-sws"><div class="kc-sw-row"><div>夜间免打扰<div class="kc-sub">22:00–08:00 的短信和电话顺延到早上 8 点发送，紧急告警不受影响</div></div><button type="button" class="{{st.dnC}}" role="switch" aria-checked="{{st.dnA}}" aria-label="夜间免打扰" onClick="{{st.dnT}}"></button></div>
-        <div class="kc-sw-row"><div>同类告警合并<div class="kc-sub">同一台主机 10 分钟内的同类告警只通知一次</div></div><button type="button" class="{{st.mgC}}" role="switch" aria-checked="{{st.mgA}}" aria-label="同类告警合并" onClick="{{st.mgT}}"></button></div></div>
+      <section class="kc-card"><div class="kc-ch"><h2>免打扰</h2></div><div class="st-sws"><div class="kc-sw-row"><div>夜间免打扰<div class="kc-sub">22:00–08:00（示例值）的短信和电话顺延到早上 8 点发送，紧急告警不受影响</div></div><button type="button" class="{{st.dnC}}" role="switch" aria-checked="{{st.dnA}}" aria-label="夜间免打扰" onClick="{{st.dnT}}"></button></div>
+        <div class="kc-sw-row"><div>同类告警合并<div class="kc-sub">同一台主机 30 分钟内的同类告警只通知一次（示例值）</div></div><button type="button" class="{{st.mgC}}" role="switch" aria-checked="{{st.mgA}}" aria-label="同类告警合并" onClick="{{st.mgT}}"></button></div></div>
         <div class="st-ft"><span>{{st.chg}}</span><button type="button" class="kc-btn" onClick="{{st.reset}}">还原</button><button type="button" class="{{st.svC}}" onClick="{{st.save}}">保存</button></div></section>
       <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{st.toast.c}}"></i>{{st.toast.t}}</div></sc-if>
     </main>
@@ -1428,8 +1428,7 @@ class Component extends DCLogic {
       o.tiles = [['授权台数', '64', ' 台', '企业版 64 台', '', 'b'], ['已绑定', '64', ' / 64', '剩余可用 0 台', '', 'b'], ['未绑定主机', '1', ' 台', 'app-07 只告警不防护', 'o', 'h'], ['宽限期剩余', '4', ' 天', '11-08 后停止检测并清理数据', 'r', 'b']]
         .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'h' ? ev(() => toast('跳转到「资产列表」，筛选未绑定授权的主机', 'info')) : ev(() => {}) }));
       const ar = st.lsAr === undefined ? false : st.lsAr; const ab = st.lsAb === undefined ? true : st.lsAb;
-      o.sws = [['自动续费', '到期前 7 天在用户中心生成续费订单，按对公转账付款后生效', ar, () => { S({ lsAr: !ar }); toast(!ar ? '已开启自动续费，下次续费订单会在到期前 7 天生成' : '已关闭自动续费'); }],
-        ['新主机自动绑定授权', '有剩余授权时，新接入的主机自动绑定；没有剩余时只告警不防护', ab, () => { S({ lsAb: !ab }); toast(!ab ? '已开启自动绑定' : '已关闭自动绑定，新主机需要手动绑定', 'info'); }]]
+      o.sws = [['新主机自动绑定授权', '有剩余授权时，新接入的主机自动绑定；没有剩余时只告警不防护', ab, () => { S({ lsAb: !ab }); toast(!ab ? '已开启自动绑定' : '已关闭自动绑定，新主机需要手动绑定', 'info'); }]]
         .map(([n, d, v, f]) => Object.assign({ n, d, tog: ev(f) }, sw(v)));
       const lk = (n) => ({ n, href: UC, go: undefined });
       o.lics = [['LIC-20251026-0031', '德迅安全卫士 · 企业版', '企业版（含 AI 研判）', '64 / 64', '2025-10-26 至 2026-10-25', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费'), lk('扩容')]]]

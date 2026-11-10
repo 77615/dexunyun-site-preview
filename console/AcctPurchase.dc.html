@@ -130,33 +130,32 @@
       </div>
       <section class="kc-card"><div class="kc-ch"><h2><i class="fi-i fi-box"></i>产品配置</h2></div>
         <div class="fl-row" style="border-top:0"><span>购买产品</span><div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>产品</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div></div>
-        <div class="fl-row"><span>版本</span><div><div class="pv-row"><div class="fl-seg"><button type="button" class="on" aria-pressed="true">企业版</button><button type="button" class="pv-dis" disabled="" title="当前已开通个人版">个人版（当前）</button></div><button type="button" class="pv-x" onClick="{{pvTog}}"><i class="pv-ic"></i>版本功能对比</button></div><p class="pv-sum">包含个人版全部防护能力，另有 <em>高级威胁狩猎</em> · 日志留存 <em>180 天</em> · <em>AI 辅助告警研判</em> · 7×24 小时专家支持 · 每份 52 台授权 / 年</p></div></div>
+        <div class="fl-row"><span>{{vLbl}}</span><div><div class="pv-row"><div class="fl-seg"><sc-for list="{{vers}}" as="v" hint-placeholder-count="3"><button type="button" class="{{v.cls}}" onClick="{{v.go}}">{{v.n}}</button></sc-for></div><sc-if value="{{isHost}}" hint-placeholder-val="{{true}}"><button type="button" class="pv-x" onClick="{{pvTog}}"><i class="pv-ic"></i>版本功能对比</button></sc-if></div><p class="pv-sum">{{vSum}}</p></div></div>
       </section>
       
       <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-box"></i>购买配置</h2></div>
         <div class="fl-row" style="border-top:0"><span>服务期限</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="6"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
-        <div class="fl-row"><span>套餐份数</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">本次共 {{hosts}} 台 · 1–20 份</span></div></div>
-        <div class="fl-row"><span>计费</span><div class="pu-formula">年度单价 ¥3,980.00 × {{m}} 个月 ÷ 12 × {{qty}} 份</div></div>
+        <div class="fl-row"><span>{{qLbl}}</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{qTxt}}</span></div></div>
+        <div class="fl-row"><span>计费</span><div class="pu-formula">{{fTxt}}<sc-if value="{{sample}}" hint-placeholder-val="{{false}}"><span class="kc-tag mut" style="margin-left:8px">示例值</span></sc-if></div></div>
       </section>
       <sc-if value="{{needId}}" hint-placeholder-val="{{false}}"><div class="ac-al" style="margin-top:16px"><i>!</i><span>购买前需完成个人实名认证<em>订单会保存为草稿，认证通过后回到这里继续</em></span><a class="kc-btn sm" href="OrgVerify.dc.html">去认证</a></div></sc-if>
-      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="已核对" onClick="{{togA}}"></button>我已核对产品配置与服务期限</label><small>应付</small><b>¥{{pay}}</b><a class="{{subCls}}" href="BillPayment.dc.html">生成订单并去付款</a></div>
+      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="已核对" onClick="{{togA}}"></button>我已核对产品配置与服务期限</label><small>{{payLbl}}</small><b>{{payTxt}}</b><a class="{{subCls}}" href="{{subHref}}">{{subTxt}}</a></div>
     </main>
   </div>
   <sc-if value="{{pvEx}}" hint-placeholder-val="{{false}}"><div class="kc-dmask" onClick="{{pvTog}}"></div>
       <aside class="ac-drw pv-drw" role="dialog" aria-label="版本功能对比"><header><b>版本功能对比</b><button type="button" aria-label="关闭" onClick="{{pvTog}}">×</button></header>
-        <div class="bd"><table class="pu-cmp pv-mx"><thead><tr><th>功能</th><th>个人版</th><th class="e">企业版</th></tr></thead><tbody>
-          <tr class="gp"><td colspan="3">防护能力</td></tr>
-          <tr><td>基础防护能力</td><td class="g">✓</td><td class="e g">✓</td></tr>
-          <tr><td>高级威胁狩猎</td><td class="n">✗</td><td class="e">✓ 专享</td></tr>
-          <tr class="gp"><td colspan="3">日志与研判</td></tr>
-          <tr><td>安全日志留存</td><td>30 天</td><td class="e">180 天</td></tr>
-          <tr><td>告警研判</td><td>基础防护能力</td><td class="e">AI 辅助告警研判</td></tr>
-          <tr class="gp"><td colspan="3">服务与授权</td></tr>
-          <tr><td>技术支持</td><td>工单</td><td class="e">7×24 小时专家支持</td></tr>
-          <tr><td>授权方式</td><td>—</td><td class="e">每份 52 台主机，1–20 份</td></tr>
+        <div class="bd"><table class="pu-cmp pv-mx"><thead><tr><th>功能</th><th>基础版</th><th class="e">企业版</th></tr></thead><tbody>
+          <tr class="gp"><td colspan="3">防护能力（两个版本相同）</td></tr>
+          <tr><td>入侵检测、漏洞检测、基线检查</td><td class="g">✓</td><td class="e g">✓</td></tr>
+          <tr><td>威胁狩猎</td><td class="g">✓</td><td class="e g">✓</td></tr>
+          <tr><td>防勒索、网页防篡改</td><td class="g">✓</td><td class="e g">✓</td></tr>
+          <tr class="gp"><td colspan="3">AI 能力（唯一区别）</td></tr>
+          <tr><td>AI 辅助告警研判</td><td class="n">✗</td><td class="e">✓</td></tr>
+          <tr class="gp"><td colspan="3">授权</td></tr>
+          <tr><td>授权方式</td><td>每份 52 台主机，1–20 份</td><td class="e">每份 52 台主机，1–20 份</td></tr>
         </tbody></table>
-        <div class="pv-notes"><div><b>什么时候生效</b>对公转账到账、财务核验通过后立即生效。</div><div><b>台数不够怎么办</b>随时增购份数，新增授权与原授权同一天到期。</div>
-          <div><b>到期提醒</b>到期前 30 天、7 天和当天提醒。</div><div><b>需要帮助</b>0577-26676666，或提交工单。</div></div></div>
+        <div class="pv-notes"><div><b>什么时候生效</b>对公转账到账、财务核验通过后生效（核验 1–2 个工作日，示例值）。</div><div><b>台数不够怎么办</b>随时增购份数，新增授权与原授权同一天到期。</div>
+          <div><b>到期提醒</b>到期前 30 天、7 天和 1 天提醒（示例值）。</div><div><b>需要帮助</b>0577-26676666，或提交工单。</div></div></div>
       </aside></sc-if>
 </div>
 </x-dc>
@@ -779,19 +778,41 @@ class Component extends DCLogic {
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
-    const D = [['1 个月', 1], ['3 个月', 3], ['6 个月', 6], ['1 年', 12], ['2 年', 24], ['3 年', 36]];
-    const dn = st.dur || '1 年'; const m = D.find((d) => d[0] === dn)[1];
+    // 选购产品：按产品切换配置（2026-11-10，链接可带 ?p=ddos|game|ssl|host|scdn|eye&v=序号）
+    const PN = { ddos: 'DDoS 高防 IP', game: '游戏盾', ssl: 'SSL 证书', host: '德迅安全卫士', scdn: 'SCDN', eye: '德迅云眼', idc: '服务器租用' };
+    const PK = {}; Object.keys(PN).forEach((k) => { PK[PN[k]] = k; });
+    const PC = {
+      ddos: { lbl: '套餐', per: 'm', q: ['实例数', 10, '个'], v: [['基础型', 1999, '100GB 峰值 · 20 万 QPS'], ['专业型', 2999, '200GB 峰值 · 30 万 QPS'], ['企业型', 3999, '300GB 峰值 · 50 万 QPS'], ['商务型', 5999, '400GB 峰值 · 80 万 QPS'], ['旗舰型-01', 9999, '600GB 峰值 · 100 万 QPS'], ['旗舰型-02', 19999, '800GB 峰值 · 200 万 QPS']], all: ' · 均含 BGP 多线、转发端口 100、防护域名 50' },
+      game: { lbl: '套餐', per: 'm', q: ['实例数', 10, '个'], v: [['入门级', 799, '在线峰数 200'], ['基础级', 1399, '在线峰数 300'], ['专业级', 1999, '在线峰数 400'], ['企业级', 3999, '在线峰数 600'], ['尊享级', 6999, '在线峰数 1000']], all: ' · 均含并发 10000、DDoS/CC 无上限、转发端口 1000' },
+      ssl: { lbl: '证书类型', per: 'y', q: ['证书数量', 20, '张'], v: [['单域名', 68, 'PositiveSSL · 单个域名 · 不支持通配符'], ['多域名', 399, 'PositiveSSL · 多个域名 · 不支持通配符'], ['通配符', 888, 'PositiveSSL · 单个域名 · 支持通配符']], all: '' },
+      host: { lbl: '版本', per: 'y', q: ['套餐份数', 20, '份'], v: [['基础版', 2980, '入侵、漏洞、基线、威胁狩猎、防勒索、网页防篡改', 1], ['企业版', 3980, '基础版全部能力 + AI 辅助告警研判']], all: ' · 每份 52 台授权 / 年', host: 1 },
+      scdn: { lbl: '套餐', quote: 1, q: ['实例数', 10, '个'], v: [['标准版', 0, '域名 10 个 · 流量包 1 TB/月'], ['企业版', 0, '域名 50 个 · 流量包 3 TB/月 · 弹性防护']], all: ' · 规格以报价为准（示例值）' },
+      eye: { lbl: '套餐', quote: 1, q: ['监测资产', 50, '个'], v: [['标准版', 0, '网站安全监测：暗链、篡改、可用性、漏洞']], all: ' · 规格以报价为准（示例值）' }
+    };
+    const __qp = (__qs && __qs.get('p')) || 'host'; const __qv = __qs ? parseInt(__qs.get('v') || '', 10) : NaN;
+    const pk = st.pk || (PC[__qp] ? __qp : 'host'); const cf = PC[pk];
+    const vi = st.vi !== undefined ? st.vi : (!isNaN(__qv) && cf.v[__qv] ? __qv : 0); const vc = cf.v[vi] || cf.v[0];
+    const vers = cf.v.map((x, i) => ({ n: x[0], cls: i === vi ? 'on' : '', go: () => this.setState({ vi: i }) }));
+    const D = cf.per === 'y' ? [['1 年', 12], ['2 年', 24], ['3 年', 36]] : [['1 个月', 1], ['3 个月', 3], ['6 个月', 6], ['1 年', 12], ['2 年', 24], ['3 年', 36]];
+    const dn = (st.dur && D.find((d) => d[0] === st.dur)) ? st.dur : (cf.per === 'm' ? '1 个月' : '1 年'); const m = D.find((d) => d[0] === dn)[1];
     const durs = D.map(([n]) => ({ n, cls: n === dn ? 'on' : '', go: () => this.setState({ dur: n }) }));
-    const qty = st.q || 1; const agree = !!st.agree;
-    const pay = (3980 * m / 12 * qty).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const qmax = cf.q[1]; const qty = Math.min(qmax, st.q || 1); const agree = !!st.agree;
+    const money = (x) => x.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const total = cf.quote ? 0 : (cf.per === 'y' ? vc[1] * m / 12 * qty : vc[1] * m * qty);
+    const fTxt = cf.quote ? '没有公开价格，提交后售前按规格报价，确认后生成订单' : (cf.per === 'y' ? '年度单价 ¥' + money(vc[1]) + ' × ' + m + ' 个月 ÷ 12 × ' + qty + ' ' + cf.q[2] : '月单价 ¥' + money(vc[1]) + ' × ' + m + ' 个月 × ' + qty + ' ' + cf.q[2]);
+    const qTxt = pk === 'host' ? '本次共 ' + (qty * 52) + ' 台 · 1–20 份' : '1–' + qmax + ' ' + cf.q[2];
+    const pay = money(total);
 
-    const __R = Object.assign({ nav }, { durs, qty, m, hosts: qty * 52, pay, dec: () => this.setState({ q: Math.max(1, qty - 1) }), inc: () => this.setState({ q: Math.min(20, qty + 1) }), needId: false, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
+    const __R = Object.assign({ nav }, { durs, qty, m, hosts: qty * 52, pay, vers, vLbl: cf.lbl, vSum: vc[2] + cf.all, isHost: !!cf.host, sample: !!vc[3], qLbl: cf.q[0], qTxt, fTxt,
+      payLbl: cf.quote ? '价格' : '应付', payTxt: cf.quote ? '以报价为准' : '¥' + pay,
+      subTxt: cf.quote ? '提交询价' : '生成订单并去付款', subHref: cf.quote ? '../Contact.dc.html?product=' + encodeURIComponent(PN[pk]) : 'BillPayment.dc.html',
+      dec: () => this.setState({ q: Math.max(1, qty - 1) }), inc: () => this.setState({ q: Math.min(qmax, qty + 1) }), needId: false, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 
-    [["德迅安全卫士", ["全部", "SCDN", "DDoS 高防 IP", "游戏盾", "德迅云眼", "德迅安全卫士", "SSL 证书", "服务器租用"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+    [[PN[pk], ["DDoS 高防 IP", "游戏盾", "SCDN", "SSL 证书", "德迅安全卫士", "德迅云眼", "服务器租用"]]].forEach(([v0, opts], i) => { const v = v0; const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
 
-      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
+      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => { if (PK[t] === 'idc') { location.href = '../ServerBuy.dc.html'; return; } this.setState({ pk: PK[t], vi: 0, q: 1, dur: undefined, ddo: -1 }); } })); });
 
     const __pv = !!(this.state || {}).pvx; return Object.assign(__R, DDX, { pvEx: __pv, pvTog: () => this.setState({ pvx: !__pv }) });
   }

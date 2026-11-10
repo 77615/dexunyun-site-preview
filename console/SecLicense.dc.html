@@ -615,9 +615,9 @@
       <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">授权管理</h1><p class="kc-desc">查看授权用量和到期时间。购买、续费、扩容在用户中心完成，按对公转账付款。</p></div></div></div>
       <section class="kc-card"><div class="kc-ch"><h2>授权概况</h2><span class="sl-n">更新于 11-04 09:00</span></div><div class="kc-cb kc-tiles g4 st-pn">
         <sc-for list="{{st.tiles}}" as="k" hint-placeholder-count="4"><a class="kc-tile" href="#" onClick="{{k.go}}"><span>{{k.n}}</span><b class="{{k.c}}">{{k.v}}<em>{{k.u}}</em></b><small>{{k.s}}</small></a></sc-for></div>
-        <div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>企业版授权已于 10-25 到期，现在处于宽限期：检测和告警照常，自动处置已暂停，数据保留到 11-08。续费后立即恢复。另有 1 台主机（app-07）没有绑定授权，只告警不防护。</span></div>
+        <div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>企业版授权已于 10-25 到期，现在处于宽限期：检测和告警照常，自动处置已暂停，数据保留到 11-08（宽限期天数为示例值）。续费后立即恢复。另有 1 台主机（app-07）没有绑定授权，只告警不防护。</span></div>
         <div class="st-sws"><sc-for list="{{st.sws}}" as="w" hint-placeholder-count="2"><div class="kc-sw-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.c}}" role="switch" aria-checked="{{w.a}}" aria-label="{{w.n}}" onClick="{{w.tog}}"></button></div></sc-for></div></section>
-      <section class="kc-card"><div class="kc-ch"><h2>授权明细</h2><a class="kc-btn pri" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">购买授权</a></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>授权</th><th>版本</th><th>已绑定 / 台数</th><th>有效期</th><th>状态</th><th>操作</th></tr></thead><tbody>
+      <section class="kc-card"><div class="kc-ch"><h2>授权明细</h2><a class="kc-btn pri" href="AcctPurchase.dc.html?p=host">购买授权</a></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>授权</th><th>版本</th><th>已绑定 / 台数</th><th>有效期</th><th>状态</th><th>操作</th></tr></thead><tbody>
         <sc-for list="{{st.lics}}" as="r" hint-placeholder-count="3"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.id}}</div></td><td>{{r.ed}}</td><td>{{r.use}}</td><td>{{r.t}}</td><td><span class="{{r.sc}}">{{r.st}}</span><div class="sl-sub">{{r.why}}</div></td>
           <td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="sl-op" href="{{o.href}}" onClick="{{o.go}}">{{o.n}}</a></sc-for></td></tr></sc-for></tbody></table></div></section>
       <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{st.toast.c}}"></i>{{st.toast.t}}</div></sc-if>
@@ -1429,8 +1429,7 @@ class Component extends DCLogic {
       o.tiles = [['授权台数', '64', ' 台', '企业版 64 台', '', 'b'], ['已绑定', '64', ' / 64', '剩余可用 0 台', '', 'b'], ['未绑定主机', '1', ' 台', 'app-07 只告警不防护', 'o', 'h'], ['宽限期剩余', '4', ' 天', '11-08 后停止检测并清理数据', 'r', 'b']]
         .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'h' ? ev(() => toast('跳转到「资产列表」，筛选未绑定授权的主机', 'info')) : ev(() => {}) }));
       const ar = st.lsAr === undefined ? false : st.lsAr; const ab = st.lsAb === undefined ? true : st.lsAb;
-      o.sws = [['自动续费', '到期前 7 天在用户中心生成续费订单，按对公转账付款后生效', ar, () => { S({ lsAr: !ar }); toast(!ar ? '已开启自动续费，下次续费订单会在到期前 7 天生成' : '已关闭自动续费'); }],
-        ['新主机自动绑定授权', '有剩余授权时，新接入的主机自动绑定；没有剩余时只告警不防护', ab, () => { S({ lsAb: !ab }); toast(!ab ? '已开启自动绑定' : '已关闭自动绑定，新主机需要手动绑定', 'info'); }]]
+      o.sws = [['新主机自动绑定授权', '有剩余授权时，新接入的主机自动绑定；没有剩余时只告警不防护', ab, () => { S({ lsAb: !ab }); toast(!ab ? '已开启自动绑定' : '已关闭自动绑定，新主机需要手动绑定', 'info'); }]]
         .map(([n, d, v, f]) => Object.assign({ n, d, tog: ev(f) }, sw(v)));
       const lk = (n) => ({ n, href: UC, go: undefined });
       o.lics = [['LIC-20251026-0031', '德迅安全卫士 · 企业版', '企业版（含 AI 研判）', '64 / 64', '2025-10-26 至 2026-10-25', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费'), lk('扩容')]]]
