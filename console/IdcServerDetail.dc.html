@@ -1406,7 +1406,7 @@ class Component extends DCLogic {
             hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : sel.length ? '已选 ' + sel.length + ' 台，范围外的主机保持当前模式' : '请把要切换的主机移到右侧', hc: m === '指定主机' && !sel.length ? 'bad' : '' }; };
         return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS, items, setItem, resetItems, setBase }; })(); let TMP = PMX.T && PMX.inSc('web-prod-01', PMX.T.sc) ? PMX.T : null;
         const cmOf = (k) => PMX.hostMode(k, 'web-prod-01');
-    const cqCap = [['密码破解', 'SecBrute', 'SSH、RDP、数据库、FTP', '自动封禁来源 IP'], ['异常登录', 'SecLogin', '异地、非常用时间、新 IP、新账号', '断开异常登录会话'], ['反弹 Shell', 'SecShell', 'Bash、脚本语言、进程内反弹', '结束反弹进程并断开连接'], ['本地提权', 'SecPriv', 'SUID、内核漏洞、sudo', '结束提权进程'], ['高危命令', 'SecCmd', '系统规则、自定义策略', '拦截命令执行'], ['应用运行防护', 'SecApp', '安装拦截、进程保护、系统服务、开机项、事件审计', '拦截安装并结束黑名单进程'], ['病毒查杀', 'SecVirus', '实时检测、网页后门、挖矿程序、每天 04:00 定时扫描', '自动隔离病毒文件'], ['网络防火墙', 'SecFirewall', '网络访问防护、外联管控', '自动封禁攻击来源 IP'],
+    const cqCap = [['异常登录', 'SecLogin', '异地、非常用时间、新 IP、新账号', '断开异常登录会话'], ['反弹 Shell', 'SecShell', 'Bash、脚本语言、进程内反弹', '结束反弹进程并断开连接'], ['本地提权', 'SecPriv', 'SUID、内核漏洞、sudo', '结束提权进程'], ['高危命令', 'SecCmd', '系统规则、自定义策略', '拦截命令执行'], ['应用运行防护', 'SecApp', '安装拦截、进程保护、系统服务、开机项、事件审计', '拦截安装并结束黑名单进程'], ['病毒查杀', 'SecVirus', '实时检测、网页后门、挖矿程序、每天 04:00 定时扫描', '自动隔离病毒文件'], ['网络防火墙', 'SecFirewall', '暴力破解、端口扫描、CC 攻击、外联管控', '自动封禁攻击来源 IP'],
       ['防勒索', 'SecRansom', '勒索拦截、诱饵文件、自动备份', '拦截加密行为并结束进程'], ['网页防篡改', 'SecTamper', '网站目录写保护', '拦截篡改并还原文件'], ['远程安全', 'SecRemote', '远程桌面防护、二次认证、登录 IP 白名单', '拦截白名单以外的远程登录']];
     const MT = { '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' };
     const ms = cqCap.map((c) => cmOf(c[1])); const uni = ms.every((m) => m === ms[0]) ? ms[0] : '';
