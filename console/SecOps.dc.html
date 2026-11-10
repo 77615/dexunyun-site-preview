@@ -559,6 +559,7 @@
 .sl .tb-sel{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#4e5969}
 .sl .kc-tw:has(.dd-w.on),.sl .kc-card:has(.sl-bar .dd-w.on){overflow:visible}
 /*/tb166*/
+.op-term{width:720px;max-width:calc(100vw - 32px)}.op-tm{background:#1d2129;color:#c9cdd4;font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;padding:12px 14px;border-radius:4px;min-height:220px;margin:12px 0 0;white-space:pre-wrap}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -656,7 +657,8 @@
         <div class="kc-btns"><span class="op-rl" hidden style="display:none"><span>预览身份</span><span class="op-seg"><sc-for list="{{op.roles}}" as="r" hint-placeholder-count="2"><button type="button" class="{{r.cls}}" onClick="{{r.pick}}">{{r.n}}</button></sc-for></span></span></div></div>
       <sc-if value="{{op.deny}}" hint-placeholder-val="{{false}}"><section class="kc-card"><div class="op-deny"><b>主机运维只对管理员开放</b><p>以「安全运营」或「只读」身份登录时，左侧菜单不显示这一项；从链接直接打开会看到这个提示。需要执行命令时，请联系企业管理员，或在用户中心「企业管理」申请管理员角色。</p></div></section></sc-if>
       <sc-if value="{{op.ok}}" hint-placeholder-val="{{true}}"><section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{op.tabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}<sc-if value="{{t.c}}" hint-placeholder-val="{{false}}"> <span class="kc-cnt">{{t.c}}</span></sc-if></button></sc-for></div>
-        <sc-if value="{{op.tRun}}" hint-placeholder-val="{{true}}"><div class="op-fm">
+        <sc-if value="{{op.tHost}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>!</i><span>通过客户端直接连接主机，不需要开放 22 / 3389 端口。连接和远程桌面会记入操作审计，受远程安全的二次认证约束。</span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>主机</th><th>机房</th><th>状态</th><th>客户端</th><th>操作</th></tr></thead><tbody><sc-for list="{{op.hosts}}" as="h" hint-placeholder-count="5"><tr><td><a href="{{h.href}}">{{h.n}}</a><div class="kc-sub">{{h.ip}}</div></td><td>{{h.room}}</td><td><span class="{{h.onC}}">{{h.on}}</span></td><td>{{h.ag}}</td><td class="fx-ops"><sc-if value="{{h.canC}}" hint-placeholder-val="{{true}}"><a href="#" class="sl-op" onClick="{{h.con}}">连接</a></sc-if><sc-if value="{{h.canR}}" hint-placeholder-val="{{false}}"> <a href="#" class="sl-op" onClick="{{h.rdp}}">远程桌面</a></sc-if><sc-if value="{{h.no}}" hint-placeholder-val="{{false}}"><span class="kc-sub">{{h.noT}}</span></sc-if></td></tr></sc-for></tbody></table></div></sc-if><sc-if value="{{op.term.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md op-term" role="dialog" aria-modal="true" aria-label="{{op.term.t}}"><h3>{{op.term.t}}</h3><p>{{op.term.ip}} · 以 {{op.term.usr}} 登录 · 会话全程录像，记入操作审计</p><pre class="op-tm"><sc-for list="{{op.term.lines}}" as="l" hint-placeholder-count="3">{{l}}
+</sc-for></pre><div class="sh-mf"><button type="button" class="kc-btn" onClick="{{op.term.x}}">断开</button></div></div></div></sc-if><sc-if value="{{op.tRun}}" hint-placeholder-val="{{false}}"><div class="op-fm">
           <div class="op-row"><span class="op-lb">操作类型</span><div class="op-seg op-seg2"><sc-for list="{{op.kinds}}" as="k" hint-placeholder-count="4"><button type="button" class="{{k.cls}}" onClick="{{k.pick}}">{{k.n}}</button></sc-for></div></div>
           <div class="op-row"><span class="op-lb">目标主机</span><div class="op-fv"><div class="op-hs"><sc-for list="{{op.sel}}" as="h" hint-placeholder-count="2"><span class="sl-chip">{{h.n}}<button type="button" aria-label="移除" onClick="{{h.x}}">×</button></span></sc-for><sc-if value="{{op.noSel}}" hint-placeholder-val="{{false}}"><span class="op-mut">还没有选择主机</span></sc-if></div><button type="button" class="kc-btn" onClick="{{op.pickOpen}}">从资产管理选择</button><p class="op-hint">只能选择在线且客户端正常的主机。离线、已卸载的主机不会出现在可选列表里。</p></div></div>
           <sc-if value="{{op.isCmd}}" hint-placeholder-val="{{true}}"><div class="op-row"><span class="op-lb">命令</span><div class="op-fv"><div class="op-qs"><span class="op-mut">常用：</span><sc-for list="{{op.quick}}" as="q" hint-placeholder-count="4"><button type="button" class="{{q.cls}}" onClick="{{q.pick}}">{{q.n}}</button></sc-for></div><textarea class="op-ta" rows="3" aria-label="命令" value="{{op.cmd}}" onChange="{{op.onCmd}}"></textarea><p class="op-hint">以 {{op.user}} 身份执行，超时 60 秒。命令中包含 rm -rf、mkfs、shutdown 等高危指令时会再要求一次确认。</p></div></div></sc-if>
@@ -1483,7 +1485,7 @@ class Component extends DCLogic {
     const toast = (t, k) => { S({ opT: { t, c: 'sh-ti ' + (k || 'ok') } }); clearTimeout(this.__opTo); this.__opTo = setTimeout(() => this.setState({ opT: null }), 2600); };
     const { HS } = this._sd();
     const role = st.opRole || '管理员'; const adm = role === '管理员';
-    const tab = st.opTab || ((() => { try { return new URLSearchParams(location.search).get('tab') === 'log' ? '任务记录' : ''; } catch (x) { return ''; } })()) || '批量任务';
+    const tab = st.opTab || ((() => { try { return new URLSearchParams(location.search).get('tab') === 'log' ? '任务记录' : ''; } catch (x) { return ''; } })()) || '主机列表';
     const kind = st.opK || '快捷命令';
     const OKH = HS.filter((h) => h.on === '在线' && h.ag === '正常' && h.ps !== '未受保护');
     const sel = st.opSel || ['web-prod-02', 'web-prod-03'];
@@ -1496,8 +1498,12 @@ class Component extends DCLogic {
     const logs = myLog.concat(LOG0);
     const op = { tsOn: !!st.opT, toast: st.opT || { t: '', c: '' }, deny: !adm, ok: adm };
     op.roles = ['管理员', '安全运营'].map((n) => ({ n, cls: n === role ? 'on' : '', pick: ev(() => S({ opRole: n })) }));
-    op.tabs = [['批量任务', 0], ['任务记录', logs.length]].map(([n, c]) => ({ n, c: c ? String(c) : '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ opTab: n })) }));
-    op.tRun = tab === '批量任务'; op.tLog = tab === '任务记录';
+    op.tabs = [['主机列表', HS.length], ['批量任务', 0], ['任务记录', logs.length]].map(([n, c]) => ({ n, c: c ? String(c) : '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ opTab: n })) }));
+    op.tRun = tab === '批量任务'; op.tLog = tab === '任务记录'; op.tHost = tab === '主机列表';
+    op.hosts = HS.map((h) => { const ok = h.on === '在线' && h.ag === '正常'; const win = /win/.test(h.n); return { n: h.n, ip: h.ip, room: h.room, on: h.on, onC: h.on === '在线' ? 'kc-tag ok' : 'kc-tag mut', ag: h.ag === '正常' ? '正常' : (h.agw || h.ag), href: 'SecHostDetail.dc.html?h=' + h.n,
+      canC: ok, canR: ok, no: !ok, noT: h.on !== '在线' ? '主机离线' : '客户端异常', con: ev(() => S({ opTerm: h.n })), rdp: ev(() => toast('正在打开 ' + h.n + ' 的远程桌面，已记入操作审计')) }; });
+    { const tn = st.opTerm; const th = tn ? HS.find((h) => h.n === tn) : null; op.term = { on: !!tn, t: '连接 · ' + (tn || ''), ip: th ? th.ip : '', usr: usr, x: ev(() => S({ opTerm: null })),
+      lines: tn ? ['Last login: Mon Nov 10 08:41:22 2026 from 10.0.0.8', '[' + usr + '@' + tn + ' ~]# uptime', ' 09:02:11 up 41 days,  3:12,  1 user,  load average: 0.21, 0.18, 0.15', '[' + usr + '@' + tn + ' ~]# '] : [] }; }
     op.kinds = ['快捷命令', '脚本下发', '重启', '关机'].map((n) => ({ n, cls: n === kind ? 'on' : '', pick: ev(() => S({ opK: n, opW: '立即' })) }));
     op.isCmd = kind === '快捷命令'; op.isScript = kind === '脚本下发'; op.isPower = kind === '重启' || kind === '关机'; op.hasUser = !op.isPower;
     op.sel = sel.map((n) => ({ n, x: ev(() => S({ opSel: sel.filter((x) => x !== n) })) })); op.noSel = !sel.length;
@@ -1732,7 +1738,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '主机运维';
-    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1741,8 +1747,8 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
-      { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
+      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };

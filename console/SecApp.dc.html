@@ -1732,7 +1732,7 @@ class Component extends DCLogic {
     const vis = rows0.map((r, i) => [r, i]).filter(([r]) => !q || r.map(tx).join(' ').indexOf(q) >= 0);
     const setRows = (rs) => S({ fxR: Object.assign({}, RS, { [tabN]: rs }) });
     const o = { tsOn: !!st.fxT, toast: st.fxT || { t: '', c: '' }, h1: C0.h1, hasAl: !!C0.al, al: C0.al, alL: (C0.alL || []).map(([n, h]) => ({ n, h })) };
-    const hdBtn = (n) => ev(() => { if (n === '超级密码') { S({ fxCf: { n, i: -1, t: '超级密码', p: '超级密码：******** （点「复制密码」复制明文）。二次认证用不了时（例如手机丢失），用它完成远程登录；用过后建议到主机详情重置。', ok: '复制密码', d: false, msg: '已复制超级密码' } }); return; } if (/^立即/.test(n)) toast(n === '立即采集' ? '已开始采集，约 5 分钟完成' : '已开始扫描，约 15 分钟完成'); });
+    const hdBtn = (n) => ev(() => { if ((C0.toasts || {})[n]) { toast(C0.toasts[n]); return; } if (n === '超级密码') { S({ fxCf: { n, i: -1, t: '超级密码', p: '超级密码：******** （点「复制密码」复制明文）。二次认证用不了时（例如手机丢失），用它完成远程登录；用过后建议到主机详情重置。', ok: '复制密码', d: false, msg: '已复制超级密码' } }); return; } if (/^立即/.test(n)) toast(n === '立即采集' ? '已开始采集，约 5 分钟完成' : '已开始扫描，约 15 分钟完成'); });
     o.btns = (C0.btns || []).map(([n, k]) => ({ n, c: 'kc-btn' + (k ? ' ' + k : ''), go: hdBtn(n) }));
 
     // cap 2026-11-09：防护策略入口 + 病毒查杀扫描面板
@@ -2000,6 +2000,18 @@ class Component extends DCLogic {
           def: { ct: '文件备份', to: '阿里云存储', fq: '每天', wd: '一', tm: '03:00', host: { m: '指定主机', s: [] } },
           pre: (r) => { const c = t1(r[1]); const s2 = t1(r[3]); const ct = c.split(' · ')[0]; const v = c.split(' · ')[1] || ''; return Object.assign({ nm: t1(r[0]), ct, path: ct === '文件备份' ? v : '', sc: ct === '脚本备份' ? v : '', db: ct === '数据库备份' ? v : '', host: hsP(r[2]), to: /^本地/.test(s2) ? '本地存储' : s2, lp: /^本地/.test(s2) ? s2.replace(/^本地存储\s*/, '') : '' }, planP(r[4])); },
           out: (V, r) => [V.nm.trim(), V.ct + ' · ' + String(V.ct === '文件备份' ? V.path : V.ct === '脚本备份' ? lines(V.sc)[0] : V.db).trim(), hsV(V.host), V.to === '本地存储' ? '本地存储 ' + V.lp.trim() : V.to, plan(V), r ? r[5] : { t: '未执行', tag: 'mut', s: '按计划自动执行' }] } },
+      SecOrg: {
+        '新建部门': { f: [
+          { id: 'nm', k: '部门名称', t: 'text', req: 1, ph: '例如 运维组' },
+          { id: 'pa', k: '上级部门', t: 'one', o: ['（无）', '技术部', '财务部'] },
+          HOSTS('host', '分配主机', '一台主机只属于一个部门，分配后会从原来的部门移出。')],
+          def: { pa: '（无）', host: { m: '指定主机', s: [] } },
+          pre: (r) => ({ nm: t1(r[0]), pa: t1(r[1]) === '—' ? '（无）' : t1(r[1]), host: { m: '指定主机', s: [] } }),
+          out: (V, r) => [V.nm.trim(), V.pa === '（无）' ? '—' : V.pa, V.host && V.host.m === '指定主机' ? hsN(V.host) : hsN(V.host), r ? r[3] : '0 人', nowS()] },
+        '调整部门': { f: [{ id: 'dp', k: '部门', t: 'one', o: ['技术部', '运维组', '财务部'] }, { id: 'nt', k: '说明', t: 'note', h: '调整后，这个成员只能看到新部门的主机。' }], def: {},
+          pre: (r) => ({ dp: t1(r[2]) }), out: (V, r) => r.map((c, j) => (j === 2 ? V.dp : c)) },
+        '调整主机部门': { f: [{ id: 'dp', k: '部门', t: 'one', o: ['技术部', '运维组', '财务部', '未分配'] }], def: {},
+          pre: (r) => ({ dp: t1(r[1]) }), out: (V, r) => [r[0], V.dp, nowS()] } },
       SecRemote: {
         '添加认证方式': { f: [
           { id: 'tp', k: '认证方式', t: 'ck', o: ['二次密码', '微信二维码认证', '短信认证', '登录时间段', 'IP 地址认证', '区域登录'], d: ['远程登录时再输入一次单独设置的密码', '用绑定的微信扫码确认登录', '向绑定的手机号发送验证码', '只允许在设定的时间段内远程登录', '只允许名单里的 IP 远程登录', '只允许从选定地区远程登录'] },
@@ -2125,7 +2137,8 @@ class Component extends DCLogic {
       '下载': ['下载「%」的备份文件？', '文件用备份设置里的压缩密码加密，解压时需要输入。', '下载', false, '已开始下载'], '恢复': ['恢复「%」？', '文件会还原到原来的位置。确认是误报的话，建议同时加入信任文件，否则下次扫描还会检出。', '恢复', false, '已恢复'], '解封': ['解封 %？', '解封后这个 IP 可以再次访问；如果它继续攻击，会被重新封禁。', '解封', false, '已解封'], '强制下线': ['让 % 下线？', '会立即断开这个会话，对方正在执行的命令会中断。', '强制下线', true, '已强制下线'] };
     const act = (n, r, i) => {
       if (n === '查看主机' || n === '详情') { S({ fxDw: { k: n === '详情' ? 'kv' : 'hosts', ri: i } }); return; }
-      if (n === '编辑' || n === '配置') { if (IS) inlOpen(i); else openForm(i); return; }
+      if (n === '编辑' || n === '配置' || n === '分配主机' || n === '调整部门') { if (IS) inlOpen(i); else openForm(i); return; }
+      if ((C0.toasts || {})[n]) { toast(C0.toasts[n]); return; }
       if (/^立即/.test(n)) { toast('已开始执行，完成后更新结果'); return; }
       if (n === '恢复' && PG === 'SecRansom') { S({ fxCf: { n, i, t: '用这份备份恢复 ' + r[2] + '？', p: '会覆盖主机上的现有文件，建议先确认业务已停写。', ok: '恢复', d: true, msg: '已开始恢复' } }); return; }
       if (/^(停用|启用|暂停|恢复)$/.test(n) && stI >= 0 && !(n === '恢复' && PG === 'SecVirus')) { const on = n === '启用' || n === '恢复'; const v = { t: on ? (PG === 'SecTamper' ? '保护中' : '启用') : n === '暂停' ? '已暂停' : '停用', tag: on ? 'ok' : 'mut' };
@@ -2140,7 +2153,7 @@ class Component extends DCLogic {
       else if (dw.k === 'items' && capItems) { const c = capItems(); o.dw.t = c.t; o.dw.hasSw = true; o.dw.sw = c.sw; o.dw.note = c.note; o.dw.rsOn = c.rsOn; o.dw.rs = c.rs; o.dw.rsN = '恢复模式默认'; }
       else if (dw.k === 'hosts') { o.dw.t = nm(r); o.dw.hasHosts = true; const HN = ['web-prod-01', 'web-prod-02', 'web-prod-03', 'app-03', 'db-01', 'cache-01'];
         o.dw.hosts = HN.map((h, j) => ({ n: h, ip: '10.0.' + (1 + j) + '.' + (11 + j), href: 'SecHostDetail.dc.html?h=' + h })); o.dw.more = '共 ' + tx(r[T.cols.indexOf('主机')] || '').trim() + '，显示前 6 台'; }
-      else if (dw.k === 'kv') { o.dw.t = nm(r); o.dw.hasKv = true; o.dw.kv = T.cols.map((k, j) => ({ k, v: tx(r[j]).trim() })); /* fix4：告警详情给处置建议和处置按钮 */ if (/告警|检出/.test(tabN)) { if (C0.adv) o.dw.kv.push({ k: '处置建议', v: C0.adv }); const sv = stI >= 0 ? tx(r[stI]).trim() : ''; const an = /已加白|已处理|已拦截|已封禁|已隔离|已解决/.test(sv) ? [] : T.ops.filter((n) => n !== '详情').concat(['标记已处理']); o.dw.acts = an.map((n) => ({ n, c: 'kc-btn', go: ev(() => { act(n, r, dw.ri); S({ fxDw: null }); }) })); o.dw.hasActs = an.length > 0; } }
+      else if (dw.k === 'kv') { o.dw.t = nm(r); o.dw.hasKv = true; o.dw.kv = T.cols.map((k, j) => ({ k, v: tx(r[j]).trim() })); if (T.kvx && T.kvx[nm(r)]) o.dw.kv = o.dw.kv.concat(T.kvx[nm(r)].map(([k, v]) => ({ k, v }))); /* fix4：告警详情给处置建议和处置按钮 */ if (/告警|检出/.test(tabN)) { if (C0.adv) o.dw.kv.push({ k: '处置建议', v: C0.adv }); const sv = stI >= 0 ? tx(r[stI]).trim() : ''; const an = /已加白|已处理|已拦截|已封禁|已隔离|已解决/.test(sv) ? [] : T.ops.filter((n) => n !== '详情').concat(['标记已处理']); o.dw.acts = an.map((n) => ({ n, c: 'kc-btn', go: ev(() => { act(n, r, dw.ri); S({ fxDw: null }); }) })); o.dw.hasActs = an.length > 0; } }
       else { o.dw.t = (r ? (T.edT || '编辑') : (T.add || '新建')) + (r ? '：' + nm(r) : ''); o.dw.hasForm = true; o.dw.okN = r ? '保存' : '添加';
         if (FS) { const F = fxForm(r); o.dw.form = F.fs; o.dw.ok = F.ok; } else {
         const fc = T.cols.filter((k) => !/状态|命中|时间|上次|剩余/.test(k));
@@ -2538,7 +2551,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '应用运行防护';
-    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -2547,8 +2560,8 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
-      { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
+      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };

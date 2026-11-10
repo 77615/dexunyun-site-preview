@@ -1619,6 +1619,7 @@ class Component extends DCLogic {
     if (PG === 'SecReport') {
       const mine = st.lgRp || [];
       const R = mine.concat([['rp1', '安全周报 · 10-27 至 11-02', '周报', '全部主机 · 68 台', '10-27 至 11-02', '11-03 09:00', '已生成', '定时生成'],
+        ['rp2b', '入侵防御检测报告 · 全部主机', '入侵防御检测', '全部主机 · 68 台', '10-05 至 11-04', '11-04 10:12', '已生成', 'wangqi 手动生成'],
         ['rp2', '10 月安全月报', '月报', '全部主机 · 68 台', '10-01 至 10-31', '11-01 09:00', '已生成', '定时生成'],
         ['rp3', '等保 2.0 自查报告', '等保自查', '德迅服务器 · 7 台', '截至 10-28', '10-28 15:20', '已生成', 'wangqi 手动生成'],
         ['rp4', '安全周报 · 10-20 至 10-26', '周报', '全部主机 · 66 台', '10-20 至 10-26', '10-27 09:00', '已生成', '定时生成'],
@@ -1628,7 +1629,7 @@ class Component extends DCLogic {
       const tab = st.lgTab || '报告列表'; o.tList = tab === '报告列表'; o.tSub = tab === '定时发送';
       const sub = st.lgSub || { w: true, m: true, d: false };
       o.tabs = tabsOf('lgTab', [['报告列表', R.length], ['定时发送', Object.keys(sub).filter((k) => sub[k]).length]], tab);
-      const tb = this._tb(PG, R, { toast, unit: '份', what: '报告', attrs: { '类型': ['周报', '月报', '等保自查', '自定义'], '生成方式': ['定时生成', '手动生成'] },
+      const tb = this._tb(PG, R, { toast, unit: '份', what: '报告', attrs: { '类型': ['周报', '月报', '入侵防御检测', '等保自查', '自定义'], '生成方式': ['定时生成', '手动生成'] },
         match: (r, k, v) => k === '类型' ? r.ty === v : k === '生成方式' ? (v === '定时生成' ? r.by === '定时生成' : r.by !== '定时生成') : true, text: (r) => r.n });
       o.tb = tb;
       o.rows = tb.page.map((r) => { const ing = r.st === '生成中';
@@ -1641,15 +1642,15 @@ class Component extends DCLogic {
         ops: [{ n: '下载 PDF', c: 'kc-btn pri', go: ev(() => toast('已开始下载「' + d.n + '」.pdf')) }] });
       o.subs = [['w', '安全周报', '告警、风险、拦截和操作汇总', '每周一 09:00', 'wangqi、李四', '站内信 + 邮件'], ['m', '安全月报', '周报内容 + 趋势和处置时效', '每月 1 日 09:00', 'wangqi', '邮件'], ['d', '安全日报', '前一天的新增告警和未处理项', '每天 08:30', '李四', '企业微信']]
         .map(([k, n, d2, w, to, ch]) => Object.assign({ n, d: d2, w, to, ch, tog: ev(() => { S({ lgSub: Object.assign({}, sub, { [k]: !sub[k] }) }); toast(!sub[k] ? '已启用' + n : '已停用' + n, !sub[k] ? 'ok' : 'info'); }), edit: ev(() => toast('编辑' + n + '：发送时间、接收人和发送方式', 'info')) }, sw(sub[k])));
-      const nw = st.lgNw; const TY = ['周报', '月报', '自定义']; const SC = ['全部主机 · 68 台', '德迅服务器 · 7 台', '其他机房 · 61 台']; const PT = ['安全总览', '告警与事件', '漏洞与基线', '拦截与登录', '操作审计'];
+      const nw = st.lgNw; const TY = ['周报', '月报', '入侵防御检测', '自定义']; const SC = ['全部主机 · 68 台', '德迅服务器 · 7 台', '其他机房 · 61 台']; const PT = ['安全总览', '告警与事件', '漏洞与基线', '拦截与登录', '操作审计'];
       o.newGo = ev(() => S({ lgNw: { ty: '周报', sc: SC[0], pt: [1, 1, 1, 1, 0] } }));
       o.nw = { on: !!nw, x: ev(() => S({ lgNw: null })), tys: [], scs: [], parts: [], rg: '', ok: ev(() => {}) };
       if (nw) { const setN = (x) => S({ lgNw: Object.assign({}, nw, x) });
         o.nw.tys = TY.map((n) => ({ n, cls: n === nw.ty ? 'on' : '', pick: ev(() => setN({ ty: n })) }));
         o.nw.scs = SC.map((n) => ({ n, cls: n === nw.sc ? 'on' : '', pick: ev(() => setN({ sc: n })) }));
         o.nw.parts = PT.map((n, i) => ({ n, a: nw.pt[i] ? 'true' : 'false', c: nw.pt[i] ? 'lg-ck on' : 'lg-ck', tog: ev(() => { const pt = nw.pt.slice(); pt[i] = pt[i] ? 0 : 1; setN({ pt }); }) }));
-        o.nw.rg = nw.ty === '周报' ? '10-28 至 11-03（上一个完整周）' : nw.ty === '月报' ? '10-01 至 10-31（上个月）' : '10-05 至 11-04（最近 30 天，可修改）';
-        o.nw.ok = ev(() => { const id = 'rpN' + Date.now(); const n = (nw.ty === '自定义' ? '自定义报告' : '安全' + nw.ty) + ' · ' + nw.sc.split(' · ')[0];
+        o.nw.rg = nw.ty === '入侵防御检测' ? '10-05 至 11-04（最近 30 天），只含入侵防御各项的检测结果' : nw.ty === '周报' ? '10-28 至 11-03（上一个完整周）' : nw.ty === '月报' ? '10-01 至 10-31（上个月）' : '10-05 至 11-04（最近 30 天，可修改）';
+        o.nw.ok = ev(() => { const id = 'rpN' + Date.now(); const n = (nw.ty === '自定义' ? '自定义报告' : nw.ty === '入侵防御检测' ? '入侵防御检测报告' : '安全' + nw.ty) + ' · ' + nw.sc.split(' · ')[0];
           S({ lgNw: null, lgRp: [[id, n, nw.ty, nw.sc, o.nw.rg.split('（')[0], '11-04 10:20', '生成中', 'wangqi 手动生成']].concat(mine), lgTab: '报告列表' }); toast('报告生成中，约 1 分钟，完成后站内信通知你', 'info');
           setTimeout(() => { const rd = Object.assign({}, (this.state || {}).lgRd || {}, { [id]: 1 }); this.setState({ lgRd: rd }); }, 4000); }); }
     }
@@ -1874,7 +1875,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '安全报告';
-    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1883,8 +1884,8 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
-      { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
+      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
