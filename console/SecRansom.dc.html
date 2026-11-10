@@ -1719,7 +1719,7 @@ class Component extends DCLogic {
 
   _fx() {
     const PG = 'SecRansom';
-    const FXC = {"SecRansom": {"cap": {"n": "防勒索", "subs": ["勒索拦截", "诱饵文件", "自动备份"], "lite": [0, 1, 2], "scLast": 1}, "nav": "防勒索与备份", "h1": "防勒索与数据备份", "desc": "", "btns": [], "al": "告警和告警中心是同一份，在哪边处理都会同步。", "alL": [["告警中心", "SecRisks.dc.html"]], "tabs": [["告警列表", {"q": "搜索主机或进程", "add": "", "cols": ["主机", "进程", "行为", "影响文件", "发现时间", "状态"], "ops": ["详情", "标记已处理"], "rows": [["fin-win-01", {"t": "svch0st.exe", "mono": 1}, "批量加密并改扩展名为 .locked", "D:\\财务 下 37 个文件（已自动恢复）", "11-05 03:12", {"t": "已拦截", "tag": "ok"}], ["db-01", {"t": "/tmp/.u/upd", "mono": 1}, "改写诱饵文件", "/data/backup/.dx_bait.sql", "11-07 01:40", {"t": "待处理", "tag": "warn"}]]}], ["防护目录", {"q": "搜索目录或主机", "add": "添加目录", "cols": ["目录", "主机", "文件类型", "允许修改的进程", "状态"], "ops": ["编辑", "移除"], "rows": [[{"t": "/data/mysql", "mono": 1}, "db-01", "全部", "mysqld", {"t": "保护中", "tag": "ok"}], [{"t": "/data/backup", "mono": 1}, "db-01, cache-01", "全部", "bk.sh", {"t": "保护中", "tag": "ok"}], [{"t": "D:\\财务", "mono": 1}, "fin-win-01", ".xlsx .docx .pdf", "—", {"t": "保护中", "tag": "ok"}]]}], ["备份任务", {"q": "搜索任务名称", "add": "新建备份", "cols": ["任务", "内容", "主机", "存到", "计划", "上次备份"], "ops": ["立即执行", "编辑", "删除"], "rows": [["MySQL 每日备份", "数据库 · shop", "db-01", "阿里云 OSS", "每天 03:00", {"t": "成功", "tag": "ok", "s": "11-06 03:12 · 2.4 GB"}], ["网站文件备份", "/var/www/html", "web-prod-01", "本机 /backup", "每周一 02:00", {"t": "成功", "tag": "ok", "s": "11-03 02:05 · 860 MB"}], ["配置文件备份", "/etc", "全部 68 台", "华为云 OBS", "每天 01:00", {"t": "3 台失败", "tag": "err", "s": "11-06 01:20"}]]}], ["备份记录", {"q": "搜索任务或主机", "add": "", "cols": ["时间", "任务", "主机", "大小", "结果"], "ops": ["恢复"], "rows": [["11-06 03:12", "MySQL 每日备份", "db-01", "2.4 GB", {"t": "成功", "tag": "ok"}], ["11-06 01:20", "配置文件备份", "app-07", "—", {"t": "失败", "tag": "err", "s": "存储凭证过期"}], ["11-05 03:10", "MySQL 每日备份", "db-01", "2.4 GB", {"t": "成功", "tag": "ok"}]]}]], "adv": "勒索进程已被结束的，先确认受影响文件是否已自动恢复；没恢复的用「备份记录」里最近的备份还原，再排查进程来源。"}};
+    const FXC = {"SecRansom": {"cap": {"n": "防勒索", "subs": ["勒索拦截", "诱饵文件", "自动备份"], "lite": [0, 1, 2], "scLast": 1}, "nav": "防勒索与备份", "h1": "防勒索与数据备份", "desc": "", "btns": [], "al": "告警和告警中心是同一份，在哪边处理都会同步。", "alL": [["告警中心", "SecRisks.dc.html"]], "tabs": [["告警列表", {"q": "搜索主机或进程", "add": "", "cols": ["主机", "进程", "行为", "影响文件", "发现时间", "状态"], "ops": ["详情", "标记已处理"], "rows": [["fin-win-01", {"t": "svch0st.exe", "mono": 1}, "批量加密并改扩展名为 .locked", "D:\\财务 下 37 个文件（已自动恢复）", "11-05 03:12", {"t": "已拦截", "tag": "ok"}], ["db-01", {"t": "/tmp/.u/upd", "mono": 1}, "改写诱饵文件", "/data/backup/.dx_bait.sql", "11-07 01:40", {"t": "待处理", "tag": "warn"}]]}], ["防护目录", {"q": "搜索目录或主机", "add": "添加目录", "cols": ["目录", "主机", "文件类型", "允许修改的进程", "状态"], "ops": ["编辑", "移除"], "rows": [[{"t": "/data/mysql", "mono": 1}, "db-01", "全部", "mysqld", {"t": "保护中", "tag": "ok"}], [{"t": "/data/backup", "mono": 1}, "db-01, cache-01", "全部", "bk.sh", {"t": "保护中", "tag": "ok"}], [{"t": "D:\\财务", "mono": 1}, "fin-win-01", ".xlsx .docx .pdf", "—", {"t": "保护中", "tag": "ok"}]]}], ["备份任务", {"q": "搜索任务名称", "add": "新建备份", "cols": ["任务", "备份方式", "主机", "存储方式", "备份周期", "上次备份"], "ops": ["立即执行", "编辑", "删除"], "rows": [["财务库每日备份", "数据库备份 · finance", "fin-win-01", "阿里云存储", "每天 03:00", {"t": "成功", "tag": "ok", "s": "11-06 03:12 · 2.4 GB"}], ["网站文件备份", {"t": "文件备份 · /var/www/html", "mono": 0}, "web-prod-01", {"t": "本地存储 /backup", "mono": 0}, "每周一 02:00", {"t": "成功", "tag": "ok", "s": "11-03 02:05 · 860 MB"}], ["导出 IIS 配置", "脚本备份 · export-iis.ps1", "fin-win-01", "华为云存储", "每天 01:00", {"t": "失败", "tag": "err", "s": "11-06 01:20 · 存储凭证过期"}]]}], ["备份记录", {"q": "搜索任务或主机", "add": "", "cols": ["时间", "任务", "主机", "大小", "结果"], "ops": ["下载", "恢复", "删除"], "rows": [["11-06 03:12", "财务库每日备份", "fin-win-01", "2.4 GB", {"t": "成功", "tag": "ok"}], ["11-06 01:20", "导出 IIS 配置", "fin-win-01", "—", {"t": "失败", "tag": "err", "s": "存储凭证过期"}], ["11-05 03:10", "财务库每日备份", "fin-win-01", "2.4 GB", {"t": "成功", "tag": "ok"}]]}]], "adv": "勒索进程已被结束的，先确认受影响文件是否已自动恢复；没恢复的用「备份记录」里最近的备份还原，再排查进程来源。"}};
     const C0 = FXC[PG]; const st = this.state || {}; const S = (o) => this.setState(o);
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(); };
     const toast = (t, k) => { S({ fxT: { t, c: 'sh-ti ' + (k || 'ok') } }); clearTimeout(this.__fxTo); this.__fxTo = setTimeout(() => this.setState({ fxT: null }), 2400); };
@@ -1732,7 +1732,7 @@ class Component extends DCLogic {
     const vis = rows0.map((r, i) => [r, i]).filter(([r]) => !q || r.map(tx).join(' ').indexOf(q) >= 0);
     const setRows = (rs) => S({ fxR: Object.assign({}, RS, { [tabN]: rs }) });
     const o = { tsOn: !!st.fxT, toast: st.fxT || { t: '', c: '' }, h1: C0.h1, hasAl: !!C0.al, al: C0.al, alL: (C0.alL || []).map(([n, h]) => ({ n, h })) };
-    const hdBtn = (n) => ev(() => { if (/^立即/.test(n)) toast(n === '立即采集' ? '已开始采集，约 5 分钟完成' : '已开始扫描，约 15 分钟完成'); });
+    const hdBtn = (n) => ev(() => { if (n === '超级密码') { S({ fxCf: { n, i: -1, t: '超级密码', p: '超级密码：******** （点「复制密码」复制明文）。二次认证用不了时（例如手机丢失），用它完成远程登录；用过后建议到主机详情重置。', ok: '复制密码', d: false, msg: '已复制超级密码' } }); return; } if (/^立即/.test(n)) toast(n === '立即采集' ? '已开始采集，约 5 分钟完成' : '已开始扫描，约 15 分钟完成'); });
     o.btns = (C0.btns || []).map(([n, k]) => ({ n, c: 'kc-btn' + (k ? ' ' + k : ''), go: hdBtn(n) }));
 
     // cap 2026-11-09：防护策略入口 + 病毒查杀扫描面板
@@ -1869,7 +1869,7 @@ class Component extends DCLogic {
       const allC = hv.length && hv.every((h) => sel[h[0]]); o.allCk = allC ? 'hs-cb on' : 'hs-cb'; o.allA = allC ? 'true' : 'false';
       o.allT = ev(() => { const n2 = {}; if (!allC) hv.forEach((h) => { n2[h[0]] = true; }); S({ fxSel: n2 }); });
       o.adjGo = ev(() => S({ fxQ: Object.assign({}, st.fxQ || {}, { '防护范围': '' }) }));
-      { const ITD = { SecApp: ["Windows：拦截白名单以外的软件安装", "按进程黑白名单放行或拦截", "监控新增或被篡改的系统服务", "Windows：监控新增的开机启动项", "记录登录和操作行为。关闭后这台主机的异常登录检测会失效"], SecBrute: ["SSH 短时间内多次登录失败", "Windows 远程桌面登录失败", "MySQL、Redis、MSSQL 等服务", "vsftpd 等 FTP 服务"], SecLogin: ["不在常用登录地的登录", "不在常用登录时间段的登录", "近 30 天没出现过的来源 IP", "近 30 天没登录过的账号"], SecShell: ["bash -i、nc -e、/dev/tcp 等", "Python、Perl、PHP 等脚本建立的反向连接", "Java、PHP 进程内建立的反向连接"], SecPriv: ["利用 SUID 程序获得 root", "利用内核漏洞获得 root", "利用 sudo 配置或漏洞获得 root"], SecCmd: ["德迅内置的高危命令特征", "你在「自定义策略」里配置的命令"], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00', '进程持续占用 CPU 超过阈值判为挖矿，只告警不自动隔离', '进程持续占用显卡超过阈值判为挖矿，只告警；标准模式默认关闭'], SecFirewall: ['同一 IP 短时间内多次登录失败，自动封禁', '同一 IP 短时间内连接大量端口，自动封禁', '同一 IP 短时间内大量异常连接，自动封禁', '主机主动连接的地址按规则告警或阻断'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时额外验证身份', '只允许白名单 IP 远程登录'] }; const ACT2 = { SecApp: "拦截安装并结束黑名单进程", SecBrute: "自动封禁来源 IP", SecLogin: "断开异常登录会话", SecShell: "结束反弹进程并断开连接", SecPriv: "结束提权进程", SecCmd: "拦截命令执行", SecVirus: '自动隔离病毒文件', SecFirewall: '自动封禁攻击来源 IP', SecRansom: '拦截加密行为并结束进程', SecRemote: '拦截白名单以外的远程登录', SecRules: '按规则阻断进程或连接', SecTamper: '拦截篡改并还原文件' };
+      { const ITD = { SecApp: ["Windows：拦截白名单以外的软件安装", "按进程黑白名单放行或拦截", "监控新增或被篡改的系统服务", "Windows：监控新增的开机启动项", "记录登录和操作行为。关闭后这台主机的异常登录检测会失效"], SecBrute: ["SSH 短时间内多次登录失败", "Windows 远程桌面登录失败", "MySQL、Redis、MSSQL 等服务", "vsftpd 等 FTP 服务"], SecLogin: ["不在常用登录地的登录", "不在常用登录时间段的登录", "近 30 天没出现过的来源 IP", "近 30 天没登录过的账号"], SecShell: ["bash -i、nc -e、/dev/tcp 等", "Python、Perl、PHP 等脚本建立的反向连接", "Java、PHP 进程内建立的反向连接"], SecPriv: ["利用 SUID 程序获得 root", "利用内核漏洞获得 root", "利用 sudo 配置或漏洞获得 root"], SecCmd: ["德迅内置的高危命令特征", "你在「自定义策略」里配置的命令"], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00', '进程持续占用 CPU 超过阈值判为挖矿，只告警不自动隔离', '进程持续占用显卡超过阈值判为挖矿，只告警；标准模式默认关闭'], SecFirewall: ['同一 IP 短时间内多次登录失败，自动封禁', '同一 IP 短时间内连接大量端口，自动封禁', '同一 IP 短时间内大量异常连接，自动封禁', '新程序联网时审计或阻断，按进程、地域控制外联'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时按「二次认证方式」再验证身份'] }; const ACT2 = { SecApp: "拦截安装并结束黑名单进程", SecBrute: "自动封禁来源 IP", SecLogin: "断开异常登录会话", SecShell: "结束反弹进程并断开连接", SecPriv: "结束提权进程", SecCmd: "拦截命令执行", SecVirus: '自动隔离病毒文件', SecFirewall: '自动封禁攻击来源 IP', SecRansom: '拦截加密行为并结束进程', SecRemote: '拦截白名单以外的远程登录', SecRules: '按规则阻断进程或连接', SecTamper: '拦截篡改并还原文件' };
         const bm = PMX.rules(PG)[0].m; o.itN = Object.keys(CI).length || ''; o.itGo = ev(() => S({ fxDw: { k: 'items' } }));
         capItems = () => { const CJ = PMX.items(PG); const lt = bm === '轻量' ? (CAP.lite || []) : [];
           const subs = CAP.subs.map((n, j) => [String(j), n, (ITD[PG] || [])[j] || '', lt.indexOf(j) < 0]).concat([['au', '命中后自动处置', (ACT2[PG] || '自动处置') + '；关闭时只告警', bm === '重保']]);
@@ -1931,20 +1931,40 @@ class Component extends DCLogic {
           pre: (r) => { const m = /^(\S+) (\d\d:\d\d)–(\d\d:\d\d)/.exec(t1(r[0])) || []; return { dy: m[1] || '工作日', fr: m[2] || '', to: m[3] || '', host: hsP(r[1]) }; },
           out: (V, r) => [V.dy + ' ' + V.fr.trim() + '–' + V.to.trim(), hsV(V.host), r ? r[2] : ON] } },
       SecFirewall: {
-        '新建规则': { f: [
-          { id: 'tp', k: '目标类型', t: 'sg', o: ['IP 或网段', '域名', '地址类别', '威胁情报库'] },
-          { id: 'ip', k: '目标地址', t: 'area', req: 1, mono: 1, when: ['tp', ['IP 或网段']], ph: '每行一个，例如 203.0.113.10 或 203.0.113.0/24' },
-          { id: 'dm', k: '目标域名', t: 'area', req: 1, mono: 1, when: ['tp', ['域名']], ph: '每行一个，支持 *.example.com' },
-          { id: 'cat', k: '地址类别', t: 'ck', o: ['非内网地址', '境外地址'], d: ['10/8、172.16/12、192.168/16 之外的地址', '按 IP 归属地判断，不含港澳台'], when: ['tp', ['地址类别']] },
-          { id: 'lib', k: '情报库', t: 'ck', o: ['矿池域名库', '远控（C2）域名库', '恶意 IP 库'], d: ['系统内置 · 1,240 条，每日更新', '系统内置 · 3,860 条，每日更新', '系统内置 · 2.1 万条，每小时更新'], when: ['tp', ['威胁情报库']] },
-          { id: 'port', k: '目标端口', t: 'text', ph: '留空为全部端口，例如 22 或 8000-8080', opt: 1 },
-          HOSTS('host', '生效主机'),
-          { id: 'act', k: '动作', t: 'sg', o: ['阻断', '告警', '放行'], h: (V) => ({ '阻断': '主机发起的连接会被直接断开，并生成告警。', '告警': '连接照常放行，只生成告警，适合先观察。', '放行': '命中后不再检测，优先级高于其他阻断规则。' })[V.act] },
-          { id: 'note', k: '备注', t: 'text', opt: 1, ph: '例如：禁止数据库主机访问公网' }],
-          def: { tp: 'IP 或网段', cat: '非内网地址', lib: '矿池域名库', act: '阻断' },
-          pre: (r) => { const t = t1(r[0]); const V = { port: t1(r[1]) === '全部' ? '' : t1(r[1]), host: hsP(r[2]), act: t1(r[3]) };
-            if (/库/.test(t)) Object.assign(V, { tp: '威胁情报库', lib: t }); else if (/地址$/.test(t)) Object.assign(V, { tp: '地址类别', cat: t }); else if (/[a-z]\.[a-z]/i.test(t)) Object.assign(V, { tp: '域名', dm: t }); else Object.assign(V, { tp: 'IP 或网段', ip: t }); return V; },
-          out: (V, r) => [V.tp === '威胁情报库' ? { t: V.lib, s: '系统内置' } : { t: V.tp === '地址类别' ? V.cat : sum1(V.tp === '域名' ? V.dm : V.ip), mono: 1 }, V.port || '全部', hsV(V.host), { t: V.act, tag: { '阻断': 'err', '告警': 'warn', '放行': 'ok' }[V.act] }, r ? r[4] : '0'] },
+        '': { f: [
+          { id: 'win', k: '统计时间', t: 'sg', o: ['5 秒', '10 秒', '30 秒', '1 分钟'] },
+          { id: 'n', k: '次数', t: 'text', req: 1, w: 'sm', ph: '10', h: (V) => ({ '暴力破解防护': V.win + '内同一 IP 登录失败达到这个次数', '端口扫描防护': V.win + '内同一 IP 连接的端口数超过这个数', 'CC 攻击防护': V.win + '内同一 IP 的异常连接数超过这个数' })[V.it] + '，判定为恶意连接并自动封禁。' },
+          { id: 'dur', k: '封禁时长', t: 'sg', o: ['30 分钟', '1 小时', '6 小时', '24 小时'] },
+          { id: 'port', k: '端口', t: 'text', req: 1, mono: 1, when: ['it', ['暴力破解防护', 'CC 攻击防护']], ph: '22', h: '多个端口用逗号分隔，例如 22, 3389。' }],
+          def: {},
+          pre: (r) => { const it = t1(r[0]); const m = /^(\S+ \S+)内.*?(\d+) [次个]/.exec(t1(r[1])) || []; return { it, win: m[1] || '5 秒', n: m[2] || '10', dur: t1(r[2]), port: t1(r[3]) === '—' ? '' : t1(r[3]) }; },
+          out: (V, r) => { const it = t1(r[0]); const n = String(V.n).trim(); const c = { '暴力破解防护': V.win + '内同一 IP 登录失败 ' + n + ' 次', '端口扫描防护': V.win + '内异常连接端口数超过 ' + n + ' 个', 'CC 攻击防护': V.win + '内异常连接数超过 ' + n + ' 次' }[it]; return [it, c, V.dur, it === '端口扫描防护' ? '—' : { t: V.port.trim(), mono: 1 }]; } },
+        '外联配置': { f: [
+          { id: 'on', k: '外联控制', t: 'sg', o: ['已启用', '已关闭'], h: (V) => (V.on === '已启用' ? '按下面的设置审计或拦截这台主机的外联。' : '关闭后这台主机的外联不再审计或拦截，下面的设置保留。') },
+          { id: 'mode', k: '新程序联网时', t: 'sg', o: ['审计模式', '阻断模式'], h: (V) => (V.mode === '审计模式' ? '新程序联网只记录，不拦截，适合先观察一段时间。' : '没有放行规则的新程序联网会被直接阻断，建议先用审计模式确认业务进程。') },
+          { id: 'aud', k: '审计机制', t: 'sg', o: ['轻量审计', '全量审计'], h: (V) => (V.aud === '轻量审计' ? '同一进程只记录首次联网，占用资源少。' : '记录每一次联网，排查方便，日志量较大。') },
+          { id: 'ex', k: '其他', t: 'ch', o: ['自动放行系统核心程序', '记录日志'], opt: 1 },
+          { id: 'ovs', k: '海外 IP 封禁', t: 'sg', o: ['已启用', '已关闭'], h: '阻断这台主机与境外 IP 的连接，地域规则里放行的地区除外。' },
+          { id: 'hi', k: '高危通讯阻断', t: 'sg', o: ['已启用', '已关闭'], h: '阻断与矿池、远控等恶意地址的通讯，地址来自德迅威胁情报。' },
+          { id: 'nt', k: '说明', t: 'note', h: '进程联网规则和地域规则在各自页签配置，按生效主机下发。' }],
+          def: { on: '已启用', mode: '审计模式', aud: '轻量审计', ex: ['自动放行系统核心程序', '记录日志'], ovs: '已关闭', hi: '已启用' },
+          pre: (r) => { const x = t1(r[4]); const ex = []; if (/核心/.test(x)) ex.push('自动放行系统核心程序'); if (/日志/.test(x)) ex.push('记录日志'); return { on: t1(r[1]), mode: t1(r[2]), aud: t1(r[3]), ex, ovs: t1(r[5]), hi: t1(r[6]) }; },
+          out: (V, r) => { const ex = V.ex || []; const x = [ex.indexOf('自动放行系统核心程序') >= 0 ? '放行核心程序' : '', ex.indexOf('记录日志') >= 0 ? '记录日志' : ''].filter(Boolean).join(' · ') || '—'; const tg = (v) => ({ t: v, tag: v === '已启用' ? 'ok' : 'mut' });
+            return [r[0], tg(V.on), V.mode === '阻断模式' ? { t: V.mode, tag: 'err' } : V.mode, V.aud, x, tg(V.ovs), tg(V.hi)]; } },
+        '添加进程联网规则': { f: [
+          { id: 'p', k: '进程路径', t: 'text', req: 1, mono: 1, ph: '例如 /usr/sbin/nginx 或 C:\\Program Files\\app\\app.exe', h: '填完整路径；同名进程在其他路径下不受这条规则影响。' },
+          { id: 'act', k: '处理方式', t: 'sg', o: ['允许', '阻止'], h: (V) => (V.act === '允许' ? '这个进程联网不再审计或拦截。' : '这个进程的所有外联都会被断开，并记一条外联事件。') },
+          HOSTS('host', '生效主机')],
+          def: { act: '允许' },
+          pre: (r) => ({ p: t1(r[0]), act: t1(r[1]), host: hsP(r[2]) }),
+          out: (V) => [{ t: V.p.trim(), mono: 1 }, { t: V.act, tag: V.act === '允许' ? 'ok' : 'err' }, hsV(V.host), nowS()] },
+        '添加地域控制规则': { f: [
+          { id: 'g', k: '地域', t: 'ch', req: 1, o: ['中国香港', '中国澳门', '中国台湾', '美国', '日本', '新加坡', '德国', '荷兰', '俄罗斯', '乌克兰'] },
+          { id: 'act', k: '处理方式', t: 'sg', o: ['阻止', '允许'], h: (V) => (V.act === '阻止' ? '主机连到这些地区的 IP 会被断开。' : '开启海外 IP 封禁时，这些地区仍然允许。') },
+          HOSTS('host', '生效主机')],
+          def: { act: '阻止', g: [] },
+          pre: (r) => ({ g: t1(r[0]).split('、'), act: t1(r[1]), host: hsP(r[2]) }),
+          out: (V) => [V.g.join('、'), { t: V.act, tag: V.act === '允许' ? 'ok' : 'err' }, hsV(V.host), nowS()] },
         '新建安全组': { f: [
           { id: 'nm', k: '安全组名称', t: 'text', req: 1, mono: 1, ph: '例如 web-default', h: '用英文字母、数字和 -，方便在主机详情里辨认' },
           { id: 'inb', k: '入站默认', t: 'sg', o: ['拒绝', '允许'], h: (V) => (V.inb === '拒绝' ? '没有命中下面规则的入站流量一律拒绝（推荐）。' : '没有命中规则的入站流量都会放行，只有「拒绝」规则生效。') },
@@ -1965,33 +1985,37 @@ class Component extends DCLogic {
           pre: (r) => { const ft = t1(r[2]); return { dir: t1(r[0]), host: hsP(r[1]), ft: ft === '全部' ? '全部文件' : '指定类型', ext: ft === '全部' ? [] : ft.split(/\s+/), pr: t1(r[3]) === '—' ? '' : lines(r[3]).join('\n') }; },
           out: (V, r) => [{ t: V.dir.trim(), mono: 1 }, hsV(V.host), V.ft === '全部文件' ? '全部' : (V.ext || []).join(' '), lines(V.pr).join(', ') || '—', r ? r[4] : { t: '保护中', tag: 'ok' }] },
         '新建备份': { f: [
-          { id: 'nm', k: '任务名称', t: 'text', req: 1, ph: '例如 MySQL 每日备份' },
-          { id: 'ct', k: '备份内容', t: 'sg', o: ['目录', '数据库'] },
-          { id: 'path', k: '目录', t: 'text', req: 1, mono: 1, when: ['ct', ['目录']], ph: '/var/www/html' },
-          { id: 'db', k: '数据库', t: 'text', req: 1, when: ['ct', ['数据库']], ph: 'MySQL 库名，例如 shop', h: '需要在主机上配置只读备份账号，客户端会自动调用 mysqldump。' },
-          HOSTS('host', '主机'),
-          { id: 'to', k: '存到', t: 'ck', o: ['阿里云 OSS', '华为云 OBS', '本机目录'], d: ['已授权 bucket：dx-backup', '已授权 bucket：dx-backup-hw', '主机损坏时无法用来恢复，不推荐'] },
-          { id: 'lp', k: '本机目录', t: 'text', req: 1, mono: 1, when: ['to', ['本机目录']], ph: '/backup' },
-          { id: 'fq', k: '频率', t: 'sg', o: ['每天', '每周', '每 6 小时'] },
+          { id: 'nm', k: '任务名称', t: 'text', req: 1, ph: '例如 财务库每日备份' },
+          HOSTS('host', '主机', '保存后配置下发到主机客户端。'),
+          { id: 'ct', k: '备份方式', t: 'ck', o: ['文件备份', '脚本备份', '数据库备份'], d: ['备份指定目录', '定期执行你提供的脚本，支持 PowerShell 脚本', '只支持 SQL Server 数据库'] },
+          { id: 'path', k: '备份目录', t: 'text', req: 1, mono: 1, when: ['ct', ['文件备份']], ph: '/var/www/html 或 D:\\data' },
+          { id: 'sc', k: '脚本', t: 'area', req: 1, mono: 1, when: ['ct', ['脚本备份']], ph: '粘贴 PowerShell 脚本，或填脚本路径', h: '启用后按备份周期执行这个脚本。' },
+          { id: 'db', k: '数据库', t: 'text', req: 1, when: ['ct', ['数据库备份']], ph: 'SQL Server 库名，例如 finance', h: '需要在主机上配置只读备份账号。' },
+          { id: 'to', k: '存储方式', t: 'ck', o: ['本地存储', '阿里云存储', '华为云存储'], d: ['存在主机本地目录；主机损坏时无法用来恢复', '已授权 bucket：dx-backup', '已授权 bucket：dx-backup-hw'] },
+          { id: 'lp', k: '本地目录', t: 'text', req: 1, mono: 1, when: ['to', ['本地存储']], ph: '/backup' },
+          { id: 'fq', k: '备份周期', t: 'sg', o: ['每天', '每周', '每 6 小时'] },
           { id: 'wd', k: '星期', t: 'sg', o: ['一', '二', '三', '四', '五', '六', '日'], when: ['fq', ['每周']] },
           { id: 'tm', k: '时间', t: 'text', req: 1, w: 'sm', when: ['fq', ['每天', '每周']], ph: 'HH:MM', h: '建议放在业务低峰。' },
-          { id: 'keep', k: '保留份数', t: 'text', w: 'sm', ph: '7', h: '超出后自动删除最早的一份。' }],
-          def: { ct: '目录', to: '阿里云 OSS', fq: '每天', wd: '一', tm: '03:00', keep: '7' },
-          pre: (r) => { const c = t1(r[1]); const s = t1(r[3]); return Object.assign({ nm: t1(r[0]), ct: /^数据库/.test(c) ? '数据库' : '目录', path: /^数据库/.test(c) ? '' : c, db: /^数据库/.test(c) ? c.split('·')[1].trim() : '', host: hsP(r[2]), to: /^本机/.test(s) ? '本机目录' : s, lp: /^本机/.test(s) ? s.replace(/^本机\s*/, '') : '', keep: '7' }, planP(r[4])); },
-          out: (V, r) => [V.nm.trim(), V.ct === '目录' ? V.path.trim() : '数据库 · ' + V.db.trim(), hsV(V.host), V.to === '本机目录' ? '本机 ' + V.lp.trim() : V.to, plan(V), r ? r[5] : { t: '未执行', tag: 'mut', s: '按计划自动执行' }] } },
+          { id: 'pw', k: '压缩密码', t: 'text', opt: 1, mono: 1, ph: '留空则不加密', h: '备份文件用这个密码压缩加密，下载和恢复时需要输入。' }],
+          def: { ct: '文件备份', to: '阿里云存储', fq: '每天', wd: '一', tm: '03:00', host: { m: '指定主机', s: [] } },
+          pre: (r) => { const c = t1(r[1]); const s2 = t1(r[3]); const ct = c.split(' · ')[0]; const v = c.split(' · ')[1] || ''; return Object.assign({ nm: t1(r[0]), ct, path: ct === '文件备份' ? v : '', sc: ct === '脚本备份' ? v : '', db: ct === '数据库备份' ? v : '', host: hsP(r[2]), to: /^本地/.test(s2) ? '本地存储' : s2, lp: /^本地/.test(s2) ? s2.replace(/^本地存储\s*/, '') : '' }, planP(r[4])); },
+          out: (V, r) => [V.nm.trim(), V.ct + ' · ' + String(V.ct === '文件备份' ? V.path : V.ct === '脚本备份' ? lines(V.sc)[0] : V.db).trim(), hsV(V.host), V.to === '本地存储' ? '本地存储 ' + V.lp.trim() : V.to, plan(V), r ? r[5] : { t: '未执行', tag: 'mut', s: '按计划自动执行' }] } },
       SecRemote: {
-        '新建规则': { f: [
-          { id: 'tp', k: '规则类型', t: 'ck', o: ['二次验证（MFA）', '常用登录地', '登录 IP 白名单', '禁止 root 远程登录'], d: ['远程登录时再验证一次短信或动态口令', '不在常用地区的登录要求二次验证或直接拒绝', '只有名单里的 IP 可以远程登录', 'SSH 禁止 root 直接登录，需普通账号登录后再切换'] },
-          { id: 'mf', k: '验证方式', t: 'ch', req: 1, o: ['短信', '动态口令', '邮件'], when: ['tp', ['二次验证（MFA）']] },
-          { id: 'rg', k: '常用地区', t: 'ch', req: 1, o: ['浙江', '上海', '江苏', '北京', '广东', '香港'], when: ['tp', ['常用登录地']] },
-          { id: 'rga', k: '其他地区登录时', t: 'sg', o: ['需二次验证', '直接拒绝'], when: ['tp', ['常用登录地']] },
-          { id: 'ip', k: 'IP 白名单', t: 'area', req: 1, mono: 1, when: ['tp', ['登录 IP 白名单']], ph: '每行一个 IP 或网段，例如 115.236.10.0/24', h: '名单外的 IP 将无法远程登录，请先确认已加入你现在的办公网出口 IP。', hc: 'warn' },
-          { id: 'rt', k: '说明', t: 'note', when: ['tp', ['禁止 root 远程登录']], h: '保存后客户端把 sshd_config 的 PermitRootLogin 改为 no 并重载 sshd，已建立的会话不受影响。' },
+        '添加认证方式': { f: [
+          { id: 'tp', k: '认证方式', t: 'ck', o: ['二次密码', '微信二维码认证', '短信认证', '登录时间段', 'IP 地址认证', '区域登录'], d: ['远程登录时再输入一次单独设置的密码', '用绑定的微信扫码确认登录', '向绑定的手机号发送验证码', '只允许在设定的时间段内远程登录', '只允许名单里的 IP 远程登录', '只允许从选定地区远程登录'] },
+          { id: 'pw', k: '二次密码', t: 'text', req: 1, mono: 1, when: ['tp', ['二次密码']], ph: '8–20 位，含字母和数字' },
+          { id: 'pw2', k: '确认密码', t: 'text', req: 1, mono: 1, when: ['tp', ['二次密码']], ph: '再输入一次', h: '两次输入需一致，保存后立即生效。' },
+          { id: 'wx', k: '说明', t: 'note', when: ['tp', ['微信二维码认证']], h: '保存后在弹出的二维码里用微信扫码绑定，可以绑定多个微信；登录时向绑定的微信推送确认。' },
+          { id: 'ph', k: '手机号', t: 'area', req: 1, mono: 1, when: ['tp', ['短信认证']], ph: '每行一个手机号', h: '保存前会向每个号码发送一次验证短信。' },
+          { id: 'tw', k: '日期', t: 'sg', o: ['每天', '工作日'], when: ['tp', ['登录时间段']] },
+          { id: 'tr', k: '时间段', t: 'text', req: 1, mono: 1, when: ['tp', ['登录时间段']], ph: '08:00-20:00', h: '其他时间的远程登录会被拒绝。' },
+          { id: 'ip', k: 'IP 地址', t: 'area', req: 1, mono: 1, when: ['tp', ['IP 地址认证']], ph: '每行一个 IP 或网段，例如 115.236.10.0/24', h: '名单外的 IP 将无法远程登录，请先确认已加入你现在的办公网出口 IP。', hc: 'warn' },
+          { id: 'rg', k: '允许的地区', t: 'ch', req: 1, o: ['浙江', '上海', '江苏', '北京', '广东', '香港'], when: ['tp', ['区域登录']] },
           HOSTS('host', '生效主机')],
-          def: { tp: '二次验证（MFA）', mf: ['短信', '动态口令'], rg: ['浙江'], rga: '需二次验证' },
-          pre: (r) => { const tp = t1(r[0]); const c = t1(r[1]); const V = { tp, host: hsP(r[2]), mf: ['短信', '动态口令'], rg: ['浙江'], rga: '需二次验证' };
-            if (/MFA/.test(tp)) V.mf = c.split(/\s*\+\s*/); if (/常用/.test(tp)) { V.rg = c.split('；')[0].split('、'); V.rga = /拒绝/.test(c) ? '直接拒绝' : '需二次验证'; } if (/白名单/.test(tp)) V.ip = c.replace(/（.*）/, ''); return V; },
-          out: (V, r) => [V.tp, /MFA/.test(V.tp) ? (V.mf || []).join(' + ') : /常用/.test(V.tp) ? (V.rg || []).join('、') + '；其他地区登录' + (V.rga === '直接拒绝' ? '直接拒绝' : '需二次验证') : /白名单/.test(V.tp) ? sum1(V.ip) : 'SSH PermitRootLogin no', hsV(V.host), r ? r[3] : ON] } },
+          def: { tp: '二次密码', tw: '工作日', tr: '08:00-20:00', rg: ['浙江'] },
+          pre: (r) => { const tp = t1(r[0]); const c = t1(r[1]); const V = { tp, host: hsP(r[2]), tw: '工作日', tr: '08:00-20:00', rg: ['浙江'] };
+            if (tp === '短信认证') V.ph = c; if (tp === '登录时间段') { V.tw = /^每天/.test(c) ? '每天' : '工作日'; V.tr = c.split(' ')[1] ? c.split(' ')[1].replace('–', '-') : '08:00-20:00'; } if (tp === 'IP 地址认证') V.ip = c.replace(/（.*）/, ''); if (tp === '区域登录') V.rg = c.split('、'); if (tp === '二次密码') { V.pw = '********'; V.pw2 = '********'; } return V; },
+          out: (V, r) => [V.tp, ({ '二次密码': '已设置', '微信二维码认证': r ? t1(r[1]) : '待扫码绑定', '短信认证': { t: sum1(V.ph), mono: 1 }, '登录时间段': V.tw + ' ' + String(V.tr).replace('-', '–'), 'IP 地址认证': sum1(V.ip), '区域登录': (V.rg || []).join('、') })[V.tp], hsV(V.host), r ? r[3] : ON] } },
       SecCmd: {
         '新建策略': { f: [
           { id: 'nm', k: '策略名称', t: 'text', req: 1, ph: '例如 禁止 curl 下载到 /tmp' },
@@ -2016,13 +2040,14 @@ class Component extends DCLogic {
           out: (V, r) => [V.nm.trim(), { t: sum1(V.mt), mono: 1 }, V.sc === '全部主机' ? '全部主机' : (V.pol || []).join('、'), '刚刚', r ? r[4] : ON] } },
       SecTamper: {
         '添加站点': { f: [
-          { id: 'dir', k: '网站目录', t: 'text', req: 1, mono: 1, ph: '/var/www/html' },
+          { id: 'dir', k: '网站目录', t: 'text', req: 1, mono: 1, ph: '/var/www/html', h: 'Linux 主机会自动过滤根目录 / 以及 /bin、/boot、/etc、/usr、/var 等系统目录，添加后不会生效。' },
           { id: 'host', k: '主机', t: 'one', req: 1, o: ['web-prod-01', 'web-prod-02', 'web-prod-03', 'app-03', 'fin-win-01'] },
-          { id: 'md', k: '模式', t: 'ck', o: ['拦截', '只告警'], d: ['白名单之外的进程改写网页文件会被拦截，文件保持原样', '允许写入，但会生成告警；建议新站点先观察一周'] },
-          { id: 'ex', k: '排除目录', t: 'text', opt: 1, mono: 1, ph: 'upload/, cache/', h: '上传、缓存这类需要写入的子目录，多个用逗号分隔。' }],
-          def: { md: '拦截' },
-          pre: (r) => ({ dir: t1(r[0]), host: t1(r[1]), md: t1(r[2]), ex: t1(r[3]) === '—' ? '' : t1(r[3]) }),
-          out: (V, r) => [{ t: V.dir.trim(), mono: 1 }, V.host, V.md, (V.ex || '').trim() || '—', r ? r[4] : { t: '保护中', tag: 'ok' }] } },
+          { id: 'md', k: '模式', t: 'ck', o: ['拦截', '只告警'], d: ['白名单之外的进程改写网页文件会被拦截，文件保持原样；只支持 Windows 主机', '允许写入，但会生成告警；Linux 主机只支持这种模式'], h: (V) => (V.host && !/win/.test(V.host) ? '这台是 Linux 主机，只能用只告警（监控）。' : '') , hc: 'warn' },
+          { id: 'ft', k: '防护文件类型', t: 'text', opt: 1, mono: 1, ph: '.html .js .php', h: '为空时对所有文件生效。' },
+          { id: 'ex', k: '排除子路径', t: 'area', opt: 1, mono: 1, ph: '每行一个，例如 /var/www/html/upload', h: '只支持目录绝对路径，不能填文件路径；被排除的目录不受保护。' }],
+          def: { md: '只告警' },
+          pre: (r) => ({ dir: t1(r[0]), host: t1(r[1]), md: t1(r[2]), ft: t1(r[3]) === '全部' ? '' : t1(r[3]), ex: t1(r[4]) === '—' ? '' : lines(r[4]).join('\n') }),
+          out: (V, r) => [{ t: V.dir.trim(), mono: 1 }, V.host, V.host && !/win/.test(V.host) ? '只告警' : V.md, (V.ft || '').trim() || '全部', lines(V.ex).length ? { t: lines(V.ex).join(', '), mono: 1 } : '—', r ? r[5] : { t: '保护中', tag: 'ok' }] } },
       SecVirus: {
         '新建扫描': { f: [
           { id: 'nm', k: '任务名称', t: 'text', req: 1, ph: '例如 每日快速扫描' },
@@ -2043,8 +2068,8 @@ class Component extends DCLogic {
       SecBrute: {"添加白名单": [{"id": "a", "t": "text", "req": 1, "mono": 1, "ph": "IP 或网段"}, {"id": "b", "t": "dd", "o": ["全部主机"]}, {"id": "c", "t": "text", "req": 1, "ph": "为什么不算爆破"}, {"id": "d", "t": "auto", "v": "刚刚"}]}, SecLogin: {"添加白名单": [{"id": "a", "t": "text", "req": 1, "mono": 1, "ph": "IP、网段或账号"}, {"id": "b", "t": "dd", "o": ["全部主机"]}, {"id": "c", "t": "text", "req": 1, "ph": "为什么不算异常"}, {"id": "d", "t": "auto", "v": "刚刚"}]}, SecShell: {"添加白名单": [{"id": "a", "t": "text", "req": 1, "mono": 1, "ph": "进程或命令，支持 *"}, {"id": "b", "t": "text", "req": 1, "ph": "IP:端口"}, {"id": "c", "t": "dd", "o": ["全部主机"]}, {"id": "d", "t": "text", "req": 1, "ph": "例如 运维跳板"}]}, SecPriv: {"添加白名单": [{"id": "a", "t": "text", "req": 1, "mono": 1, "ph": "进程完整路径"}, {"id": "b", "t": "dd", "o": ["全部主机"]}, {"id": "c", "t": "text", "req": 1, "ph": "为什么需要提权"}, {"id": "d", "t": "auto", "v": "刚刚"}]}, SecCmd: {"添加白名单": [{"id": "a", "t": "text", "req": 1, "mono": 1, "ph": "命令或进程路径"}, {"id": "b", "t": "dd", "o": ["全部主机"]}, {"id": "c", "t": "text", "req": 1, "ph": "为什么不用检测"}, {"id": "d", "t": "auto", "v": "刚刚"}]},
       SecRules: { '添加例外': [{ id: 'a', t: 'text', req: 1, mono: 1, ph: '路径、命令或 IP' }, { id: 'b', t: 'dd', o: RULES }, { id: 'c', t: 'dd', o: ['全部主机'].concat(HH) }, { id: 'd', t: 'text', req: 1, ph: '为什么不用检测' }] },
       SecTamper: { '添加': [{ id: 'a', t: 'text', req: 1, mono: 1, ph: '进程或目录路径' }, { id: 'b', t: 'dd', o: ['全部站点', 'web-prod-01', 'web-prod-02', 'web-prod-03'] }, { id: 'c', t: 'text', req: 1, ph: '例如 发布系统同步代码' }] },
-      SecVirus: { '添加信任': [{ id: 'a', t: 'text', req: 1, mono: 1, ph: '文件路径或 sha256' }, { id: 'b', t: 'dd', o: ['全部主机'].concat(HH) }, { id: 'c', t: 'text', req: 1, ph: '例如 运维工具' }, { id: 'd', t: 'auto', v: '保存后生成' }] } };
-    const FS = (FXF[PG] || {})[T.add]; const IS = (INL[PG] || {})[T.add];
+      SecVirus: { '添加进程': [{ id: 'a', t: 'text', req: 1, mono: 1, ph: '进程名或完整路径' }, { id: 'b', t: 'dd', o: ['全部主机'].concat(HH) }, { id: 'c', t: 'text', req: 1, ph: '例如 视频转码' }, { id: 'd', t: 'auto', v: '刚刚' }], "": [{"id": "a", "t": "auto"}, {"id": "b", "t": "dd", "o": ["1 分钟", "5 分钟", "10 分钟", "30 分钟"]}, {"id": "c", "t": "dd", "o": ["50%", "60%", "70%", "80%", "90%"]}, {"id": "d", "t": "auto"}], '添加信任': [{ id: 'a', t: 'text', req: 1, mono: 1, ph: '文件路径或 sha256' }, { id: 'b', t: 'dd', o: ['全部主机'].concat(HH) }, { id: 'c', t: 'text', req: 1, ph: '例如 运维工具' }, { id: 'd', t: 'auto', v: '保存后生成' }] } };
+    const FK = T.fk != null ? T.fk : T.add; const FS = (FXF[PG] || {})[FK]; const IS = (INL[PG] || {})[FK];
     const inl = st.fxIn && st.fxIn.tab === tabN && IS ? st.fxIn : null;
     const nowS = () => { const d = new Date(); const p = (n) => String(n).padStart(2, '0'); return p(d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes()); };
     const inlOpen = (ri) => { const r = ri >= 0 ? rows0[ri] : null; const v = {}; IS.forEach((c, j) => { v[c.id] = r ? t1(r[j]) : c.t === 'dd' ? c.o[0] : ''; }); S({ fxIn: { tab: tabN, ri, v, err: 0, dd: '' } }); };
@@ -2097,10 +2122,10 @@ class Component extends DCLogic {
     const nm = (r) => (r[0] && typeof r[0] === 'object' ? r[0].t : String(r[0]));
     const rm = (i, msg) => { setRows(rows0.filter((x, j) => j !== i)); S({ fxCf: null }); toast(msg); };
     const CF = { '删除': ['删除「%」？', '删除后不能恢复。', '删除', true, '已删除'], '移除': ['移除「%」？', '移除后立即生效。', '移除', true, '已移除'], '彻底删除': ['彻底删除「%」？', '文件会从隔离区永久删除，不能恢复。', '彻底删除', true, '已删除'],
-      '恢复': ['恢复「%」？', '文件会还原到原来的位置。确认是误报的话，建议同时加入信任文件，否则下次扫描还会检出。', '恢复', false, '已恢复'], '解封': ['解封 %？', '解封后这个 IP 可以再次访问；如果它继续攻击，会被重新封禁。', '解封', false, '已解封'], '强制下线': ['让 % 下线？', '会立即断开这个会话，对方正在执行的命令会中断。', '强制下线', true, '已强制下线'] };
+      '下载': ['下载「%」的备份文件？', '文件用备份设置里的压缩密码加密，解压时需要输入。', '下载', false, '已开始下载'], '恢复': ['恢复「%」？', '文件会还原到原来的位置。确认是误报的话，建议同时加入信任文件，否则下次扫描还会检出。', '恢复', false, '已恢复'], '解封': ['解封 %？', '解封后这个 IP 可以再次访问；如果它继续攻击，会被重新封禁。', '解封', false, '已解封'], '强制下线': ['让 % 下线？', '会立即断开这个会话，对方正在执行的命令会中断。', '强制下线', true, '已强制下线'] };
     const act = (n, r, i) => {
       if (n === '查看主机' || n === '详情') { S({ fxDw: { k: n === '详情' ? 'kv' : 'hosts', ri: i } }); return; }
-      if (n === '编辑') { if (IS) inlOpen(i); else openForm(i); return; }
+      if (n === '编辑' || n === '配置') { if (IS) inlOpen(i); else openForm(i); return; }
       if (/^立即/.test(n)) { toast('已开始执行，完成后更新结果'); return; }
       if (n === '恢复' && PG === 'SecRansom') { S({ fxCf: { n, i, t: '用这份备份恢复 ' + r[2] + '？', p: '会覆盖主机上的现有文件，建议先确认业务已停写。', ok: '恢复', d: true, msg: '已开始恢复' } }); return; }
       if (/^(停用|启用|暂停|恢复)$/.test(n) && stI >= 0 && !(n === '恢复' && PG === 'SecVirus')) { const on = n === '启用' || n === '恢复'; const v = { t: on ? (PG === 'SecTamper' ? '保护中' : '启用') : n === '暂停' ? '已暂停' : '停用', tag: on ? 'ok' : 'mut' };
@@ -2116,12 +2141,12 @@ class Component extends DCLogic {
       else if (dw.k === 'hosts') { o.dw.t = nm(r); o.dw.hasHosts = true; const HN = ['web-prod-01', 'web-prod-02', 'web-prod-03', 'app-03', 'db-01', 'cache-01'];
         o.dw.hosts = HN.map((h, j) => ({ n: h, ip: '10.0.' + (1 + j) + '.' + (11 + j), href: 'SecHostDetail.dc.html?h=' + h })); o.dw.more = '共 ' + tx(r[T.cols.indexOf('主机')] || '').trim() + '，显示前 6 台'; }
       else if (dw.k === 'kv') { o.dw.t = nm(r); o.dw.hasKv = true; o.dw.kv = T.cols.map((k, j) => ({ k, v: tx(r[j]).trim() })); /* fix4：告警详情给处置建议和处置按钮 */ if (/告警|检出/.test(tabN)) { if (C0.adv) o.dw.kv.push({ k: '处置建议', v: C0.adv }); const sv = stI >= 0 ? tx(r[stI]).trim() : ''; const an = /已加白|已处理|已拦截|已封禁|已隔离|已解决/.test(sv) ? [] : T.ops.filter((n) => n !== '详情').concat(['标记已处理']); o.dw.acts = an.map((n) => ({ n, c: 'kc-btn', go: ev(() => { act(n, r, dw.ri); S({ fxDw: null }); }) })); o.dw.hasActs = an.length > 0; } }
-      else { o.dw.t = (r ? '编辑' : (T.add || '新建')) + (r ? '：' + nm(r) : ''); o.dw.hasForm = true; o.dw.okN = r ? '保存' : '添加';
+      else { o.dw.t = (r ? (T.edT || '编辑') : (T.add || '新建')) + (r ? '：' + nm(r) : ''); o.dw.hasForm = true; o.dw.okN = r ? '保存' : '添加';
         if (FS) { const F = fxForm(r); o.dw.form = F.fs; o.dw.ok = F.ok; } else {
         const fc = T.cols.filter((k) => !/状态|命中|时间|上次|剩余/.test(k));
         const t0 = (c) => (c && typeof c === 'object' ? c.t : String(c)); o.dw.form = fc.map((k) => ({ k, v: r ? t0(r[T.cols.indexOf(k)]) : '', ph: '请输入' + k }));
         o.dw.ok = ev(() => { S({ fxDw: null }); toast(r ? '已保存，约 1 分钟下发到主机' : '已添加，约 1 分钟下发到主机'); }); } } }
-    const cf = st.fxCf; o.cf = { on: !!cf, t: cf ? cf.t : '', p: cf ? cf.p : '', hasP: !!(cf && cf.p), okN: cf ? cf.ok : '', okC: cf && cf.d ? 'kc-btn fx-danger' : 'kc-btn pri', x: ev(() => S({ fxCf: null })), ok: ev(() => { if (!cf) return; if (/恢复/.test(cf.n) && PG === 'SecRansom') { S({ fxCf: null }); toast(cf.msg); return; } rm(cf.i, cf.msg); }) };
+    const cf = st.fxCf; o.cf = { on: !!cf, t: cf ? cf.t : '', p: cf ? cf.p : '', hasP: !!(cf && cf.p), okN: cf ? cf.ok : '', okC: cf && cf.d ? 'kc-btn fx-danger' : 'kc-btn pri', x: ev(() => S({ fxCf: null })), ok: ev(() => { if (!cf) return; if (cf.n === '超级密码' || cf.n === '下载') { S({ fxCf: null }); toast(cf.msg); return; } if (/恢复/.test(cf.n) && PG === 'SecRansom') { S({ fxCf: null }); toast(cf.msg); return; } rm(cf.i, cf.msg); }) };
     return { fx: o };
   }
   _lg() {
