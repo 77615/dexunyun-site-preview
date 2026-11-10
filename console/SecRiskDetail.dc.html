@@ -608,7 +608,7 @@
     <div class="kc-foldbar"><label for="kcf-SecRiskDetail" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecRiskDetail" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecRiskDetail" class="kc-main sh sl">
       <div class="kc-hd"><div class="kc-hdl"><div class="sl-hd"><a class="sl-bk" href="#" onClick="{{ls.back}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg><span>{{ls.backN}}</span></a><h1 class="kc-h1">{{ls.n}}</h1><span class="sl-tg"><i class="{{ls.lv}}"></i>{{ls.lvT}}</span><span class="{{ls.stc}}">{{ls.st}}</span></div></div>
-        <div class="kc-btns"><sc-if value="{{ls.rcOn}}" hint-placeholder-val="{{false}}"><button type="button" class="{{ls.rcC}}" onClick="{{ls.rcGo}}">{{ls.rcN}}</button></sc-if><sc-if value="{{ls.canAct}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{ls.ign}}">忽略</button><button type="button" class="kc-btn pri" onClick="{{ls.doAct}}">{{ls.act}}</button></sc-if><sc-if value="{{ls.canRe}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{ls.re}}">{{ls.reN}}</button></sc-if></div></div>
+        <div class="kc-btns"><a class="kc-btn" href="{{ls.tk}}">提交安全工单</a><sc-if value="{{ls.rcOn}}" hint-placeholder-val="{{false}}"><button type="button" class="{{ls.rcC}}" onClick="{{ls.rcGo}}">{{ls.rcN}}</button></sc-if><sc-if value="{{ls.canAct}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{ls.ign}}">忽略</button><button type="button" class="kc-btn pri" onClick="{{ls.doAct}}">{{ls.act}}</button></sc-if><sc-if value="{{ls.canRe}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{ls.re}}">{{ls.reN}}</button></sc-if></div></div>
       <sc-if value="{{ls.rcMsgOn}}" hint-placeholder-val="{{false}}"><div class="{{ls.rcMc}}"><i>{{ls.rcMi}}</i><span>{{ls.rcMsg}}</span></div></sc-if>
       <section class="kc-card"><div class="kc-ch"><h2>基本信息</h2></div>
         <div class="sl-kv"><div><small>编号</small><span>{{ls.id}}</span></div><div><small>类型</small><span>{{ls.ty}}</span></div><div><small>检测项</small><span>{{ls.src}}</span></div><div><small>首次发现</small><span>{{ls.t}}</span></div>
@@ -1621,7 +1621,7 @@ class Component extends DCLogic {
         const FAIL = { R3: r0.hs[0] + ' 上 OpenSSH 仍是 8.7p1，没有升级到 9.8p1。请按「怎么处理」升级并重启 sshd 后再检测。' };
         const run = ev(() => { if (rc === 'chk') return; const n = tries + 1; S({ rc: Object.assign({}, st.rc || {}, { [r0.id]: 'chk' }), rcN: Object.assign({}, st.rcN || {}, { [r0.id]: n }) });
           setTimeout(() => { const s2 = this.state || {}; const pass = n > 1; this.setState({ rc: Object.assign({}, s2.rc || {}, { [r0.id]: pass ? 'ok' : 'fail' }), rst: pass ? Object.assign({}, s2.rst || {}, { [r0.id]: '已解决' }) : (s2.rst || {}) }); }, 1400); });
-        ls.rcOn = canRc || rc === 'chk'; ls.rcN = rc === 'chk' ? '检测中…' : rc === 'fail' ? '修复后再次检测' : '我已修复，重新检测'; ls.rcC = rc === 'chk' ? 'kc-btn dis' : 'kc-btn'; ls.rcGo = run;
+        ls.tk = 'SupTicketNew.dc.html?risk=' + encodeURIComponent(ls.id || '') + '&rn=' + encodeURIComponent(ls.n || ''); ls.rcOn = canRc || rc === 'chk'; ls.rcN = rc === 'chk' ? '检测中…' : rc === 'fail' ? '修复后再次检测' : '我已修复，重新检测'; ls.rcC = rc === 'chk' ? 'kc-btn dis' : 'kc-btn'; ls.rcGo = run;
         const M = rc === 'chk' ? ['ig7-bn', 'i', '正在对 ' + r0.hs.length + ' 台主机重新检测，大约 10 秒。'] : rc === 'fail' ? ['ig7-bn e', '!', '复检未通过：' + (FAIL[r0.id] || r0.hs[0] + ' 上仍检测到这个问题，请修复后再检测。')] : rc === 'ok' ? ['ig7-bn ok', '✓', '复检通过，已解决。只有复检通过才会关闭这类风险。'] : null;
         ls.rcMsgOn = !!M; ls.rcMc = M ? M[0] : ''; ls.rcMi = M ? M[1] : ''; ls.rcMsg = M ? M[2] : '';
         if (rc === 'chk') { ls.st = '检测中'; ls.stc = 'sl-st'; } else if (rc === 'fail') { ls.st = '未解决'; ls.stc = 'sl-st r'; }
@@ -1738,7 +1738,7 @@ class Component extends DCLogic {
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
-      ['授权', 'sh-nk o', '企业版授权 10-25 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
+      ['授权', 'sh-nk o', '企业版授权 11-01 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',

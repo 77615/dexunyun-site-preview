@@ -121,6 +121,12 @@
           <sc-for list="{{mx}}" as="r" hint-placeholder-count="5"><tr><td>{{r.n}}</td><sc-for list="{{r.v}}" as="v" hint-placeholder-count="4"><td><button type="button" class="{{v.cls}}" aria-label="{{v.l}}" onClick="{{v.go}}"></button></td></sc-for></tr></sc-for>
         </tbody></table></div>
         <div class="ac-pf"><span class="kc-sub">安全事件和付款核验结果的站内信、短信不可关闭</span></div>
+        <div class="kc-tw" style="margin-top:16px"><table class="kc-t"><thead><tr><th style="width:180px">全平台规则</th><th>说明</th></tr></thead><tbody>
+          <tr><td>接收人</td><td>每个资源的通知发给它的资产负责人和主账号；资产负责人在「成员管理」里按资源指定。各产品不再单独维护联系人。</td></tr>
+          <tr><td>夜间免打扰</td><td>22:00–08:00（示例值）的短信和电话顺延到 8 点；紧急安全告警、正在遭受攻击、IP 被封堵不受影响。</td></tr>
+          <tr><td>同类合并</td><td>同一资源 30 分钟（示例值）内的同类通知只发一次。</td></tr>
+          <tr><td>产品内设置</td><td>各产品控制台只设置「什么情况下发通知」，比如 DDoS 攻击阈值、德迅安全卫士各风险级别。</td></tr>
+        </tbody></table></div>
         </sc-if>
       </section>
     </main>
@@ -746,22 +752,22 @@ class Component extends DCLogic {
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
-    const tab = st.ft || '消息';
-    const tabs = [['消息', 3], ['接收设置', '']].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ ft: n }) }));
+    const tab = st.ft || ((typeof location !== 'undefined' && /[?&]tab=set/.test(location.search)) ? '提醒设置' : '消息');
+    const tabs = [['消息', 3], ['提醒设置', '']].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ ft: n }) }));
     const all = !!st.all; const cat = st.cat || '全部';
     const M = [['安全', 'err', '高防-002 正在遭受 UDP Flood 攻击', '峰值 86 Gbps，已超过保底 80 Gbps', '10:12', 'DdosInstances.dc.html', '处理', 1],
       ['安全', 'err', '德迅云眼发现 3 个高危风险', 'www.example.com 首页被植入暗链', '09:40', 'EyeRisk.dc.html', '处理', 1],
       ['费用', 'warn', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPayFix.dc.html', '补充', 1],
       ['费用', 'mut', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'BillInvoice.dc.html', '查看', 0],
       ['账号', 'mut', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'OrgSecurity.dc.html', '查看', 0],
-      ['产品', 'mut', '德迅安全卫士 dx-guard-01 已到期', '资源保留至 11-08，续费后恢复防护', '10-25', 'BillConfirm.dc.html', '续费', 0]];
+      ['产品', 'mut', '德迅安全卫士 dx-guard-01 已到期', '资源保留至 11-08，续费后恢复防护', '11-01', 'BillConfirm.dc.html', '续费', 0]];
     const cats = ['全部', '安全', '费用', '产品', '账号'].map((n) => ({ n, cls: n === cat ? 'on' : '', go: () => this.setState({ cat: n }) }));
     const msgs = M.filter((m) => cat === '全部' || m[0] === cat).map(([c, tc, t, s, d, href, a, u]) => { const un = u && !all; return { c, tc: 'kc-tag ' + tc, t, s, d, href, a, dc: un ? '' : 'r', bc: un ? '' : 'r' }; });
     const on = st.on || {};
     const MX = [['安全事件', '1111'], ['费用与付款', '1110'], ['到期与续费', '1101'], ['产品动态与公告', '1000'], ['账号与登录', '1100']];
     const mx = MX.map(([n, d], i) => ({ n, v: d.split('').map((x, j) => { const k = i + '-' + j; const v = on[k] === undefined ? x === '1' : on[k]; return { cls: v ? 'ac-cbx on' : 'ac-cbx', l: n, go: () => this.setState({ on: Object.assign({}, on, { [k]: !v }) }) }; }) }));
 
-    return Object.assign({ nav }, { tabs, isList: tab === '消息', isSet: tab === '接收设置', cats, msgs, readAll: () => this.setState({ all: true }), mx });
+    return Object.assign({ nav }, { tabs, isList: tab === '消息', isSet: tab === '提醒设置', cats, msgs, readAll: () => this.setState({ all: true }), mx });
   }
 }
 </script>

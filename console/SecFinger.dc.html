@@ -2340,7 +2340,7 @@ class Component extends DCLogic {
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
-      ['授权', 'sh-nk o', '企业版授权 10-25 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
+      ['授权', 'sh-nk o', '企业版授权 11-01 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',

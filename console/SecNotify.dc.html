@@ -616,8 +616,7 @@
       <section class="kc-card"><div class="kc-ch"><h2>接收人</h2><a class="sl-op" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">在用户中心添加成员</a></div><div class="st-pn"><div class="st-pp"><sc-for list="{{st.ppl}}" as="p" hint-placeholder-count="4"><button type="button" class="{{p.c}}" aria-pressed="{{p.on}}" onClick="{{p.pick}}"><i>{{p.i}}</i>{{p.n}}<span class="sl-sub" style="margin:0">{{p.d}}</span></button></sc-for></div><p class="sl-n" style="margin:12px 0 0">另外，每台服务器的风险还会通知它的<b>资产负责人</b>（在「企业 › 成员」里按服务器指定）；子账号只收到自己负责的服务器的通知，主账号始终能收到全部。</p></div></section>
       <section class="kc-card"><div class="kc-ch"><h2>通知规则</h2><span class="sl-n">站内信始终开启</span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>通知内容</th><th>站内信</th><th>短信</th><th>邮件</th><th>企业微信</th></tr></thead><tbody>
         <sc-for list="{{st.rules}}" as="r" hint-placeholder-count="6"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.d}}</div></td><sc-for list="{{r.ch}}" as="c" hint-placeholder-count="4"><td><button type="button" class="{{c.c}}" role="switch" aria-checked="{{c.a}}" aria-label="{{c.l}}" onClick="{{c.tog}}"></button></td></sc-for></tr></sc-for></tbody></table></div></section>
-      <section class="kc-card"><div class="kc-ch"><h2>免打扰</h2></div><div class="st-sws"><div class="kc-sw-row"><div>夜间免打扰<div class="kc-sub">22:00–08:00（示例值）的短信和电话顺延到早上 8 点发送，紧急告警不受影响</div></div><button type="button" class="{{st.dnC}}" role="switch" aria-checked="{{st.dnA}}" aria-label="夜间免打扰" onClick="{{st.dnT}}"></button></div>
-        <div class="kc-sw-row"><div>同类告警合并<div class="kc-sub">同一台主机 30 分钟内的同类告警只通知一次（示例值）</div></div><button type="button" class="{{st.mgC}}" role="switch" aria-checked="{{st.mgA}}" aria-label="同类告警合并" onClick="{{st.mgT}}"></button></div></div>
+      <section class="kc-card"><div class="kc-ch"><h2>免打扰与合并</h2><a class="sl-op" href="Notifications.dc.html?tab=set">去用户中心「提醒设置」</a></div><p class="sl-n" style="margin:0">夜间免打扰和同类告警合并是全平台统一规则，在用户中心「消息 › 提醒设置」里查看。这里只设置每个级别的告警发不发、走哪些渠道。</p>
         <div class="st-ft"><span>{{st.chg}}</span><button type="button" class="kc-btn" onClick="{{st.reset}}">还原</button><button type="button" class="{{st.svC}}" onClick="{{st.save}}">保存</button></div></section>
       <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{st.toast.c}}"></i>{{st.toast.t}}</div></sc-if>
     </main>
@@ -1431,7 +1430,7 @@ class Component extends DCLogic {
       o.sws = [['新主机自动绑定授权', '有剩余授权时，新接入的主机自动绑定；没有剩余时只告警不防护', ab, () => { S({ lsAb: !ab }); toast(!ab ? '已开启自动绑定' : '已关闭自动绑定，新主机需要手动绑定', 'info'); }]]
         .map(([n, d, v, f]) => Object.assign({ n, d, tog: ev(f) }, sw(v)));
       const lk = (n) => ({ n, href: UC, go: undefined });
-      o.lics = [['LIC-20251026-0031', '德迅安全卫士 · 企业版', '企业版（含 AI 研判）', '64 / 64', '2025-10-26 至 2026-10-25', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费'), lk('扩容')]]]
+      o.lics = [['LIC-20251026-0031', '德迅安全卫士 · 企业版', '企业版（含 AI 研判）', '64 / 64', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费'), lk('扩容')]]]
         .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops: ops.concat(id.indexOf('LIC') === 0 ? [{ n: '绑定主机', href: '#', go: ev(() => toast('打开绑定主机列表：50 台已绑定', 'info')) }] : []) }));
     }
     if (PG === 'SecAgent') {
@@ -1689,7 +1688,7 @@ class Component extends DCLogic {
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
-      ['授权', 'sh-nk o', '企业版授权 10-25 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
+      ['授权', 'sh-nk o', '企业版授权 11-01 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',

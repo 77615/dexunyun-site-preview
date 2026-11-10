@@ -844,7 +844,7 @@
           <section class="kc-card sh-lic {{sx.lic.cls}}">
             <div class="sh-lic-top"><i class="sh-lic-md" aria-hidden="true"></i><div class="sh-lic-nm"><small>德迅安全卫士</small><b onClick="{{sx.lic.flip}}" title="设计预览：点击切换基础版 / 企业版样式">{{sx.lic.ed}}</b></div><span class="sh-lic-tag">{{sx.lic.tag}}</span></div>
             <div class="sh-lic-use"><div class="sh-lic-uh"><span>授权台数</span><span class="sh-lic-n"><b>65</b><em>/ 64 台</em></span></div><div class="sh-lic-bar"><i></i></div><p class="sh-lic-ov">已超额 1 台（app-07），这台只告警不防护</p></div>
-            <div class="sh-lic-row"><span>到期</span><em>10-25 · 数据保留至 11-08</em></div><div class="sh-lic-row"><span>授权明细</span><em><a href="#" onClick="{{sx.go.lic}}">授权管理</a></em></div>
+            <div class="sh-lic-row"><span>到期</span><em>11-01 · 数据保留至 11-08</em></div><div class="sh-lic-row"><span>授权明细</span><em><a href="#" onClick="{{sx.go.lic}}">授权管理</a></em></div>
             <div class="sh-lic-act"><a class="kc-btn pri sh-lic-b" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">{{sx.lic.pb}}</a><a class="kc-btn sh-lic-b" href="https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50">续费</a></div>
           </section>
           <section class="kc-card sh-ntf"><div class="sh-ntf-h"><i class="sh-ntf-ic" aria-hidden="true"></i><h2>告警通知</h2><a href="#" onClick="{{sx.go.notify}}">设置</a></div>
@@ -2058,7 +2058,7 @@ class Component extends DCLogic {
       ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '客户端没有改密权限，确认以 root 运行后重试', '处置记录', SD, '重试', 0]];
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
-    const NB = [['授权已到期', 'sh-nk r', '企业版授权 10-25 已到期，宽限期还剩 4 天：11-08 后停止检测并清理数据；另有 1 台主机（app-07）超出授权', '去续费', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
+    const NB = [['授权已到期', 'sh-nk r', '企业版授权 11-01 已到期，宽限期还剩 4 天：11-08 后停止检测并清理数据；另有 1 台主机（app-07）超出授权', '去续费', 'https://claude.ai/artifact/E1uuQ8QtSKdrmFcHHxSRR9#play-193923411f50'],
       ['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
