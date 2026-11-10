@@ -917,7 +917,7 @@
           <sc-if value="{{fx.dw.hasKv}}" hint-placeholder-val="{{false}}"><dl class="fx-kv"><sc-for list="{{fx.dw.kv}}" as="k" hint-placeholder-count="5"><dt>{{k.k}}</dt><dd>{{k.v}}</dd></sc-for></dl></sc-if>
           <sc-if value="{{fx.dw.hasForm}}" hint-placeholder-val="{{false}}"><div class="fx-form"><sc-for list="{{fx.dw.form}}" as="f" hint-placeholder-count="4"><div class="{{f.c}}"><div class="fx-fl"><span>{{f.k}}</span><sc-if value="{{f.req}}" hint-placeholder-val="{{false}}"><em>*</em></sc-if><sc-if value="{{f.opt}}" hint-placeholder-val="{{false}}"><i>选填</i></sc-if></div><sc-if value="{{f.isT}}" hint-placeholder-val="{{true}}"><input class="{{f.ic}}" type="text" value="{{f.v}}" placeholder="{{f.ph}}" aria-label="{{f.k}}" onChange="{{f.on}}"></sc-if><sc-if value="{{f.isA}}" hint-placeholder-val="{{false}}"><textarea class="{{f.ac}}" aria-label="{{f.k}}" placeholder="{{f.ph}}" value="{{f.v}}" onChange="{{f.on}}"></textarea></sc-if><sc-if value="{{f.isSg}}" hint-placeholder-val="{{false}}"><div class="kc-sg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCk}}" hint-placeholder-val="{{false}}"><div class="kc-ckg fx-ckg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="2"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}"><i></i><div><b>{{o.n}}</b><span>{{o.d}}</span></div></button></sc-for></div></sc-if><sc-if value="{{f.isCh}}" hint-placeholder-val="{{false}}"><div class="fx-chs" aria-label="{{f.k}}"><sc-for list="{{f.ch}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isRl}}" hint-placeholder-val="{{false}}"><div class="fx-rl"><table><thead><tr><th style="width:132px">协议</th><th style="width:96px">端口</th><th>来源</th><th style="width:104px">策略</th><th style="width:36px"></th></tr></thead><tbody><sc-for list="{{f.rl}}" as="x" hint-placeholder-count="2"><tr><td><div class="kc-sg"><sc-for list="{{x.pr}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></td><td><input class="kc-in fx-mono" type="text" value="{{x.port}}" placeholder="80,443" aria-label="端口" onChange="{{x.onP}}"></td><td><input class="kc-in fx-mono" type="text" value="{{x.src}}" placeholder="0.0.0.0/0" aria-label="来源" onChange="{{x.onS}}"></td><td><div class="kc-sg"><sc-for list="{{x.ac}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></td><td><a class="sl-op fx-d" href="#" aria-label="删除这条规则" onClick="{{x.rm}}">删除</a></td></tr></sc-for></tbody></table><div class="fx-rla"><a class="sl-op" href="#" onClick="{{f.addR}}">+ 添加一条规则</a><span>按从上到下的顺序匹配，共 {{f.rlN}}</span></div></div></sc-if><sc-if value="{{f.hasH}}" hint-placeholder-val="{{false}}"><p class="{{f.hc}}">{{f.h}}</p></sc-if><sc-if value="{{f.err}}" hint-placeholder-val="{{false}}"><p class="fx-err">{{f.em}}</p></sc-if></div></sc-for></div></sc-if>
         </div>
-        <footer><button type="button" class="kc-btn" onClick="{{fx.dw.x}}">取消</button><sc-if value="{{fx.dw.hasForm}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn pri" onClick="{{fx.dw.ok}}">{{fx.dw.okN}}</button></sc-if></footer></aside></sc-if>
+        <footer><button type="button" class="kc-btn" onClick="{{fx.dw.x}}">取消</button><sc-if value="{{fx.dw.hasActs}}" hint-placeholder-val="{{false}}"><sc-for list="{{fx.dw.acts}}" as="a" hint-placeholder-count="2"><button type="button" class="{{a.c}}" onClick="{{a.go}}">{{a.n}}</button></sc-for></sc-if><sc-if value="{{fx.dw.hasForm}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn pri" onClick="{{fx.dw.ok}}">{{fx.dw.okN}}</button></sc-if></footer></aside></sc-if>
       <sc-if value="{{fx.cf.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx sh-mc"><div class="sh-md" role="dialog" aria-modal="true" aria-label="{{fx.cf.t}}"><h3>{{fx.cf.t}}</h3><sc-if value="{{fx.cf.hasP}}" hint-placeholder-val="{{true}}"><p>{{fx.cf.p}}</p></sc-if>
         <div class="sh-mf"><button type="button" class="kc-btn" onClick="{{fx.cf.x}}">取消</button><button type="button" class="{{fx.cf.okC}}" onClick="{{fx.cf.ok}}">{{fx.cf.okN}}</button></div></div></div></sc-if>
       <sc-if value="{{fx.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{fx.toast.c}}"></i>{{fx.toast.t}}</div></sc-if>
@@ -1904,6 +1904,32 @@ class Component extends DCLogic {
     const HOSTS = (id, k, h) => ({ id, k, t: 'hosts', req: 1, h });
     const ON = { t: '启用', tag: 'ok' };
     const FXF = {
+      SecBrute: {
+        '新建规则': { f: [
+          { id: 'nm', k: '规则名称', t: 'text', req: 1, ph: '例如 SSH 爆破封禁' },
+          { id: 'svc', k: '登录服务', t: 'sg', o: ['SSH', 'RDP', '数据库', 'FTP'] },
+          { id: 'win', k: '统计时间', t: 'sg', o: ['1 分钟', '5 分钟', '10 分钟', '30 分钟'] },
+          { id: 'cnt', k: '失败次数', t: 'text', req: 1, w: 'sm', ph: '10', h: (V) => V.win + '内同一来源 IP 失败达到这个次数就封禁。' },
+          { id: 'dur', k: '封禁时长', t: 'sg', o: ['30 分钟', '1 小时', '24 小时', '永久'], h: (V) => (V.dur === '永久' ? '永久封禁需要在网络防火墙手动解封，误封内网地址会影响业务，请先把内网网段加入白名单。' : '到期自动解封，封禁记录在拦截日志。') },
+          HOSTS('host', '生效范围')],
+          def: { svc: 'SSH', win: '5 分钟', cnt: '10', dur: '1 小时', host: { m: '全部主机', s: [] } },
+          pre: (r) => { const n = t1(r[0]); const m = /(\d+) 分钟内失败 (\d+) 次/.exec(t1(r[1])) || []; return { nm: n, svc: /RDP/.test(n) ? 'RDP' : /数据库/.test(n) ? '数据库' : /FTP/.test(n) ? 'FTP' : 'SSH', win: (m[1] || '5') + ' 分钟', cnt: m[2] || '10', dur: t1(r[2]), host: hsP(r[3]) }; },
+          out: (V, r) => [V.nm.trim(), V.win + '内失败 ' + String(V.cnt).trim() + ' 次', V.dur, hsV(V.host), r ? r[4] : ON] } },
+      SecLogin: {
+        '添加登录地': { f: [
+          { id: 'loc', k: '常用登录地', t: 'ch', req: 1, o: ['北京', '上海', '浙江', '江苏', '广东', '四川', '湖北', '香港'], h: '从其他地区登录会生成异常登录告警。' },
+          HOSTS('host', '适用主机')],
+          def: { loc: [], host: { m: '全部主机', s: [] } },
+          pre: (r) => ({ loc: t1(r[0]).split('、'), host: hsP(r[1]) }),
+          out: (V, r) => [(V.loc || []).join('、'), hsV(V.host), '刚刚', r ? r[3] : ON] },
+        '添加时间段': { f: [
+          { id: 'dy', k: '日期', t: 'sg', o: ['工作日', '每天', '周末'] },
+          { id: 'fr', k: '开始', t: 'text', req: 1, w: 'sm', ph: '08:00' },
+          { id: 'to', k: '结束', t: 'text', req: 1, w: 'sm', ph: '22:00', h: '这个时间段以外的登录会生成异常登录告警。' },
+          HOSTS('host', '适用主机')],
+          def: { dy: '工作日', fr: '08:00', to: '22:00', host: { m: '全部主机', s: [] } },
+          pre: (r) => { const m = /^(\S+) (\d\d:\d\d)–(\d\d:\d\d)/.exec(t1(r[0])) || []; return { dy: m[1] || '工作日', fr: m[2] || '', to: m[3] || '', host: hsP(r[1]) }; },
+          out: (V, r) => [V.dy + ' ' + V.fr.trim() + '–' + V.to.trim(), hsV(V.host), r ? r[2] : ON] } },
       SecFirewall: {
         '新建规则': { f: [
           { id: 'tp', k: '目标类型', t: 'sg', o: ['IP 或网段', '域名', '地址类别', '威胁情报库'] },
@@ -2071,7 +2097,7 @@ class Component extends DCLogic {
     const nm = (r) => (r[0] && typeof r[0] === 'object' ? r[0].t : String(r[0]));
     const rm = (i, msg) => { setRows(rows0.filter((x, j) => j !== i)); S({ fxCf: null }); toast(msg); };
     const CF = { '删除': ['删除「%」？', '删除后不能恢复。', '删除', true, '已删除'], '移除': ['移除「%」？', '移除后立即生效。', '移除', true, '已移除'], '彻底删除': ['彻底删除「%」？', '文件会从隔离区永久删除，不能恢复。', '彻底删除', true, '已删除'],
-      '恢复': ['恢复「%」？', '', '恢复', false, '已恢复'], '解封': ['解封 %？', '解封后这个 IP 可以再次访问；如果它继续攻击，会被重新封禁。', '解封', false, '已解封'], '强制下线': ['让 % 下线？', '会立即断开这个会话，对方正在执行的命令会中断。', '强制下线', true, '已强制下线'] };
+      '恢复': ['恢复「%」？', '文件会还原到原来的位置。确认是误报的话，建议同时加入信任文件，否则下次扫描还会检出。', '恢复', false, '已恢复'], '解封': ['解封 %？', '解封后这个 IP 可以再次访问；如果它继续攻击，会被重新封禁。', '解封', false, '已解封'], '强制下线': ['让 % 下线？', '会立即断开这个会话，对方正在执行的命令会中断。', '强制下线', true, '已强制下线'] };
     const act = (n, r, i) => {
       if (n === '查看主机' || n === '详情') { S({ fxDw: { k: n === '详情' ? 'kv' : 'hosts', ri: i } }); return; }
       if (n === '编辑') { if (IS) inlOpen(i); else openForm(i); return; }
@@ -2079,17 +2105,17 @@ class Component extends DCLogic {
       if (n === '恢复' && PG === 'SecRansom') { S({ fxCf: { n, i, t: '用这份备份恢复 ' + r[2] + '？', p: '会覆盖主机上的现有文件，建议先确认业务已停写。', ok: '恢复', d: true, msg: '已开始恢复' } }); return; }
       if (/^(停用|启用|暂停|恢复)$/.test(n) && stI >= 0 && !(n === '恢复' && PG === 'SecVirus')) { const on = n === '启用' || n === '恢复'; const v = { t: on ? (PG === 'SecTamper' ? '保护中' : '启用') : n === '暂停' ? '已暂停' : '停用', tag: on ? 'ok' : 'mut' };
         setRows(rows0.map((x, j) => (j === i ? x.map((c, k) => (k === stI ? v : c)) : x))); toast((on ? '已' + n : '已' + n) + '「' + nm(r) + '」'); return; }
-      if ((n === '加白' || n === '标记已处理' || n === '隔离') && stI >= 0) { const nr = rows0.map((x, j) => (j === i ? x.map((c, k) => (k === stI ? { t: n === '加白' ? '已加白' : n === '隔离' ? '已隔离' : '已处理', tag: 'mut' } : c)) : x)); const mv = (C0.cap.mv || {})[n]; /* fix3：处置结果写进目标页签 */ if (mv) { const tt = C0.tabs.find((x) => x[0] === mv[0]); const cur = RS[mv[0]] || (tt ? tt[1].rows : []); const add = mv[1].map((j) => (typeof j === 'number' ? r[j] : j === '@now' ? nowS() : j)); S({ fxR: Object.assign({}, RS, { [tabN]: nr, [mv[0]]: [add].concat(cur) }) }); } else setRows(nr); toast(n === '加白' ? '已加入白名单，同类行为不再告警' : n === '隔离' ? '文件已移到隔离区，30 天内可恢复' : '已标记为已处理，告警中心同步更新'); return; }
+      if ((n === '加白' || n === '标记已处理' || n === '隔离') && stI >= 0) { const nr = rows0.map((x, j) => (j === i ? x.map((c, k) => (k === stI ? { t: n === '加白' ? '已加白' : n === '隔离' ? '已隔离' : '已处理', tag: 'mut' } : c)) : x)); const mv = (C0.cap.mv || {})[n]; /* fix3：处置结果写进目标页签 */ if (mv) { const tt = C0.tabs.find((x) => x[0] === mv[0]); const cur = RS[mv[0]] || (tt ? tt[1].rows : []); const add = mv[1].map((j) => (typeof j === 'number' ? r[j] : j === '@now' ? nowS() : /^#\d+$/.test(j) ? (j === mv[1][0] ? { t: t1(r[+j.slice(1)]), mono: 1 } : t1(r[+j.slice(1)])) : j)); S({ fxR: Object.assign({}, RS, { [tabN]: nr, [mv[0]]: [add].concat(cur) }) }); } else setRows(nr); toast(n === '加白' ? (mv ? '已加入「' + mv[0] + '」，同类行为不再告警' : '已加入白名单，同类行为不再告警') : n === '隔离' ? '文件已移到隔离区，30 天内可恢复' : '已标记为已处理，告警中心同步更新'); return; }
       const cf = CF[n]; if (cf) S({ fxCf: { n, i, t: cf[0].replace('%', nm(r)), p: cf[1], ok: cf[2], d: cf[3], msg: cf[4] } });
     };
     // 抽屉
-    const dw = st.fxDw; o.dw = { on: !!dw, t: '', kv: [], hosts: [], hasHosts: false, hasKv: false, hasSw: false, sw: [], note: '', rsOn: false, rs: null, form: [], hasForm: false, okN: '', x: ev(() => S({ fxDw: null, fxV: null, fxErr: 0 })), ok: ev(() => {}) };
+    const dw = st.fxDw; o.dw = { on: !!dw, t: '', acts: [], hasActs: false, kv: [], hosts: [], hasHosts: false, hasKv: false, hasSw: false, sw: [], note: '', rsOn: false, rs: null, form: [], hasForm: false, okN: '', x: ev(() => S({ fxDw: null, fxV: null, fxErr: 0 })), ok: ev(() => {}) };
     if (dw) { const r = dw.ri >= 0 ? rows0[dw.ri] : null;
       if (dw.k === 'host' && capHost) { const c = capHost(dw.hn); o.dw.t = c.t; o.dw.hasSw = true; o.dw.sw = c.sw; o.dw.note = c.note; o.dw.rsOn = c.rsOn; o.dw.rs = c.rs; o.dw.rsN = '恢复跟随模式'; }
       else if (dw.k === 'items' && capItems) { const c = capItems(); o.dw.t = c.t; o.dw.hasSw = true; o.dw.sw = c.sw; o.dw.note = c.note; o.dw.rsOn = c.rsOn; o.dw.rs = c.rs; o.dw.rsN = '恢复模式默认'; }
       else if (dw.k === 'hosts') { o.dw.t = nm(r); o.dw.hasHosts = true; const HN = ['web-prod-01', 'web-prod-02', 'web-prod-03', 'app-03', 'db-01', 'cache-01'];
         o.dw.hosts = HN.map((h, j) => ({ n: h, ip: '10.0.' + (1 + j) + '.' + (11 + j), href: 'SecHostDetail.dc.html?h=' + h })); o.dw.more = '共 ' + tx(r[T.cols.indexOf('主机')] || '').trim() + '，显示前 6 台'; }
-      else if (dw.k === 'kv') { o.dw.t = nm(r); o.dw.hasKv = true; o.dw.kv = T.cols.map((k, j) => ({ k, v: tx(r[j]).trim() })).concat([{ k: '说明', v: '命中后在告警中心生成告警，处置方式按主机所用的防护策略执行。' }]); }
+      else if (dw.k === 'kv') { o.dw.t = nm(r); o.dw.hasKv = true; o.dw.kv = T.cols.map((k, j) => ({ k, v: tx(r[j]).trim() })); /* fix4：告警详情给处置建议和处置按钮 */ if (/告警|检出/.test(tabN)) { if (C0.adv) o.dw.kv.push({ k: '处置建议', v: C0.adv }); const sv = stI >= 0 ? tx(r[stI]).trim() : ''; const an = /已加白|已处理|已拦截|已封禁|已隔离|已解决/.test(sv) ? [] : T.ops.filter((n) => n !== '详情').concat(['标记已处理']); o.dw.acts = an.map((n) => ({ n, c: 'kc-btn', go: ev(() => { act(n, r, dw.ri); S({ fxDw: null }); }) })); o.dw.hasActs = an.length > 0; } }
       else { o.dw.t = (r ? '编辑' : (T.add || '新建')) + (r ? '：' + nm(r) : ''); o.dw.hasForm = true; o.dw.okN = r ? '保存' : '添加';
         if (FS) { const F = fxForm(r); o.dw.form = F.fs; o.dw.ok = F.ok; } else {
         const fc = T.cols.filter((k) => !/状态|命中|时间|上次|剩余/.test(k));
