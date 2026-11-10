@@ -117,12 +117,15 @@
         <div class="kc-cb"><div class="ac-stats c3" style="margin:0"><div class="ac-st"><span>授权总数</span><b>64 <small>台</small></b></div><div class="ac-st r"><span>已使用</span><b>65 <small>台</small></b><em>使用率 101.6%</em></div><div class="ac-st r"><span>超出</span><b>1 <small>台</small></b><em>超出的主机不受保护<a href="BillConfirm.dc.html">扩容</a></em></div></div></div>
         <div class="kc-ch" style="border-top:1px solid #f2f3f5"><h2>产品资料</h2></div>
         <div class="kc-cb"><div class="ac-kv"><div><span>产品名称</span>德迅安全卫士</div><div><span>所属分类</span>主机安全</div><div><span>服务数量</span>2 项有效 · 0 项已释放</div><div><span>首次购买</span>2026-01-26</div></div></div>
+        <div class="kc-ch" style="border-top:1px solid #f2f3f5"><h2>续费意向</h2></div>
+        <div class="kc-cb"><div class="lp-swr" style="display:flex;align-items:center;gap:16px;max-width:720px"><div style="flex:1"><b>到期不续</b><small style="display:block;color:#86909c;margin-top:4px;line-height:1.6">打开后不再发续费提醒，到期保留 7 天后释放；随时可以关掉。只改续费意向，不生成订单。不支持降配：想换小规格，打开到期不续，到期后再买新规格。</small></div><button type="button" class="kc-sw" role="switch" aria-checked="false" aria-label="到期不续"></button></div></div>
         </sc-if>
         <sc-if value="{{isSv}}" hint-placeholder-val="{{false}}">
         <div class="kc-tw"><table class="kc-t lf-st4 op-fix">
           <thead><tr><th>服务 / 资源</th><th>配置</th><th>授权使用量</th><th>状态</th><th>到期时间</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{svcs}}" as="r" hint-placeholder-count="2"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="5"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}" onClick="{{o.go}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
         </table></div>
+        <p class="kc-hint" style="margin:12px 16px">dx-guard-02 已有一张待付款的续费订单，所以这里显示「去付款」而不是再续费。同一服务有待付款、核验中或开通中的订单时，不能再续费、扩容或升级，先在订单里付款或取消。</p>
         </sc-if>
         <sc-if value="{{isOd}}" hint-placeholder-val="{{false}}">
         <div class="kc-tw"><table class="kc-t lf-st4 op-fix">
@@ -757,8 +760,8 @@ class Component extends DCLogic {
     const tab = st.ft || '概览';
     const tabs = [['概览', ''], ['服务实例', 2], ['关联订单', 4]].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ ft: n }) }));
     const svcs = [ROW([{ t: 'dx-guard-01', a: '#' }, '企业版 · 全局', { t: '65 / 64 台', c: 'r', s: '超出 1 台（app-07）', sc: 'r' }, { t: '运行中', tag: 'ok' }, '2027-01-26'], [['扩容', 'BillConfirm.dc.html'], ['转移权益', 'AcctTransfer.dc.html']]),
-      ROW([{ t: 'dx-guard-02', a: '#' }, '企业版 · 全局', '2 / 2 台', { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-11-01', s: '保留至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html']])];
-    const ods = [['DX20261007003', '扩容', '授权 +25 台', ['已完成', 'ok'], '¥25.00'], ['DX20260801004', '续费', 'dx-guard-02 续费 3 个月', ['已完成', 'ok'], '¥995.00'], ['DX20260412002', '扩容', '授权 +10 台', ['已完成', 'ok'], '¥990.00'], ['DX20260126001', '新购', '企业版 1 份 · 1 年', ['已完成', 'ok'], '¥3,980.00']]
+      ROW([{ t: 'dx-guard-02', a: '#' }, '企业版 · 全局', '2 / 2 台', { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-11-01', s: '保留至 11-08', sc: 'r' }], [['去付款', 'BillPayment.dc.html']])];
+    const ods = [['DX20261102005', '续费', 'dx-guard-02 续费 1 年', ['待付款', 'warn'], '¥995.00'], ['DX20261007003', '扩容', '授权 +25 台', ['已完成', 'ok'], '¥25.00'], ['DX20260801004', '续费', 'dx-guard-02 续费 3 个月', ['已完成', 'ok'], '¥995.00'], ['DX20260412002', '扩容', '授权 +10 台', ['已完成', 'ok'], '¥990.00'], ['DX20260126001', '新购', '企业版 1 份 · 1 年', ['已完成', 'ok'], '¥3,980.00']]
       .map(([o, t, c, s, a]) => ROW([{ t: o, a: 'BillOrderDetail.dc.html' }, t, c, { t: s[0], tag: s[1] }, { t: a, c: 'ac-n', td: 'num' }], [['详情', 'BillOrderDetail.dc.html']]));
 
     return Object.assign({ nav }, { tabs, isOv: tab === '概览', isSv: tab === '服务实例', isOd: tab === '关联订单', svcs, ods });

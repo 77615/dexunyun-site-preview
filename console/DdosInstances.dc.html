@@ -280,7 +280,7 @@
         
       </div>
       <sc-if value="{{showAlert}}" hint-placeholder-val="{{true}}">
-        <div class="ln-alert"><i>!</i><span>高防-002 正在被 UDP Flood 攻击，峰值 86 Gbps，已超过保底 80 Gbps<em>已自动清洗，业务正常；超出部分按弹性防护计费</em></span><a class="kc-btn pri sm" href="#" onClick="{{up}}">升级保底</a><a href="DdosReport.dc.html">查看攻击详情</a><a class="x" href="#" aria-label="关闭" onClick="{{hide}}">×</a></div>
+        <div class="ln-alert"><i>!</i><span>高防-002 正在被 UDP Flood 攻击，峰值 86 Gbps，已超过保底 80 Gbps<em>已自动清洗，业务正常；超出部分按弹性防护计费，每月 1 日出上月账单。账单逾期未付，弹性防护会关闭、回到保底防护，不会停机</em></span><a class="kc-btn pri sm" href="#" onClick="{{up}}">升级保底</a><a href="DdosReport.dc.html">查看攻击详情</a><a class="x" href="#" aria-label="关闭" onClick="{{hide}}">×</a></div>
       </sc-if>
       <sc-if value="{{upd}}" hint-placeholder-val="{{false}}">
         <div class="ln-alert ok"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><span>已提交升级：高防-002 保底 80 → 150 Gbps，付款核验到账后约 1 分钟生效<em>可在「费用 › 订单」里查看</em></span><a href="#" onClick="{{undoUp}}">取消</a></div>
