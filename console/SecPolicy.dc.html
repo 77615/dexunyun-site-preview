@@ -1762,7 +1762,7 @@ class Component extends DCLogic {
     const P0 = [{ id: 'pstd', n: '标准模式', src: '标准防护', d: '新接入主机自动使用；全部检测，只告警', caps: on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16]), ver: 3, t: '10-12 09:00', by: 'wangqi' },
       { id: 'plite', n: '轻量模式', src: '轻量防护', d: '资源占用最低，只保留核心检测', caps: on([0, 1, 5, 7, 10, 11]), ver: 1, t: '10-02 10:00', by: '系统' },
       { id: 'pmax', n: '重保模式', src: '重保防护', d: '全部检测，命中后自动处置', caps: on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]), ver: 2, t: '10-28 15:20', by: 'wangqi' }];
-    const ADJ0 = { 'app-03': ['远程安全 · 远程桌面防护：关'], 'web-prod-02': ['入侵检测 · 高危命令：关', '病毒查杀 · 定时扫描：关'] };
+    const ADJ0 = { 'app-03': ['远程安全 · 远程桌面防护：关'], 'web-prod-02': ['高危命令 · 系统规则：关', '病毒查杀 · 定时扫描：关'] };
     const pols = (st.plPols || P0).filter((p) => !p.arc);
     const PM = {}; pols.forEach((p) => { PM[p.id] = p; });
     const defId = st.plDef || 'pstd';
@@ -1873,12 +1873,16 @@ class Component extends DCLogic {
             sc: m === '全部主机' ? ALLSC : { m: '指定主机', s: sel, n: sel.length }, ok: m === '全部主机' || sel.length > 0,
             hint: m === '全部主机' ? '68 台主机，新接入的主机也会使用' : sel.length ? '已选 ' + sel.length + ' 台，范围外的主机保持当前模式' : '请把要切换的主机移到右侧', hc: m === '指定主机' && !sel.length ? 'bad' : '' }; };
         return { GP, T, rules, isAll, inSc, hostMode, dist, uniform, lbl, scTxt, apply, drop, setTmp, hp, HOSTS, items, setItem, resetItems, setBase }; })();
-    const CAPL = [['SecRules', '入侵检测', ['暴力破解', '异常登录', '反弹 Shell', '本地提权', '高危命令'], [2, 3, 4], '按规则阻断进程或连接', ['web-prod-02']],
-      ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描'], [1], '自动隔离病毒文件', ['web-prod-02']],
+    const CAPL = [['SecBrute', '密码破解', ['SSH 爆破检测', 'RDP 爆破检测', '数据库爆破检测', 'FTP 爆破检测'], [2, 3], '自动封禁来源 IP', []],
+      ['SecLogin', '异常登录', ['异地登录', '非常用时间登录', '新 IP 登录', '新账号登录'], [2, 3], '断开异常登录会话', []],
+      ['SecShell', '反弹 Shell', ['Bash / sh 反弹', '脚本语言反弹', '进程内反弹'], [2], '结束反弹进程并断开连接', []],
+      ['SecPriv', '本地提权', ['SUID 提权', '内核漏洞提权', 'sudo 提权'], [2], '结束提权进程', []],
+      ['SecCmd', '高危命令', ['系统规则', '自定义策略'], [1], '拦截命令执行', ['web-prod-02']],
+            ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描'], [1], '自动隔离病毒文件', ['web-prod-02']],
       ['SecFirewall', '网络防火墙', ['网络访问防护', '外联管控'], [1], '自动封禁攻击来源 IP', []],
       ['SecRansom', '防勒索', ['勒索拦截', '诱饵文件', '自动备份'], [0, 1, 2], '拦截加密行为并结束进程', []],
       ['SecTamper', '网页防篡改', ['防篡改'], [0], '拦截篡改并还原文件', []],
-      ['SecRemote', '远程安全', ['远程桌面防护', '二次认证', '常用登录地'], [1, 2], '自动封禁暴力破解来源 IP', ['app-03']]];
+      ['SecRemote', '远程安全', ['远程桌面防护', '二次认证', '登录 IP 白名单'], [1, 2], '拦截白名单以外的远程登录', ['app-03']]];
     const rs0 = (k) => PMX.rules(k)[0].m;
     const hostPm = (n) => { const ms = CAPL.map((c) => PMX.hostMode(c[0], n)); const u = ms.every((m) => m === ms[0]) ? ms[0] : ''; return { u, ms, diff: CAPL.filter((c, i) => ms[i] !== '标准').map((c, i) => c[1] + ' ' + PMX.hostMode(c[0], n)) }; };
     { const TMP = PMX.T; const part = !!(TMP && !PMX.isAll(TMP.sc));
@@ -1896,8 +1900,8 @@ class Component extends DCLogic {
       pl.ov.ps = ['轻量', '标准', '重保'].map((n) => ({ n: n === '重保' ? '临时重保' : n + '模式', d: n === '重保' ? '到期自动恢复' : DS[n], a: 'false',
         c: adm ? '' : 'dis', t: adm ? '' : NOP, go: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (n === '重保' && TMP) { toast('已有重保进行中，可以延长或提前结束', 'info'); return; } S({ plPs: n, plPsU: '3 天', plHk: null }); }) }));
       const tmpBack = TMP && !part;
-      const ITD = { SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00'],
-        SecFirewall: ['检测暴力破解、端口扫描、CC', '主机主动连接的地址按规则告警'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时额外验证身份', '非常用地登录时告警'] };
+      const ITD = { SecBrute: ['SSH 短时间内多次登录失败', 'Windows 远程桌面登录失败', 'MySQL、Redis、MSSQL 等服务', 'vsftpd 等 FTP 服务'], SecLogin: ['不在常用登录地的登录', '不在常用登录时间段的登录', '近 30 天没出现过的来源 IP', '近 30 天没登录过的账号'], SecShell: ['bash -i、nc -e、/dev/tcp 等', 'Python、Perl、PHP 等脚本建立的反向连接', 'Java、PHP 进程内建立的反向连接'], SecPriv: ['利用 SUID 程序获得 root', '利用内核漏洞获得 root', '利用 sudo 配置或漏洞获得 root'], SecCmd: ['德迅内置的高危命令特征', '你在「自定义策略」里配置的命令'], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00'],
+        SecFirewall: ['检测暴力破解、端口扫描、CC', '主机主动连接的地址按规则告警'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时额外验证身份', '只允许白名单 IP 远程登录'] };
       const px = st.plX || '';
       pl.caps = CAPL.map((c, i) => { const u = us[i]; const m = tmpBack ? '重保' : u; const rs = PMX.rules(c[0]); const off = m === '轻量' ? c[3] : []; const same = tmpBack || u === ref;
         const hasMax = tmpBack || !!PMX.dist(c[0])['重保'] || part;
@@ -2283,7 +2287,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '防护策略';
-    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecRules.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联规则', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '密码破解': 'SecBrute.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联规则', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -2292,7 +2296,7 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['检测规则', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查']), P("入侵防御", 'shield', ['密码破解', '异常登录', '反弹 Shell', '本地提权', '高危命令', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
