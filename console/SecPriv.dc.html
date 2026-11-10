@@ -1761,7 +1761,7 @@ class Component extends DCLogic {
     o.isCap = !!CAP && tabN === '防护范围'; o.notCap = !o.isCap; o.hasCap = !!CAP; o.hasAb = false;
     let capHost = null; let capItems = null; /* ro 2026-11-09 */
     if (CAP) {
-      const MODE = { '轻量': CAP.lite || [], '标准': [], '重保': [] };
+      const MODE = { '轻量': CAP.lite || [], '标准': CAP.std || [], '重保': [] };
       const PMX = (() => { /* pmB 2026-11-09 · hpk：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
         const GP = { 'web 组': ['web-', 24], 'app 组': ['app-', 12], 'db 组': ['db-', 6], 'cache 组': ['cache-', 4] };
         const ALLSC = { m: '全部主机', s: [], n: 68 };
@@ -1869,7 +1869,7 @@ class Component extends DCLogic {
       const allC = hv.length && hv.every((h) => sel[h[0]]); o.allCk = allC ? 'hs-cb on' : 'hs-cb'; o.allA = allC ? 'true' : 'false';
       o.allT = ev(() => { const n2 = {}; if (!allC) hv.forEach((h) => { n2[h[0]] = true; }); S({ fxSel: n2 }); });
       o.adjGo = ev(() => S({ fxQ: Object.assign({}, st.fxQ || {}, { '防护范围': '' }) }));
-      { const ITD = { SecApp: ["Windows：拦截白名单以外的软件安装", "按进程黑白名单放行或拦截", "监控新增或被篡改的系统服务", "Windows：监控新增的开机启动项", "记录登录和操作行为，供异常登录、密码破解检测使用"], SecBrute: ["SSH 短时间内多次登录失败", "Windows 远程桌面登录失败", "MySQL、Redis、MSSQL 等服务", "vsftpd 等 FTP 服务"], SecLogin: ["不在常用登录地的登录", "不在常用登录时间段的登录", "近 30 天没出现过的来源 IP", "近 30 天没登录过的账号"], SecShell: ["bash -i、nc -e、/dev/tcp 等", "Python、Perl、PHP 等脚本建立的反向连接", "Java、PHP 进程内建立的反向连接"], SecPriv: ["利用 SUID 程序获得 root", "利用内核漏洞获得 root", "利用 sudo 配置或漏洞获得 root"], SecCmd: ["德迅内置的高危命令特征", "你在「自定义策略」里配置的命令"], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00', '识别 xmrig 等挖矿程序并结束进程'], SecFirewall: ['检测端口扫描、CC 攻击；暴力破解在「密码破解」设置', '主机主动连接的地址按规则告警'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时额外验证身份', '只允许白名单 IP 远程登录'] }; const ACT2 = { SecApp: "拦截安装并结束黑名单进程", SecBrute: "自动封禁来源 IP", SecLogin: "断开异常登录会话", SecShell: "结束反弹进程并断开连接", SecPriv: "结束提权进程", SecCmd: "拦截命令执行", SecVirus: '自动隔离病毒文件', SecFirewall: '自动封禁攻击来源 IP', SecRansom: '拦截加密行为并结束进程', SecRemote: '拦截白名单以外的远程登录', SecRules: '按规则阻断进程或连接', SecTamper: '拦截篡改并还原文件' };
+      { const ITD = { SecApp: ["Windows：拦截白名单以外的软件安装", "按进程黑白名单放行或拦截", "监控新增或被篡改的系统服务", "Windows：监控新增的开机启动项", "记录登录和操作行为，供异常登录、密码破解检测使用"], SecBrute: ["SSH 短时间内多次登录失败", "Windows 远程桌面登录失败", "MySQL、Redis、MSSQL 等服务", "vsftpd 等 FTP 服务"], SecLogin: ["不在常用登录地的登录", "不在常用登录时间段的登录", "近 30 天没出现过的来源 IP", "近 30 天没登录过的账号"], SecShell: ["bash -i、nc -e、/dev/tcp 等", "Python、Perl、PHP 等脚本建立的反向连接", "Java、PHP 进程内建立的反向连接"], SecPriv: ["利用 SUID 程序获得 root", "利用内核漏洞获得 root", "利用 sudo 配置或漏洞获得 root"], SecCmd: ["德迅内置的高危命令特征", "你在「自定义策略」里配置的命令"], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00', '进程持续占用 CPU 超过阈值判为挖矿', '进程持续占用显卡超过阈值判为挖矿，默认关闭'], SecFirewall: ['检测端口扫描、CC 攻击；暴力破解在「密码破解」设置', '主机主动连接的地址按规则告警'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时额外验证身份', '只允许白名单 IP 远程登录'] }; const ACT2 = { SecApp: "拦截安装并结束黑名单进程", SecBrute: "自动封禁来源 IP", SecLogin: "断开异常登录会话", SecShell: "结束反弹进程并断开连接", SecPriv: "结束提权进程", SecCmd: "拦截命令执行", SecVirus: '自动隔离病毒文件', SecFirewall: '自动封禁攻击来源 IP', SecRansom: '拦截加密行为并结束进程', SecRemote: '拦截白名单以外的远程登录', SecRules: '按规则阻断进程或连接', SecTamper: '拦截篡改并还原文件' };
         const bm = PMX.rules(PG)[0].m; o.itN = Object.keys(CI).length || ''; o.itGo = ev(() => S({ fxDw: { k: 'items' } }));
         capItems = () => { const CJ = PMX.items(PG); const lt = bm === '轻量' ? (CAP.lite || []) : [];
           const subs = CAP.subs.map((n, j) => [String(j), n, (ITD[PG] || [])[j] || '', lt.indexOf(j) < 0]).concat([['au', '命中后自动处置', (ACT2[PG] || '自动处置') + '；关闭时只告警', bm === '重保']]);
@@ -2065,7 +2065,7 @@ class Component extends DCLogic {
     o.cols = T.cols.map((n) => ({ n })).concat([{ n: '操作' }]);
     o.empty = !vis.length && !(inl && inl.ri < 0); o.has = !o.empty;
     o.rows = vis.map(([r, i]) => (inl && inl.ri === i ? inlRow() : { ned: true, ed: false, ic: [], cells: r.map((c) => { const x = c && typeof c === 'object' ? c : { t: String(c) }; return { t: x.t, s: x.s || '', hasS: !!x.s, c: x.tag ? 'kc-tag ' + x.tag : x.mono ? 'fx-mono' : x.sc === 'r' ? 'fx-r' : '', tt: x.tt || '' }; }),
-      ops: T.ops.filter((n) => !((n === '加白' || n === '标记已处理') && stI >= 0 && /已加白|已处理|已拦截|已封禁/.test(tx(r[stI])))).map((n) => { let nn = n; if ((n === '停用' || n === '暂停') && stI >= 0) { const sv = tx(r[stI]).trim(); if (sv === '停用' || sv === '已暂停') nn = n === '停用' ? '启用' : '恢复'; }
+      ops: T.ops.filter((n) => !((n === '加白' || n === '标记已处理' || n === '隔离') && stI >= 0 && /已加白|已处理|已拦截|已封禁|已隔离/.test(tx(r[stI])))).map((n) => { let nn = n; if ((n === '停用' || n === '暂停') && stI >= 0) { const sv = tx(r[stI]).trim(); if (sv === '停用' || sv === '已暂停') nn = n === '停用' ? '启用' : '恢复'; }
         return { n: nn, c: /删除|移除/.test(nn) ? 'sl-op fx-d' : 'sl-op', go: ev(() => act(nn, r, i)) }; }) }));
     if (inl && inl.ri < 0) o.rows.unshift(inlRow());
     const nm = (r) => (r[0] && typeof r[0] === 'object' ? r[0].t : String(r[0]));
@@ -2079,7 +2079,7 @@ class Component extends DCLogic {
       if (n === '恢复' && PG === 'SecRansom') { S({ fxCf: { n, i, t: '用这份备份恢复 ' + r[2] + '？', p: '会覆盖主机上的现有文件，建议先确认业务已停写。', ok: '恢复', d: true, msg: '已开始恢复' } }); return; }
       if (/^(停用|启用|暂停|恢复)$/.test(n) && stI >= 0 && !(n === '恢复' && PG === 'SecVirus')) { const on = n === '启用' || n === '恢复'; const v = { t: on ? (PG === 'SecTamper' ? '保护中' : '启用') : n === '暂停' ? '已暂停' : '停用', tag: on ? 'ok' : 'mut' };
         setRows(rows0.map((x, j) => (j === i ? x.map((c, k) => (k === stI ? v : c)) : x))); toast((on ? '已' + n : '已' + n) + '「' + nm(r) + '」'); return; }
-      if ((n === '加白' || n === '标记已处理') && stI >= 0) { setRows(rows0.map((x, j) => (j === i ? x.map((c, k) => (k === stI ? { t: n === '加白' ? '已加白' : '已处理', tag: 'mut' } : c)) : x))); toast(n === '加白' ? '已加入白名单，同类行为不再告警' : '已标记为已处理，告警中心同步更新'); return; }
+      if ((n === '加白' || n === '标记已处理' || n === '隔离') && stI >= 0) { setRows(rows0.map((x, j) => (j === i ? x.map((c, k) => (k === stI ? { t: n === '加白' ? '已加白' : n === '隔离' ? '已隔离' : '已处理', tag: 'mut' } : c)) : x))); toast(n === '加白' ? '已加入白名单，同类行为不再告警' : n === '隔离' ? '文件已移到隔离区，30 天内可恢复' : '已标记为已处理，告警中心同步更新'); return; }
       const cf = CF[n]; if (cf) S({ fxCf: { n, i, t: cf[0].replace('%', nm(r)), p: cf[1], ok: cf[2], d: cf[3], msg: cf[4] } });
     };
     // 抽屉

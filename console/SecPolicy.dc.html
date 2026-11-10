@@ -1879,7 +1879,7 @@ class Component extends DCLogic {
       ['SecPriv', '本地提权', ['SUID 提权', '内核漏洞提权', 'sudo 提权'], [2], '结束提权进程', []],
       ['SecCmd', '高危命令', ['系统规则', '自定义策略'], [1], '拦截命令执行', ['web-prod-02']],
       ['SecApp', '应用运行防护', ['安装拦截', '进程保护', '系统服务监控', '开机项监控', '事件审计'], [0, 2, 3], '拦截安装并结束黑名单进程', []],
-            ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描', '挖矿程序'], [1], '自动隔离病毒文件', ['web-prod-02']],
+            ['SecVirus', '病毒查杀', ['实时检测', '网页后门', '定时扫描', '挖矿 · CPU 占用', '挖矿 · 显卡占用'], [1, 4], '自动隔离病毒文件', ['web-prod-02'], [4]],
       ['SecFirewall', '网络防火墙', ['网络访问防护', '外联管控'], [1], '自动封禁攻击来源 IP', []],
       ['SecRansom', '防勒索', ['勒索拦截', '诱饵文件', '自动备份'], [0, 1, 2], '拦截加密行为并结束进程', []],
       ['SecTamper', '网页防篡改', ['防篡改'], [0], '拦截篡改并还原文件', []],
@@ -1901,10 +1901,10 @@ class Component extends DCLogic {
       pl.ov.ps = ['轻量', '标准', '重保'].map((n) => ({ n: n === '重保' ? '临时重保' : n + '模式', d: n === '重保' ? '到期自动恢复' : DS[n], a: 'false',
         c: adm ? '' : 'dis', t: adm ? '' : NOP, go: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (n === '重保' && TMP) { toast('已有重保进行中，可以延长或提前结束', 'info'); return; } S({ plPs: n, plPsU: '3 天', plHk: null }); }) }));
       const tmpBack = TMP && !part;
-      const ITD = { SecApp: ['Windows：拦截白名单以外的软件安装', '按进程黑白名单放行或拦截', '监控新增或被篡改的系统服务', 'Windows：监控新增的开机启动项', '记录登录和操作行为，供异常登录、密码破解检测使用'], SecBrute: ['SSH 短时间内多次登录失败', 'Windows 远程桌面登录失败', 'MySQL、Redis、MSSQL 等服务', 'vsftpd 等 FTP 服务'], SecLogin: ['不在常用登录地的登录', '不在常用登录时间段的登录', '近 30 天没出现过的来源 IP', '近 30 天没登录过的账号'], SecShell: ['bash -i、nc -e、/dev/tcp 等', 'Python、Perl、PHP 等脚本建立的反向连接', 'Java、PHP 进程内建立的反向连接'], SecPriv: ['利用 SUID 程序获得 root', '利用内核漏洞获得 root', '利用 sudo 配置或漏洞获得 root'], SecCmd: ['德迅内置的高危命令特征', '你在「自定义策略」里配置的命令'], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00', '识别 xmrig 等挖矿程序并结束进程'],
+      const ITD = { SecApp: ['Windows：拦截白名单以外的软件安装', '按进程黑白名单放行或拦截', '监控新增或被篡改的系统服务', 'Windows：监控新增的开机启动项', '记录登录和操作行为，供异常登录、密码破解检测使用'], SecBrute: ['SSH 短时间内多次登录失败', 'Windows 远程桌面登录失败', 'MySQL、Redis、MSSQL 等服务', 'vsftpd 等 FTP 服务'], SecLogin: ['不在常用登录地的登录', '不在常用登录时间段的登录', '近 30 天没出现过的来源 IP', '近 30 天没登录过的账号'], SecShell: ['bash -i、nc -e、/dev/tcp 等', 'Python、Perl、PHP 等脚本建立的反向连接', 'Java、PHP 进程内建立的反向连接'], SecPriv: ['利用 SUID 程序获得 root', '利用内核漏洞获得 root', '利用 sudo 配置或漏洞获得 root'], SecCmd: ['德迅内置的高危命令特征', '你在「自定义策略」里配置的命令'], SecRules: ['SSH / RDP 短时间内多次失败登录', '异地、非常用时间或新 IP 登录', '进程把 Shell 连接到外部地址', '普通账号通过漏洞获得 root 权限', '如删除系统文件、清空日志'], SecVirus: ['新增和修改的文件实时检测', 'Web 目录下的 WebShell', '每天 04:00–07:00', '进程持续占用 CPU 超过阈值判为挖矿', '进程持续占用显卡超过阈值判为挖矿，默认关闭'],
         SecFirewall: ['检测暴力破解、端口扫描、CC', '主机主动连接的地址按规则告警'], SecRansom: ['识别批量加密行为', '在关键目录放置诱饵文件', '关键文件定时备份'], SecTamper: ['网站目录写保护'], SecRemote: ['RDP / SSH 登录防护', '登录时额外验证身份', '只允许白名单 IP 远程登录'] };
       const px = st.plX || '';
-      pl.caps = CAPL.map((c, i) => { const u = us[i]; const m = tmpBack ? '重保' : u; const rs = PMX.rules(c[0]); const off = m === '轻量' ? c[3] : []; const same = tmpBack || u === ref;
+      pl.caps = CAPL.map((c, i) => { const u = us[i]; const m = tmpBack ? '重保' : u; const rs = PMX.rules(c[0]); const off = m === '轻量' ? c[3] : m === '标准' ? (c[6] || []) : []; const same = tmpBack || u === ref;
         const hasMax = tmpBack || !!PMX.dist(c[0])['重保'] || part;
         return { n: c[1], href: c[0] + '.dc.html', subs: c[2].join(' · '), m: tmpBack ? '重保模式' : PMX.lbl(c[0]), mc: m ? MCC[m] : 'kc-tag info',
           back: tmpBack ? '结束后恢复为' + PMX.lbl(c[0]) : rs.slice(1).map((r) => PMX.scTxt(r.sc) + '：' + r.m).join('；') + (part ? (rs.length > 1 ? '；' : '') + '临时重保 ' + TMP.sc.n + ' 台' : ''),
@@ -1913,7 +1913,7 @@ class Component extends DCLogic {
           adjN: c[5].length || '', adj0: !c[5].length, adjH: c[5].join('、'), goA: ev(() => S({ plTab: '生效资产', plHf: '已调整', plPf: '' })), op: '去修改',
           canX: true, open: px === c[0], xa: px === c[0] ? 'true' : 'false', xc: 'pm-xt' + (px === c[0] ? ' on' : ''), xN: px === c[0] ? '收起' : '查看', xt: ev(() => S({ plX: px === c[0] ? '' : c[0] })) }; });
       /* pmi 2026-11-09：展开后可切换模式（全部主机）和细项开关 */
-      pl.caps.forEach((row, i) => { const c = CAPL[i]; if (row.open) { const bm = rs0(c[0]); const CI = PMX.items(c[0]); const lite = bm === '轻量' ? c[3] : [];
+      pl.caps.forEach((row, i) => { const c = CAPL[i]; if (row.open) { const bm = rs0(c[0]); const CI = PMX.items(c[0]); const lite = bm === '轻量' ? c[3] : bm === '标准' ? (c[6] || []) : [];
         const ranges = PMX.rules(c[0]).slice(1);
         /* ro 2026-11-09 只读 */ row.bmN = bm + '模式'; row.bmC = ({ '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' })[bm]; row.ms = ['轻量', '标准', '重保'].map((n) => ({ n: n + '模式', a: n === bm ? 'true' : 'false', c: n === bm ? 'on' : '', go: ev(() => { if (!adm || n === bm) return; PMX.setBase(c[0], n); S({ plCmV: Date.now() }); toast(c[1] + '已切到' + n + '模式' + (ranges.length ? '，单独设置过模式的主机不变' : '') + '，约 1 分钟下发'); }) }));
         row.mN = '对全部主机生效' + (ranges.length ? '；' + ranges.map((r) => PMX.scTxt(r.sc) + ' 为' + r.m + '模式').join('，') + '，不受影响' : '') + (TMP ? '；临时重保期间范围内主机为重保' : '');
@@ -1924,7 +1924,7 @@ class Component extends DCLogic {
         row.ciOn = nAdj > 0; row.ciRs = ev(() => { PMX.resetItems(c[0]); S({ plCmV: Date.now() }); toast(c[1] + '已恢复' + bm + '模式默认'); }); }
         const CJ = PMX.items(c[0]); const nA = Object.keys(CJ).length; if (nA) row.m = row.m + ' · 调整 ' + nA + ' 项';
         if (CJ.au === true) row.act = c[4]; if (CJ.au === false) row.act = '只告警（已关闭自动处置）';
-        if (nA) { const lt = rs0(c[0]) === '轻量' ? c[3] : []; const onI = c[2].filter((x, j) => (CJ[String(j)] !== undefined ? CJ[String(j)] : lt.indexOf(j) < 0)); row.on = onI.length + '/' + c[2].length + ' 项'; row.off = c[2].filter((x) => onI.indexOf(x) < 0).join('、'); } });
+        if (nA) { const lt = rs0(c[0]) === '轻量' ? c[3] : rs0(c[0]) === '标准' ? (c[6] || []) : []; const onI = c[2].filter((x, j) => (CJ[String(j)] !== undefined ? CJ[String(j)] : lt.indexOf(j) < 0)); row.on = onI.length + '/' + c[2].length + ' 项'; row.off = c[2].filter((x) => onI.indexOf(x) < 0).join('、'); } });
       if (pl.caps.length) Object.assign(pl.caps[0], { gh: '可切换模式的能力', ghd: '命中后只告警还是自动处置，由模式决定；可以按主机范围设置不同模式' });
       const NOM = [['SecVuln', '漏洞检测', '系统漏洞 · 应用漏洞 · Web-CMS 漏洞 · 应急漏洞', '每天 02:00 自动扫描', '发现后提醒，给出修复方法', '已开启', 'kc-tag ok', '漏洞设置'], ['SecBaseline', '基线检查', '德迅安全基线 · 弱口令检测', '每天 03:00 自动检查', '发现后提醒，给出加固方法', '已开启', 'kc-tag ok', '检查设置'],
         ['SecHunt', '威胁狩猎', '攻击链溯源 · 节点证据', '全部主机', '生成调查线索，由你研判', '已开启', 'kc-tag ok', '功能设置'], ['SecFinger', '资产指纹', '进程 · 端口 · 账号 · 软件 · 启动项等', '每天 01:00 采集', '只采集，不告警', '已开启', 'kc-tag ok', '采集设置'],
