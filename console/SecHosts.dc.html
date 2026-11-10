@@ -493,6 +493,20 @@
 .sl .hs-st b{font:600 18px/1 Barlow,Inter,sans-serif;color:#0c0d0e}
 .sl .hs-st b.r{color:#f53f3f}
 .sl .hs-at{margin:-4px 0 16px}
+.sl .hs-ot{padding:0}
+.sl .hs-otb{display:flex;align-items:center;gap:16px;padding:16px 20px}
+.sl .hs-otb .kc-in{width:280px}
+.sl .hs-otn{margin-left:auto;font-size:13px;color:#737a87}
+.sl .hs-ot .kc-tw{padding:0 20px 16px}
+.sl .hs-os{font-size:12px;color:#737a87;margin-top:2px}
+.sl .hs-oo{white-space:nowrap}
+.sl .hs-oo .sh-op{border:0;background:none;padding:0;margin-right:16px;font:inherit;font-size:13px;color:#1664ff;cursor:pointer}
+.sl .hs-oe{text-align:center;color:#737a87;padding:32px 0}
+.sl .hs-mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.hs-kv{display:grid;grid-template-columns:96px 1fr;gap:12px 16px;margin:0;font-size:13px}
+.hs-kv dt{color:#737a87}
+.hs-kv dd{margin:0;color:#0c0d0e;word-break:break-all}
+.hs-log{margin:20px 0 0;padding:12px 16px;background:#f7f8fa;border-radius:4px;font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#1d2129;white-space:pre-wrap}
 .sl .hs-ph{padding:32px;text-align:center;color:#737a87}
 .sl .hs-ph b{display:block;color:#0c0d0e;font-size:15px;margin-bottom:8px}
 .sl .hs-ph p{margin:0 auto;max-width:520px;font-size:13px;line-height:1.7}
@@ -736,7 +750,7 @@
     <main data-pg="SecHosts" class="kc-main sh sl">
       <div class="kc-hd"><div class="kc-hdl"><div class="hs-ht"><h1 class="kc-h1">资产列表</h1></div></div><div class="kc-btns"><button type="button" onClick="{{ls.hxGo}}" class="kc-btn pri">安装客户端</button></div></div>
       <div class="kc-tabs hs-at" role="tablist"><sc-for list="{{ls.at}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
-      <sc-if value="{{ls.atOther}}" hint-placeholder-val="{{false}}"><section class="kc-card hs-ph"><b>{{ls.atN}}</b><p>{{ls.atD}}</p></section></sc-if>
+      <sc-if value="{{ls.atOther}}" hint-placeholder-val="{{false}}"><section class="kc-card hs-ot"><div class="hs-otb"><input class="kc-in" type="text" value="{{ls.oqv}}" onInput="{{ls.oqIn}}" placeholder="{{ls.oq}}" aria-label="{{ls.oq}}"><span class="hs-otn">共 {{ls.on}} 条</span></div><div class="kc-tw"><table class="kc-t"><thead><tr><sc-for list="{{ls.oh}}" as="h" hint-placeholder-count="5"><th>{{h}}</th></sc-for></tr></thead><tbody><sc-for list="{{ls.or}}" as="r" hint-placeholder-count="3"><tr><sc-for list="{{r.c}}" as="c" hint-placeholder-count="5"><td><span class="{{c.cls}}">{{c.t}}</span><sc-if value="{{c.hasS}}" hint-placeholder-val="{{false}}"><div class="hs-os">{{c.s}}</div></sc-if></td></sc-for><sc-if value="{{ls.oOp}}" hint-placeholder-val="{{true}}"><td class="hs-oo"><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><button type="button" class="sh-op" onClick="{{o.go}}">{{o.n}}</button></sc-for></td></sc-if></tr></sc-for><sc-if value="{{ls.oNone}}" hint-placeholder-val="{{false}}"><tr><td class="hs-oe" colspan="6">没有匹配的资产</td></tr></sc-if></tbody></table></div></section></sc-if><sc-if value="{{ls.odOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.od.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{ls.od.t}}"><header><h3>{{ls.od.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.od.x}}">×</button></header><div class="sh-dwb"><dl class="hs-kv"><sc-for list="{{ls.od.kv}}" as="k" hint-placeholder-count="5"><dt>{{k.k}}</dt><dd>{{k.v}}</dd></sc-for></dl><sc-if value="{{ls.od.hasLog}}" hint-placeholder-val="{{false}}"><pre class="hs-log">{{ls.od.log}}</pre></sc-if></div><footer><button type="button" class="kc-btn" onClick="{{ls.od.x}}">关闭</button></footer></aside></sc-if>
       <sc-if value="{{ls.atHost}}" hint-placeholder-val="{{true}}"><div class="{{ls.layC}}"><sc-if value="{{ls.colOpen}}" hint-placeholder-val="{{true}}"><aside class="kc-card hs-tree"><div class="hs-th"><b>主机分类</b><a href="#" onClick="{{ls.colT}}">收起筛选</a></div><ul class="hs-cat"><sc-for list="{{ls.cat}}" as="g" hint-placeholder-count="6"><li><button type="button" class="{{g.cls}}" onClick="{{g.pick}}"><span>{{g.n}}</span><em>{{g.c}}</em></button></li></sc-for></ul><div class="hs-th hs-th2"><b>分组</b></div><div class="hs-seg"><sc-for list="{{ls.tm}}" as="t" hint-placeholder-count="2"><button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div><ul><sc-for list="{{ls.tree}}" as="g" hint-placeholder-count="6"><li><button type="button" class="{{g.cls}}" onClick="{{g.pick}}"><span>{{g.n}}</span><em>{{g.c}}</em></button></li></sc-for></ul></aside></sc-if>
 
       <section class="kc-card hs-main"><div class="sl-bar"><sc-if value="{{ls.colShut}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn hs-open" onClick="{{ls.colT}}">展开筛选</button></sc-if><span class="hs-bxg"><sc-for list="{{ls.bxB}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for><sc-if value="{{ls.bxM}}" hint-placeholder-val="{{true}}"><span class="hs-bw"><button type="button" class="{{ls.bmc}}" aria-haspopup="menu" onClick="{{ls.bdT}}"><b>更多</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ls.bdOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.bdX}}"></span><span class="dd-p" role="menu"><sc-for list="{{ls.bxR}}" as="o" hint-placeholder-count="1"><button type="button" role="menuitem" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></span></sc-if></span></sc-if><sc-if value="{{ls.selOn}}" hint-placeholder-val="{{false}}"><span class="tb-sel">已选 <b>{{ls.selNs}}</b> 项<a href="#" onClick="{{ls.selX}}">取消选择</a></span></sc-if></span><label class="sl-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索主机名称或 IP" placeholder="搜索主机名称或 IP" value="{{ls.q}}" onChange="{{ls.onQ}}"></label><span class="{{ls.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ls.faT}}"><b>添加筛选</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ls.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{ls.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{ls.faB}}">‹ {{ls.faK}}</button></sc-if><sc-for list="{{ls.faL}}" as="o" hint-placeholder-count="5"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span><sc-for list="{{ls.chips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{ls.hasF}}" hint-placeholder-val="{{true}}"><a class="sl-clr" href="#" onClick="{{ls.clear}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{ls.n}}</b> 台</span><span class="hs-tools"><button type="button" class="hs-ib i-rf" title="{{ls.rfaT}}" aria-label="刷新资产" onClick="{{ls.rfa}}"></button><button type="button" class="hs-ib i-ex" title="导出" aria-label="导出" onClick="{{ls.exp}}"></button><span class="hs-cw"><button type="button" class="hs-ib i-co" title="列设置" aria-label="列设置" onClick="{{ls.colsT}}"></button><sc-if value="{{ls.colsOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ls.colsX}}"></span><span class="hs-cp"><small>显示列</small><sc-for list="{{ls.cols}}" as="c" hint-placeholder-count="3"><button type="button" class="hs-ci2" onClick="{{c.t}}"><i class="{{c.c}}"></i>{{c.n}}</button></sc-for></span></sc-if></span></span></div>
@@ -1710,10 +1724,29 @@ class Component extends DCLogic {
       ls.rfaT = st.rfa === 'ing' ? '刷新中…' : '刷新资产';
       ls.rfa = ev(() => { if (st.rfa === 'ing') return; S({ rfa: 'ing' }); setTimeout(() => { this.setState({ rfa: '' }); toast('资产已刷新，没有发现新主机'); }, 1200); });
       const at = st.at || '主机';
-      ls.at = [['主机', HS.length], ['容器', 12], ['数据库', 5]].map(([n, c]) => ({ n, c, on: n === at, cls: n === at ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ at: n })) }));
+      // 8081 资产列表：主机 / Docker / 数据库（2026-11-10 按 8081 列名；示例数据）
+      const DK = [['nginx-gw', 'nginx:1.25', '在线', '80→8080, 443→8443', 'web-prod-01', '10.0.1.11'], ['api-svc', 'harbor.local/app/api-svc:2.3.1', '在线', '8000→8000', 'api-01', '10.0.2.21'], ['redis-cache', 'redis:7.2', '在线', '6379→6379', 'cache-01', '10.0.3.31'], ['nsfw_detector', 'hub.yunfang.com/vxlink/nsfw_detector:latest', '离线', '—', 'cache-03', '10.0.3.33']];
+      const DB = [['mysql', 'MySQL 5.7.44', 'db-01', '10.0.4.41', ':::3306', '在线'], ['mysql', 'MySQL 8.0.36', 'db-new-01', '10.0.4.61', '0.0.0.0:3306', '在线'], ['mysql', 'MySQL', 'db-new-02', '10.0.4.62', '—', '离线']];
+      ls.at = [['主机', HS.length], ['Docker', DK.length], ['数据库', DB.length]].map(([n, c]) => ({ n, c, on: n === at, cls: n === at ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ at: n, oqv: '' })) }));
       ls.atHost = at === '主机'; ls.atOther = !ls.atHost;
-      ls.atN = at === '容器' ? '容器资产 · 12 个' : '数据库资产 · 5 个';
-      ls.atD = at === '容器' ? '沿用主机列表的结构：左侧按所在主机 / 业务标签分组，列表展示镜像、所在主机、运行状态、待处理风险和操作。' : '沿用主机列表的结构：展示数据库类型与版本、所在主机、端口、弱口令与基线风险和操作。';
+      const oq = (st.oqv || '').trim().toLowerCase(), isDk = at === 'Docker';
+      const tg = (v) => (v === '在线' ? 'kc-tag ok' : 'kc-tag mut');
+      const odOpen = (k, r, m) => S({ hsOd: { k, r, m } });
+      ls.oq = isDk ? '搜索容器名称 / 镜像 / 宿主机' : '搜索数据库名称 / 宿主机'; ls.oqv = st.oqv || ''; ls.oqIn = (e) => S({ oqv: e && e.target ? e.target.value : '' });
+      ls.oOp = isDk;
+      ls.oh = isDk ? ['容器名称', '镜像/站点', '主机状态', '端口映射', '宿主机', '操作'] : ['数据库名称', '类型 / 版本', '宿主机', '连接地址', '状态'];
+      const C1 = (t, cls, sub) => ({ t, cls: cls || '', s: sub || '', hasS: !!sub });
+      const src = (isDk ? DK : DB).filter((r) => !oq || r.join(' ').toLowerCase().indexOf(oq) >= 0);
+      ls.or = src.map((r) => isDk
+        ? { c: [C1(r[0]), C1(r[1], 'hs-mono'), C1(r[2], tg(r[2])), C1(r[3], 'hs-mono'), C1(r[4], '', r[5])], ops: [{ n: '详情', go: ev(() => odOpen('dk', r, '详情')) }, { n: '日志', go: ev(() => odOpen('dk', r, '日志')) }] }
+        : { c: [C1(r[0]), C1(r[1]), C1(r[2], '', r[3]), C1(r[4], 'hs-mono'), C1(r[5], tg(r[5]))], ops: [] });
+      ls.on = src.length; ls.oNone = !src.length;
+      const od = st.hsOd; ls.odOn = !!od;
+      if (od) { const r = od.r; const isLog = od.m === '日志';
+        ls.od = { t: (isLog ? '容器日志 · ' : '容器详情 · ') + r[0], x: ev(() => S({ hsOd: null })), hasLog: isLog,
+          kv: [['容器名称', r[0]], ['镜像/站点', r[1]], ['主机状态', r[2]], ['端口映射', r[3]], ['宿主机', r[4] + ' · ' + r[5]]].map(([k, v]) => ({ k, v })),
+          log: r[2] === '在线' ? '2026-11-10 09:12:04 [info] container started\n2026-11-10 09:12:05 [info] listening on ' + r[3].split('→')[0] + '\n2026-11-10 10:31:47 [info] health check ok' : '宿主机离线，暂时取不到日志。主机上线后自动刷新。' };
+      } else ls.od = { t: '', x: null, hasLog: false, kv: [], log: '' };
       const tmode = st.tmode || '物理分组';
       ls.tm = ['物理分组', '业务标签'].map((n) => ({ n, cls: n === tmode ? 'on' : '', pick: ev(() => S({ tmode: n })) }));
       const gk = tmode === '物理分组' ? '分组' : '业务标签';
