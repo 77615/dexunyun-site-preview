@@ -2282,8 +2282,8 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link')] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
