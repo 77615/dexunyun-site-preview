@@ -552,29 +552,11 @@
 .sl .hx-code button:hover{background:rgba(255,255,255,.16)}
 
 /* bl8081 */
-.bl-sub{margin:4px 0 0;font-size:13px;color:#86909c}
-.bl-sum{padding:16px 20px 20px}
-.bl-sh{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
-.bl-sh h2{margin:0;font-size:15px;font-weight:500;color:#0c0d0e}
-.bl-sh span{font-size:12px;color:#86909c}
-.bl-st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.bl-sc{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #e5e6eb;border-radius:6px;background:#fafbfc}
-.bl-sc small{display:block;font-size:12px;color:#86909c}
-.bl-sc b{display:block;margin-top:4px;font-size:22px;font-weight:600;color:#0c0d0e;font-family:Barlow,inherit;line-height:1.1}
-.bl-sc b em{margin-left:4px;font-size:12px;font-weight:400;font-style:normal;color:#86909c}
-.bl-sc div>span{display:block;margin-top:4px;font-size:12px;color:#86909c}
-.bl-ic{width:36px;height:36px;flex:none;border-radius:6px;background:#fff center/20px no-repeat;border:1px solid #eef0f3}
-.bl-ic.b-risk{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bd2923'%3E%3Cpath d='M12 2 3 6v6c0 5 3.8 9.7 9 10 5.2-.3 9-5 9-10V6l-9-4zm-1 6h2v6h-2V8zm0 8h2v2h-2v-2z'/%3E%3C/svg%3E")}
-.bl-ic.b-host{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231664ff'%3E%3Cpath d='M4 3h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v4h14V5H5zm-1 8h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1zm1 2v4h14v-4H5zm2-8h3v2H7V7zm0 10h3v2H7v-2z'/%3E%3C/svg%3E")}
-.bl-ic.b-ign{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2386909c'%3E%3Cpath d='M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM7 11h10v2H7v-2z'/%3E%3C/svg%3E")}
-.bl-ic.b-rate{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300875a'%3E%3Cpath d='M3 3h2v16h16v2H3V3zm4 9h2v5H7v-5zm4-4h2v9h-2V8zm4 2h2v7h-2v-7zm4-4h2v11h-2V6z'/%3E%3C/svg%3E")}
-.bl-card{padding:16px 20px}
+.kc-card.bl-card{padding:0 20px 16px}
+.bl-card>.kc-tabs{margin:0 -20px 12px;padding:0 20px}
+.bl-last{align-self:center;font-size:12px;color:#86909c}
+.bl-card .cp-clr{margin-left:8px;color:#1664ff;text-decoration:none}
 .bl-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.bl-seg{display:inline-flex;padding:2px;border-radius:6px;background:#f2f3f5}
-.bl-seg button{height:28px;padding:0 12px;border:0;border-radius:4px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
-.bl-seg button em{margin-left:6px;font-style:normal;color:#86909c}
-.bl-seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}
-.bl-seg button.on em{color:#1664ff}
 .bl-t td{vertical-align:middle}
 a.bl-nm{color:#0c0d0e;text-decoration:none}
 a.bl-nm:hover{color:#1664ff}
@@ -584,9 +566,6 @@ a.bl-nm:hover{color:#1664ff}
 .bl-ops a,a.bl-op1{font-size:13px;color:#1664ff;text-decoration:none;white-space:nowrap}
 .bl-ft{display:flex;align-items:center;gap:16px;margin-top:12px;font-size:13px;color:#42464e}
 .bl-ft .kc-pg{margin-left:auto}
-.bl-ps{display:inline-flex;gap:4px}
-.bl-ps button{height:28px;padding:0 8px;border:1px solid #e4eaf0;border-radius:6px;background:#fff;font:inherit;font-size:12px;color:#42464e;cursor:pointer}
-.bl-ps button.on{border-color:#1664ff;color:#1664ff}
 .sh-dw.bl-dw{width:720px}
 .bl-dw header{gap:12px}
 .bl-dh{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
@@ -607,12 +586,8 @@ a.bl-nm:hover{color:#1664ff}
 .bl-pre{white-space:pre-wrap;word-break:break-word;font-size:13px}
 .bl-warn{background:#fff7e8;color:#8a5a00;white-space:pre-wrap}
 .bl-os{margin:10px 0 0;font-size:12px;color:#86909c}
-.bl-sc div>b{display:flex !important;align-items:baseline;gap:4px;font-size:24px !important;line-height:1.2 !important}
-.bl-sc div>b em{display:inline !important;margin:0 !important}
-.bl-sc div>small,.bl-sc div>span{display:block !important}
 .ig7-mask.bl-igm{z-index:1100}
 .bl-t .hd-none{padding:32px 0;text-align:center;color:#86909c}
-@media (max-width:1100px){.bl-st{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <style data-s2="1">
 .ig7-mask{position:fixed;left:0;right:0;top:56px;bottom:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(29,33,41,.28)}
@@ -726,11 +701,10 @@ a.bl-nm:hover{color:#1664ff}
       </nav>
     <div class="kc-foldbar"><label for="kcf-SecBaseline" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecBaseline" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecRisks" class="kc-main sh sl">
-      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">基线检查</h1><p class="bl-sub">自动化合规检测与配置加固</p></div></div><div class="kc-btns"><button type="button" onClick="{{ls.hxGo}}" class="kc-btn">检查设置</button><button type="button" class="{{bl.scanC}}" onClick="{{bl.scan}}">{{bl.scanT}}</button></div></div>
-      <section class="kc-card bl-sum"><div class="bl-sh"><h2>基线检测</h2><span>最新检测时间：{{bl.lastT}}</span></div>
-        <div class="bl-st"><sc-for list="{{bl.stats}}" as="k" hint-placeholder-count="4"><div class="bl-sc"><i class="{{k.ic}}"></i><div><small>{{k.n}}</small><b>{{k.v}}<em>{{k.u}}</em></b><sc-if value="{{k.hasS}}" hint-placeholder-val="{{false}}"><span>{{k.s}}</span></sc-if></div></div></sc-for></div></section>
+      <div class="kc-hd"><div class="kc-hdl"><h1 class="kc-h1">基线检查</h1></div><div class="kc-btns"><span class="bl-last">最近检测：{{bl.lastT}}</span><button type="button" onClick="{{ls.hxGo}}" class="kc-btn">检查设置</button><button type="button" class="{{bl.scanC}}" onClick="{{bl.scan}}">{{bl.scanT}}</button></div></div>
       <section class="kc-card bl-card">
-        <div class="bl-bar"><span class="bl-seg" role="tablist" aria-label="基线状态"><sc-for list="{{bl.segs}}" as="g" hint-placeholder-count="4"><button type="button" role="tab" class="{{g.cls}}" onClick="{{g.go}}">{{g.n}}<em>{{g.c}}</em></button></sc-for></span>
+        <div class="kc-tabs" role="tablist" aria-label="基线状态"><sc-for list="{{bl.segs}}" as="g" hint-placeholder-count="4"><button type="button" role="tab" class="{{g.cls}}" aria-selected="{{g.on}}" onClick="{{g.go}}">{{g.n}} <span class="kc-cnt">{{g.c}}</span></button></sc-for></div>
+        <div class="bl-bar">
           <label class="sl-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索基线名称" placeholder="搜索基线名称" value="{{bl.q}}" onChange="{{bl.onQ}}"></label>
           <sc-if value="{{bl.selOn}}" hint-placeholder-val="{{false}}"><span class="tb-sel">已选 <b>{{bl.selN}}</b> 项<a href="#" onClick="{{bl.selX}}">取消选择</a></span></sc-if>
           <button type="button" class="{{bl.bReC}}" onClick="{{bl.bRe}}" style="margin-left:auto">重新检测</button></div>
@@ -739,8 +713,8 @@ a.bl-nm:hover{color:#1664ff}
           <tbody><sc-for list="{{bl.rows}}" as="r" hint-placeholder-count="10"><tr><td class="hs-ck"><button type="button" class="{{r.ckc}}" role="checkbox" aria-checked="{{r.cka}}" aria-label="选择" onClick="{{r.ck}}"></button></td>
             <td><a class="bl-nm" href="#" onClick="{{r.go}}">{{r.n}}</a></td><td><span class="{{r.stc}}">{{r.st}}</span></td><td><span class="{{r.hc}}">{{r.hn}}</span></td><td>{{r.t}}</td>
             <td><span class="bl-ops"><a href="#" onClick="{{r.go}}">详情</a><a href="#" onClick="{{r.re}}">{{r.reT}}</a></span></td></tr></sc-for>
-          <sc-if value="{{bl.empty}}" hint-placeholder-val="{{false}}"><tr><td colspan="6" class="hd-none">没有符合条件的基线</td></tr></sc-if></tbody></table></div>
-        <div class="bl-ft"><span>共 {{bl.n}} 条</span><span class="kc-pg"><button type="button" aria-label="上一页" onClick="{{bl.pPrev}}">‹</button><sc-for list="{{bl.pgs}}" as="p" hint-placeholder-count="3"><button type="button" class="{{p.cls}}" onClick="{{p.go}}">{{p.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{bl.pNext}}">›</button></span><span class="bl-ps"><sc-for list="{{bl.pss}}" as="p" hint-placeholder-count="3"><button type="button" class="{{p.cls}}" onClick="{{p.go}}">{{p.n}}</button></sc-for></span></div>
+          <sc-if value="{{bl.empty}}" hint-placeholder-val="{{false}}"><tr><td colspan="6" class="hd-none">{{bl.emT}}<sc-if value="{{bl.emClr}}" hint-placeholder-val="{{false}}"><a class="cp-clr" href="#" onClick="{{bl.clr}}">清除筛选</a></sc-if></td></tr></sc-if></tbody></table></div>
+        <div class="bl-ft"><span>共 {{bl.n}} 条</span><span class="kc-pg"><button type="button" aria-label="上一页" onClick="{{bl.pPrev}}">‹</button><sc-for list="{{bl.pgs}}" as="p" hint-placeholder-count="3"><button type="button" class="{{p.cls}}" onClick="{{p.go}}">{{p.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{bl.pNext}}">›</button></span></div>
       </section>
       <sc-if value="{{bl.dOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{bl.d.x}}"></div><aside class="sh-dw sh-fx bl-dw" role="dialog" aria-modal="true" aria-label="基线详情">
         <header><div class="bl-dh"><span class="{{bl.d.stc}}">{{bl.d.st}}</span><h3>{{bl.d.t}}</h3><span class="bl-nv"><button type="button" aria-label="上一项" onClick="{{bl.d.prev}}"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path transform="rotate(180 12 12)" d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button><small>{{bl.d.idx}}</small><button type="button" aria-label="下一项" onClick="{{bl.d.next}}"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></span></div>
@@ -798,7 +772,7 @@ class Component extends DCLogic {
     o.scan = ev(() => { if (st.blScan) return; set({ blScan: 1 }); setTimeout(() => { const run = {}; D.R.forEach((r) => { run[r.id] = now(); }); this.setState({ blScan: 0, blRun: run, blLast: now() + ':12' }); toast('一键检测完成：' + D.H.length + ' 台主机、' + D.R.length + ' 项基线'); }, 1800); });
     o.stats = [['风险数量', String(riskN), '个', 'b-risk', ''], ['检查主机数', String(D.H.length), '台', 'b-host', ''], ['忽略项', String(Object.keys(ig).filter((k) => ig[k]).length), '个', 'b-ign', ''],
       ['检测通过率', String(Math.round((D.H.length - badH) / D.H.length * 100)), '%', 'b-rate', '通过 ' + (D.H.length - badH) + ' 未通过 ' + badH]].map(([n, v, u, ic, s2]) => ({ n, v, u, ic: 'bl-ic ' + ic, s: s2, hasS: !!s2 }));
-    o.segs = ['全部', '未通过', '通过', '已忽略'].map((n) => ({ n, c: n === '全部' ? R.length : R.filter((r) => r.st === n).length, cls: n === flt ? 'on' : '', go: ev(() => set({ blF: n, blPg: 1, blSel: {} })) }));
+    o.segs = ['全部', '未通过', '通过', '已忽略'].map((n) => ({ n, c: n === '全部' ? R.length : R.filter((r) => r.st === n).length, on: n === flt, cls: n === flt ? 'kc-tab on' : 'kc-tab', go: ev(() => set({ blF: n, blPg: 1, blSel: {} })) }));
     o.q = st.blQ || ''; o.onQ = (e) => set({ blQ: e.target.value, blPg: 1 });
     o.n = list.length; o.empty = !list.length;
     const pageRows = list.slice((pg - 1) * PS, pg * PS);
@@ -810,11 +784,12 @@ class Component extends DCLogic {
     o.bRe = ev(() => { if (!selIds.length) return; recheck(selIds); set({ blSel: {} }); });
     o.selX = ev(() => set({ blSel: {} }));
     const stc = (x) => x === '未通过' ? 'kc-tag err' : x === '通过' ? 'kc-tag ok' : 'kc-tag mut';
-    o.rows = pageRows.map((r) => ({ n: r.n, st: busy[r.id] ? '检测中' : r.st, stc: busy[r.id] ? 'kc-tag info' : stc(r.st), hn: r.fl.length, hc: r.fl.length && !ig[r.id] ? 'bl-hn r' : 'bl-hn', t: r.tt,
+    o.rows = pageRows.map((r) => ({ n: r.n, st: busy[r.id] ? '检测中' : r.st, stc: busy[r.id] ? 'kc-tag info' : stc(r.st), hn: r.fl.length, hc: '', t: r.tt,
       ckc: sel[r.id] ? 'hs-cb on' : 'hs-cb', cka: sel[r.id] ? 'true' : 'false', ck: ev(() => set({ blSel: Object.assign({}, sel, { [r.id]: sel[r.id] ? 0 : 1 }) })),
       go: ev(() => set({ blD: r.id, blTab: '修复建议', blMenu: 0 })), re: ev(() => { if (!busy[r.id]) recheck([r.id]); }), reT: busy[r.id] ? '检测中…' : '重新检测' }));
     o.pgs = Array.from({ length: pages }, (_, i) => i + 1).map((p) => ({ n: String(p), cls: p === pg ? 'on' : '', go: ev(() => set({ blPg: p })) }));
     o.pPrev = ev(() => set({ blPg: Math.max(1, pg - 1) })); o.pNext = ev(() => set({ blPg: Math.min(pages, pg + 1) }));
+    o.emClr = !!(st.blQ || (flt && flt !== '全部')); o.emT = o.emClr ? '没有符合条件的基线' : '暂无基线检测结果，点「一键检测」开始'; o.clr = ev(() => set({ blQ: '', blF: '全部', blPg: 1 }));
     o.pss = [10, 20, 50].map((n) => ({ n: n + ' 条/页', cls: n === PS ? 'on' : '', go: ev(() => set({ blPs: n, blPg: 1 })) }));
     // drawer
     const di = list.findIndex((r) => r.id === st.blD); const dr = R.find((r) => r.id === st.blD);
@@ -1899,7 +1874,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '基线检查';
-    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '防护设置': 'SecRunSet.dc.html', '病毒与威胁防护': 'SecVirus.dc.html', '软件与进程管控': 'SecRunApp.dc.html', '登录认证安全': 'SecLoginAuth.dc.html', '客户端接入': 'SecAgent.dc.html', '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecLoginAuth.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecRunShell.dc.html', '本地提权': 'SecRunPriv.dc.html', '高危命令': 'SecRunCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecNetGuard.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecAlertsV2.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1908,8 +1883,8 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
-      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
+      { label: '功能区', items: [P("资产管理", 'layers', ['客户端接入', '资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("远程安全", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
+      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
