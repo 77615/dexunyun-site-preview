@@ -804,7 +804,7 @@ class Component extends DCLogic {
   /* alv2: 告警中心合并方案示例 */
   _al() {
     const st = this.state || {}; const D = ALD; const set = (o) => this.setState(o);
-    const BK = { 'ALT-3118': [['已封 IP', '103.xx.xx.12 等 3 个来源 IP，封禁 24 小时', '网络访问防护', 'SecNetGuard.dc.html', '解封 IP', '已解封 3 个 IP'], ['已锁账号', 'root 在 db-01 上锁定 30 分钟', '远程安全', 'SecLoginAuth.dc.html', '解锁账号', '已解锁 root']],
+    const BK = { 'ALT-3118': [['已封 IP', '103.xx.xx.12 等 3 个来源 IP，封禁 24 小时', '网络访问防护 › 封禁与锁定', 'SecNetGuard.dc.html?tab=ban', '解封 IP', '已解封 3 个 IP'], ['已锁账号', 'root 在 db-01 上锁定 30 分钟（同一条暴力破解规则）', '网络访问防护 › 封禁与锁定', 'SecNetGuard.dc.html?tab=ban', '解锁账号', '已解锁 root']],
       'ALT-3122': [['已断开', '反弹连接 45.142.xx.xx:4444，进程 /tmp/.x 已终止', '应用运行防护 › 反弹 Shell', 'SecRunShell.dc.html', '', '']] }; const bkS = st.alBK || {};
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
     const ss = st.alS || {}; const evt = st.alE || {};
@@ -841,7 +841,7 @@ class Component extends DCLogic {
         evT: d.cat + ' 证据', evd: d.evd.map(([k, v]) => ({ k, v })), adv: d.adv,
         rule: '规则与白名单：' + CAPL[d.cat][0], ruleH: CAPL[d.cat][1], hostH: 'SecHostDetail.dc.html',
         isP: d.st === '待研判', notP: d.st !== '待研判',
-        ok: setS('已确认', '已确认为真实攻击，记录在处置记录里'), ig: setS('已忽略', '已忽略（误报），同类告警按白名单不再提醒'),
+        ok: setS('已确认', '已确认为真实攻击，记录在处置记录里'), ig: setS('已忽略', '已忽略（误报）。要让同类行为不再告警，请到「' + CAPL[d.cat][0] + '」的白名单添加'),
         reopen: setS('待研判', '已恢复为待研判'),
         up: ev(() => { set({ alE: Object.assign({}, evt, { [d.id]: 'INC-3207' }), alS: Object.assign({}, ss, { [d.id]: '已确认' }) }); toast('已升级为事件 INC-3207，可在威胁狩猎继续调查'); }),
         x: ev(() => set({ alD: '' })),
@@ -1910,7 +1910,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '告警中心';
-    const pages = { '病毒与威胁防护': 'SecVirus.dc.html', '软件与进程管控': 'SecRunApp.dc.html', '登录认证安全': 'SecLoginAuth.dc.html', '客户端接入': 'SecAgent.dc.html', '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecLoginAuth.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecRunShell.dc.html', '本地提权': 'SecRunPriv.dc.html', '高危命令': 'SecRunCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecNetGuard.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecAlertsV2.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const pages = { '防护设置': 'SecRunSet.dc.html', '病毒与威胁防护': 'SecVirus.dc.html', '软件与进程管控': 'SecRunApp.dc.html', '登录认证安全': 'SecLoginAuth.dc.html', '客户端接入': 'SecAgent.dc.html', '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecLoginAuth.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecRunShell.dc.html', '本地提权': 'SecRunPriv.dc.html', '高危命令': 'SecRunCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecNetGuard.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecAlertsV2.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -1919,7 +1919,7 @@ class Component extends DCLogic {
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
       { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['客户端接入', '资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("远程安全", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['客户端接入', '资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("远程安全", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
