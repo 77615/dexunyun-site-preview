@@ -589,15 +589,28 @@ a.al-rule{margin-left:auto;font-size:13px;color:#1664ff;text-decoration:none}
 .cp-help ul{margin:0;padding-left:18px;font-size:13px;line-height:1.9;color:#42464e}
 .kc-card.cp-card{padding:0 20px 16px!important;overflow:hidden}
 .cp-card .kc-tabs{margin:0 -20px!important;padding:0 20px!important}
-.cp-strip{display:flex;align-items:center;gap:10px;margin:16px 0 14px;padding:10px 16px;border-radius:6px;background:linear-gradient(90deg,#f7f9fc 0%,#eef4ff 55%,#e3eeff 100%)}
-.cp-lb{font-size:13px;color:#4e5969}
-.cp-sp{width:1px;height:16px;margin:0 10px;background:#dfe3ea}
-em.cp-on{padding:0 6px;border-radius:3px;background:#e8ffea;font-style:normal;font-size:12px;line-height:20px;color:#00875a}
+.cp-strip{position:relative;display:flex;align-items:center;gap:8px;margin:16px 0 14px;padding:16px;border-radius:4px;background:linear-gradient(112deg,rgba(255,255,255,0) 58%,rgba(255,255,255,.75) 61%,rgba(255,255,255,0) 64%),linear-gradient(118deg,rgba(255,255,255,0) 70%,rgba(255,255,255,.6) 72%,rgba(255,255,255,0) 75%),linear-gradient(100deg,#fff 0%,#f5f8ff 45%,#ddeeff 100%)}
+.cp-strip.part{background:linear-gradient(112deg,rgba(255,255,255,0) 58%,rgba(255,255,255,.75) 61%,rgba(255,255,255,0) 64%),linear-gradient(118deg,rgba(255,255,255,0) 70%,rgba(255,255,255,.6) 72%,rgba(255,255,255,0) 75%),linear-gradient(90deg,#fff6ea 0%,#fff9f1 30%,#f1f6ff 65%,#ddeeff 100%)}
+.cp-lb{font-size:14px;color:#1d2129}
+.cp-lb2{margin-left:16px}
+em.cp-on{padding:0 6px;border-radius:2px;background:#e8ffea;font-style:normal;font-size:12px;line-height:18px;color:#00b42a}
 em.cp-on.off{background:#f2f3f5;color:#86909c}
-.cp-mode{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid #bedaff;border-radius:14px;background:#fff;font:inherit;font-size:13px;color:#1664ff;cursor:pointer}
-.cp-mode:hover{border-color:#1664ff}
-.cp-mode b{font-weight:500}
-.cp-mode small{font-size:12px;color:#86909c}
+em.cp-on.part{background:#fff3e8;color:#ff7d00}
+.kc-sw.cp-part{background:#ff7d00!important}
+.kc-sw.cp-part::before{content:"";position:absolute;left:8px;top:9px;width:8px;height:2px;border-radius:1px;background:#fff}
+a.cp-part-t{font-size:12px;color:#86909c;text-decoration:none}
+a.cp-part-t:hover{color:#1664ff}
+.cp-mode{position:relative;display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 8px;border-radius:2px;background:#e8f3ff;font-size:13px;color:#1664ff;cursor:pointer}
+.cp-mode:hover{background:#dbeaff}
+.cp-mode b{font-weight:600}
+.cp-mode .cp-mi{width:18px;height:18px;color:#4a8dff}
+.cp-tipw{display:inline-flex;margin-left:4px;color:#1664ff}
+.cp-tip{display:none;position:absolute;left:0;top:32px;z-index:20;width:300px;padding:10px 12px;border-radius:4px;background:#1d2129;box-shadow:0 4px 12px rgba(0,0,0,.15);font-size:12px;line-height:1.8;color:#fff;cursor:default}
+.cp-tip strong{display:block;margin-bottom:2px;font-weight:500}
+.cp-tl{display:block;color:rgba(255,255,255,.8)}
+.cp-tipw:hover .cp-tip{display:block}
+.cp-scr{margin-left:auto;font-size:13px;color:#4e5969}
+.cp-offh{display:flex;align-items:center;gap:12px;margin:0;font-size:12.5px;color:#d25f00}
 .cp-sct{font-size:13px;font-weight:500;color:#1d2129}
 .cp-offw,.cp-alk,.cp-note{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 12px;border-radius:4px;background:#fff7e8;font-size:13px;color:#7a4a00}
 .cp-offw svg{color:#ff7d00;flex:none}
@@ -865,9 +878,10 @@ a.bl-nm:hover{color:#1664ff}
       <sc-if value="{{cp.hOn}}" hint-placeholder-val="{{false}}"><section class="kc-card cp-help"><h3>功能说明</h3><ul><sc-for list="{{cp.help}}" as="h" hint-placeholder-count="3"><li>{{h.t}}</li></sc-for></ul></section></sc-if>
       <section class="kc-card cp-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{cp.tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
-        <div class="cp-strip"><span class="cp-lb">防护状态</span><button type="button" class="{{cp.swc}}" role="switch" aria-checked="{{cp.onA}}" aria-label="防护状态" onClick="{{cp.swGo}}"></button><em class="{{cp.onC}}">{{cp.onT}}</em>
-          <i class="cp-sp"></i><span class="cp-lb">防护模式</span><button type="button" class="cp-mode" onClick="{{cp.cfgGo}}"><svg class="cp-mi" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1Z"></path></svg><b>{{cp.mode}}</b><small>{{cp.modeS}}</small><svg class="cp-ca" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 16L6 10H18L12 16Z"></path></svg></button>
-          <i class="cp-sp"></i><span class="cp-lb">生效范围</span><b class="cp-sct">{{cp.scT}}</b></div>
+        <div class="{{cp.stripC}}"><span class="cp-lb">防护状态：</span><button type="button" class="{{cp.swc}}" role="switch" aria-checked="{{cp.onA}}" aria-label="防护状态" onClick="{{cp.swGo}}"></button><em class="{{cp.onC}}">{{cp.onT}}</em>
+          <sc-if value="{{cp.partOn}}" hint-placeholder-val="{{false}}"><a class="cp-part-t" href="#" onClick="{{cp.partGo}}">{{cp.partT}}</a></sc-if>
+          <span class="cp-lb cp-lb2">防护模式：</span><span class="cp-mode" role="button" tabindex="0" onClick="{{cp.cfgGo}}"><svg class="cp-mi" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1Z"></path></svg><b>{{cp.mode}}</b><span class="cp-tipw" aria-label="模式说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><span class="cp-tip" role="tooltip"><strong>{{cp.tipT}}</strong><sc-for list="{{cp.tip}}" as="x" hint-placeholder-count="3"><span class="cp-tl">{{x.t}}</span></sc-for></span></span><svg class="cp-ca" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 16L6 10H18L12 16Z"></path></svg></span>
+          <span class="cp-scr">生效范围：<b class="cp-sct">{{cp.scT}}</b></span></div>
         <sc-if value="{{cp.offOn}}" hint-placeholder-val="{{false}}"><div class="cp-offw"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><span>防护已关闭：下面的规则暂不生效，事件只保留历史记录。</span></div></sc-if>
         <div class="cp-bar"><sc-if value="{{cp.priOn}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn pri" onClick="{{cp.priGo}}">{{cp.priT}}</button></sc-if>
           <sc-if value="{{cp.chOn}}" hint-placeholder-val="{{false}}"><span class="cp-chs"><sc-for list="{{cp.chips}}" as="c" hint-placeholder-count="3"><button type="button" class="{{c.cls}}" onClick="{{c.go}}">{{c.n}}<em>{{c.c}}</em></button></sc-for></span></sc-if>
@@ -907,7 +921,7 @@ a.bl-nm:hover{color:#1664ff}
             <sc-if value="{{cp.c.sumOn}}" hint-placeholder-val="{{false}}"><ul class="cp-sum"><sc-for list="{{cp.c.sum}}" as="x" hint-placeholder-count="3"><li>{{x.t}}</li></sc-for></ul></sc-if>
             <sc-if value="{{cp.c.custOn}}" hint-placeholder-val="{{false}}"><p class="cp-cust">{{cp.c.custT}}</p></sc-if></div></div>
           <div class="cp-fr"><span class="cp-fl">生效范围</span><div class="cp-fv col"><div class="cp-rds"><button type="button" class="{{cp.c.scAll}}" onClick="{{cp.c.goAll}}">全部主机</button><button type="button" class="{{cp.c.scPick}}" onClick="{{cp.c.goPick}}">自选主机</button><span class="cp-pk">{{cp.c.pickT}}</span></div>
-            <sc-if value="{{cp.c.pickOn}}" hint-placeholder-val="{{false}}"><div class="cp-hss"><sc-for list="{{cp.c.hosts}}" as="h" hint-placeholder-count="3"><button type="button" class="{{h.cls}}" onClick="{{h.go}}">{{h.n}}<small>{{h.ip}}</small></button></sc-for></div><p class="cp-pkn">示例只列出 6 台；实际为带搜索和分组的主机选择器，新接入主机默认不加入。</p></sc-if></div></div>
+            <sc-if value="{{cp.c.pickOn}}" hint-placeholder-val="{{false}}"><div class="cp-hss"><sc-for list="{{cp.c.hosts}}" as="h" hint-placeholder-count="3"><button type="button" class="{{h.cls}}" onClick="{{h.go}}">{{h.n}}<small>{{h.ip}}</small></button></sc-for></div><p class="cp-pkn">示例只列出 6 台；实际为带搜索和分组的主机选择器，新接入主机默认不加入。</p></sc-if><sc-if value="{{cp.c.offOn}}" hint-placeholder-val="{{false}}"><p class="cp-offh"><span>{{cp.c.offT}}</span><button type="button" class="cp-lk" onClick="{{cp.c.offGo}}">全部恢复开启</button></p></sc-if></div></div>
           <sc-for list="{{cp.c.secs}}" as="s" hint-placeholder-count="3"><div class="cp-sec"><h4 class="bl-h">{{s.t}}</h4><div class="cp-its"><sc-for list="{{s.items}}" as="it" hint-placeholder-count="3"><div class="{{it.cls}}"><sc-for list="{{it.parts}}" as="p" hint-placeholder-count="3"><sc-if value="{{p.txt}}" hint-placeholder-val="{{false}}"><span class="{{p.cls}}">{{p.t}}</span></sc-if><sc-if value="{{p.cb}}" hint-placeholder-val="{{false}}"><button type="button" class="{{p.cls}}" role="checkbox" aria-checked="{{p.a}}" onClick="{{p.go}}">{{p.t}}</button></sc-if><sc-if value="{{p.sw}}" hint-placeholder-val="{{false}}"><button type="button" class="{{p.cls}}" role="switch" aria-checked="{{p.a}}" aria-label="{{p.lab}}" onClick="{{p.go}}"></button></sc-if><sc-if value="{{p.sel}}" hint-placeholder-val="{{false}}"><select class="cp-sel sm" aria-label="{{p.lab}}" value="{{p.v}}" onChange="{{p.ch}}"><sc-for list="{{p.opts}}" as="y" hint-placeholder-count="3"><option value="{{y.y}}">{{y.y}}</option></sc-for></select><sc-if value="{{p.uOn}}" hint-placeholder-val="{{false}}"><span class="cp-u">{{p.u}}</span></sc-if></sc-if><sc-if value="{{p.lnk}}" hint-placeholder-val="{{false}}"><span class="cp-pt">{{p.t}}</span><button type="button" class="cp-lk" onClick="{{p.go}}">{{p.b}}</button></sc-if></sc-for></div></sc-for></div></div></sc-for>
         </div>
         <footer><button type="button" class="kc-btn" onClick="{{cp.c.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{cp.c.save}}">保存</button></footer>
@@ -937,17 +951,22 @@ class Component extends DCLogic {
     const o = {};
     const qs0 = (() => { try { return /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search) : null; } catch (x) { return null; } })();
     const tabK = st.cpTab || (qs0 && qs0.get('tab')) || D.tabs[0].k;
-    const cfg = st.cpC || { on: true, mode: D.mode0, base: D.mode0, ov: {}, sc: 'all', hs: [] };
+    const cfg = st.cpC || { on: true, mode: D.mode0, base: D.mode0, ov: {}, sc: 'all', hs: [], offH: (D.offH0 || []).slice() };
+    const offH = cfg.offH || []; const part = cfg.on && offH.length > 0;
     const RS = st.cpRS || {}; const RU = st.cpRU || {}; const NEW = st.cpNew || []; const LS = st.cpL || {};
     const lists = (k) => LS[k] || D.L[k].rows;
     const STC = D.STC; const TGC = D.TGC; const HS = Object.keys(D.H);
     const OPN = { detail: '详情', view: '详情', white: '加白', black: '加黑', unban: '解封', ban: '封禁', kick: '断开', edit: '编辑', del: '删除' };
     o.t = D.t; o.desc = D.desc; o.demo = D.demo; o.help = D.help.map((t) => ({ t })); o.hOn = !!st.cpH; o.hGo = ev(() => set({ cpH: !st.cpH }));
-    o.swc = cfg.on ? 'kc-sw on' : 'kc-sw'; o.onA = cfg.on ? 'true' : 'false'; o.onT = cfg.on ? '已启用' : '已关闭'; o.onC = cfg.on ? 'cp-on' : 'cp-on off';
-    o.swGo = ev(() => { set({ cpC: Object.assign({}, cfg, { on: !cfg.on }) }); toast(cfg.on ? D.t + '已关闭，所有主机不再检测和拦截' : D.t + '已开启'); });
+    o.swc = part ? 'kc-sw on cp-part' : cfg.on ? 'kc-sw on' : 'kc-sw'; o.onA = part ? 'mixed' : cfg.on ? 'true' : 'false'; o.onT = part ? '部分开启' : cfg.on ? '已启用' : '已关闭'; o.onC = part ? 'cp-on part' : cfg.on ? 'cp-on' : 'cp-on off';
+    o.stripC = part ? 'cp-strip part' : 'cp-strip';
+    o.partOn = part; o.partT = offH.join('、') + ' 单独关闭'; o.partGo = ev(() => set({ cpD: JSON.parse(JSON.stringify(cfg)) }));
+    o.swGo = ev(() => { if (part) { set({ cpC: Object.assign({}, cfg, { offH: [] }) }); toast('已对全部 ' + D.total + ' 台主机开启' + D.t); return; } set({ cpC: Object.assign({}, cfg, { on: !cfg.on }) }); toast(cfg.on ? D.t + '已关闭，所有主机不再检测和拦截' : D.t + '已开启'); });
+    const mm0 = D.modes.find((x) => x[0] === (cfg.mode === '自定义' ? cfg.base : cfg.mode)); o.tip = ((mm0 && mm0[1]) || []).map((t) => ({ t })); o.tipT = cfg.mode === '自定义' ? '自定义（基于' + cfg.base + '，调整过部分项）' : cfg.mode;
     o.offOn = !cfg.on;
     o.mode = cfg.mode; o.modeS = cfg.mode === '自定义' ? '基于' + cfg.base : '';
-    o.scT = cfg.sc === 'all' ? '全部主机 · ' + D.total + ' 台' : '自选主机 · ' + cfg.hs.length + ' / ' + D.total + ' 台';
+    const nOn = (cfg.sc === 'all' ? D.total : cfg.hs.length) - offH.length;
+    o.scT = (cfg.sc === 'all' ? '全部主机' : '自选主机') + ' · 已开启 ' + nOn + ' / ' + D.total + ' 台';
     o.cfgGo = ev(() => set({ cpD: JSON.parse(JSON.stringify(cfg)) }));
     // ---- tabs + rows
     const T = D.tabs.find((t) => t.k === tabK) || D.tabs[0];
@@ -1035,6 +1054,7 @@ class Component extends DCLogic {
         goAll: ev(() => upd({ sc: 'all' })), goPick: ev(() => upd({ sc: 'pick', hs: Dd.hs.length ? Dd.hs : HS.slice() })),
         pickOn: Dd.sc === 'pick', pickT: (Dd.sc === 'pick' ? Dd.hs.length : D.total) + ' / ' + D.total + ' 台主机',
         hosts: HS.map((h) => { const on = Dd.hs.indexOf(h) >= 0; return { n: h, ip: D.H[h], cls: on ? 'cp-hs on' : 'cp-hs', go: ev(() => upd({ hs: on ? Dd.hs.filter((x) => x !== h) : Dd.hs.concat([h]) })) }; }),
+        offOn: (Dd.offH || []).length > 0, offT: '单独关闭：' + (Dd.offH || []).join('、') + '（在主机详情或这里恢复）', offGo: ev(() => upd({ offH: [] })),
         x: ev(() => set({ cpD: null })),
         save: ev(() => { if (Dd.sc === 'pick' && !Dd.hs.length) { toast('请至少选择 1 台主机'); return; } set({ cpC: Dd, cpD: null }); toast('已保存' + D.t + '设置（' + Dd.mode + '），正在下发到生效主机'); }) };
       const part = (p) => { const x = { txt: false, cb: false, sw: false, sel: false, lnk: false, t: '', cls: '', a: 'false', lab: p.lab || p.t || '', go: null, ch: null, v: '', opts: [], u: p.u || '', uOn: !!p.u, b: '' };
