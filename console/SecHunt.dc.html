@@ -1344,7 +1344,7 @@
       </nav>
     <div class="kc-foldbar"><label for="kcf-SecHunt" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecHunt" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecHunt" class="kc-main sh sl hu">
-      <div class="{{ls.hdC}}"><h1 class="kc-h1">威胁狩猎</h1><span class="hu-sum">{{ls.sum}}</span>
+      <div class="{{ls.hdC}}"><h1 class="kc-h1">威胁调查</h1><span class="hu-sum">{{ls.sum}}</span>
         <div class="hu-fs"><span class="hu-fst">功能状态 <i class="{{ls.fsC}}">{{ls.fsS}}</i></span><span class="hu-fst">生效范围 <b>{{ls.fsR}}</b> 台</span>
           <div class="hu-fw"><button type="button" class="kc-btn" aria-haspopup="dialog" onClick="{{ls.fsT}}">功能设置</button>
             <sc-if value="{{ls.fsOn}}" hint-placeholder-val="{{false}}"><div class="hu-fm" onClick="{{ls.fsX}}"></div>
@@ -2585,8 +2585,8 @@ class Component extends DCLogic {
       ls.upd = ev(() => toast(nov ? '请先安装客户端' : old ? '已下发升级任务，升级到 V4.3.2' : '已是最新版 V4.3.2', 'info'));
       const my = rk.filter((r) => r.hs.indexOf(h.n) >= 0 && r.ty !== '主机状态'); const myP = my.filter((r) => PEND.indexOf(r.st) >= 0);
       const tab = st.hdt || (this.__nf && this.__nf['页签']) || '基本信息';
-      ls.tabs = [['基本信息', 0], ['待处理', myP.length], ['远程安全', 0], ['资源监控', 0], ['基线检查', 0], ['进程调查', 0]].map(([n, c]) => ({ n, c: c || '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ hdt: n })) }));
-      ls.tInfo = tab === '基本信息'; ls.tRisk = tab === '待处理'; ls.tRemote = tab === '远程安全'; ls.tMon = tab === '资源监控'; ls.tHard = tab === '基线检查'; ls.tProc = tab === '进程调查';
+      ls.tabs = [['基本信息', 0], ['待处理', myP.length], ['登录安全防护', 0], ['资源监控', 0], ['基线检查', 0], ['进程调查', 0]].map(([n, c]) => ({ n, c: c || '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ hdt: n })) }));
+      ls.tInfo = tab === '基本信息'; ls.tRisk = tab === '待处理'; ls.tRemote = tab === '登录安全防护'; ls.tMon = tab === '资源监控'; ls.tHard = tab === '基线检查'; ls.tProc = tab === '进程调查';
       const seed = h.n.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
       const cpu = [2, 4, 8, 16][seed % 4]; const mem = [3.8, 7.6, 15.5, 31.2][seed % 4]; const disk = [49, 99, 199, 499][seed % 4];
       ls.hw = [['CPU', 'Intel Xeon Platinum 8170 · ' + cpu + ' 核'], ['内存', mem + ' GB'], ['硬盘', disk + ' GB'], ['内核版本', OS.indexOf('Windows') === 0 ? '10.0.17763' : '5.15.0-91-generic'], ['主机 ID', 'dx-' + (seed * 7919).toString(16).slice(0, 8)], ['最后更新', '11-02 10:4' + (seed % 10)]].map(([k, v]) => ({ k, v }));
@@ -2817,7 +2817,7 @@ class Component extends DCLogic {
       ls.exp = ev(() => toast('已导出当前筛选的 ' + ls.n + ' 台主机'));
       const hc = Object.assign({ g: false, r: true }, st.hcols || {});
       ls.colG = hc.g; ls.colR = hc.r; ls.colsOn = !!st.hcp; ls.colsT = ev(() => S({ hcp: !st.hcp })); ls.colsX = ev(() => S({ hcp: false }));
-      ls.cols = [['分组 / 标签', 'g'], ['远程安全', 'r']].map(([n, k]) => ({ n, c: hc[k] ? 'hs-cb on' : 'hs-cb', t: ev(() => S({ hcols: Object.assign({}, hc, { [k]: !hc[k] }) })) }));
+      ls.cols = [['分组 / 标签', 'g'], ['登录安全防护', 'r']].map(([n, k]) => ({ n, c: hc[k] ? 'hs-cb on' : 'hs-cb', t: ev(() => S({ hcols: Object.assign({}, hc, { [k]: !hc[k] }) })) }));
       ls.colOpen = !st.hcol; ls.colShut = !!st.hcol; ls.colT = ev(() => S({ hcol: !st.hcol })); ls.layC = st.hcol ? 'hs-lay shut' : 'hs-lay';
       { const base = Object.assign({}, lf); delete base['保护状态']; delete base['客户端'];
         const CAT = [['全部主机', {}], ['有风险', { '保护状态': '有风险' }], ['未受保护', { '保护状态': '未受保护' }], ['接入中', { '保护状态': '接入中' }], ['客户端异常', { '客户端': '异常' }], ['已停机', { '保护状态': '已停机' }]];
@@ -2905,8 +2905,8 @@ class Component extends DCLogic {
   }
   /* /hdr62 */
   _rv() {
-    const cur = '威胁狩猎';
-    const pages = { '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '远程安全': 'SecRemote.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecShell.dc.html', '本地提权': 'SecPriv.dc.html', '高危命令': 'SecCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecFirewall.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecRisks.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
+    const cur = '威胁调查';
+    const pages = { '威胁调查': 'SecHunt.dc.html', '登录安全防护': 'SecLoginAuth.dc.html', '防护设置': 'SecRunSet.dc.html', '病毒与威胁防护': 'SecVirus.dc.html', '软件与进程管控': 'SecRunApp.dc.html', '登录认证安全': 'SecLoginAuth.dc.html', '客户端接入': 'SecAgent.dc.html', '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '网络防火墙': 'SecFirewall.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecCmd.dc.html', '异常登录': 'SecLogin.dc.html', '反弹 Shell': 'SecRunShell.dc.html', '本地提权': 'SecRunPriv.dc.html', '高危命令': 'SecRunCmd.dc.html', '应用运行防护': 'SecApp.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecRemote.dc.html', '在线用户': 'SecRemote.dc.html?tab=在线用户', '网络访问防护': 'SecNetGuard.dc.html', '外联管控': 'SecFirewall.dc.html?tab=外联配置', '安全组': 'SecFirewall.dc.html?tab=安全组', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecAlertsV2.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecBlock.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLoginLog.dc.html', '安全报告': 'SecReport.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -2914,9 +2914,9 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁狩猎", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("入侵防御", 'shield', ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索与备份', '网页防篡改']), L("远程安全", 'lock'), L("网络防火墙", 'link'), P("日志与报表", 'chart', ['日志检索', '拦截日志', '登录日志', '安全报告', '操作审计'])] },
-      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("客户端管理", 'box'), L("通知设置", 'gear')] }
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '2'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link')] },
+      { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
