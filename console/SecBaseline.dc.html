@@ -552,6 +552,41 @@
 .sl .hx-code button:hover{background:rgba(255,255,255,.16)}
 
 /* bl8081 */
+.cp-lk.mut{color:#4e5969}
+.cp-tipw{position:relative;display:inline-flex;margin-left:4px;color:inherit}
+.cp-tipw.g{margin:0 8px 0 -10px;color:#86909c}
+.cp-tip{display:none;position:absolute;left:50%;bottom:24px;z-index:40;width:max-content;max-width:280px;padding:10px 14px;transform:translateX(-50%);border-radius:4px;background:#fff;box-shadow:0 4px 14px rgba(29,33,41,.16);font-size:12.5px;font-weight:400;line-height:1.7;color:#4e5969;white-space:normal;cursor:default}
+.cp-tip strong{display:block;margin-bottom:2px;font-weight:500}
+.cp-tipw:hover .cp-tip{display:block}
+.cp-rds{display:flex;align-items:center;gap:16px;min-height:30px}
+.cp-rd{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1d2129;cursor:pointer}
+.cp-rd::before{content:"";width:14px;height:14px;box-sizing:border-box;border:1px solid #c9cdd4;border-radius:50%;background:#fff}
+.cp-rd.on::before{border:4px solid #1664ff}
+.cp-pk{font-size:13px;color:#1664ff}
+.cp-tf{display:flex;align-items:stretch;gap:10px;margin:-6px 0 8px}
+.cp-tp{flex:1;min-width:0}
+.cp-th{display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#1d2129}
+.cp-tb{height:300px;padding:12px;border:1px solid #e5e6eb;border-radius:4px;overflow:auto}
+.cp-ts{display:flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:2px;background:#f2f3f5;color:#86909c}
+.cp-ts input{flex:1;min-width:0;border:0;background:none;outline:0;font:inherit;font-size:13px;color:#1d2129}
+.cp-tc{margin:8px 0;padding:6px 10px;border-radius:2px;background:#f2f3f5;font-size:12.5px;color:#4e5969}
+.cp-tl2{margin-top:6px}
+.cp-tr{display:flex;align-items:center;gap:8px;padding:5px 0 5px 22px}
+.cp-tr.g{padding-left:0}
+.cp-tr.g::before{content:"";width:0;height:0;border:4px solid transparent;border-top:5px solid #4e5969;margin:4px 2px 0 2px}
+.cp-tr small{font-size:12px;color:#86909c}
+.cp-te{margin:16px 0;text-align:center;font-size:12px;color:#86909c}
+.cp-ta{display:flex;flex-direction:column;justify-content:center;gap:10px}
+.cp-tab2{width:26px;height:26px;border:0;border-radius:50%;background:#f2f3f5;font:inherit;font-size:16px;line-height:1;color:#c9cdd4;cursor:default}
+.cp-tab2.on{background:#1664ff;color:#fff;cursor:pointer}
+.cp-cb.half::before{border-color:#1664ff;background:#fff linear-gradient(#1664ff,#1664ff) center/8px 2px no-repeat}
+.cp-pkn{margin:0;font-size:12px;color:#86909c}
+.cp-cb{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1d2129;cursor:pointer}
+.cp-cb::before{content:"";width:14px;height:14px;box-sizing:border-box;border:1px solid #c9cdd4;border-radius:2px;background:#fff center/10px no-repeat}
+.cp-cb.on::before{border-color:#1664ff;background-color:#1664ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M10 15.17L19.19 5.98L20.6 7.39L10 18L3.64 11.64L5.05 10.22L10 15.17Z'/%3E%3C/svg%3E")}
+.cp-lk{padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1664ff;cursor:pointer}
+.cp-lk.dg{color:#cb2634}
+.hx-hp{display:flex;flex-direction:column;gap:12px}.hx-hp .cp-tf{margin:0}
 .kc-card.bl-card{padding:0 20px 16px}
 .bl-card>.kc-tabs{margin:0 -20px 12px;padding:0 20px}
 .bl-last{align-self:center;font-size:12px;color:#86909c}
@@ -736,7 +771,7 @@ a.bl-nm:hover{color:#1664ff}
           <textarea class="ig7-ta" aria-label="补充说明" placeholder="补充说明（选填）" value="{{bl.ig.w}}" onChange="{{bl.ig.onW}}"></textarea></div>
         <div class="ig7-f"><button type="button" class="kc-btn" onClick="{{bl.ig.x}}">取消</button><button type="button" class="{{bl.ig.okC}}" onClick="{{bl.ig.ok}}">确定忽略</button></div></div></div></sc-if>
       <sc-if value="{{bl.tOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="ok"></i>{{bl.tT}}</div></sc-if>
-      <sc-if value="{{ls.hxOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.hx.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{ls.hx.t}}"><header><h3>{{ls.hx.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.hx.x}}">×</button></header><div class="sh-dwb"><div class="hx-form"><sc-for list="{{ls.hx.f}}" as="f" hint-placeholder-count="4"><div class="{{f.c}}"><sc-if value="{{f.hasK}}" hint-placeholder-val="{{true}}"><div class="hx-fl"><span>{{f.k}}</span><sc-if value="{{f.req}}" hint-placeholder-val="{{false}}"><em>*</em></sc-if></div></sc-if><sc-if value="{{f.isSw}}" hint-placeholder-val="{{false}}"><p class="hx-sd">{{f.d}}</p><button type="button" class="{{f.swc}}" role="switch" aria-checked="{{f.swa}}" aria-label="{{f.k}}" onClick="{{f.swt}}"></button></sc-if><sc-if value="{{f.isT}}" hint-placeholder-val="{{false}}"><input class="{{f.ic}}" type="text" value="{{f.v}}" placeholder="{{f.ph}}" aria-label="{{f.k}}" onChange="{{f.on}}"></sc-if><sc-if value="{{f.isSg}}" hint-placeholder-val="{{false}}"><div class="kc-sg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCk}}" hint-placeholder-val="{{false}}"><div class="kc-ckg"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="checkbox" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}"><i></i><div><b>{{o.n}}</b><span>{{o.d}}</span></div></button></sc-for></div></sc-if><sc-if value="{{f.isCh}}" hint-placeholder-val="{{false}}"><div class="hx-chs"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCode}}" hint-placeholder-val="{{false}}"><div class="hx-code"><code>{{f.code}}</code><button type="button" onClick="{{f.cp}}">复制</button></div></sc-if><sc-if value="{{f.hasH}}" hint-placeholder-val="{{false}}"><p class="hx-h">{{f.h}}</p></sc-if><sc-if value="{{f.err}}" hint-placeholder-val="{{false}}"><p class="hx-err">{{f.em}}</p></sc-if></div></sc-for></div></div><footer><button type="button" class="kc-btn" onClick="{{ls.hx.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{ls.hx.ok}}">{{ls.hx.okN}}</button></footer></aside></sc-if>
+      <sc-if value="{{ls.hxOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.hx.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{ls.hx.t}}"><header><h3>{{ls.hx.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.hx.x}}">×</button></header><div class="sh-dwb"><div class="hx-form"><sc-for list="{{ls.hx.f}}" as="f" hint-placeholder-count="4"><div class="{{f.c}}"><sc-if value="{{f.hasK}}" hint-placeholder-val="{{true}}"><div class="hx-fl"><span>{{f.k}}</span><sc-if value="{{f.req}}" hint-placeholder-val="{{false}}"><em>*</em></sc-if></div></sc-if><sc-if value="{{f.isSw}}" hint-placeholder-val="{{false}}"><p class="hx-sd">{{f.d}}</p><button type="button" class="{{f.swc}}" role="switch" aria-checked="{{f.swa}}" aria-label="{{f.k}}" onClick="{{f.swt}}"></button></sc-if><sc-if value="{{f.isT}}" hint-placeholder-val="{{false}}"><input class="{{f.ic}}" type="text" value="{{f.v}}" placeholder="{{f.ph}}" aria-label="{{f.k}}" onChange="{{f.on}}"></sc-if><sc-if value="{{f.isHp}}" hint-placeholder-val="{{false}}"><div class="hx-hp"><div class="cp-rds"><button type="button" class="{{f.hp.scAll}}" onClick="{{f.hp.goAll}}">全部主机</button><span class="cp-tipw g"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><span class="cp-tip" role="tooltip">自动添加至新增主机</span></span><button type="button" class="{{f.hp.scPick}}" onClick="{{f.hp.goPick}}">自选主机</button><span class="cp-pk">{{f.hp.pickT}}</span></div><sc-if value="{{f.hp.pickOn}}" hint-placeholder-val="{{false}}"><div class="cp-tf"><div class="cp-tp"><div class="cp-th"><span>选择主机</span><button type="button" class="cp-lk" onClick="{{f.hp.reset}}">重置</button></div><div class="cp-tb"><label class="cp-ts"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索主机" placeholder="搜索名称 / IP" value="{{f.hp.L.q}}" onChange="{{f.hp.L.onQ}}"></label><div class="cp-tc">可选择 {{f.hp.L.n}} 台</div><button type="button" class="{{f.hp.L.allCb}}" onClick="{{f.hp.L.all}}">全选</button><div class="cp-tl2"><sc-for list="{{f.hp.L.rows}}" as="r" hint-placeholder-count="3"><div class="{{r.cls}}"><button type="button" class="{{r.cb}}" onClick="{{r.go}}">{{r.t}}</button><small>{{r.s}}</small></div></sc-for><sc-if value="{{f.hp.L.empty}}" hint-placeholder-val="{{false}}"><p class="cp-te">暂无主机</p></sc-if></div></div></div><div class="cp-ta"><button type="button" class="{{f.hp.mvRc}}" aria-label="加入已选" onClick="{{f.hp.mvR}}">›</button><button type="button" class="{{f.hp.mvLc}}" aria-label="移出已选" onClick="{{f.hp.mvL}}">‹</button></div><div class="cp-tp"><div class="cp-th"><span>已选择主机</span><button type="button" class="cp-lk" onClick="{{f.hp.selAll}}">选择全部</button></div><div class="cp-tb"><label class="cp-ts"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="搜索主机" placeholder="搜索名称 / IP" value="{{f.hp.R.q}}" onChange="{{f.hp.R.onQ}}"></label><div class="cp-tc">已选择 {{f.hp.R.n}} 台</div><button type="button" class="{{f.hp.R.allCb}}" onClick="{{f.hp.R.all}}">全选</button><div class="cp-tl2"><sc-for list="{{f.hp.R.rows}}" as="r" hint-placeholder-count="3"><div class="{{r.cls}}"><button type="button" class="{{r.cb}}" onClick="{{r.go}}">{{r.t}}</button><small>{{r.s}}</small></div></sc-for><sc-if value="{{f.hp.R.empty}}" hint-placeholder-val="{{false}}"><p class="cp-te">暂无主机</p></sc-if></div></div></div></div><p class="cp-pkn">示例为 6 台主机、3 个分组；新接入的主机不会自动加入自选范围。</p></sc-if></div></sc-if><sc-if value="{{f.isSg}}" hint-placeholder-val="{{false}}"><div class="kc-sg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCk}}" hint-placeholder-val="{{false}}"><div class="kc-ckg"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="checkbox" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}"><i></i><div><b>{{o.n}}</b><span>{{o.d}}</span></div></button></sc-for></div></sc-if><sc-if value="{{f.isCh}}" hint-placeholder-val="{{false}}"><div class="hx-chs"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCode}}" hint-placeholder-val="{{false}}"><div class="hx-code"><code>{{f.code}}</code><button type="button" onClick="{{f.cp}}">复制</button></div></sc-if><sc-if value="{{f.hasH}}" hint-placeholder-val="{{false}}"><p class="hx-h">{{f.h}}</p></sc-if><sc-if value="{{f.err}}" hint-placeholder-val="{{false}}"><p class="hx-err">{{f.em}}</p></sc-if></div></sc-for></div></div><footer><button type="button" class="kc-btn" onClick="{{ls.hx.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{ls.hx.ok}}">{{ls.hx.okN}}</button></footer></aside></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
     </main>
   </div>
@@ -1694,9 +1729,8 @@ class Component extends DCLogic {
           { id: 'tm', k: '检查时间', t: 'text', w: 'sm', ph: 'HH:MM', when: 'ac' },
           { id: 'std', k: '检查标准', t: 'ckm', o: ['德迅安全基线', '等保 2.0 三级', 'CIS Benchmark'], d: ['账号、口令、SSH、服务、日志等 120 项，推荐', '按等保 2.0 三级要求检查 86 项，测评前使用', '国际通用 Level 1 标准，共 210 项'] },
           { id: 'wp', k: '弱口令检测', t: 'sw', d: '检查系统账号和 MySQL、Redis、FTP 等服务的弱口令，使用内置 1 万条字典。' },
-          { id: 'sc', k: '检查范围', t: 'sg', o: ['全部主机', '按分组'] },
-          { id: 'gp', k: '分组', t: 'ch', o: HXG, when: 'sc=按分组', req: 1 }],
-          def: { ac: true, fq: '每天', tm: '03:00', std: ['德迅安全基线'], wp: true, sc: '全部主机', gp: [] } },
+          { id: 'sc', k: '检查范围', t: 'hp', req: 1 }],
+          def: { ac: true, fq: '每天', tm: '03:00', std: ['德迅安全基线'], wp: true, sc: 'all', hs: [] } },
         SecHosts: { t: '安装客户端', ok: '完成', msg: '主机上线后会出现在列表里，约 1 分钟', f: [
           { id: 'os', k: '操作系统', t: 'sg', o: ['Linux', 'Windows'] },
           { id: 'net', k: '下载方式', t: 'sg', o: ['公网下载', '内网代理'], h: (V) => (V.net === '内网代理' ? '主机不能访问公网时使用：先在一台能访问公网的主机上部署代理，再填写代理地址。' : '主机需要能访问 dl.dexunyun.com（443 端口）。') },
@@ -1712,11 +1746,34 @@ class Component extends DCLogic {
       ls.hx = { t: C ? C.t : '', okN: C ? C.ok : '', f: [], x: ev(() => S({ hxO: 0, hxV: null, hxE: 0 })), ok: ev(() => {}) };
       if (C && st.hxO) { const V = Object.assign({}, C.def, st.hxV || {}); const setV = (id, v) => S({ hxV: Object.assign({}, (this.state || {}).hxV || {}, { [id]: v }) });
         const vis1 = (f) => { if (!f.when) return true; const [a, b] = f.when.split('='); return b == null ? !!V[a] : V[a] === b; };
-        const empty = (f) => (Array.isArray(V[f.id]) ? !V[f.id].length : !String(V[f.id] == null ? '' : V[f.id]).trim());
+        const empty = (f) => f.t === 'hp' ? (V.sc === 'pick' && !(V.hs || []).length) : (Array.isArray(V[f.id]) ? !V[f.id].length : !String(V[f.id] == null ? '' : V[f.id]).trim());
         const opt = (list, on, pick, d) => list.map((n, j) => ({ n, d: d ? d[j] : '', a: on(n) ? 'true' : 'false', c: on(n) ? 'on' : '', go: ev(() => pick(n)) }));
         ls.hx.f = C.f.filter(vis1).map((f) => { const v = V[f.id]; const h = typeof f.h === 'function' ? f.h(V) : f.h || ''; const bad = !!st.hxE && f.req && empty(f);
-          const x = { k: f.k, hasK: !!f.k, req: !!f.req, c: 'hx-f' + (f.w === 'sm' ? ' sm' : '') + (f.t === 'note' ? ' nt' : '') + (f.t === 'sw' ? ' sw' : '') + (bad ? ' bad' : ''), isT: f.t === 'text', isSg: f.t === 'sg', isCk: f.t === 'ckm', isCh: f.t === 'ch' || f.t === 'one', isSw: f.t === 'sw', isCode: f.t === 'code',
-            v: v == null ? '' : v, ph: f.ph || '', ic: 'kc-in' + (f.mono ? ' hx-mono' : ''), hasH: !!h, h, err: bad, em: f.t === 'text' ? '请填写' + f.k : '请至少选择一项', d: f.d || '', on: (e) => setV(f.id, e && e.target ? e.target.value : ''), o: [] };
+          const x = { k: f.k, hasK: !!f.k, req: !!f.req, c: 'hx-f' + (f.w === 'sm' ? ' sm' : '') + (f.t === 'note' ? ' nt' : '') + (f.t === 'sw' ? ' sw' : '') + (bad ? ' bad' : ''), isT: f.t === 'text', isSg: f.t === 'sg', isCk: f.t === 'ckm', isCh: f.t === 'ch' || f.t === 'one', isSw: f.t === 'sw', isCode: f.t === 'code', isHp: f.t === 'hp', hp: {},
+            v: v == null ? '' : v, ph: f.ph || '', ic: 'kc-in' + (f.mono ? ' hx-mono' : ''), hasH: !!h, h, err: bad, em: f.t === 'text' ? '请填写' + f.k : f.t === 'hp' ? '请至少选择 1 台主机' : '请至少选择一项', d: f.d || '', on: (e) => setV(f.id, e && e.target ? e.target.value : ''), o: [] };
+          if (f.t === 'hp') { /* hpc 2026-11-11：与能力页「生效范围」同一组件 */
+            const HH = { 'web-prod-01': '10.0.1.11', 'web-prod-02': '10.0.1.12', 'api-01': '10.0.2.21', 'db-01': '10.0.4.41', 'cache-01': '10.0.3.31', 'app-03': '10.0.2.23' };
+            const GG = [['生产环境', ['web-prod-01', 'web-prod-02', 'api-01']], ['数据库', ['db-01', 'cache-01']], ['测试环境', ['app-03']]];
+            const HS = Object.keys(HH); const pick = V.sc === 'pick'; const sel = V.hs || [];
+            const upd = (o) => { const cur = Object.assign({}, C.def, (this.state || {}).hxV || {}); S({ hxV: Object.assign({}, cur, o) }); };
+            const panel = (side) => { const key = side === 'l' ? 'lc' : 'rc'; const qk = side === 'l' ? 'lq' : 'rq';
+              const pool = side === 'l' ? HS.filter((h) => sel.indexOf(h) < 0) : sel.slice(); const ck = (V[key] || []).filter((h) => pool.indexOf(h) >= 0); const qq = (V[qk] || '').trim().toLowerCase();
+              const vis = pool.filter((h) => !qq || (h + ' ' + HH[h]).toLowerCase().indexOf(qq) >= 0);
+              const tog = (hs, on) => upd({ [key]: on ? ck.filter((x) => hs.indexOf(x) < 0) : ck.concat(hs.filter((x) => ck.indexOf(x) < 0)) });
+              const rows = [];
+              GG.forEach(([g, hs]) => { const v = vis.filter((h) => hs.indexOf(h) >= 0); if (!v.length) return; const n = v.filter((h) => ck.indexOf(h) >= 0).length;
+                rows.push({ cls: 'cp-tr g', t: g, s: v.length + ' 台', cb: n === v.length ? 'cp-cb on' : n ? 'cp-cb half' : 'cp-cb', go: ev(() => tog(v, n === v.length)) });
+                v.forEach((h) => { const on = ck.indexOf(h) >= 0; rows.push({ cls: 'cp-tr', t: h, s: HH[h], cb: on ? 'cp-cb on' : 'cp-cb', go: ev(() => tog([h], on)) }); }); });
+              const nA = vis.filter((h) => ck.indexOf(h) >= 0).length; const full = vis.length > 0 && nA === vis.length;
+              return { rows, n: String(pool.length), empty: !rows.length, q: V[qk] || '', onQ: (e) => upd({ [qk]: e && e.target ? e.target.value : '' }), allCb: full ? 'cp-cb on' : nA ? 'cp-cb half' : 'cp-cb', all: ev(() => tog(vis, full)), ck };
+            };
+            const PL = panel('l'); const PR = panel('r');
+            x.hp = { scAll: 'cp-rd' + (pick ? '' : ' on'), scPick: 'cp-rd' + (pick ? ' on' : ''), goAll: ev(() => upd({ sc: 'all' })), goPick: ev(() => upd({ sc: 'pick' })),
+              pickOn: pick, pickT: pick ? '已选择 ' + sel.length + ' 台' : '', L: PL, R: PR,
+              mvRc: PL.ck.length ? 'cp-tab2 on' : 'cp-tab2', mvLc: PR.ck.length ? 'cp-tab2 on' : 'cp-tab2',
+              mvR: ev(() => { if (PL.ck.length) upd({ hs: sel.concat(PL.ck), lc: [] }); }), mvL: ev(() => { if (PR.ck.length) upd({ hs: sel.filter((h) => PR.ck.indexOf(h) < 0), rc: [] }); }),
+              reset: ev(() => upd({ hs: [], lc: [], rc: [] })), selAll: ev(() => upd({ hs: HS.slice(), lc: [] })) };
+          }
           if (f.t === 'sg') x.o = opt(f.o, (n) => n === v, (n) => setV(f.id, n));
           if (f.t === 'ckm') { const a = v || []; x.o = opt(f.o, (n) => a.indexOf(n) >= 0, (n) => setV(f.id, a.indexOf(n) >= 0 ? a.filter((y) => y !== n) : a.concat([n])), f.d).map((o) => Object.assign(o, { c: 'kc-ck' + (o.c ? ' on' : '') })); }
           if (f.t === 'ch') { const a = v || []; x.o = opt(f.o, (n) => a.indexOf(n) >= 0, (n) => setV(f.id, a.indexOf(n) >= 0 ? a.filter((y) => y !== n) : a.concat([n]))).map((o) => Object.assign(o, { c: 'hx-chip' + (o.c ? ' on' : '') })); }
