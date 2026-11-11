@@ -786,7 +786,7 @@ a.bl-nm:hover{color:#1664ff}
           <h4 class="bl-h">建议处置</h4><div class="bl-box">{{al.d.adv}}</div>
           <p class="al-links"><a href="{{al.d.ruleH}}">{{al.d.rule}} ›</a><a href="{{al.d.hostH}}">查看主机详情 ›</a></p>
         </div>
-        <footer><sc-if value="{{al.d.isP}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{al.d.ig}}">误报，忽略</button><button type="button" class="kc-btn" onClick="{{al.d.up}}">升级为事件</button><button type="button" class="kc-btn pri" onClick="{{al.d.ok}}">确认是攻击</button></sc-if>
+        <footer><sc-if value="{{al.d.isP}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn" onClick="{{al.d.ig}}">误报，忽略</button><button type="button" class="kc-btn" onClick="{{al.d.isoGo}}">{{al.d.isoT}}</button><button type="button" class="kc-btn" onClick="{{al.d.up}}">升级为事件</button><button type="button" class="kc-btn pri" onClick="{{al.d.ok}}">确认是攻击</button></sc-if>
           <sc-if value="{{al.d.notP}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn" onClick="{{al.d.reopen}}">重新研判</button><button type="button" class="kc-btn pri" onClick="{{al.d.x}}">关闭</button></sc-if></footer>
       </aside></sc-if>
       <sc-if value="{{al.tOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="ok"></i>{{al.tT}}</div></sc-if>
@@ -804,6 +804,7 @@ class Component extends DCLogic {
   /* alv2: 告警中心合并方案示例 */
   _al() {
     const st = this.state || {}; const D = ALD; const set = (o) => this.setState(o);
+    const ISO = (() => { try { return JSON.parse(localStorage.getItem('dxIso') || '{}'); } catch (x) { return {}; } })();
     const BK = { 'ALT-3118': [['已封 IP', '103.xx.xx.12 等 3 个来源 IP，封禁 24 小时', '网络访问防护 › 封禁与锁定', 'SecNetGuard.dc.html?tab=ban', '解封 IP', '已解封 3 个 IP'], ['已锁账号', 'root 在 db-01 上锁定 30 分钟（同一条暴力破解规则）', '网络访问防护 › 封禁与锁定', 'SecNetGuard.dc.html?tab=ban', '解锁账号', '已解锁 root']],
       'ALT-3122': [['已断开', '反弹连接 45.142.xx.xx:4444，进程 /tmp/.x 已终止', '应用运行防护 › 反弹 Shell', 'SecRunShell.dc.html', '', '']] }; const bkS = st.alBK || {};
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
@@ -838,7 +839,8 @@ class Component extends DCLogic {
       const nav = (k) => ev(() => { if (di < 0 || !list.length) return; set({ alD: list[(di + k + list.length) % list.length].id }); });
       const setS = (v, msg) => ev(() => { set({ alS: Object.assign({}, ss, { [d.id]: v }) }); saveAS(d.id, v); toast(msg); });
       o.d = { t: d.n, lv: d.lv, lvc: lvc(d.lv), st: d.st, stc: stc(d.st), idx: di >= 0 ? (di + 1) + ' / ' + list.length : '', prev: nav(-1), next: nav(1),
-        kv: [['告警类目', d.cat], ['主机', d.h + ' · ' + d.ip], ['发生次数', d.cnt.toLocaleString() + ' 次'], ['首次发生', d.f], ['最近发生', d.l], ['处理方式', d.how], ['所属事件', d.ev || '—']].map(([k, v]) => ({ k, v })),
+        isoT: ISO[d.h] ? '解除隔离' : '隔离主机', isoGo: ev(() => { const v = !ISO[d.h]; try { const n = Object.assign({}, ISO, { [d.h]: v }); localStorage.setItem('dxIso', JSON.stringify(n)); } catch (x) {} set({ alIso: Date.now() }); toast(v ? '已隔离 ' + d.h + '，只保留与卫士的连接；各能力页和主机详情同步显示' : '已解除隔离，' + d.h + ' 恢复网络'); }),
+        kv: [['告警类目', d.cat], ['主机', d.h + ' · ' + d.ip + (ISO[d.h] ? '（已隔离）' : '')], ['发生次数', d.cnt.toLocaleString() + ' 次'], ['首次发生', d.f], ['最近发生', d.l], ['处理方式', d.how], ['所属事件', d.ev || '—']].map(([k, v]) => ({ k, v })),
         evT: d.cat + ' 证据', evd: d.evd.map(([k, v]) => ({ k, v })), adv: d.adv,
         rule: '规则与白名单：' + CAPL[d.cat][0], ruleH: CAPL[d.cat][1], hostH: 'SecHostDetail.dc.html',
         isP: d.st === '待研判', notP: d.st !== '待研判',
