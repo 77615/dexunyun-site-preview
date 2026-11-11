@@ -637,6 +637,10 @@ a.cp-part-t:hover{color:#1664ff}
 .cp-alk a{margin-left:auto;white-space:nowrap;color:#1664ff;text-decoration:none}
 .cp-note{margin-top:14px;background:#f2f3f5;color:#4e5969}
 .cp-bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px}
+.cp-card .sl-bar{padding:12px 0!important;gap:8px}
+.cp-card .sl-bar .kc-btn.pri{margin-right:4px}
+.cp-card .sl-n{margin-left:auto}
+.cp-card .kc-tw{margin:0!important}
 .cp-q{margin-left:auto}
 .cp-chs{display:inline-flex;gap:6px}
 .cp-ch{height:30px;padding:0 12px;border:0;border-radius:4px;background:#f2f3f5;font:inherit;font-size:13px;color:#4e5969;cursor:pointer}
@@ -954,10 +958,7 @@ a.bl-nm:hover{color:#1664ff}
         <sc-if value="{{cp.pdOn}}" hint-placeholder-val="{{false}}"><div class="cp-push fail"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><span>{{cp.pdT}}</span><button type="button" class="cp-lk" onClick="{{cp.pdOk}}">确认保留</button><button type="button" class="cp-lk" onClick="{{cp.pdRb}}">立即回滚</button></div></sc-if>
         <sc-if value="{{cp.puOn}}" hint-placeholder-val="{{false}}"><div class="{{cp.puC}}" role="status"><sc-if value="{{cp.puIng}}" hint-placeholder-val="{{false}}"><i class="cp-spin"></i></sc-if><sc-if value="{{cp.puFail}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg></sc-if><sc-if value="{{cp.puOk}}" hint-placeholder-val="{{false}}"><i class="cp-okd"></i></sc-if><span>{{cp.puT}}</span><sc-if value="{{cp.puFail}}" hint-placeholder-val="{{false}}"><button type="button" class="cp-lk" onClick="{{cp.puRetry}}">重新下发</button><a class="cp-lk" href="{{cp.puHost}}">查看主机</a></sc-if></div></sc-if>
         <sc-if value="{{cp.offOn}}" hint-placeholder-val="{{false}}"><div class="cp-offw"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><span>防护已关闭：下面的规则暂不生效，事件只保留历史记录。</span></div></sc-if>
-        <div class="cp-bar"><sc-if value="{{cp.priOn}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn pri" onClick="{{cp.priGo}}">{{cp.priT}}</button></sc-if>
-          <sc-if value="{{cp.chOn}}" hint-placeholder-val="{{false}}"><span class="cp-chs"><sc-for list="{{cp.chips}}" as="c" hint-placeholder-count="3"><button type="button" class="{{c.cls}}" onClick="{{c.go}}">{{c.n}}<em>{{c.c}}</em></button></sc-for></span></sc-if>
-          <sc-for list="{{cp.sels}}" as="s" hint-placeholder-count="3"><label class="cp-sl"><small>{{s.n}}</small><select class="cp-sel" aria-label="{{s.n}}" value="{{s.v}}" onChange="{{s.ch}}"><sc-for list="{{s.opts}}" as="x" hint-placeholder-count="3"><option value="{{x.x}}">{{x.x}}</option></sc-for></select></label></sc-for>
-          <label class="sl-q cp-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="{{cp.qp}}" placeholder="{{cp.qp}}" value="{{cp.q}}" onChange="{{cp.onQ}}"></label></div>
+        <div class="sl-bar cp-bar"><sc-if value="{{cp.priOn}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn pri" onClick="{{cp.priGo}}">{{cp.priT}}</button></sc-if><label class="sl-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input type="search" aria-label="{{cp.qp}}" placeholder="{{cp.qp}}" value="{{cp.q}}" onChange="{{cp.onQ}}"></label><sc-if value="{{cp.faHas}}" hint-placeholder-val="{{true}}"><span class="{{cp.faW}}"><button class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{cp.faT}}"><b>添加筛选</b><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{cp.faOn}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{cp.faX}}"></span><span class="dd-p" role="listbox"><sc-if value="{{cp.faV}}" hint-placeholder-val="{{false}}"><button type="button" class="sl-bkv" onClick="{{cp.faB}}">‹ {{cp.faK}}</button></sc-if><sc-for list="{{cp.faL}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span></sc-if></span></sc-if><sc-for list="{{cp.fchips}}" as="c" hint-placeholder-count="1"><span class="sl-chip">{{c.k}}：<b>{{c.v}}</b><button type="button" aria-label="移除条件" onClick="{{c.x}}">×</button></span></sc-for><sc-if value="{{cp.hasF}}" hint-placeholder-val="{{false}}"><a class="sl-clr" href="#" onClick="{{cp.clr}}">清除条件</a></sc-if><span class="sl-n">共 <b>{{cp.n}}</b> 条</span></div>
         <div class="kc-tw"><table class="kc-t bl-t cp-t">
           <thead><tr><sc-for list="{{cp.cols}}" as="c" hint-placeholder-count="3"><th style="{{c.sty}}">{{c.t}}</th></sc-for><th style="width:210px">操作</th></tr></thead>
           <tbody><sc-for list="{{cp.rows}}" as="r" hint-placeholder-count="3"><tr><sc-for list="{{r.c}}" as="c" hint-placeholder-count="3"><td>
@@ -967,7 +968,6 @@ a.bl-nm:hover{color:#1664ff}
               <sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="cp-sub">{{c.s}}</div></sc-if></td></sc-for>
             <td><span class="bl-ops cp-ops"><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="3"><a class="{{o.cls}}" href="{{o.href}}" onClick="{{o.go}}">{{o.t}}</a></sc-for></span></td></tr></sc-for>
           <sc-if value="{{cp.empty}}" hint-placeholder-val="{{false}}"><tr><td colspan="{{cp.span}}" class="hd-none">{{cp.emT}}<sc-if value="{{cp.emClr}}" hint-placeholder-val="{{false}}"><a class="cp-clr" href="#" onClick="{{cp.clr}}">清除筛选</a></sc-if></td></tr></sc-if></tbody></table></div>
-        <div class="bl-ft"><span>共 {{cp.n}} 条</span></div>
       </section>
       <sc-if value="{{cp.dtOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{cp.dt.x}}"></div><aside class="sh-dw sh-fx cp-dw" role="dialog" aria-modal="true" aria-label="详情">
         <header><div class="bl-dh"><sc-if value="{{cp.dt.stOn}}" hint-placeholder-val="{{false}}"><span class="{{cp.dt.stc}}">{{cp.dt.st}}</span></sc-if><h3>{{cp.dt.t}}</h3></div><button type="button" class="sh-x" aria-label="关闭" onClick="{{cp.dt.x}}">×</button></header>
@@ -1097,6 +1097,18 @@ class Component extends DCLogic {
     if (T.chips) { const ck = T.chips.f; const cv = F[ck] || '全部'; o.chips = ['全部'].concat(T.chips.o).map((n) => ({ n, c: String(n === '全部' ? all.length : all.filter((r) => r[ck] === n).length), cls: n === cv ? 'cp-ch on' : 'cp-ch', go: ev(() => set({ cpF: Object.assign({}, F, { [ck]: n }) })) })); }
     o.sels = (T.sels || []).map((s) => ({ n: s.n, v: F[s.f] || '全部', opts: ['全部'].concat(s.o).map((x) => ({ x })), ch: (e) => set({ cpF: Object.assign({}, F, { [s.f]: e.target.value }) }) }));
     const list = all.filter((r) => Object.keys(F).every((k) => !F[k] || F[k] === '全部' || r[k] === F[k]) && (!q || (T.qf || []).map((k) => String(r[k] || '')).join(' ').toLowerCase().indexOf(q) >= 0));
+
+    { /* filt6 2026-11-11：组件库筛选栏（先选属性再选值，生成条件标签） */
+      const colN = (f) => { const c = (T.cols || []).find((x) => x[2] === f); return c ? c[0] : f; };
+      const AT = (T.chips ? [{ n: colN(T.chips.f), f: T.chips.f, o: T.chips.o }] : []).concat((T.sels || []).map((s) => ({ n: s.n, f: s.f, o: s.o })));
+      const fk = st.cpFk || ''; const fo = !!st.cpFa; const at = AT.find((x) => x.n === fk);
+      o.faHas = AT.length > 0; o.faOn = fo; o.faW = 'dd-w' + (fo ? ' on' : ''); o.faV = !!at; o.faK = at ? at.n : '';
+      o.faT = ev(() => set({ cpFa: !fo, cpFk: '' })); o.faX = ev(() => set({ cpFa: false, cpFk: '' })); o.faB = ev(() => set({ cpFk: '' }));
+      o.faL = at ? at.o.map((v) => ({ n: v, cls: F[at.f] === v ? 'on' : '', pick: ev(() => set({ cpF: Object.assign({}, F, { [at.f]: v }), cpFa: false, cpFk: '' })) }))
+        : AT.map((x) => ({ n: x.n, cls: F[x.f] && F[x.f] !== '全部' ? 'on' : '', pick: ev(() => set({ cpFk: x.n })) }));
+      o.fchips = AT.filter((x) => F[x.f] && F[x.f] !== '全部').map((x) => ({ k: x.n, v: F[x.f], x: ev(() => set({ cpF: Object.assign({}, F, { [x.f]: '全部' }) })) }));
+      o.hasF = o.fchips.length > 0 || !!q;
+    }
     o.q = st.cpQ || ''; o.qp = T.qp; o.onQ = (e) => set({ cpQ: e.target.value });
     o.priOn = !!T.add && !RO; o.priT = T.add || ''; o.priGo = ev(() => set({ cpR: { id: '', tab: T.k, edit: true, v: Object.assign({}, T.blank) } }));
     o.cols = T.cols.map(([t, w]) => ({ t, sty: w ? 'width:' + w + 'px' : '' })); o.span = String(T.cols.length + 1);
