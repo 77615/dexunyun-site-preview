@@ -807,7 +807,8 @@ class Component extends DCLogic {
     const BK = { 'ALT-3118': [['已封 IP', '103.xx.xx.12 等 3 个来源 IP，封禁 24 小时', '网络访问防护 › 封禁与锁定', 'SecNetGuard.dc.html?tab=ban', '解封 IP', '已解封 3 个 IP'], ['已锁账号', 'root 在 db-01 上锁定 30 分钟（同一条暴力破解规则）', '网络访问防护 › 封禁与锁定', 'SecNetGuard.dc.html?tab=ban', '解锁账号', '已解锁 root']],
       'ALT-3122': [['已断开', '反弹连接 45.142.xx.xx:4444，进程 /tmp/.x 已终止', '应用运行防护 › 反弹 Shell', 'SecRunShell.dc.html', '', '']] }; const bkS = st.alBK || {};
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
-    const ss = st.alS || {}; const evt = st.alE || {};
+    const ss = st.alS || (() => { try { return JSON.parse(localStorage.getItem('dxAlertS') || '{}'); } catch (x) { return {}; } })();
+    const saveAS = (id, v) => { try { const cur = JSON.parse(localStorage.getItem('dxAlertS') || '{}'); cur[id] = v; localStorage.setItem('dxAlertS', JSON.stringify(cur)); } catch (x) {} }; const evt = st.alE || {};
     const toast = (t) => { set({ alT: t }); clearTimeout(this._alT); this._alT = setTimeout(() => this.setState({ alT: '' }), 2400); };
     const CAPL = { '异常登录': ['远程安全', 'SecLoginAuth.dc.html?tab=rule'], '密码破解': ['网络访问防护', 'SecNetGuard.dc.html?tab=rule'], '高危命令': ['应用运行防护 › 高危命令', 'SecRunCmd.dc.html?tab=rule'], '本地提权': ['应用运行防护 › 本地提权', 'SecRunPriv.dc.html?tab=wl'], '反弹 Shell': ['应用运行防护 › 反弹 Shell', 'SecRunShell.dc.html?tab=wl'], '病毒木马': ['病毒与威胁防护', 'SecVirus.dc.html'], '网页篡改': ['文件安全防护 › 网页防篡改', 'SecTamper.dc.html'], '勒索防护': ['文件安全防护 › 防勒索与备份', 'SecRansom.dc.html'], '应用运行': ['应用运行防护 › 软件与进程管控', 'SecRunApp.dc.html?tab=rule'] };
     if (st.alD === undefined && !this._alQ) { this._alQ = 1; try { const qa = /\.dc\.html$/.test(location.pathname) && new URLSearchParams(location.search).get('al'); if (qa) setTimeout(() => this.setState({ alD: qa, alSt: '全部' }), 0); } catch (x) {} }
@@ -835,7 +836,7 @@ class Component extends DCLogic {
     o.dOn = !!d; o.d = { kv: [], evd: [] };
     if (d) {
       const nav = (k) => ev(() => { if (di < 0 || !list.length) return; set({ alD: list[(di + k + list.length) % list.length].id }); });
-      const setS = (v, msg) => ev(() => { set({ alS: Object.assign({}, ss, { [d.id]: v }) }); toast(msg); });
+      const setS = (v, msg) => ev(() => { set({ alS: Object.assign({}, ss, { [d.id]: v }) }); saveAS(d.id, v); toast(msg); });
       o.d = { t: d.n, lv: d.lv, lvc: lvc(d.lv), st: d.st, stc: stc(d.st), idx: di >= 0 ? (di + 1) + ' / ' + list.length : '', prev: nav(-1), next: nav(1),
         kv: [['告警类目', d.cat], ['主机', d.h + ' · ' + d.ip], ['发生次数', d.cnt.toLocaleString() + ' 次'], ['首次发生', d.f], ['最近发生', d.l], ['处理方式', d.how], ['所属事件', d.ev || '—']].map(([k, v]) => ({ k, v })),
         evT: d.cat + ' 证据', evd: d.evd.map(([k, v]) => ({ k, v })), adv: d.adv,
@@ -843,7 +844,7 @@ class Component extends DCLogic {
         isP: d.st === '待研判', notP: d.st !== '待研判',
         ok: setS('已确认', '已确认为真实攻击，记录在处置记录里'), ig: setS('已忽略', '已忽略（误报）。要让同类行为不再告警，请到「' + CAPL[d.cat][0] + '」的白名单添加'),
         reopen: setS('待研判', '已恢复为待研判'),
-        up: ev(() => { set({ alE: Object.assign({}, evt, { [d.id]: 'INC-3207' }), alS: Object.assign({}, ss, { [d.id]: '已确认' }) }); toast('已升级为事件 INC-3207，可在威胁狩猎继续调查'); }),
+        up: ev(() => { set({ alE: Object.assign({}, evt, { [d.id]: 'INC-3207' }), alS: Object.assign({}, ss, { [d.id]: '已确认' }) }); saveAS(d.id, '已确认'); toast('已升级为事件 INC-3207，可在威胁狩猎继续调查'); }),
         x: ev(() => set({ alD: '' })),
         bkOn: !!BK[d.id], bk: (BK[d.id] || []).map(([tg, t, w, wh, a, msg], i) => { const k = d.id + i; const done = !!bkS[k]; return { tg: done ? (a === '解封 IP' ? '已解封' : '已解锁') : tg, tc: done ? 'kc-tag mut' : 'kc-tag ok', t, w: '执行位置：' + w, wh, aOn: !!a && !done, a,
           go: ev(() => { set({ alBK: Object.assign({}, bkS, { [k]: 1 }) }); toast(msg + '，操作记录在' + w + '的事件列表'); }) }; }) };
