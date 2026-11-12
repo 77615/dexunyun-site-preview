@@ -178,179 +178,146 @@ a.lift:hover,div.lift:hover{border-color:transparent;box-shadow:-12px 16px 32px 
 .tcx .rv-wait{opacity:0;transform:translateY(36px)}
 @media (prefers-reduced-motion:reduce){.tcx .rv-wait{opacity:1;transform:none}.tcx .lift:hover::before,.tcx .cell:hover::before{animation:none}}
 
-/* ---- 服务器租用直达购买页（.sb 作用域） ---- */
+/* ---- 服务器购买页 v2（老板 2026-11-12：更简洁） ---- */
 .sb{background:#F7F8FA}
 .sb-top{background:#FFFFFF;border-bottom:1px solid #E5E6EB}
-.sb-gift{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;color:#4E5969}
-.sb-gift span{display:inline-flex;align-items:center;gap:6px}
-.sb-gift i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;height:18px;padding:0 6px;font-size:12px;color:#165DFF;background:#E8F3FF;border-radius:2px}
-.sb-main{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start;padding-top:20px;padding-bottom:64px}
-.sb-blk{background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px;padding:24px 24px;margin-bottom:16px}
-.sb-blk h2{margin:0 0 20px;font-size:18px;line-height:26px;font-weight:600;color:#1D2129;display:flex;align-items:center;gap:12px}
-.sb-blk h2 small{font-size:13px;font-weight:400;color:#86909C}
-.sb-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:16px;align-items:start}
-.sb-row+.sb-row{margin-top:20px}
-.sb-lb{font-size:14px;color:#4E5969;line-height:40px}
-.sb-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.sb-type{position:relative;display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF;cursor:pointer;text-align:left;font-family:inherit;transition:border-color .2s,background .2s;overflow:hidden}
-.sb-type:hover{border-color:#94BFFF}
-.sb-type img{width:40px;height:40px;object-fit:contain;flex:none}
-.sb-type b{display:block;font-size:15px;font-weight:600;color:#1D2129}
-.sb-type span{display:block;font-size:12px;line-height:18px;color:#86909C;margin-top:2px}
-.sb-on{border-color:#165DFF !important;background:#F2F7FF !important}
-.sb-on::after{content:"";position:absolute;right:0;top:0;border-style:solid;border-width:0 22px 22px 0;border-color:transparent #165DFF transparent transparent}
-.sb-on::before{content:"";position:absolute;right:3px;top:3px;width:7px;height:4px;border-left:1.5px solid #FFFFFF;border-bottom:1.5px solid #FFFFFF;transform:rotate(-45deg);z-index:1}
-.sb-opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.sb-opts.f6{grid-template-columns:repeat(6,minmax(0,1fr))}
-.sb-opts.f7{grid-template-columns:repeat(7,minmax(0,1fr))}
-.sb-opts.fx{display:flex;flex-wrap:wrap}.sb-opts.fx{gap:8px}.sb-opts.fx .sb-opt{min-width:0;padding:0 14px}
-.sb-opt.has-tj{padding-right:34px}
-.sb-opt{position:relative;height:40px;padding:0 10px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF;font-size:14px;color:#1D2129;cursor:pointer;font-family:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:border-color .2s,color .2s,background .2s}
-.sb-opt:hover{border-color:#94BFFF;color:#165DFF}
-.sb-opt.sb-on{color:#165DFF;font-weight:500}
-.sb-opt em{position:absolute;right:-1px;top:-1px;font-style:normal;font-size:11px;line-height:16px;padding:0 5px;background:#FF7D00;color:#FFFFFF;border-radius:0 2px 0 2px}
-.sb-note{margin-top:10px;display:flex;gap:6px;align-items:flex-start;font-size:13px;line-height:20px;color:#86909C}
-.sb-tbl{width:100%;border-collapse:collapse;font-size:14px}
-.sb-tbl th{text-align:left;font-weight:500;color:#4E5969;background:#F7F8FA;height:40px;padding:0 12px;border-bottom:1px solid #E5E6EB}
-.sb-tbl td{padding:12px;border-bottom:1px solid #F2F3F5;vertical-align:middle}
-.sb-tbl tr.sb-tr{cursor:pointer;transition:background .15s}
-.sb-tbl tr.sb-tr:hover{background:#F7F9FC}
-.sb-tbl tr.sb-tr-on,.sb-tbl tr.sb-tr-on:hover{background:#F2F7FF}
-.sb-rd{width:16px;height:16px;border-radius:50%;border:1px solid #C9CDD4;box-sizing:border-box;display:inline-block;vertical-align:middle;transition:border .15s}
-.sb-tr-on .sb-rd{border:5px solid #165DFF}
-.sb-cpu{font-weight:500;color:#1D2129;white-space:nowrap}
-.sb-mem{font-size:12px;color:#86909C;margin-top:2px}
-.sb-pr{color:#F53F3F;font-weight:600;font-family:"DIN Alternate",Bahnschrift,Inter,Arial,sans-serif;font-size:18px;white-space:nowrap}
-.sb-pr small{font-size:12px;color:#86909C;font-weight:400;margin-left:2px;font-family:inherit}
-.sb-hot{display:inline-flex;align-items:center;height:18px;padding:0 6px;margin-left:8px;font-size:11px;color:#F53F3F;border:1px solid #FDCDC5;background:#FFF2EE;border-radius:2px;vertical-align:2px}
-.sb-sel{height:40px;min-width:280px;padding:0 36px 0 12px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2386909C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;font-size:14px;color:#1D2129;font-family:inherit;-webkit-appearance:none;appearance:none;margin-top:10px}
-.sb-sel:focus{outline:none;border-color:#165DFF}
-.sb-step{display:inline-flex;height:40px;border:1px solid #E5E6EB;border-radius:2px;overflow:hidden}
-.sb-step button{width:40px;border:0;background:#F7F8FA;font-size:18px;color:#4E5969;cursor:pointer;font-family:inherit}
-.sb-step button:hover{color:#165DFF}
-.sb-step span{width:56px;display:flex;align-items:center;justify-content:center;font-size:14px;border-left:1px solid #E5E6EB;border-right:1px solid #E5E6EB}
-.sb-ck{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#4E5969;cursor:pointer;background:none;border:0;padding:0;font-family:inherit}
-.sb-ck i{width:16px;height:16px;border:1px solid #C9CDD4;border-radius:2px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center}
-.sb-ck-on i{background:#165DFF;border-color:#165DFF}
-.sb-ck-on i::after{content:"";width:7px;height:4px;border-left:1.5px solid #FFFFFF;border-bottom:1.5px solid #FFFFFF;transform:translateY(-1px) rotate(-45deg)}
-.sb-ta{width:100%;box-sizing:border-box;min-height:84px;padding:10px 12px;border:1px solid #E5E6EB;border-radius:2px;font-size:14px;font-family:inherit;resize:vertical;color:#1D2129}
+.sb-gift{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:#4E5969}
+.sb-gift span::before{content:"";display:inline-block;width:4px;height:4px;margin:0 8px 2px 0;background:#86909C;border-radius:50%}
+.sb2{padding-top:20px;padding-bottom:40px}
+.sb2-card{background:#FFFFFF;border:1px solid #E5E6EB}
+.sb2-sec{padding:28px 32px}
+.sb2-sec+.sb2-sec{border-top:1px solid #F2F3F5}
+.sb2-sec h2{margin:0 0 22px;font-size:16px;line-height:24px;font-weight:600;color:#1D2129;display:flex;align-items:baseline;gap:12px}
+.sb2-sec h2 small{font-size:13px;font-weight:400;color:#86909C}
+.sb2-row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:start;justify-items:start}
+.sb2-row+.sb2-row{margin-top:20px}
+.sb2-lb{font-size:14px;color:#4E5969;line-height:32px}
+.sb2-seg{display:inline-flex;flex-wrap:wrap;border:1px solid #E5E6EB;border-radius:2px;overflow:hidden}
+.sb2-seg button{all:unset;cursor:pointer;height:32px;padding:0 18px;font-size:14px;line-height:32px;color:#1D2129;border-left:1px solid #E5E6EB;transition:color .15s,background .15s}
+.sb2-seg button:first-child{border-left:0}
+.sb2-seg button:hover{color:#165DFF}
+.sb2-seg button.sb-on{background:#165DFF;color:#FFFFFF}
+.sb2-hint{margin-top:8px;font-size:13px;line-height:20px;color:#86909C}
+.sb2-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sb2-chips button{all:unset;cursor:pointer;height:30px;padding:0 14px;font-size:13px;line-height:30px;color:#1D2129;border:1px solid #E5E6EB;border-radius:2px;transition:border-color .15s,color .15s}
+.sb2-chips button:hover{border-color:#94BFFF;color:#165DFF}
+.sb2-chips button.sb-on{border-color:#165DFF;color:#165DFF;background:#F2F7FF}
+.sb2-chips button small{margin-left:4px;font-size:12px;color:#86909C}
+.sb2-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.sb2-tbl th{text-align:left;font-weight:400;color:#86909C;font-size:13px;height:36px;padding:0 12px;border-bottom:1px solid #E5E6EB}
+.sb2-tbl td{height:52px;padding:0 12px;border-bottom:1px solid #F2F3F5;color:#1D2129}
+.sb2-tbl tr.sb-tr{cursor:pointer}
+.sb2-tbl tr.sb-tr:hover td{background:#F7F8FA}
+.sb2-tbl tr.sb-tr-on td,.sb2-tbl tr.sb-tr-on:hover td{background:#F2F7FF}
+.sb2-tbl .rd{width:14px;height:14px;border-radius:50%;border:1px solid #C9CDD4;box-sizing:border-box;display:inline-block;vertical-align:middle}
+.sb2-tbl .sb-tr-on .rd{border:4px solid #165DFF}
+.sb2-tbl .mem{color:#86909C;margin-left:12px;font-size:13px}
+.sb2-tbl .hot{margin-left:8px;font-size:12px;color:#86909C;border:1px solid #E5E6EB;padding:0 5px;border-radius:2px}
+.sb2-tbl .pr{text-align:right;font-family:"DIN Alternate","Helvetica Neue",Arial,sans-serif;font-size:16px;font-weight:600;white-space:nowrap}
+.sb2-tbl .pr small{font-family:inherit;font-size:12px;font-weight:400;color:#86909C;margin-left:2px}
+.sb2-sels{display:flex;gap:12px;flex-wrap:wrap}
+.sb2-sel{height:32px;min-width:180px;padding:0 32px 0 12px;border:1px solid #E5E6EB;border-radius:2px;background:#FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2386909C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;font-size:14px;color:#1D2129;font-family:inherit;-webkit-appearance:none;appearance:none}
+.sb2-sel.w{min-width:280px}
+.sb2-sel:focus{outline:none;border-color:#165DFF}
+.sb-step{display:inline-flex;height:32px;border:1px solid #E5E6EB;border-radius:2px;overflow:hidden}
+.sb-step button{width:32px;border:0;background:#FFFFFF;font-size:16px;color:#4E5969;cursor:pointer;font-family:inherit}
+.sb-step button:hover{color:#165DFF;background:#F7F8FA}
+.sb-step span{width:48px;display:flex;align-items:center;justify-content:center;font-size:14px;border-left:1px solid #E5E6EB;border-right:1px solid #E5E6EB}
+.sb2-link{all:unset;cursor:pointer;font-size:13px;color:#165DFF;line-height:32px}
+.sb-ta{width:100%;box-sizing:border-box;min-height:72px;padding:8px 12px;border:1px solid #E5E6EB;border-radius:2px;font-size:14px;font-family:inherit;resize:vertical;color:#1D2129}
 .sb-ta:focus{outline:none;border-color:#165DFF}
-.sb-side{position:sticky;top:80px}
-.sb-sum{background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px}
-.sb-sum h3{margin:0;padding:18px 24px;font-size:16px;font-weight:600;border-bottom:1px solid #F2F3F5}
-.sb-dl{margin:0;padding:16px 24px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px 12px;font-size:13px;line-height:20px}
+.sb2-notes{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 32px;font-size:13px;line-height:20px;color:#86909C}
+.sb2-notes b{font-weight:500;color:#4E5969;margin-right:6px}
+.sb2-bar{position:sticky;bottom:0;z-index:4;background:#FFFFFF;border-top:1px solid #E5E6EB;box-shadow:0 -4px 16px rgba(29,33,41,.06)}
+.sb2-bar .wrap{display:flex;align-items:center;gap:32px;min-height:72px}
+.sb2-sum{flex:1;min-width:0;font-size:13px;line-height:20px;color:#4E5969;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb2-sum b{font-weight:500;color:#1D2129}
+.sb2-tot{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.sb2-tot > span{font-size:13px;color:#86909C}
+.sb2-tot b{font-family:"DIN Alternate","Helvetica Neue",Arial,sans-serif;font-size:28px;line-height:32px;font-weight:600;color:#1D2129}
+.sb2-tot small{font-size:12px;color:#86909C}
+.sb-buy{height:40px;padding:0 32px;border:0;border-radius:2px;background:#165DFF;color:#FFFFFF;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;transition:background .15s}
+.sb-buy:hover{background:#4080FF}
+.sb-buy[disabled]{background:#94BFFF;cursor:not-allowed}
+.sb2-cs{font-size:13px;color:#4E5969;white-space:nowrap}
+.sb-pr{font-weight:600;font-family:"DIN Alternate","Helvetica Neue",Arial,sans-serif}
+.sb-dl{margin:0;padding:16px 24px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px 12px;font-size:13px;line-height:20px}
 .sb-dl dt{color:#86909C}.sb-dl dd{margin:0;color:#1D2129;word-break:break-all}
-.sb-tot{padding:16px 24px 24px;border-top:1px solid #F2F3F5}
-.sb-calc{font-size:12px;color:#86909C}
-.sb-big{display:flex;align-items:baseline;gap:4px;margin:8px 0 16px;color:#F53F3F;font-family:"DIN Alternate",Bahnschrift,Inter,Arial,sans-serif;font-weight:700}
-.sb-big small{font-size:18px}.sb-big b{font-size:34px;line-height:40px;letter-spacing:-.01em}
-.sb-buy{width:100%;height:44px;border:0;border-radius:2px;background:#165DFF;color:#FFFFFF;font-size:16px;font-weight:500;cursor:pointer;font-family:inherit;transition:background .15s}
-.sb-buy:hover{background:#0E42D2}
-.sb-sub{margin-top:12px;display:flex;justify-content:space-between;font-size:13px;color:#4E5969}
-.sb-mini{margin-top:12px;font-size:12px;line-height:18px;color:#86909C}
-.sb-help{margin-top:16px;background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px;padding:16px 24px;font-size:13px;line-height:22px;color:#4E5969}
-.sb-faq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.sb-faq div{background:#FFFFFF;border:1px solid #E5E6EB;border-radius:2px;padding:20px}
-.sb-faq b{display:block;font-size:15px;font-weight:600;margin-bottom:8px}
-.sb-faq p{margin:0;font-size:13px;line-height:22px;color:#4E5969}
 .sb-mask{position:fixed;inset:0;z-index:50;background:rgba(29,33,41,0.45);display:flex;align-items:center;justify-content:center}
 .sb-dlg{width:560px;max-width:calc(100vw - 32px);background:#FFFFFF;border-radius:2px;box-shadow:0 12px 40px rgba(0,0,0,0.18)}
 .sb-dlg header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid #F2F3F5;font-size:16px;font-weight:600}
 .sb-x{width:28px;height:28px;border:0;background:none;font-size:20px;color:#86909C;cursor:pointer}
-.sb-x:hover{color:#1D2129}
-.sb-dlg .sb-dl{grid-template-columns:96px minmax(0,1fr)}
-.sb-pay{margin:0 24px;padding:12px 16px;background:#F2F7FF;border-radius:2px;font-size:13px;line-height:22px;color:#4E5969}
+.sb-pay{margin:0 24px;padding:12px 16px;background:#F7F8FA;border-radius:2px;font-size:13px;line-height:22px;color:#4E5969}
 .sb-ft{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;border-top:1px solid #F2F3F5;margin-top:16px}
-.sb-ft .sb-buy{width:auto;padding:0 28px;height:40px;font-size:14px}
-.sb-buy[disabled]{background:#94BFFF;cursor:not-allowed}
+.sb-ck{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#4E5969;cursor:pointer;background:none;border:0;padding:0;font-family:inherit}
+.sb-ck i{width:16px;height:16px;border:1px solid #C9CDD4;border-radius:2px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center}
+.sb-ck-on i{background:#165DFF;border-color:#165DFF}
+.sb-ck-on i::after{content:"";width:7px;height:4px;border-left:1.5px solid #FFFFFF;border-bottom:1.5px solid #FFFFFF;transform:translateY(-1px) rotate(-45deg)}
 .sb-ok{padding:36px 24px 8px;text-align:center}
 .sb-ok i{display:inline-flex;width:48px;height:48px;border-radius:50%;background:#E8FFEA;align-items:center;justify-content:center}
 .sb-ok h4{margin:16px 0 8px;font-size:18px}
 .sb-ok p{margin:0;font-size:14px;line-height:22px;color:#4E5969}
-@media (max-width:1100px){.sb-main{grid-template-columns:1fr}.sb-side{position:static}.sb-types{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-opts,.sb-opts.f6,.sb-opts.f7{grid-template-columns:repeat(3,minmax(0,1fr))}.sb-faq{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.sb2-notes{grid-template-columns:1fr}.sb2-sum{display:none}}
 </style>
 </helmet>
 
 <div class="tcx sb" data-pg="ServerBuy" style="min-width:0">
 <div style="position:sticky;top:0;z-index:5"><dc-import name="Header" active="products" hint-size="100%,60px"></dc-import></div>
 <section class="sb-top">
-  <div class="wrap" style="padding-top:20px;padding-bottom:20px;display:flex;flex-direction:column;gap:12px">
+  <div class="wrap" style="padding-top:20px;padding-bottom:20px;display:flex;flex-direction:column;gap:10px">
     <nav aria-label="面包屑" class="crumb" style="display:flex;gap:8px;flex-wrap:wrap"><a href="Main.dc.html">首页</a> <span aria-hidden="true">/</span> <a href="Products.dc.html">产品与服务</a> <span aria-hidden="true">/</span> <span style="color:#1D2129">服务器租用</span></nav>
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
-      <div><h1 style="margin:0;font-size:28px;line-height:38px;font-weight:600;color:#1D2129">服务器租用</h1>
-      <p style="margin:6px 0 0;font-size:14px;line-height:22px;color:#4E5969">T 级数据中心，BGP 多线与电信骨干直连，自带 DDoS 原生防护，选好配置即可下单。</p></div>
-      <div class="sb-gift"><span><i>赠</i>自主化管理平台</span><span><i>赠</i><a href="ProductHost.dc.html" style="color:inherit">德迅安全卫士</a></span><span><i>赠</i>Web 云防护</span><span><i>赠</i>1V1 专家 7×24 支撑</span></div>
+      <h1 style="margin:0;font-size:24px;line-height:34px;font-weight:600;color:#1D2129">服务器租用</h1>
+      <div class="sb-gift"><span>每台赠送：自主化管理平台</span><span><a href="ProductHost.dc.html" style="color:inherit">德迅安全卫士</a></span><span>Web 云防护</span><span>1V1 专家 7×24 支撑</span></div>
     </div>
   </div>
 </section>
 <section>
-<div class="wrap sb-main">
-  <div style="min-width:0">
-    <div class="sb-blk">
-      <h2>类型与机房</h2>
-      <div class="sb-row"><div class="sb-lb">类型</div>
-        <div class="sb-types"><button type="button" class="sb-type {{ tyC0 }}" onClick="{{ tyP0 }}"><img src="img/ic-hfserver.webp" alt="" aria-hidden="true"><div><b>BGP 服务器</b><span>多线智能选路，12 个机房</span></div></button><button type="button" class="sb-type {{ tyC1 }}" onClick="{{ tyP1 }}"><img src="img/ic-ecs.webp" alt="" aria-hidden="true"><div><b>电信服务器</b><span>骨干直连，¥399/月起</span></div></button><button type="button" class="sb-type {{ tyC2 }}" onClick="{{ tyP2 }}"><img src="img/ic-baremetal.webp" alt="" aria-hidden="true"><div><b>高性能服务器</b><span>单核性能约 1.5 倍</span></div></button><button type="button" class="sb-type {{ tyC3 }}" onClick="{{ tyP3 }}"><img src="img/ic-accel.webp" alt="" aria-hidden="true"><div><b>大带宽服务器</b><span>骨干网独享大带宽</span></div></button><button type="button" class="sb-type {{ tyC4 }}" onClick="{{ tyP4 }}"><img src="img/ic-ddos.webp" alt="" aria-hidden="true"><div><b>UDP 高防专区</b><span>游戏与实时应用首选</span></div></button><button type="button" class="sb-type {{ tyC5 }}" onClick="{{ tyP5 }}"><img src="img/ic-wall.webp" alt="" aria-hidden="true"><div><b>抗 D 弹性计费</b><span>按需调整，以报价为准</span></div></button></div>
+<div class="wrap sb2">
+  <div class="sb2-card">
+    <div class="sb2-sec">
+      <h2>机房与防护</h2>
+      <div class="sb2-row"><div class="sb2-lb">类型</div>
+        <div><div class="sb2-seg"><button type="button" class="{{ tyC0 }}" onClick="{{ tyP0 }}">BGP 服务器</button><button type="button" class="{{ tyC1 }}" onClick="{{ tyP1 }}">电信服务器</button><button type="button" class="{{ tyC2 }}" onClick="{{ tyP2 }}">高性能服务器</button><button type="button" class="{{ tyC3 }}" onClick="{{ tyP3 }}">大带宽服务器</button><button type="button" class="{{ tyC4 }}" onClick="{{ tyP4 }}">UDP 高防专区</button><button type="button" class="{{ tyC5 }}" onClick="{{ tyP5 }}">抗 D 弹性计费</button></div><div class="sb2-hint">{{ tyDesc }}</div></div>
       </div>
-      <div class="sb-row"><div class="sb-lb">地区</div>
-        <div><div class="sb-opts"><sc-for list="{{ regs }}" as="o" hint-placeholder-count="8"><button type="button" class="sb-opt {{ o.cls }} {{ o.tjc }}" onClick="{{ o.go }}" title="{{ o.n }}">{{ o.n }}<sc-if value="{{ o.tj }}" hint-placeholder-val="{{ false }}"><em>推荐</em></sc-if></button></sc-for></div>
-        <div class="sb-note"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#86909C" stroke-width="2" aria-hidden="true" style="flex:none;margin-top:3px"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg><span>{{ regDesc }}</span></div></div>
+      <div class="sb2-row"><div class="sb2-lb">机房</div>
+        <div><div class="sb2-chips"><sc-for list="{{ regs }}" as="o" hint-placeholder-count="8"><button type="button" class="{{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}<sc-if value="{{ o.tj }}" hint-placeholder-val="{{ false }}"><small>推荐</small></sc-if></button></sc-for></div>
+        <div class="sb2-hint">{{ regDesc }}</div></div>
       </div>
-      <div class="sb-row"><div class="sb-lb">DDoS 防护</div>
-        <div class="sb-opts f6"><sc-for list="{{ fhs }}" as="o" hint-placeholder-count="5"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
+      <div class="sb2-row"><div class="sb2-lb">DDoS 防护</div>
+        <div class="sb2-seg"><sc-for list="{{ fhs }}" as="o" hint-placeholder-count="5"><button type="button" class="{{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
       </div>
     </div>
-    <div class="sb-blk">
-      <h2>配置选择<small>以下为该机房当前在售机型，价格为每台每月</small></h2>
-      <table class="sb-tbl">
-        <thead><tr><th style="width:44px"></th><th>配置</th><th style="width:96px">IP 数</th><th style="width:150px">带宽</th><th style="width:110px;text-align:right">价格</th></tr></thead>
-        <tbody><sc-for list="{{ cfgs }}" as="o" hint-placeholder-count="6"><tr class="sb-tr {{ o.cls }}" onClick="{{ o.go }}"><td><span class="sb-rd"></span></td><td><div class="sb-cpu">{{ o.cpu }}<sc-if value="{{ o.hot }}" hint-placeholder-val="{{ false }}"><span class="sb-hot">爆款</span></sc-if></div><div class="sb-mem">{{ o.mem }}</div></td><td>{{ o.ip }}</td><td>{{ o.bw }}</td><td style="text-align:right"><span class="sb-pr">¥{{ o.p }}<small>/月</small></span></td></tr></sc-for></tbody>
+    <div class="sb2-sec">
+      <h2>机型<small>该机房当前在售，价格为每台每月</small></h2>
+      <table class="sb2-tbl">
+        <thead><tr><th style="width:28px"></th><th>CPU / 内存</th><th style="width:120px">IP</th><th style="width:200px">带宽</th><th style="width:120px;text-align:right">月付</th></tr></thead>
+        <tbody><sc-for list="{{ cfgs }}" as="o" hint-placeholder-count="6"><tr class="sb-tr {{ o.cls }}" onClick="{{ o.go }}"><td><span class="rd"></span></td><td>{{ o.cpu }}<span class="mem">{{ o.mem }}</span><sc-if value="{{ o.hot }}" hint-placeholder-val="{{ false }}"><span class="hot">爆款</span></sc-if></td><td>{{ o.ip }}</td><td>{{ o.bw }}</td><td class="pr">¥{{ o.p }}<small>/月</small></td></tr></sc-for></tbody>
       </table>
     </div>
-    <div class="sb-blk">
-      <h2>系统与购买量</h2>
-      <div class="sb-row"><div class="sb-lb">操作系统</div>
-        <div><div class="sb-opts fx"><sc-for list="{{ osf }}" as="o" hint-placeholder-count="7"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
-        <select class="sb-sel" value="{{ osV }}" onChange="{{ osPick }}" aria-label="系统版本"><sc-for list="{{ osvs }}" as="v" hint-placeholder-count="4"><option value="{{ v.n }}">{{ v.n }}</option></sc-for></select></div>
+    <div class="sb2-sec">
+      <h2>系统与时长</h2>
+      <div class="sb2-row"><div class="sb2-lb">操作系统</div>
+        <div class="sb2-sels"><select class="sb2-sel" value="{{ osFi }}" onChange="{{ osFam }}" aria-label="系统"><sc-for list="{{ osf }}" as="o" hint-placeholder-count="7"><option value="{{ o.i }}">{{ o.n }}</option></sc-for></select><select class="sb2-sel w" value="{{ osV }}" onChange="{{ osPick }}" aria-label="系统版本"><sc-for list="{{ osvs }}" as="v" hint-placeholder-count="4"><option value="{{ v.n }}">{{ v.n }}</option></sc-for></select></div>
       </div>
-      <div class="sb-row"><div class="sb-lb">购买时长</div>
-        <div class="sb-opts f7"><sc-for list="{{ months }}" as="o" hint-placeholder-count="7"><button type="button" class="sb-opt {{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
+      <div class="sb2-row"><div class="sb2-lb">购买时长</div>
+        <div class="sb2-seg"><sc-for list="{{ months }}" as="o" hint-placeholder-count="7"><button type="button" class="{{ o.cls }}" onClick="{{ o.go }}">{{ o.n }}</button></sc-for></div>
       </div>
-      <div class="sb-row"><div class="sb-lb">购买数量</div>
-        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap"><div class="sb-step"><button type="button" onClick="{{ qDec }}" aria-label="减少">−</button><span>{{ q }}</span><button type="button" onClick="{{ qInc }}" aria-label="增加">+</button></div><span style="font-size:13px;color:#86909C">台，单次最多 20 台</span></div>
+      <div class="sb2-row"><div class="sb2-lb">数量</div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><div class="sb-step"><button type="button" onClick="{{ qDec }}" aria-label="减少">−</button><span>{{ q }}</span><button type="button" onClick="{{ qInc }}" aria-label="增加">+</button></div><span style="font-size:13px;color:#86909C">台，单次最多 20 台</span><sc-if value="{{ spN }}" hint-placeholder-val="{{ true }}"><button type="button" class="sb2-link" onClick="{{ spTog }}">+ 填写特殊要求</button></sc-if></div>
       </div>
-      <div class="sb-row"><div class="sb-lb">特殊要求</div>
-        <div><textarea class="sb-ta" placeholder="如需定制分区、额外 IP、指定上架时间等，请在此说明，工程师会在交付前与您确认"></textarea></div>
-      </div>
+      <sc-if value="{{ spY }}" hint-placeholder-val="{{ false }}"><div class="sb2-row"><div class="sb2-lb">特殊要求</div><div><textarea class="sb-ta" placeholder="如需定制分区、额外 IP、指定上架时间等，工程师会在交付前与您确认"></textarea></div></div></sc-if>
     </div>
   </div>
-  <aside class="sb-side">
-    <div class="sb-sum">
-      <h3>当前配置</h3>
-      <dl class="sb-dl"><dt>类型</dt><dd>{{ sType }}</dd><dt>机房</dt><dd>{{ sReg }}</dd><dt>DDoS 防护</dt><dd>{{ sFh }}</dd><dt>CPU</dt><dd>{{ sCpu }}</dd><dt>内存/硬盘</dt><dd>{{ sMem }}</dd><dt>IP / 带宽</dt><dd>{{ sIp }} / {{ sBw }}</dd><dt>操作系统</dt><dd>{{ osV }}</dd><dt>时长 × 数量</dt><dd>{{ sM }} × {{ q }} 台</dd></dl>
-      <div class="sb-tot">
-        <div class="sb-calc">¥{{ sP }}/月 × {{ sMn }} 个月 × {{ q }} 台</div>
-        <div class="sb-big"><small>¥</small><b>{{ total }}</b></div>
-        <button type="button" class="sb-buy" onClick="{{ openDlg }}">立即购买</button>
-        <div class="sb-sub"><a href="Contact.dc.html">咨询售前</a><span>热线 0577-26676666</span></div>
-        <div class="sb-mini">购买即表示同意《SLA 服务等级协议》《信息安全协议》</div>
-      </div>
-    </div>
-    <div class="sb-help"><b style="color:#1D2129">付款与交付</b><br>下单后通过对公转账付款，财务核验到账后安排交付，进度可在控制台「我的订单」查看。</div>
-  </aside>
+  <div class="sb2-notes"><div><b>付款</b>对公转账，财务核验到账后交付</div><div><b>实名</b>下单前需完成实名认证</div><div><b>承诺</b>标注机房在防护峰值内被打死，按天退款</div></div>
 </div>
 </section>
-<section style="padding:0 0 72px">
-  <div class="wrap">
-    <h2 style="margin:0 0 20px;font-size:20px;font-weight:600">购买须知</h2>
-    <div class="sb-faq">
-      <div><b>防护承诺</b><p>标注「承诺打死按天退款」的机房，在防护峰值内被攻击打死，按天退还服务费。</p></div>
-      <div><b>付款方式</b><p>目前支持对公转账。提交订单后在控制台付款页查看收款账户，到账核验后开通。</p></div>
-      <div><b>实名认证</b><p>下单前需完成实名认证。未认证时会先跳到认证页，订单保留为草稿，认证通过后继续提交。</p></div>
-      <div><b>赠送服务</b><p>每台服务器赠送自主化管理平台、德迅安全卫士、Web 云防护和 1V1 专家支撑。</p></div>
-      <div><b>配置与升级</b><p>如需更高防护、更大带宽或其他机型，可在特殊要求中说明，或联系售前定制。</p></div>
-    </div>
-  </div>
-</section>
+<div class="sb2-bar"><div class="wrap">
+  <div class="sb2-sum"><b>{{ sType }} · {{ sReg }} · {{ sFh }}</b>　{{ sCpu }} · {{ sMem }} · {{ sBw }} · {{ osV }} · {{ sM }} × {{ q }} 台</div>
+  <div class="sb2-tot"><span>配置费用</span><b>¥{{ total }}</b><small>¥{{ sP }}/月</small></div>
+  <button type="button" class="sb-buy" onClick="{{ openDlg }}">立即购买</button>
+  <a class="sb2-cs" href="Contact.dc.html">咨询售前</a>
+</div></div>
 <dc-import name="Footer" hint-size="100%,480px"></dc-import>
 <aside class="qnav" aria-label="快捷咨询" style="position:fixed;right:16px;bottom:96px;z-index:6;display:flex;flex-direction:column;align-items:center;gap:10px"><a href="Contact.dc.html" title="AI 安全助手" class="qai" aria-label="AI 安全助手"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3.2c-.4.3-.8 0-.8-.4V17h.5A2.5 2.5 0 0 1 4 14.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 7.4l.9 2.2 2.2.9-2.2.9-.9 2.2-.9-2.2-2.2-.9 2.2-.9z" fill="#fff"/></svg><span>AI</span></a><div style="width:56px;display:flex;flex-direction:column;background:#FFFFFF;border-radius:999px;padding:10px 0"><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 17V10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10V17C20 19.7614 17.7614 22 15 22H11M9 13V14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14V13M1 10V17M23 10V17M11 21H15"></path></svg>售前</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 14H9M15 10H9M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.6624 3.04042 17.0817 4.73686 18.8737L3 22H12Z" stroke-linecap="square"></path></svg>咨询</a><a href="Contact.dc.html" class="qn" style="position:relative;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:#1D2129"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12Z"></path><path d="M16 11V9M8 11V9M8.54 15C9.23 16.2 10.52 17 12 17C13.48 17 14.77 16.2 15.47 15" stroke-linecap="square"></path></svg>反馈<span style="position:absolute;right:12px;top:12px;width:6px;height:6px;border-radius:2px;background:#F53F3F"></span></a></div></aside>
 <sc-if value="{{ dlg1 }}" hint-placeholder-val="{{ false }}"><div class="sb-mask" onClick="{{ closeDlg }}"><div class="sb-dlg" role="dialog" aria-modal="true" aria-label="确认订单" onClick="{{ stop }}">
@@ -384,11 +351,14 @@ const mi = s.m ?? 0, Mo = D.M[mi], q = s.q ?? 1, ar = !!s.ar, ag = !!s.ag;
 const fmt = (n) => n.toLocaleString('en-US');
 const total = Cf[4] * Mo[0] * q;
 const o = {
+  tyDesc: T[1],
+  osFi: String(osF), osFam: (e) => set({ osF: +e.target.value, osV: null }),
+  spY: !!s.sp, spN: !s.sp, spTog: () => set({ sp: !s.sp }),
   regs: rNames.map((n, i) => ({ n, tj: !!D.R[n].tj, tjc: D.R[n].tj ? 'has-tj' : '', cls: i === ri ? 'sb-on' : '', go: () => set({ r: i, f: 0, c: 0 }) })),
   regDesc: R.d,
   fhs: R.fh.map((x, i) => ({ n: x[0] + ' 防御', cls: i === fi ? 'sb-on' : '', go: () => set({ f: i, c: 0 }) })),
   cfgs: F[1].map((x, i) => ({ cpu: x[0], mem: x[1], ip: x[2], bw: x[3], p: fmt(x[4]), hot: !!x[5], cls: i === ci ? 'sb-tr-on' : '', go: () => set({ c: i }) })),
-  osf: D.OS.map((x, i) => ({ n: x[0], cls: i === osF ? 'sb-on' : '', go: () => set({ osF: i, osV: null }) })),
+  osf: D.OS.map((x, i) => ({ i: String(i), n: x[0], cls: i === osF ? 'sb-on' : '', go: () => set({ osF: i, osV: null }) })),
   osvs: OSF[1].map((n) => ({ n })),
   osV, osPick: (e) => set({ osV: e.target.value }),
   months: D.M.map((x, i) => ({ n: x[1], cls: i === mi ? 'sb-on' : '', go: () => set({ m: i }) })),
