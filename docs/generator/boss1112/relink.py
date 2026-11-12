@@ -8,7 +8,6 @@ MAP = {
  '应用加速': 'ProductAccel.dc.html', '德迅蜂巢': 'ProductBeehive.dc.html', '容器安全': 'ProductBeehive.dc.html',
  '德迅猎鹰': 'ProductHoneypot.dc.html', '云蜜罐': 'ProductHoneypot.dc.html', '德迅零域': 'ProductMicro.dc.html', '微隔离': 'ProductMicro.dc.html',
  '德迅云图': 'ProductAtlas.dc.html', '威胁检测与分析': 'ProductAtlas.dc.html', '态势感知': 'ProductSitu.dc.html',
- '日志审计': 'ProductLogAudit.dc.html', '数据库审计': 'ProductDBAudit.dc.html', '堡垒机': 'ProductBastion.dc.html', '数据安全网关': 'ProductBastion.dc.html',
  '网络访问防护': 'HostFeature-network.dc.html', '裸金属服务器': 'ProductBareMetal.dc.html', '弹性云服务器': 'ProductECS.dc.html',
  '专家服务': 'ServiceExpert.dc.html', '渗透测试': 'ServicePentest.dc.html', '风险评估': 'ServiceRisk.dc.html', '代码审计': 'ServiceCode.dc.html',
  '攻防对抗演习': 'ServiceDrill.dc.html', '攻防演练': 'ServiceDrill.dc.html', '信息安全对抗演习': 'ServiceDrill.dc.html',

@@ -172,47 +172,7 @@ prod('ProductSitu.dc.html', '态势感知', '态势感知',
   ('金融', '银行、保险等高安全要求系统，建立立体防护，精确识别风险。'),
   ('电商', '大促期间集中监控攻击与异常访问，快速处置。'),
   ('政企', '统一汇聚各类安全设备日志，满足监管与等保要求。')]),
- ], related=[('德迅云图', '威胁检测与分析', 'ProductAtlas.dc.html'), ('日志审计', '日志统一采集与关联分析', 'ProductLogAudit.dc.html')]),
-
-# ───────────────────────── 安全运营（审计类）
-prod('ProductLogAudit.dc.html', '日志审计', '日志审计',
- '对网络日志、安全日志、主机日志和应用系统日志进行标准化处理，及时发现安全威胁与异常行为，一站式提供数据收集、清洗、分析、可视化和告警。', 'hbx-folder.webp', [
- dict(t='grid', id='func', nav='核心功能', title='核心功能', min=260, items=[
-  ('日志采集', '支持 Syslog、SNMP 等协议，覆盖主流安全设备、主机及应用。'), ('日志解析', '预置解析规则，实现日志的解析、过滤及聚合。'),
-  ('关联分析', '全维度、跨设备、细粒度关联，内置攻防检测与合规规则。'), ('数据检索', '海量事件存储与高速检索，支持事后合规统计。')]),
- dict(t='ed', id='adv', nav='价值优势', title='价值优势', sub='从取证到合规报表。', unit='项价值优势', icons=['search', 'tool', 'doc', 'chart'], items=[
-  ('日志取证分析', '深入分析原始日志，快速定位根因，生成取证报表。'),
-  ('创新的日志解析', '多级解析与动态规划算法，解析性能与接入设备数量无关。'),
-  ('监管合规', '提供 Windows / Linux 审计、PCI、SOX、ISO27001 等合规报表。'),
-  ('数据挖掘', '从 T 级历史日志中发现行为规律。')]),
- dict(t='steps', id='scene', nav='应用场景', title='全面审计信息系统安全状况', items=[
-  ('日志采集', '采集信息资产日志，解析、过滤、聚合'), ('日志标准化', '安全事件、行为、扫描、状态日志归类'),
-  ('关联分析', '跨设备关联，还原事件背后的信息'), ('数据挖掘', '从历史数据中发现行为规律')]),
- ], related=[('数据库审计', '数据库访问审计与告警', 'ProductDBAudit.dc.html'), ('堡垒机', '运维审计闭环', 'ProductBastion.dc.html')]),
-
-prod('ProductDBAudit.dc.html', '数据库审计', '数据库审计',
- '对进出核心数据库的流量做字段级解析，还原操作细节，提供实时告警、审计取证与异常行为分析，解决权限混乱、账号复用、事故难追查等问题。', 'hbx-server.webp' if False else 'hbx-folder.webp', [
- dict(t='grid', id='func', nav='核心功能', title='核心功能', min=260, items=[
-  ('信息脱敏', '自动发现银行账号、身份证号等敏感信息并脱敏展示。'), ('安全告警', '多维度访问行为分析，按时间、字段、等级筛选回溯。'),
-  ('报表统计', '综合分析、性能分析、等保参考、语句、会话、告警等报表。'), ('智能分析', '基于 UEBA 学习历史访问轨迹，快速判断可疑行为。'),
-  ('安全审计', '支持 Oracle、SQLServer、MySQL、达梦、人大金仓、GaussDB、MongoDB 等。')]),
- dict(t='deep', id='adv', nav='价值优势', title='价值优势', items=[
-  ('01', '强大的审计能力', '丰富的协议审计，覆盖传统数据库、大数据与 Web 系统。'), ('02', '满足合规', '录像回放记录操作过程，满足各行业合规要求。'),
-  ('03', '智能告警', '内置漏洞特征，实时告警，自动学习安全基线。'), ('400', '丰富的审计规则', '18 个维度、近 400 条规则，覆盖主流场景。')]),
- ], related=[('日志审计', '日志统一采集与关联分析', 'ProductLogAudit.dc.html'), ('堡垒机', '运维审计闭环', 'ProductBastion.dc.html')]),
-
-prod('ProductBastion.dc.html', '堡垒机', '堡垒机',
- '多云主机资产的运维审计，覆盖 SSH、RDP、VNC、Telnet、FTP/SFTP 等协议，支持浏览器和本地客户端访问，提供事前授权、事中监察、事后审计的完整闭环。', 'hbx-monitor.webp', [
- dict(t='grid', id='func', nav='核心功能', title='核心功能', min=260, items=[
-  ('运维审计', '审计运维人员的全部命令与上传文件，确保安全事件可追责。'), ('权限管理', '按角色和管理员制定运维策略与资产权限。'),
-  ('双因素认证', 'AD/LDAP、Radius，USB key、短信、OTP 动态令牌，异地登录预警。'), ('高效运维', '支持 Xshell、WinSCP 等工具，云平台资产一键导入。')]),
- dict(t='ed', id='adv', nav='价值优势', title='价值优势', sub='合规与效率兼顾。', unit='项价值优势', icons=['doc', 'bolt', 'tool', 'lock'], items=[
-  ('安全审计合规', '运维过程录像存储在云端，满足等级保护审计要求。'), ('高效易用', '资产一键导入即可运维，操作自动录像。'),
-  ('自动化运维', '批量执行脚本 / 命令、文件分发收集、任务编排。'), ('丰富的运维策略', '登录时段、IP 限制、敏感指令拦截、文件传输规则。')]),
- dict(t='cards', id='scene', nav='应用场景', title='应用场景', min=300, icons=['users', 'globe'], items=[
-  ('政府、金融', '满足安全合规要求，所有运维操作可审计，权限细粒度控制。'),
-  ('互联网', '运维人员多、资产变动快，统一入口与自动化运维提高效率。')]),
- ], related=[('日志审计', '日志统一采集与关联分析', 'ProductLogAudit.dc.html'), ('数据库审计', '数据库访问审计', 'ProductDBAudit.dc.html')]),
+ ], related=[('德迅云图', '威胁检测与分析', 'ProductAtlas.dc.html')]),
 
 # ───────────────────────── 主机安全：网络访问防护
 prod('HostFeature-network.dc.html', '网络访问防护', '网络访问防护',
@@ -450,7 +410,7 @@ sol('SolutionPolice.dc.html', '公安监督检查', '公安机关互联网安全
  dict(t='deep', id='adv', nav='方案优势', title='方案优势', min=220, items=[
   ('01', '全网协同，三位一体', '协同防御策略 + 专家系统定制防护。'), ('02', '整体方案，体系安全', '近 20 种自研产品形成整体方案。'),
   ('03', '可视化安全', '实时攻击地图，直观了解网站受攻击情况。'), ('04', '丰富的服务经验', '政府、金融、能源、教育、交通等领域。')]),
- ], bg='hbx-shield.webp', prods=[('等保合规咨询', '从定级到测评', 'Services.dc.html#djbh'), ('日志审计', '日志留存与审计', 'ProductLogAudit.dc.html'), ('德迅云眼', '违规内容监测', 'ProductEye.dc.html'), ('漏洞扫描 VSS', '网络漏洞检测', 'ProductVSS.dc.html')]),
+ ], bg='hbx-shield.webp', prods=[('等保合规咨询', '从定级到测评', 'Services.dc.html#djbh'), ('德迅云眼', '违规内容监测', 'ProductEye.dc.html'), ('漏洞扫描 VSS', '网络漏洞检测', 'ProductVSS.dc.html')]),
 
 sol('SolutionOffice.dc.html', '办公网络安全', '办公网络安全解决方案', '立体安全防护机制，通过未知威胁检测、数据库审计、办公网络流量分析等方法抵御恶意攻击，保障办公网络安全。', [
  dict(t='cards', id='pain', nav='安全隐患', title='办公网络面临的安全隐患', min=300, icons=['lock', 'target'], items=[
@@ -458,7 +418,7 @@ sol('SolutionOffice.dc.html', '办公网络安全', '办公网络安全解决方
  dict(t='grid', id='plan', nav='推荐方案', title='推荐方案', min=260, items=[
   ('内网渗透测试', '模拟访客 WiFi、社工等方式渗透办公网，挖掘漏洞并复测。'), ('高级威胁检测', '监控上网与邮件流量，发现 APT 与僵木蠕。'),
   ('未知威胁感知', '部署诱骗终端，记录攻击过程并预警。'), ('数据库安全审计', '记录和审计数据库操作，有据可查。'), ('终端安全管理', '云杀毒与漏洞修补，可私有化部署，防勒索。')]),
- ], bg='hbx-monitor.webp', prods=[('渗透测试', '内网渗透', 'ServicePentest.dc.html'), ('德迅猎鹰', '云蜜罐', 'ProductHoneypot.dc.html'), ('数据库审计', '数据库操作审计', 'ProductDBAudit.dc.html'), ('德迅卫士', '终端与主机安全', 'ProductHost.dc.html')]),
+ ], bg='hbx-monitor.webp', prods=[('渗透测试', '内网渗透', 'ServicePentest.dc.html'), ('德迅猎鹰', '云蜜罐', 'ProductHoneypot.dc.html'), ('德迅卫士', '终端与主机安全', 'ProductHost.dc.html')]),
 
 sol('SolutionCyber.dc.html', '网络空间资产', '网络空间资产安全解决方案', '高危漏洞频发使网络空间资产面临巨大风险。明确需要保护的资产，并保护它们免受高危漏洞威胁。', [
  dict(t='cards', id='pain', nav='安全隐患', title='两类挑战', min=320, icons=['globe', 'shield'], items=[
