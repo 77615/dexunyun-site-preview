@@ -18,15 +18,56 @@ CSS='''
 .hn61-g p{margin:10px 0 0;font-size:13px;line-height:20px;color:#1D2129;text-align:center}
 .hn61-g.sw .ph{height:190px}
 '''
+LB=('<sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}"><div class="hn61-lb" onClick="{{lbX}}" role="dialog" aria-modal="true" aria-label="证书大图">'
+    '<figure class="hn61-lbx" onClick="{{lbStop}}">'+''.join(f'<sc-if value="{{{{lbI{i}}}}}" hint-placeholder-val="{{{{ false }}}}"><img src="img/hnb-{i:02d}.webp" alt="{n}"></sc-if>' for i,n in enumerate(Q+R+C))+'<figcaption><b>{{lbCap}}</b><span>{{lbPos}}</span></figcaption></figure>'
+    '<button type="button" class="lb-cl" onClick="{{lbX}}" aria-label="关闭">×</button>'
+    '<button type="button" class="lb-pv" onClick="{{lbPrev}}" aria-label="上一张">‹</button>'
+    '<button type="button" class="lb-nx" onClick="{{lbNext}}" aria-label="下一张">›</button></div></sc-if>')
+LBCSS='''
+.hn61-g li.zm{cursor:zoom-in}
+.hn61-g li.zm .ph{position:relative}
+.hn61-g li.zm .ph::after{content:"";position:absolute;right:8px;bottom:8px;width:26px;height:26px;background:rgba(29,33,41,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6'/%3E%3C/svg%3E") center/14px no-repeat;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+.hn61-g li.zm:hover .ph::after{opacity:1;transform:none}
+.hn61-lb{position:fixed;inset:0;z-index:2000;background:rgba(15,18,24,.86);display:flex;align-items:center;justify-content:center;padding:56px 96px;box-sizing:border-box;animation:hnFade .2s ease-out;cursor:zoom-out}
+.hn61-lbx{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:100%;max-height:100%;cursor:default;animation:hnZoom .24s cubic-bezier(.2,.8,.2,1)}
+.hn61-lbx img{display:block;max-width:min(960px,100%);max-height:calc(100vh - 160px);width:auto;height:auto;object-fit:contain;background:#FFFFFF;box-shadow:0 12px 48px rgba(0,0,0,.45)}
+.hn61-lbx figcaption{display:flex;align-items:baseline;gap:12px;color:#FFFFFF;font-size:15px;line-height:22px}
+.hn61-lbx figcaption span{font-family:"DIN Alternate","Helvetica Neue",Arial,sans-serif;font-size:13px;color:rgba(255,255,255,.6)}
+.hn61-lb button{all:unset;cursor:pointer;position:absolute;display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:rgba(255,255,255,.1);transition:background .2s}
+.hn61-lb button:hover{background:rgba(255,255,255,.22)}
+.hn61-lb .lb-cl{top:20px;right:24px;width:40px;height:40px;font-size:26px;line-height:1}
+.hn61-lb .lb-pv,.hn61-lb .lb-nx{top:50%;width:48px;height:64px;margin-top:-32px;font-size:34px;line-height:1}
+.hn61-lb .lb-pv{left:24px}.hn61-lb .lb-nx{right:24px}
+@keyframes hnFade{from{opacity:0}to{opacity:1}}
+@keyframes hnZoom{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+'''
+LOGIC='''
+// certificate lightbox (资质荣誉): lb = index into HN (-1 = closed); prev/next stay inside the open tab's group
+const HN = %s;
+const HNG = [[0, 21], [21, 50], [50, 61]];
+const lb = s.lb ?? -1;
+const lbGrp = HNG.find(([a, b]) => lb >= a && lb < b) || [0, 61];
+const lbGo = (d) => (e) => { if (e && e.stopPropagation) e.stopPropagation(); const [a, b] = lbGrp; this.setState({ lb: a + ((lb - a + d + (b - a)) %% (b - a)) }); };
+o.lbOpen = lb >= 0;
+o.lbSrc = lb >= 0 ? 'img/hnb-' + String(lb).padStart(2, '0') + '.webp' : '';
+o.lbCap = lb >= 0 ? HN[lb] : '';
+o.lbPos = lb >= 0 ? (lb - lbGrp[0] + 1) + ' / ' + (lbGrp[1] - lbGrp[0]) : '';
+o.lbX = (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lb: -1 }); };
+o.lbStop = (e) => { if (e && e.stopPropagation) e.stopPropagation(); };
+o.lbPrev = lbGo(-1); o.lbNext = lbGo(1);
+for (let i = 0; i < HN.length; i++) { o['lbO' + i] = () => this.setState({ lb: i }); o['lbI' + i] = lb === i; }
+'''
+MOUNT='''componentDidMount() { this._tcxReveal(); this._lbKey = (e) => { const lb = (this.state || {}).lb ?? -1; if (lb < 0) return; const G = [[0, 21], [21, 50], [50, 61]].find(([a, b]) => lb >= a && lb < b); const n = G[1] - G[0]; if (e.key === 'Escape') this.setState({ lb: -1 }); else if (e.key === 'ArrowRight') this.setState({ lb: G[0] + (lb - G[0] + 1) %% n }); else if (e.key === 'ArrowLeft') this.setState({ lb: G[0] + (lb - G[0] - 1 + n) %% n }); }; if (typeof window !== 'undefined') window.addEventListener('keydown', this._lbKey); }
+componentWillUnmount() { if (this._lbKey && typeof window !== 'undefined') window.removeEventListener('keydown', this._lbKey); }'''
 def honor(key, title):
     tabs=[('资质认证',Q,0),('荣誉奖项',R,21),('软件著作权',C,50)]
     tb='<div class="hn12-tb hn61-tb" role="tablist">'+''.join(f'<button type="button" role="tab" class="{{{{{key}C{i}}}}}" onClick="{{{{{key}P{i}}}}}">{n}<b>{len(l)}</b></button>' for i,(n,l,o) in enumerate(tabs))+'</div>'
     gs=''
     for i,(n,l,o) in enumerate(tabs):
-        items=''.join(f'<li><div class="ph"><img src="img/hn-{o+j:02d}.webp" alt="{x}" loading="lazy"></div><p>{x}</p></li>' for j,x in enumerate(l))
+        items=''.join(f'<li class="zm" onClick="{{{{lbO{o+j}}}}}" title="点击查看大图"><div class="ph"><img src="img/hn-{o+j:02d}.webp" alt="{x}" loading="lazy"></div><p>{x}</p></li>' for j,x in enumerate(l))
         gs+=f'<sc-if value="{{{{{key}{i}}}}}" hint-placeholder-val="{{{{ {"true" if i==0 else "false"} }}}}"><ul class="hn61-g{" sw" if i==2 else ""}">{items}</ul></sc-if>'
     return (f'<div class="hn61-hd"><div><h2 class="sec-t">{title}</h2><p class="hn61-sub">国家及地方主管部门、行业组织颁发的资质认证与荣誉，以及自主研发产品的软件著作权。</p></div></div>'
-            + tb + gs)
+            + tb + gs + LB)
 def span(s,sid):
     i=s.find(f'id="{sid}"'); a=s.rfind('<section',0,i); d=0
     for m in re.finditer(r'<section\b|</section>',s[a:]):
@@ -38,4 +79,12 @@ for f in sys.argv[1:]:
     a,e=span(s,sid)
     s=s[:a]+f'<section id="{sid}" style="padding:96px 0">\n  <div class="wrap">'+honor('hn',title)+'</div>\n</section>'+s[e:]
     if '.hn61-g{' not in s: s=s.replace('</style>',CSS+'</style>',1)
+    if '.hn61-lb{' not in s: s=s.replace('</style>',LBCSS+'</style>',1)
+    if 'const HN = ' not in s:
+        import json
+        anchor="    o[k + 'P' + i] = () => this.setState({ [k]: i });\n  }\n}\n"
+        assert anchor in s
+        s=s.replace(anchor,anchor+LOGIC%json.dumps(Q+R+C,ensure_ascii=False),1)
+        assert 'componentDidMount() { this._tcxReveal(); }' in s
+        s=s.replace('componentDidMount() { this._tcxReveal(); }',MOUNT%(),1)
     open(f,'w').write(s); print('ok',f)
