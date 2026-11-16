@@ -153,7 +153,7 @@ LOG_MAIN = '''<main data-pg="IdcLogs" class="kc-main">
           </tr></sc-for></tbody>
         </table></div>
         <sc-if value="{{none}}" hint-placeholder-val="{{false}}"><div class="kc-empty" style="padding:48px 0;text-align:center;color:rgba(0,0,0,.5);font-size:12px">没有符合条件的记录 · <a href="#" onClick="{{reset}}">清空筛选</a></div></sc-if>
-        ''' + FOOT.replace('{{ddC1}}', '{{ddC3}}').replace('{{ddT1}}', '{{ddT3}}').replace('{{ddV1}}', '{{ddV3}}').replace('{{ddO1}}', '{{ddO3}}').replace('{{ddL1}}', '{{ddL3}}').replace('data-dd="1"', 'data-dd="3"') + '''
+        ''' + re.sub(r'<div class="kc-pg">.*?</div>', '<div class="kc-pg"><button type="button" aria-label="上一页" onClick="{{prev}}">‹</button><sc-for list="{{pages}}" as="p" hint-placeholder-count="2"><button type="button" class="{{p.cls}}" onClick="{{p.go}}">{{p.n}}</button></sc-for><button type="button" aria-label="下一页" onClick="{{next}}">›</button></div>', FOOT, count=1, flags=re.S).replace('{{ddC1}}', '{{ddC3}}').replace('{{ddT1}}', '{{ddT3}}').replace('{{ddV1}}', '{{ddV3}}').replace('{{ddO1}}', '{{ddO3}}').replace('{{ddL1}}', '{{ddL3}}').replace('data-dd="1"', 'data-dd="3"') + '''
       </section>
       <sc-if value="{{dwOn}}" hint-placeholder-val="{{false}}"><div class="lg-dw-m" onClick="{{dwX}}"></div><aside class="kc-dw" role="dialog" aria-modal="true" aria-label="操作详情">
         <div class="kc-dwh">操作详情<button type="button" class="kc-btn sm" aria-label="关闭" onClick="{{dwX}}">×</button></div>
@@ -197,12 +197,13 @@ LOG_JS = r'''
       open: (e) => { ev(e); this.setState({ dw: i }); } }));
     all = all.filter((r) => (fs === '全部' || r.sv === fs) && (ft === '全部' || r.ty === ft) && (fm !== '近 7 天' || r.tm >= '11-10') && (!qq || (r.sv + r.ip + r.who + r.op).indexOf(qq) >= 0));
     const TD = [['全部', ''], ['人工操作', 'me'], ['系统任务', 'sys'], ['失败', 'err']];
-    const tabs = TD.map(([n, k]) => { const c = all.filter((r) => !k || r.k.indexOf(k) >= 0).length; return { n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: k === 'err' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ lt: n }) }; });
+    const tabs = TD.map(([n, k]) => { const c = all.filter((r) => !k || r.k.indexOf(k) >= 0).length; return { n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: k === 'err' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => this.setState({ lt: n, pg: 1 }) }; });
     const kk = (TD.find((d) => d[0] === tab) || TD[0])[1];
-    const rows0 = all.filter((r) => !kk || r.k.indexOf(kk) >= 0); const rows = rows0.slice(0, parseInt(st.ddv3 || '10', 10));
+    const rows0 = all.filter((r) => !kk || r.k.indexOf(kk) >= 0); const psz = parseInt(st.ddv3 || '10', 10); const pgN = Math.max(1, Math.ceil(rows0.length / psz)); const pg = Math.min(st.pg || 1, pgN); const rows = rows0.slice((pg - 1) * psz, pg * psz);
+    const pgs = Array.from({ length: pgN }, (_, i) => ({ n: i + 1, cls: i + 1 === pg ? 'on' : '', go: () => this.setState({ pg: i + 1 }) }));
     const dwi = st.dw === undefined || st.dw === null ? -1 : st.dw; const dr = dwi >= 0 ? LG[dwi] : null;
     const dw = dr ? { op: dr[2] + ' · ' + dr[3], sv: dr[1], ip: IP[dr[1]], who: dr[4], src: dr[5], lip: dr[5] === '控制台' ? '115.236.**.20（浙江 温州）' : dr[5] === 'API' ? '10.0.3.8（API 密钥 AK-****3f2a）' : '—', tm: '2026-' + dr[0] + ':06', rs: RS[dr[6]][0], tc: RS[dr[6]][1], rid: 'req-' + (91234 + dwi * 37).toString(16) + '-idc', steps: STEPS(dr).map(([c, n, t]) => ({ c, n, t })), fail: dr[6] === 'err', why: dr[2] === '重装系统' ? '镜像校验不通过，系统已回滚。可以换一个镜像重试，或提交工单让工程师处理。' : '服务器出方向 443 端口不通。检查安全组或防火墙放行后，在服务器详情「安全」里点「重试安装」。' } : {};
-    const __R = { nav, tabs, rows, total: rows0.length, none: !rows0.length, q: st.q || '', onQ: (e) => this.setState({ q: e.target.value }),
+    const __R = { nav, tabs, rows, total: rows0.length, none: !rows0.length, pages: pgs, prev: () => this.setState({ pg: Math.max(1, pg - 1) }), next: () => this.setState({ pg: Math.min(pgN, pg + 1) }), q: st.q || '', onQ: (e) => this.setState({ q: e.target.value }),
       reset: (e) => { ev(e); this.setState({ q: '', ddv0: '全部', ddv1: '全部', ddv2: '近 30 天', lt: '全部' }); },
       dwOn: !!dr, dw, dwX: (e) => { ev(e); this.setState({ dw: -1 }); },
       exp: () => this.setState({ exp: 1 }), expOn: !!st.exp, expX: (e) => { ev(e); this.setState({ exp: 0 }); } };
@@ -325,7 +326,7 @@ SG_MAIN = """<main data-pg="IdcSecGroup" class="kc-main">
               <tr class="sg-add"><td><div class="kc-sg" role="group" aria-label="策略"><sc-for list="{{pols}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.go}}">{{m.n}}</button></sc-for></div></td><td><input class="kc-in" aria-label="协议端口" placeholder="TCP:443" value="{{rPort}}" onChange="{{onPort}}"></td><td><input class="kc-in" aria-label="来源或目标" placeholder="0.0.0.0/0" value="{{rSrc}}" onChange="{{onSrc}}"></td><td><input class="kc-in" aria-label="备注" placeholder="选填" value="{{rNote}}" onChange="{{onNote}}"></td><td><a href="#" onClick="{{addRule}}">添加</a></td></tr>
             </tbody>
           </table></div>
-          <p class="kc-sub" style="margin-top:12px">规则从上到下匹配，命中第一条即停止。没有命中任何规则时：入站默认拒绝，出站默认允许。</p>
+          <p class="kc-sub" style="margin-top:12px">规则从上到下匹配，命中第一条即停止；新加的允许规则会放在「拒绝 ALL」兜底规则之前。没有命中任何规则时：入站默认拒绝，出站默认允许。</p>
         </div>
         <div class="kc-dwf"><button type="button" class="kc-btn" onClick="{{dwX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{save}}">{{saveT}}</button></div>
       </aside></sc-if>
@@ -353,7 +354,7 @@ SG_JS = r"""
       dirs: [['入站规则', 'in'], ['出站规则', 'out']].map(([n, k]) => ({ n, c: cg ? cg[k].length : 0, on: k === dir, cls: k === dir ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ dir: k }) })), rules,
       pols: ['允许', '拒绝'].map((n) => ({ n, cls: n === rPol ? 'on' : '', go: () => this.setState({ rPol: n }) })),
       rPort: st.rPort || '', rSrc: st.rSrc || '', rNote: st.rNote || '', onPort: (e) => this.setState({ rPort: e.target.value }), onSrc: (e) => this.setState({ rSrc: e.target.value }), onNote: (e) => this.setState({ rNote: e.target.value }),
-      addRule: (e) => { ev(e); const pt = (st.rPort || '').trim(); if (!pt) { this.setState({ tOn: 1, tT: '请填写协议端口', tD: '例如 TCP:443、UDP:53 或 ALL。' }); return; } const c = Object.assign({}, cg); c[dir] = cg[dir].concat([[rPol, pt, (st.rSrc || '').trim() || '0.0.0.0/0', (st.rNote || '').trim()]]); setCur(c); this.setState({ rPort: '', rSrc: '', rNote: '' }); },
+      addRule: (e) => { ev(e); const pt = (st.rPort || '').trim(); if (!pt) { this.setState({ tOn: 1, tT: '请填写协议端口', tD: '例如 TCP:443、UDP:53 或 ALL。' }); return; } const c = Object.assign({}, cg); const nr = [rPol, pt, (st.rSrc || '').trim() || '0.0.0.0/0', (st.rNote || '').trim()]; const ca = cg[dir].findIndex((r) => r[0] === '拒绝' && r[1] === 'ALL'); c[dir] = ca >= 0 && rPol === '允许' ? cg[dir].slice(0, ca).concat([nr], cg[dir].slice(ca)) : cg[dir].concat([nr]); setCur(c); this.setState({ rPort: '', rSrc: '', rNote: '' }); },
       tpls: Object.keys(TPL).map((n) => ({ n, cls: n === tplK ? 'on' : '', go: () => this.setState({ tpl: n, draft: Object.assign({}, cg, { in: TPL[n][0].slice() }) }) })), tplD: TPL[tplK][1],
       nName: (st.draft && st.draft.n) || '', onName: (e) => this.setState({ draft: Object.assign({}, cg, { n: e.target.value }) }),
       saveT: isNew ? '创建' : '完成',

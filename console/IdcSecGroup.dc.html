@@ -184,7 +184,7 @@ td .sl-st.b{color:#165dff}
               <tr class="sg-add"><td><div class="kc-sg" role="group" aria-label="策略"><sc-for list="{{pols}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.go}}">{{m.n}}</button></sc-for></div></td><td><input class="kc-in" aria-label="协议端口" placeholder="TCP:443" value="{{rPort}}" onChange="{{onPort}}"></td><td><input class="kc-in" aria-label="来源或目标" placeholder="0.0.0.0/0" value="{{rSrc}}" onChange="{{onSrc}}"></td><td><input class="kc-in" aria-label="备注" placeholder="选填" value="{{rNote}}" onChange="{{onNote}}"></td><td><a href="#" onClick="{{addRule}}">添加</a></td></tr>
             </tbody>
           </table></div>
-          <p class="kc-sub" style="margin-top:12px">规则从上到下匹配，命中第一条即停止。没有命中任何规则时：入站默认拒绝，出站默认允许。</p>
+          <p class="kc-sub" style="margin-top:12px">规则从上到下匹配，命中第一条即停止；新加的允许规则会放在「拒绝 ALL」兜底规则之前。没有命中任何规则时：入站默认拒绝，出站默认允许。</p>
         </div>
         <div class="kc-dwf"><button type="button" class="kc-btn" onClick="{{dwX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{save}}">{{saveT}}</button></div>
       </aside></sc-if>
@@ -837,7 +837,7 @@ class Component extends DCLogic {
       dirs: [['入站规则', 'in'], ['出站规则', 'out']].map(([n, k]) => ({ n, c: cg ? cg[k].length : 0, on: k === dir, cls: k === dir ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ dir: k }) })), rules,
       pols: ['允许', '拒绝'].map((n) => ({ n, cls: n === rPol ? 'on' : '', go: () => this.setState({ rPol: n }) })),
       rPort: st.rPort || '', rSrc: st.rSrc || '', rNote: st.rNote || '', onPort: (e) => this.setState({ rPort: e.target.value }), onSrc: (e) => this.setState({ rSrc: e.target.value }), onNote: (e) => this.setState({ rNote: e.target.value }),
-      addRule: (e) => { ev(e); const pt = (st.rPort || '').trim(); if (!pt) { this.setState({ tOn: 1, tT: '请填写协议端口', tD: '例如 TCP:443、UDP:53 或 ALL。' }); return; } const c = Object.assign({}, cg); c[dir] = cg[dir].concat([[rPol, pt, (st.rSrc || '').trim() || '0.0.0.0/0', (st.rNote || '').trim()]]); setCur(c); this.setState({ rPort: '', rSrc: '', rNote: '' }); },
+      addRule: (e) => { ev(e); const pt = (st.rPort || '').trim(); if (!pt) { this.setState({ tOn: 1, tT: '请填写协议端口', tD: '例如 TCP:443、UDP:53 或 ALL。' }); return; } const c = Object.assign({}, cg); const nr = [rPol, pt, (st.rSrc || '').trim() || '0.0.0.0/0', (st.rNote || '').trim()]; const ca = cg[dir].findIndex((r) => r[0] === '拒绝' && r[1] === 'ALL'); c[dir] = ca >= 0 && rPol === '允许' ? cg[dir].slice(0, ca).concat([nr], cg[dir].slice(ca)) : cg[dir].concat([nr]); setCur(c); this.setState({ rPort: '', rSrc: '', rNote: '' }); },
       tpls: Object.keys(TPL).map((n) => ({ n, cls: n === tplK ? 'on' : '', go: () => this.setState({ tpl: n, draft: Object.assign({}, cg, { in: TPL[n][0].slice() }) }) })), tplD: TPL[tplK][1],
       nName: (st.draft && st.draft.n) || '', onName: (e) => this.setState({ draft: Object.assign({}, cg, { n: e.target.value }) }),
       saveT: isNew ? '创建' : '完成',
