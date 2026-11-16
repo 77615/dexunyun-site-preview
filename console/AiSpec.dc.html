@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>AI 组件规范 · 德迅安全卫士</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/dexun/tokens.css">
+<link rel="stylesheet" href="ds/dexun/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+/* kai：AI 组件规范 2026-11-13（来源：安全总览「优先处置」）
+   图标 kai-ic（28 模块标题 / 20 研判块 / 14 建议条 / 12 要点行）· 标识 kai-tag · 模块卡片 kai-card
+   研判块 kai-box · 建议条 kai-box.sm · 要点行 kai-li · 底部说明与反馈 kai-ft + kai-fb */
+.kai-ic{display:inline-block;flex:none;width:20px;height:20px;vertical-align:middle;background:linear-gradient(135deg,#2f6bff 0%,#6d5cff 55%,#b65cf0 100%);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath transform='translate(0 5) scale(1.12)' d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3Cpath transform='translate(19 0) scale(.54)' d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath transform='translate(0 5) scale(1.12)' d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3Cpath transform='translate(19 0) scale(.54)' d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3C/svg%3E") center/contain no-repeat}
+.kai-ic.lg{width:28px;height:28px;animation:kai-tw 3.2s ease-in-out infinite}
+.kai-ic.sm{width:14px;height:14px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3C/svg%3E")}
+.kai-ic.xs{width:12px;height:12px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5c.6 4.9 2.6 8.3 9.5 10.5-6.9 2.2-8.9 5.6-9.5 10.5-.6-4.9-2.6-8.3-9.5-10.5 6.9-2.2 8.9-5.6 9.5-10.5z'/%3E%3C/svg%3E")}
+@keyframes kai-tw{0%,100%{transform:scale(1);filter:none}50%{transform:scale(1.08);filter:hue-rotate(-18deg)}}
+@media (prefers-reduced-motion:reduce){.kai-ic.lg{animation:none}}
+.kai-tag{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border:1px solid #e6e9ef;background:#fff;font-size:12px;font-weight:400;line-height:20px;color:rgba(0,0,0,.7);white-space:nowrap;box-sizing:border-box}
+.kai-card{position:relative;border:1px solid #e9ecf1;background:linear-gradient(180deg,#f8f7ff 0,#fff 96px)}
+.kai-card::before,.kai-box::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:2px;background:linear-gradient(90deg,#5b8cff,#9b6bff 55%,#e58bd6)}
+.kai-box{position:relative;border:1px solid #eceaf8;background:linear-gradient(180deg,#f8f7ff 0,#fff 72px);padding:14px 16px 0;box-sizing:border-box}
+.kai-box.sm{padding:12px 14px}
+.kai-box.sm::before{display:none}
+.kai-hd{display:flex;align-items:center;gap:8px;margin:0 0 10px;min-width:0}
+.kai-hd b{font-size:14px;font-weight:600;line-height:22px;color:rgba(0,0,0,.9)}
+.kai-box.sm .kai-hd{gap:6px;margin-bottom:6px}
+.kai-box.sm .kai-hd b{font-size:13px}
+.kai-hd time{font-size:12px;color:rgba(0,0,0,.45);font-variant-numeric:tabular-nums}
+.kai-hd .kai-op{margin-left:auto;font-size:12px;color:#1664ff;text-decoration:none}
+.kai-vd{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 8px}
+.kai-tx{margin:0;font-size:13px;line-height:22px;color:rgba(0,0,0,.85)}
+.kai-box.sm .kai-tx{font-size:12px;line-height:20px;color:rgba(0,0,0,.75)}
+.kai-more{display:inline-flex;align-items:center;gap:2px;margin-top:6px;font-size:12px;color:#1664ff;text-decoration:none}
+.kai-li{display:flex;align-items:flex-start;gap:6px;font-size:12px;line-height:20px;color:rgba(0,0,0,.75);min-width:0}
+.kai-li .kai-ic{margin-top:4px}
+.kai-ft{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 0;padding:8px 0 10px;border-top:1px solid #f2f0fa;font-size:12px;line-height:20px;color:rgba(0,0,0,.5)}
+.kai-fb{display:inline-flex;gap:4px;flex:none}
+.kai-fb button{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border:0;border-radius:0;background:none;color:rgba(0,0,0,.45);cursor:pointer}
+.kai-fb button:hover{background:#f3f0ff;color:#6a4fe0}
+/* 威胁调查：AI 研判块套用 kai-box */
+.sl .hu-ai2.kai-box{display:block;margin:0 20px 16px;padding:14px 16px 0;background:linear-gradient(180deg,#f8f7ff 0,#fff 72px)}
+.sl .hu-ai2.kai-box .hu-bub{padding:0;border:0;background:none}
+.sl .hu-ai2.kai-box .hu-al{margin:0 0 10px;align-items:center}
+.sl .hu-ai2.kai-box .hu-al b{font-size:14px}
+.sl .hu-ai2.kai-box .hu-as{font-size:13px;line-height:22px;color:rgba(0,0,0,.85)}
+.sl .hu-plan-ai.kai-box{margin:0 0 16px}
+.hux-box.kai-box{padding:12px 14px}
+.hux-box .hux-ai{display:block}
+.hux-box .hux-ai b{color:rgba(0,0,0,.9);font-weight:600;margin:0 6px 0 4px}
+</style>
+<style>
+/* aisp：AI 组件规范画板 */
+.aisp{min-height:100%;background:#f5f6f8;padding:40px 48px 56px;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:rgba(0,0,0,.85);box-sizing:border-box}
+.aisp h1{display:flex;align-items:center;gap:12px;margin:0 0 6px;font-size:24px;font-weight:600;color:rgba(0,0,0,.9)}
+.aisp .aisp-sub{margin:0 0 28px;font-size:13px;color:rgba(0,0,0,.55)}
+.aisp-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.aisp-row.one{grid-template-columns:minmax(0,1fr)}
+.aisp-sec{background:#fff;border:1px solid #e9ecf1;padding:20px 24px 24px}
+.aisp-sec > h2{display:flex;align-items:baseline;gap:10px;margin:0 0 4px;font-size:15px;font-weight:600;color:rgba(0,0,0,.9)}
+.aisp-sec > h2 code{font:12px Menlo,Consolas,monospace;color:#6a4fe0;background:#f5f3ff;padding:1px 6px}
+.aisp-sec > p{margin:0 0 16px;font-size:12px;line-height:20px;color:rgba(0,0,0,.55)}
+.aisp-demo{padding:20px;background:#fafbfc;border:1px dashed #e3e6ec}
+.aisp-sw{display:flex;gap:16px;flex-wrap:wrap}
+.aisp-sw > div{flex:1 1 150px;min-width:0}
+.aisp-sw i{display:block;height:44px;margin-bottom:8px;border:1px solid #eef0f4}
+.aisp-sw b{display:block;font-size:12px;font-weight:600;color:rgba(0,0,0,.85)}
+.aisp-sw small{display:block;font:11px/18px Menlo,Consolas,monospace;color:rgba(0,0,0,.5)}
+.aisp-sz{display:flex;gap:28px;align-items:flex-end}
+.aisp-sz > div{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;color:rgba(0,0,0,.6);text-align:center}
+.aisp-sz small{color:rgba(0,0,0,.45);line-height:16px}
+.aisp-tags{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.aisp-card-hd{display:flex;align-items:center;gap:10px;padding:16px 24px 8px}
+.aisp-card-hd b{font-size:16px;font-weight:600;color:rgba(0,0,0,.9)}
+.aisp-card-hd a{margin-left:auto;font-size:12px;color:#1664ff;text-decoration:none}
+.aisp-rows{list-style:none;margin:0;padding:0 24px}
+.aisp-rows li{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:16px;align-items:center;padding:10px 0;font-size:13px}
+.aisp-rows li a{font-size:12px;color:#1664ff;text-decoration:none}
+.aisp-rows .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#f53f3f;margin-right:10px;vertical-align:middle}
+.aisp-card .kai-ft{margin:4px 24px 0;padding:12px 0 14px}
+.aisp-rules{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px}
+.aisp-rules li{position:relative;padding-left:16px;font-size:13px;line-height:22px;color:rgba(0,0,0,.8)}
+.aisp-rules li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;background:#6d5cff}
+.aisp-rules li b{font-weight:600;color:rgba(0,0,0,.9)}
+.aisp-no{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.aisp-no > div{padding:14px;border:1px solid #f3d6d6;background:#fff8f8;font-size:12px;line-height:20px;color:rgba(0,0,0,.65)}
+.aisp-no b{display:block;margin-bottom:6px;color:#cb2634;font-weight:600}
+.aisp-no .bad{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.aisp-no .bot{width:28px;height:28px;border-radius:50%;border:1px solid #e6e9ef;background:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.aisp-no .sq{width:22px;height:22px;background:#1664ff}
+.aisp-no .bub{padding:6px 10px;border:1px solid #e9ecf1;background:#fff;font-size:12px}
+.aisp-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.aisp-tbl th{text-align:left;font-weight:400;color:rgba(0,0,0,.5);background:#f7f8fa;padding:9px 12px}
+.aisp-tbl td{padding:10px 12px;border-top:1px solid #f0f2f5;color:rgba(0,0,0,.8);vertical-align:top}
+.aisp-tbl code{font:11px Menlo,Consolas,monospace;color:#6a4fe0}
+</style>
+</helmet>
+<div class="aisp"><h1><i class="kai-ic lg"></i>AI 组件规范</h1><p class="aisp-sub">德迅安全卫士控制台 · 2026-11-13 · 以安全总览「优先处置」为准，所有 AI 生成的内容统一用这一套图标、标识和结构</p><div class="aisp-row"><section class="aisp-sec"><h2>色彩<code>kai-*</code></h2><p>渐变只出现在图标和顶部细线上，底色是很浅的紫白过渡。</p><div class="aisp-sw"><div><i style="background:linear-gradient(135deg,#2f6bff,#6d5cff 55%,#b65cf0)"></i><b>AI 渐变 · 图标</b><small>#2F6BFF → #6D5CFF → #B65CF0</small></div><div><i style="background:linear-gradient(90deg,#5b8cff,#9b6bff 55%,#e58bd6)"></i><b>AI 渐变 · 顶部 2px 线</b><small>#5B8CFF → #9B6BFF → #E58BD6</small></div><div><i style="background:linear-gradient(180deg,#f8f7ff,#fff)"></i><b>AI 底色</b><small>#F8F7FF → #FFFFFF</small></div><div><i style="background:#eceaf8"></i><b>AI 描边</b><small>#ECEAF8（卡片外框 #E9ECF1）</small></div><div><i style="background:#f3f0ff"></i><b>反馈按钮悬停</b><small>#F3F0FF · 图标 #6A4FE0</small></div></div></section><section class="aisp-sec"><h2>AI 图标<code>kai-ic</code></h2><p>双星标（大星 + 小星），渐变填充。12/14 尺寸只保留一颗星，避免糊成一团。</p><div class="aisp-demo"><div class="aisp-sz"><div><i class="kai-ic lg"></i>28 · lg<small>页面级 AI 模块标题<br>唯一带呼吸动效</small></div><div><i class="kai-ic"></i>20 · 默认<small>AI 研判块标题</small></div><div><i class="kai-ic sm"></i>14 · sm<small>建议条、要点行</small></div><div><i class="kai-ic xs"></i>12 · xs<small>表格、行内小字</small></div></div></div></section></div><div class="aisp-row one"><section class="aisp-sec"><h2>AI 模块卡片<code>kai-card</code></h2><p>页面级 AI 模块（如安全总览「优先处置」）：标题 28px 星标 + AI 标识，列表每行一句 AI 结论，底部说明依据 + 反馈。</p><div class="aisp-demo"><div class="kc-card kai-card aisp-card"><div class="aisp-card-hd"><i class="kai-ic lg"></i><b>优先处置</b><span class="kai-tag">AI 已排序</span><a href="#">AI 分析详情</a></div><ul class="aisp-rows"><li><span><i class="dot"></i>异常登录 · web-prod-01</span><span class="kai-li"><i class="kai-ic sm"></i>疑似撞库成功：同一 IP 1 小时内尝试 312 次，请确认是否本人</span><a href="#">AI 研判</a></li><li><span><i class="dot"></i>OpenSSH 远程代码执行漏洞</span><span class="kai-li"><i class="kai-ic sm"></i>22 端口对公网开放，可被远程利用，建议升级到 9.8p1</span><a href="#">去修复</a></li></ul><div class="kai-ft"><span>由 AI 根据风险等级、可利用性和影响范围排序，结论仅供参考</span><span class="kai-fb"><button type="button" aria-label="有帮助"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></div></div></section></div><div class="aisp-row"><section class="aisp-sec"><h2>AI 研判块<code>kai-box</code></h2><p>嵌在页面卡片里的一条 AI 结论（如威胁调查事件详情）。顺序固定：标题 → 结论标签 → 一句话摘要 → 展开 → 依据与反馈。</p><div class="aisp-demo"><div class="kai-box"><div class="kai-hd"><i class="kai-ic"></i><b>AI 研判</b><time>09:17</time></div><div class="kai-vd"><span class="kc-tag err">确认入侵</span><span class="kc-tag mut">置信度 92%</span></div><p class="kai-tx">nginx 工作进程派生 php-fpm 写入 /tmp/shell.php，随后 bash 下载 dropper 并与 185.66.21.9 建立外联。</p><a class="kai-more" href="#">更多研判 ›</a><div class="kai-ft"><span>由 AI 根据关联告警和主机行为研判，结论仅供参考</span><span class="kai-fb"><button type="button" aria-label="有帮助"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></div></div></section><div style="display:flex;flex-direction:column;gap:16px"><section class="aisp-sec"><h2>AI 建议条<code>kai-box sm</code></h2><p>抽屉、弹窗、示例里的简短建议，不带顶部线和反馈。</p><div class="aisp-demo"><div class="kai-box sm"><div class="kai-hd"><i class="kai-ic sm"></i><b>AI 处置建议</b></div><p class="kai-tx">先隔离受害主机并终止 bash（4412）进程树，封禁 185.66.21.9；然后回溯 nginx access.log 里 /upload 接口的来源会话。</p></div></div></section><section class="aisp-sec"><h2>AI 要点行 / 标识<code>kai-li · kai-tag</code></h2><p>列表或表格里的一句 AI 说明用 14px 星标开头；AI 标识用描边小标签，结论用状态色标签。</p><div class="aisp-demo"><div style="display:flex;flex-direction:column;gap:8px"><span class="kai-li"><i class="kai-ic sm"></i>10-29 由 root 手动卸载，这台主机目前不受检测</span><span class="kai-li"><i class="kai-ic sm"></i>客户端没有改密权限，确认以 root 运行后重试</span></div><div style="height:14px"></div><div class="aisp-tags"><span class="kai-tag">AI 已排序</span><span class="kai-tag">AI 研判</span><span class="kai-tag">AI 生成</span><span class="kc-tag err">确认入侵</span><span class="kc-tag warn">疑似入侵</span><span class="kc-tag mut">误报</span><span class="kc-tag mut">置信度 92%</span></div></div></section></div></div><div class="aisp-row one"><section class="aisp-sec"><h2>使用规则</h2><div style="height:12px"></div><ul class="aisp-rules"><li><b>只给 AI 生成的内容</b>加星标；规则命中、人工填写、系统统计的数据不用。</li><li><b>渐变只用在两处</b>：星标图标和模块顶部 2px 线。文字一律常规色，按钮仍用主色蓝。</li><li><b>标题统一叫法</b>：AI 研判（判断真假）、AI 处置建议（下一步怎么做）、AI 已排序（列表排序）、AI 分析详情（入口链接）。</li><li><b>结论用状态标签</b>：确认入侵 红 · 疑似入侵 橙 · 误报 灰，后面跟灰色「置信度 N%」。</li><li><b>每个 AI 结论都要说依据并带反馈</b>：底部一行「由 AI 根据……，结论仅供参考」+ 有用 / 没用。建议条可省略底部。</li><li><b>动效只给 28px 模块标题</b>（呼吸 3.2s，系统开启减少动效时停止）；其余尺寸静止。</li><li><b>间距跟随内容区规范</b>：块内边距 14/16，标题到结论 10，结论到正文 8，正文到底部 12。</li><li><b>长内容先收起</b>：默认只显示结论 + 一句话摘要，「更多研判」展开推理过程、攻击意图、影响评估、研判依据。</li></ul></section></div><div class="aisp-row"><section class="aisp-sec"><h2>不要这样</h2><div style="height:12px"></div><div class="aisp-no"><div><div class="bad"><span class="bot">🤖</span></div><b>不用机器人头像</b>AI 是功能不是角色，统一用星标。</div><div><div class="bad"><span class="bub">AI：……</span></div><b>不用对话气泡</b>研判结果是结论卡片，不是聊天记录。</div><div><div class="bad"><span class="sq"></span></div><b>不用纯蓝方块图标</b>会和普通功能图标、勾选框混淆。</div><div><div class="bad"><span style="color:#8e5cff;font-weight:600">紫色正文</span></div><b>不给文字上紫色或渐变</b>正文、标题保持黑灰色，保证可读。</div></div></section><section class="aisp-sec"><h2>已应用的位置</h2><div style="height:12px"></div><table class="aisp-tbl"><thead><tr><th>位置</th><th>组件</th><th>说明</th></tr></thead><tbody><tr><td>安全总览 · 优先处置</td><td><code>kai-card</code> + <code>kai-ic lg</code> + <code>kai-li</code> + <code>kai-ft</code></td><td>本规范的来源样式</td></tr><tr><td>威胁调查 · 事件详情</td><td><code>kai-box</code>（AI 研判）</td><td>机器人头像和灰底气泡已换掉</td></tr><tr><td>威胁调查 · 处置方案抽屉</td><td><code>kai-box sm</code>（AI 处置建议）</td><td>原蓝方块图标已换掉</td></tr><tr><td>威胁调查 · 空状态示例</td><td><code>kai-box sm</code></td><td>示例里的 AI 研判摘要</td></tr><tr><td>后续新增（告警详情、漏洞详情等）</td><td>按上面选一种</td><td>页面级模块用 card，页面内结论用 box，抽屉 / 弹窗里用 box sm</td></tr></tbody></table></section></div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -16,21 +16,21 @@
 
 /* pur90：版本按钮 + 对比抽屉（腾讯云购买页） */
 .pv-row{display:flex;align-items:center;gap:16px}
-.fl-seg button.pv-dis{color:#c9cdd4;cursor:not-allowed;background:#f7f8fa}
-.pv-x{display:inline-flex;align-items:center;gap:4px;padding:0;border:0;background:none;font:inherit;font-size:13px;color:#1664ff;cursor:pointer}
+.fl-seg button.pv-dis{color:#c9cdd4;cursor:not-allowed;background:#f7f8fb}
+.pv-x{display:inline-flex;align-items:center;gap:4px;padding:0;border:0;background:none;font:inherit;font-size:12px;color:#1664ff;cursor:pointer}
 .pv-x:hover{text-decoration:underline}
 .pv-ic{display:inline-block;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3v2H5v14h5v2H3V3h7zm4 0h7v18h-7v-2h5V5h-5V3zm-3 0h2v18h-2V3z'/%3E%3C/svg%3E") center/14px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3v2H5v14h5v2H3V3h7zm4 0h7v18h-7v-2h5V5h-5V3zm-3 0h2v18h-2V3z'/%3E%3C/svg%3E") center/14px no-repeat}
-.pv-sum{margin:8px 0 0;font-size:12px;color:#737a87}
-.pv-sum em{font-style:normal;color:#42464e}
+.pv-sum{margin:8px 0 0;font-size:12px;color:rgba(0,0,0,.5)}
+.pv-sum em{font-style:normal;color:rgba(0,0,0,.7)}
 .pv-drw{width:560px;z-index:30}
 .pv-mx td,.pv-mx th{text-align:center}
 .pv-mx td:first-child,.pv-mx th:first-child{text-align:left}
 .pv-mx td.e,.pv-mx th.e{background:#f5f8ff;color:#1664ff}
 .pv-mx td.g{color:#00a650}
 .pv-mx td.n{color:#f53f3f}
-.pv-mx tr.gp td{background:#f2f3f5;font-weight:500;color:#1d2129;text-align:left}
-.pv-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin:16px 0 0;padding:14px 16px;background:#f7f8fa;border-radius:6px;font-size:13px;color:#42464e;line-height:1.6}
-.pv-notes b{display:block;font-weight:500;color:#0c0d0e}
+.pv-mx tr.gp td{background:#f2f4f8;font-weight:500;color:rgba(0,0,0,.9);text-align:left}
+.pv-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin:16px 0 0;padding:14px 16px;background:#f7f8fb;border-radius:0;font-size:12px;color:rgba(0,0,0,.7);line-height:1.6}
+.pv-notes b{display:block;font-weight:500;color:rgba(0,0,0,.9)}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -53,22 +53,22 @@
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
     <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">我的产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">按产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>选购产品</b></nav>
-    <button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
+    <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
       <sc-if value="{{hd.hasQ}}" hint-placeholder-val="{{false}}"><div class="tp-st"><sc-for list="{{hd.stabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}<span>{{t.c}}</span></button></sc-for></div></sc-if>
       <div class="tp-sbd">
         <sc-if value="{{hd.noQ}}" hint-placeholder-val="{{true}}">
           <h6>试试搜</h6><div class="tp-chips"><sc-for list="{{hd.tries}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
-          <h6>最近访问</h6><ul class="tp-rs"><sc-for list="{{hd.sRecent}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
-          <h6>快捷操作</h6><ul class="tp-rs"><sc-for list="{{hd.quick}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+          <h6>最近访问<a href="#" onClick="{{hd.toProd}}">按产品浏览 ›</a></h6><ul class="tp-rs tp-g"><sc-for list="{{hd.sRecent}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+          <h6>快捷操作</h6><ul class="tp-rs tp-g"><sc-for list="{{hd.quick}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
         </sc-if>
         <sc-if value="{{hd.isIp}}" hint-placeholder-val="{{false}}"><h6><span>对 IP {{hd.q}} 可以</span></h6><ul class="tp-rs"><sc-for list="{{hd.ipActs}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em class="go">{{r.e}}</em></a></li></sc-for></ul></sc-if>
         <sc-for list="{{hd.groups}}" as="g" hint-placeholder-count="0"><h6>{{g.n}}<span>{{g.c}} 条</span></h6><ul class="tp-rs"><sc-for list="{{g.items}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul></sc-for>
         <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing" target="_blank" rel="noopener">搜帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
       </div>
       <div class="tp-sf"><span>Ctrl K 随时打开</span><span>Esc 关闭</span><a href="#" onClick="{{hd.toProd}}">按产品浏览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-    </div></sc-if>
+    </div></sc-if></span>
     <nav class="kc-tl ac-tl" aria-label="快捷入口">
       <a href="SupTickets.dc.html">工单</a><a href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing" target="_blank" rel="noopener">文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a>
       <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
@@ -130,32 +130,33 @@
       </div>
       <section class="kc-card"><div class="kc-ch"><h2><i class="fi-i fi-box"></i>产品配置</h2></div>
         <div class="fl-row" style="border-top:0"><span>购买产品</span><div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>产品</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div></div>
-        <div class="fl-row"><span>{{vLbl}}</span><div><div class="pv-row"><div class="fl-seg"><sc-for list="{{vers}}" as="v" hint-placeholder-count="3"><button type="button" class="{{v.cls}}" onClick="{{v.go}}">{{v.n}}</button></sc-for></div><sc-if value="{{isHost}}" hint-placeholder-val="{{true}}"><button type="button" class="pv-x" onClick="{{pvTog}}"><i class="pv-ic"></i>版本功能对比</button></sc-if></div><p class="pv-sum">{{vSum}}</p></div></div>
+        <div class="fl-row"><span>版本</span><div><div class="pv-row"><div class="fl-seg"><button type="button" class="on" aria-pressed="true">企业版</button><button type="button" class="pv-dis" disabled="" title="当前已开通个人版">个人版（当前）</button></div><button type="button" class="pv-x" onClick="{{pvTog}}"><i class="pv-ic"></i>版本功能对比</button></div><p class="pv-sum">包含个人版全部防护能力，另有 <em>高级威胁狩猎</em> · 日志留存 <em>180 天</em> · <em>AI 辅助告警研判</em> · 7×24 小时专家支持 · 每份 52 台授权 / 年</p></div></div>
       </section>
       
       <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-box"></i>购买配置</h2></div>
         <div class="fl-row" style="border-top:0"><span>服务期限</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="6"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
-        <div class="fl-row"><span>{{qLbl}}</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{qTxt}}</span></div></div>
-        <div class="fl-row"><span>计费</span><div class="pu-formula">{{fTxt}}<sc-if value="{{sample}}" hint-placeholder-val="{{false}}"><span class="kc-tag mut" style="margin-left:8px">示例值</span></sc-if></div></div>
+        <div class="fl-row"><span>套餐份数</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">本次共 {{hosts}} 台 · 1–20 份</span></div></div>
+        <div class="fl-row"><span>计费</span><div class="pu-formula">年度单价 ¥3,980.00 × {{m}} 个月 ÷ 12 × {{qty}} 份</div></div>
       </section>
       <sc-if value="{{needId}}" hint-placeholder-val="{{false}}"><div class="ac-al" style="margin-top:16px"><i>!</i><span>购买前需完成个人实名认证<em>订单会保存为草稿，认证通过后回到这里继续</em></span><a class="kc-btn sm" href="OrgVerify.dc.html">去认证</a></div></sc-if>
-      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="已核对" onClick="{{togA}}"></button>我已核对产品配置与服务期限</label><small>{{payLbl}}</small><b>{{payTxt}}</b><a class="{{subCls}}" href="{{subHref}}">{{subTxt}}</a></div>
+      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="已核对" onClick="{{togA}}"></button>我已核对产品配置与服务期限</label><small>应付</small><b>¥{{pay}}</b><a class="{{subCls}}" href="BillPayment.dc.html">生成订单并去付款</a></div>
     </main>
   </div>
   <sc-if value="{{pvEx}}" hint-placeholder-val="{{false}}"><div class="kc-dmask" onClick="{{pvTog}}"></div>
       <aside class="ac-drw pv-drw" role="dialog" aria-label="版本功能对比"><header><b>版本功能对比</b><button type="button" aria-label="关闭" onClick="{{pvTog}}">×</button></header>
-        <div class="bd"><table class="pu-cmp pv-mx"><thead><tr><th>功能</th><th>基础版</th><th class="e">企业版</th></tr></thead><tbody>
-          <tr class="gp"><td colspan="3">防护能力（两个版本相同）</td></tr>
-          <tr><td>入侵检测、漏洞检测、基线检查</td><td class="g">✓</td><td class="e g">✓</td></tr>
-          <tr><td>威胁狩猎</td><td class="g">✓</td><td class="e g">✓</td></tr>
-          <tr><td>防勒索、网页防篡改</td><td class="g">✓</td><td class="e g">✓</td></tr>
-          <tr class="gp"><td colspan="3">AI 能力（唯一区别）</td></tr>
-          <tr><td>AI 辅助告警研判</td><td class="n">✗</td><td class="e">✓</td></tr>
-          <tr class="gp"><td colspan="3">授权</td></tr>
-          <tr><td>授权方式</td><td>每份 52 台主机，1–20 份</td><td class="e">每份 52 台主机，1–20 份</td></tr>
+        <div class="bd"><table class="pu-cmp pv-mx"><thead><tr><th>功能</th><th>个人版</th><th class="e">企业版</th></tr></thead><tbody>
+          <tr class="gp"><td colspan="3">防护能力</td></tr>
+          <tr><td>基础防护能力</td><td class="g">✓</td><td class="e g">✓</td></tr>
+          <tr><td>高级威胁狩猎</td><td class="n">✗</td><td class="e">✓ 专享</td></tr>
+          <tr class="gp"><td colspan="3">日志与研判</td></tr>
+          <tr><td>安全日志留存</td><td>30 天</td><td class="e">180 天</td></tr>
+          <tr><td>告警研判</td><td>基础防护能力</td><td class="e">AI 辅助告警研判</td></tr>
+          <tr class="gp"><td colspan="3">服务与授权</td></tr>
+          <tr><td>技术支持</td><td>工单</td><td class="e">7×24 小时专家支持</td></tr>
+          <tr><td>授权方式</td><td>—</td><td class="e">每份 52 台主机，1–20 份</td></tr>
         </tbody></table>
-        <div class="pv-notes"><div><b>什么时候生效</b>对公转账到账、财务核验通过后生效（核验 1–2 个工作日，示例值）。下单前需完成个人实名认证，未认证会先去认证，订单保留为草稿；运维工程师提交后订单转给财务付款。</div><div><b>台数不够怎么办</b>随时增购份数，新增授权与原授权同一天到期。</div>
-          <div><b>到期提醒</b>到期前 30 天、7 天和 1 天提醒（示例值）。</div><div><b>需要帮助</b>0577-26676666，或提交工单。</div></div></div>
+        <div class="pv-notes"><div><b>什么时候生效</b>对公转账到账、财务核验通过后立即生效。</div><div><b>台数不够怎么办</b>随时增购份数，新增授权与原授权同一天到期。</div>
+          <div><b>到期提醒</b>到期前 30 天、7 天和当天提醒。</div><div><b>需要帮助</b>0577-26676666，或提交工单。</div></div></div>
       </aside></sc-if>
 </div>
 </x-dc>
@@ -439,7 +440,7 @@ class Component extends DCLogic {
   };
   var POPS = {
     '到期提醒设置': ['到期提醒', ckH(['提前 30 天', '提前 15 天', '提前 7 天', '到期当天'], [0, 2, 3]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
-    '日志存储设置': ['日志存储', '<span class="lb">保留时长</span>' + segH(['30 天', '90 天', '180 天'], 0) + '<p style="margin:6px 0 0;color:#86909c;font-size:12px">超过 30 天按存储量计费，价格见计费说明。</p>'],
+    '日志存储设置': ['日志存储', '<span class="lb">保留时长</span>' + segH(['30 天', '90 天', '180 天'], 0) + '<p style="margin:6px 0 0;color:rgba(0,0,0,.5);font-size:12px">超过 30 天按存储量计费，价格见计费说明。</p>'],
     '监测设置': ['监测设置', swH([['漏洞扫描', '每天 02:00', true], ['篡改监测', '每 10 分钟', true], ['可用性', '每分钟', true], ['内容安全', '每 6 小时', false]])],
     '通知设置': ['通知设置', swH([['高危风险', '立即通知', true], ['中危风险', '每天汇总一次', true], ['低危风险', '每周汇总一次', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1, 2])],
     '订阅日报': ['订阅日报', swH([['每天 09:00 发送前一天报表', '', true]]) + '<span class="lb">接收人</span>' + ckH(['张三 · 管理员', '李四 · 运维', '王五 · 运维'], [0, 1])],
@@ -451,7 +452,7 @@ class Component extends DCLogic {
     '应用到…': ['应用到', ckH(['www.example.com', 'shop.example.com', 'api.example.com', '端口 7000', '端口 7001-7004'], [1])],
     '分组管理': ['分组管理', '<div class="li"><span>电商业务 · 12</span><a href="#">重命名</a></div><div class="li"><span>官网 · 8</span><a href="#">重命名</a></div><div class="li"><span>默认分组 · 16</span><span style="color:#a9aeb8;font-size:12px">默认</span></div><span class="lb">新建分组</span><input class="kc-in" placeholder="分组名称">'],
     '节点详情': ['拨测节点', '<div class="li"><span>杭州 · 电信</span><span>132 ms</span></div><div class="li"><span>广州 · 电信</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>成都 · 移动</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>北京 · 联通</span><span>186 ms</span></div><div class="li"><span>上海 · 电信</span><span>118 ms</span></div>', false],
-    '回收站': ['回收站', '<div class="li"><span>旧版客户端 v2.1.0 · 10-12 删除</span><a href="#" data-ok>恢复</a></div><p style="margin:6px 0 0;color:#86909c;font-size:12px">删除 30 天后自动清除。</p>', false],
+    '回收站': ['回收站', '<div class="li"><span>旧版客户端 v2.1.0 · 10-12 删除</span><a href="#" data-ok>恢复</a></div><p style="margin:6px 0 0;color:rgba(0,0,0,.5);font-size:12px">删除 30 天后自动清除。</p>', false],
     '管理白名单': ['白名单设备', '<div class="li"><span>7A21-0C3E-55D1 · 测试机</span><a href="#">移除</a></div><div class="li"><span>B904-61FE-2A07 · 主播</span><a href="#">移除</a></div><span class="lb">添加设备</span><input class="kc-in" placeholder="机器特征码">'],
     '批量绑定': ['批量绑定', '<span class="lb">证书</span><select class="kc-in"><option>*.example.com · 2027-03-01</option><option>shop.example.com · 2026-11-06</option></select><span class="lb">绑定到</span>' + ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0, 2])],
     '绑定': ['绑定到域名', ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0])],
@@ -487,7 +488,7 @@ class Component extends DCLogic {
     // 气泡弹层
     var pp = POPS[t] || POPS[key];
     if (pp && !(t === '绑定' && P === 'OrgInfo')) { pop(el, pp[0], pp[1], pp[2], function () { toast(el, t === '回收站' ? '已恢复' : '已保存'); }); return true; }
-    if (t === '绑定' && P === 'OrgInfo') { pop(el, '绑定钉钉', '<p style="margin:4px 0 8px">用钉钉扫码完成绑定，绑定后可在钉钉群接收告警。</p><div style="width:120px;height:120px;margin:0 auto 4px;background:repeating-linear-gradient(45deg,#1d2129 0 4px,#fff 4px 8px);opacity:.85;border-radius:4px"></div>', '我已扫码', function () { var li = el.closest('li'); var tg = li && li.querySelector('.kc-tag'); if (tg) { tg.className = 'kc-tag ok'; tg.textContent = '已绑定'; } el.textContent = '解绑'; toast(el, '钉钉已绑定'); }); return true; }
+    if (t === '绑定' && P === 'OrgInfo') { pop(el, '绑定钉钉', '<p style="margin:4px 0 8px">用钉钉扫码完成绑定，绑定后可在钉钉群接收告警。</p><div style="width:120px;height:120px;margin:0 auto 4px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.9) 0 4px,#fff 4px 8px);opacity:.85;border-radius:0"></div>', '我已扫码', function () { var li = el.closest('li'); var tg = li && li.querySelector('.kc-tag'); if (tg) { tg.className = 'kc-tag ok'; tg.textContent = '已绑定'; } el.textContent = '解绑'; toast(el, '钉钉已绑定'); }); return true; }
     if (t === '批量解绑') { confirmBox(el, '解绑选中的证书？', '解绑后这些域名改用默认证书，HTTPS 访问可能报错。', '解绑', true, function () { toast(el, '已解绑'); }); return true; }
     // 就地操作
     var tr = el.closest('tr');
@@ -502,7 +503,7 @@ class Component extends DCLogic {
     if (/^(导出 PDF|下载 PDF)$/.test(t)) { toast(el, '正在生成 PDF，完成后自动下载', 'info'); return true; }
     if (t === '申请访问权限') { el.textContent = '已申请'; el.disabled = true; toast(el, '申请已发给企业管理员 张三'); return true; }
     if (t === '清空') { var sec = el.closest('section,div'); if (sec) { [].slice.call(sec.querySelectorAll('a,li')).forEach(function (a) { if (a !== el) a.remove(); }); } toast(el, '已清空最近搜索'); return true; }
-    if (t === '申请' && P === 'SupDocs') { pop(el, '申请专属服务群', '<span class="lb">联系人</span><input class="kc-in" value="张三"><span class="lb">手机号</span><input class="kc-in" value="177****1234"><p style="margin:8px 0 0;color:#86909c;font-size:12px">客户经理会在 1 个工作日内加你微信并拉群。</p>', '提交申请', function () { toast(el, '已提交，客户经理会在 1 个工作日内联系你'); }); return true; }
+    if (t === '申请' && P === 'SupDocs') { pop(el, '申请专属服务群', '<span class="lb">联系人</span><input class="kc-in" value="张三"><span class="lb">手机号</span><input class="kc-in" value="177****1234"><p style="margin:8px 0 0;color:rgba(0,0,0,.5);font-size:12px">客户经理会在 1 个工作日内加你微信并拉群。</p>', '提交申请', function () { toast(el, '已提交，客户经理会在 1 个工作日内联系你'); }); return true; }
     if (t === '拨打') { location.href = 'tel:0577-26676666'; return true; }
     if (t === '开始对话') { pop(el, '在线客服', '<p style="margin:4px 0 8px">工作日 9:00–21:00，平均 1 分钟内接入。</p><span class="lb">你想咨询</span>' + segH(['使用问题', '购买咨询', '账单发票']) + '<span class="lb">问题描述</span><input class="kc-in" placeholder="一句话说明问题">', '开始对话', function () { toast(el, '已为你接入在线客服'); }); return true; }
     if (t === '1' && el.closest('.lf-pgr,.kc-pg,.lf-foot')) return true;
@@ -778,41 +779,19 @@ class Component extends DCLogic {
       return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
-    // 选购产品：按产品切换配置（2026-11-10，链接可带 ?p=ddos|game|ssl|host|scdn|eye&v=序号）
-    const PN = { ddos: 'DDoS 高防 IP', game: '游戏盾', ssl: 'SSL 证书', host: '德迅安全卫士', scdn: 'SCDN', eye: '德迅云眼', idc: '服务器租用' };
-    const PK = {}; Object.keys(PN).forEach((k) => { PK[PN[k]] = k; });
-    const PC = {
-      ddos: { lbl: '套餐', per: 'm', q: ['实例数', 10, '个'], v: [['基础型', 1999, '100GB 峰值 · 20 万 QPS'], ['专业型', 2999, '200GB 峰值 · 30 万 QPS'], ['企业型', 3999, '300GB 峰值 · 50 万 QPS'], ['商务型', 5999, '400GB 峰值 · 80 万 QPS'], ['旗舰型-01', 9999, '600GB 峰值 · 100 万 QPS'], ['旗舰型-02', 19999, '800GB 峰值 · 200 万 QPS']], all: ' · 均含 BGP 多线、转发端口 100、防护域名 50' },
-      game: { lbl: '套餐', per: 'm', q: ['实例数', 10, '个'], v: [['入门级', 799, '在线峰数 200'], ['基础级', 1399, '在线峰数 300'], ['专业级', 1999, '在线峰数 400'], ['企业级', 3999, '在线峰数 600'], ['尊享级', 6999, '在线峰数 1000']], all: ' · 均含并发 10000、DDoS/CC 无上限、转发端口 1000' },
-      ssl: { lbl: '证书类型', per: 'y', q: ['证书数量', 20, '张'], v: [['单域名', 68, 'PositiveSSL · 单个域名 · 不支持通配符'], ['多域名', 399, 'PositiveSSL · 多个域名 · 不支持通配符'], ['通配符', 888, 'PositiveSSL · 单个域名 · 支持通配符']], all: '' },
-      host: { lbl: '版本', per: 'y', q: ['套餐份数', 20, '份'], v: [['基础版', 2980, '入侵、漏洞、基线、威胁狩猎、防勒索、网页防篡改', 1], ['企业版', 3980, '基础版全部能力 + AI 辅助告警研判']], all: ' · 每份 52 台授权 / 年', host: 1 },
-      scdn: { lbl: '套餐', quote: 1, q: ['实例数', 10, '个'], v: [['标准版', 0, '域名 10 个 · 流量包 1 TB/月'], ['企业版', 0, '域名 50 个 · 流量包 3 TB/月 · 弹性防护']], all: ' · 规格以报价为准（示例值）' },
-      eye: { lbl: '套餐', quote: 1, q: ['监测资产', 50, '个'], v: [['标准版', 0, '网站安全监测：暗链、篡改、可用性、漏洞']], all: ' · 规格以报价为准（示例值）' }
-    };
-    const __qp = (__qs && __qs.get('p')) || 'host'; const __qv = __qs ? parseInt(__qs.get('v') || '', 10) : NaN;
-    const pk = st.pk || (PC[__qp] ? __qp : 'host'); const cf = PC[pk];
-    const vi = st.vi !== undefined ? st.vi : (!isNaN(__qv) && cf.v[__qv] ? __qv : 0); const vc = cf.v[vi] || cf.v[0];
-    const vers = cf.v.map((x, i) => ({ n: x[0], cls: i === vi ? 'on' : '', go: () => this.setState({ vi: i }) }));
-    const D = cf.per === 'y' ? [['1 年', 12], ['2 年', 24], ['3 年', 36]] : [['1 个月', 1], ['3 个月', 3], ['6 个月', 6], ['1 年', 12], ['2 年', 24], ['3 年', 36]];
-    const dn = (st.dur && D.find((d) => d[0] === st.dur)) ? st.dur : (cf.per === 'm' ? '1 个月' : '1 年'); const m = D.find((d) => d[0] === dn)[1];
+    const D = [['1 个月', 1], ['3 个月', 3], ['6 个月', 6], ['1 年', 12], ['2 年', 24], ['3 年', 36]];
+    const dn = st.dur || '1 年'; const m = D.find((d) => d[0] === dn)[1];
     const durs = D.map(([n]) => ({ n, cls: n === dn ? 'on' : '', go: () => this.setState({ dur: n }) }));
-    const qmax = cf.q[1]; const qty = Math.min(qmax, st.q || 1); const agree = !!st.agree;
-    const money = (x) => x.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    const total = cf.quote ? 0 : (cf.per === 'y' ? vc[1] * m / 12 * qty : vc[1] * m * qty);
-    const fTxt = cf.quote ? '没有公开价格，提交后售前按规格报价，确认后生成订单' : (cf.per === 'y' ? '年度单价 ¥' + money(vc[1]) + ' × ' + m + ' 个月 ÷ 12 × ' + qty + ' ' + cf.q[2] : '月单价 ¥' + money(vc[1]) + ' × ' + m + ' 个月 × ' + qty + ' ' + cf.q[2]);
-    const qTxt = pk === 'host' ? '本次共 ' + (qty * 52) + ' 台 · 1–20 份' : '1–' + qmax + ' ' + cf.q[2];
-    const pay = money(total);
+    const qty = st.q || 1; const agree = !!st.agree;
+    const pay = (3980 * m / 12 * qty).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-    const __R = Object.assign({ nav }, { durs, qty, m, hosts: qty * 52, pay, vers, vLbl: cf.lbl, vSum: vc[2] + cf.all, isHost: !!cf.host, sample: !!vc[3], qLbl: cf.q[0], qTxt, fTxt,
-      payLbl: cf.quote ? '价格' : '应付', payTxt: cf.quote ? '以报价为准' : '¥' + pay,
-      subTxt: cf.quote ? '提交询价' : '生成订单并去付款', subHref: cf.quote ? '../Contact.dc.html?product=' + encodeURIComponent(PN[pk]) : 'BillPayment.dc.html',
-      dec: () => this.setState({ q: Math.max(1, qty - 1) }), inc: () => this.setState({ q: Math.min(qmax, qty + 1) }), needId: false, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
+    const __R = Object.assign({ nav }, { durs, qty, m, hosts: qty * 52, pay, dec: () => this.setState({ q: Math.max(1, qty - 1) }), inc: () => this.setState({ q: Math.min(20, qty + 1) }), needId: false, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 
-    [[PN[pk], ["DDoS 高防 IP", "游戏盾", "SCDN", "SSL 证书", "德迅安全卫士", "德迅云眼", "服务器租用"]]].forEach(([v0, opts], i) => { const v = v0; const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+    [["德迅安全卫士", ["全部", "SCDN", "DDoS 高防 IP", "游戏盾", "德迅云眼", "德迅安全卫士", "SSL 证书", "服务器租用"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
 
-      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => { if (PK[t] === 'idc') { location.href = '../ServerBuy.dc.html'; return; } this.setState({ pk: PK[t], vi: 0, q: 1, dur: undefined, ddo: -1 }); } })); });
+      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
 
     const __pv = !!(this.state || {}).pvx; return Object.assign(__R, DDX, { pvEx: __pv, pvTog: () => this.setState({ pvx: !__pv }) });
   }
