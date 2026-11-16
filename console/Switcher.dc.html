@@ -127,8 +127,8 @@
           <p class="kc-sub" style="margin: 4px 10px; line-height: 1.6;">点产品右侧的星标即可收藏。</p>
         </sc-if>
         <h3 style="margin-top: 20px;">账号与费用</h3>
-        <a class="kc-rl" href="#"><i class="dt dt-member"></i>用户中心</a>
-        <a class="kc-rl" href="#"><i class="dt dt-order"></i>费用</a>
+        <a class="kc-rl" href="ConsoleHome.dc.html"><i class="dt dt-member"></i>用户中心</a>
+        <a class="kc-rl" href="BillOverview.dc.html"><i class="dt dt-order"></i>费用</a>
       </div>
       <div class="kc-pm">
         <label class="kc-ps">
@@ -180,7 +180,7 @@
       </div>
       <div class="kc-pf">
         <span class="kc-sub">未开通的产品点击后进入官网产品页了解和购买</span>
-        <a href="#" style="margin-left: auto;">查看全部产品与价格</a>
+        <a href="AcctPurchase.dc.html" style="margin-left: auto;">查看全部产品与价格</a>
       </div>
     </div>
   </div>
@@ -188,7 +188,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   constructor(p) { super(p); this.state = { q: '', fav: { 'DDoS 高防 IP': true, '德迅安全卫士': true } }; }
   /* hdr62 */
