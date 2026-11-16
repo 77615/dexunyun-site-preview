@@ -478,7 +478,7 @@ class Component extends DCLogic {
     '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
     '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
     '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
-    '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
+    '监控报表': 'IdcMonitor.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcLogs.dc.html'
   };
   var ix = function (el, t) {
     var key = t.split(' ')[0];
@@ -770,7 +770,7 @@ class Component extends DCLogic {
   /* /hdr62 */
   _rv() {
     const cur = '服务器';
-    const pages = { '服务器': 'IdcServers.dc.html' };
+    const pages = { '服务器': 'IdcServers.dc.html', '监控报表': 'IdcMonitor.dc.html', '操作记录': 'IdcLogs.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
