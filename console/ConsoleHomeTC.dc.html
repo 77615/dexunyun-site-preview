@@ -1,0 +1,1572 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>控制台总览 · 腾讯云风格</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/dexun/tokens.css">
+<link rel="stylesheet" href="ds/dexun/components/bundle.css">
+<style>.sa-hs{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;margin:4px 0 10px;padding:8px 12px;border-radius:4px;background:#f7f8fa;font-size:13px;color:#4e5969}.sa-hs b{color:#1d2129;font-weight:600}.sa-hs a{margin-left:auto;color:#1664ff;text-decoration:none}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&amp;display=swap" data-r91="">
+<style>
+/* home78：总览（火山首页版式） */
+.h8{max-width:1040px;margin:0 auto;padding:4px 32px 56px;box-sizing:border-box}
+.h8-sec{margin-top:40px}
+.h8-st{display:flex;align-items:center;justify-content:space-between;margin:0 0 16px}
+.h8-st h2{margin:0;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-st h2 small{margin-left:8px;font-size:13px;font-weight:400;color:#737a87}
+.h8-st > a{display:inline-flex;align-items:center;gap:2px;font-size:13px;color:#737a87;text-decoration:none}
+.h8-st > a:hover{color:#1664ff}
+.h8-sub{margin:0 0 12px;font-size:13px;color:#737a87}
+.h8-box{border:1px solid #eaedf1;border-radius:12px;background:#fff}
+.h8-acc{display:flex;align-items:center;gap:16px;padding:28px 32px}
+.h8-av{width:52px;height:52px;border-radius:50%;background:#eef3ff;color:#1664ff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;flex:none}
+.h8-who{flex:1;min-width:0}
+.h8-who b{font-size:16px;font-weight:500;color:#0c0d0e;margin-right:8px}
+.h8-who .kc-tag{vertical-align:2px;margin-right:6px}
+.h8-who p{margin:6px 0 0;font-size:13px;color:#42464e}
+.h8-kpi{display:flex;gap:8px}
+.h8-kpi a{display:block;min-width:104px;padding:4px 12px;border-radius:8px;text-decoration:none}
+.h8-kpi a:hover{background:#f6f8fa}
+.h8-kpi strong{display:block;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-kpi strong.w{color:#d25f00}
+.h8-kpi span{font-size:12px;color:#737a87}
+.h8 .vt-wrap{margin:0;padding:0;background:none;gap:12px}
+.h8 .vt-c{padding:16px 16px 16px 18px}
+.h8-g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.h8-qk{display:flex;align-items:center;gap:10px;height:56px;padding:0 16px 0 20px;border:1px solid #eaedf1;border-radius:8px;background:#fff;text-decoration:none;color:#0c0d0e;transition:box-shadow .15s,border-color .15s}
+.h8-qk:hover{box-shadow:0 4px 12px rgba(12,13,14,.06);border-color:#dde2e9}
+.h8-qk:hover b{color:#1664ff}
+.h8-qk b{flex:1;font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h8-qk small{font-size:12px;color:#737a87}
+.h8-qk.add{border-style:dashed;color:#42464e;justify-content:flex-start}
+.h8-qk.add b{font-weight:400}
+.h8-res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 24px;padding:28px 32px}
+.h8-res a{text-decoration:none;color:#0c0d0e;display:block}
+.h8-res a > b{display:flex;align-items:center;gap:2px;font-size:13px;font-weight:500}
+.h8-res a:hover > b{color:#1664ff}
+.h8-res a > p{margin:6px 0 0;font-size:16px;line-height:24px}
+.h8-res a > p span{margin-left:4px;font-size:12px;color:#737a87}
+.h8-res a > i{display:block;margin-top:2px;font-style:normal;font-size:12px;color:#737a87}
+.h8-res a > i.r{color:#d7312a}
+.h8-res a > i.w{color:#bd7e00}
+.h8-res a > i.b{color:#1664ff}
+.h8-fee{display:grid;grid-template-columns:300px minmax(0,1fr);overflow:hidden}
+.h8-fl{padding:24px 24px 24px 32px}
+.h8-fl label{display:block;font-size:13px;color:#737a87}
+.h8-fl .big{display:block;margin:4px 0 2px;font-size:22px;line-height:32px;font-weight:600;color:#0c0d0e}
+.h8-fl .note{font-size:12px;color:#737a87}
+.h8-fl .kc-btns{margin:14px 0 24px}
+.h8-fl dl{margin:0;display:grid;gap:18px}
+.h8-fl dd{margin:4px 0 0;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-fr{background:rgba(246,248,250,.6);padding:20px 24px 16px;border-left:1px solid #eaedf1}
+.h8-fr header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;color:#0c0d0e}
+.h8-fr header small{font-weight:400;font-size:12px;color:#737a87}
+.h8-ch{position:relative;height:210px;margin:16px 0 0 44px;border-bottom:1px solid #dde2e9;display:flex;align-items:flex-end;justify-content:space-around}
+.h8-ch .gl{position:absolute;left:0;right:0;border-top:1px dashed #eaedf1}
+.h8-ch .gl em{position:absolute;right:100%;top:-9px;margin-right:8px;font-style:normal;font-size:12px;color:#737a87;white-space:nowrap}
+.h8-ch .bar{position:relative;width:28px;border-radius:4px 4px 0 0;background:#1664ff;opacity:.85}
+.h8-ch .bar:hover{opacity:1}
+.h8-ch .bar span{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:6px;font-size:12px;color:#737a87;white-space:nowrap}
+.h8-ch .bar.cur{background:#94b8ff}
+.h8-lg{display:flex;justify-content:center;gap:16px;margin-top:30px;font-size:12px;color:#42464e}
+.h8-lg i{display:inline-block;width:10px;height:10px;border-radius:2px;background:#1664ff;margin-right:6px;vertical-align:-1px}
+.h8-lg i.c{background:#94b8ff}
+.h8-tip{display:flex;align-items:center;gap:8px;height:36px;padding:0 16px;margin-bottom:12px;border-radius:4px;background:#f6f8fa;font-size:13px;color:#0c0d0e}
+.h8-tip b{font-weight:500}
+.h8-tip svg.rx{color:#1664ff}
+.h8-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.h8-ac{display:flex;align-items:center;justify-content:space-between;padding:16px 24px 16px 28px;border:1px solid #eaedf1;border-radius:8px}
+.h8-ac span{font-size:13px;color:#737a87}
+.h8-ac strong{display:block;margin-top:2px;font-size:18px;line-height:26px;font-weight:500;color:#0c0d0e}
+.h8-ac strong small{margin-left:6px;font-size:12px;font-weight:400;color:#737a87}
+.h8-nt{list-style:none;margin:0;padding:4px 24px}
+.h8-nt li{display:flex;align-items:center;gap:12px;height:48px;border-bottom:1px solid #eaedf1}
+.h8-nt li:last-child{border-bottom:0}
+.h8-nt li a{flex:1;min-width:0;color:#0c0d0e;text-decoration:none;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h8-nt li a:hover{color:#1664ff}
+.h8-nt li time{font-size:12px;color:#737a87}
+.kc-main > .h8{margin:0 auto !important}
+/* 标题也放进居中列，字号 24 */
+.kc-main:has(> .h8) > .kc-hd{max-width:1040px;margin:0 auto !important;padding:28px 32px 20px !important;box-sizing:border-box}
+.kc-main:has(> .h8) > .kc-hd .kc-h1{font-size:24px !important;line-height:36px;font-weight:500 !important}
+.h8-rt{display:flex;align-items:center;gap:8px;margin:-4px 0 12px;flex-wrap:wrap}
+.h8-rt button{height:28px;padding:0 12px;border:1px solid #e5e6eb;border-radius:14px;background:#fff;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.h8-rt button span{margin-left:2px;color:#737a87}
+.h8-rt button.on{border-color:#1664ff;background:#f2f7ff;color:#1664ff}
+.h8-rt button.on span{color:#1664ff}
+.h8-rt em{margin-left:auto;font-style:normal;font-size:12px;color:#737a87}
+.h8-fee .note a{color:#1664ff;text-decoration:none}
+.kc-tile b,.dz-k .v,.ac-st b,.fl-sum b,.sp-kpi b,.b8-amt,.sx-num b,.ac-ph b.amt,.kc-kpi b,.lp-g4 b,.h8-fl .big,.kc-ring b,.big b,.h8-kpi strong,.kc-card > b,.kc-hb em,.b8-todo b,.b8-inv b,.pf-why b{font-family:Barlow,Inter,"PingFang SC",sans-serif;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.2px}
+.h8-kpi strong{font-size:24px}
+/* 主信息卡：浅蓝渐变 + 斜向高光条 */
+.b8-hero,.h8-acc,.ac-ph{background:radial-gradient(140% 180% at 100% 0%,rgba(186,211,255,.5) 0%,rgba(186,211,255,.32) 22%,rgba(186,211,255,.14) 45%,rgba(186,211,255,.04) 68%,rgba(186,211,255,0) 90%),radial-gradient(120% 160% at 0% 100%,rgba(255,255,255,.6) 0%,rgba(255,255,255,.25) 35%,rgba(255,255,255,0) 75%),linear-gradient(120deg,#f4f8ff 0%,#ecf2ff 50%,#e4edff 100%) !important;border:1px solid #dde8fc !important;border-radius:8px !important;box-shadow:none !important}
+/* 带说明的术语：虚线下划线 */
+.b8-todo span,.h8-kpi span{text-decoration:underline dashed #c2c8d1;text-underline-offset:4px}
+/* /duo92 */
+
+/* addent93：添加入口浮层 */
+.ce-w{position:relative}
+.h8-sec:has(.ce-pop){position:relative;z-index:60;animation:none !important;transform:none !important}
+.ce-add{width:100%;cursor:pointer;font:inherit;background:#fff;text-align:left}
+.ce-add:hover,.ce-add.op{border-color:#1664ff;color:#1664ff;background:#f5f9ff}
+.ce-mask{position:fixed;inset:0;z-index:40}
+.ce-pop{position:absolute;left:0;top:calc(100% + 8px);z-index:41;width:420px;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 8px 24px rgba(31,35,41,.12);animation:cePop .16s ease-out}
+@keyframes cePop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.ce-tabs{display:flex;gap:28px;padding:0 20px;border-bottom:1px solid #eaedf1}
+.ce-tabs button{height:48px;border:0;border-bottom:2px solid transparent;background:none;padding:0;font:inherit;font-size:14px;color:#42464e;cursor:pointer}
+.ce-tabs button:hover{color:#1664ff}
+.ce-tabs button.on{color:#1664ff;font-weight:500;border-bottom-color:#1664ff}
+.ce-tabs span{margin-left:auto;align-self:center;font-size:12px;color:#86909c}
+.ce-bd{padding:16px 20px 20px}
+.ce-q{display:flex;align-items:center;gap:8px;height:32px;padding:0 10px;border:1px solid #dde2e9;border-radius:4px;transition:border-color .15s}
+.ce-q:hover{border-color:#b9c3d1}
+.ce-q:focus-within{border-color:#1664ff}
+.ce-q input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:13px}
+.ce-h{margin:14px 0 8px;font-size:12px;color:#86909c}
+.ce-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ce-chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:0;border-radius:4px;background:#f2f3f5;font:inherit;font-size:13px;color:#1d2129;cursor:pointer;transition:background .15s,color .15s}
+.ce-chip em{font-style:normal;font-weight:600;color:#4e5969}
+.ce-chip:hover{background:#e8f0ff;color:#1664ff}
+.ce-chip:hover em{color:#1664ff}
+.ce-chip.on,.ce-chip.on em{color:#a9aeb8}
+.ce-chip.on:hover{background:#ffece8;color:#f53f3f}
+.ce-chip.on:hover em{color:#f53f3f}
+.ce-chip.off{color:#c9cdd4;cursor:not-allowed}
+.ce-chip.off em{color:#c9cdd4}
+.ce-chip.off:hover{background:#f2f3f5}
+.ce-none{margin:4px 0 0;font-size:12px;color:#86909c}
+.ce-f{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:12px;margin-bottom:12px;font-size:13px;color:#42464e}
+.ce-f input{height:32px;padding:0 10px;border:1px solid #dde2e9;border-radius:4px;outline:0;font:inherit;font-size:13px}
+.ce-f input:focus{border-color:#1664ff}
+.ce-ft{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.kc-btn.dis{opacity:.45;pointer-events:none}
+.h8-qk.ce-it{position:relative}
+.ce-x{position:absolute;right:8px;top:50%;width:20px;height:20px;margin-top:-10px;border:0;border-radius:4px;background:none;color:#86909c;font-size:16px;line-height:20px;cursor:pointer;opacity:0;transition:opacity .15s}
+.h8-qk.ce-it:hover .ce-x{opacity:1}
+.ce-x:hover{background:#f2f3f5;color:#1d2129}
+/* /addent93 */
+
+/* lu94：成员登录地址 */
+.h8-tip.lu{display:flex;align-items:center;gap:8px;height:36px;padding:0 16px;margin-bottom:12px;border-radius:4px;background:#f6f8fa;font-size:13px;color:#0c0d0e}
+.h8-tip.lu b{font-weight:500}
+.h8-tip.lu svg.rx{flex:0 0 16px;color:#1664ff}
+.lu-a{color:#0c0d0e;user-select:all}
+.lu-cp{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-left:-2px;padding:0;border:0;border-radius:4px;background:none;color:#4e5969;cursor:pointer;transition:background .15s,color .15s}
+.lu-cp:hover{background:#e8f0ff;color:#1664ff}
+.lu-cp .i-ok{display:none}
+.lu-cp.ok{color:#00b42a}
+.lu-cp.ok .i-cp{display:none}
+.lu-cp.ok .i-ok{display:block}
+/* /lu94 */
+
+/* topbg96：有色卡片背景图（77，2026-10-28 更正：不是整页背景，而是有颜色的卡片） */
+.b8-hero,.h8-acc,.ac-ph,.kc-hero{background:url(img/top-bg.webp) center 30%/cover no-repeat,#e6efff !important;border-color:#d3e2fb !important}
+/* /pages109 */
+.sa{border:1px solid #e5e6eb;border-radius:4px;background:linear-gradient(180deg,#f2f7ff 0,#fff 112px);margin-bottom:24px;overflow:hidden}
+.h8-m .vt-c{background:linear-gradient(180deg,#f5f9ff 0%,#fff 100%)}
+.sa-hd{display:flex;align-items:center;gap:12px;height:48px;padding:0 16px}
+.sa-hd b{font-size:14px;font-weight:600;color:#0c0d0e}
+.sa-upd{font-size:12px;color:#86909c}
+.sa-hd a{margin-left:auto;font-size:13px;color:#1664ff;text-decoration:none}
+.sa-sum{display:flex;align-items:center;gap:20px;padding:0 16px 14px}
+.sa-dist{display:flex;gap:2px;width:220px;height:6px;flex-shrink:0}
+.sa-dist i{border-radius:1px}
+.sa-dist i.n0{display:none}
+.sa-dist i.n1{flex:1}
+.sa-dist i.n2{flex:2}
+.sa-dist i.n3{flex:3}
+.sa-dist i.n4{flex:4}
+.sa-dist i.n5{flex:5}
+.sa-dist i.n6{flex:6}
+.sa-dist i.n7{flex:7}
+.sa-dist i.n8{flex:8}
+.sa-dist i.n9{flex:9}
+.d-r{background:#f53f3f}
+.d-o{background:#ff7d00}
+.d-y{background:#fadc19}
+.d-g{background:#c9cdd4}
+.sa-lg{display:flex;gap:16px;font-size:12px;color:#4e5969}
+.sa-lg span{display:inline-flex;align-items:center;gap:6px;background:none}
+.sa-lg span::before{content:"";width:8px;height:8px;border-radius:1px;background:inherit}
+.sa-lg span.d-r::before{background:#f53f3f}
+.sa-lg span.d-o::before{background:#ff7d00}
+.sa-lg span.d-y::before{background:#fadc19}
+.sa-lg span.d-g::before{background:#c9cdd4}
+.sa-lg b{margin-left:2px;font:600 12px Inter,"PingFang SC",sans-serif;color:#1d2129}
+.sa-dlt{margin-left:auto;font-size:12px;color:#86909c}
+.sa-dlt b{font:500 12px Inter,"PingFang SC",sans-serif;color:#4e5969}
+.sa .kc-tabs{border-top:1px solid #f0f2f5}
+.sa .kc-tab{height:40px;font-weight:400;color:#42464e}
+.sa .kc-tab.on{color:#1664ff;font-weight:500}
+.sa .kc-tw{margin:0}
+.sa-t{table-layout:fixed}
+.sa-t td{height:56px;overflow:hidden;text-overflow:ellipsis}
+.sa-row{cursor:pointer}
+.sa-row:hover td{background:#f7f9fc}
+.sa-nm{display:flex;align-items:flex-start;gap:8px;min-width:0}
+.sa-nm .kc-lv3{margin:7px 0 0;flex-shrink:0}
+.sa-nm > div{min-width:0}
+.sa-nm b{display:block;font-size:13px;font-weight:500;color:#1d2129;overflow:hidden;text-overflow:ellipsis}
+.sa-nm p{margin:2px 0 0;font-size:12px;line-height:18px;color:#86909c;overflow:hidden;text-overflow:ellipsis}
+.sa-nm p span + span::before{content:"/";margin:0 6px;color:#e5e6eb}
+.sa-lvt.r{color:#cb2634}
+.sa-lvt.o{color:#d25f00}
+.sa-lvt.y{color:#a87b00}
+.sa-sp{display:flex;align-items:flex-end;gap:2px;height:20px;width:96px}
+.sa-sp i{flex:1;background:#c9d9f5;border-radius:1px 1px 0 0;min-height:1px}
+.sa-sp i.r{background:#f9b5b5}
+.sa-sp i.s0{height:1px;background:#e5e6eb}
+.sa-sp i.s1{height:12%}
+.sa-sp i.s2{height:25%}
+.sa-sp i.s3{height:37%}
+.sa-sp i.s4{height:50%}
+.sa-sp i.s5{height:62%}
+.sa-sp i.s6{height:75%}
+.sa-sp i.s7{height:88%}
+.sa-sp i.s8{height:100%}
+.sa-sp i:last-child:not(.s0){background:#1664ff}
+.sa-sp i.r:last-child:not(.s0){background:#f53f3f}
+.sa-sp.lg{width:100%;height:56px;gap:4px;margin-top:8px}
+.sa-ax{display:flex;justify-content:space-between;margin-top:4px;font-size:12px;color:#86909c}
+.sa-n{text-align:right;font-family:Inter,"PingFang SC",sans-serif}
+.sa-none{margin:0;padding:24px;text-align:center;font-size:13px;color:#86909c}
+.sa-more{display:block;width:100%;height:40px;border:0;border-top:1px solid #e5e6eb;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}
+.sa-more:hover{color:#1664ff}
+.sa-fx{position:fixed !important;top:56px !important;z-index:60 !important}
+.sa-x{border:0;background:none;font-size:22px;line-height:1;color:#86909c;cursor:pointer}
+.sa-x:hover{color:#1d2129}
+.sa-dh{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sa-dh .kc-tag{margin:0}
+.sa-dh h3{flex-basis:100%;margin:8px 0 0;font-size:18px;line-height:26px;font-weight:600;color:#0c0d0e}
+.sa-kv{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px 12px;margin:20px 0 4px;padding:16px;background:#f7f8fa;border-radius:4px;font-size:13px}
+.sa-kv dt{color:#86909c}
+.sa-kv dd{margin:0;color:#1d2129}
+.sa-kv a{color:#1664ff;text-decoration:none}
+.kc-dwb h4{margin:24px 0 0;font-size:14px;font-weight:500;color:#0c0d0e}
+.kc-dwb > p{margin:6px 0 0;font-size:13px;line-height:22px;color:#4e5969}
+.sa-fix{margin:8px 0 0;padding-left:20px;font-size:13px;line-height:22px;color:#4e5969}
+.sa-fix li + li{margin-top:4px}
+.sa-sub2{margin:0 0 12px;font-size:14px;font-weight:500;color:#0c0d0e}
+.sa-sub2 small{margin-left:6px;font-size:13px;font-weight:400;color:#737a87}
+/* wide screens */
+.h8,.kc-main:has(> .h8) > .kc-hd{max-width:1200px}
+@media (min-width:1600px){
+  .h8,.kc-main:has(> .h8) > .kc-hd{max-width:1680px;padding-left:40px !important;padding-right:40px !important}
+  .h8-cols{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:32px;align-items:start}
+  .h8-rl{position:sticky;top:16px}
+  .h8-rl .h8-fee{grid-template-columns:1fr}
+  .h8-rl .h8-fl{padding:20px 24px}
+  .h8-rl .h8-fl dl{grid-template-columns:1fr 1fr}
+  .h8-rl .h8-fr{border-left:0;border-top:1px solid #eaedf1;padding:16px 20px}
+  .h8-rl .h8-ch{height:150px}
+  .h8-rl .h8-g3{grid-template-columns:1fr}
+  .h8-rl .h8-ac{padding:12px 16px 12px 20px}
+  .h8-rl .h8-tip{height:auto;min-height:36px;padding:8px 12px;flex-wrap:wrap}
+  .h8-m .h8-g4,.h8-m .h8-res{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .h8-m .vt-wrap{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:2200px){
+  .h8,.kc-main:has(> .h8) > .kc-hd{max-width:2000px}
+  .h8-cols{grid-template-columns:minmax(0,1fr) 440px}
+  .h8-m .h8-g4,.h8-m .h8-res{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+
+/* ---- boss 2026-11-12：头部卡片重做 + 待处理降色 ---- */
+.h8-id{display:flex;align-items:center;gap:0;padding:24px 8px 24px 28px;background:#fff !important}
+.h8-id-l{display:flex;align-items:center;gap:14px;width:340px;flex:none;padding-right:28px;border-right:1px solid #eaedf1}
+.h8-id .h8-av{width:44px;height:44px;font-size:18px;background:#f2f3f5;color:#4e5969}
+.h8-id-k{flex:1;min-width:0;display:grid;grid-template-columns:1.3fr repeat(4,minmax(0,1fr));padding-left:12px}
+.h8-id-k a{display:flex;flex-direction:column;gap:8px;padding:6px 16px;border-radius:6px;text-decoration:none;transition:background .15s}
+.h8-id-k a:hover{background:#f7f8fa}
+.h8-id-k span{display:flex;align-items:center;gap:6px;font-size:13px;line-height:20px;color:#4e5969;white-space:nowrap}
+.h8-id-k a:hover span{color:#1664ff}
+.h8-id-k em{font-style:normal;color:#1664ff;margin-left:6px;padding-left:8px;border-left:1px solid #e5e6eb;line-height:12px}
+.h8-id-k strong{font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums;font-size:24px;line-height:30px;font-weight:600;color:#0c0d0e;white-space:nowrap}
+.h8-id-k strong small{font-family:"PingFang SC",sans-serif;font-size:12px;font-weight:400;color:#86909c;margin-left:4px}
+.h8-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ff7d00}
+.sa{background:#fff !important}
+.sa-dist i.d-o,.sa-lg span.d-o::before{background:#86909c !important}
+.sa-dist i.d-y,.sa-lg span.d-y::before{background:#c9cdd4 !important}
+.sa-dist i.d-g,.sa-lg span.d-g::before{background:#e5e6eb !important}
+.sa-nm .kc-lv3.o,.sa-nm .kc-lv3.y,.sa-nm .kc-lv3.g{background:#c9cdd4 !important}
+.sa-lvt.r,.sa-lvt.o,.sa-lvt.y{color:#86909c !important}
+.sa-t .kc-tag{background:#fff !important;border-color:#e5e6eb !important;color:#4e5969 !important}
+.sa-t .kc-tag.err{color:#cb2634 !important}
+.sa-sp i,.sa-sp i.r{background:#e5e6eb}
+.sa-sp i:last-child:not(.s0){background:#86909c}
+.sa-sp i.r:last-child:not(.s0){background:#f53f3f}
+.sa .kc-cnt.r{color:inherit !important;background:none !important}
+.vt-c{background:#fff !important}
+.vt-c p em{font-style:normal;color:inherit !important}
+.h8-res a > i.w{color:#737a87 !important}
+</style>
+
+<style>
+/* tcskin：统一顶栏 · 腾讯样式（50px 白底、无阴影、12px） */
+.tcs .kc-top{height:50px!important;background:#fff!important;border-bottom:0!important;box-shadow:none!important;gap:12px!important;padding:0 16px 0 0!important;position:sticky;top:0;z-index:30;font-size:12px}
+.tcs .kc-logo{width:200px!important;height:50px!important;padding:0 16px!important;font-size:14px!important;font-weight:600!important;color:rgba(0,0,0,.9)!important;border-right:0!important}
+.tcs .kc-mark{width:24px!important;height:24px!important}
+.tcs .kc-prod{height:32px!important;width:32px!important;border-radius:0!important;background:none!important}
+.tcs .kc-prod:hover,.tcs .kc-prod.on{background:#f2f4f8!important}
+.tcs .kc-crumb{font-size:12px!important;color:rgba(0,0,0,.5)!important}
+.tcs .kc-crumb b,.tcs .kc-crumb a{font-size:12px!important}
+.tcs .kc-crumb b{color:rgba(0,0,0,.9)!important;font-weight:400!important}
+.tcs .kc-search{height:32px!important;border:0!important;border-radius:0!important;background:#f2f4f8!important;font-size:12px!important;color:rgba(0,0,0,.5)!important;flex:0 1 360px!important}
+.tcs .kc-search:hover{background:#e9ecf1!important}
+.tcs .ac-tl > a,.tcs .ac-tb{height:32px!important;padding:0 10px!important;border-radius:0!important;font-size:12px!important;color:rgba(0,0,0,.9)!important}
+.tcs .ac-tl > a:hover,.tcs .ac-tb:hover,.tcs .ac-tb.on{background:#f2f4f8!important;color:#1664ff!important}
+.tcs .kc-user b{font-size:12px!important;font-weight:400!important}
+.tcs .kc-user small{font-size:12px!important;color:rgba(0,0,0,.5)!important}
+.tcs .kc-av{width:28px!important;height:28px!important;border-radius:50%!important;font-size:12px!important}
+.tcs .ac-pop,.tcs .tp-pp,.tcs .tp-sp{border-radius:0!important;box-shadow:0 2px 8px rgba(0,0,0,.12)!important}
+.tcs .kc-search.tp-sb::before,.tcs .kc-search.tp-sb > span::after,.tcs .ac-pop > *,.tcs .ac-ph,.tcs .tp-pp > *,.tcs .tp-sp > *,.tcs .ac-pop .kc-btn,.tcs .tp-sp input,.tcs .tp-pp .tp-q{border-radius:0!important}
+/* tcsearch：搜索弹窗按腾讯（从搜索框原位展开、640 宽、直角、24px 内边距、胶囊建议、两列浅灰卡片） */
+.tcs .tp-sw{position:relative;margin-left:auto;flex:0 1 480px;min-width:120px;display:flex;align-items:center;height:32px}
+.tcs .tp-sw .kc-search.tp-sb{margin-left:0!important;flex:1 1 auto!important;width:100%!important;max-width:none!important}
+.tcs .tp-dim.all{background:transparent!important;animation:none!important}
+.tcs .tp-sp{position:absolute!important;left:-20px!important;top:-9px!important;margin-left:0!important;width:640px!important;max-width:calc(100vw - 32px);z-index:40;border-radius:0!important;background:radial-gradient(420px 150px at 82% -20px,rgba(191,216,252,.55),rgba(191,216,252,0) 72%),#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.08),0 4px 40px rgba(0,0,0,.05),0 8px 64px rgba(0,0,0,.05)!important;animation:tcsDrop .16s ease-out both;font-size:12px}
+@keyframes tcsDrop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.tcs .tp-sh{height:50px!important;padding:0 20px 0 30px!important;gap:8px!important;border-bottom:0!important}
+.tcs .tp-sh i{width:16px!important;height:16px!important;background:#1664ff!important;-webkit-mask-size:16px!important;mask-size:16px!important}
+.tcs .tp-sh input{font-size:12px!important;color:rgba(0,0,0,.9)!important}
+.tcs .tp-sh input::placeholder{color:rgba(0,0,0,.3)}
+.tcs .tp-sh kbd{display:none!important}
+.tcs .tp-st{gap:24px!important;padding:0 24px!important;border-bottom:1px solid #e9ecf1}
+.tcs .tp-st button{height:36px!important;padding:0!important;border-radius:0!important;background:none!important;font-size:12px!important;color:rgba(0,0,0,.7)!important;box-shadow:inset 0 -2px 0 transparent}
+.tcs .tp-st button.on{color:rgba(0,0,0,.9)!important;font-weight:500;box-shadow:inset 0 -2px 0 #1664ff}
+.tcs .tp-st button span{font-size:12px!important;color:rgba(0,0,0,.5)!important}
+.tcs .tp-sbd{max-height:460px!important;padding:0 24px 24px!important}
+.tcs .tp-sbd h6{margin:16px 0 8px!important;font-size:12px!important;line-height:24px;color:rgba(0,0,0,.5)!important;align-items:center}
+.tcs .tp-sbd > sc-if:first-child h6:first-child,.tcs .tp-sbd h6:first-child{margin-top:4px!important}
+.tcs .tp-sp:has(.tp-st) .tp-sbd h6:first-child{margin-top:12px!important}
+.tcs .tp-sbd h6 a{font-size:12px;color:rgba(0,0,0,.7);text-decoration:none}
+.tcs .tp-sbd h6 a:hover{color:#1664ff}
+.tcs .tp-chips{gap:12px!important;padding:0!important}
+.tcs .tp-chips button{height:36px!important;padding:0 16px!important;border:0!important;border-radius:20px!important;background:#f7f8fb!important;font-size:12px!important;color:rgba(0,0,0,.9)!important}
+.tcs .tp-chips button:hover{background:#eef1f6!important;color:#1664ff!important}
+.tcs .tp-rs li a{grid-template-columns:16px minmax(0,1fr) auto!important;gap:12px!important;height:40px;padding:0 12px!important;border-radius:0!important;color:rgba(0,0,0,.9)!important}
+.tcs .tp-rs li a:hover,.tcs .tp-rs li.on a{background:#f7f8fb!important}
+.tcs .tp-rs li a > i{width:16px!important;height:16px!important;background:none!important;border-radius:0!important}
+.tcs .tp-rs li a > i span{background:rgba(0,0,0,.9)!important}
+.tcs .tp-rs li a:hover > i span,.tcs .tp-rs li.on a > i span{background:#1664ff!important}
+.tcs .tp-rs li a > span{display:flex;align-items:baseline;gap:8px;min-width:0;white-space:nowrap;overflow:hidden}
+.tcs .tp-rs li a b{display:inline!important;font-size:12px!important;font-weight:400!important}
+.tcs .tp-rs li a small{display:inline!important;margin:0!important;font-size:12px!important;color:rgba(0,0,0,.5)!important;overflow:hidden;text-overflow:ellipsis}
+.tcs .tp-rs li a em{font-size:12px!important;color:rgba(0,0,0,.5)!important}
+.tcs .tp-rs li a em.go{color:#1664ff!important}
+.tcs .tp-rs.tp-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tcs .tp-rs.tp-g li a{background:#f7f8fb;padding:0 16px!important}
+.tcs .tp-rs.tp-g li a:hover,.tcs .tp-rs.tp-g li.on a{background:#eef1f6!important}
+.tcs .tp-rs.tp-g li a:hover b{color:#1664ff}
+.tcs .tp-empty{padding:32px 0 8px!important}
+.tcs .tp-empty b{font-size:14px!important}
+.tcs .tp-empty p{font-size:12px!important;color:rgba(0,0,0,.5)!important}
+.tcs .tp-sf{display:none!important}
+
+body{margin:0;background:#f2f4f8}
+a{color:#1664ff;text-decoration:none}a:hover{color:#4c86ff}
+.tc{min-height:100vh;background:#f2f4f8;color:rgba(0,0,0,.9);font:12px/20px -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;font-variant-numeric:tabular-nums}
+.tc *{box-sizing:border-box}
+.tc button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+/* 顶栏 */
+.tc-nav{height:50px;background:#fff;display:flex;align-items:center;gap:16px;padding:0 20px;position:relative;z-index:2}
+.tc-nav .lg{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:#1664ff}
+.tc-nav .lg i{width:22px;height:22px;background:#1664ff;color:#fff;font-style:normal;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+.tc-nav .nl{display:flex;align-items:center;gap:4px;color:rgba(0,0,0,.9)}
+.tc-nav .sep{width:1px;height:14px;background:#e6e9ef}
+.tc-srch{margin-left:auto;margin-right:auto;width:400px;max-width:36vw;height:32px;border:1px solid #e6e9ef;display:flex;align-items:center;gap:8px;padding:0 6px 0 12px;color:rgba(0,0,0,.5)}
+.tc-srch kbd{margin-left:auto;font:11px/16px inherit;border:1px solid #e6e9ef;border-radius:4px;padding:0 4px;color:rgba(0,0,0,.5)}
+.tc-nav .rt{display:flex;align-items:center;gap:20px;color:rgba(0,0,0,.9)}
+.tc-nav .rt .dot{position:relative}
+.tc-nav .rt .dot::after{content:"";position:absolute;right:-6px;top:3px;width:5px;height:5px;border-radius:50%;background:#ff7800}
+.tc-nav .me{display:flex;align-items:center;gap:8px;text-align:right;line-height:16px}
+.tc-nav .me small{display:block;color:rgba(0,0,0,.5)}
+.av{width:30px;height:30px;border-radius:50%;background:#53b9a2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;flex:none}
+/* 顶部氛围 */
+.tc-main{position:relative;padding:0 32px 48px}
+.tc-main::before{content:"";position:absolute;left:0;right:0;top:0;height:300px;background:radial-gradient(620px 240px at 68% -20px,rgba(178,212,252,.9),rgba(191,216,252,0) 72%),radial-gradient(420px 180px at 90% 0,rgba(214,230,252,.8),rgba(214,230,252,0) 70%),linear-gradient(#f5f8fc,#f2f4f8 300px);pointer-events:none}
+.tc-in{position:relative;max-width:1680px;margin:0 auto}
+.tc-hd{padding:24px 0 0}
+.tc-hd h1{margin:0;font-size:20px;line-height:28px;font-weight:500;display:flex;align-items:center;gap:6px}
+.tc-hd h1 b{color:#1664ff;font-size:14px}
+.tc-tabs{display:flex;align-items:center;gap:28px;margin-top:16px;height:40px}
+.tc-tab{height:40px;font-size:14px !important;font-weight:500;color:rgba(0,0,0,.7) !important;position:relative}
+.tc-tab.on{color:rgba(0,0,0,.9) !important}
+.tc-tab.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(0,0,0,.9)}
+.tc-pill{margin-left:auto;height:32px;padding:0 12px;border-radius:16px;background:#fff;border:1px solid #f0f2f5;display:inline-flex;align-items:center;gap:6px;color:rgba(0,0,0,.7)}
+.tc-notice{margin-top:16px;height:40px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 16px}
+.tc-notice .x{margin-left:auto;display:flex;align-items:center;gap:16px;color:rgba(0,0,0,.5)}
+/* 栅格 */
+.tc-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(320px,1fr);gap:20px;margin-top:20px;align-items:start}
+.tc-col{display:grid;gap:20px;min-width:0}
+.tc-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.05);padding:24px;min-width:0}
+.ct{display:flex;align-items:center;gap:8px;margin:0 0 16px}
+.ct h2{margin:0;font-size:14px;line-height:22px;font-weight:500;color:#000}
+.ct h2 small{margin-left:6px;font-size:12px;font-weight:400;color:rgba(0,0,0,.5)}
+.ct .r{margin-left:auto;display:flex;align-items:center;gap:16px;color:rgba(0,0,0,.7)}
+.ct .r a{color:rgba(0,0,0,.7)}
+.ct .r a:hover{color:#1664ff}
+.ic{width:16px;height:16px;flex:none}
+/* 搜索卡 */
+.sc{height:56px;padding:0 24px;display:flex;align-items:center;gap:12px;color:rgba(0,0,0,.5);font-size:14px}
+/* 最近访问 + 我的资源 */
+.rv{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.rv > span{font-size:14px;margin-right:4px}
+.chip{height:32px;padding:0 12px;border-radius:16px;background:#fcfcfd;border:1px solid #f0f2f5;display:inline-flex;align-items:center;gap:6px;color:rgba(0,0,0,.9)}
+.chip:hover{border-color:#e6e9ef;background:#fff;color:rgba(0,0,0,.9)}
+.chip i{font-style:normal;color:#d6dbe3}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 24px}
+.ri{display:flex;align-items:center;gap:16px;color:rgba(0,0,0,.9);min-width:0}
+.ri:hover{color:rgba(0,0,0,.9)}
+.ri:hover b{color:#1664ff}
+.tile{width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex:none}
+.tile svg{width:24px;height:24px}
+.t-b{background:#e3ecff}.t-m{background:#d3f4ef}.t-g{background:#e5e9f0}
+.ri b{display:block;font-size:14px;line-height:22px;font-weight:500}
+.ri em{display:block;font-style:normal;color:rgba(0,0,0,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ri em.off{color:rgba(0,0,0,.5)}
+/* 产品卡 */
+.num{font-size:22px;line-height:32px;font-weight:500}
+.num small{font-size:14px;margin-left:4px}
+.sts{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:12px;color:rgba(0,0,0,.7)}
+.d{display:inline-flex;align-items:center;gap:6px}
+.d::before{content:"";width:6px;height:6px;border-radius:50%;background:#d6dbe3}
+.d.ok::before{background:#0cbf5b}.d.wa::before{background:#ff7800}.d.er::before{background:#f64041}
+.bar{height:6px;background:#e6e9ef;margin-top:16px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:#1664ff}
+.bar i.wa{background:#ff7800}
+.cf{display:flex;align-items:center;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid #f0f2f5;color:rgba(0,0,0,.7)}
+.cf a{margin-left:auto;color:rgba(0,0,0,.7);display:inline-flex;align-items:center;gap:2px}
+.cf a:hover{color:#1664ff}
+.cf .er{color:#f64041}
+/* 安全告警 */
+.sbar{display:flex;gap:2px;height:6px;width:240px;flex:none}
+.sbar i{display:block}
+.sleg{display:flex;flex-wrap:wrap;align-items:center;gap:6px 24px;color:rgba(0,0,0,.7)}
+.sleg b{font-weight:500;color:rgba(0,0,0,.9);margin-left:6px}
+.sleg .r{margin-left:auto;color:rgba(0,0,0,.5)}
+.stab{display:flex;gap:24px;margin:16px 0 0;border-bottom:1px solid #e9ecf1}
+.stab button{height:36px;color:rgba(0,0,0,.7);position:relative}
+.stab button.on{color:rgba(0,0,0,.9);font-weight:600}
+.stab button.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#1664ff}
+.tw{overflow-x:auto}
+.tt{width:100%;border-collapse:collapse;min-width:640px}
+.tt th{height:40px;background:#f7f8fb;text-align:left;font-weight:600;color:rgba(0,0,0,.7);padding:0 12px;white-space:nowrap}
+.tt td{padding:12px;border-bottom:1px solid #e9ecf1;vertical-align:middle}
+.tt td.n{text-align:right}
+.tt th.n{text-align:right}
+.al b{display:block;font-weight:500}
+.al em{display:block;font-style:normal;color:rgba(0,0,0,.5)}
+.al em i{font-style:normal;color:#f64041;margin-right:6px}
+.al em i.wa{color:#ff7800}
+.lve{color:#f64041}.lvw{color:#ff7800}
+.tg{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:2px;border:1px solid transparent;white-space:nowrap}
+.tg.er{background:#fce8e8;color:#b42c3f}
+.tg.wa{background:#ffeddf;color:#c04100}
+.tg.mu{background:#e9ecf1;color:rgba(0,0,0,.5)}
+.more{display:block;text-align:center;padding:12px 0 0;color:rgba(0,0,0,.7)}
+/* 账号卡 */
+.acc{display:flex;gap:12px;align-items:flex-start}
+.acc .av{width:44px;height:44px;font-size:18px}
+.acc .nm{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px;line-height:22px;font-weight:500}
+.ltg{height:18px;padding:0 4px;border:1px solid #e6e9ef;border-radius:2px;font-size:12px;line-height:16px;font-weight:400;color:rgba(0,0,0,.7);display:inline-flex;align-items:center;gap:3px}
+.acc p{margin:2px 0 0;color:rgba(0,0,0,.5)}
+.tip{margin-top:16px;min-height:40px;border-radius:20px;background:#f7f8fb;display:flex;align-items:center;gap:8px;padding:8px 16px;color:rgba(0,0,0,.9)}
+.tip u{color:rgba(0,0,0,.9)}
+.kv-hd{display:flex;align-items:center;margin-top:20px;color:rgba(0,0,0,.7)}
+.kv-hd .r{margin-left:auto;display:flex;gap:0}
+.kv-hd .r a{color:rgba(0,0,0,.7);padding:0 8px;border-left:1px solid #e6e9ef;line-height:12px}
+.kv-hd .r a:first-child{border-left:0}
+.kv-hd .r a:hover{color:#1664ff}
+.money{display:flex;align-items:baseline;gap:12px;margin-top:4px}
+.money b{font-size:22px;line-height:32px;font-weight:500}
+.money b small{font-size:18px}
+.money a{font-size:14px}
+.spark{display:flex;align-items:flex-end;gap:16px;margin-top:4px}
+.spark svg{flex:1;height:40px;min-width:0}
+.kvs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;margin-top:16px}
+.kvs div{display:flex;justify-content:space-between;color:rgba(0,0,0,.7)}
+.kvs div b{font-weight:500;color:rgba(0,0,0,.9)}
+/* 待处理列表 */
+.ptab{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.ptab button{height:24px;padding:0 10px;border-radius:12px;color:rgba(0,0,0,.7)}
+.ptab button.on{background:#f2f4f8;color:rgba(0,0,0,.9);font-weight:500}
+.todo{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f0f2f5;color:rgba(0,0,0,.9)}
+.todo:last-child{border-bottom:0}
+.todo:hover{color:rgba(0,0,0,.9)}
+.todo:hover b{color:#1664ff}
+.todo .tx{min-width:0;flex:1}
+.todo b{display:block;font-weight:500}
+.todo em{display:block;font-style:normal;color:rgba(0,0,0,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.todo .c{font-weight:500;color:rgba(0,0,0,.9)}
+.todo .c.er{color:#f64041}
+.todo .arr{color:rgba(0,0,0,.3)}
+/* 企业 */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stat{border:1px solid #f0f2f5;padding:12px 16px;color:rgba(0,0,0,.7)}
+.stat b{display:block;font-size:22px;line-height:32px;font-weight:500;color:rgba(0,0,0,.9)}
+.stat b small{font-size:12px;font-weight:400;margin-left:2px}
+.url{display:flex;align-items:center;gap:8px;margin-top:16px;color:rgba(0,0,0,.5);min-width:0}
+.url span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(0,0,0,.7);min-width:0}
+/* 公告 */
+.nt{display:flex;gap:10px;padding:10px 0;color:rgba(0,0,0,.9);min-width:0}
+.nt .k{flex:none;color:rgba(0,0,0,.5)}
+.nt .k.wa{color:#c04100}
+.nt span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nt time{margin-left:auto;flex:none;color:rgba(0,0,0,.5)}
+/* 安全中心页签 */
+.sec-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px;align-items:start}
+.gauge{display:flex;align-items:center;gap:24px}
+.gauge svg{width:180px;height:100px;flex:none}
+.gauge .t b{font-size:14px;font-weight:500}
+.gauge .t b i{font-style:normal;color:#ff7800}
+.gauge .t p{margin:8px 0 0;color:rgba(0,0,0,.7)}
+.gauge .t p b{font-size:12px;color:rgba(0,0,0,.9)}
+@media (max-width:1100px){.tc-grid,.sec-top{grid-template-columns:minmax(0,1fr)}.res{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.tc-2,.res,.stats{grid-template-columns:minmax(0,1fr)}.tc-srch{display:none}.tc-main{padding:0 16px 32px}.tc-nav .rt{display:none}}
+</style>
+</helmet>
+<div class="kc ux-wrap tcs">
+  <header class="kc-top">
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
+      <div class="tp-l">
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
+        <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
+        <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
+        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
+      </div>
+      <div class="tp-r">
+        <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
+        <div class="tp-cols"><sc-for list="{{hd.cats}}" as="c" hint-placeholder-count="4"><div><h5>{{c.n}}</h5><ul><sc-for list="{{c.items}}" as="p" hint-placeholder-count="5"><li><a href="{{p.href}}" title="{{p.s}}"><i class="{{p.di}}"></i><b>{{p.n}}</b><small>{{p.s}}</small></a><button type="button" class="{{p.fc}}" aria-label="{{p.fl}}" onClick="{{p.fav}}"><svg class="rx rx-star" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path><path class="rx-sf" fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg></button></li></sc-for></ul></div></sc-for></div>
+        <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
+      </div>
+      <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+    </div></sc-if></span>
+    <nav data-cb="" class="kc-crumb" aria-label="面包屑"><b>首页</b></nav>
+    <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
+    <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
+      <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
+      <sc-if value="{{hd.hasQ}}" hint-placeholder-val="{{false}}"><div class="tp-st"><sc-for list="{{hd.stabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}<span>{{t.c}}</span></button></sc-for></div></sc-if>
+      <div class="tp-sbd">
+        <sc-if value="{{hd.noQ}}" hint-placeholder-val="{{true}}">
+          <h6>试试搜</h6><div class="tp-chips"><sc-for list="{{hd.tries}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
+          <h6>最近访问<a href="#" onClick="{{hd.toProd}}">按产品浏览 ›</a></h6><ul class="tp-rs tp-g"><sc-for list="{{hd.sRecent}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+          <h6>快捷操作</h6><ul class="tp-rs tp-g"><sc-for list="{{hd.quick}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+        </sc-if>
+        <sc-if value="{{hd.isIp}}" hint-placeholder-val="{{false}}"><h6><span>对 IP {{hd.q}} 可以</span></h6><ul class="tp-rs"><sc-for list="{{hd.ipActs}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em class="go">{{r.e}}</em></a></li></sc-for></ul></sc-if>
+        <sc-for list="{{hd.groups}}" as="g" hint-placeholder-count="0"><h6>{{g.n}}<span>{{g.c}} 条</span></h6><ul class="tp-rs"><sc-for list="{{g.items}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul></sc-for>
+        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="../Docs.dc.html" target="_blank" rel="noopener">搜帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
+      </div>
+      <div class="tp-sf"><span>Ctrl K 随时打开</span><span>Esc 关闭</span><a href="#" onClick="{{hd.toProd}}">按产品浏览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+    </div></sc-if></span>
+    <nav class="kc-tl ac-tl" aria-label="快捷入口">
+      <a href="SupTickets.dc.html">工单</a><a href="../Docs.dc.html" target="_blank" rel="noopener">文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a>
+      <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
+        <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
+          <div class="ac-ph"><small>待付款（1 笔）</small><b class="amt">¥ 320.00</b><em>对公转账 · 另有 1 笔汇款核验未匹配，补充信息即可</em>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">去付款</a></div></div>
+          <ul class="ac-rows">
+            <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillInvoice.dc.html">可开票金额<em>¥1,169.84</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><span>代金券<em>1 张可用</em></span></li>
+          </ul>
+          <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+        </div></sc-if></span>
+      <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
+        <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
+          <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
+          <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+        </div></sc-if></span>
+      <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
+        <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <ul class="ac-rows">
+            <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
+            <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+          </ul>
+          <ul class="ac-rows" style="border-bottom:0">
+            <li><a href="#">切换账号</a></li>
+            <li><a href="#">退出登录</a></li>
+          </ul>
+        </div></sc-if></span>
+    </nav>
+    <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
+  </header>
+<div class="tc">
+  <main class="tc-main">
+    <div class="tc-in">
+      <div class="tc-hd">
+        <h1>下午好，wangqi <b>✦</b></h1>
+        <div class="tc-tabs" role="tablist">
+          <button type="button" role="tab" class="{{tabProdCls}}" onClick="{{goProd}}">产品管理</button>
+          <button type="button" role="tab" class="{{tabSecCls}}" onClick="{{goSec}}">安全中心</button>
+          <a class="tc-tab" href="BillOverview.dc.html" style="display:inline-flex;align-items:center">费用中心</a>
+          <span class="tc-pill"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6"></circle><path d="M8 5v3.5L10 10"></path></svg>更新说明</span>
+        </div>
+      </div>
+
+      <sc-if value="{{showNotice}}" hint-placeholder-val="{{ true }}">
+        <div class="tc-notice">
+          <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="rgba(0,0,0,.7)" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6"></circle><path d="M8 7v4M8 5v.5"></path></svg>
+          <span>【维护】10 月 30 日 02:00–04:00 华东节点升级，期间 SCDN 配置下发可能延迟</span><a href="Notifications.dc.html" style="text-decoration:underline">查看详情</a>
+          <span class="x"><span>‹ 1 / 3 ›</span><button type="button" aria-label="关闭公告" onClick="{{hideNotice}}">✕</button></span>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isProd}}" hint-placeholder-val="{{ true }}">
+      <div class="tc-grid">
+        <div class="tc-col">
+          <div class="card sc"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 3 3"></path></svg>搜索产品、功能、域名或 IP…</div>
+
+          <section class="card">
+            <div class="rv">
+              <span>最近访问</span>
+              <a class="chip" href="AcctProducts.dc.html">SCDN · 域名管理 <i>☆</i></a>
+              <a class="chip" href="AcctProducts.dc.html">DDoS 高防 IP <i>☆</i></a>
+              <a class="chip" href="AcctSubs.dc.html">服务器租用 <i>☆</i></a>
+              <a class="chip" href="AcctProducts.dc.html">德迅云眼 <i>☆</i></a>
+              <a class="chip" href="BillOrders.dc.html">我的订单 <i>☆</i></a>
+              <a class="chip" href="BillInvoice.dc.html">发票管理 <i>☆</i></a>
+            </div>
+            <div class="ct" style="margin-top:24px"><h2>我的资源 <small>8 个产品</small></h2><span class="r"><a href="AcctProducts.dc.html">全部产品 ›</a></span></div>
+            <div class="res">
+              <a class="ri" href="AcctProducts.dc.html"><span class="tile t-b"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 7.8 8 9 4.6-1.2 8-4.5 8-9V6z"></path><path d="M12 8v4" stroke="#1664ff"></path><circle cx="12" cy="15" r=".8" fill="#1664ff" stroke="none"></circle></svg></span><span style="min-width:0"><b>DDoS 高防 IP</b><em>3 个实例 · 1 个攻击进行中</em></span></a>
+              <a class="ri" href="AcctProducts.dc.html"><span class="tile t-m"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16M12 4c2.5 2.5 2.5 13.5 0 16M12 4c-2.5 2.5-2.5 13.5 0 16"></path><circle cx="18" cy="6" r="2" fill="#0cbf5b" stroke="none"></circle></svg></span><span style="min-width:0"><b>SCDN</b><em>6 个域名 · 4 项需处理</em></span></a>
+              <a class="ri" href="AcctProducts.dc.html"><span class="tile t-g"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="18" height="11" rx="5"></rect><path d="M7.5 12.5h3M9 11v3"></path><circle cx="15.5" cy="12" r="1" fill="#1664ff" stroke="none"></circle><circle cx="17" cy="14" r="1" fill="#111" stroke="none"></circle></svg></span><span style="min-width:0"><b>游戏盾</b><em>2 个实例 · 并发已用 85%</em></span></a>
+              <a class="ri" href="AcctProducts.dc.html"><span class="tile t-b"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="3" stroke="#1664ff"></circle></svg></span><span style="min-width:0"><b>德迅云眼</b><em>26 个资产 · 9 项待处理</em></span></a>
+              <a class="ri" href="AcctProducts.dc.html"><span class="tile t-m"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="6"></rect><rect x="4" y="14" width="16" height="6"></rect><path d="M7 7h2M7 17h2"></path><circle cx="16.5" cy="7" r="1" fill="#0cbf5b" stroke="none"></circle></svg></span><span style="min-width:0"><b>德迅安全卫士</b><em>68 台主机 · 已到期，保留至 11-08</em></span></a>
+              <a class="ri" href="AcctSubs.dc.html"><span class="tile t-g"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><rect x="5" y="3" width="14" height="18"></rect><path d="M8 7h8M8 11h8M8 15h4"></path></svg></span><span style="min-width:0"><b>服务器租用</b><em>7 台服务器 · 2 台即将到期</em></span></a>
+              <a class="ri" href="AcctProducts.dc.html"><span class="tile t-b"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10" width="14" height="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M12 14v2" stroke="#1664ff"></path></svg></span><span style="min-width:0"><b>SSL 证书</b><em>3 张证书 · 运行正常</em></span></a>
+              <a class="ri" href="AcctPurchase.dc.html"><span class="tile t-g"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m15.5 15.5 4 4"></path></svg></span><span style="min-width:0"><b>漏洞扫描 VSS</b><em class="off">未开通 · 去了解</em></span></a>
+            </div>
+          </section>
+
+          <div class="tc-2">
+            <section class="card">
+              <div class="ct"><h2>DDoS 高防 IP</h2><span class="r"><a href="AcctProducts.dc.html" aria-label="进入 DDoS 高防 IP 控制台">↗</a></span></div>
+              <div class="num">3<small>个实例</small></div>
+              <div class="sts"><span class="d er">攻击进行中 1</span><span class="d ok">正常 2</span></div>
+              <div class="cf"><span class="er">ddos-hz-01 正在被攻击</span><a href="AcctProducts.dc.html">查看攻击 ›</a></div>
+            </section>
+            <section class="card">
+              <div class="ct"><h2>游戏盾</h2><span class="r"><a href="AcctProducts.dc.html" aria-label="进入游戏盾控制台">↗</a></span></div>
+              <div class="num">2<small>个实例</small></div>
+              <div class="sts"><span>并发已用 85%</span></div>
+              <div class="bar" aria-label="并发已用 85%"><i class="wa" style="width:85%"></i></div>
+              <div class="cf"><span>接近套餐上限，建议升级</span><a href="BillConfirm.dc.html">升级套餐 ›</a></div>
+            </section>
+            <section class="card">
+              <div class="ct"><h2>SCDN</h2><span class="r"><a href="AcctProducts.dc.html" aria-label="进入 SCDN 控制台">↗</a></span></div>
+              <div class="num">6<small>个域名</small></div>
+              <div class="sts"><span class="d wa">需处理 4</span><span class="d ok">已接入 2</span></div>
+              <div class="cf"><span>证书即将到期、未开启 HTTPS 等</span><a href="AcctProducts.dc.html">去处理 ›</a></div>
+            </section>
+            <section class="card">
+              <div class="ct"><h2>服务器租用</h2><span class="r"><a href="AcctSubs.dc.html" aria-label="进入服务器列表">↗</a></span></div>
+              <div class="num">7<small>台</small></div>
+              <div class="sts"><span class="d ok">运行中 5</span><span class="d wa">即将到期 2</span><span class="d">已到期 0</span></div>
+              <div class="cf"><span>2 台 30 天内到期</span><a href="BillConfirm.dc.html">批量续费 ›</a></div>
+            </section>
+          </div>
+
+          <section class="card">
+            <div class="ct"><h2>安全中心</h2><span class="r"><a href="#" onClick="{{goSec}}">查看全部告警 ›</a></span></div>
+            <div class="sec-top" style="gap:32px">
+              <div class="gauge" style="gap:16px">
+                <svg viewBox="0 0 180 100" role="img" aria-label="主机安全分 72 分" style="width:150px;height:84px">
+                  <path d="M15 92 A75 75 0 0 1 165 92" fill="none" stroke="#e6e9ef" stroke-width="6"></path>
+                  <path d="M15 92 A75 75 0 0 1 128 27" fill="none" stroke="#ff7f47" stroke-width="6"></path>
+                  <text x="90" y="86" text-anchor="middle" font-size="28" font-weight="500" fill="rgba(0,0,0,.9)">72</text>
+                </svg>
+                <div class="t"><b>主机安全分 <i>一般</i></b><p>有风险 <b>2</b> 台 · 未受保护 <b>6</b> 台</p></div>
+              </div>
+              <div style="min-width:0">
+                <div class="sleg">
+                  <span class="sbar" aria-hidden="true" style="width:160px"><i style="flex:4;background:#f64041"></i><i style="flex:1;background:#ff7800"></i><i style="flex:6;background:#bcc4d0"></i><i style="flex:7;background:#e6e9ef"></i></span>
+                  <span>紧急<b>4</b></span><span>未受保护<b>1</b></span><span>可疑<b>6</b></span><span>提醒<b>7</b></span>
+                </div>
+                <sc-for list="{{topAlerts}}" as="a" hint-placeholder-count="3">
+                  <div class="todo" style="padding:10px 0"><span class="tx"><b>{{a.t}}</b><em><i class="{{a.lvcls}}" style="font-style:normal">{{a.lv}}</i> · {{a.where}} · {{a.prod}}</em></span><span class="{{a.tgcls}}">{{a.st}}</span><a href="AcctProducts.dc.html" style="margin-left:12px">{{a.btn}}</a></div>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="tc-col">
+          <section class="card">
+            <div class="acc">
+              <span class="av">德</span>
+              <div style="min-width:0">
+                <div class="nm">wangqi <span class="ltg">主账号</span><span class="ltg"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="#0cbf5b"></circle><path d="m2.8 5.1 1.5 1.4 2.9-3" stroke="#fff" stroke-width="1.2" fill="none"></path></svg>企业已认证</span></div>
+                <p>德迅科技 · 账号 ID 100014655316</p>
+              </div>
+            </div>
+            <div class="tip"><b style="color:#1664ff">✦</b><span>1 笔汇款核验未匹配，补充信息即可，不用重复转账。<u>补充信息</u></span></div>
+            <div class="kv-hd">账户余额(元)<span class="r"><a href="BillOrders.dc.html">查订单</a><a href="BillBalance.dc.html">查收支</a><a href="BillInvoice.dc.html">开发票</a></span></div>
+            <div class="money"><b>1,260<small>.00</small></b><a href="BillBalance.dc.html">充值</a></div>
+            <div class="kv-hd" style="margin-top:16px">本月已付款(元)<span class="r" style="color:rgba(0,0,0,.5)">数据更新至 10-27</span></div>
+            <div class="spark">
+              <div class="money" style="margin:0"><b>1,305<small>.00</small></b></div>
+              <svg viewBox="0 0 240 40" preserveAspectRatio="none" aria-label="近半年付款趋势" role="img"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1664ff" stop-opacity=".18"></stop><stop offset="1" stop-color="#1664ff" stop-opacity="0"></stop></linearGradient></defs><path d="M0 30 L48 26 L96 32 L144 14 L192 22 L240 18 L240 40 L0 40Z" fill="url(#sg)"></path><path d="M0 30 L48 26 L96 32 L144 14 L192 22 L240 18" fill="none" stroke="#1664ff" stroke-width="1.5"></path></svg>
+            </div>
+            <div class="kvs">
+              <div>待付款<b>1 笔 · ¥320.00</b></div>
+              <div>可开票金额<b>1,169.84</b></div>
+              <div>到期与即将到期<b>5 项</b></div>
+              <div>代金券<b>1 张</b></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="ct"><h2>待处理 <small>{{todoCount}} 项</small></h2></div>
+            <div class="ptab" role="tablist">
+              <sc-for list="{{todoTabs}}" as="t" hint-placeholder-count="4"><button type="button" role="tab" class="{{t.cls}}" onClick="{{t.pick}}">{{t.n}} {{t.c}}</button></sc-for>
+            </div>
+            <sc-for list="{{todos}}" as="r" hint-placeholder-count="5">
+              <a class="todo" href="{{r.href}}" onClick="{{r.go}}"><span class="tx"><b>{{r.t}}</b><em>{{r.s}}</em></span><span class="{{r.ccls}}">{{r.c}}</span><span class="arr">›</span></a>
+            </sc-for>
+          </section>
+
+          <section class="card">
+            <div class="ct"><h2>企业与成员</h2><span class="r"><a href="OrgMembers.dc.html">成员管理</a><a href="OrgRoles.dc.html">角色权限</a></span></div>
+            <div class="stats">
+              <a class="stat" href="OrgMembers.dc.html" style="color:rgba(0,0,0,.7)">成员<b>5<small>人</small></b></a>
+              <a class="stat" href="OrgRoles.dc.html" style="color:rgba(0,0,0,.7)">角色<b>4<small>个</small></b></a>
+              <a class="stat" href="OrgSecurity.dc.html" style="color:rgba(0,0,0,.7)">账号安全分<b>81<small>/ 100</small></b></a>
+            </div>
+            <div class="url"><b style="flex:none;font-weight:400">成员登录</b><span>https://uc.dexunyun.com/sub-login?ent=100014655316</span><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-label="复制" role="img"><rect x="5" y="5" width="8" height="8"></rect><path d="M3 11V3h8"></path></svg></div>
+          </section>
+
+          <section class="card">
+            <div class="ct"><h2>公告</h2><span class="r"><a href="Notifications.dc.html">更多 ›</a></span></div>
+            <div class="nt"><span class="k wa">维护</span><span>华东节点升级，SCDN 配置下发可能延迟</span><time>10-26</time></div>
+            <div class="nt"><span class="k">公告</span><span>发票开具规则调整说明</span><time>10-20</time></div>
+            <div class="nt"><span class="k">公告</span><span>国庆期间值班安排</span><time>09-28</time></div>
+          </section>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{isSec}}" hint-placeholder-val="{{ false }}">
+      <div class="tc-col" style="margin-top:20px">
+        <div class="sec-top">
+          <section class="card">
+            <div class="ct"><h2>主机安全分</h2><span class="r"><a href="AcctProducts.dc.html" aria-label="进入德迅安全卫士">↗</a></span></div>
+            <div class="gauge">
+              <svg viewBox="0 0 180 100" role="img" aria-label="主机安全分 72 分">
+                <path d="M15 92 A75 75 0 0 1 165 92" fill="none" stroke="#e6e9ef" stroke-width="6"></path>
+                <path d="M15 92 A75 75 0 0 1 128 27" fill="none" stroke="#ff7f47" stroke-width="6"></path>
+                <text x="90" y="86" text-anchor="middle" font-size="28" font-weight="500" fill="rgba(0,0,0,.9)">72</text>
+              </svg>
+              <div class="t"><b>安全状态 <i>一般</i></b><p>有风险 <b>2</b> 台 · 未受保护 <b>6</b> 台</p><p><a href="AcctProducts.dc.html">查看安全总览 ›</a></p></div>
+            </div>
+          </section>
+          <section class="card">
+            <div class="ct"><h2>安全告警 <small>近 24 小时 · 10:42 更新</small></h2><span class="r"><a href="AcctProducts.dc.html">在德迅安全卫士中查看全部 18 条 ›</a></span></div>
+            <div class="sleg">
+              <span class="sbar" aria-hidden="true"><i style="flex:4;background:#f64041"></i><i style="flex:1;background:#ff7800"></i><i style="flex:6;background:#bcc4d0"></i><i style="flex:7;background:#e6e9ef"></i></span>
+              <span>紧急<b>4</b></span><span>未受保护<b>1</b></span><span>可疑<b>6</b></span><span>提醒<b>7</b></span>
+              <span class="r">较昨日 +3 · 今天已处置 2</span>
+            </div>
+          </section>
+        </div>
+        <section class="card">
+          <div class="ct"><h2>待处理告警</h2></div>
+          <div class="stab" role="tablist">
+            <sc-for list="{{secTabs}}" as="t" hint-placeholder-count="5"><button type="button" role="tab" class="{{t.cls}}" onClick="{{t.pick}}">{{t.n}} {{t.c}}</button></sc-for>
+          </div>
+          <div class="tw">
+            <table class="tt">
+              <thead><tr><th>告警</th><th>状态</th><th class="n">次数</th><th>最近发生</th><th>操作</th></tr></thead>
+              <tbody>
+                <sc-for list="{{alerts}}" as="a" hint-placeholder-count="5">
+                  <tr><td class="al"><b>{{a.t}}</b><em><i class="{{a.lvcls}}">{{a.lv}}</i>{{a.where}} · {{a.prod}}</em></td><td><span class="{{a.tgcls}}">{{a.st}}</span></td><td class="n">{{a.ev}}</td><td>{{a.tm}}</td><td><a href="AcctProducts.dc.html">{{a.btn}}</a></td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <a class="more" href="AcctProducts.dc.html">在德迅安全卫士中查看全部 ›</a>
+        </section>
+      </div>
+      </sc-if>
+    </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1720}}'>
+class Component extends DCLogic {
+  _sa() {
+    const st = this.state || {}; const rt = st.rt || 0; const f = st.saF || 'all'; const more = !!st.saMore; const ig = st.saIg || [];
+    const SD = 'IdcServerDetail.dc.html', SL = 'IdcServers.dc.html';
+    const EYE = 'EyeRisk.dc.html', CDN = 'Main.dc.html';
+    const CERT = 'ScdnCerts.dc.html', ATK = 'DdosInstanceDetail.dc.html';
+    // id, group, level, name, asset, product, state, stateTone, spark(12), events, last, first, op, href, what, impact, fix
+    const ROWS = [
+      ['a1', 'hi', '紧急', '异常登录', 'web-prod-01', '服务器租用', '新发现', 'err', '000000000082', '3', '10:12', '10-30 10:12', '处理', SD,
+        'root 账号从荷兰 185.220.**.4 登录成功，这个地点以前没有出现过，登录后执行了 3 条命令。', '如果不是本人操作，对方已经拿到服务器的最高权限，可以删数据、植入挖矿程序或继续攻击内网。',
+        ['确认是否本人或同事登录', '不是本人：封禁该 IP，修改 root 密码，检查新增账号和计划任务', '是本人：标记为可信登录地点，之后不再提醒']],
+      ['a2', 'hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '服务器租用', '待修复', 'warn', '111111111111', '1', '10:05', '10-28 03:00', '修复', SD,
+        '服务器上的 OpenSSH 是 8.5 版本，存在 CVE-2024-6387，网上已有公开的利用方法。', '攻击者不需要密码就可能远程控制这台服务器。',
+        ['把 OpenSSH 升级到 9.8p1 或以上', '升级后在德迅安全卫士里点「重新检测」确认']],
+      ['a3', 'hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'warn', '000000011111', '1', '09:30', '10-30 09:30', '修复', EYE,
+        '网站使用的组件存在已知高危漏洞，扫描时可以被直接利用。', '可能导致网站数据泄露或页面被篡改。', ['按修复建议升级组件', '修复后发起复测']],
+      ['a4', 'hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'err', '000000013687', '18.6万', '10:41', '10-30 10:29', '开启防护', CDN,
+        '大量请求集中访问 /api/search，当前 CC 防护是宽松模式，没有拦住。', '源站负载升高，网站打开变慢，严重时会无法访问。', ['把 CC 防护切换到严格模式（立即生效）', '攻击结束后再改回宽松模式，避免误拦正常用户']],
+      ['a5b', 'un', '未受保护', '未安装客户端', 'web-new-03', '服务器租用', '待处理', 'mut', '000000000000', '—', '11-01', '11-01 15:30', '安装', SL,
+        '这台服务器开通后还没有安装德迅安全卫士客户端。', '入侵、漏洞和弱口令都不会被检测，出事也不会通知你。', ['在服务器列表里点「一键安装」，约 2 分钟，不需要重启']],
+      ['a5c', 'un', '未受保护', '客户端部署失败', 'web-new-04', '服务器租用', '待处理', 'mut', '000000000000', '—', '11-01', '11-01 15:51', '重试安装', SL,
+        '交付后自动安装了 3 次，都连不上安装源 agent.dexunyun.com:443。', '这台服务器目前不受保护。', ['点「重试安装」，会换用备用安装源', '还失败的话，检查安全组是否放行出方向 443']],
+      ['a5d', 'un', '未受保护', '客户端离线', 'cache-03', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '11-02', '11-02 08:31', '排查', 'SecRisks.dc.html',
+        '客户端 2 小时没有心跳。', '离线期间不会检测，也不会告警。', ['检查服务器是否在线、网络是否通', '确认安全组放行出方向 443']],
+      ['a5e', 'un', '未受保护', '检测过期', 'app-06', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '10-29', '10-29 03:00', '立即检测', 'SecRisks.dc.html',
+        '超过 3 天没有完成检测。', '新出现的漏洞和风险发现不了。', ['点「立即检测」，约 5 分钟完成']],
+      ['a5f', 'un', '未受保护', '未授权', 'app-07', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '11-03', '11-03 10:00', '绑定授权', 'SecRisks.dc.html',
+        '授权已用完，这台主机没有绑定授权。', '客户端在线但不做检测。', ['在授权管理里给它绑定授权，或扩容授权']],
+      ['a5', 'un', '未受保护', '客户端已卸载', 'backup-02', '服务器租用', '待处理', 'mut', '000000000000', '—', '10-29', '10-29 16:40', '安装', SL,
+        '这台服务器上的德迅安全卫士客户端已被卸载，入侵、漏洞和基线检测都没有在运行。', '出现入侵时不会有任何告警。', ['在服务器列表里点「一键安装」，约 2 分钟，不需要重启']],
+      ['a6', 'md', '可疑', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'ok', '000013578653', '86 Gbps', '10:24', '10-30 10:06', '查看', ATK,
+        '高防 IP 正在被 UDP Flood 攻击，峰值 86 Gbps，已自动清洗。', '业务目前正常；攻击超过 100 Gbps 保底防护时会触发黑洞。', ['不需要操作，留意攻击峰值', '经常接近保底时，考虑升级弹性防护']],
+      ['a7', 'md', '可疑', '弱口令（3 个账号）', 'web-prod-01', '服务器租用', '待修复', 'warn', '111111111111', '3', '10:05', '10-28 03:00', '处理', SD,
+        'admin、test、backup 三个账号使用了 123456、admin123 这类常见密码。', '容易被暴力破解后登录服务器。', ['修改这 3 个账号的密码', '不再使用的账号直接删除']],
+      ['a8', 'md', '可疑', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'mut', '000000000100', '1', '10-29', '10-29 21:02', '查看', CDN,
+        '在公开 DNS 历史记录中发现了源站的真实 IP。', '攻击者可以绕过 SCDN 直接攻击源站。', ['更换源站 IP', '源站防火墙只允许 SCDN 回源 IP 访问']],
+      ['a11', 'md', '可疑', '可疑进程外联', 'web-prod-01', '服务器租用', '待处理', 'mut', '000000000110', '2', '10-24', '10-24 22:41', '处理', SD,
+        '威胁猎杀发现 /tmp/.x 持续连接境外地址 45.142.xx.xx:4444，和异常登录是同一来源。', '服务器可能已被植入后门，数据会被持续外传。', ['终止进程并隔离文件', '检查计划任务和启动项里有没有同名程序']],
+      ['a12', 'md', '可疑', 'Nginx 拒绝服务漏洞', 'app-03', '德迅安全卫士', '待修复', 'warn', '111111111111', '1', '10-20', '10-20 03:00', '修复', 'SecRisks.dc.html',
+        'app-03 上的 Nginx 1.24.0 处理特定请求时可能崩溃。', '网站可能被打挂，无法访问。', ['升级 Nginx 到 1.26.2 或以上，升级后 reload']],
+      ['a13', 'md', '可疑', '高危端口 3389 对公网开放', 'app-03', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '10-22', '10-22 11:05', '处理', 'SecRisks.dc.html',
+        'app-03 的 3389 端口对所有公网地址开放。', '常被用来暴力破解远程桌面。', ['关闭公网访问，或只允许办公网 IP 访问']],
+      ['a9', 'lo', '提醒', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'mut', '000000000000', '—', '10-28', '10-28 09:00', '续费', CERT,
+        '证书将在 11 月 11 日到期。', '到期后浏览器会提示网站不安全，访客可能离开。', ['续费证书，或上传新证书']],
+      ['a10', 'lo', '提醒', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'mut', '000000000000', '—', '10-26', '10-26 14:31', '开启', CDN,
+        '这个域名还在使用 HTTP 访问。', '访客数据明文传输，可能被窃听。', ['开启 HTTPS 并设置强制跳转']],
+      ['a14', 'lo', '提醒', 'sudo 本地提权漏洞', 'web-prod-01', '服务器租用', '待修复', 'warn', '111111111111', '1', '10-18', '10-18 03:00', '修复', SD,
+        '本地普通用户可能通过 sudo 漏洞获得 root 权限。', '账号被盗后影响会扩大到整台服务器。', ['升级 sudo 到 1.9.15p5 或以上']],
+      ['a15', 'lo', '提醒', 'SSH 允许 root 直接登录', 'web-prod-01 等 2 台', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '10-19', '10-19 03:10', '加固', 'SecRisks.dc.html',
+        'sshd 配置允许 root 直接登录。', '被暴力破解后攻击者直接拿到最高权限。', ['把 PermitRootLogin 改为 no，改用普通账号登录后 sudo']],
+      ['a16', 'lo', '提醒', '未设置密码有效期', 'app-03', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '10-19', '10-19 03:10', '加固', 'SecRisks.dc.html',
+        '账号密码永不过期。', '密码泄露后长期有效。', ['设置 PASS_MAX_DAYS 为 90 天']],
+      ['a17', 'lo', '提醒', '未开启操作审计日志', 'app-03', '德迅安全卫士', '待处理', 'mut', '000000000000', '—', '10-19', '10-19 03:10', '加固', 'SecRisks.dc.html',
+        '没有运行 auditd。', '出了问题无法追查谁做了什么操作。', ['开启 auditd 并设为开机启动']],
+      ['a18', 'lo', '提醒', '/tmp 未单独挂载', 'web-prod-01', '服务器租用', '待处理', 'mut', '000000000000', '—', '10-19', '10-19 03:10', '查看', SD,
+        '/tmp 和根目录在同一分区。', '恶意程序可以在 /tmp 里直接执行。', ['在维护窗口把 /tmp 单独挂载并加 noexec']]];
+    const live = ROWS.filter((r) => ig.indexOf(r[0]) < 0);
+    const cnt = (k) => live.filter((r) => r[1] === k).length;
+    const LV = { hi: ['r', 'r', 'kc-tag err'], un: ['o', 'o', 'kc-tag warn'], md: ['y', 'y', 'kc-tag warn'], lo: ['g', 'm', 'kc-tag mut'] };
+    const CH = [['all', '全部', live.length], ['hi', '紧急', cnt('hi')], ['un', '未受保护', cnt('un')], ['md', '可疑', cnt('md')], ['lo', '提醒', cnt('lo')]];
+    const pick = live.filter((r) => f === 'all' || r[1] === f); const LIM = 5; const cut = f === 'all' && !more ? pick.slice(0, LIM) : pick;
+    const sp = (str, k) => str.split('').map((h) => ({ c: 's' + h + (k === 'hi' ? ' r' : '') }));
+    const D = live.find((r) => r[0] === st.saD);
+    const dd = D ? { lv: D[2], lvtag: LV[D[1]][2], t: D[3], where: D[4], prod: D[5], st: D[6], stc: 'kc-tag ' + D[7], sp: sp(D[8], D[1]), ev: D[9], tm: D[10], first: D[11], btn2: '去' + D[12], href: D[13], what: D[14], imp: D[15], fix: D[16].map((t) => ({ t })) } : { sp: [], fix: [] };
+    return { saOn: rt === 0 || rt === 1, saN: live.length, h8All: live.length + 10,
+      saDist: [['hi', '紧急', 'r'], ['un', '未受保护', 'o'], ['md', '可疑', 'y'], ['lo', '提醒', 'g']].map((x) => ({ l: x[1], n: cnt(x[0]), c: 'd-' + x[2] + ' n' + cnt(x[0]) })),
+      saChips: CH.map((c) => ({ l: c[1], n: c[2], cc: c[0] === 'hi' && c[2] ? 'kc-cnt r' : 'kc-cnt', cls: 'kc-tab' + (f === c[0] ? ' on' : ''), go: () => this.setState({ saF: c[0], saMore: false }) })),
+      saRows: cut.map((r) => ({ dot: 'kc-lv3 ' + LV[r[1]][0], lvt: 'sa-lvt ' + LV[r[1]][1], lv: r[2], t: r[3], where: r[4], prod: r[5], st: r[6], stc: 'kc-tag ' + r[7], sp: sp(r[8], r[1]), ev: r[9], tm: r[10], btn: r[12], href: r[13],
+        open: (e) => { if (e && e.target && e.target.closest && e.target.closest('a')) return; this.setState({ saD: r[0] }); } })),
+      saEmpty: pick.length === 0,
+      saCanMore: f === 'all' && pick.length > LIM, saMoreTxt: more ? '收起' : '展开其余 ' + (pick.length - LIM) + ' 条',
+      saTog: () => this.setState({ saMore: !more }),
+      saDOn: !!D, saD: dd, saClose: () => this.setState({ saD: null }),
+      saIgnore: () => this.setState({ saIg: ig.concat([st.saD]), saD: null }) };
+  }
+  _ce() {
+    const st = this.state || {}; const ev = (e) => { if (e) { if (e.preventDefault) e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); } };
+    const ALL = [['SCDN · 域名管理', 'Main.dc.html', 'scdn', 'cdn 域名 加速'], ['DDoS 高防 IP', 'DdosInstances.dc.html', 'ddos', '高防 ddos'], ['游戏盾', 'GameAccess.dc.html', 'game', '游戏'], ['德迅云眼', 'EyeRisk.dc.html', 'eye', '监测 风险'],
+      ['服务器租用', 'IdcServers.dc.html', 'idc', '服务器 idc'], ['SSL 证书', 'AcctProducts.dc.html', 'ssl', '证书 https'], ['漏洞扫描 VSS', 'AcctProducts.dc.html', 'vss', '漏洞'], ['德迅安全卫士', 'SecHome.dc.html', 'host', '主机 安全中心 告警'],
+      ['攻击报表', 'DdosReport.dc.html', 'situ', '报表 攻击'], ['证书管理', 'ScdnCerts.dc.html', 'ssl', '证书'], ['我的订单', 'BillOrders.dc.html', 'order', '订单'], ['付款管理', 'BillPay.dc.html', 'order', '付款 转账'],
+      ['发票管理', 'BillInvoice.dc.html', 'invoice', '发票'], ['申请开票', 'BillInvoiceApply.dc.html', 'invoice', '开票 发票'], ['合同管理', 'BillContract.dc.html', 'log', '合同'], ['我的工单', 'SupTickets.dc.html', 'ticket', '工单 支持'],
+      ['成员管理', 'OrgMembers.dc.html', 'member', '成员 权限'], ['企业信息与认证', 'OrgInfo.dc.html', 'member', '认证 企业']];
+    const RECENT = ['SCDN · 域名管理', 'DDoS 高防 IP', '服务器租用', '德迅云眼', '我的订单', '付款管理', '发票管理', '我的工单'];
+    const list = st.ceL || [['付款管理', 'BillPay.dc.html', 'order'], ['申请开票', 'BillInvoiceApply.dc.html', 'invoice']];
+    const MAX = 8; const has = (n) => list.some((x) => x[0] === n);
+    const add = (it) => (e) => { ev(e); if (!has(it[0]) && list.length < MAX) this.setState({ ceL: list.concat([it.slice(0, 3)]) }); };
+    const rm = (n) => (e) => { ev(e); this.setState({ ceL: list.filter((x) => x[0] !== n) }); };
+    const tab = st.ceT || 's'; const q = (st.ceQ || '').trim().toLowerCase();
+    const pool = q ? ALL.filter((x) => (x[0] + ' ' + x[3]).toLowerCase().indexOf(q) >= 0) : RECENT.map((n) => ALL.find((x) => x[0] === n));
+    const full = list.length >= MAX;
+    const chips = pool.map((x) => { const on = has(x[0]); return { n: x[0], cls: on ? 'ce-chip on' : (full ? 'ce-chip off' : 'ce-chip'), sign: on ? '−' : '+', go: on ? rm(x[0]) : add(x), tip: on ? '已添加，点击移除' : (full ? '最多 8 个入口' : '添加到自定义入口') }; });
+    const fn = (st.ceN || '').trim(); const fu = (st.ceU || '').trim(); const ok = !!(fn && fu) && !full;
+    return { ceL: list.map((x) => ({ n: x[0], href: x[1], di: 'dt dt-' + x[2], rm: rm(x[0]) })), ceCan: true, ceOn: !!st.ceOn, ceEx: st.ceOn ? 'true' : 'false',
+      ceAddCls: st.ceOn ? 'h8-qk add ce-add op' : 'h8-qk add ce-add', ceTog: (e) => { ev(e); this.setState({ ceOn: !st.ceOn }); }, ceClose: (e) => { ev(e); this.setState({ ceOn: false }); },
+      ceTs: tab === 's', ceTc: tab === 'c', ceT1: tab === 's' ? 'on' : '', ceT2: tab === 'c' ? 'on' : '', ceS1: () => this.setState({ ceT: 's' }), ceS2: () => this.setState({ ceT: 'c' }),
+      ceQ: st.ceQ || '', ceOnQ: (e) => this.setState({ ceQ: e.target.value }), ceChips: chips, ceEmpty: chips.length === 0, ceHint: q ? '搜索结果' : '最近访问', ceCnt: '已添加 ' + list.length + ' / ' + MAX,
+      ceN: st.ceN || '', ceU: st.ceU || '', ceOnN: (e) => this.setState({ ceN: e.target.value }), ceOnU: (e) => this.setState({ ceU: e.target.value }),
+      ceBtn: ok ? 'kc-btn pri sm' : 'kc-btn pri sm dis', ceAddC: (e) => { ev(e); if (!ok) return; this.setState({ ceL: list.concat([[fn, fu, 'link']]), ceN: '', ceU: '', ceOn: false, ceT: 's' }); } };
+  }
+  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+
+  /* top70 */
+  componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
+  componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
+  _top() {
+    const st = this.state || {}; const dd = st.dd || ''; const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const tog = (v) => (e) => { ev(e); this.setState({ dd: dd === v ? '' : v, gq: '', gpq: '' }); };
+    // 产品切换
+    const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
+        ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
+      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
+      ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
+    const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
+    let openN = 0, allN = 0; const favList = [];
+    const cats = P.map(([cn, ps]) => ({ n: cn, items: ps.filter(([n, s, href, op, al]) => { allN++; if (op) openN++; if (favs.indexOf(n) >= 0) favList.push({ n, di: this.__di(n), cat: cn, href: op ? href : '#' }); return !pq || (n + ' ' + s + ' ' + al).toLowerCase().indexOf(pq) >= 0; })
+      .map(([n, s, href, op]) => { const on = favs.indexOf(n) >= 0; return { n, di: this.__di(n), s: s || cn, href: op ? href : '#', st: op ? '已开通' : '未开通', tc: op ? 'kc-tag ok' : 'kc-tag mut', fc: on ? 'on' : '', star: on ? '★' : '☆', fl: on ? '取消收藏' : '收藏',
+        fav: (e) => { ev(e); this.setState({ pfav: on ? favs.filter((x) => x !== n) : favs.concat([n]) }); } }; }) })).filter((c) => c.items.length);
+    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
+    // 全局搜索
+    const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
+    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],
+      ['访问控制 · IP 黑名单', 'SCDN › 防护策略', 'ScdnAcl.dc.html', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
+      ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
+      ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
+      ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
+      ['我的订单', '费用', 'BillOrders.dc.html', 'doc', '订单'], ['合并付款', '费用', 'BillPayment.dc.html', 'doc', '付款 转账 对公'], ['申请开票', '费用 › 发票管理', 'BillInvoiceApply.dc.html', 'doc', '发票 开票 专票'],
+      ['续费', '我的产品 › 订阅与资源', 'AcctSubs.dc.html', 'box', '续费 到期'], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', '工单 客服 报障'], ['成员管理', '企业', 'OrgMembers.dc.html', 'users', '成员 子用户 权限'],
+      ['安全设置', '企业', 'OrgSecurity.dc.html', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业', 'OrgVerify.dc.html', 'users', '认证 营业执照'], ['消息', '消息中心', 'Notifications.dc.html', 'bell', '消息 通知 告警']];
+    const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.13 ddos-1e8d07'],
+      ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
+      ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
+      ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillPayFix.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
+    const DC = [['回源 502 怎么排查', 'SCDN 文档', '../Docs.dc.html?product=scdn&q=%E5%9B%9E%E6%BA%90%20502%20%E6%80%8E%E4%B9%88%E6%8E%92%E6%9F%A5', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', '../Docs.dc.html?product=scdn&q=%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%20CNAME%20%E6%8E%A5%E5%85%A5%20SCDN', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', '../Docs.dc.html?product=idc&q=%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%BC%9A%E6%B8%85%E7%A9%BA%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE', 'doc', '重装 数据'],
+      ['如何封禁 IP', '防护策略文档', '../Docs.dc.html?product=ddos&q=%E5%A6%82%E4%BD%95%E5%B0%81%E7%A6%81%20IP', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', '../Docs.dc.html?product=billing&q=%E5%AF%B9%E5%85%AC%E8%BD%AC%E8%B4%A6%E5%A4%9A%E4%B9%85%E6%A0%B8%E9%AA%8C%E5%88%B0%E8%B4%A6', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', '../Docs.dc.html?product=billing&q=%E4%B8%93%E7%A5%A8%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E8%B5%84%E6%96%99', 'doc', '发票 专票']];
+    const hit = (x) => !ql || (x[0] + ' ' + x[1] + ' ' + x[4]).toLowerCase().indexOf(ql) >= 0;
+    const mk = (e) => ([n, p, href, ic]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: '' });
+    const G0 = [['功能', F.filter(hit).map(mk('功能'))], ['资源', R.filter(hit).map(mk('资源'))], ['文档', DC.filter(hit).map(mk('文档'))]];
+    const isIp = /^\d{1,3}(\.\d{1,3}){1,3}\.?$/.test(q.trim());
+    const total = G0.reduce((a, g) => a + g[1].length, 0);
+    const stabs = ['全部', '功能', '资源', '文档'].map((n) => ({ n, c: n === '全部' ? total : (G0.find((g) => g[0] === n) || ['', []])[1].length, cls: n === stab ? 'on' : '', go: () => this.setState({ gstab: n }) }));
+    const groups = ql ? G0.filter((g) => g[1].length && (stab === '全部' || g[0] === stab)).map(([n, items]) => ({ n, c: items.length, items: stab === '全部' ? items.slice(0, 4) : items })) : [];
+    if (groups[0] && groups[0].items[0]) groups[0].items[0].lc = 'on';
+    const ipActs = isIp ? [['查拦截记录', '在 SCDN 和 DDoS 高防日志里查这个 IP', 'DdosLogs.dc.html', 'chart', '查看'], ['加入黑名单', '在访问控制里封禁这个 IP', '#', 'shield', '封禁'], ['查看所属实例', '如果是你的高防 IP 或服务器 IP', 'DdosInstances.dc.html', 'box', '打开']]
+      .map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e })) : [];
+    const tries = ['封 IP', '发票', '203.0.113.12', '重装'].map((n) => ({ n, go: () => this.setState({ gq: n, gstab: '全部' }) }));
+    const sRecent = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '10 分钟前'], ['攻击报表', 'DDoS 高防 IP', 'DdosReport.dc.html', 'chart', '1 小时前'], ['web-prod-01', '服务器租用', 'IdcServerDetail.dc.html', 'box', '昨天']]
+      .map(([n, p, href, ic, e], i) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: i ? '' : 'on' }));
+    const quick = [['添加域名', 'SCDN', 'Main.dc.html', 'link', ''], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', ''], ['续费到期资源', '5 项 30 天内到期', 'AcctSubs.dc.html', 'box', '']].map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e }));
+    return { prodOn: dd === 'prod', prodEx: dd === 'prod' ? 'true' : 'false', prodCls: dd === 'prod' ? 'kc-prod on' : 'kc-prod', prod: tog('prod'),
+      cats, recent, favList, noFav: !favList.length, pq: st.gpq || '', onPq: (e) => this.setState({ gpq: e && e.target ? e.target.value : '' }), openN, allN, pNone: !cats.length,
+      srchOn: dd === 'srch', srch: tog('srch'), q, onQ: (e) => this.setState({ gq: e && e.target ? e.target.value : '', gstab: '全部' }), hasQ: !!ql && !isIp, noQ: !ql, isIp, ipActs, stabs, groups,
+      sNone: !!ql && !isIp && !total, tries, sRecent, quick, toProd: (e) => { ev(e); this.setState({ dd: 'prod', gq: '' }); } };
+  }
+  /* /top70 */
+  _tc() {
+    const s = Object.assign({ tab: 'prod', todo: 'all', sec: 'all', notice: true }, this.state || {});
+    const TODO = [
+      { k: 'sec', t: '安全告警', s: '紧急 4 · 未受保护 1 · 可疑 6，前往安全中心处理', c: '18', ccls: 'c er', href: 'ConsoleHomeTC.dc.html' },
+      { k: 'fin', t: '待付款', s: '1 笔 · ¥320.00 · 对公转账', c: '1', ccls: 'c', href: 'BillPay.dc.html' },
+      { k: 'fin', t: '汇款核验未匹配', s: '¥240.00 已转账，补充信息即可，不要重复转账', c: '1', ccls: 'c', href: 'BillPayFix.dc.html' },
+      { k: 'fin', t: '服务到期', s: '1 项已到期 · 4 项 30 天内到期', c: '5', ccls: 'c', href: 'BillConfirm.dc.html' },
+      { k: 'ops', t: '授权不足', s: '德迅安全卫士 1 台主机超出授权（app-07）', c: '1', ccls: 'c', href: 'AcctProducts.dc.html' },
+      { k: 'ops', t: '工单待确认', s: '回源 502 已处理，等你确认', c: '1', ccls: 'c', href: 'SupTicketDetail.dc.html' },
+      { k: 'other', t: '权益转移待确认', s: '1 项等待接收确认', c: '1', ccls: 'c', href: 'AcctTransferDetail.dc.html' }
+    ];
+    const TT = [['all','全部',28],['sec','安全',18],['ops','运维',2],['fin','财务',7],['other','其他',1]];
+    const todoTabs = TT.map(([k,n,c]) => ({ n, c, cls: s.todo === k ? 'on' : '', pick: () => this.setState({ todo: k }) }));
+    const todos = TODO.filter(r => s.todo === 'all' || r.k === s.todo).map(r => r.k === 'sec' ? { ...r, href: '#', go: () => this.setState({ tab: 'sec' }) } : r);
+    const AL = [
+      { k: 'urg', t: '异常登录', lv: '紧急', lvcls: '', where: 'web-prod-01', prod: '服务器租用', st: '新发现', tgcls: 'tg er', ev: '3', tm: '10:12', btn: '处理' },
+      { k: 'urg', t: 'OpenSSH 远程代码执行漏洞', lv: '紧急', lvcls: '', where: 'web-prod-01', prod: '服务器租用', st: '待修复', tgcls: 'tg wa', ev: '1', tm: '10:05', btn: '修复' },
+      { k: 'urg', t: 'Web 高危漏洞', lv: '紧急', lvcls: '', where: 'www.example.com', prod: '德迅云眼', st: '待修复', tgcls: 'tg wa', ev: '1', tm: '09:30', btn: '修复' },
+      { k: 'urg', t: 'CC 攻击未拦截', lv: '紧急', lvcls: '', where: 'shop.example.com', prod: 'SCDN', st: '持续 12 分钟', tgcls: 'tg er', ev: '18.6万', tm: '10:41', btn: '开启防护' },
+      { k: 'unp', t: '客户端已卸载', lv: '未受保护', lvcls: 'wa', where: 'backup-02', prod: '服务器租用', st: '待处理', tgcls: 'tg mu', ev: '—', tm: '10-29', btn: '安装' }
+    ];
+    const ST = [['all','全部',18],['urg','紧急',4],['unp','未受保护',1],['sus','可疑',6],['rem','提醒',7]];
+    const secTabs = ST.map(([k,n,c]) => ({ n, c, cls: s.sec === k ? 'on' : '', pick: () => this.setState({ sec: k }) }));
+    const alerts = AL.filter(a => s.sec === 'all' || a.k === s.sec);
+    return {
+      isProd: s.tab === 'prod', isSec: s.tab === 'sec',
+      tabProdCls: 'tc-tab' + (s.tab === 'prod' ? ' on' : ''),
+      tabSecCls: 'tc-tab' + (s.tab === 'sec' ? ' on' : ''),
+      goProd: () => this.setState({ tab: 'prod' }),
+      goSec: () => this.setState({ tab: 'sec' }),
+      showNotice: s.notice, hideNotice: () => this.setState({ notice: false }),
+      todoCount: 28, todoTabs, todos, secTabs, alerts, topAlerts: AL.slice(0,3).map(x => ({ ...x, lvcls: x.lvcls === 'wa' ? 'lvw' : 'lve' }))
+    };
+  }
+  /* hdr62 */
+  renderVals() { if (typeof window !== 'undefined' && !window.__dx88) (function () {
+  if (window.__dx88) return; window.__dx88 = 1;
+  var D = document;
+  // seg109：静态页签按地址 ?tab= 打开对应页签
+  (function () { var go9 = function () { try { if (!/\.dc\.html$/.test(location.pathname)) return; var v = new URLSearchParams(location.search).get('tab'); if (!v) return; var b = D.querySelector('.st-tabs [data-st="' + v + '"]'); if (b) b.click(); } catch (x) {} };
+    var t9 = setInterval(function () { if (D.querySelector('.st-tabs')) { clearInterval(t9); go9(); } }, 50); setTimeout(function () { clearInterval(t9); }, 4000); })();
+  // vt107：页面载入后才允许侧栏子菜单展开动画，切页时已展开的子菜单不再闪
+  (function () { var R = D.documentElement, done = function () { R.classList.add('mo-ready'); };
+    var wait = function () { if (D.querySelector('.kc-main > *')) { setTimeout(done, 700); return true; } };
+    if (!wait()) { var mo = new MutationObserver(function () { if (wait()) mo.disconnect(); }); mo.observe(R, { childList: true, subtree: true }); setTimeout(done, 4000); } })();
+  var page = function () { var m = (location.pathname + location.hash).match(/([A-Za-z0-9]+)\.dc\.html/); var t = D.querySelector('.kc-main .kc-h1'); return m ? m[1] : (t ? t.textContent : ''); };
+  var txt = function (el) { return (el.innerText || el.getAttribute('aria-label') || el.getAttribute('title') || '').trim().replace(/\s+/g, ' '); };
+  var live = function (el) {
+    for (var e = el; e && e !== D.body; e = e.parentElement) {
+      var k = Object.keys(e).find(function (x) { return x.indexOf('__reactProps') === 0; });
+      if (k && e[k] && (e[k].onClick || e[k].onChange || e[k].onMouseDown)) return true;
+      if (e.tagName === 'A' && e.getAttribute('href') && e.getAttribute('href') !== '#') return true;
+      if (e.tagName === 'LABEL') return true;
+    }
+    return false;
+  };
+  var root = function (el) { return (el && el.closest && el.closest('.kc-app,.kc-shell,x-dc')) || D.body; };
+  var go = function (el, href) { var a = D.createElement('a'); a.href = href; if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; } a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var layer = function (el) { var r = root(el); var l = r.querySelector(':scope > .lp-layer'); if (!l) { l = D.createElement('div'); l.className = 'lp-layer'; r.appendChild(l); } return l; };
+  var TI = {"ok": "M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM17.4571 9.45711L16.0429 8.04289L11 13.0858L8.20711 10.2929L6.79289 11.7071L11 15.9142L17.4571 9.45711Z", "info": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z", "warn": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z", "err": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"};
+  var toast = function (el, msg, kind) {
+    var l = layer(el); var t = D.createElement('div'); var k = TI[kind] ? kind : 'ok'; t.className = 'lp-toast ' + k; t.setAttribute('role', 'status'); t.innerHTML = '<svg class="lp-ti" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="' + TI[k] + '"></path></svg><span>' + esc(msg) + '</span>';
+    l.appendChild(t); setTimeout(function () { t.classList.add('out'); }, 2200); setTimeout(function () { t.remove(); }, 2500);
+  };
+  var close = function (n) { if (n) { n.classList.add('out'); setTimeout(function () { n.remove(); }, 160); } };
+  var confirmBox = function (el, title, desc, ok, danger, done) {
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask';
+    n.innerHTML = '<div class="lp-modal" role="dialog" aria-modal="true"><h3>' + esc(title) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : '') +
+      '<div class="lp-act"><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn ' + (danger ? 'lp-danger' : 'pri') + '" data-ok>' + esc(ok) + '</button></div></div>';
+    n.addEventListener('click', function (e) { if (e.target === n || e.target.hasAttribute('data-x')) close(n); if (e.target.hasAttribute('data-ok')) { close(n); done && done(); } });
+    l.appendChild(n);
+  };
+  var drawer = function (el, title, body, ok, done) {
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask lp-dm';
+    n.innerHTML = '<aside class="lp-drw" role="dialog" aria-modal="true"><header><h3>' + esc(title) + '</h3><button type="button" class="lp-x" data-x aria-label="关闭">×</button></header><div class="lp-bd">' + body +
+      '</div><footer><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn pri" data-ok>' + esc(ok || '保存') + '</button></footer></aside>';
+    n.addEventListener('click', function (e) {
+      var t = e.target; if (t === n || t.hasAttribute('data-x')) { close(n); return; }
+      if (t.hasAttribute('data-ok')) { close(n); done ? done() : toast(el, '已保存，约 30 秒生效'); return; }
+      if (t.classList.contains('kc-sw')) { t.classList.toggle('on'); return; }
+      if (t.closest('.lp-drop')) { var d = t.closest('.lp-drop'); d.innerHTML = '<b>付款说明.pdf</b> · 186 KB <em>已上传</em>'; d.classList.add('ok'); }
+    });
+    l.appendChild(n);
+  };
+  var menu = function (el, items) {
+    var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-menu-m';
+    var m = D.createElement('div'); m.className = 'lp-menu'; m.style.top = (r.bottom - lr.top + 4) + 'px'; m.style.left = Math.max(8, r.right - lr.left - 168) + 'px';
+    items.forEach(function (it) { var b = D.createElement('button'); b.type = 'button'; b.textContent = it[0]; if (it[2]) b.className = 'r'; b.onclick = function (e) { e.stopPropagation(); n.remove(); it[1](); }; m.appendChild(b); });
+    n.appendChild(m); n.addEventListener('click', function () { n.remove(); }); l.appendChild(n);
+  };
+  var row = function (el) { return el.closest('tr,li,.ln-row,.kc-row'); };
+  var rowName = function (el) {
+    var r = row(el); if (!r) return '';
+    var a = [].slice.call(r.querySelectorAll('td a, b, strong')).find(function (x) { return txt(x) && x !== el; });
+    if (a) return txt(a).split(' ')[0];
+    var c = [].slice.call(r.querySelectorAll('td')).find(function (x) { return txt(x); }); return c ? txt(c).split(' ')[0] : '';
+  };
+  var formFor = function (el, label) {
+    var r = el.closest('tr'); var fields = [];
+    if (r) {
+      var tb = r.closest('table'); var hs = tb ? [].slice.call(tb.querySelectorAll('thead th')) : [];
+      [].slice.call(r.children).forEach(function (td, i) { var h = hs[i] ? txt(hs[i]) : ''; if (!h || /操作|^$/.test(h) || td.classList.contains('lf-ck')) return; fields.push([h, txt(td).split(' · ')[0]]); });
+    }
+    if (!fields.length) { var li = row(el); var b = li && li.querySelector('b'); var sp = li && li.querySelector('span'); fields = [['名称', b ? txt(b) : rowName(el) || label], ['当前设置', sp ? txt(sp) : '']]; }
+    return fields.slice(0, 7).map(function (f) { return '<label class="lp-f"><span>' + esc(f[0]) + '</span><input class="kc-in" value="' + esc(f[1]) + '"></label>'; }).join('') + '<label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>';
+  };
+  var upload = function (hint) { return '<div class="lp-drop" role="button" tabindex="0">' + esc(hint || '点击或拖拽文件到这里上传') + '</div><p class="lp-hint">支持 CSV / Excel，单次最多 500 条。<a href="#" onclick="return false">下载模板</a></p>'; };
+  var cols = function (el) {
+    var c = el.closest('.kc-card') || D; var hs = [].slice.call(c.querySelectorAll('thead th')).map(txt).filter(function (h) { return h && h !== '操作'; });
+    return '<p class="lp-hint">勾选要在列表里显示的列，拖动可调整顺序。</p>' + hs.map(function (h, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 7 ? 'checked' : '') + (i === 0 ? ' disabled' : '') + '> ' + esc(h) + '</label>'; }).join('');
+  };
+  // 列设置：按钮下方的轻气泡，勾选即生效，点外面关闭（77，2026-10-28）
+  var colPop = function (el) {
+    if (!D.getElementById('dx-cp-css')) { var st = D.createElement('style'); st.id = 'dx-cp-css';
+      st.textContent = '.lp-cpm{position:absolute;inset:0;z-index:40}.lp-cp{position:absolute;width:208px;padding:6px 0;background:#fff;border:1px solid #e5e8ef;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.1);animation:lp-cp-in .14s ease-out both}.lp-cp::before{content:"";position:absolute;top:-5px;right:14px;width:8px;height:8px;background:#fff;border-left:1px solid #e5e8ef;border-top:1px solid #e5e8ef;transform:rotate(45deg)}@keyframes lp-cp-in{from{opacity:0;transform:translateY(-4px)}}.lp-cp header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px 8px;font-size:12px;color:#86909c}.lp-cp header button{border:0;background:none;padding:0;font:inherit;font-size:12px;color:#1664ff;cursor:pointer}.lp-cp label{display:flex;align-items:center;gap:8px;padding:6px 12px;font-size:13px;color:#1d2129;cursor:pointer}.lp-cp label:hover{background:#f6f8fa}.lp-cp label.dis{color:#a9aeb8;cursor:default}.lp-cp label.dis:hover{background:none}.lp-cp input{width:14px;height:14px;margin:0;accent-color:#1664ff}';
+      D.head.appendChild(st); }
+    var card = el.closest('.kc-card') || D; var tb = card.querySelector('table'); if (!tb) return;
+    var ths = [].slice.call(tb.querySelectorAll('thead th'));
+    var list = ths.map(function (th, i) { return { i: i, n: txt(th) }; }).filter(function (c) { return c.n && c.n !== '操作'; });
+    var first = list.length ? list[0].i : -1;
+    var hidden = function (i) { return ths[i] && ths[i].style.display === 'none'; };
+    var show = function (i, on) { [].slice.call(tb.querySelectorAll('tr')).forEach(function (tr) { var c = tr.children[i]; if (c) c.style.display = on ? '' : 'none'; }); };
+    var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-cpm';
+    var m = D.createElement('div'); m.className = 'lp-cp'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', '列设置');
+    m.style.top = (r.bottom - lr.top + 8) + 'px'; m.style.left = Math.max(8, r.right - lr.left - 208) + 'px';
+    m.innerHTML = '<header><span>显示列</span><button type="button" data-reset>重置</button></header>' + list.map(function (c) {
+      var dis = c.i === first; return '<label class="' + (dis ? 'dis' : '') + '"><input type="checkbox" data-i="' + c.i + '"' + (hidden(c.i) ? '' : ' checked') + (dis ? ' disabled' : '') + '>' + esc(c.n) + '</label>'; }).join('');
+    m.addEventListener('click', function (e) { e.stopPropagation();
+      if (e.target.hasAttribute('data-reset')) { list.forEach(function (c) { show(c.i, true); }); [].slice.call(m.querySelectorAll('input')).forEach(function (x) { x.checked = true; }); } });
+    m.addEventListener('change', function (e) { var x = e.target; if (x.hasAttribute('data-i')) show(+x.getAttribute('data-i'), x.checked); });
+    n.addEventListener('click', function () { n.remove(); el.classList.remove('on'); });
+    n.appendChild(m); l.appendChild(n); el.classList.add('on');
+  };
+  var sw = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b><small>' + esc(r[1]) + '</small></div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="开关"></button></div>'; }).join(''); };
+  var P = '';
+  var pre = function (p) { return P.indexOf(p) === 0; };
+  var ctxPage = function (kind) {
+    if (pre('Ddos')) return { rep: 'DdosReport.dc.html', log: 'DdosLogs.dc.html', ana: 'DdosMonitor.dc.html' }[kind];
+    if (pre('Game')) return { rep: 'GameOverview.dc.html', log: 'GameOnline.dc.html', ana: 'GameOnline.dc.html' }[kind];
+    if (pre('Eye')) return { rep: 'EyeRisk.dc.html', log: 'EyeRisk.dc.html', ana: 'EyeRisk.dc.html' }[kind];
+    return { rep: 'ScdnStats.dc.html', log: 'ScdnBlocks.dc.html', ana: 'ScdnStats.dc.html' }[kind];
+  };
+  var nav = function () { return {
+    '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
+    '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
+    '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
+    '接入文档': '../Docs.dc.html', '产品文档': '../Docs.dc.html', '查看接入文档': '../Docs.dc.html', '完整服务内容与使用说明': '../Docs.dc.html', '接入指引': '../Docs.dc.html',
+    '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
+    '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
+  }; };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
+  var regNav = function (t) {
+    if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
+    if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
+    if (/^高防-\d+/.test(t)) return 'DdosInstanceDetail.dc.html';
+    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'IdcServerDetail.dc.html';
+    if (/^ssl-/.test(t)) return 'ScdnCerts.dc.html';
+    if (/^HB\d+/.test(t)) return 'BillPayment.dc.html';
+    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'EyeAssetDetail.dc.html' : pre('Ddos') ? 'DdosAccess.dc.html' : 'ScdnDomainDetail.dc.html';
+    return null;
+  };
+  var PROD = [['SCDN', 'Main.dc.html'], ['DDoS', 'DdosInstances.dc.html'], ['高防', 'DdosInstances.dc.html'], ['游戏盾', 'GameAccess.dc.html'], ['云眼', 'EyeRisk.dc.html'], ['服务器', 'IdcServers.dc.html']];
+  var tabClick = function (name) { var b = [].slice.call(D.querySelectorAll('.kc-dtabs button')).find(function (x) { return txt(x).indexOf(name) === 0; }); if (b) { b.click(); var m = D.querySelector('.kc-main'); if (m && m.scrollIntoView) window.scrollTo(0, 0); return true; } return false; };
+  var segToggle = function (el) {
+    var p = el.parentElement; [].slice.call(p.children).forEach(function (c) { c.classList.remove('on'); c.setAttribute && c.getAttribute('aria-selected') !== null && c.setAttribute('aria-selected', 'false'); });
+    el.classList.add('on'); if (el.getAttribute('aria-selected') !== null) el.setAttribute('aria-selected', 'true');
+  };
+  var acctSwitch = function (el) {
+    if (!D.getElementById('dx-acs-css')) { var st = D.createElement('style'); st.id = 'dx-acs-css';
+      st.textContent = '.lp-acs{width:440px;padding:20px 0 8px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18)}.lp-acs header{display:flex;align-items:center;justify-content:space-between;padding:0 24px 12px}.lp-acs h3{margin:0;font-size:16px;font-weight:600;color:#0c0d0e}.lp-acs header button{border:0;background:none;font-size:18px;color:#86909c;cursor:pointer}.lp-acs p.s{margin:0 24px 8px;font-size:12px;color:#86909c}.lp-acs ul{list-style:none;margin:0;padding:0 12px}.lp-acs li button{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border:0;border-radius:6px;background:none;font:inherit;text-align:left;cursor:pointer}.lp-acs li button:hover{background:#f6f8fa}.lp-acs li.on button{background:#f2f6ff;cursor:default}.lp-acs .av{flex:0 0 36px;width:36px;height:36px;border-radius:6px;display:grid;place-items:center;font-weight:600;color:#fff}.lp-acs .nm{flex:1;min-width:0}.lp-acs .nm b{display:block;font-size:14px;font-weight:500;color:#1d2129;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lp-acs .nm small{display:block;margin-top:2px;font-size:12px;color:#86909c}.lp-acs .nm small em{font-style:normal;color:#42464e;margin-right:8px}.lp-acs .cur{font-size:12px;color:#1664ff}.lp-acs .go{color:#c2c7d0;font-size:16px}.lp-acs footer{margin-top:8px;padding:10px 24px 4px;border-top:1px solid #f2f3f5}.lp-acs footer button{border:0;background:none;padding:6px 0;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-acs footer button:hover{color:#1664ff}';
+      D.head.appendChild(st); }
+    try { D.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); } catch (x) {}
+    var A = [['德', '#1664ff', '德迅科技', '主账号', '100014655316'], ['云', '#14a9a0', '温州云帆网络科技有限公司', '运维', '100020381146'], ['瓯', '#ff7d00', '浙江瓯越信息技术有限公司', '财务', '100031907752']];
+    var cur = (D.querySelector('.kc-user small') || {}).textContent || '德迅科技 · 主账号';
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask';
+    n.innerHTML = '<div class="lp-acs" role="dialog" aria-modal="true" aria-label="切换账号"><header><h3>切换账号</h3><button type="button" data-x aria-label="关闭">×</button></header><p class="s">wangqi 可以进入以下企业，切换后菜单和数据按该企业的角色显示</p><ul>' +
+      A.map(function (a, i) { var on = cur.indexOf(a[2]) === 0; return '<li class="' + (on ? 'on' : '') + '"><button type="button" data-i="' + i + '"><span class="av" style="background:' + a[1] + '">' + a[0] + '</span><span class="nm"><b>' + esc(a[2]) + '</b><small><em>' + a[3] + '</em>ID ' + a[4] + '</small></span>' + (on ? '<span class="cur">当前</span>' : '<span class="go">›</span>') + '</button></li>'; }).join('') +
+      '</ul><footer><button type="button" data-out>登录其他账号</button></footer></div>';
+    n.addEventListener('click', function (e) {
+      var tg = e.target; if (tg === n || tg.hasAttribute('data-x')) { close(n); return; }
+      if (tg.closest('[data-out]')) { close(n); confirmBox(el, '退出当前账号并登录其他账号？', '退出后回到登录页。', '退出并登录', false, function () { toast(el, '已退出，正在前往登录页', 'info'); }); return; }
+      var b = tg.closest('button[data-i]'); if (!b || b.closest('li.on')) return;
+      var a = A[+b.getAttribute('data-i')]; close(n);
+      [].slice.call(D.querySelectorAll('.kc-user small, .kc-sh span')).forEach(function (x) { x.textContent = a[2].replace(/(网络|信息)?科技有限公司$/, '') + ' · ' + a[3]; });
+      [].slice.call(D.querySelectorAll('.kc-top .kc-av')).forEach(function (x) { x.textContent = a[0]; });
+      toast(el, '已切换到 ' + a[2] + ' · ' + a[3]);
+    });
+    l.appendChild(n);
+  };
+  // ix110：按钮逐个对上正确交互，不再落到通用抽屉（77，2026-10-28「很多菜单和按钮都没有检查没有正确的交互」）
+  // 1) 表格旁的「添加 / 新建」和行内「编辑 / 修改」：同一张表单，字段来自表头，编辑时带上这一行的值
+  // 2) 轻量设置（提醒、存储、通知、订阅、地区、绑定域名…）：气泡弹层，不开抽屉
+  // 3) 立即执行、暂停、保存等：就地改状态 + 提示；跳转类：去对应页面；上传：系统选文件
+  var popCss = function () {
+    if (D.getElementById('dx-ix-css')) return; var st = D.createElement('style'); st.id = 'dx-ix-css';
+    st.textContent = '.lp-pm{position:absolute;inset:0;z-index:40}.lp-pp{position:absolute;width:300px;background:#fff;border:1px solid #e5e8ef;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.1);animation:lp-cp-in .14s ease-out both;text-align:left}' +
+      '.lp-pp h4{margin:0;padding:12px 16px 4px;font-size:14px;font-weight:500;color:#1d2129}.lp-pp .lp-pb{padding:4px 16px 8px;font-size:13px;color:#42464e;max-height:320px;overflow:auto}.lp-pp .lp-pf{display:flex;justify-content:flex-end;gap:8px;padding:8px 12px 12px}' +
+      '.lp-pp .kc-btn{height:28px;padding:0 12px;font-size:13px}.lp-pp label.ck{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer}.lp-pp label.ck input{width:14px;height:14px;margin:0;accent-color:#1664ff}' +
+      '.lp-pp .lp-swr{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid #f2f3f5}.lp-pp .lp-swr:first-child{border-top:0}.lp-pp .lp-swr div{flex:1}.lp-pp .lp-swr b{display:block;font-weight:400;color:#1d2129}.lp-pp .lp-swr small{color:#86909c;font-size:12px}' +
+      '.lp-pp .seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5;margin:6px 0}.lp-pp .seg button{height:26px;padding:0 10px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-pp .seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}' +
+      '.lp-pp .lb{display:block;margin:8px 0 2px;font-size:12px;color:#86909c}.lp-pp .kc-in{width:100%;height:32px;box-sizing:border-box}.lp-pp .row{display:flex;gap:8px;align-items:center}.lp-pp .li{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid #f2f3f5}.lp-pp .li:first-child{border-top:0}.lp-pp .li a{color:#1664ff;text-decoration:none;font-size:12px}' +
+      '.lp-f select.kc-in{height:32px;background:#fff}.lp-f .seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5}.lp-f .seg button{height:28px;padding:0 12px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-f .seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}';
+    D.head.appendChild(st);
+  };
+  var pop = function (el, title, body, ok, done) {
+    popCss(); var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-pm'; var m = D.createElement('div'); m.className = 'lp-pp'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', title);
+    m.style.top = (r.bottom - lr.top + 8) + 'px'; var left = r.left - lr.left; if (left + 300 > lr.width - 8) left = r.right - lr.left - 300; m.style.left = Math.max(8, left) + 'px';
+    m.innerHTML = '<h4>' + esc(title) + '</h4><div class="lp-pb">' + body + '</div>' + (ok === false ? '' : '<div class="lp-pf"><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn pri" data-ok>' + esc(ok || '确定') + '</button></div>');
+    m.addEventListener('click', function (e) { e.stopPropagation(); var t = e.target;
+      if (t.hasAttribute('data-x')) { n.remove(); return; }
+      if (t.hasAttribute('data-ok')) { n.remove(); done ? done(m) : toast(el, '已保存'); return; }
+      if (t.classList.contains('kc-sw')) { t.classList.toggle('on'); return; }
+      if (t.parentElement && t.parentElement.classList.contains('seg')) { [].slice.call(t.parentElement.children).forEach(function (b) { b.classList.toggle('on', b === t); }); return; }
+      if (t.hasAttribute('data-go')) { n.remove(); go(el, t.getAttribute('data-go')); }
+    });
+    n.addEventListener('click', function () { n.remove(); }); n.appendChild(m); l.appendChild(n);
+    var f = m.querySelector('input'); if (f && f.type !== 'checkbox') f.focus(); return m;
+  };
+  var segH = function (xs, on) { return '<div class="seg">' + xs.map(function (x, i) { return '<button type="button" class="' + (i === (on || 0) ? 'on' : '') + '">' + esc(x) + '</button>'; }).join('') + '</div>'; };
+  var ckH = function (xs, on) { return xs.map(function (x, i) { return '<label class="ck"><input type="checkbox"' + (on === true || (on && on.indexOf(i) >= 0) ? ' checked' : '') + '>' + esc(x) + '</label>'; }).join(''); };
+  var swH = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b>' + (r[1] ? '<small>' + esc(r[1]) + '</small>' : '') + '</div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="' + esc(r[0]) + '"></button></div>'; }).join(''); };
+  var file = function (el, done) { var i = D.createElement('input'); i.type = 'file'; i.style.display = 'none'; i.addEventListener('change', function () { if (i.files && i.files[0]) done(i.files[0]); i.remove(); }); D.body.appendChild(i); i.click(); };
+  var DOCS = '../Docs.dc.html';
+  var prodOf = function () { var p = P || ''; return /^(Scdn|Main)/.test(p) ? 'scdn' : /^Ddos/.test(p) ? 'ddos' : /^Game/.test(p) ? 'game' : /^Eye/.test(p) ? 'eye' : /^Idc/.test(p) ? 'idc' : ''; };
+  // 表格表单：字段 = 表头（去掉 状态 / 操作 / 时间类），枚举列做成下拉
+  var SKIP = /^(状态|操作|更新时间|添加时间|创建时间|生成时间|发现时间|上次执行|下次执行|命中.*|近 24 小时|可用率|平均响应|最近一次异常|)$/;
+  var tableOf = function (el) {
+    var box = el.closest('.kc-pc,.kc-card,section') || el.closest('main');
+    var tb = box && box.querySelector('table'); if (!tb && el.closest('main')) tb = el.closest('main').querySelector('table'); return tb;
+  };
+  var tableForm = function (el, tb, row, title) {
+    var ths = [].slice.call(tb.querySelectorAll('thead th')); var trs = [].slice.call(tb.querySelectorAll('tbody tr'));
+    var cell = function (tr, i) { var c = tr && tr.children[i]; if (!c) return ''; var f = c.firstChild; return ((f && f.nodeType === 3 ? f.textContent : c.innerText.split('\n')[0]) || '').trim(); };
+    var f = ths.map(function (th, i) { return { i: i, n: txt(th) }; }).filter(function (c) { return !SKIP.test(c.n) && !ths[c.i].classList.contains('lf-ck'); });
+    var body = f.map(function (c) {
+      var vals = trs.map(function (tr) { return cell(tr, c.i); }).filter(Boolean); var uniq = vals.filter(function (v, k) { return vals.indexOf(v) === k; });
+      var v = row ? cell(row, c.i) : '';
+      var en = uniq.length > 1 && uniq.length <= 4 && uniq.length < trs.length && uniq.every(function (u) { return u.length <= 8; });
+      if (en) return '<label class="lp-f"><span>' + esc(c.n) + '</span><select class="kc-in">' + uniq.map(function (u) { return '<option' + (u === v ? ' selected' : '') + '>' + esc(u) + '</option>'; }).join('') + '</select></label>';
+      return '<label class="lp-f"><span>' + esc(c.n) + '</span><input class="kc-in" value="' + esc(v === '—' ? '' : v) + '" placeholder="' + esc(row ? '' : (vals[0] ? '例如 ' + vals[0] : '请输入')) + '"></label>';
+    }).join('');
+    popCss(); drawer(el, title, body, row ? '保存' : '确定', function () { toast(el, row ? '已保存，约 30 秒生效' : '已添加，约 30 秒生效'); });
+  };
+  var addTitle = function (t) { return t.replace(/^[＋+]\s*/, '').replace(/^(添加|新建)([A-Za-z0-9])/, '$1 $2'); };
+  var editTitle = function (tb, el) {
+    var adds = [].slice.call((el.closest('.kc-pc,.kc-card,section') || D).querySelectorAll('button,a')).map(txt).filter(function (x) { return /^[＋+]?\s*(添加|新建)/.test(x); });
+    var a = adds[0] || ''; var obj = a.replace(/^[＋+]?\s*(添加|新建)\s*/, '');
+    if (!obj) { var h0 = tb.querySelector('thead th:not(.lf-ck)'); obj = h0 ? txt(h0).split(/\s*[\/:：]\s*/)[0] : ''; }
+    return '编辑' + (/^[A-Za-z0-9]/.test(obj) ? ' ' : '') + obj;
+  };
+  var POPS = {
+    '到期提醒设置': ['到期提醒', ckH(['提前 30 天', '提前 15 天', '提前 7 天', '到期当天'], [0, 2, 3]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
+    '日志存储设置': ['日志存储', '<span class="lb">保留时长</span>' + segH(['30 天', '90 天', '180 天'], 0) + '<p style="margin:6px 0 0;color:#86909c;font-size:12px">超过 30 天按存储量计费，价格见计费说明。</p>'],
+    '监测设置': ['监测设置', swH([['漏洞扫描', '每天 02:00', true], ['篡改监测', '每 10 分钟', true], ['可用性', '每分钟', true], ['内容安全', '每 6 小时', false]])],
+    '通知设置': ['通知设置', swH([['高危风险', '立即通知', true], ['中危风险', '每天汇总一次', true], ['低危风险', '每周汇总一次', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1, 2])],
+    '订阅日报': ['订阅日报', swH([['每天 09:00 发送前一天报表', '', true]]) + '<span class="lb">接收人</span>' + ckH(['张三 · 管理员', '李四 · 运维', '王五 · 运维'], [0, 1])],
+    '订阅设置': ['订阅月报', swH([['每月 1 日自动生成上月报告', '', true]]) + '<span class="lb">发送给</span>' + ckH(['张三 · 管理员', '李四 · 运维'], [0])],
+    '发现设置': ['发现设置', swH([['子域名', '证书透明日志、DNS 记录', true], ['开放端口', '常见 1,000 个端口', true], ['备案信息', '同主体下的网站', true]])],
+    '告警设置': ['可用性告警', swH([['连续 3 次失败告警', '', true], ['响应超过 3 秒告警', '', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
+    '开启超额提醒': ['超额提醒', '<span class="lb">流量包用到</span>' + segH(['70%', '80%', '90%'], 1) + '<span class="lb">提醒方式</span>' + ckH(['站内信', '短信'], [0, 1])],
+    '选择地区': ['封禁地区', ckH(['境外（港澳台除外）', '香港', '澳门', '台湾'], [0])],
+    '应用到…': ['应用到', ckH(['www.example.com', 'shop.example.com', 'api.example.com', '端口 7000', '端口 7001-7004'], [1])],
+    '分组管理': ['分组管理', '<div class="li"><span>电商业务 · 12</span><a href="#">重命名</a></div><div class="li"><span>官网 · 8</span><a href="#">重命名</a></div><div class="li"><span>默认分组 · 16</span><span style="color:#a9aeb8;font-size:12px">默认</span></div><span class="lb">新建分组</span><input class="kc-in" placeholder="分组名称">'],
+    '节点详情': ['拨测节点', '<div class="li"><span>杭州 · 电信</span><span>132 ms</span></div><div class="li"><span>广州 · 电信</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>成都 · 移动</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>北京 · 联通</span><span>186 ms</span></div><div class="li"><span>上海 · 电信</span><span>118 ms</span></div>', false],
+    '回收站': ['回收站', '<div class="li"><span>旧版客户端 v2.1.0 · 10-12 删除</span><a href="#" data-ok>恢复</a></div><p style="margin:6px 0 0;color:#86909c;font-size:12px">删除 30 天后自动清除。</p>', false],
+    '管理白名单': ['白名单设备', '<div class="li"><span>7A21-0C3E-55D1 · 测试机</span><a href="#">移除</a></div><div class="li"><span>B904-61FE-2A07 · 主播</span><a href="#">移除</a></div><span class="lb">添加设备</span><input class="kc-in" placeholder="机器特征码">'],
+    '批量绑定': ['批量绑定', '<span class="lb">证书</span><select class="kc-in"><option>*.example.com · 2027-03-01</option><option>shop.example.com · 2026-11-06</option></select><span class="lb">绑定到</span>' + ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0, 2])],
+    '绑定': ['绑定到域名', ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0])],
+    '查看规则': ['规则（412 条）', '<div class="li"><span>SQL 注入 · 98 条</span></div><div class="li"><span>XSS · 76 条</span></div><div class="li"><span>命令注入 · 41 条</span></div><div class="li"><span>文件包含 · 37 条</span></div><div class="li"><span>其他 · 160 条</span></div>', false]
+  };
+  var NAVX = {
+    '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
+    '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
+    '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
+    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
+    '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
+  };
+  var ix = function (el, t) {
+    var key = t.split(' ')[0];
+    if (/\b(rw-add|sp-add|sp-del|dn-add|lf-ib|lu-cp)\b/.test(el.className)) return false;
+    // 行首名字：等同这一行的「编辑」
+    var trn = el.closest('tr');
+    if (trn && el.tagName === 'A' && el.closest('td') === trn.querySelector('td:not(.lf-ck)')) { var ed = [].slice.call(trn.querySelectorAll('a,button')).filter(function (b) { return /^(编辑|修改)$/.test(txt(b)); })[0]; if (ed) { ed.click(); return true; } }
+    // 资产指纹小卡：就地展开清单
+    if (el.classList.contains('kc-tile') || (t === '全部' && P === 'EyeAssetDetail')) {
+      var FP = { '开放端口': ['80 · HTTP', '443 · HTTPS', '22 · SSH', '3306 · MySQL（建议关闭对外）', '8080 · HTTP'], '子域名': ['www', 'shop', 'm', 'api', 'img', 'test（未监测）'], '网站指纹': ['Nginx 1.22', 'Vue 2.6', 'jQuery 3.4', 'Element UI'], '关联主机': ['192.0.2.60', '192.0.2.61'], '已爬取页面': ['/', '/list', '/item/1024', '/cart', '/login'], '外部链接': ['cdn.jsdelivr.net', 'hm.baidu.com', 'res.wx.qq.com'] };
+      var nm9 = t.replace(/\s*\d+$/, ''); var xs9 = FP[nm9] || [].concat.apply([], Object.keys(FP).map(function (k) { return [k + ' · ' + FP[k].length]; }));
+      pop(el, t === '全部' ? '资产指纹' : nm9, xs9.map(function (x) { return '<div class="li"><span>' + esc(x) + '</span></div>'; }).join(''), false); return true;
+    }
+    // 文档：去官网文档中心，带上当前产品
+    if (/^(接入文档|完整文档|接入指引|产品文档|查看接入文档)$/.test(t)) { window.open(DOCS + (prodOf() ? '?product=' + prodOf() : ''), '_blank', 'noopener'); return true; }
+    // 跳转
+    var nv = NAVX[t] || NAVX[key] || NAVX[Object.keys(NAVX).filter(function (k) { return k.length >= 4 && t.indexOf(k) >= 0; })[0]];
+    if (el.closest('.sw-p,.ps-l,.ps-r') || P === 'Switcher') { var nm = t.split(' ')[0]; nv = NAVX[nm] || NAVX[t] || 'AcctPurchase.dc.html'; }
+    if (nv && !(t === '查看' && P !== 'DdosTemplates') && !(t === '告警设置' && P === 'EyeUptime') && !(t === '费用' && P !== 'Switcher') && !(t === '用户中心' && P !== 'Switcher')) { go(el, nv); return true; }
+    // 气泡弹层
+    var pp = POPS[t] || POPS[key];
+    if (pp && !(t === '绑定' && P === 'OrgInfo')) { pop(el, pp[0], pp[1], pp[2], function () { toast(el, t === '回收站' ? '已恢复' : '已保存'); }); return true; }
+    if (t === '绑定' && P === 'OrgInfo') { pop(el, '绑定钉钉', '<p style="margin:4px 0 8px">用钉钉扫码完成绑定，绑定后可在钉钉群接收告警。</p><div style="width:120px;height:120px;margin:0 auto 4px;background:repeating-linear-gradient(45deg,#1d2129 0 4px,#fff 4px 8px);opacity:.85;border-radius:4px"></div>', '我已扫码', function () { var li = el.closest('li'); var tg = li && li.querySelector('.kc-tag'); if (tg) { tg.className = 'kc-tag ok'; tg.textContent = '已绑定'; } el.textContent = '解绑'; toast(el, '钉钉已绑定'); }); return true; }
+    if (t === '批量解绑') { confirmBox(el, '解绑选中的证书？', '解绑后这些域名改用默认证书，HTTPS 访问可能报错。', '解绑', true, function () { toast(el, '已解绑'); }); return true; }
+    // 就地操作
+    var tr = el.closest('tr');
+    if (/^(立即执行|立即扫描)$/.test(t)) { toast(el, t === '立即扫描' ? '已开始扫描，约 15 分钟完成' : '已开始执行，约 2 分钟完成'); return true; }
+    if (/^(暂停|恢复)$/.test(t) && tr) { var tg2 = tr.querySelector('.kc-tag'); var p2 = t === '暂停'; if (tg2) { tg2.className = 'kc-tag ' + (p2 ? 'mut' : 'ok'); tg2.textContent = p2 ? '已暂停' : '运行中'; } el.textContent = p2 ? '恢复' : '暂停'; toast(el, p2 ? '任务已暂停' : '任务已恢复'); return true; }
+    if (/^(加入监测|查看并加入)$/.test(t)) { if (tr) { tr.style.opacity = '.45'; el.textContent = '已加入'; el.style.pointerEvents = 'none'; } toast(el, '已加入监测，首次扫描约 10 分钟完成'); return true; }
+    if (t === '批量加入监测') { toast(el, '先勾选要加入的资产', 'info'); return true; }
+    if (t === '加入白名单') { if (tr) { el.textContent = '已加入白名单'; el.style.pointerEvents = 'none'; } toast(el, '已加入白名单，这台设备不再参与识别'); return true; }
+    if (t === '保存') { toast(el, '已保存，约 1 分钟生效'); return true; }
+    if (t === '发送测试告警') { toast(el, '测试告警已发给 3 位成员'); return true; }
+    if (t === '复制回源 IP 段') { try { var cp = navigator.clipboard.writeText('203.0.113.0/24, 198.51.100.0/24'); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} toast(el, '已复制回源 IP 段，请在源站防火墙放行'); return true; }
+    if (/^(导出 PDF|下载 PDF)$/.test(t)) { toast(el, '正在生成 PDF，完成后自动下载', 'info'); return true; }
+    if (t === '申请访问权限') { el.textContent = '已申请'; el.disabled = true; toast(el, '申请已发给企业管理员 张三'); return true; }
+    if (t === '清空') { var sec = el.closest('section,div'); if (sec) { [].slice.call(sec.querySelectorAll('a,li')).forEach(function (a) { if (a !== el) a.remove(); }); } toast(el, '已清空最近搜索'); return true; }
+    if (t === '申请' && P === 'SupDocs') { pop(el, '申请专属服务群', '<span class="lb">联系人</span><input class="kc-in" value="张三"><span class="lb">手机号</span><input class="kc-in" value="177****1234"><p style="margin:8px 0 0;color:#86909c;font-size:12px">客户经理会在 1 个工作日内加你微信并拉群。</p>', '提交申请', function () { toast(el, '已提交，客户经理会在 1 个工作日内联系你'); }); return true; }
+    if (t === '拨打') { location.href = 'tel:0577-26676666'; return true; }
+    if (t === '开始对话') { pop(el, '在线客服', '<p style="margin:4px 0 8px">工作日 9:00–21:00，平均 1 分钟内接入。</p><span class="lb">你想咨询</span>' + segH(['使用问题', '购买咨询', '账单发票']) + '<span class="lb">问题描述</span><input class="kc-in" placeholder="一句话说明问题">', '开始对话', function () { toast(el, '已为你接入在线客服'); }); return true; }
+    if (t === '1' && el.closest('.lf-pgr,.kc-pg,.lf-foot')) return true;
+    // 上传
+    if (/^(上传客户端|上传附件|批量导入)$/.test(t) || /最多 5 个|下载模板/.test(t)) {
+      if (/下载模板/.test(t) && el.tagName === 'A') { toast(el, '模板已下载'); return true; }
+      file(el, function (f) { toast(el, (t === '批量导入' ? '已读取 ' : '已上传 ') + f.name); }); return true;
+    }
+    // 表格表单：添加 / 新建 与 编辑 / 修改 用同一张表
+    var liveAdd = [].slice.call(((el.closest('.kc-main') || D).querySelectorAll('.kc-hd button, .kc-bar button, .kc-hd a, .kc-bar a'))).some(function (b) { return /^[+＋]?\s*(添加|新建)/.test(txt(b)) && live(b); });
+    if (/^(编辑|修改)$/.test(t) && tr && !liveAdd) { var tb3 = tr.closest('table'); if (tb3) { tableForm(el, tb3, tr, editTitle(tb3, el)); return true; } }
+    if (/^[＋+]?\s*(添加|新建)/.test(t) && !el.closest('.lp-layer')) { var tb4 = tableOf(el); if (tb4) { tableForm(el, tb4, null, addTitle(t)); return true; } }
+    return false;
+  };
+  var act = function (el, e) {
+    if (el.classList.contains('lu-cp')) { try { var cp = navigator.clipboard.writeText(el.getAttribute('data-v')); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} el.classList.add('ok'); setTimeout(function () { el.classList.remove('ok'); }, 1600); toast(el, '已复制成员登录地址'); return; }
+    var t = txt(el); var pg = el.closest('[data-pg]'); P = pg ? pg.getAttribute('data-pg') : page(); var NAV = nav();
+    if (el.getAttribute('aria-current') === 'page' || el.classList.contains('on') && el.closest('.kc-pg')) return;
+    // 切换账号：同一登录身份下的企业 / 角色列表，选中即切换（77，2026-10-28）
+    if (t === '切换账号') { acctSwitch(el); return; }
+    if (ix(el, t)) return;
+    // seg109：分段按钮、静态页签（非 React）= 组内切换选中，不弹抽屉
+    var grp = el.closest('.pg-seg,.dn-seg,.kc-sg,.st-tabs,[role=group]');
+    if (grp && el.parentElement === grp && !live(el)) {
+      [].slice.call(grp.children).forEach(function (b) { var on = b === el; b.classList.toggle('on', on); if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', on ? 'true' : 'false'); if (b.getAttribute('role') === 'tab') b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      if (grp.classList.contains('st-tabs')) { var k9 = el.getAttribute('data-st'); [].slice.call(grp.parentElement.querySelectorAll(':scope > .st-p')).forEach(function (p) { p.hidden = p.getAttribute('data-st') !== k9; });
+        var kids9 = [].slice.call(D.querySelectorAll('.kc-side .kc-ki')), lab9 = txt(el).replace(/\s*\d[\d,]*$/, ''); if (kids9.some(function (x) { return txt(x) === lab9; })) kids9.forEach(function (x) { x.classList.toggle('on', txt(x) === lab9); });
+        try { if (/\.dc\.html$/.test(location.pathname)) { var u9 = new URL(location.href); if (k9 === grp.children[0].getAttribute('data-st')) u9.searchParams.delete(grp.getAttribute('data-key') || 'tab'); else u9.searchParams.set(grp.getAttribute('data-key') || 'tab', k9); history.replaceState(null, '', u9); } } catch (x) {} }
+      return;
+    }
+    // rows108：可重复的表单行（源服务器等）「+ 添加」在下面加一行，× 删掉这一行，不弹抽屉（77，2026-10-28）
+    var fr = el.closest('.kc-fr');
+    var rowsOf = function (f) { return [].slice.call(f.querySelectorAll('.kc-src')).filter(function (r) { return !r.classList.contains('kc-hint') && r.style.display !== 'none'; }); };
+    var cnt = function (f) { var a = f.querySelector('.rw-add'), c = f.querySelector('.rw-cnt'), n = rowsOf(f).length, mx = +(a && a.getAttribute('data-max') || 5); if (c) c.textContent = '（已添加 ' + n + ' / ' + mx + ' 台）'; if (a) a.classList.toggle('rw-off', n >= mx); };
+    if (fr && el.classList.contains('rw-add')) {
+      var rs = rowsOf(fr), mx = +(el.getAttribute('data-max') || 5);
+      if (rs.length >= mx) { toast(el, '最多添加 ' + mx + ' 台源服务器', 'warn'); return; }
+      var nr = rs[rs.length - 1].cloneNode(true), ins = nr.querySelectorAll('input');
+      ins[0].value = ''; ins[0].placeholder = '例如 192.0.2.62 : 7000'; ins[0].setAttribute('aria-label', '源服务器 ' + (rs.length + 1));
+      if (ins[1]) ins[1].value = '50'; if (ins[2]) ins[2].value = String(rs.length + 1);
+      nr.classList.add('rw-new'); var lr = rs[rs.length - 1]; lr.parentNode.insertBefore(nr, lr.nextSibling); cnt(fr); ins[0].focus(); return;
+    }
+    // 表格 / 条件列表下面的「+ 添加…」（sp-add）同样在下面加一行；「删除」（sp-del）删掉这一行
+    var vis = function (r) { return r.style.display !== 'none'; };
+    var spRows = function (host) {
+      var box = host.previousElementSibling; if (!box) return [];
+      var tb = box.matches('table') ? box : box.querySelector('table');
+      if (tb) return [].slice.call(tb.querySelectorAll('tbody > tr')).filter(vis);
+      return [].slice.call(box.querySelectorAll('.sp-del')).map(function (b) { return b.parentElement; }).filter(vis);
+    };
+    if (el.classList.contains('sp-add')) {
+      var host = el.closest('.sp-rf') || el.closest('p') || el.parentElement, rs2 = spRows(host);
+      var m2 = (host.textContent.match(/最多\s*(\d+)/) || [])[1], max2 = m2 ? +m2 : 20;
+      if (!rs2.length) return;
+      if (rs2.length >= max2) { toast(el, '最多 ' + max2 + ' 条', 'warn'); return; }
+      var last = rs2[rs2.length - 1], nr2 = last.cloneNode(true);
+      [].slice.call(nr2.querySelectorAll('input[type=text],input:not([type])')).forEach(function (i, k) { if (!i.closest('.sp-num')) { i.placeholder = i.value || i.placeholder; i.value = ''; } });
+      [].slice.call(nr2.querySelectorAll('.kc-sw.on')).forEach(function (w) { w.classList.remove('on'); w.setAttribute('aria-checked', 'false'); });
+      nr2.classList.add('rw-new'); last.parentNode.insertBefore(nr2, last.nextSibling);
+      var f2 = nr2.querySelector('input'); if (f2) f2.focus(); return;
+    }
+    if (el.classList.contains('sp-del')) {
+      var r2 = el.closest('tr') || el.parentElement, h2 = r2.closest('table') ? (r2.closest('table').closest('div') || r2.closest('table')).nextElementSibling : r2.parentElement.nextElementSibling;
+      var all = r2.closest('table') ? [].slice.call(r2.closest('tbody').children).filter(vis) : [].slice.call(r2.parentElement.querySelectorAll('.sp-del')).map(function (b) { return b.parentElement; }).filter(vis);
+      if (all.length <= 1) { toast(el, '至少保留 1 条', 'warn'); return; }
+      if (r2.classList.contains('rw-new')) r2.remove(); else r2.style.display = 'none';
+      return;
+    }
+    // 告警设置：添加成员 = 从企业成员里选（轻量菜单），添加 Webhook = 下面加一行填地址
+    if (el.classList.contains('dn-add') && el.closest('.dn-rcp')) {
+      var list = el.closest('.dn-rcp');
+      menu(el, [['赵六 · 运维', function () { addR('赵', '赵六', '运维 · 135****2468'); }], ['钱七 · 财务', function () { addR('钱', '钱七', '财务 · 150****1357'); }]]);
+      var addR = function (a, n, d) { var x = D.createElement('div'); x.className = 'rw-new'; x.innerHTML = '<span class="dn-av">' + a + '</span><div><b>' + n + '</b><small>' + d + '</small></div><span class="dn-ch"><i>站内信</i></span>'; list.insertBefore(x, el); toast(el, '已添加 ' + n + '，默认只发站内信'); };
+      return;
+    }
+    if (el.classList.contains('dn-add') && t.indexOf('Webhook') >= 0) {
+      var w = D.createElement('div'); w.className = 'kc-sw-row rw-new';
+      w.innerHTML = '<div style="flex:1"><input class="kc-in" style="width:100%" type="text" aria-label="Webhook 地址" placeholder="粘贴企业微信、钉钉或飞书群机器人的 Webhook 地址"></div><button class="kc-sw on" type="button" role="switch" aria-checked="true" aria-label="Webhook 开关"></button>';
+      el.parentNode.insertBefore(w, el); w.querySelector('input').focus(); return;
+    }
+    if (fr && el.classList.contains('kc-x') && el.closest('.kc-src')) {
+      var r = el.closest('.kc-src');
+      if (rowsOf(fr).length <= 1) { toast(el, '至少保留 1 台源服务器', 'warn'); return; }
+      if (r.classList.contains('rw-new')) r.remove(); else r.style.display = 'none';
+      cnt(fr); return;
+    }
+    // 分页
+    if (el.closest('.kc-pg') || /^(上一页|下一页|‹|›)$/.test(t)) { toast(el, /上一|‹/.test(t) ? '已经是第一页' : '已经是最后一页', 'info'); return; }
+    // 开关
+    if (el.classList.contains('kc-sw')) { var on = el.classList.toggle('on'); el.setAttribute('aria-checked', on ? 'true' : 'false'); toast(el, on ? '已开启，约 30 秒生效' : '已关闭，约 30 秒生效'); return; }
+    // 标签、分段
+    if (el.classList.contains('kc-tab') || el.getAttribute('role') === 'tab') {
+      segToggle(el); var card = el.closest('.kc-card'); var key = t.replace(/\s*\d+$/, '').replace(/\s*\(\d+\)$/, '');
+      var SW = { '按端口': ['端口', ['203.0.113.10:7000', '1.2 Gbps', '1.6 Gbps', '—', '—', '0%'], ['203.0.113.10:7101', '0.9 Gbps', '1.3 Gbps', '—', '—', '0.01%'], ['203.0.113.10:8443', '0.2 Gbps', '0.4 Gbps', '—', '—', '3.2%'], ['203.0.113.10:9000', '0.1 Gbps', '0.2 Gbps', '—', '—', '0%']] };
+      var tbd = card && card.querySelector('tbody'); var th0 = card && card.querySelector('thead th');
+      if (tbd && !tbd.__lp0) { tbd.__lp0 = tbd.innerHTML; th0.__lp0 = th0.textContent; }
+      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="DdosLogs.dc.html">日志</a></td></tr>'; }).join(''); return; }
+      if (tbd && tbd.__lp0 && /^按/.test(key)) { tbd.innerHTML = tbd.__lp0; th0.textContent = th0.__lp0; return; }
+      var rows = card ? [].slice.call(card.querySelectorAll('tbody tr:not(.lp-empty)')) : []; var shown = 0;
+      rows.forEach(function (tr) { var hit = /^全部/.test(key) || txt(tr).indexOf(key.replace(/^按/, '')) >= 0; tr.style.display = hit ? '' : 'none'; if (hit) shown++; });
+      if (card && rows.length) { var em = card.querySelector('tbody .lp-empty'); if (em) em.remove(); if (!shown) { var tb = card.querySelector('tbody'); var tr = D.createElement('tr'); tr.className = 'lp-empty'; tr.innerHTML = '<td colspan="20">「' + esc(key) + '」下暂时没有数据</td>'; tb.appendChild(tr); } }
+      return;
+    }
+    if (el.closest('.kc-sg') || el.parentElement && el.parentElement.querySelector(':scope > .on') && el.tagName === 'BUTTON' && !el.closest('.kc-btns')) {
+      segToggle(el); var cd = el.closest('.kc-card'); var bars = cd ? cd.querySelectorAll('.kc-spark i') : [];
+      [].forEach.call(bars, function (b, i) { b.style.height = (24 + Math.round(60 * Math.abs(Math.sin((i + 1) * (t.length + 1) * 0.7)))) + '%'; });
+      if (!bars.length) toast(el, '已切换到「' + t + '」', 'info'); return;
+    }
+    // 跳转
+    var href = NAV[t] || regNav(t);
+    if (!href && /^(攻击报表|访问分析|趋势|日志|详情)$/.test(t)) href = ctxPage(t === '日志' ? 'log' : t === '攻击报表' ? 'rep' : 'ana');
+    if (!href && t === '进入控制台') { var rt = txt(row(el) || el.parentElement || el); var hit = PROD.find(function (x) { return rt.indexOf(x[0]) >= 0; }); if (hit) href = hit[1]; else { toast(el, '该产品控制台已在新窗口打开', 'info'); return; } }
+    if (!href && el.tagName === 'A' && el.closest('tbody td') && DETAIL[P] && el.closest('td') === el.closest('tr').querySelector('td:not(.lf-ck)')) href = DETAIL[P];
+    if (href) { e.preventDefault(); go(el, href); return; }
+    // 详情页：修改 → 对应标签
+    if (/^(修改|在「访问统计」页签查看这个域名的数据)$/.test(t) && D.querySelector('.kc-dtabs')) {
+      var b = row(el) && row(el).querySelector('b'); var nm = b ? txt(b) : '访问统计'; if (nm === '缓存') nm = '缓存配置'; if (nm === '访问控制') nm = '防护策略';
+      if (tabClick(nm)) return;
+    }
+    var nm2 = rowName(el);
+    // 确认类
+    if (t === '改为拦截') { confirmBox(el, '把 ' + (nm2 || '该域名') + ' 的 CC 规则改为拦截？', '当前规则只记录不拦截，改为拦截后，命中规则的请求会被直接拦下。约 30 秒全网生效，可随时改回。', '改为拦截', false, function () { var al = [].slice.call(D.querySelectorAll('a,button')).find(function (x) { return x !== el && txt(x) === '改为拦截' && live(x); }); if (al) { al.click(); return; } el.textContent = '已拦截'; el.style.color = '#86909c'; toast(el, '已改为拦截，约 30 秒生效'); }); return; }
+    if (/^(删除|解绑|拒绝|踢下线|全部踢下线|退出登录|加入黑名单|封禁|移除|取消|删除域名|暂停加速|暂停监测)$/.test(t)) {
+      var danger = !/^(取消)$/.test(t); var title = t === '取消' ? '取消这笔订单？' : (t + (nm2 ? '「' + nm2 + '」' : '') + '？');
+      var desc = { '删除': '删除后无法恢复。', '解绑': '解绑后该域名改用默认证书，访问可能出现不安全提示。', '踢下线': '设备会立即断开，可重新连接。', '全部踢下线': '所有在线设备会立即断开。', '退出登录': '', '加入黑名单': '该 IP 之后的请求都会被拦截。', '封禁': '该 IP 之后的请求都会被拦截。', '取消': '取消后订单关闭，已付款项原路退回。', '拒绝': '对方会收到拒绝通知。' }[t] || '';
+      confirmBox(el, title, desc, t === '取消' ? '取消订单' : t, danger, function () {
+        var rw = el.closest('tr'); if (rw && /删除|移除|删除域名/.test(t)) { rw.classList.add('lp-gone'); setTimeout(function () { rw.remove(); }, 200); }
+        toast(el, t === '退出登录' ? '已退出' : '已' + t);
+      }); return;
+    }
+    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
+    if (/^清除缓存$/.test(t)) { confirmBox(el, '清除' + (nm2 && /\./.test(nm2) ? ' ' + nm2 + ' 的' : '') + '缓存？', '清除后首批请求会回源，源站压力会短暂上升。', '清除缓存', false, function () { toast(el, '已提交，约 5 分钟全网生效'); }); return; }
+    // 提示类
+    var TO = { '刷新': '已刷新，数据更新于刚刚', '导出': '导出任务已创建，生成后在「消息」里下载', '导出报表': '报表生成中，完成后在「消息」里下载', '生成报告': '报告生成中，约 1 分钟后可在「报告」里查看',
+      '复制': '已复制', '复制全部': '已复制全部汇款信息', '下载': '已开始下载', '下载电子合同': '已开始下载', '下载模板': '已开始下载', '下载付款说明模板': '已开始下载', '预览': '已在新窗口打开预览',
+      '立即监测': '已开始监测，约 3 分钟出结果', '重新检测': '已开始检测', '忽略': '已忽略，可在「已忽略」里恢复', '已修复': '已标记为已修复，下次监测时复核', '误报': '已标记为误报，规则会自动调优',
+      '加白': '已加入白名单，约 30 秒生效', '远程控制台': '远程控制台已在新窗口打开', '重试': '已重试', '刷新开通状态': '已刷新，产品已开通', '重新封装': '已开始重新封装，约 10 分钟完成',
+      '全部已读': '已全部标为已读', '搜索': '已搜索', '订阅异常通知': '已订阅，异常时短信和站内信通知', '恢复默认': '已恢复默认设置', '银行回单.jpg': '已在新窗口打开回单', '0577-26676666': '客服热线 0577-26676666（7×24 小时）' };
+    if (TO[t]) { if (t === '忽略' || t === '已修复' || t === '误报' || t === '加白') { var rr = el.closest('tr'); if (rr) rr.classList.add('lp-done'); } toast(el, TO[t]); return; }
+    if (t === '上移') { var rw2 = row(el); if (rw2 && rw2.previousElementSibling) { rw2.parentElement.insertBefore(rw2, rw2.previousElementSibling); toast(el, '已上移，优先级 +1'); } else toast(el, '已经是第一条', 'info'); return; }
+    if (/^(显示真实 IP|自动更新)$/.test(t)) { var tg = el.classList.toggle('on'); toast(el, (tg ? '已开启' : '已关闭') + t.replace('显示', '')); return; }
+    // 菜单
+    if (t === '更多') {
+      var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'ScdnStats.dc.html'); }], ['拦截记录', function () { go(el, 'ScdnBlocks.dc.html'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['防护策略', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
+        : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
+      menu(el, items); return;
+    }
+    // 抽屉类
+    if (/批量导入|上传/.test(t)) { drawer(el, t, upload(t.indexOf('附件') >= 0 ? '截图、日志或报错信息，最多 5 个，单个 20 MB 以内' : t.indexOf('证书') >= 0 ? '上传证书文件（.pem / .crt）和私钥（.key）' : '点击或拖拽文件到这里上传'), '确定', function () { toast(el, t.indexOf('导入') >= 0 ? '已导入 12 条' : '已上传'); }); return; }
+    if (t === '列设置') { colPop(el); return; }
+    if (/^(监测设置|通知设置|到期提醒设置|日志存储设置|告警联系人)/.test(t)) {
+      var B = { '监测设置': sw([['漏洞扫描', '每天 02:00', true], ['网页篡改', '每 10 分钟', true], ['暗链 / 挂马', '每小时', true], ['可用性', '每 1 分钟，3 个地区', true], ['敏感内容', '每天', false]]),
+        '通知设置': sw([['严重 / 高危风险', '短信 + 站内信', true], ['中危风险', '站内信', true], ['低危风险', '每周汇总', false]]),
+        '到期提醒设置': sw([['到期前 30 天', '站内信', true], ['到期前 7 天', '短信 + 站内信', true], ['到期当天', '短信 + 电话', true]]),
+        '日志存储设置': '<label class="lp-f"><span>保存时长</span><input class="kc-in" value="180 天"></label>' + sw([['推送到日志服务', '实时推送攻击日志', false]]),
+        '告警联系人': sw([['张三 · 177****1234', '短信 + 站内信', true], ['李四 · 139****5678', '站内信', true], ['王五 · 186****9012', '短信', true]]) + '<p class="lp-hint"><a href="OrgMembers.dc.html">在成员管理里添加联系人</a></p>' };
+      drawer(el, t.replace(/\s*\d+$/, ''), B[t.replace(/\s*\d+$/, '')] || sw([['开启', '', true]])); return;
+    }
+    if (/^(分组管理)$/.test(t)) { drawer(el, '分组管理', ['商城', '官网', '移动站', '未分组'].map(function (g) { return '<label class="lp-f"><span>分组</span><input class="kc-in" value="' + g + '"></label>'; }).join('') + '<p class="lp-hint"><a href="#" onclick="return false">+ 新建分组</a></p>'); return; }
+    if (/^(绑定|批量绑定|批量解绑|应用到…)$/.test(t)) { drawer(el, t === '应用到…' ? '应用到域名' : t, '<p class="lp-hint">选择要' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '的域名</p>' + ['shop.example.com', 'pay.example.com', 'www.example.com', 'm.example.com', 'api.example.com'].map(function (d, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 2 ? 'checked' : '') + '> ' + d + '</label>'; }).join(''), '确定', function () { toast(el, '已' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '，约 30 秒生效'); }); return; }
+    // edit108：列表行的「编辑」复用本页的新建表单（同一个抽屉，标题改成「编辑…」，带上这一行的值），不再弹通用抽屉（77，2026-10-28）
+    if (/^(编辑|修改)$/.test(t) && el.closest('tr')) {
+      var mainEl = el.closest('.kc-main') || root(el);
+      var mk = [].slice.call(mainEl.querySelectorAll('.kc-hd button, .kc-hd a, .kc-bar button, .kc-bar a')).filter(function (b) { return /^[+＋]?\s*(添加|新建)/.test(txt(b)) && live(b); })[0];
+      if (mk) {
+        var tr = el.closest('tr'), cells = [].slice.call(tr.children).map(function (c) { return c.innerText.trim(); });
+        mk.click();
+        setTimeout(function () {
+          var dw = root(el).querySelector('.kc-dw'); if (!dw) return;
+          var h = dw.querySelector('.kc-dwh'); if (h && h.firstChild && h.firstChild.nodeType === 3) h.firstChild.textContent = h.firstChild.textContent.replace(/^(添加|新建)/, '编辑');
+          dw.setAttribute('aria-label', (dw.getAttribute('aria-label') || '').replace(/^(添加|新建)/, '编辑'));
+          var ok = dw.querySelector('.kc-dwf .pri'); if (ok) ok.textContent = '保存';
+          var vp = (cells[0] || '').split(/\s*:\s*/), ipIn = dw.querySelector('input[aria-label="虚拟 IP"]'), ptIn = dw.querySelector('input[aria-label="客户端端口"]');
+          if (ipIn && vp.length > 1) { ipIn.value = vp[0]; if (ptIn) ptIn.value = vp[1]; }
+          var src = dw.querySelectorAll('.kc-src:not(.kc-hint)');
+          if (src.length && cells[1]) {
+            var lines = cells[1].split('\n'), a1 = lines[0].trim(), m = (lines[1] || '').match(/(\d+\.\d+\.\d+\.\d+)/);
+            src[0].querySelector('input').value = a1;
+            if (src[1]) { if (m) src[1].querySelector('input').value = m[1] + ' : ' + (a1.split(':')[1] || '').trim(); else src[1].style.display = 'none'; }
+            var f3 = src[0].closest('.kc-fr'); var c3 = f3 && f3.querySelector('.rw-cnt'); if (c3) c3.textContent = '（已添加 ' + (m ? 2 : 1) + ' / 5 台）';
+          }
+          var lbB = dw.querySelector('.kc-dd[data-dd] b'); if (lbB && /模式$/.test(cells[2] || '')) lbB.textContent = cells[2];
+          var rsw = tr.querySelector('[role=switch]'), dsw = dw.querySelector('.kc-sw'); if (rsw && dsw) { var on3 = rsw.getAttribute('aria-checked') === 'true'; dsw.classList.toggle('on', on3); dsw.setAttribute('aria-checked', on3 ? 'true' : 'false'); }
+          var ct = cells[3]; if (ct) [].slice.call(dw.querySelectorAll('.kc-sg button')).forEach(function (b) { if (b.textContent === 'PC 客户端' || b.textContent === '移动端') b.classList.toggle('on', b.textContent === ct); });
+        }, 60);
+        return;
+      }
+    }
+    if (/^(编辑|修改|新建模板|添加域名|编辑配置|＋ 添加入口|\+ 添加源站|添加源站|查看规则|301 重定向)$/.test(t) || /^(新建|添加|新增)/.test(t)) {
+      var title2 = (t === '修改' || t === '编辑' || t === '编辑配置') && nm2 ? '修改「' + nm2 + '」' : t.replace(/^[＋+]\s*/, '');
+      drawer(el, title2, /^(新建|添加|新增|＋|\+)/.test(t) ? '<label class="lp-f"><span>名称</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>内容</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>' : formFor(el, t), /^(新建|添加|新增|＋|\+)/.test(t) ? '创建' : '保存'); return;
+    }
+    // 名字、条目：打开详情抽屉
+    if (el.tagName === 'A' || el.closest('td,li')) { drawer(el, t.length > 24 ? t.slice(0, 24) + '…' : t, formFor(el, t), '关闭', function () {}); return; }
+    drawer(el, t, '<p class="lp-hint">' + esc(t) + '</p>' + formFor(el, t));
+  };
+  // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
+  var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
+    '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护策略': ['大促模式', '默认防护', '官网默认'] };
+  var flAdd = function (tok, k, v) {
+    [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
+    var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';
+    tok.insertBefore(c, tok.querySelector('.lf-ph'));
+  };
+  var flReset = function (pop) { if (pop.__orig != null) { pop.innerHTML = pop.__orig; pop.__orig = null; } };
+  D.addEventListener('click', function (e) {
+    var x = e.target.closest && e.target.closest('.lf-chip i');
+    if (x) { e.preventDefault(); e.stopPropagation(); var c = x.closest('.lf-chip'); if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; return; }
+    var b = e.target.closest && e.target.closest('.lf-pop button'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var pop = b.closest('.lf-pop'), tok = b.closest('.lf-tok');
+    if (b.classList.contains('fl-back')) { flReset(pop); return; }
+    if (b.hasAttribute('data-fv')) { flAdd(tok, pop.getAttribute('data-fk'), b.getAttribute('data-fv')); flReset(pop); if (D.activeElement) D.activeElement.blur(); return; }
+    var k = txt(b), vs = FV[k]; if (pop.__orig == null) pop.__orig = pop.innerHTML; pop.setAttribute('data-fk', k);
+    var kb = pop.querySelector('.lf-kb'); var foot = kb ? kb.outerHTML : '';
+    pop.innerHTML = '<div class="lf-pt fl-hd"><button type="button" class="fl-back" aria-label="返回">‹</button>' + esc(k) + '</div>' +
+      (vs ? vs.map(function (v) { return '<button type="button" data-fv="' + esc(v) + '">' + esc(v) + '</button>'; }).join('')
+          : '<div class="fl-inw"><input class="kc-in fl-in" type="text" aria-label="' + esc(k) + '" placeholder="输入' + esc(k) + '，回车添加"></div>') + foot;
+    tok.focus();
+    var inp = pop.querySelector('.fl-in'); if (inp) { inp.focus(); inp.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' && inp.value.trim()) { flAdd(tok, k, inp.value.trim()); flReset(pop); inp.blur(); } if (ev.key === 'Escape') { flReset(pop); inp.blur(); } }); }
+    else { var f = pop.querySelector('[data-fv]'); if (f) f.focus(); }
+  }, true);
+  D.addEventListener('focusout', function (e) { var tok = e.target.closest && e.target.closest('.lf-tok'); if (!tok) return; setTimeout(function () { if (!tok.contains(D.activeElement)) { var pop = tok.querySelector('.lf-pop'); if (pop) flReset(pop); } }, 0); });
+  D.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('a,button,[role=tab],[role=button],[role=switch]');
+    if (!el || !el.isConnected || el.closest('.lp-layer') || el.disabled || /\bdis\b/.test(el.className) || live(el)) return;
+    if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
+    e.preventDefault(); act(el, e);
+  }, false);
+})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); Object.assign(o, this._ce()); Object.assign(o, this._sa()); Object.assign(o, this._tc()); return o; }
+  _hdr() {
+    const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
+    const M = [
+      ['安全', '高防-002 正在遭受 UDP Flood 攻击', '峰值 86 Gbps，已超过保底 80 Gbps', '10:12', 'DdosInstances.dc.html', 1],
+      ['产品', '德迅云眼发现 3 个高危风险', '其中 www.example.com 首页被植入暗链', '09:40', 'EyeRisk.dc.html', 1],
+      ['费用', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPayFix.dc.html', 1],
+      ['费用', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'BillInvoice.dc.html', 0],
+      ['账号', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'OrgSecurity.dc.html', 0],
+      ['产品', 'SCDN 证书 8 天后到期', 'shop.example.com', '10-23', 'ScdnDomainDetail.dc.html', 0]
+    ];
+    const read = !!st.allRead; const mt = st.mt || '全部';
+    const msgs = M.filter((m) => mt === '全部' || m[0] === mt).map(([c, t, s, d, href, u]) => ({ c, t, s, d, href, dot: u && !read ? 'u' : '', lc: u && !read ? '' : 'read' }));
+    const unread = read ? 0 : M.filter((m) => m[5]).length;
+    const mtabs = ['全部', '安全', '费用', '产品'].map((n) => ({ n, cls: n === mt ? 'on' : '', go: () => this.setState({ mt: n }) }));
+    const B = (v) => 'ac-tb' + (v === 'me' ? ' me' : '') + (dd === v ? ' on' : '');
+    return { feeOn: dd === 'fee', msgOn: dd === 'msg', meOn: dd === 'me', any: !!dd, feeEx: dd === 'fee' ? 'true' : 'false', msgEx: dd === 'msg' ? 'true' : 'false', meEx: dd === 'me' ? 'true' : 'false',
+      feeCls: B('fee'), msgCls: B('msg'), meCls: B('me'), fee: set('fee'), msg: set('msg'), me: set('me'), close: () => this.setState({ dd: '' }),
+      msgs, mtabs, unread, hasUnread: unread > 0, readAll: () => this.setState({ allRead: true }) };
+  }
+  /* /hdr62 */
+  _rv() {
+    const cur = '总览';
+    const pages = { '总览': 'ConsoleHome.dc.html', '我的产品': 'AcctProducts.dc.html', '费用': 'BillOverview.dc.html', '企业': 'OrgInfo.dc.html' };
+    const st = this.state || {};
+    const noop = () => {};
+    const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
+    const K = (k) => { const t = Array.isArray(k) ? k[0] : k; return { t, ext: Array.isArray(k) ? k[1] : '', href: pages[t] || '#', cls: t === cur ? 'kc-ki on' : 'kc-ki' }; };
+    const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
+      return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
+    const nav = [
+      { label: '', items: [L("总览", 'grid'), L("我的产品", 'box'), L("费用", 'doc'), L("企业", 'users')] }
+    ];
+    const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
+      return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
+    // nav101
+    const __qs = (() => { try { return /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search) : null; } catch (x) { return null; } })();
+    const TABS = (defs, rows, key, dflt) => { const __uq = __qs && __qs.get(key); const __ud = __uq ? defs.find((d) => d[1] === __uq || d[0] === __uq) : null; const cur = st[key] || (__ud && __ud[0]) || dflt || defs[0][0];
+      const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => { this.setState({ [key]: n }); try { if (__qs) { const u = new URL(location.href); if (k) u.searchParams.set(key, k); else u.searchParams.delete(key); history.replaceState(null, '', u); } } catch (x) {} } }; });
+      const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
+      return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
+    const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
+
+    const rt = st.rt || 0; const R = {};
+    for (let i = 0; i < 5; i++) { R['rs' + i] = rt === i; R['rc' + i] = rt === i ? 'on' : ''; R['rp' + i] = () => this.setState({ rt: i }); }
+
+    return Object.assign({ nav }, R);
+  }
+}
+</script>
+</body>
+</html>
