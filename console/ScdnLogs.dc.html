@@ -1,0 +1,1328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>高级配置</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/dexun/tokens.css">
+<link rel="stylesheet" href="ds/dexun/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&display=swap" data-r91>
+<style>
+/* /idc67 */
+
+/* scdn85：SCDN 功能页 */
+.sp-desc{margin:-8px 0 16px;font-size:12px;color:rgba(0,0,0,.5);max-width:880px}
+.sp-tabs button{position:relative;padding:0 0 12px;border:0;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.7);cursor:pointer;white-space:nowrap}
+.sp-tabs button:hover{color:#1664ff}
+.sp-tabs button.on{color:#1664ff;font-weight:500}
+.sp-tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#1664ff}
+.sp-card{margin-bottom:16px}
+.sp-card .kc-tw{margin:0 !important}
+.sp-ch{display:flex;align-items:flex-start;gap:12px;padding:16px 20px 4px}
+.sp-ch > div{flex:1;min-width:0}
+.sp-ch b{font-size:12px;font-weight:500;color:rgba(0,0,0,.9)}
+.sp-ch p{margin:4px 0 0;font-size:12px;color:rgba(0,0,0,.5)}
+.sp-bar{display:flex;align-items:center;gap:8px;padding:16px 20px !important;flex-wrap:wrap}
+.sp-bar .sp-sp{flex:1}
+.sp-bar .lf-q .kc-in{height:32px;padding:0 10px}
+.sp-nm{font-weight:500;color:rgba(0,0,0,.9)}
+.sp-sum{color:rgba(0,0,0,.7);font-size:12px}
+.sp-objs{display:inline-flex;align-items:center;gap:6px;color:rgba(0,0,0,.9)}
+.sp-objs em{font-style:normal;font-size:12px;color:rgba(0,0,0,.7);background:#f2f4f8;border-radius:0;padding:0 7px;line-height:20px}
+.sp-ops{display:inline-flex;gap:16px;white-space:nowrap}
+.sp-ops a{color:#1664ff;text-decoration:none;font-size:12px}
+.sp-ops a.r{color:#cb2634}
+.sp-ops a.m{color:rgba(0,0,0,.5)}
+.sp-mono{font-family:"JetBrains Mono",Menlo,monospace;font-size:12px;color:rgba(0,0,0,.9)}
+.sp-cb{display:inline-block;width:16px;height:16px;border:1px solid #bcc4d0;border-radius:0;background:#fff;box-sizing:border-box;vertical-align:-3px;position:relative;flex-shrink:0}
+.sp-cb.on{background:#1664ff;border-color:#1664ff}
+.sp-cb.on::after{content:"";position:absolute;left:4.5px;top:1.5px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+/* 抽屉表单 */
+.ac-drw .bd{padding:0 !important}
+.sp-sec{padding:18px 24px 6px;border-bottom:1px solid #f2f4f8}
+.sp-sec:last-child{border-bottom:0}
+.sp-sec > header,.ac-drw .sp-sec > header{display:flex;align-items:baseline;gap:10px;margin:0 0 14px;padding:0;border:0;flex-wrap:wrap;background:none}
+.sp-sec > header h4{flex:0 0 auto;margin:0;font-size:12px;font-weight:500;color:rgba(0,0,0,.9)}
+.sp-sec > header p{margin:0;font-size:12px;color:rgba(0,0,0,.5);flex:1;min-width:200px}
+.sp-sec .dt-f{grid-template-columns:120px minmax(0,1fr);align-items:start}
+.sp-sec .dt-f > span{line-height:32px}
+.sp-sec .dt-f > div{min-height:32px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.sp-sec .dt-f .kc-hint{grid-column:2;margin:-6px 0 0;font-size:12px;color:rgba(0,0,0,.5)}
+.sp-sec .dt-f .kc-in{height:32px}
+.sp-num{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(0,0,0,.7)}
+.sp-num .kc-in{width:88px !important;text-align:left}
+.sp-num em{font-style:normal}
+.sp-inl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:rgba(0,0,0,.7)}
+.sp-rads{display:flex;flex-direction:column;gap:8px;width:100%}
+.sp-rads.h{flex-direction:row;flex-wrap:wrap;gap:20px}
+.sp-r{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:rgba(0,0,0,.9);cursor:pointer;line-height:20px}
+.sp-r > i{width:16px;height:16px;border-radius:50%;border:1px solid #c9cdd4;flex-shrink:0;margin-top:2px;box-sizing:border-box;background:#fff}
+.sp-r.on > i{border:5px solid #1664ff}
+.sp-r small{display:block;font-size:12px;color:rgba(0,0,0,.5)}
+.sp-chks{display:flex;flex-wrap:wrap;gap:8px}
+.sp-ck{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid #e6e9ef;border-radius:0;font-size:12px;color:rgba(0,0,0,.7);background:#fff;cursor:pointer}
+.sp-ck > i{width:14px;height:14px;border:1px solid #bcc4d0;border-radius:0;box-sizing:border-box;position:relative}
+.sp-ck.on{border-color:#bedaff;background:#f2f7ff;color:#1664ff}
+.sp-ck.on > i{background:#1664ff;border-color:#1664ff}
+.sp-ck.on > i::after{content:"";position:absolute;left:3.5px;top:0.5px;width:3px;height:7px;border:solid #fff;border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}
+.sp-swl{display:inline-flex;align-items:center;gap:10px;font-size:12px;color:rgba(0,0,0,.5)}
+.sp-sel{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;min-width:180px;height:32px;padding:0 10px;border:1px solid #e6e9ef;border-radius:0;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.9);cursor:pointer;text-align:left}
+.sp-sel svg{color:rgba(0,0,0,.5);flex-shrink:0}
+.sp-ta{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid #e6e9ef;border-radius:0;font:12px/1.7 "JetBrains Mono",Menlo,"PingFang SC",monospace;color:rgba(0,0,0,.9);resize:vertical;background:#fff}
+.sp-ta:focus{outline:0;border-color:#1664ff;box-shadow:0 0 0 2px rgba(22,100,255,.1)}
+.sp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sp-chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 8px;border-radius:0;background:#f2f4f8;font-size:12px;color:rgba(0,0,0,.9)}
+.sp-chip i{font-style:normal;color:rgba(0,0,0,.5);cursor:pointer}
+.sp-add{border:0;background:none;padding:0;font:inherit;font-size:12px;color:#1664ff;cursor:pointer}
+.sp-rows{width:100%}
+.sp-rows .dt-mini td{padding:6px 8px}
+.sp-rows .dt-mini th{padding:7px 8px;font-weight:500}
+.sp-rows .dt-mini .kc-in{width:100%;height:30px;box-sizing:border-box}
+.sp-rows .sp-sel{min-width:0;width:100%;height:30px}
+.sp-del{border:0;background:none;padding:0;font:inherit;font-size:12px;color:rgba(0,0,0,.5);cursor:pointer}
+.sp-rf{display:flex;align-items:center;gap:12px;padding:8px 8px 0;font-size:12px;color:rgba(0,0,0,.5)}
+.sp-tip{margin:16px 24px 0;padding:10px 12px;border-radius:0;font-size:12px;line-height:1.6;color:rgba(0,0,0,.9);background:#f2f7ff;border:1px solid #d9e7ff}
+.sp-tip.warn{background:#fff7e8;border-color:#ffe4ba}
+.sp-tip b{font-weight:500}
+.sp-card > .sp-tip{margin:0 20px 16px}
+/* 穿梭框 */
+.sp-xf{display:grid;grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr);gap:10px;align-items:center;margin-bottom:16px}
+.sp-xl{border:1px solid #e6e9ef;border-radius:0;background:#fff;min-width:0}
+.sp-xl header{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid #f2f4f8;background:#fafbfc;font-size:12px;color:rgba(0,0,0,.7)}
+.sp-xl header small{font-size:12px;color:rgba(0,0,0,.5)}
+.sp-xq{padding:8px 8px 4px}
+.sp-xq .kc-in{width:100%;height:28px;box-sizing:border-box;font-size:12px}
+.sp-xl ul{list-style:none;margin:0;padding:4px 0 8px;height:136px;overflow:auto}
+.sp-xl li{display:flex;align-items:center;gap:8px;padding:5px 12px;font-size:12px;color:rgba(0,0,0,.9)}
+.sp-xa{display:flex;flex-direction:column;gap:8px}
+.sp-xa button{width:28px;height:28px;border:1px solid #e6e9ef;border-radius:0;background:#fff;color:rgba(0,0,0,.7);cursor:pointer;font-size:12px}
+/* 页面里的配置卡 */
+.sp-form{padding:4px 0 8px}
+.sp-form .sp-sec{border-bottom:1px solid #f2f4f8}
+.sp-act{display:flex;gap:8px;padding:16px 24px;border-top:1px solid #f2f4f8}
+.sp-act .kc-btn:first-child{margin-left:144px}
+/* 地域 */
+.sp-geo{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;width:100%}
+.sp-geo .sp-ck{justify-content:flex-start}
+.sp-geo .sp-ck.on{background:#ffece8;border-color:#fdcdc5;color:#cb2634}
+.sp-geo .sp-ck.on > i{background:#f53f3f;border-color:#f53f3f}
+/* 语义分析 17 类 */
+.sp-sem{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;width:100%}
+.sp-sem > div{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:rgba(0,0,0,.9);padding:4px 0;border-bottom:1px dashed #f2f4f8}
+.sp-sem .dt-seg button{height:26px;padding:0 8px;font-size:12px;white-space:nowrap}
+.sp-sem > div > span{white-space:nowrap}
+/* Bot 库 */
+.sp-bot{width:100%;border:1px solid #e9ecf1;border-radius:0}
+.sp-bot > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:10px 12px;border-bottom:1px solid #f2f4f8;align-items:start}
+.sp-bot > div:last-child{border-bottom:0}
+.sp-bot b{font-size:12px;font-weight:500;color:rgba(0,0,0,.9);line-height:28px}
+.sp-bot b small{display:block;font-size:12px;font-weight:400;color:rgba(0,0,0,.5);line-height:16px}
+/* 条件 */
+.sp-cond{display:flex;flex-direction:column;gap:8px;width:100%}
+.sp-cond > div{display:grid;grid-template-columns:150px 120px minmax(0,1fr) 36px;gap:8px;align-items:center}
+.sp-cond .sp-sel{min-width:0;width:100%}
+.sp-cond .kc-in{width:100%;box-sizing:border-box}
+.sp-cond em{font-style:normal;font-size:12px;color:rgba(0,0,0,.5)}
+/* 概览块 */
+.sp-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.sp-kpi{padding:16px 20px;background:#fff;border:1px solid #e9ecf1;border-radius:0}
+.sp-kpi span{font-size:12px;color:rgba(0,0,0,.7)}
+.sp-kpi b{display:block;margin-top:6px;font:600 24px/1.3 Inter,"PingFang SC",sans-serif;color:rgba(0,0,0,.9)}
+.sp-kpi b small{font-size:12px;font-weight:400;color:rgba(0,0,0,.5);margin-left:4px}
+.sp-kpi p{margin:4px 0 0;font-size:12px;color:rgba(0,0,0,.5)}
+.sp-kpi p.up{color:#cb2634}
+.sp-kpi p.dn{color:#00a85b}
+.sp-chart{display:flex;align-items:flex-end;gap:6px;height:180px;padding:12px 20px 0;border-bottom:1px solid #f2f4f8;margin:0 20px}
+.sp-chart > div{flex:1;display:flex;flex-direction:column-reverse;align-items:center;gap:1px;min-width:0}
+.sp-chart i{width:56%;max-width:22px}
+.sp-chart i{display:block;border-radius:0 0 0 0}
+.sp-chart i.a{background:#6aa1ff}
+.sp-chart i.b{background:#f53f3f}
+.sp-chart i.c{background:#bedaff}
+.sp-xax{display:flex;gap:6px;padding:6px 40px 0;font-size:12px;color:rgba(0,0,0,.5);margin:0 0 4px}
+.sp-xax span{flex:1;text-align:center}
+.sp-lg{display:flex;gap:16px;padding:12px 20px 16px;font-size:12px;color:rgba(0,0,0,.7)}
+.sp-lg i{display:inline-block;width:8px;height:8px;border-radius:0;margin-right:6px}
+.sp-2c{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sp-top{list-style:none;margin:0;padding:4px 20px 16px}
+.sp-top li{display:grid;grid-template-columns:20px minmax(0,1fr) 90px 56px;gap:10px;align-items:center;padding:7px 0;font-size:12px;color:rgba(0,0,0,.9)}
+.sp-top li > i{font-style:normal;color:rgba(0,0,0,.5);font-size:12px}
+.sp-top li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-top li u{display:block;height:6px;border-radius:3px;background:#e8f3ff;text-decoration:none;position:relative;overflow:hidden}
+.sp-top li u::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:#4086ff;border-radius:0}
+.sp-top li b{font-weight:500;text-align:right;font-family:Inter,sans-serif}
+.sp-top.r li u::after{background:#f53f3f}
+.sp-top.r li u{background:#ffece8}
+/* 套餐 */
+.sp-plan{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;margin-bottom:16px}
+.sp-pc{padding:20px 24px;background:#fff;border:1px solid #e9ecf1;border-radius:0}
+.sp-pc h3{margin:0;font-size:14px;font-weight:500;color:rgba(0,0,0,.9);display:flex;align-items:center;gap:8px}
+.sp-pc dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 16px;margin:16px 0 0}
+.sp-pc dt{font-size:12px;color:rgba(0,0,0,.5)}
+.sp-pc dd{margin:2px 0 0;font-size:12px;color:rgba(0,0,0,.9)}
+.sp-pc .sv-act{margin-top:18px}
+.sp-use{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.sp-use > div{font-size:12px;color:rgba(0,0,0,.7)}
+.sp-use > div > p{display:flex;justify-content:space-between;margin:0 0 6px}
+.sp-use b{color:rgba(0,0,0,.9);font-weight:500}
+.sp-use u{display:block;height:6px;border-radius:3px;background:#f2f4f8;position:relative;text-decoration:none}
+.sp-use u::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:#1664ff;border-radius:0}
+.sp-use u.o::after{background:#ff7d00}
+.sp-yes{color:#00a85b}
+.sp-no{color:#c7ccd6}
+/* 接入步骤 */
+.sp-wz{padding:8px 0}
+.sp-wz .sp-sec{border-bottom:1px solid #f2f4f8}
+.sp-cname{margin:0 24px 8px}
+.sp-cname td .sp-mono{background:#f7f8fb;padding:2px 6px;border-radius:0}
+.sp-copy{border:0;background:none;color:#1664ff;font:inherit;font-size:12px;cursor:pointer;padding:0 0 0 8px}
+.sp-ok{display:flex;gap:16px;align-items:flex-start;padding:24px 24px 16px}
+.sp-ok > i{width:40px;height:40px;border-radius:50%;background:#e8ffea;color:#00a85b;font:600 20px/40px Inter,sans-serif;text-align:center;font-style:normal;flex-shrink:0}
+.sp-ok h3{margin:0 0 4px;font-size:14px;font-weight:500}
+.sp-ok p{margin:0;font-size:12px;color:rgba(0,0,0,.7);line-height:1.7}
+/* 规则组向导 */
+.sp-rg{display:grid;grid-template-columns:200px minmax(0,1fr);min-height:420px}
+.sp-rg nav{border-right:1px solid #f2f4f8;padding:12px 0}
+.sp-rg nav button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:8px 16px;border:0;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.7);cursor:pointer;text-align:left}
+.sp-rg nav button small{font-size:12px;color:rgba(0,0,0,.5)}
+.sp-rg nav button.on{background:#f2f7ff;color:#1664ff;font-weight:500;box-shadow:inset 2px 0 0 #1664ff}
+.sp-rg > div{padding:12px 16px;min-width:0}
+.sp-steps{margin:16px 24px 0 !important;padding:12px 16px !important;border:0 !important;background:#fafbfc !important}
+/* /scdn85 */
+
+/* detail74：详情与表单 */
+.dt-mask{position:absolute;left:0;right:0;top:56px;bottom:0;z-index:11;background:rgba(29,33,41,.18);animation:mo-fade-in .18s ease-out both}
+.dt-file{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #e9ecf1;border-radius:0;background:#fafbfc}
+.dt-file > i{width:36px;height:40px;border-radius:0;background:linear-gradient(180deg,#ff7d7d,#f53f3f);color:#fff;font:600 10px/40px Inter,sans-serif;text-align:center;font-style:normal;flex-shrink:0}
+.dt-file > i.o{background:linear-gradient(180deg,#6aa1ff,#1664ff)}
+.dt-file > div{flex:1;min-width:0}
+.dt-file b{display:block;font-size:12px;font-weight:500;color:rgba(0,0,0,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dt-file small{font-size:12px;color:rgba(0,0,0,.5)}
+.dt-file + .dt-file{margin-top:8px}
+.dt-empty{padding:28px 16px;text-align:center;border:1px dashed #e6e9ef;border-radius:0;font-size:12px;color:rgba(0,0,0,.5);background:#fafbfc}
+.dt-empty b{display:block;font-size:12px;color:rgba(0,0,0,.7);font-weight:500;margin-bottom:4px}
+.dt-mini{width:100%;border-collapse:collapse;font-size:12px}
+.dt-mini th{text-align:left;font-weight:500;color:rgba(0,0,0,.7);background:#f7f8fb;padding:8px 12px;border-bottom:1px solid #e9ecf1}
+.dt-mini td{padding:10px 12px;border-bottom:1px solid #e9ecf1;color:rgba(0,0,0,.9)}
+.dt-mini .num{text-align:right;font-family:Inter,"PingFang SC",sans-serif}
+.dt-mini tfoot td{border-bottom:0;font-weight:500}
+.dt-chat{display:flex;flex-direction:column;gap:18px;padding:20px 24px}
+.dt-msg{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;max-width:760px}
+.dt-msg > i{width:36px;height:36px;border-radius:50%;background:#e8f3ff;color:#1664ff;font:600 12px/36px "PingFang SC",sans-serif;text-align:center;font-style:normal}
+.dt-msg.me{margin-left:auto;grid-template-columns:minmax(0,1fr) 36px}
+.dt-msg.me > i{order:2;background:#1664ff;color:#fff}
+.dt-msg header{display:flex;gap:8px;align-items:baseline;font-size:12px;color:rgba(0,0,0,.5);margin-bottom:6px}
+.dt-msg.me header{justify-content:flex-end}
+.dt-msg header b{font-size:12px;color:rgba(0,0,0,.9);font-weight:500}
+.dt-msg .bb{padding:12px 14px;border-radius:0 0 0 0;background:#f7f8fb;font-size:12px;line-height:1.75;color:rgba(0,0,0,.9);white-space:pre-line}
+.dt-msg.me .bb{border-radius:0 0 0 0;background:#eaf2ff}
+.dt-msg .att{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 10px;border:1px solid #e6e9ef;border-radius:0;background:#fff;font-size:12px;color:rgba(0,0,0,.7)}
+.dt-sys{align-self:center;font-size:12px;color:rgba(0,0,0,.5);background:#f7f8fb;border-radius:0;padding:3px 12px}
+.dt-reply{border-top:1px solid #f2f4f8;padding:16px 24px 20px;background:#fcfcfd}
+.dt-reply textarea{width:100%;min-height:96px;padding:10px 12px;border:1px solid #e6e9ef;border-radius:0;font:inherit;font-size:12px;resize:vertical;box-sizing:border-box;background:#fff}
+.dt-reply textarea:focus{outline:0;border-color:#1664ff;box-shadow:0 0 0 2px rgba(22,93,255,.1)}
+.dt-rb{display:flex;align-items:center;gap:8px;margin-top:10px}
+.dt-rb .kc-sub{margin-right:auto}
+.dt-stars{display:flex;gap:6px;justify-content:center;margin:8px 0 4px}
+.dt-stars button{width:36px;height:36px;border:0;background:none;font-size:30px;line-height:1;color:#e6e9ef;cursor:pointer;padding:0}
+.dt-stars button.on{color:#ff9a2e}
+.dt-closed{display:flex;align-items:center;gap:10px;padding:16px 24px;border-top:1px solid #f2f4f8;font-size:12px;color:rgba(0,0,0,.7);background:#f6ffed}
+.dt-closed b{color:#00b42a}
+.dt-pw{display:flex;gap:4px;margin-top:6px}
+.dt-pw i{flex:1;height:4px;border-radius:2px;background:#e6e9ef}
+.dt-pw i.on{background:#00b42a}
+.dt-pw i.mid{background:#ff7d00}
+.dt-pwt{font-size:12px;color:rgba(0,0,0,.5);margin-top:4px}
+.dt-f{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:center;margin-bottom:14px}
+.dt-f > span{font-size:12px;color:rgba(0,0,0,.7)}
+.dt-f > span.req::before{content:"*";color:#f53f3f;margin-right:3px}
+.dt-f .kc-in{width:100%;height:34px;padding:0 10px;box-sizing:border-box;font:inherit;font-size:12px}
+.dt-f .kc-hint{grid-column:2;margin:-4px 0 0}
+.dt-f .fl-radio{flex-wrap:wrap}
+.dt-seg{display:inline-flex;border:1px solid #e6e9ef;border-radius:0;overflow:hidden}
+.dt-seg button{height:32px;padding:0 14px;border:0;border-left:1px solid #e6e9ef;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.7);cursor:pointer}
+.dt-seg button:first-child{border-left:0}
+.dt-seg button.on{background:#eaf2ff;color:#1664ff;font-weight:500}
+.dt-pick{display:flex;flex-direction:column;gap:8px}
+.dt-pick button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #e6e9ef;border-radius:0;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.9);text-align:left;cursor:pointer}
+.dt-pick button small{margin-left:auto;font-size:12px;color:rgba(0,0,0,.5)}
+.dt-pick button i{width:14px;height:14px;border-radius:50%;border:1px solid #bcc4d0;flex-shrink:0}
+.dt-pick button.on{border-color:#1664ff;background:#f2f7ff}
+.dt-pick button.on i{border:4px solid #1664ff}
+.dt-dl{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.ac-drw .bd .dt-f:last-child{margin-bottom:0}
+.kc-tile b,.dz-k .v,.ac-st b,.fl-sum b,.sp-kpi b,.b8-amt,.sx-num b,.ac-ph b.amt,.kc-kpi b,.lp-g4 b,.h8-fl .big,.kc-ring b,.big b,.h8-kpi strong,.kc-card > b,.kc-hb em,.b8-todo b,.b8-inv b,.pf-why b{font-family:Barlow,Inter,"PingFang SC",sans-serif;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.2px}
+.kc-tile b,.ac-st b,.sp-kpi b,.kc-kpi b,.lp-g4 b{font-size:26px}
+/* nav1109 */.kc-ic.i-nrefresh{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 12a8 8 0 1 1-2.34-5.66%22/%3E%3Cpath d=%22M20 4v5h-5%22/%3E%3C/svg%3E")}.kc-ic.i-nroute{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%226%22 cy=%225%22 r=%222%22/%3E%3Cpath d=%22M6 7v8a4 4 0 0 0 4 4h9%22/%3E%3Cpath d=%22M16 16l3 3-3 3%22/%3E%3C/svg%3E")}.kc-ic.i-ngauge{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M4 18a8 8 0 1 1 16 0%22/%3E%3Cpath d=%22M12 18l4-5%22/%3E%3C/svg%3E")}.kc-ic.i-nbot{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%225%22 y=%228%22 width=%2214%22 height=%2211%22 rx=%222%22/%3E%3Cpath d=%22M12 4v4%22/%3E%3Cpath d=%22M9.5 13h.01M14.5 13h.01%22/%3E%3C/svg%3E")}.kc-ic.i-napi{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M8 7l-5 5 5 5%22/%3E%3Cpath d=%22M16 7l5 5-5 5%22/%3E%3C/svg%3E")}.kc-ic.i-nfilter{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M4 5h16l-6 7.5V19l-4 2v-8.5z%22/%3E%3C/svg%3E")}.kc-ic.i-nhex{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M12 3l8 4.5v9L12 21l-8-4.5v-9z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%222.5%22/%3E%3C/svg%3E")}.kc-ic.i-nban{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%229%22/%3E%3Cpath d=%22M5.6 5.6l12.8 12.8%22/%3E%3C/svg%3E")}.kc-ic.i-nlog{--m:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M7 3h7l5 5v13H7z%22/%3E%3Cpath d=%22M14 3v5h5%22/%3E%3Cpath d=%22M10 13h6M10 17h6%22/%3E%3C/svg%3E")}.kc-crumb .cb-g{color:inherit}.kc-side .kc-nv .kc-it{height:36px;margin:1px 0}.kc-side .kc-nv .kc-gl{padding:10px 8px 2px}/* /nav1109 */</style>
+</helmet>
+<div class="kc ux-wrap">
+  <header class="kc-top">
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">SCDN</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
+    <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
+      <div class="tp-l">
+        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
+        <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
+        <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
+        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
+      </div>
+      <div class="tp-r">
+        <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
+        <div class="tp-cols"><sc-for list="{{hd.cats}}" as="c" hint-placeholder-count="4"><div><h5>{{c.n}}</h5><ul><sc-for list="{{c.items}}" as="p" hint-placeholder-count="5"><li><a href="{{p.href}}" title="{{p.s}}"><i class="{{p.di}}"></i><b>{{p.n}}</b><small>{{p.s}}</small></a><button type="button" class="{{p.fc}}" aria-label="{{p.fl}}" onClick="{{p.fav}}"><svg class="rx rx-star" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path><path class="rx-sf" fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path></svg></button></li></sc-for></ul></div></sc-for></div>
+        <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
+      </div>
+      <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+    </div></sc-if></span>
+    <nav data-cb class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="Main.dc.html">SCDN</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><span class="cb-g">统计与日志</span><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>日志服务</b></nav>
+    <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
+    <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
+      <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
+      <sc-if value="{{hd.hasQ}}" hint-placeholder-val="{{false}}"><div class="tp-st"><sc-for list="{{hd.stabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}<span>{{t.c}}</span></button></sc-for></div></sc-if>
+      <div class="tp-sbd">
+        <sc-if value="{{hd.noQ}}" hint-placeholder-val="{{true}}">
+          <h6>试试搜</h6><div class="tp-chips"><sc-for list="{{hd.tries}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
+          <h6>最近访问<a href="#" onClick="{{hd.toProd}}">按产品浏览 ›</a></h6><ul class="tp-rs tp-g"><sc-for list="{{hd.sRecent}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+          <h6>快捷操作</h6><ul class="tp-rs tp-g"><sc-for list="{{hd.quick}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul>
+        </sc-if>
+        <sc-if value="{{hd.isIp}}" hint-placeholder-val="{{false}}"><h6><span>对 IP {{hd.q}} 可以</span></h6><ul class="tp-rs"><sc-for list="{{hd.ipActs}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em class="go">{{r.e}}</em></a></li></sc-for></ul></sc-if>
+        <sc-for list="{{hd.groups}}" as="g" hint-placeholder-count="0"><h6>{{g.n}}<span>{{g.c}} 条</span></h6><ul class="tp-rs"><sc-for list="{{g.items}}" as="r" hint-placeholder-count="3"><li class="{{r.lc}}"><a href="{{r.href}}"><i><span class="{{r.ic}}"></span></i><span><b>{{r.n}}</b><small>{{r.p}}</small></span><em>{{r.e}}</em></a></li></sc-for></ul></sc-for>
+        <sc-if value="{{hd.sNone}}" hint-placeholder-val="{{false}}"><div class="tp-empty"><b>没有找到「{{hd.q}}」</b><p>换个说法试试，或者让我们帮你找</p><div><a class="kc-btn" href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn" target="_blank" rel="noopener">搜帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a><a class="kc-btn" href="SupTicketNew.dc.html">提交工单</a><span class="kc-btn dis">7×24 热线 0577-26676666</span></div></div></sc-if>
+      </div>
+      <div class="tp-sf"><span>Ctrl K 随时打开</span><span>Esc 关闭</span><a href="#" onClick="{{hd.toProd}}">按产品浏览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+    </div></sc-if></span>
+    <nav class="kc-tl ac-tl" aria-label="快捷入口">
+      <a href="SupTickets.dc.html">工单</a><a href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn" target="_blank" rel="noopener">文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a>
+      <span class="ac-dw"><button type="button" class="{{hd.feeCls}}" aria-expanded="{{hd.feeEx}}" onClick="{{hd.fee}}">费用</button>
+        <sc-if value="{{hd.feeOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="费用">
+          <div class="ac-ph"><small>待付款（1 笔）</small><b class="amt">¥ 320.00</b><em>对公转账 · 另有 1 笔汇款核验未匹配，补充信息即可</em>
+            <div class="ac-pbtn"><a class="kc-btn" href="BillPay.dc.html">付款管理</a><a class="kc-btn pri" href="BillPayment.dc.html">去付款</a></div></div>
+          <ul class="ac-rows">
+            <li><a href="BillPay.dc.html">付款核验中<em>1 笔 · ¥4,200.00</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="AcctSubs.dc.html">即将到期<em>5 项 · 30 天内</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillInvoice.dc.html">可开票金额<em>¥1,169.84</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><span>代金券<em>1 张可用</em></span></li>
+          </ul>
+          <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+        </div></sc-if></span>
+      <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
+        <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
+          <div class="ac-mh"><b>消息 · {{hd.unread}} 条未读</b><a href="Notifications.dc.html">消息设置</a></div>
+          <div class="ac-mtabs"><sc-for list="{{hd.mtabs}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" onClick="{{t.go}}">{{t.n}}</button></sc-for></div>
+          <ul class="ac-ml"><sc-for list="{{hd.msgs}}" as="m" hint-placeholder-count="5"><li class="{{m.lc}}"><a href="{{m.href}}"><i class="{{m.dot}}"></i><b><span>{{m.c}}</span>{{m.t}}</b><time>{{m.d}}</time><small>{{m.s}}</small></a></li></sc-for></ul>
+          <div class="ac-pf"><button type="button" onClick="{{hd.readAll}}">全部已读</button><a href="Notifications.dc.html">查看全部消息<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+        </div></sc-if></span>
+      <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
+        <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <ul class="ac-rows">
+            <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
+            <li><a href="OrgSecurity.dc.html">安全设置<em>安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+          </ul>
+          <ul class="ac-rows" style="border-bottom:0">
+            <li><a href="#">切换账号</a></li>
+            <li><a href="#">退出登录</a></li>
+          </ul>
+        </div></sc-if></span>
+    </nav>
+    <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
+  </header>
+  <div class="kc-body">
+    <input type="checkbox" id="kcf-ScdnLogs" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="SCDN 菜单">
+      <div class="kc-sh"><b>SCDN</b><span>德迅科技 · 全部实例</span></div>
+      <nav class="kc-nv" aria-label="产品菜单">
+      <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
+        <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
+        <sc-for list="{{g.items}}" as="it" hint-placeholder-count="4">
+          <a class="{{it.cls}}" href="{{it.href}}" onClick="{{it.tog}}" aria-expanded="{{it.ex}}"><i class="{{it.ic}}"></i><span>{{it.t}}</span><em>{{it.ext}}</em><b class="{{it.chev}}"></b></a>
+          <sc-if value="{{it.open}}" hint-placeholder-val="{{true}}">
+            <div class="kc-sub2"><sc-for list="{{it.kids}}" as="k" hint-placeholder-count="3"><a class="{{k.cls}}" href="{{k.href}}">{{k.t}}<em>{{k.ext}}</em></a></sc-for></div>
+          </sc-if>
+        </sc-for>
+      </sc-for>
+      </nav>
+    <div class="kc-foldbar"><label for="kcf-ScdnLogs" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-ScdnLogs" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
+    <main data-pg="ScdnLogs" class="kc-main">
+      <div class="kc-hd">
+        <div class="kc-hdl"><div><h1 class="kc-h1">日志服务</h1></div></div>
+        <div class="kc-btns"></div>
+      </div>
+      <p class="sp-desc">逐条查访问日志；按天下载日志包；或者把日志实时推送到自己的日志系统。攻击和封禁记录在「拦截记录」。</p>
+      <nav class="ia-tabs sp-tabs" role="tablist"><button type="button" role="tab" class="{{tc0}}" onClick="{{tp0}}">访问日志</button><button type="button" role="tab" class="{{tc1}}" onClick="{{tp1}}">日志下载</button><button type="button" role="tab" class="{{tc2}}" onClick="{{tp2}}">日志推送</button></nav>
+      <sc-if value="{{tb0}}" hint-placeholder-val="{{true}}">
+      <section class="kc-card sp-card">
+        <div class="kc-bar sp-bar"><div class="lf-q"><input class="kc-in" style="width:280px" type="search" aria-label="搜索 IP、URL 或状态码" placeholder="搜索 IP、URL 或状态码"></div><button class="kc-btn" type="button">导出</button><span class="sp-sp"></span></div>
+        <div class="kc-tw"><table class="kc-t lf-st4 op-fix">
+          <thead><tr><th>时间</th><th>真实 IP</th><th>域名</th><th>请求</th><th>状态码</th><th>缓存</th><th>名单</th><th>操作</th></tr></thead>
+          <tbody><tr><td>10-27 09:41:08</td><td><span class="sp-mono">45.137.**.92</span></td><td>shop.example.com</td><td><span class="sp-mono">GET /api/sku/price?id=100231</span></td><td><span class="kc-tag err">403</span></td><td>MISS</td><td>黑名单</td><td><span class="sp-ops"><a href="#" class="">详情</a><a href="#" class="">查看拦截</a></span></td></tr><tr><td>10-27 09:41:05</td><td><span class="sp-mono">115.231.**.40</span></td><td>shop.example.com</td><td><span class="sp-mono">GET /item/8812</span></td><td><span class="kc-tag ok">200</span></td><td>HIT</td><td>—</td><td><span class="sp-ops"><a href="#" class="">详情</a></span></td></tr><tr><td>10-27 09:41:02</td><td><span class="sp-mono">60.191.**.12</span></td><td>pay.example.com</td><td><span class="sp-mono">POST /order/create</span></td><td><span class="kc-tag ok">200</span></td><td>MISS</td><td>白名单</td><td><span class="sp-ops"><a href="#" class="">详情</a></span></td></tr><tr><td>10-27 09:40:58</td><td><span class="sp-mono">223.104.**.7</span></td><td>m.example.com</td><td><span class="sp-mono">GET /static/app.js</span></td><td><span class="kc-tag ok">304</span></td><td>HIT</td><td>—</td><td><span class="sp-ops"><a href="#" class="">详情</a></span></td></tr><tr><td>10-27 09:40:51</td><td><span class="sp-mono">183.6.**.204</span></td><td>pay.example.com</td><td><span class="sp-mono">GET /order/query?id=1' or 1=1</span></td><td><span class="kc-tag err">403</span></td><td>MISS</td><td>—</td><td><span class="sp-ops"><a href="#" class="">详情</a><a href="#" class="">查看拦截</a></span></td></tr><tr><td>10-27 09:40:44</td><td><span class="sp-mono">101.68.**.19</span></td><td>api.example.com</td><td><span class="sp-mono">GET /api/v2/user/info</span></td><td><span class="kc-tag warn">502</span></td><td>MISS</td><td>—</td><td><span class="sp-ops"><a href="#" class="">详情</a></span></td></tr></tbody>
+        </table></div>
+        <div class="kc-foot lf-foot"><span class="lf-note"></span><div class="lf-pgr"><span>共 1284 条</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
+      </section>
+      </sc-if>
+      <sc-if value="{{tb1}}" hint-placeholder-val="{{false}}">
+      <section class="kc-card sp-card">
+      <div class="sp-tip info">日志按天打包，保留 30 天（企业版）。需要实时同步到自己的系统请用「日志推送」。</div>
+        <div class="kc-bar sp-bar"><button class="kc-btn pri" type="button">生成日志包</button><div class="lf-q"><input class="kc-in" style="width:280px" type="search" aria-label="搜索域名" placeholder="搜索域名"></div><span class="sp-sp"></span></div>
+        <div class="kc-tw"><table class="kc-t lf-st4 op-fix">
+          <thead><tr><th>日期</th><th>域名</th><th>内容</th><th>大小</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody><tr><td>2026-10-27</td><td>shop.example.com</td><td>访问日志 + 攻击日志</td><td>1.2 GB</td><td><span class="kc-tag ok">可下载</span></td><td><span class="sp-ops"><a href="#" class="">下载</a></span></td></tr><tr><td>2026-10-26</td><td>shop.example.com</td><td>访问日志 + 攻击日志</td><td>1.4 GB</td><td><span class="kc-tag ok">可下载</span></td><td><span class="sp-ops"><a href="#" class="">下载</a></span></td></tr><tr><td>2026-10-26</td><td>api.example.com</td><td>攻击日志</td><td>86 MB</td><td><span class="kc-tag ok">可下载</span></td><td><span class="sp-ops"><a href="#" class="">下载</a></span></td></tr><tr><td>2026-10-27</td><td>全部域名</td><td>访问日志</td><td>—</td><td><span class="kc-tag warn">生成中</span></td><td><span class="sp-ops"></span></td></tr><tr><td>2026-09-20</td><td>www.example.com</td><td>访问日志</td><td>320 MB</td><td><span class="kc-tag mut">已过期</span></td><td><span class="sp-ops"></span></td></tr></tbody>
+        </table></div>
+        <div class="kc-foot lf-foot"><span class="lf-note"></span><div class="lf-pgr"><span>共 5 条</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC1}}"><button data-dd="1" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT1}}"><b>{{ddV1}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO1}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL1}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
+      </section>
+      </sc-if>
+      <sc-if value="{{tb2}}" hint-placeholder-val="{{false}}">
+      <section class="kc-card sp-card">
+        <div class="kc-bar sp-bar"><button class="kc-btn pri" type="button" onClick="{{op_push}}">添加推送</button><div class="lf-q"><input class="kc-in" style="width:280px" type="search" aria-label="搜索域名" placeholder="搜索域名"></div><span class="sp-sp"></span></div>
+        <div class="kc-tw"><table class="kc-t lf-st4 op-fix">
+          <thead><tr><th>域名</th><th>推送内容</th><th>接收地址</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody><tr><td>shop.example.com</td><td>HTTP 访问、HTTP 攻击</td><td><span class="sp-mono">syslog · 203.0.113.20:514</span></td><td><span class="kc-tag ok">启用</span></td><td><span class="sp-ops"><a href="#" class="" onClick="{{op_push}}">编辑</a><a href="#" class="">测试推送</a><a href="#" class="r">删除</a></span></td></tr><tr><td>api.example.com</td><td>HTTP 攻击、TCP 攻击</td><td><span class="sp-mono">syslog · 203.0.113.20:514</span></td><td><span class="kc-tag ok">启用</span></td><td><span class="sp-ops"><a href="#" class="" onClick="{{op_push}}">编辑</a><a href="#" class="">测试推送</a><a href="#" class="r">删除</a></span></td></tr><tr><td>www.example.com</td><td>HTTP 访问</td><td><span class="sp-mono">syslog · 10.20.1.8:1514</span></td><td><span class="kc-tag mut">停用</span></td><td><span class="sp-ops"><a href="#" class="" onClick="{{op_push}}">编辑</a><a href="#" class="">测试推送</a><a href="#" class="r">删除</a></span></td></tr></tbody>
+        </table></div>
+        <div class="kc-foot lf-foot"><span class="lf-note"></span><div class="lf-pgr"><span>共 3 条</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC2}}"><button data-dd="2" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT2}}"><b>{{ddV2}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO2}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL2}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
+      </section>
+      </sc-if>
+    </main>
+  </div>
+  <sc-if value="{{dw_push}}" hint-placeholder-val="{{false}}">
+  <div class="dt-mask" onClick="{{dw_push_x}}"></div>
+  <div class="ac-drw" role="dialog" aria-label="编辑日志推送" style="width:560px">
+    <header><b>编辑日志推送</b><button type="button" aria-label="关闭" onClick="{{dw_push_x}}">×</button></header>
+    <div class="bd">
+      <section class="sp-sec"><header><h4>日志推送</h4></header>
+      <div class="dt-f"><span class="req">域名</span><div><span class="{{ddC8}}" style="width:100%"><button data-dd="8" type="button" class="sp-sel" aria-haspopup="listbox" style="width:100%" onClick="{{ddT8}}"><span>{{ddV8}}</span><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO8}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL8}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div></div>
+      <div class="dt-f"><span>推送内容</span><div><div class="sp-chks"><label class="sp-ck on"><i></i>HTTP 访问</label><label class="sp-ck on"><i></i>HTTP 攻击</label><label class="sp-ck"><i></i>TCP 连接</label><label class="sp-ck"><i></i>TCP 攻击</label><label class="sp-ck"><i></i>UDP 连接</label><label class="sp-ck"><i></i>UDP 攻击</label></div></div></div>
+      <div class="dt-f"><span>协议</span><div><div class="dt-seg"><button type="button" class="on">syslog（UDP）</button><button type="button">syslog（TCP）</button></div></div></div>
+      <div class="dt-f"><span class="req">接收地址</span><div><div class="sp-inl"><input class="kc-in" type="text" aria-label="203.0.113.20" placeholder="" value="203.0.113.20" style="width:220px"><span>:</span><input class="kc-in" type="text" aria-label="514" placeholder="" value="514" style="width:80px"></div></div></div>
+      <div class="dt-f"><span>状态</span><div><span class="sp-swl"><button type="button" class="kc-sw on" role="switch" aria-checked="true" aria-label="开关"></button></span></div></div>
+      </section>
+    </div>
+    <footer style="justify-content:flex-end"><button class="kc-btn" type="button" onClick="{{dw_push_x}}">取消</button><button class="kc-btn pri" type="button" onClick="{{dw_push_x}}">保存</button></footer>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+
+  /* top70 */
+  componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
+  componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
+  _top() {
+    const st = this.state || {}; const dd = st.dd || ''; const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const tog = (v) => (e) => { ev(e); this.setState({ dd: dd === v ? '' : v, gq: '', gpq: '' }); };
+    // 产品切换
+    const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', 'DdosInstances.dc.html', 1, 'ddos 高防'], ['游戏盾', '游戏 TCP/UDP 防护', 'GameAccess.dc.html', 1, 'game'], ['SCDN', '加速 + Web 防护', 'Main.dc.html', 1, 'cdn 加速 域名 证书'],
+        ['Web 应用防火墙', 'WAF', '#', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl'], ['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞']]],
+      ['主机与容器', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵'], ['德迅零域', '微隔离', '#', 0, ''], ['德迅蜂巢', '容器安全', '#', 0, '容器 k8s'], ['德迅猎鹰', '云蜜罐', '#', 0, '蜜罐']]],
+      ['安全运营', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '#', 0, ''], ['态势感知', '', '#', 0, ''], ['等保合规', '等保咨询与测评', '#', 0, '等保'], ['日志审计', '', '#', 0, ''], ['数据库审计', '', '#', 0, ''], ['应用加固', 'Android / iOS / H5', '#', 0, 'app 加固'], ['身份核验', '实名、四要素', '#', 0, '实名']]],
+      ['计算与 IDC', [['服务器租用', '独享物理服务器', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启'], ['云服务器', '', '#', 0, 'ecs'], ['裸金属', '', '#', 0, ''], ['机柜托管', '', '#', 0, '托管']]]];
+    const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
+    let openN = 0, allN = 0; const favList = [];
+    const cats = P.map(([cn, ps]) => ({ n: cn, items: ps.filter(([n, s, href, op, al]) => { allN++; if (op) openN++; if (favs.indexOf(n) >= 0) favList.push({ n, di: this.__di(n), cat: cn, href: op ? href : '#' }); return !pq || (n + ' ' + s + ' ' + al).toLowerCase().indexOf(pq) >= 0; })
+      .map(([n, s, href, op]) => { const on = favs.indexOf(n) >= 0; return { n, di: this.__di(n), s: s || cn, href: op ? href : '#', st: op ? '已开通' : '未开通', tc: op ? 'kc-tag ok' : 'kc-tag mut', fc: on ? 'on' : '', star: on ? '★' : '☆', fl: on ? '取消收藏' : '收藏',
+        fav: (e) => { ev(e); this.setState({ pfav: on ? favs.filter((x) => x !== n) : favs.concat([n]) }); } }; }) })).filter((c) => c.items.length);
+    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
+    // 全局搜索
+    const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
+    const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],
+      ['访问控制 · IP 黑名单', 'SCDN › 安全防护', 'ScdnAcl.dc.html', 'shield', '封 ip 封禁 黑名单 拉黑'], ['实例列表', 'DDoS 高防 IP', 'DdosInstances.dc.html', 'box', '高防 实例'], ['攻击报表', 'DDoS 高防 IP › 日志与报表', 'DdosReport.dc.html', 'chart', '攻击 报表 流量'],
+      ['防护策略', 'DDoS 高防 IP', 'DdosPolicy.dc.html', 'shield', '策略 清洗 cc'], ['应用接入', '游戏盾', 'GameAccess.dc.html', 'link', '游戏 sdk'], ['转发规则', '游戏盾', 'GameRules.dc.html', 'shield', '规则 转发'],
+      ['风险中心', '德迅云眼', 'EyeRisk.dc.html', 'shield', '风险 暗链 篡改 漏洞'], ['监测资产', '德迅云眼', 'EyeAssets.dc.html', 'layers', '资产 监测'],
+      ['服务器列表', '服务器租用', 'IdcServers.dc.html', 'box', '服务器 主机 idc'], ['重装系统', '服务器租用 › web-prod-01', 'IdcReinstall.dc.html', 'gear', '重装 系统 镜像 os'], ['重启服务器', '服务器租用 › web-prod-01', 'IdcServerDetail.dc.html', 'gear', '重启 关机'],
+      ['我的订单', '费用', 'BillOrders.dc.html', 'doc', '订单'], ['合并付款', '费用', 'BillPayment.dc.html', 'doc', '付款 转账 对公'], ['申请开票', '费用 › 发票管理', 'BillInvoiceApply.dc.html', 'doc', '发票 开票 专票'],
+      ['续费', '我的产品 › 订阅与资源', 'AcctSubs.dc.html', 'box', '续费 到期'], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', '工单 客服 报障'], ['成员管理', '企业', 'OrgMembers.dc.html', 'users', '成员 子用户 权限'],
+      ['安全设置', '企业', 'OrgSecurity.dc.html', 'lock', '密码 二次验证 微信 手机'], ['企业认证', '企业', 'OrgVerify.dc.html', 'users', '认证 营业执照'], ['消息', '消息中心', 'Notifications.dc.html', 'bell', '消息 通知 告警']];
+    const R = [['高防-002', 'DDoS 高防 IP · 203.0.113.12 · 攻击中', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.12 ddos-9c0b44'], ['高防-003', 'DDoS 高防 IP · 203.0.113.13', 'DdosInstanceDetail.dc.html', 'box', '203.0.113.13 ddos-1e8d07'],
+      ['web-prod-01', '服务器租用 · 115.231.**.12', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0193 115.231'], ['db-01', '服务器租用 · 115.231.**.13', 'IdcServerDetail.dc.html', 'box', 'idc-wz-0194'],
+      ['shop.example.com', 'SCDN 域名 · 证书 8 天后到期', 'ScdnDomainDetail.dc.html', 'link', 'shop'], ['api.example.com', 'SCDN 域名 · 正被 CC 攻击', 'ScdnDomainDetail.dc.html', 'link', 'api'],
+      ['www.example.com', '德迅云眼资产 · 首页暗链', 'EyeAssetDetail.dc.html', 'layers', 'www'], ['DX20261024001', '订单 · 核验未匹配', 'BillPayFix.dc.html', 'doc', '订单'], ['TK-20261019-0003', '工单 · web-prod-01 网络不通', 'SupTickets.dc.html', 'help', '工单']];
+    const DC = [['回源 502 怎么排查', 'SCDN 文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn&q=%E5%9B%9E%E6%BA%90%20502%20%E6%80%8E%E4%B9%88%E6%8E%92%E6%9F%A5', 'doc', '502 回源'], ['如何修改 CNAME 接入 SCDN', 'SCDN 文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn&q=%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%20CNAME%20%E6%8E%A5%E5%85%A5%20SCDN', 'doc', 'cname 接入 域名'], ['重装系统会清空哪些数据', '服务器租用文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=idc&q=%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%BC%9A%E6%B8%85%E7%A9%BA%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE', 'doc', '重装 数据'],
+      ['如何封禁 IP', '防护策略文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=ddos&q=%E5%A6%82%E4%BD%95%E5%B0%81%E7%A6%81%20IP', 'doc', '封 ip 黑名单'], ['对公转账多久核验到账', '账务文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing&q=%E5%AF%B9%E5%85%AC%E8%BD%AC%E8%B4%A6%E5%A4%9A%E4%B9%85%E6%A0%B8%E9%AA%8C%E5%88%B0%E8%B4%A6', 'doc', '转账 付款 核验'], ['专票需要哪些资料', '发票文档', 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing&q=%E4%B8%93%E7%A5%A8%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E8%B5%84%E6%96%99', 'doc', '发票 专票']];
+    const hit = (x) => !ql || (x[0] + ' ' + x[1] + ' ' + x[4]).toLowerCase().indexOf(ql) >= 0;
+    const mk = (e) => ([n, p, href, ic]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: '' });
+    const G0 = [['功能', F.filter(hit).map(mk('功能'))], ['资源', R.filter(hit).map(mk('资源'))], ['文档', DC.filter(hit).map(mk('文档'))]];
+    const isIp = /^\d{1,3}(\.\d{1,3}){1,3}\.?$/.test(q.trim());
+    const total = G0.reduce((a, g) => a + g[1].length, 0);
+    const stabs = ['全部', '功能', '资源', '文档'].map((n) => ({ n, c: n === '全部' ? total : (G0.find((g) => g[0] === n) || ['', []])[1].length, cls: n === stab ? 'on' : '', go: () => this.setState({ gstab: n }) }));
+    const groups = ql ? G0.filter((g) => g[1].length && (stab === '全部' || g[0] === stab)).map(([n, items]) => ({ n, c: items.length, items: stab === '全部' ? items.slice(0, 4) : items })) : [];
+    if (groups[0] && groups[0].items[0]) groups[0].items[0].lc = 'on';
+    const ipActs = isIp ? [['查拦截记录', '在 SCDN 和 DDoS 高防日志里查这个 IP', 'DdosLogs.dc.html', 'chart', '查看'], ['加入黑名单', '在访问控制里封禁这个 IP', '#', 'shield', '封禁'], ['查看所属实例', '如果是你的高防 IP 或服务器 IP', 'DdosInstances.dc.html', 'box', '打开']]
+      .map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e })) : [];
+    const tries = ['封 IP', '发票', '203.0.113.12', '重装'].map((n) => ({ n, go: () => this.setState({ gq: n, gstab: '全部' }) }));
+    const sRecent = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '10 分钟前'], ['攻击报表', 'DDoS 高防 IP', 'DdosReport.dc.html', 'chart', '1 小时前'], ['web-prod-01', '服务器租用', 'IdcServerDetail.dc.html', 'box', '昨天']]
+      .map(([n, p, href, ic, e], i) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e, lc: i ? '' : 'on' }));
+    const quick = [['添加域名', 'SCDN', 'Main.dc.html', 'link', ''], ['提交工单', '支持服务', 'SupTicketNew.dc.html', 'help', ''], ['续费到期资源', '5 项 30 天内到期', 'AcctSubs.dc.html', 'box', '']].map(([n, p, href, ic, e]) => ({ n, p, href, ic: 'fi-i fi-s' + ic, e }));
+    return { prodOn: dd === 'prod', prodEx: dd === 'prod' ? 'true' : 'false', prodCls: dd === 'prod' ? 'kc-prod on' : 'kc-prod', prod: tog('prod'),
+      cats, recent, favList, noFav: !favList.length, pq: st.gpq || '', onPq: (e) => this.setState({ gpq: e && e.target ? e.target.value : '' }), openN, allN, pNone: !cats.length,
+      srchOn: dd === 'srch', srch: tog('srch'), q, onQ: (e) => this.setState({ gq: e && e.target ? e.target.value : '', gstab: '全部' }), hasQ: !!ql && !isIp, noQ: !ql, isIp, ipActs, stabs, groups,
+      sNone: !!ql && !isIp && !total, tries, sRecent, quick, toProd: (e) => { ev(e); this.setState({ dd: 'prod', gq: '' }); } };
+  }
+  /* /top70 */
+  /* hdr62 */
+  renderVals() { if (typeof window !== 'undefined' && !window.__dx88) (function () {
+  if (window.__dx88) return; window.__dx88 = 1;
+  var D = document;
+  // seg109：静态页签按地址 ?tab= 打开对应页签
+  (function () { var go9 = function () { try { if (!/\.dc\.html$/.test(location.pathname)) return; var v = new URLSearchParams(location.search).get('tab'); if (!v) return; var b = D.querySelector('.st-tabs [data-st="' + v + '"]'); if (b) b.click(); } catch (x) {} };
+    var t9 = setInterval(function () { if (D.querySelector('.st-tabs')) { clearInterval(t9); go9(); } }, 50); setTimeout(function () { clearInterval(t9); }, 4000); })();
+  // vt107：页面载入后才允许侧栏子菜单展开动画，切页时已展开的子菜单不再闪
+  (function () { var R = D.documentElement, done = function () { R.classList.add('mo-ready'); };
+    var wait = function () { if (D.querySelector('.kc-main > *')) { setTimeout(done, 700); return true; } };
+    if (!wait()) { var mo = new MutationObserver(function () { if (wait()) mo.disconnect(); }); mo.observe(R, { childList: true, subtree: true }); setTimeout(done, 4000); } })();
+  var page = function () { var m = (location.pathname + location.hash).match(/([A-Za-z0-9]+)\.dc\.html/); var t = D.querySelector('.kc-main .kc-h1'); return m ? m[1] : (t ? t.textContent : ''); };
+  var txt = function (el) { return (el.innerText || el.getAttribute('aria-label') || el.getAttribute('title') || '').trim().replace(/\s+/g, ' '); };
+  var live = function (el) {
+    for (var e = el; e && e !== D.body; e = e.parentElement) {
+      var k = Object.keys(e).find(function (x) { return x.indexOf('__reactProps') === 0; });
+      if (k && e[k] && (e[k].onClick || e[k].onChange || e[k].onMouseDown)) return true;
+      if (e.tagName === 'A' && e.getAttribute('href') && e.getAttribute('href') !== '#') return true;
+      if (e.tagName === 'LABEL') return true;
+    }
+    return false;
+  };
+  var root = function (el) { return (el && el.closest && el.closest('.kc-app,.kc-shell,x-dc')) || D.body; };
+  var go = function (el, href) { var a = D.createElement('a'); a.href = href; if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; } a.style.display = 'none'; root(el).appendChild(a); a.click(); setTimeout(function () { a.remove(); }, 0); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var layer = function (el) { var r = root(el); var l = r.querySelector(':scope > .lp-layer'); if (!l) { l = D.createElement('div'); l.className = 'lp-layer'; r.appendChild(l); } return l; };
+  var TI = {"ok": "M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM17.4571 9.45711L16.0429 8.04289L11 13.0858L8.20711 10.2929L6.79289 11.7071L11 15.9142L17.4571 9.45711Z", "info": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z", "warn": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z", "err": "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"};
+  var toast = function (el, msg, kind) {
+    var l = layer(el); var t = D.createElement('div'); var k = TI[kind] ? kind : 'ok'; t.className = 'lp-toast ' + k; t.setAttribute('role', 'status'); t.innerHTML = '<svg class="lp-ti" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="' + TI[k] + '"></path></svg><span>' + esc(msg) + '</span>';
+    l.appendChild(t); setTimeout(function () { t.classList.add('out'); }, 2200); setTimeout(function () { t.remove(); }, 2500);
+  };
+  var close = function (n) { if (n) { n.classList.add('out'); setTimeout(function () { n.remove(); }, 160); } };
+  var confirmBox = function (el, title, desc, ok, danger, done) {
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask';
+    n.innerHTML = '<div class="lp-modal" role="dialog" aria-modal="true"><h3>' + esc(title) + '</h3>' + (desc ? '<p>' + esc(desc) + '</p>' : '') +
+      '<div class="lp-act"><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn ' + (danger ? 'lp-danger' : 'pri') + '" data-ok>' + esc(ok) + '</button></div></div>';
+    n.addEventListener('click', function (e) { if (e.target === n || e.target.hasAttribute('data-x')) close(n); if (e.target.hasAttribute('data-ok')) { close(n); done && done(); } });
+    l.appendChild(n);
+  };
+  var drawer = function (el, title, body, ok, done) {
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask lp-dm';
+    n.innerHTML = '<aside class="lp-drw" role="dialog" aria-modal="true"><header><h3>' + esc(title) + '</h3><button type="button" class="lp-x" data-x aria-label="关闭">×</button></header><div class="lp-bd">' + body +
+      '</div><footer><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn pri" data-ok>' + esc(ok || '保存') + '</button></footer></aside>';
+    n.addEventListener('click', function (e) {
+      var t = e.target; if (t === n || t.hasAttribute('data-x')) { close(n); return; }
+      if (t.hasAttribute('data-ok')) { close(n); done ? done() : toast(el, '已保存，约 30 秒生效'); return; }
+      if (t.classList.contains('kc-sw')) { t.classList.toggle('on'); return; }
+      if (t.closest('.lp-drop')) { var d = t.closest('.lp-drop'); d.innerHTML = '<b>付款说明.pdf</b> · 186 KB <em>已上传</em>'; d.classList.add('ok'); }
+    });
+    l.appendChild(n);
+  };
+  var menu = function (el, items) {
+    var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-menu-m';
+    var m = D.createElement('div'); m.className = 'lp-menu'; m.style.top = (r.bottom - lr.top + 4) + 'px'; m.style.left = Math.max(8, r.right - lr.left - 168) + 'px';
+    items.forEach(function (it) { var b = D.createElement('button'); b.type = 'button'; b.textContent = it[0]; if (it[2]) b.className = 'r'; b.onclick = function (e) { e.stopPropagation(); n.remove(); it[1](); }; m.appendChild(b); });
+    n.appendChild(m); n.addEventListener('click', function () { n.remove(); }); l.appendChild(n);
+  };
+  var row = function (el) { return el.closest('tr,li,.ln-row,.kc-row'); };
+  var rowName = function (el) {
+    var r = row(el); if (!r) return '';
+    var a = [].slice.call(r.querySelectorAll('td a, b, strong')).find(function (x) { return txt(x) && x !== el; });
+    if (a) return txt(a).split(' ')[0];
+    var c = [].slice.call(r.querySelectorAll('td')).find(function (x) { return txt(x); }); return c ? txt(c).split(' ')[0] : '';
+  };
+  var formFor = function (el, label) {
+    var r = el.closest('tr'); var fields = [];
+    if (r) {
+      var tb = r.closest('table'); var hs = tb ? [].slice.call(tb.querySelectorAll('thead th')) : [];
+      [].slice.call(r.children).forEach(function (td, i) { var h = hs[i] ? txt(hs[i]) : ''; if (!h || /操作|^$/.test(h) || td.classList.contains('lf-ck')) return; fields.push([h, txt(td).split(' · ')[0]]); });
+    }
+    if (!fields.length) { var li = row(el); var b = li && li.querySelector('b'); var sp = li && li.querySelector('span'); fields = [['名称', b ? txt(b) : rowName(el) || label], ['当前设置', sp ? txt(sp) : '']]; }
+    return fields.slice(0, 7).map(function (f) { return '<label class="lp-f"><span>' + esc(f[0]) + '</span><input class="kc-in" value="' + esc(f[1]) + '"></label>'; }).join('') + '<label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>';
+  };
+  var upload = function (hint) { return '<div class="lp-drop" role="button" tabindex="0">' + esc(hint || '点击或拖拽文件到这里上传') + '</div><p class="lp-hint">支持 CSV / Excel，单次最多 500 条。<a href="#" onclick="return false">下载模板</a></p>'; };
+  var cols = function (el) {
+    var c = el.closest('.kc-card') || D; var hs = [].slice.call(c.querySelectorAll('thead th')).map(txt).filter(function (h) { return h && h !== '操作'; });
+    return '<p class="lp-hint">勾选要在列表里显示的列，拖动可调整顺序。</p>' + hs.map(function (h, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 7 ? 'checked' : '') + (i === 0 ? ' disabled' : '') + '> ' + esc(h) + '</label>'; }).join('');
+  };
+  // 列设置：按钮下方的轻气泡，勾选即生效，点外面关闭（77，2026-10-28）
+  var colPop = function (el) {
+    if (!D.getElementById('dx-cp-css')) { var st = D.createElement('style'); st.id = 'dx-cp-css';
+      st.textContent = '.lp-cpm{position:absolute;inset:0;z-index:40}.lp-cp{position:absolute;width:208px;padding:6px 0;background:#fff;border:1px solid #e5e8ef;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.1);animation:lp-cp-in .14s ease-out both}.lp-cp::before{content:"";position:absolute;top:-5px;right:14px;width:8px;height:8px;background:#fff;border-left:1px solid #e5e8ef;border-top:1px solid #e5e8ef;transform:rotate(45deg)}@keyframes lp-cp-in{from{opacity:0;transform:translateY(-4px)}}.lp-cp header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px 8px;font-size:12px;color:#86909c}.lp-cp header button{border:0;background:none;padding:0;font:inherit;font-size:12px;color:#1664ff;cursor:pointer}.lp-cp label{display:flex;align-items:center;gap:8px;padding:6px 12px;font-size:13px;color:#1d2129;cursor:pointer}.lp-cp label:hover{background:#f6f8fa}.lp-cp label.dis{color:#a9aeb8;cursor:default}.lp-cp label.dis:hover{background:none}.lp-cp input{width:14px;height:14px;margin:0;accent-color:#1664ff}';
+      D.head.appendChild(st); }
+    var card = el.closest('.kc-card') || D; var tb = card.querySelector('table'); if (!tb) return;
+    var ths = [].slice.call(tb.querySelectorAll('thead th'));
+    var list = ths.map(function (th, i) { return { i: i, n: txt(th) }; }).filter(function (c) { return c.n && c.n !== '操作'; });
+    var first = list.length ? list[0].i : -1;
+    var hidden = function (i) { return ths[i] && ths[i].style.display === 'none'; };
+    var show = function (i, on) { [].slice.call(tb.querySelectorAll('tr')).forEach(function (tr) { var c = tr.children[i]; if (c) c.style.display = on ? '' : 'none'; }); };
+    var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-cpm';
+    var m = D.createElement('div'); m.className = 'lp-cp'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', '列设置');
+    m.style.top = (r.bottom - lr.top + 8) + 'px'; m.style.left = Math.max(8, r.right - lr.left - 208) + 'px';
+    m.innerHTML = '<header><span>显示列</span><button type="button" data-reset>重置</button></header>' + list.map(function (c) {
+      var dis = c.i === first; return '<label class="' + (dis ? 'dis' : '') + '"><input type="checkbox" data-i="' + c.i + '"' + (hidden(c.i) ? '' : ' checked') + (dis ? ' disabled' : '') + '>' + esc(c.n) + '</label>'; }).join('');
+    m.addEventListener('click', function (e) { e.stopPropagation();
+      if (e.target.hasAttribute('data-reset')) { list.forEach(function (c) { show(c.i, true); }); [].slice.call(m.querySelectorAll('input')).forEach(function (x) { x.checked = true; }); } });
+    m.addEventListener('change', function (e) { var x = e.target; if (x.hasAttribute('data-i')) show(+x.getAttribute('data-i'), x.checked); });
+    n.addEventListener('click', function () { n.remove(); el.classList.remove('on'); });
+    n.appendChild(m); l.appendChild(n); el.classList.add('on');
+  };
+  var sw = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b><small>' + esc(r[1]) + '</small></div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="开关"></button></div>'; }).join(''); };
+  var P = '';
+  var pre = function (p) { return P.indexOf(p) === 0; };
+  var ctxPage = function (kind) {
+    if (pre('Ddos')) return { rep: 'DdosReport.dc.html', log: 'DdosLogs.dc.html', ana: 'DdosMonitor.dc.html' }[kind];
+    if (pre('Game')) return { rep: 'GameOverview.dc.html', log: 'GameOnline.dc.html', ana: 'GameOnline.dc.html' }[kind];
+    if (pre('Eye')) return { rep: 'EyeRisk.dc.html', log: 'EyeRisk.dc.html', ana: 'EyeRisk.dc.html' }[kind];
+    return { rep: 'ScdnStats.dc.html', log: 'ScdnBlocks.dc.html', ana: 'ScdnStats.dc.html' }[kind];
+  };
+  var nav = function () { return {
+    '帮助支持': 'SupDocs.dc.html', '系统设置': 'OrgSecurity.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '拦截日志': 'ScdnBlocks.dc.html',
+    '续费': 'BillConfirm.dc.html', '续费证书': 'BillConfirm.dc.html', '去续费': 'BillConfirm.dc.html', '升级套餐': 'AcctPurchase.dc.html', '升级防护': 'AcctPurchase.dc.html',
+    '升级业务带宽': 'AcctPurchase.dc.html', '升级': 'AcctPurchase.dc.html', '购买 SSL 证书': 'AcctPurchase.dc.html', '申请免费试用': 'AcctPurchase.dc.html',
+    '接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '产品文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '查看接入文档': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '完整服务内容与使用说明': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn', '接入指引': 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=scdn',
+    '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
+    '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
+  }; };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
+  var regNav = function (t) {
+    if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
+    if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
+    if (/^高防-\d+/.test(t)) return 'DdosInstanceDetail.dc.html';
+    if (/^(web-prod|backup-|dx-guard|db-)/.test(t)) return 'IdcServerDetail.dc.html';
+    if (/^ssl-/.test(t)) return 'ScdnCerts.dc.html';
+    if (/^HB\d+/.test(t)) return 'BillPayment.dc.html';
+    if (/\.example\.com$/.test(t)) return pre('Eye') ? 'EyeAssetDetail.dc.html' : pre('Ddos') ? 'DdosAccess.dc.html' : 'ScdnDomainDetail.dc.html';
+    return null;
+  };
+  var PROD = [['SCDN', 'Main.dc.html'], ['DDoS', 'DdosInstances.dc.html'], ['高防', 'DdosInstances.dc.html'], ['游戏盾', 'GameAccess.dc.html'], ['云眼', 'EyeRisk.dc.html'], ['服务器', 'IdcServers.dc.html']];
+  var tabClick = function (name) { var b = [].slice.call(D.querySelectorAll('.kc-dtabs button')).find(function (x) { return txt(x).indexOf(name) === 0; }); if (b) { b.click(); var m = D.querySelector('.kc-main'); if (m && m.scrollIntoView) window.scrollTo(0, 0); return true; } return false; };
+  var segToggle = function (el) {
+    var p = el.parentElement; [].slice.call(p.children).forEach(function (c) { c.classList.remove('on'); c.setAttribute && c.getAttribute('aria-selected') !== null && c.setAttribute('aria-selected', 'false'); });
+    el.classList.add('on'); if (el.getAttribute('aria-selected') !== null) el.setAttribute('aria-selected', 'true');
+  };
+  var acctSwitch = function (el) {
+    if (!D.getElementById('dx-acs-css')) { var st = D.createElement('style'); st.id = 'dx-acs-css';
+      st.textContent = '.lp-acs{width:440px;padding:20px 0 8px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(29,33,41,.18)}.lp-acs header{display:flex;align-items:center;justify-content:space-between;padding:0 24px 12px}.lp-acs h3{margin:0;font-size:16px;font-weight:600;color:#0c0d0e}.lp-acs header button{border:0;background:none;font-size:18px;color:#86909c;cursor:pointer}.lp-acs p.s{margin:0 24px 8px;font-size:12px;color:#86909c}.lp-acs ul{list-style:none;margin:0;padding:0 12px}.lp-acs li button{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border:0;border-radius:6px;background:none;font:inherit;text-align:left;cursor:pointer}.lp-acs li button:hover{background:#f6f8fa}.lp-acs li.on button{background:#f2f6ff;cursor:default}.lp-acs .av{flex:0 0 36px;width:36px;height:36px;border-radius:6px;display:grid;place-items:center;font-weight:600;color:#fff}.lp-acs .nm{flex:1;min-width:0}.lp-acs .nm b{display:block;font-size:14px;font-weight:500;color:#1d2129;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lp-acs .nm small{display:block;margin-top:2px;font-size:12px;color:#86909c}.lp-acs .nm small em{font-style:normal;color:#42464e;margin-right:8px}.lp-acs .cur{font-size:12px;color:#1664ff}.lp-acs .go{color:#c2c7d0;font-size:16px}.lp-acs footer{margin-top:8px;padding:10px 24px 4px;border-top:1px solid #f2f3f5}.lp-acs footer button{border:0;background:none;padding:6px 0;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-acs footer button:hover{color:#1664ff}';
+      D.head.appendChild(st); }
+    try { D.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); } catch (x) {}
+    var A = [['德', '#1664ff', '德迅科技', '主账号', '100014655316'], ['云', '#14a9a0', '温州云帆网络科技有限公司', '运维', '100020381146'], ['瓯', '#ff7d00', '浙江瓯越信息技术有限公司', '财务', '100031907752']];
+    var cur = (D.querySelector('.kc-user small') || {}).textContent || '德迅科技 · 主账号';
+    var l = layer(el); var n = D.createElement('div'); n.className = 'lp-mask';
+    n.innerHTML = '<div class="lp-acs" role="dialog" aria-modal="true" aria-label="切换账号"><header><h3>切换账号</h3><button type="button" data-x aria-label="关闭">×</button></header><p class="s">wangqi 可以进入以下企业，切换后菜单和数据按该企业的角色显示</p><ul>' +
+      A.map(function (a, i) { var on = cur.indexOf(a[2]) === 0; return '<li class="' + (on ? 'on' : '') + '"><button type="button" data-i="' + i + '"><span class="av" style="background:' + a[1] + '">' + a[0] + '</span><span class="nm"><b>' + esc(a[2]) + '</b><small><em>' + a[3] + '</em>ID ' + a[4] + '</small></span>' + (on ? '<span class="cur">当前</span>' : '<span class="go">›</span>') + '</button></li>'; }).join('') +
+      '</ul><footer><button type="button" data-out>登录其他账号</button></footer></div>';
+    n.addEventListener('click', function (e) {
+      var tg = e.target; if (tg === n || tg.hasAttribute('data-x')) { close(n); return; }
+      if (tg.closest('[data-out]')) { close(n); confirmBox(el, '退出当前账号并登录其他账号？', '退出后回到登录页。', '退出并登录', false, function () { toast(el, '已退出，正在前往登录页', 'info'); }); return; }
+      var b = tg.closest('button[data-i]'); if (!b || b.closest('li.on')) return;
+      var a = A[+b.getAttribute('data-i')]; close(n);
+      [].slice.call(D.querySelectorAll('.kc-user small, .kc-sh span')).forEach(function (x) { x.textContent = a[2].replace(/(网络|信息)?科技有限公司$/, '') + ' · ' + a[3]; });
+      [].slice.call(D.querySelectorAll('.kc-top .kc-av')).forEach(function (x) { x.textContent = a[0]; });
+      toast(el, '已切换到 ' + a[2] + ' · ' + a[3]);
+    });
+    l.appendChild(n);
+  };
+  // ix110：按钮逐个对上正确交互，不再落到通用抽屉（77，2026-10-28「很多菜单和按钮都没有检查没有正确的交互」）
+  // 1) 表格旁的「添加 / 新建」和行内「编辑 / 修改」：同一张表单，字段来自表头，编辑时带上这一行的值
+  // 2) 轻量设置（提醒、存储、通知、订阅、地区、绑定域名…）：气泡弹层，不开抽屉
+  // 3) 立即执行、暂停、保存等：就地改状态 + 提示；跳转类：去对应页面；上传：系统选文件
+  var popCss = function () {
+    if (D.getElementById('dx-ix-css')) return; var st = D.createElement('style'); st.id = 'dx-ix-css';
+    st.textContent = '.lp-pm{position:absolute;inset:0;z-index:40}.lp-pp{position:absolute;width:300px;background:#fff;border:1px solid #e5e8ef;border-radius:6px;box-shadow:0 6px 16px rgba(29,33,41,.1);animation:lp-cp-in .14s ease-out both;text-align:left}' +
+      '.lp-pp h4{margin:0;padding:12px 16px 4px;font-size:14px;font-weight:500;color:#1d2129}.lp-pp .lp-pb{padding:4px 16px 8px;font-size:13px;color:#42464e;max-height:320px;overflow:auto}.lp-pp .lp-pf{display:flex;justify-content:flex-end;gap:8px;padding:8px 12px 12px}' +
+      '.lp-pp .kc-btn{height:28px;padding:0 12px;font-size:13px}.lp-pp label.ck{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer}.lp-pp label.ck input{width:14px;height:14px;margin:0;accent-color:#1664ff}' +
+      '.lp-pp .lp-swr{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid #f2f3f5}.lp-pp .lp-swr:first-child{border-top:0}.lp-pp .lp-swr div{flex:1}.lp-pp .lp-swr b{display:block;font-weight:400;color:#1d2129}.lp-pp .lp-swr small{color:#86909c;font-size:12px}' +
+      '.lp-pp .seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5;margin:6px 0}.lp-pp .seg button{height:26px;padding:0 10px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-pp .seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}' +
+      '.lp-pp .lb{display:block;margin:8px 0 2px;font-size:12px;color:#86909c}.lp-pp .kc-in{width:100%;height:32px;box-sizing:border-box}.lp-pp .row{display:flex;gap:8px;align-items:center}.lp-pp .li{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid #f2f3f5}.lp-pp .li:first-child{border-top:0}.lp-pp .li a{color:#1664ff;text-decoration:none;font-size:12px}' +
+      '.lp-f select.kc-in{height:32px;background:#fff}.lp-f .seg{display:inline-flex;padding:2px;border-radius:4px;background:#f2f3f5}.lp-f .seg button{height:28px;padding:0 12px;border:0;border-radius:3px;background:none;font:inherit;font-size:13px;color:#42464e;cursor:pointer}.lp-f .seg button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(29,33,41,.08)}';
+    D.head.appendChild(st);
+  };
+  var pop = function (el, title, body, ok, done) {
+    popCss(); var l = layer(el); var r = el.getBoundingClientRect(); var lr = l.getBoundingClientRect();
+    var n = D.createElement('div'); n.className = 'lp-pm'; var m = D.createElement('div'); m.className = 'lp-pp'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', title);
+    m.style.top = (r.bottom - lr.top + 8) + 'px'; var left = r.left - lr.left; if (left + 300 > lr.width - 8) left = r.right - lr.left - 300; m.style.left = Math.max(8, left) + 'px';
+    m.innerHTML = '<h4>' + esc(title) + '</h4><div class="lp-pb">' + body + '</div>' + (ok === false ? '' : '<div class="lp-pf"><button type="button" class="kc-btn" data-x>取消</button><button type="button" class="kc-btn pri" data-ok>' + esc(ok || '确定') + '</button></div>');
+    m.addEventListener('click', function (e) { e.stopPropagation(); var t = e.target;
+      if (t.hasAttribute('data-x')) { n.remove(); return; }
+      if (t.hasAttribute('data-ok')) { n.remove(); done ? done(m) : toast(el, '已保存'); return; }
+      if (t.classList.contains('kc-sw')) { t.classList.toggle('on'); return; }
+      if (t.parentElement && t.parentElement.classList.contains('seg')) { [].slice.call(t.parentElement.children).forEach(function (b) { b.classList.toggle('on', b === t); }); return; }
+      if (t.hasAttribute('data-go')) { n.remove(); go(el, t.getAttribute('data-go')); }
+    });
+    n.addEventListener('click', function () { n.remove(); }); n.appendChild(m); l.appendChild(n);
+    var f = m.querySelector('input'); if (f && f.type !== 'checkbox') f.focus(); return m;
+  };
+  var segH = function (xs, on) { return '<div class="seg">' + xs.map(function (x, i) { return '<button type="button" class="' + (i === (on || 0) ? 'on' : '') + '">' + esc(x) + '</button>'; }).join('') + '</div>'; };
+  var ckH = function (xs, on) { return xs.map(function (x, i) { return '<label class="ck"><input type="checkbox"' + (on === true || (on && on.indexOf(i) >= 0) ? ' checked' : '') + '>' + esc(x) + '</label>'; }).join(''); };
+  var swH = function (rows) { return rows.map(function (r) { return '<div class="lp-swr"><div><b>' + esc(r[0]) + '</b>' + (r[1] ? '<small>' + esc(r[1]) + '</small>' : '') + '</div><button type="button" class="kc-sw' + (r[2] ? ' on' : '') + '" role="switch" aria-label="' + esc(r[0]) + '"></button></div>'; }).join(''); };
+  var file = function (el, done) { var i = D.createElement('input'); i.type = 'file'; i.style.display = 'none'; i.addEventListener('change', function () { if (i.files && i.files[0]) done(i.files[0]); i.remove(); }); D.body.appendChild(i); i.click(); };
+  var DOCS = 'https://77615.github.io/dexunyun-site-preview/Docs.dc.html';
+  var prodOf = function () { var p = P || ''; return /^(Scdn|Main)/.test(p) ? 'scdn' : /^Ddos/.test(p) ? 'ddos' : /^Game/.test(p) ? 'game' : /^Eye/.test(p) ? 'eye' : /^Idc/.test(p) ? 'idc' : ''; };
+  // 表格表单：字段 = 表头（去掉 状态 / 操作 / 时间类），枚举列做成下拉
+  var SKIP = /^(状态|操作|更新时间|添加时间|创建时间|生成时间|发现时间|上次执行|下次执行|命中.*|近 24 小时|可用率|平均响应|最近一次异常|)$/;
+  var tableOf = function (el) {
+    var box = el.closest('.kc-pc,.kc-card,section') || el.closest('main');
+    var tb = box && box.querySelector('table'); if (!tb && el.closest('main')) tb = el.closest('main').querySelector('table'); return tb;
+  };
+  var tableForm = function (el, tb, row, title) {
+    var ths = [].slice.call(tb.querySelectorAll('thead th')); var trs = [].slice.call(tb.querySelectorAll('tbody tr'));
+    var cell = function (tr, i) { var c = tr && tr.children[i]; if (!c) return ''; var f = c.firstChild; return ((f && f.nodeType === 3 ? f.textContent : c.innerText.split('\n')[0]) || '').trim(); };
+    var f = ths.map(function (th, i) { return { i: i, n: txt(th) }; }).filter(function (c) { return !SKIP.test(c.n) && !ths[c.i].classList.contains('lf-ck'); });
+    var body = f.map(function (c) {
+      var vals = trs.map(function (tr) { return cell(tr, c.i); }).filter(Boolean); var uniq = vals.filter(function (v, k) { return vals.indexOf(v) === k; });
+      var v = row ? cell(row, c.i) : '';
+      var en = uniq.length > 1 && uniq.length <= 4 && uniq.length < trs.length && uniq.every(function (u) { return u.length <= 8; });
+      if (en) return '<label class="lp-f"><span>' + esc(c.n) + '</span><select class="kc-in">' + uniq.map(function (u) { return '<option' + (u === v ? ' selected' : '') + '>' + esc(u) + '</option>'; }).join('') + '</select></label>';
+      return '<label class="lp-f"><span>' + esc(c.n) + '</span><input class="kc-in" value="' + esc(v === '—' ? '' : v) + '" placeholder="' + esc(row ? '' : (vals[0] ? '例如 ' + vals[0] : '请输入')) + '"></label>';
+    }).join('');
+    popCss(); drawer(el, title, body, row ? '保存' : '确定', function () { toast(el, row ? '已保存，约 30 秒生效' : '已添加，约 30 秒生效'); });
+  };
+  var addTitle = function (t) { return t.replace(/^[＋+]\s*/, '').replace(/^(添加|新建)([A-Za-z0-9])/, '$1 $2'); };
+  var editTitle = function (tb, el) {
+    var adds = [].slice.call((el.closest('.kc-pc,.kc-card,section') || D).querySelectorAll('button,a')).map(txt).filter(function (x) { return /^[＋+]?\s*(添加|新建)/.test(x); });
+    var a = adds[0] || ''; var obj = a.replace(/^[＋+]?\s*(添加|新建)\s*/, '');
+    if (!obj) { var h0 = tb.querySelector('thead th:not(.lf-ck)'); obj = h0 ? txt(h0).split(/\s*[\/:：]\s*/)[0] : ''; }
+    return '编辑' + (/^[A-Za-z0-9]/.test(obj) ? ' ' : '') + obj;
+  };
+  var POPS = {
+    '到期提醒设置': ['到期提醒', ckH(['提前 30 天', '提前 15 天', '提前 7 天', '到期当天'], [0, 2, 3]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
+    '日志存储设置': ['日志存储', '<span class="lb">保留时长</span>' + segH(['30 天', '90 天', '180 天'], 0) + '<p style="margin:6px 0 0;color:rgba(0,0,0,.5);font-size:12px">超过 30 天按存储量计费，价格见计费说明。</p>'],
+    '监测设置': ['监测设置', swH([['漏洞扫描', '每天 02:00', true], ['篡改监测', '每 10 分钟', true], ['可用性', '每分钟', true], ['内容安全', '每 6 小时', false]])],
+    '通知设置': ['通知设置', swH([['高危风险', '立即通知', true], ['中危风险', '每天汇总一次', true], ['低危风险', '每周汇总一次', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1, 2])],
+    '订阅日报': ['订阅日报', swH([['每天 09:00 发送前一天报表', '', true]]) + '<span class="lb">接收人</span>' + ckH(['张三 · 管理员', '李四 · 运维', '王五 · 运维'], [0, 1])],
+    '订阅设置': ['订阅月报', swH([['每月 1 日自动生成上月报告', '', true]]) + '<span class="lb">发送给</span>' + ckH(['张三 · 管理员', '李四 · 运维'], [0])],
+    '发现设置': ['发现设置', swH([['子域名', '证书透明日志、DNS 记录', true], ['开放端口', '常见 1,000 个端口', true], ['备案信息', '同主体下的网站', true]])],
+    '告警设置': ['可用性告警', swH([['连续 3 次失败告警', '', true], ['响应超过 3 秒告警', '', false]]) + '<span class="lb">通知方式</span>' + ckH(['站内信', '短信', '邮件'], [0, 1])],
+    '开启超额提醒': ['超额提醒', '<span class="lb">流量包用到</span>' + segH(['70%', '80%', '90%'], 1) + '<span class="lb">提醒方式</span>' + ckH(['站内信', '短信'], [0, 1])],
+    '选择地区': ['封禁地区', ckH(['境外（港澳台除外）', '香港', '澳门', '台湾'], [0])],
+    '应用到…': ['应用到', ckH(['www.example.com', 'shop.example.com', 'api.example.com', '端口 7000', '端口 7001-7004'], [1])],
+    '分组管理': ['分组管理', '<div class="li"><span>电商业务 · 12</span><a href="#">重命名</a></div><div class="li"><span>官网 · 8</span><a href="#">重命名</a></div><div class="li"><span>默认分组 · 16</span><span style="color:#a9aeb8;font-size:12px">默认</span></div><span class="lb">新建分组</span><input class="kc-in" placeholder="分组名称">'],
+    '节点详情': ['拨测节点', '<div class="li"><span>杭州 · 电信</span><span>132 ms</span></div><div class="li"><span>广州 · 电信</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>成都 · 移动</span><span style="color:#f53f3f">超时</span></div><div class="li"><span>北京 · 联通</span><span>186 ms</span></div><div class="li"><span>上海 · 电信</span><span>118 ms</span></div>', false],
+    '回收站': ['回收站', '<div class="li"><span>旧版客户端 v2.1.0 · 10-12 删除</span><a href="#" data-ok>恢复</a></div><p style="margin:6px 0 0;color:rgba(0,0,0,.5);font-size:12px">删除 30 天后自动清除。</p>', false],
+    '管理白名单': ['白名单设备', '<div class="li"><span>7A21-0C3E-55D1 · 测试机</span><a href="#">移除</a></div><div class="li"><span>B904-61FE-2A07 · 主播</span><a href="#">移除</a></div><span class="lb">添加设备</span><input class="kc-in" placeholder="机器特征码">'],
+    '批量绑定': ['批量绑定', '<span class="lb">证书</span><select class="kc-in"><option>*.example.com · 2027-03-01</option><option>shop.example.com · 2026-11-06</option></select><span class="lb">绑定到</span>' + ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0, 2])],
+    '绑定': ['绑定到域名', ckH(['www.example.com', 'shop.example.com', 'm.example.com', 'api.example.com'], [0])],
+    '查看规则': ['规则（412 条）', '<div class="li"><span>SQL 注入 · 98 条</span></div><div class="li"><span>XSS · 76 条</span></div><div class="li"><span>命令注入 · 41 条</span></div><div class="li"><span>文件包含 · 37 条</span></div><div class="li"><span>其他 · 160 条</span></div>', false]
+  };
+  var NAVX = {
+    '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
+    '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
+    '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
+    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
+    '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
+  };
+  // scx1109：SCDN 日常运维流程走查后补的就地交互（2026-11-09）
+  var scx = function (el, t) {
+    if (!(P === 'Main' || pre('Scdn'))) return false;
+    var tr = el.closest('tr');
+    var cell = function (row, i) { return row && row.children[i] ? txt(row.children[i]) : ''; };
+    var kv = function (rows) { return '<div class="sx-kv">' + rows.map(function (r) { return '<div><span>' + esc(r[0]) + '</span><b>' + r[1] + '</b></div>'; }).join('') + '</div>'; };
+    var TPL = { 'Web 应用防火墙': ['电商大促模板', '官网基础防护（默认）', '交易严格', 'API 试运行'], 'CC 防护': ['大促 CC 严格', '登录接口加强', '官网默认（默认）'], 'Bot 管理': ['商城防刷', '只放搜索引擎（默认）', 'API 全拦'], 'API 安全': ['订单接口防护', '支付回调', '基础 API 防护（默认）'], '访问控制': ['商城访问控制', '官网访问控制（默认）', '图片站访问控制', 'API 访问控制'], '内容安全': ['商城内容安全', '官网内容安全（默认）', '移动站'], '云蜜罐': ['商城蜜罐', '官网蜜罐（默认）'] };
+    var MODS = Object.keys(TPL); var ACLT = TPL['访问控制'].map(function (x) { return x.replace('（默认）', ''); });
+    var DOMS = ['shop.example.com', 'pay.example.com', 'm.example.com', 'api.example.com', 'www.example.com', 'static.example.com'];
+    if (!D.getElementById('sx-css')) { var st = D.createElement('style'); st.id = 'sx-css';
+      st.textContent = '.sx-kv{display:grid;grid-template-columns:1fr;gap:0;margin:0 0 12px}.sx-kv>div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid #f2f3f5;font-size:13px}.sx-kv span{color:#86909c}.sx-kv b{font-weight:400;color:#1d2129;word-break:break-all}.sx-kv code{font-family:ui-monospace,Menlo,monospace;font-size:12px}.sx-note{margin:8px 0 0;padding:8px 12px;background:#f7f8fa;border-radius:4px;font-size:12px;color:#4e5969}.sx-rd{display:flex;align-items:flex-start;gap:8px;padding:8px 0;font-size:13px;cursor:pointer}.sx-rd input{margin:2px 0 0;accent-color:#1664ff}.sx-rd small{display:block;color:#86909c;font-size:12px}';
+      D.head.appendChild(st); }
+    // ---- tpl1110：模板模型（默认模板 / 引用数 / 另存为专用 / 白名单例外）----
+    var modOf = function (x) { return MODS.filter(function (m) { return x.indexOf(m) >= 0; })[0] || ''; };
+    if (t === '清理未引用' && pre('Scdn')) {
+      var cd0 = el.closest('.kc-card') || D; var un = [].slice.call(cd0.querySelectorAll('tbody tr')).filter(function (r) { return /0 · 未引用/.test(txt(r)); });
+      if (!un.length) { toast(el, '没有未被引用的模板', 'info'); return true; }
+      var nms = un.map(function (r) { return txt(r.querySelector('.sp-nm')); });
+      confirmBox(el, '删除 ' + un.length + ' 个未被引用的模板？', '「' + nms.join('」「') + '」没有任何域名在用，删除后无法恢复。默认模板不会被清理。', '删除', true, function () { un.forEach(function (r) { r.remove(); }); toast(el, '已删除 ' + un.length + ' 个模板'); });
+      return true;
+    }
+    if (P === 'ScdnDomainDetail' && t === '另存为专用') {
+      var cc = el.closest('.pc-c'); var md = txt(cc.querySelector('h3')); var bb = [].slice.call(cc.querySelectorAll('.pc-kv > div')).filter(function (d) { return txt(d.querySelector('span')) === '模板'; })[0];
+      var cur0 = bb ? txt(bb.querySelector('b')).replace('（默认）', '') : '';
+      pop(el, md + ' · 另存为本域名专用', '<p style="margin:0 0 8px;font-size:12px">复制「' + esc(cur0) + '」的全部规则，生成一个只给 shop.example.com 用的新模板，并换成它。原模板和其他引用它的域名不受影响。</p><input class="kc-in" style="width:100%" value="' + esc(cur0) + ' · shop 专用">', '另存并换用', function (m) {
+        var v = (m.querySelector('input') || {}).value || (cur0 + ' · shop 专用'); if (bb) bb.querySelector('b').textContent = v;
+        var tg0 = cc.querySelector('header .kc-tag'); if (tg0) { tg0.className = 'kc-tag ok'; tg0.textContent = '已绑定'; }
+        toast(el, '已另存为「' + v + '」，可以在' + md + '页编辑它'); });
+      return true;
+    }
+    if (P === 'ScdnDomainDetail' && el.classList.contains('sx-adm')) {
+      drawer(el, '后台加密 · shop.example.com', '<p class="sx-note" style="margin:0 0 12px">给管理后台再加一层访问认证，属于域名配置，不在防护模板里。</p><span class="lb">后台 URL</span><input class="kc-in" style="width:100%" value="/admin">' +
+        '<span class="lb">认证方式</span>' + segH(['密码', '密码 + 短信']) + '<span class="lb">允许的地区与 IP</span><input class="kc-in" style="width:100%" value="浙江；203.0.113.0/24，198.51.100.0/24">' +
+        '<span class="lb">认证有效期</span>' + segH(['2 小时', '8 小时', '24 小时']), '保存', function () { toast(el, '后台加密已保存，约 30 秒生效'); });
+      return true;
+    }
+    if (/^Scdn(Acl|Api|Honeypot)/.test(P) && (t === '新建模板' || (t === '编辑' && tr && tr.querySelector('.sx-rc,.kc-sub') && /引用域名/.test(txt(tr.closest('table').querySelector('thead')))))) {
+      var mn = /Acl/.test(P) ? '访问控制' : /Api/.test(P) ? 'API 安全' : '云蜜罐'; var nm0 = t === '编辑' ? txt(tr.querySelector('.sp-nm')).replace('默认', '') : '';
+      var what = /Acl/.test(P) ? '精准规则、黑名单、地域封禁、防盗链' : /Api/.test(P) ? '要保护的 API、基线规则' : '虚拟后台、虚拟敏感文件';
+      drawer(el, (t === '编辑' ? '编辑' : '新建') + (/^[A-Z]/.test(mn) ? ' ' : '') + mn + '模板', '<span class="lb">模板名称</span><input class="kc-in" style="width:100%" value="' + esc(nm0) + '" placeholder="如：商城' + mn + '">' +
+        '<p class="sx-note">' + what + '在本页其他页签里按「所属模板」添加。' + (t === '新建模板' ? '可以先空着保存，再去加规则。' : '') + '</p>' +
+        '<span class="lb">防护对象</span>' + ckH(DOMS, t === '编辑' ? [0] : []) + '<p class="sx-note">每个域名在本模块只能用一个模板；选中已在用其他模板的域名，会改用本模板。</p>', t === '编辑' ? '保存' : '创建', function () { toast(el, t === '编辑' ? '已保存，约 30 秒生效' : '模板已创建'); });
+      return true;
+    }
+    var wlForm = function (c, typ, doms, skip, note) {
+      return '<span class="lb">内容</span><textarea class="sp-ta" rows="3" style="width:100%" placeholder="一行一条，IP 支持 CIDR">' + esc(c) + '</textarea>' +
+        '<span class="lb">类型</span>' + segH(['IP', 'URL', 'WAF 规则 ID'], typ) + '<span class="lb">生效域名</span>' + ckH(DOMS, doms) +
+        '<span class="lb">跳过的模块</span>' + ckH(['全部模块'].concat(MODS), skip) + '<span class="lb">备注</span><input class="kc-in" style="width:100%" value="' + esc(note || '') + '">' +
+        '<p class="sx-note">白名单不属于模板，直接挂在所选域名上，优先于所有拦截规则（包括黑名单）。只勾需要跳过的模块，其他模块照常检测。</p>';
+    };
+    if (/^ScdnAcl/.test(P) && t === '添加白名单') { drawer(el, '添加白名单', wlForm('', 0, [0], [1]), '添加', function () { toast(el, '已添加白名单，约 30 秒生效'); }); return true; }
+    if (/^ScdnAcl/.test(P) && t === '编辑' && tr && /跳过的模块/.test(txt(tr.closest('table').querySelector('thead')))) {
+      var sk = cell(tr, 3); var di = DOMS.indexOf(cell(tr, 2)); var ty = /WAF/.test(cell(tr, 1)) ? 2 : /URL/.test(cell(tr, 1)) ? 1 : 0;
+      var ski = /全部/.test(sk) ? [0] : MODS.map(function (m, i) { return sk.indexOf(m) >= 0 ? i + 1 : -1; }).filter(function (i) { return i >= 0; });
+      drawer(el, '编辑白名单', wlForm(cell(tr, 0), ty, di >= 0 ? [di] : [], ski, cell(tr, 5) === '—' ? '' : cell(tr, 5)), '保存', function () { toast(el, '已保存，约 30 秒生效'); });
+      return true;
+    }
+    if (t === '加白' && tr && (P === 'ScdnBlocks' || /^ScdnBot/.test(P))) {
+      var ip = P === 'ScdnBlocks' ? cell(tr, 1) : cell(tr, 0); var dm = P === 'ScdnBlocks' ? cell(tr, 2) : 'shop.example.com'; var mm = P === 'ScdnBlocks' ? modOf(cell(tr, 4)) : 'Bot 管理';
+      var mi = MODS.indexOf(mm); var dj = DOMS.indexOf(dm);
+      drawer(el, '加白 · ' + ip, kv([['来源', esc(P === 'ScdnBlocks' ? '拦截记录 · ' + cell(tr, 0) : 'AI 行为识别 · ' + cell(tr, 1))], ['命中', esc(mm || '—')]]) + wlForm(ip, 0, dj >= 0 ? [dj] : [0], mi >= 0 ? [mi + 1] : [0], ''),
+        '加入白名单', function () { toast(el, '已加入白名单：' + dm + ' 跳过「' + (mm || '全部模块') + '」，在「访问控制 › 白名单」查看'); });
+      return true;
+    }
+    if (t === '加入黑名单' && tr && /^ScdnHoneypot/.test(P)) {
+      pop(el, '加入黑名单 · ' + cell(tr, 0), '<p style="margin:0 0 8px;font-size:12px">黑名单是访问控制模板里的规则，选择加到哪个模板：</p>' + ACLT.map(function (o, i) { return '<label class="sx-rd"><input type="radio" name="sx-acl"' + (i === 0 ? ' checked' : '') + '><span>' + esc(o) + '</span></label>'; }).join(''), '加入', function (m) {
+        var pk = ACLT[0]; [].slice.call(m.querySelectorAll('.sx-rd')).forEach(function (l) { if (l.querySelector('input').checked) pk = txt(l.querySelector('span')); });
+        toast(el, '已加入「' + pk + '」的黑名单，用这个模板的域名都会拦截'); });
+      return true;
+    }
+    // ---- 批量操作（域名列表，勾选后可用）----
+    var selN = function () { return D.querySelectorAll('main tbody .ac-cbx.on').length; };
+    if (P === 'Main' && el.closest('.lf-batch')) {
+      var n = selN(); if (!n) { toast(el, '先勾选域名', 'info'); return true; }
+      if (t === '批量设置防护') {
+        drawer(el, '批量设置防护模板 · 已选 ' + n + ' 个域名', '<p class="sx-note" style="margin:0 0 12px">每个模块只能用一个模板。只改选了模板的模块，选「不改」的保持各域名原来的模板；所属实例套餐不支持的规则会在该域名上标「未生效」。</p>' +
+          Object.keys(TPL).map(function (k) { return '<span class="lb">' + esc(k) + '</span>' + segH(['不改'].concat(TPL[k])); }).join(''), '应用', function () { toast(el, '已更新 ' + n + ' 个域名的防护模板，约 30 秒生效'); });
+        return true;
+      }
+      if (t === '清除缓存') { confirmBox(el, '清除 ' + n + ' 个域名的全部缓存？', '清除后首批请求会回源，源站压力会短暂上升。只想刷新个别文件，用「刷新缓存」按 URL 刷新。', '清除缓存', false, function () { toast(el, '已提交，约 5 分钟全网生效，记录在「刷新缓存 › 操作记录」'); }); return true; }
+      if (t === '更换源站') {
+        drawer(el, '更换源站 · 已选 ' + n + ' 个域名', '<span class="lb">新源站</span><textarea class="sp-ta" rows="3" style="width:100%" placeholder="IP 或域名，一行一个，多个按权重轮询">203.0.113.20</textarea>' +
+          '<span class="lb">回源协议</span>' + segH(['跟随', 'HTTP', 'HTTPS']) + '<span class="lb">回源 Host</span>' + segH(['跟随加速域名', '使用源站域名']) +
+          '<p class="sx-note">会替换这些域名的全部源站。切换前确认新源站已放行德迅回源 IP 段，否则会回源失败。</p>', '更换', function () { toast(el, '已更换 ' + n + ' 个域名的源站，约 1 分钟生效'); });
+        return true;
+      }
+      if (t === '更多批量操作') { pop(el, '更多批量操作', ['移动到分组', '暂停加速', '恢复加速', '导出配置', '删除域名'].map(function (x) { return '<div class="li"><span' + (x === '删除域名' ? ' style="color:#f53f3f"' : '') + '>' + x + '</span></div>'; }).join(''), false); return true; }
+    }
+    // ---- 访问控制 · 地域封禁 清空选择 ----
+    if (P === 'ScdnAcl' && t === '清空选择') {
+      var cd = el.closest('.kc-card') || D; [].slice.call(cd.querySelectorAll('.sp-ck.on')).forEach(function (x) { x.classList.remove('on'); });
+      var sm = [].slice.call(cd.querySelectorAll('.dt-f')).filter(function (d) { return txt(d.querySelector('span')) === '已选'; })[0]; if (sm) sm.querySelector('.sp-sum').textContent = '未选择地区';
+      toast(el, '已清空，点「保存」后生效', 'info'); return true;
+    }
+    // ---- 域名详情 ----
+    if (P === 'ScdnDomainDetail' && /查看访问量/.test(t)) { var tb5 = [].slice.call(D.querySelectorAll('.kc-dtabs button')).filter(function (b) { return /访问统计/.test(txt(b)); })[0]; if (tb5) tb5.click(); return true; }
+    if (P === 'ScdnDomainDetail' && /^TLS 1\.\d$/.test(t)) {
+      pop(el, '最低 TLS 版本', ['TLS 1.0', 'TLS 1.1', 'TLS 1.2', 'TLS 1.3'].map(function (o) { return '<label class="sx-rd"><input type="radio" name="sx-tls"' + (o === t ? ' checked' : '') + '><span>' + o + (o === 'TLS 1.2' ? '<small>推荐，兼容绝大多数浏览器</small>' : o === 'TLS 1.3' ? '<small>老设备和部分安卓机可能无法访问</small>' : '<small>有安全风险，等保测评不通过</small>') + '</span></label>'; }).join(''), '确定', function (m) {
+        var v = t; [].slice.call(m.querySelectorAll('.sx-rd')).forEach(function (l) { if (l.querySelector('input').checked) v = txt(l.querySelector('span')).slice(0, 7); }); el.textContent = v; toast(el, '最低 TLS 版本已改为 ' + v + '，约 1 分钟生效'); });
+      return true;
+    }
+    if (P === 'ScdnDomainDetail' && t === '编辑配置') {
+      var tb1 = D.querySelectorAll('.kc-dtabs button')[1]; if (tb1 && !tb1.classList.contains('on') && tb1.getAttribute('aria-selected') !== 'true') tb1.click();
+      drawer(el, '编辑源站与回源', '<span class="lb">源站</span><textarea class="sp-ta" rows="3" style="width:100%">203.0.113.10  权重 70\n203.0.113.11  权重 30</textarea>' +
+        '<span class="lb">负载均衡</span>' + segH(['轮询', '权重', 'IP 哈希', 'URL 哈希'], 1) + '<span class="lb">回源协议</span>' + segH(['跟随', 'HTTP', 'HTTPS']) +
+        '<span class="lb">回源 Host</span>' + segH(['跟随加速域名', '使用源站域名']) + '<span class="lb">并发超限时</span>' + segH(['返回 400', '301 跳转', '自定义状态码']) +
+        '<span class="lb">服务器响应头</span><input class="kc-in" style="width:100%" value="Server: dxscdn">' + swH([['HTTP 跳 HTTPS（301）', '所有 HTTP 请求跳到 HTTPS']]), '保存', function () { toast(el, '源站与回源已保存，约 1 分钟生效'); });
+      return true;
+    }
+    if (P === 'ScdnWaf' && /规则编写规范/.test(t)) {
+      drawer(el, '自定义规则编写规范', '<p class="sx-note" style="margin:0 0 12px">用 ModSecurity SecRule 语法，一条规则一行或用 \\ 换行。规则 ID 只能用 100000–199999，保存时会自动校验语法。</p>' +
+        kv([['格式', '<code>SecRule 变量 "操作符 参数" "id:规则ID,phase:阶段,动作,msg:说明"</code>'], ['常用变量', '<code>REQUEST_URI</code> · <code>ARGS</code> · <code>REQUEST_HEADERS:User-Agent</code> · <code>REMOTE_ADDR</code> · <code>REQUEST_BODY</code>'],
+          ['常用操作符', '<code>@rx</code> 正则 · <code>@contains</code> 包含 · <code>@ipMatch</code> IP 段 · <code>@streq</code> 等于'], ['动作', '<code>deny</code> 拦截 · <code>pass</code> 放行 · <code>log</code> 只记录'], ['阶段', '1 请求头 · 2 请求体（检查 POST 内容用 2）']]) +
+        '<span class="lb">示例：拦截访问 .git 目录</span><pre class="sp-ta" style="white-space:pre-wrap;margin:0;font:12px ui-monospace,Menlo,monospace;padding:8px 12px;background:#f7f8fb;border-radius:0">SecRule REQUEST_URI "@rx /\\.git/" "id:100001,phase:1,deny,status:403,msg:\'git leak\'"</pre>' +
+        '<span class="lb">示例：限制后台只允许办公网</span><pre style="white-space:pre-wrap;margin:0;font:12px ui-monospace,Menlo,monospace;padding:8px 12px;background:#f7f8fb;border-radius:0">SecRule REQUEST_URI "@beginsWith /admin" "id:100002,phase:1,chain,deny,status:403"\n  SecRule REMOTE_ADDR "!@ipMatch 203.0.113.0/24"</pre>', '知道了', function () {});
+      return true;
+    }
+    // ---- 日志推送 测试 ----
+    if (P === 'ScdnLogs' && t === '测试推送' && tr) { var ad = ''; [].slice.call(tr.children).some(function (c) { if (/[\w.]+:\d+/.test(txt(c))) { ad = txt(c).match(/[\w.]+:\d+/)[0]; return true; } return false; }); toast(el, '测试日志已发到 ' + (ad || '接收地址') + '，对方已收到'); return true; }
+    // ---- 未开通 ----
+    if (P === 'ScdnUnopened' && t === '申请免费试用') {
+      drawer(el, '申请免费试用', '<p class="sx-note" style="margin:0 0 12px">试用 7 天，含 1 个域名、100 GB 流量和全部防护功能，到期自动停止，不扣费。</p>' +
+        '<span class="lb">联系人</span><input class="kc-in" style="width:100%" value="张三"><span class="lb">手机号</span><input class="kc-in" style="width:100%" value="177****1234">' +
+        '<span class="lb">要接入的域名</span><input class="kc-in" style="width:100%" placeholder="例如 www.example.com"><span class="lb">主要需求</span>' + ckH(['网站加速', '防 CC / Web 攻击', '防爬虫', '等保合规'], [1]), '提交申请', function () { toast(el, '已提交，审核通过后短信通知，一般 1 个工作日内'); });
+      return true;
+    }
+    if (P === 'ScdnOverview' && t === '处理记录') { pop(el, '处理记录', ['10-27 09:42 张三 把 api.example.com 的 CC 规则改为拦截', '10-26 20:05 李四 刷新 m.example.com/act/ 目录', '10-25 11:18 张三 批量清除 4 个域名缓存'].map(function (x) { return '<div class="li"><span>' + esc(x) + '</span></div>'; }).join(''), false); return true; }
+    // ---- 删除 / 加入黑名单：用这一行真正的名字 ----
+    if (/^(删除|加入黑名单)$/.test(t) && tr && el.closest('tbody')) {
+      var nm = ''; var mo = t === '删除' && tr.querySelector('.sp-mono'); if (mo) nm = txt(mo); else [].slice.call(tr.children).some(function (c) { if (c.classList.contains('lf-ck')) return false; var v = txt(c); if (t === '加入黑名单' ? /\d+\.\d+\.|\*\*/.test(v) : (v && !/^(编辑|删除|详情|修改|查看)/.test(v))) { nm = v.split(/\s/)[0]; return true; } return false; });
+      confirmBox(el, t + (nm ? '「' + nm + '」' : '') + '？', t === '删除' ? '删除后无法恢复。' : '该 IP 之后的请求都会被拦截，可在「访问控制 › 黑白名单」里移除。', t, true, function () {
+        if (t === '删除') { tr.style.transition = 'opacity .2s'; tr.style.opacity = '0'; setTimeout(function () { tr.remove(); }, 200); toast(el, '已删除'); } else { el.textContent = '已加入黑名单'; el.style.pointerEvents = 'none'; toast(el, '已加入黑名单，约 30 秒生效'); } });
+      return true;
+    }
+    // ---- 刷新缓存 ----
+    if (P === 'ScdnPurge' && /^(URL 刷新|目录刷新)$/.test(t)) {
+      var dir = t === '目录刷新'; var f = el.closest('.pg-purge');
+      [].slice.call(el.parentElement.children).forEach(function (b) { var on = b === el; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+      if (f) { var lb = f.querySelectorAll('.dt-f > span')[1]; if (lb) lb.textContent = dir ? '目录' : 'URL'; var ta = f.querySelector('textarea');
+        if (ta) { ta.value = dir ? 'https://shop.example.com/static/\nhttps://m.example.com/act/' : 'https://shop.example.com/static/app.js\nhttps://shop.example.com/item/8812'; ta.placeholder = dir ? '一行一个目录，以 / 结尾，会刷新目录下所有文件' : '一行一个，必须以 http:// 或 https:// 开头'; ta.setAttribute('aria-label', dir ? '要刷新的目录' : '要刷新的 URL'); }
+        var h = f.querySelector('.kc-hint'); if (h) h.textContent = dir ? '一次最多 10 个目录，只能是已接入的域名' : '一次最多 100 条，只能是已接入的域名'; }
+      return true;
+    }
+    if (P === 'ScdnPurge' && t === '提交刷新') {
+      var f2 = el.closest('.pg-purge'); var ta2 = f2 && f2.querySelector('textarea'); var ls = ta2 ? ta2.value.split('\n').filter(function (x) { return x.trim(); }) : [];
+      var dir2 = f2 && /目录/.test(txt(f2.querySelector('.kc-sg .on') || f2));
+      if (!ls.length) { toast(el, '先填要刷新的 ' + (dir2 ? '目录' : 'URL'), 'info'); return true; }
+      var bad = ls.filter(function (x) { return !/^https?:\/\/[^/]*example\.com/.test(x.trim()); });
+      if (bad.length) { toast(el, '「' + bad[0].trim().slice(0, 40) + '」不是已接入的域名', 'err'); return true; }
+      var tip = f2.querySelector('.sp-tip'); if (tip) tip.textContent = tip.textContent.replace(/URL ([\d,]+) \/ 2,000/, function (m, n) { return dir2 ? m : 'URL ' + (parseInt(n.replace(',', ''), 10) - ls.length).toLocaleString() + ' / 2,000'; }).replace(/目录 (\d+) \/ 100/, function (m, n) { return dir2 ? '目录 ' + (n - ls.length) + ' / 100' : m; });
+      toast(el, '已提交 ' + ls.length + ' 条' + (dir2 ? '目录' : ' URL ') + '刷新，约 5 分钟全网生效，进度在「操作记录」里看');
+      return true;
+    }
+    if (P === 'ScdnPurge' && t === '查看' && tr) {
+      var fail = /失败/.test(txt(tr));
+      drawer(el, '刷新详情', kv([['提交时间', esc(cell(tr, 0))], ['类型', esc(cell(tr, 1))], ['操作人', esc(cell(tr, 4))], ['状态', esc(cell(tr, 3))]]) +
+        '<table class="kc-t"><thead><tr><th>URL / 目录</th><th>结果</th></tr></thead><tbody>' +
+        (fail ? '<tr><td><code>https://www.example.com/</code></td><td><span class="kc-tag err">失败：源站返回 502</span></td></tr>' : '<tr><td><code>https://shop.example.com/static/app.js</code></td><td><span class="kc-tag ok">已生效 · 4 分 12 秒</span></td></tr><tr><td><code>https://shop.example.com/item/8812</code></td><td><span class="kc-tag ok">已生效 · 4 分 30 秒</span></td></tr>') +
+        '</tbody></table>', fail ? '重试失败项' : '关闭', function () { if (fail) toast(el, '已重新提交 1 条'); });
+      return true;
+    }
+    // ---- 日志服务 ----
+    if (P === 'ScdnLogs' && t === '详情' && tr) {
+      var blocked = /403/.test(cell(tr, 4)) && /黑名单|—/.test(cell(tr, 6)) && /查看拦截/.test(txt(tr));
+      drawer(el, '请求详情', kv([['时间', esc('2026-' + cell(tr, 0))], ['真实 IP', '<code>' + esc(cell(tr, 1)) + '</code> · 浙江 杭州 · 电信'], ['域名', esc(cell(tr, 2))], ['请求', '<code>' + esc(cell(tr, 3)) + '</code>'],
+        ['状态码', esc(cell(tr, 4))], ['缓存', esc(cell(tr, 5)) + (cell(tr, 5) === 'HIT' ? ' · 边缘节点直接返回' : ' · 回源 128 ms')], ['边缘节点', '杭州-电信-03'], ['名单', esc(cell(tr, 6))],
+        ['User-Agent', '<code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0</code>'], ['Referer', '<code>https://' + esc(cell(tr, 2)) + '/</code>'], ['请求 ID', '<code>7f3a9c21e0b44d18</code>']]) +
+        (blocked ? '<p class="sx-note">这条请求被拦截了，原因和命中的规则在「拦截记录」里。</p>' : ''), blocked ? '去拦截记录' : '关闭', function () { if (blocked) go(el, 'ScdnBlocks.dc.html'); });
+      return true;
+    }
+    if (P === 'ScdnLogs' && t === '查看拦截') { go(el, 'ScdnBlocks.dc.html'); return true; }
+    if (P === 'ScdnLogs' && t === '生成日志包') {
+      drawer(el, '生成日志包', '<span class="lb">域名</span>' + ckH(DOMS.slice(0, 4), [0]) + '<span class="lb">日期</span>' + segH(['昨天', '近 7 天', '自定义']) +
+        '<span class="lb">内容</span>' + ckH(['访问日志', '攻击日志'], [0, 1]) + '<p class="sx-note">按天、按域名各打一个包，约 10 分钟生成，保留 30 天。</p>', '生成', function () { toast(el, '日志包生成中，约 10 分钟，完成后在列表里下载'); });
+      return true;
+    }
+    if (P === 'ScdnLogs' && t === '下载' && tr) { toast(el, '开始下载 ' + cell(tr, 1) + '_' + cell(tr, 0) + '.log.gz（' + cell(tr, 3) + '）'); return true; }
+    // ---- 域名详情 · 安全防护 ----
+    if (/^(换模板|选择模板)$/.test(t) && el.closest('.pc-c')) {
+      var card = el.closest('.pc-c'); var mod = txt(card.querySelector('h3')); var curB = [].slice.call(card.querySelectorAll('.pc-kv > div')).filter(function (d) { return /模板/.test(txt(d.querySelector('span'))); })[0];
+      var cur = curB ? txt(curB.querySelector('b')) : ''; var opts = (TPL[mod] || ['默认模板']);
+      pop(el, mod + ' · 选择模板', opts.map(function (o) { return '<label class="sx-rd"><input type="radio" name="sx-tpl"' + (o === cur ? ' checked' : '') + '><span>' + esc(o) + (o === '不绑定' ? '<small>这个模块对该域名不生效</small>' : o === cur ? '<small>当前使用</small>' : '') + '</span></label>'; }).join(''), '确定', function (m) {
+        var pick = cur;
+        [].slice.call(m.querySelectorAll('.sx-rd')).forEach(function (l) { if (l.querySelector('input').checked) pick = txt(l.querySelector('span')).replace(/当前使用|这个模块对该域名不生效/, ''); });
+        if (curB) curB.querySelector('b').textContent = pick;
+        var tg = card.querySelector('header .kc-tag'); if (tg) { var df = /默认/.test(pick); tg.className = 'kc-tag ' + (df ? 'info' : 'ok'); tg.textContent = df ? '默认模板' : '已绑定'; }
+        var w = card.querySelector('.pc-w'); if (w && pick !== '不绑定') w.remove();
+        if (!curB && pick !== '不绑定') { var kvs = card.querySelector('.pc-kv'); if (kvs) { var d = D.createElement('div'); d.innerHTML = '<span>模板</span><b>' + esc(pick) + '</b>'; kvs.insertBefore(d, kvs.firstChild); } }
+        if (t === '选择模板') { el.textContent = '换模板'; el.className = 'pc-sw'; }
+        toast(el, mod + ' 已换成「' + pick + '」，约 30 秒生效');
+      });
+      return true;
+    }
+    if (t === '复制到其他域名') {
+      drawer(el, '复制防护模板到其他域名', '<p class="sx-note" style="margin:0 0 12px">把 shop.example.com 各模块绑定的模板，原样绑定到下面选中的域名。只复制「用哪个模板」，不复制规则本身。</p>' +
+        '<span class="lb">复制到</span>' + ckH(DOMS.slice(1), [0]) + '<span class="lb">复制哪些模块</span>' + ckH(Object.keys(TPL), true) +
+        '<p class="sx-note">目标域名在这些模块上原来绑定的模板会被替换。</p>', '复制', function () { toast(el, '已复制到所选域名，约 30 秒生效'); });
+      return true;
+    }
+    if (P === 'ScdnDomainDetail' && t === '编辑配置') { var dt = D.querySelectorAll('.kc-dtabs button')[1]; if (dt) dt.click(); return true; }
+    if (t === '续费证书') {
+      pop(el, '续费证书', '<p style="margin:4px 0 8px">证书 <b>example-wildcard</b> 2026-11-20 到期，到期后 HTTPS 访问会报错。</p><p style="margin:0;color:rgba(0,0,0,.5);font-size:12px">在德迅买的证书，到「SSL 证书」续费后会自动替换；其他渠道的证书，续费后上传新证书即可，绑定的域名会自动切换。</p>', '上传新证书', function () { go(el, 'ScdnCertsEdit.dc.html'); });
+      return true;
+    }
+    if (P === 'ScdnCerts' && t === '购买 SSL 证书') { go(el, 'AcctPurchase.dc.html'); return true; }
+    // ---- 域名列表 · 行内更多 ----
+    if (P === 'Main' && t === '更多' && tr) {
+      pop(el, (tr.querySelector('td a') ? txt(tr.querySelector('td a')) : '') || '更多操作', ['清除缓存', '更换源站', '移动到分组', '暂停加速', '删除域名'].map(function (x) { return '<div class="li"><span' + (x === '删除域名' ? ' style="color:#f53f3f"' : '') + '>' + x + '</span></div>'; }).join(''), false);
+      return true;
+    }
+    // ---- 拦截记录 · 封禁 IP ----
+    if (P === 'ScdnBlocks' && t === '释放' && tr) {
+      var ip = cell(tr, 0) || 'IP'; [].slice.call(tr.children).some(function (c) { if (/\*\*/.test(txt(c))) { ip = txt(c); return true; } return false; });
+      confirmBox(el, '释放 ' + ip + '？', '释放后这个 IP 可以马上访问；攻击还在继续的话会被再次封禁。', '释放', false, function () { var tg = tr.querySelector('.kc-tag'); if (tg) { tg.className = 'kc-tag mut'; tg.textContent = '已释放'; } el.textContent = '已释放'; el.style.pointerEvents = 'none'; toast(el, ip + ' 已释放'); });
+      return true;
+    }
+    if (P === 'ScdnBlocks' && t === '清空') {
+      confirmBox(el, '清空全部手动封禁？', '只清空手动加入的封禁；自动封禁会在到期后自己解除。清空后不能恢复。', '清空', true, function () { toast(el, '已清空 12 个手动封禁 IP'); });
+      return true;
+    }
+    // ---- 实例与套餐 ----
+    if (P === 'ScdnBlocks' && t === '一键释放') {
+      confirmBox(el, '释放全部封禁 IP？', '当前封禁中的 36 个 IP（含自动封禁）会全部放行；攻击还在继续的话会被再次封禁。', '全部释放', true, function () { toast(el, '已释放 36 个 IP'); });
+      return true;
+    }
+    if (P === 'ScdnPlan' && t === '过户给其他账号') {
+      drawer(el, '过户给其他账号', kv([['实例', 'SCDN-001 · 企业版'], ['域名', '6 个，随实例一起转移'], ['防护模板', '用到的模板复制一份给对方，你的原模板保留'], ['到期', '2027-03-01']]) +
+        '<span class="lb">接收方账号</span><input class="kc-in" style="width:100%" placeholder="德迅云账号 ID 或注册手机号">' +
+        '<span class="lb">验证码</span><input class="kc-in" style="width:160px" placeholder="发到 177****1234"> <a href="#">获取验证码</a>' +
+        '<p class="sx-note">对方在「消息」里确认后完成过户，72 小时内有效。过户后实例归对方管理和续费，你这边的账单从过户当天停止。</p>', '发起过户', function () { toast(el, '已发起过户，等待对方确认（72 小时内有效）'); });
+      return true;
+    }
+    if (P === 'ScdnPlan' && (t === '查看' || /^SCDN-\d+$/.test(t)) && tr) {
+      var tb = tr.closest('tbody'); [].slice.call(tb.children).forEach(function (r) { r.style.background = r === tr ? '#f2f6ff' : ''; });
+      var id = cell(tr, 0).split(/\s/)[0]; var h3 = D.querySelector('.sp-pc h3'); if (h3) h3.innerHTML = esc(id) + ' ' + tr.children[2].innerHTML;
+      toast(el, '下面已切换到 ' + id + ' 的详情', 'info');
+      return true;
+    }
+    if (P === 'ScdnPlan' && t === '编辑' && el.closest('dd')) {
+      var dd = el.closest('dd'); var old = txt(dd).replace(/编辑$/, '').trim();
+      pop(el, '编辑备注', '<input class="kc-in" style="width:100%" maxlength="20" value="' + esc(old) + '"><p style="margin:6px 0 0;color:rgba(0,0,0,.5);font-size:12px">只给自己看，最多 20 个字，会显示在实例列表的「备注」列。</p>', '保存', function (m) {
+        var v = (m.querySelector('input') || {}).value || old; dd.firstChild && dd.firstChild.nodeType === 3 ? dd.firstChild.nodeValue = v + ' ' : null; toast(el, '备注已保存'); });
+      return true;
+    }
+    return false;
+  };
+  var sxTitle = function (mode) {
+    [].slice.call(D.querySelectorAll('.ac-drw')).filter(function (d) { return d.getBoundingClientRect().width > 0; }).forEach(function (d) {
+      var h = d.querySelector('header > b, header > h3, header > h2'); if (!h) return; var ht = txt(h);
+      var nt = mode === '编辑' ? ht.replace(/^(新建|添加)/, '编辑') : ht.replace(/^编辑/, mode);
+      if (nt !== ht) { h.textContent = nt; d.setAttribute('aria-label', nt); }
+      var ok = [].slice.call(d.querySelectorAll('.kc-btn.pri')).pop();
+      if (ok && mode === '编辑' && /^(添加|新建|创建)$/.test(txt(ok))) ok.textContent = '保存';
+      if (ok && mode !== '编辑' && txt(ok) === '保存') ok.textContent = '确定';
+      var fs = [].slice.call(d.querySelectorAll('.bd input.kc-in:not([type=checkbox]):not([type=radio]), .bd textarea'));
+      if (!d.__sxOrig) d.__sxOrig = fs.map(function (x) { return x.value; });
+      fs.forEach(function (x, i) { x.value = mode === '编辑' ? (d.__sxOrig[i] != null ? d.__sxOrig[i] : x.value) : ''; });
+    });
+  };
+  if (!D.__sxck) { D.__sxck = 1;
+    D.addEventListener('click', function (e) {
+      var bt = e.target.closest && e.target.closest('main button, main a');
+      if (bt && !bt.closest('.ac-drw')) { var bx = txt(bt); var md = /^[+＋]?\s*(新建|添加)/.test(bx) ? (/添加/.test(bx) ? '添加' : '新建') : (/^(编辑|修改)$/.test(bx) ? '编辑' : '');
+        if (md) { setTimeout(function () { sxTitle(md); }, 80); } }
+      var dz = e.target.closest && e.target.closest('.sx-dis'); if (dz) { e.preventDefault(); toast(dz, '默认模板不能删除，可以修改；新接入的域名会自动用它', 'info'); return; }
+      var c = e.target.closest && e.target.closest('.ac-cbx'); if (!c || c.closest('.lp-layer,.lp-drw')) return;
+      var main = c.closest('main') || D; var rows = [].slice.call(main.querySelectorAll('tbody .ac-cbx'));
+      var all = !c.closest('tbody');
+      if (all) { var on = rows.some(function (x) { return !x.classList.contains('on'); }); rows.forEach(function (x) { x.classList.toggle('on', on); }); }
+      else c.classList.toggle('on');
+      var n = rows.filter(function (x) { return x.classList.contains('on'); }).length;
+      rows.forEach(function (x) { var r = x.closest('tr'); if (r) r.style.background = x.classList.contains('on') ? '#f2f6ff' : ''; });
+      [].slice.call(main.querySelectorAll('thead .ac-cbx, .lf-batch .ac-cbx')).forEach(function (h) { h.classList.toggle('on', n && n === rows.length); h.classList.toggle('half', n > 0 && n < rows.length); });
+      [].slice.call(main.querySelectorAll('.lf-sel b')).forEach(function (b) { b.textContent = n; });
+      [].slice.call(main.querySelectorAll('.lf-batch button')).forEach(function (b) { b.disabled = !n; });
+    });
+  }
+  var ix = function (el, t) {
+    var key = t.split(' ')[0];
+    if (scx(el, t)) return true;
+    if (/\b(rw-add|sp-add|sp-del|dn-add|lf-ib|lu-cp)\b/.test(el.className)) return false;
+    // 行首名字：等同这一行的「编辑」
+    var trn = el.closest('tr');
+    if (trn && el.tagName === 'A' && el.closest('td') === trn.querySelector('td:not(.lf-ck)')) { var ed = [].slice.call(trn.querySelectorAll('a,button')).filter(function (b) { return /^(编辑|修改)$/.test(txt(b)); })[0]; if (ed) { ed.click(); return true; } }
+    // 资产指纹小卡：就地展开清单
+    if (el.classList.contains('kc-tile') || (t === '全部' && P === 'EyeAssetDetail')) {
+      var FP = { '开放端口': ['80 · HTTP', '443 · HTTPS', '22 · SSH', '3306 · MySQL（建议关闭对外）', '8080 · HTTP'], '子域名': ['www', 'shop', 'm', 'api', 'img', 'test（未监测）'], '网站指纹': ['Nginx 1.22', 'Vue 2.6', 'jQuery 3.4', 'Element UI'], '关联主机': ['192.0.2.60', '192.0.2.61'], '已爬取页面': ['/', '/list', '/item/1024', '/cart', '/login'], '外部链接': ['cdn.jsdelivr.net', 'hm.baidu.com', 'res.wx.qq.com'] };
+      var nm9 = t.replace(/\s*\d+$/, ''); var xs9 = FP[nm9] || [].concat.apply([], Object.keys(FP).map(function (k) { return [k + ' · ' + FP[k].length]; }));
+      pop(el, t === '全部' ? '资产指纹' : nm9, xs9.map(function (x) { return '<div class="li"><span>' + esc(x) + '</span></div>'; }).join(''), false); return true;
+    }
+    // 文档：去官网文档中心，带上当前产品
+    if (/^(接入文档|完整文档|接入指引|产品文档|查看接入文档)$/.test(t)) { window.open(DOCS + (prodOf() ? '?product=' + prodOf() : ''), '_blank', 'noopener'); return true; }
+    // 跳转
+    var nv = NAVX[t] || NAVX[key] || NAVX[Object.keys(NAVX).filter(function (k) { return k.length >= 4 && t.indexOf(k) >= 0; })[0]];
+    if (el.closest('.sw-p,.ps-l,.ps-r') || P === 'Switcher') { var nm = t.split(' ')[0]; nv = NAVX[nm] || NAVX[t] || 'AcctPurchase.dc.html'; }
+    if (nv && !(t === '查看' && P !== 'DdosTemplates') && !(t === '告警设置' && P === 'EyeUptime') && !(t === '费用' && P !== 'Switcher') && !(t === '用户中心' && P !== 'Switcher')) { go(el, nv); return true; }
+    // 气泡弹层
+    var pp = POPS[t] || POPS[key];
+    if (pp && !(t === '绑定' && P === 'OrgInfo')) { pop(el, pp[0], pp[1], pp[2], function () { toast(el, t === '回收站' ? '已恢复' : '已保存'); }); return true; }
+    if (t === '绑定' && P === 'OrgInfo') { pop(el, '绑定钉钉', '<p style="margin:4px 0 8px">用钉钉扫码完成绑定，绑定后可在钉钉群接收告警。</p><div style="width:120px;height:120px;margin:0 auto 4px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.9) 0 4px,#fff 4px 8px);opacity:.85;border-radius:0"></div>', '我已扫码', function () { var li = el.closest('li'); var tg = li && li.querySelector('.kc-tag'); if (tg) { tg.className = 'kc-tag ok'; tg.textContent = '已绑定'; } el.textContent = '解绑'; toast(el, '钉钉已绑定'); }); return true; }
+    if (t === '批量解绑') { confirmBox(el, '解绑选中的证书？', '解绑后这些域名改用默认证书，HTTPS 访问可能报错。', '解绑', true, function () { toast(el, '已解绑'); }); return true; }
+    // 就地操作
+    var tr = el.closest('tr');
+    if (/^(立即执行|立即扫描)$/.test(t)) { toast(el, t === '立即扫描' ? '已开始扫描，约 15 分钟完成' : '已开始执行，约 2 分钟完成'); return true; }
+    if (/^(暂停|恢复)$/.test(t) && tr) { var tg2 = tr.querySelector('.kc-tag'); var p2 = t === '暂停'; if (tg2) { tg2.className = 'kc-tag ' + (p2 ? 'mut' : 'ok'); tg2.textContent = p2 ? '已暂停' : '运行中'; } el.textContent = p2 ? '恢复' : '暂停'; toast(el, p2 ? '任务已暂停' : '任务已恢复'); return true; }
+    if (/^(加入监测|查看并加入)$/.test(t)) { if (tr) { tr.style.opacity = '.45'; el.textContent = '已加入'; el.style.pointerEvents = 'none'; } toast(el, '已加入监测，首次扫描约 10 分钟完成'); return true; }
+    if (t === '批量加入监测') { toast(el, '先勾选要加入的资产', 'info'); return true; }
+    if (t === '加入白名单') { if (tr) { el.textContent = '已加入白名单'; el.style.pointerEvents = 'none'; } toast(el, '已加入白名单，这台设备不再参与识别'); return true; }
+    if (t === '保存') { toast(el, '已保存，约 1 分钟生效'); return true; }
+    if (t === '发送测试告警') { toast(el, '测试告警已发给 3 位成员'); return true; }
+    if (t === '复制回源 IP 段') { try { var cp = navigator.clipboard.writeText('203.0.113.0/24, 198.51.100.0/24'); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} toast(el, '已复制回源 IP 段，请在源站防火墙放行'); return true; }
+    if (/^(导出 PDF|下载 PDF)$/.test(t)) { toast(el, '正在生成 PDF，完成后自动下载', 'info'); return true; }
+    if (t === '申请访问权限') { el.textContent = '已申请'; el.disabled = true; toast(el, '申请已发给企业管理员 张三'); return true; }
+    if (t === '清空') { var sec = el.closest('section,div'); if (sec) { [].slice.call(sec.querySelectorAll('a,li')).forEach(function (a) { if (a !== el) a.remove(); }); } toast(el, '已清空最近搜索'); return true; }
+    if (t === '申请' && P === 'SupDocs') { pop(el, '申请专属服务群', '<span class="lb">联系人</span><input class="kc-in" value="张三"><span class="lb">手机号</span><input class="kc-in" value="177****1234"><p style="margin:8px 0 0;color:rgba(0,0,0,.5);font-size:12px">客户经理会在 1 个工作日内加你微信并拉群。</p>', '提交申请', function () { toast(el, '已提交，客户经理会在 1 个工作日内联系你'); }); return true; }
+    if (t === '拨打') { location.href = 'tel:0577-26676666'; return true; }
+    if (t === '开始对话') { pop(el, '在线客服', '<p style="margin:4px 0 8px">工作日 9:00–21:00，平均 1 分钟内接入。</p><span class="lb">你想咨询</span>' + segH(['使用问题', '购买咨询', '账单发票']) + '<span class="lb">问题描述</span><input class="kc-in" placeholder="一句话说明问题">', '开始对话', function () { toast(el, '已为你接入在线客服'); }); return true; }
+    if (t === '1' && el.closest('.lf-pgr,.kc-pg,.lf-foot')) return true;
+    // 上传
+    if (/^(上传客户端|上传附件|批量导入)$/.test(t) || /最多 5 个|下载模板/.test(t)) {
+      if (/下载模板/.test(t) && el.tagName === 'A') { toast(el, '模板已下载'); return true; }
+      file(el, function (f) { toast(el, (t === '批量导入' ? '已读取 ' : '已上传 ') + f.name); }); return true;
+    }
+    // 表格表单：添加 / 新建 与 编辑 / 修改 用同一张表
+    var liveAdd = [].slice.call(((el.closest('.kc-main') || D).querySelectorAll('.kc-hd button, .kc-bar button, .kc-hd a, .kc-bar a'))).some(function (b) { return /^[+＋]?\s*(添加|新建)/.test(txt(b)) && live(b); });
+    if (/^(编辑|修改)$/.test(t) && tr && !liveAdd) { var tb3 = tr.closest('table'); if (tb3) { tableForm(el, tb3, tr, editTitle(tb3, el)); return true; } }
+    if (/^[＋+]?\s*(添加|新建)/.test(t) && !el.closest('.lp-layer')) { var tb4 = tableOf(el); if (tb4) { tableForm(el, tb4, null, addTitle(t)); return true; } }
+    return false;
+  };
+  var act = function (el, e) {
+    if (el.classList.contains('lu-cp')) { try { var cp = navigator.clipboard.writeText(el.getAttribute('data-v')); if (cp && cp.catch) cp.catch(function () {}); } catch (x) {} el.classList.add('ok'); setTimeout(function () { el.classList.remove('ok'); }, 1600); toast(el, '已复制成员登录地址'); return; }
+    var t = txt(el); var pg = el.closest('[data-pg]'); P = pg ? pg.getAttribute('data-pg') : page(); var NAV = nav();
+    if (el.getAttribute('aria-current') === 'page' || el.classList.contains('on') && el.closest('.kc-pg')) return;
+    // 切换账号：同一登录身份下的企业 / 角色列表，选中即切换（77，2026-10-28）
+    if (t === '切换账号') { acctSwitch(el); return; }
+    if (ix(el, t)) return;
+    // seg109：分段按钮、静态页签（非 React）= 组内切换选中，不弹抽屉
+    var grp = el.closest('.pg-seg,.dn-seg,.kc-sg,.st-tabs,[role=group]');
+    if (grp && el.parentElement === grp && !live(el)) {
+      [].slice.call(grp.children).forEach(function (b) { var on = b === el; b.classList.toggle('on', on); if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', on ? 'true' : 'false'); if (b.getAttribute('role') === 'tab') b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      if (grp.classList.contains('st-tabs')) { var k9 = el.getAttribute('data-st'); [].slice.call(grp.parentElement.querySelectorAll(':scope > .st-p')).forEach(function (p) { p.hidden = p.getAttribute('data-st') !== k9; });
+        var kids9 = [].slice.call(D.querySelectorAll('.kc-side .kc-ki')), lab9 = txt(el).replace(/\s*\d[\d,]*$/, ''); if (kids9.some(function (x) { return txt(x) === lab9; })) kids9.forEach(function (x) { x.classList.toggle('on', txt(x) === lab9); });
+        try { if (/\.dc\.html$/.test(location.pathname)) { var u9 = new URL(location.href); if (k9 === grp.children[0].getAttribute('data-st')) u9.searchParams.delete(grp.getAttribute('data-key') || 'tab'); else u9.searchParams.set(grp.getAttribute('data-key') || 'tab', k9); history.replaceState(null, '', u9); } } catch (x) {} }
+      return;
+    }
+    // rows108：可重复的表单行（源服务器等）「+ 添加」在下面加一行，× 删掉这一行，不弹抽屉（77，2026-10-28）
+    var fr = el.closest('.kc-fr');
+    var rowsOf = function (f) { return [].slice.call(f.querySelectorAll('.kc-src')).filter(function (r) { return !r.classList.contains('kc-hint') && r.style.display !== 'none'; }); };
+    var cnt = function (f) { var a = f.querySelector('.rw-add'), c = f.querySelector('.rw-cnt'), n = rowsOf(f).length, mx = +(a && a.getAttribute('data-max') || 5); if (c) c.textContent = '（已添加 ' + n + ' / ' + mx + ' 台）'; if (a) a.classList.toggle('rw-off', n >= mx); };
+    if (fr && el.classList.contains('rw-add')) {
+      var rs = rowsOf(fr), mx = +(el.getAttribute('data-max') || 5);
+      if (rs.length >= mx) { toast(el, '最多添加 ' + mx + ' 台源服务器', 'warn'); return; }
+      var nr = rs[rs.length - 1].cloneNode(true), ins = nr.querySelectorAll('input');
+      ins[0].value = ''; ins[0].placeholder = '例如 192.0.2.62 : 7000'; ins[0].setAttribute('aria-label', '源服务器 ' + (rs.length + 1));
+      if (ins[1]) ins[1].value = '50'; if (ins[2]) ins[2].value = String(rs.length + 1);
+      nr.classList.add('rw-new'); var lr = rs[rs.length - 1]; lr.parentNode.insertBefore(nr, lr.nextSibling); cnt(fr); ins[0].focus(); return;
+    }
+    // 表格 / 条件列表下面的「+ 添加…」（sp-add）同样在下面加一行；「删除」（sp-del）删掉这一行
+    var vis = function (r) { return r.style.display !== 'none'; };
+    var spRows = function (host) {
+      var box = host.previousElementSibling; if (!box) return [];
+      var tb = box.matches('table') ? box : box.querySelector('table');
+      if (tb) return [].slice.call(tb.querySelectorAll('tbody > tr')).filter(vis);
+      return [].slice.call(box.querySelectorAll('.sp-del')).map(function (b) { return b.parentElement; }).filter(vis);
+    };
+    if (el.classList.contains('sp-add')) {
+      var host = el.closest('.sp-rf') || el.closest('p') || el.parentElement, rs2 = spRows(host);
+      var m2 = (host.textContent.match(/最多\s*(\d+)/) || [])[1], max2 = m2 ? +m2 : 20;
+      if (!rs2.length) return;
+      if (rs2.length >= max2) { toast(el, '最多 ' + max2 + ' 条', 'warn'); return; }
+      var last = rs2[rs2.length - 1], nr2 = last.cloneNode(true);
+      [].slice.call(nr2.querySelectorAll('input[type=text],input:not([type])')).forEach(function (i, k) { if (!i.closest('.sp-num')) { i.placeholder = i.value || i.placeholder; i.value = ''; } });
+      [].slice.call(nr2.querySelectorAll('.kc-sw.on')).forEach(function (w) { w.classList.remove('on'); w.setAttribute('aria-checked', 'false'); });
+      nr2.classList.add('rw-new'); last.parentNode.insertBefore(nr2, last.nextSibling);
+      var f2 = nr2.querySelector('input'); if (f2) f2.focus(); return;
+    }
+    if (el.classList.contains('sp-del')) {
+      var r2 = el.closest('tr') || el.parentElement, h2 = r2.closest('table') ? (r2.closest('table').closest('div') || r2.closest('table')).nextElementSibling : r2.parentElement.nextElementSibling;
+      var all = r2.closest('table') ? [].slice.call(r2.closest('tbody').children).filter(vis) : [].slice.call(r2.parentElement.querySelectorAll('.sp-del')).map(function (b) { return b.parentElement; }).filter(vis);
+      if (all.length <= 1) { toast(el, '至少保留 1 条', 'warn'); return; }
+      if (r2.classList.contains('rw-new')) r2.remove(); else r2.style.display = 'none';
+      return;
+    }
+    // 告警设置：添加成员 = 从企业成员里选（轻量菜单），添加 Webhook = 下面加一行填地址
+    if (el.classList.contains('dn-add') && el.closest('.dn-rcp')) {
+      var list = el.closest('.dn-rcp');
+      menu(el, [['赵六 · 运维', function () { addR('赵', '赵六', '运维 · 135****2468'); }], ['钱七 · 财务', function () { addR('钱', '钱七', '财务 · 150****1357'); }]]);
+      var addR = function (a, n, d) { var x = D.createElement('div'); x.className = 'rw-new'; x.innerHTML = '<span class="dn-av">' + a + '</span><div><b>' + n + '</b><small>' + d + '</small></div><span class="dn-ch"><i>站内信</i></span>'; list.insertBefore(x, el); toast(el, '已添加 ' + n + '，默认只发站内信'); };
+      return;
+    }
+    if (el.classList.contains('dn-add') && t.indexOf('Webhook') >= 0) {
+      var w = D.createElement('div'); w.className = 'kc-sw-row rw-new';
+      w.innerHTML = '<div style="flex:1"><input class="kc-in" style="width:100%" type="text" aria-label="Webhook 地址" placeholder="粘贴企业微信、钉钉或飞书群机器人的 Webhook 地址"></div><button class="kc-sw on" type="button" role="switch" aria-checked="true" aria-label="Webhook 开关"></button>';
+      el.parentNode.insertBefore(w, el); w.querySelector('input').focus(); return;
+    }
+    if (fr && el.classList.contains('kc-x') && el.closest('.kc-src')) {
+      var r = el.closest('.kc-src');
+      if (rowsOf(fr).length <= 1) { toast(el, '至少保留 1 台源服务器', 'warn'); return; }
+      if (r.classList.contains('rw-new')) r.remove(); else r.style.display = 'none';
+      cnt(fr); return;
+    }
+    // 分页
+    if (el.closest('.kc-pg') || /^(上一页|下一页|‹|›)$/.test(t)) { toast(el, /上一|‹/.test(t) ? '已经是第一页' : '已经是最后一页', 'info'); return; }
+    // 开关
+    if (el.classList.contains('kc-sw')) { var on = el.classList.toggle('on'); el.setAttribute('aria-checked', on ? 'true' : 'false'); toast(el, on ? '已开启，约 30 秒生效' : '已关闭，约 30 秒生效'); return; }
+    // 标签、分段
+    if (el.classList.contains('kc-tab') || el.getAttribute('role') === 'tab') {
+      segToggle(el); var card = el.closest('.kc-card'); var key = t.replace(/\s*\d+$/, '').replace(/\s*\(\d+\)$/, '');
+      var SW = { '按端口': ['端口', ['203.0.113.10:7000', '1.2 Gbps', '1.6 Gbps', '—', '—', '0%'], ['203.0.113.10:7101', '0.9 Gbps', '1.3 Gbps', '—', '—', '0.01%'], ['203.0.113.10:8443', '0.2 Gbps', '0.4 Gbps', '—', '—', '3.2%'], ['203.0.113.10:9000', '0.1 Gbps', '0.2 Gbps', '—', '—', '0%']] };
+      var tbd = card && card.querySelector('tbody'); var th0 = card && card.querySelector('thead th');
+      if (tbd && !tbd.__lp0) { tbd.__lp0 = tbd.innerHTML; th0.__lp0 = th0.textContent; }
+      if (tbd && SW[key]) { th0.textContent = SW[key][0]; tbd.innerHTML = SW[key].slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '<td><a href="#">趋势</a><a href="DdosLogs.dc.html">日志</a></td></tr>'; }).join(''); return; }
+      if (tbd && tbd.__lp0 && /^按/.test(key)) { tbd.innerHTML = tbd.__lp0; th0.textContent = th0.__lp0; return; }
+      var rows = card ? [].slice.call(card.querySelectorAll('tbody tr:not(.lp-empty)')) : []; var shown = 0;
+      rows.forEach(function (tr) { var hit = /^全部/.test(key) || txt(tr).indexOf(key.replace(/^按/, '')) >= 0; tr.style.display = hit ? '' : 'none'; if (hit) shown++; });
+      if (card && rows.length) { var em = card.querySelector('tbody .lp-empty'); if (em) em.remove(); if (!shown) { var tb = card.querySelector('tbody'); var tr = D.createElement('tr'); tr.className = 'lp-empty'; tr.innerHTML = '<td colspan="20">「' + esc(key) + '」下暂时没有数据</td>'; tb.appendChild(tr); } }
+      return;
+    }
+    if (el.closest('.kc-sg') || el.parentElement && el.parentElement.querySelector(':scope > .on') && el.tagName === 'BUTTON' && !el.closest('.kc-btns')) {
+      segToggle(el); var cd = el.closest('.kc-card'); var bars = cd ? cd.querySelectorAll('.kc-spark i') : [];
+      [].forEach.call(bars, function (b, i) { b.style.height = (24 + Math.round(60 * Math.abs(Math.sin((i + 1) * (t.length + 1) * 0.7)))) + '%'; });
+      if (!bars.length) toast(el, '已切换到「' + t + '」', 'info'); return;
+    }
+    // 跳转
+    var href = NAV[t] || regNav(t);
+    if (!href && /^(攻击报表|访问分析|趋势|日志|详情)$/.test(t)) href = ctxPage(t === '日志' ? 'log' : t === '攻击报表' ? 'rep' : 'ana');
+    if (!href && t === '进入控制台') { var rt = txt(row(el) || el.parentElement || el); var hit = PROD.find(function (x) { return rt.indexOf(x[0]) >= 0; }); if (hit) href = hit[1]; else { toast(el, '该产品控制台已在新窗口打开', 'info'); return; } }
+    if (!href && el.tagName === 'A' && el.closest('tbody td') && DETAIL[P] && el.closest('td') === el.closest('tr').querySelector('td:not(.lf-ck)')) href = DETAIL[P];
+    if (href) { e.preventDefault(); go(el, href); return; }
+    // 详情页：修改 → 对应标签
+    if (/^(修改|在「访问统计」页签查看这个域名的数据)$/.test(t) && D.querySelector('.kc-dtabs')) {
+      var b = row(el) && row(el).querySelector('b'); var nm = b ? txt(b) : '访问统计'; if (nm === '缓存') nm = '缓存配置'; if (nm === '访问控制' || nm === '防护策略') nm = '安全防护';
+      if (tabClick(nm)) return;
+    }
+    var nm2 = rowName(el);
+    // 确认类
+    if (t === '改为拦截') { confirmBox(el, '把 ' + (nm2 || '该域名') + ' 的 CC 规则改为拦截？', '当前规则只记录不拦截，改为拦截后，命中规则的请求会被直接拦下。约 30 秒全网生效，可随时改回。', '改为拦截', false, function () { var al = [].slice.call(D.querySelectorAll('a,button')).find(function (x) { return x !== el && txt(x) === '改为拦截' && live(x); }); if (al) { al.click(); return; } el.textContent = '已拦截'; el.style.color = '#86909c'; toast(el, '已改为拦截，约 30 秒生效'); }); return; }
+    if (/^(删除|解绑|拒绝|踢下线|全部踢下线|退出登录|加入黑名单|封禁|移除|取消|删除域名|暂停加速|暂停监测)$/.test(t)) {
+      var danger = !/^(取消)$/.test(t); var title = t === '取消' ? '取消这笔订单？' : (t + (nm2 ? '「' + nm2 + '」' : '') + '？');
+      var desc = { '删除': '删除后无法恢复。', '解绑': '解绑后该域名改用默认证书，访问可能出现不安全提示。', '踢下线': '设备会立即断开，可重新连接。', '全部踢下线': '所有在线设备会立即断开。', '退出登录': '', '加入黑名单': '该 IP 之后的请求都会被拦截。', '封禁': '该 IP 之后的请求都会被拦截。', '取消': '取消后订单关闭，已付款项原路退回。', '拒绝': '对方会收到拒绝通知。' }[t] || '';
+      confirmBox(el, title, desc, t === '取消' ? '取消订单' : t, danger, function () {
+        var rw = el.closest('tr'); if (rw && /删除|移除|删除域名/.test(t)) { rw.classList.add('lp-gone'); setTimeout(function () { rw.remove(); }, 200); }
+        toast(el, t === '退出登录' ? '已退出' : '已' + t);
+      }); return;
+    }
+    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
+    if (/^清除缓存$/.test(t)) { confirmBox(el, '清除' + (nm2 && /\./.test(nm2) ? ' ' + nm2 + ' 的' : '') + '缓存？', '清除后首批请求会回源，源站压力会短暂上升。', '清除缓存', false, function () { toast(el, '已提交，约 5 分钟全网生效'); }); return; }
+    // 提示类
+    var TO = { '刷新': '已刷新，数据更新于刚刚', '导出': '导出任务已创建，生成后在「消息」里下载', '导出报表': '报表生成中，完成后在「消息」里下载', '生成报告': '报告生成中，约 1 分钟后可在「报告」里查看',
+      '复制': '已复制', '复制全部': '已复制全部汇款信息', '下载': '已开始下载', '下载电子合同': '已开始下载', '下载模板': '已开始下载', '下载付款说明模板': '已开始下载', '预览': '已在新窗口打开预览',
+      '立即监测': '已开始监测，约 3 分钟出结果', '重新检测': '已开始检测', '忽略': '已忽略，可在「已忽略」里恢复', '已修复': '已标记为已修复，下次监测时复核', '误报': '已标记为误报，规则会自动调优',
+      '加白': '已加入白名单，约 30 秒生效', '远程控制台': '远程控制台已在新窗口打开', '重试': '已重试', '刷新开通状态': '已刷新，产品已开通', '重新封装': '已开始重新封装，约 10 分钟完成',
+      '全部已读': '已全部标为已读', '搜索': '已搜索', '订阅异常通知': '已订阅，异常时短信和站内信通知', '恢复默认': '已恢复默认设置', '银行回单.jpg': '已在新窗口打开回单', '0577-26676666': '客服热线 0577-26676666（7×24 小时）' };
+    if (TO[t]) { if (t === '忽略' || t === '已修复' || t === '误报' || t === '加白') { var rr = el.closest('tr'); if (rr) rr.classList.add('lp-done'); } toast(el, TO[t]); return; }
+    if (t === '上移') { var rw2 = row(el); if (rw2 && rw2.previousElementSibling) { rw2.parentElement.insertBefore(rw2, rw2.previousElementSibling); toast(el, '已上移，优先级 +1'); } else toast(el, '已经是第一条', 'info'); return; }
+    if (/^(显示真实 IP|自动更新)$/.test(t)) { var tg = el.classList.toggle('on'); toast(el, (tg ? '已开启' : '已关闭') + t.replace('显示', '')); return; }
+    // 菜单
+    if (t === '更多') {
+      var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'ScdnStats.dc.html'); }], ['拦截记录', function () { go(el, 'ScdnBlocks.dc.html'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['安全防护模板', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
+        : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
+      menu(el, items); return;
+    }
+    // 抽屉类
+    if (/批量导入|上传/.test(t)) { drawer(el, t, upload(t.indexOf('附件') >= 0 ? '截图、日志或报错信息，最多 5 个，单个 20 MB 以内' : t.indexOf('证书') >= 0 ? '上传证书文件（.pem / .crt）和私钥（.key）' : '点击或拖拽文件到这里上传'), '确定', function () { toast(el, t.indexOf('导入') >= 0 ? '已导入 12 条' : '已上传'); }); return; }
+    if (t === '列设置') { colPop(el); return; }
+    if (/^(监测设置|通知设置|到期提醒设置|日志存储设置|告警联系人)/.test(t)) {
+      var B = { '监测设置': sw([['漏洞扫描', '每天 02:00', true], ['网页篡改', '每 10 分钟', true], ['暗链 / 挂马', '每小时', true], ['可用性', '每 1 分钟，3 个地区', true], ['敏感内容', '每天', false]]),
+        '通知设置': sw([['严重 / 高危风险', '短信 + 站内信', true], ['中危风险', '站内信', true], ['低危风险', '每周汇总', false]]),
+        '到期提醒设置': sw([['到期前 30 天', '站内信', true], ['到期前 7 天', '短信 + 站内信', true], ['到期当天', '短信 + 电话', true]]),
+        '日志存储设置': '<label class="lp-f"><span>保存时长</span><input class="kc-in" value="180 天"></label>' + sw([['推送到日志服务', '实时推送攻击日志', false]]),
+        '告警联系人': sw([['张三 · 177****1234', '短信 + 站内信', true], ['李四 · 139****5678', '站内信', true], ['王五 · 186****9012', '短信', true]]) + '<p class="lp-hint"><a href="OrgMembers.dc.html">在成员管理里添加联系人</a></p>' };
+      drawer(el, t.replace(/\s*\d+$/, ''), B[t.replace(/\s*\d+$/, '')] || sw([['开启', '', true]])); return;
+    }
+    if (/^(分组管理)$/.test(t)) { drawer(el, '分组管理', ['商城', '官网', '移动站', '未分组'].map(function (g) { return '<label class="lp-f"><span>分组</span><input class="kc-in" value="' + g + '"></label>'; }).join('') + '<p class="lp-hint"><a href="#" onclick="return false">+ 新建分组</a></p>'); return; }
+    if (/^(绑定|批量绑定|批量解绑|应用到…)$/.test(t)) { drawer(el, t === '应用到…' ? '应用到域名' : t, '<p class="lp-hint">选择要' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '的域名</p>' + ['shop.example.com', 'pay.example.com', 'www.example.com', 'm.example.com', 'api.example.com'].map(function (d, i) { return '<label class="lp-ck"><input type="checkbox" ' + (i < 2 ? 'checked' : '') + '> ' + d + '</label>'; }).join(''), '确定', function () { toast(el, '已' + (t.indexOf('解绑') >= 0 ? '解绑' : '应用') + '，约 30 秒生效'); }); return; }
+    // edit108：列表行的「编辑」复用本页的新建表单（同一个抽屉，标题改成「编辑…」，带上这一行的值），不再弹通用抽屉（77，2026-10-28）
+    if (/^(编辑|修改)$/.test(t) && el.closest('tr')) {
+      var mainEl = el.closest('.kc-main') || root(el);
+      var mk = [].slice.call(mainEl.querySelectorAll('.kc-hd button, .kc-hd a, .kc-bar button, .kc-bar a')).filter(function (b) { return /^[+＋]?\s*(添加|新建)/.test(txt(b)) && live(b); })[0];
+      if (mk) {
+        var tr = el.closest('tr'), cells = [].slice.call(tr.children).map(function (c) { return c.innerText.trim(); });
+        mk.click();
+        setTimeout(function () {
+          var dw = root(el).querySelector('.kc-dw'); if (!dw) return;
+          var h = dw.querySelector('.kc-dwh'); if (h && h.firstChild && h.firstChild.nodeType === 3) h.firstChild.textContent = h.firstChild.textContent.replace(/^(添加|新建)/, '编辑');
+          dw.setAttribute('aria-label', (dw.getAttribute('aria-label') || '').replace(/^(添加|新建)/, '编辑'));
+          var ok = dw.querySelector('.kc-dwf .pri'); if (ok) ok.textContent = '保存';
+          var vp = (cells[0] || '').split(/\s*:\s*/), ipIn = dw.querySelector('input[aria-label="虚拟 IP"]'), ptIn = dw.querySelector('input[aria-label="客户端端口"]');
+          if (ipIn && vp.length > 1) { ipIn.value = vp[0]; if (ptIn) ptIn.value = vp[1]; }
+          var src = dw.querySelectorAll('.kc-src:not(.kc-hint)');
+          if (src.length && cells[1]) {
+            var lines = cells[1].split('\n'), a1 = lines[0].trim(), m = (lines[1] || '').match(/(\d+\.\d+\.\d+\.\d+)/);
+            src[0].querySelector('input').value = a1;
+            if (src[1]) { if (m) src[1].querySelector('input').value = m[1] + ' : ' + (a1.split(':')[1] || '').trim(); else src[1].style.display = 'none'; }
+            var f3 = src[0].closest('.kc-fr'); var c3 = f3 && f3.querySelector('.rw-cnt'); if (c3) c3.textContent = '（已添加 ' + (m ? 2 : 1) + ' / 5 台）';
+          }
+          var lbB = dw.querySelector('.kc-dd[data-dd] b'); if (lbB && /模式$/.test(cells[2] || '')) lbB.textContent = cells[2];
+          var rsw = tr.querySelector('[role=switch]'), dsw = dw.querySelector('.kc-sw'); if (rsw && dsw) { var on3 = rsw.getAttribute('aria-checked') === 'true'; dsw.classList.toggle('on', on3); dsw.setAttribute('aria-checked', on3 ? 'true' : 'false'); }
+          var ct = cells[3]; if (ct) [].slice.call(dw.querySelectorAll('.kc-sg button')).forEach(function (b) { if (b.textContent === 'PC 客户端' || b.textContent === '移动端') b.classList.toggle('on', b.textContent === ct); });
+        }, 60);
+        return;
+      }
+    }
+    if (/^(编辑|修改|新建模板|添加域名|编辑配置|＋ 添加入口|\+ 添加源站|添加源站|查看规则|301 重定向)$/.test(t) || /^(新建|添加|新增)/.test(t)) {
+      var title2 = (t === '修改' || t === '编辑' || t === '编辑配置') && nm2 ? '修改「' + nm2 + '」' : t.replace(/^[＋+]\s*/, '');
+      drawer(el, title2, /^(新建|添加|新增|＋|\+)/.test(t) ? '<label class="lp-f"><span>名称</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>内容</span><input class="kc-in" placeholder="请输入"></label><label class="lp-f"><span>备注</span><input class="kc-in" placeholder="选填"></label>' : formFor(el, t), /^(新建|添加|新增|＋|\+)/.test(t) ? '创建' : '保存'); return;
+    }
+    // 名字、条目：打开详情抽屉
+    if (el.tagName === 'A' || el.closest('td,li')) { drawer(el, t.length > 24 ? t.slice(0, 24) + '…' : t, formFor(el, t), '关闭', function () {}); return; }
+    drawer(el, t, '<p class="lp-hint">' + esc(t) + '</p>' + formFor(el, t));
+  };
+  // fl108：筛选框「添加筛选条件」= 先选属性，再选值或输入关键字，加成一个条件标签；标签上的 × 删除这个条件（77，2026-10-28）
+  var FV = { '风险等级': ['高危', '中危', '低危'], '风险': ['高危', '中危', '低危', '无风险'], '客户端': ['Windows', 'iOS', 'Android'], '地区': ['浙江', '广东', '四川', '河南', '境外'],
+    '线路': ['BGP', '电信', '联通', '移动'], '到期': ['7 天内', '30 天内', '已过期'], '分组': ['电商业务', '官网', '默认分组'], '监测项': ['漏洞', '可用性', '篡改', '内容安全'],
+    '封装状态': ['已封装', '封装中', '封装失败'], '防护模板': ['电商大促模板', '官网基础防护', 'API 试运行', '未绑定'] };
+  var flAdd = function (tok, k, v) {
+    [].slice.call(tok.querySelectorAll('.lf-chip')).forEach(function (c) { if (c.style.display !== 'none' && c.textContent.indexOf(k + '：') === 0) { if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; } });
+    var c = D.createElement('span'); c.className = 'lf-chip fl-new'; c.innerHTML = esc(k + '：' + v) + '<i role="button" aria-label="删除条件">' + '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.5858L16.9497 5.63604L18.364 7.05025L13.4142 12L18.364 16.9497L16.9497 18.364L12 13.4142L7.05025 18.364L5.63604 16.9497L10.5858 12L5.63604 7.05025L7.05025 5.63604L12 10.5858Z"></path></svg></i>';
+    tok.insertBefore(c, tok.querySelector('.lf-ph'));
+  };
+  var flReset = function (pop) { if (pop.__orig != null) { pop.innerHTML = pop.__orig; pop.__orig = null; } };
+  D.addEventListener('click', function (e) {
+    var x = e.target.closest && e.target.closest('.lf-chip i');
+    if (x) { e.preventDefault(); e.stopPropagation(); var c = x.closest('.lf-chip'); if (c.classList.contains('fl-new')) c.remove(); else c.style.display = 'none'; return; }
+    var b = e.target.closest && e.target.closest('.lf-pop button'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var pop = b.closest('.lf-pop'), tok = b.closest('.lf-tok');
+    if (b.classList.contains('fl-back')) { flReset(pop); return; }
+    if (b.hasAttribute('data-fv')) { flAdd(tok, pop.getAttribute('data-fk'), b.getAttribute('data-fv')); flReset(pop); if (D.activeElement) D.activeElement.blur(); return; }
+    var k = txt(b), vs = FV[k]; if (pop.__orig == null) pop.__orig = pop.innerHTML; pop.setAttribute('data-fk', k);
+    var kb = pop.querySelector('.lf-kb'); var foot = kb ? kb.outerHTML : '';
+    pop.innerHTML = '<div class="lf-pt fl-hd"><button type="button" class="fl-back" aria-label="返回">‹</button>' + esc(k) + '</div>' +
+      (vs ? vs.map(function (v) { return '<button type="button" data-fv="' + esc(v) + '">' + esc(v) + '</button>'; }).join('')
+          : '<div class="fl-inw"><input class="kc-in fl-in" type="text" aria-label="' + esc(k) + '" placeholder="输入' + esc(k) + '，回车添加"></div>') + foot;
+    tok.focus();
+    var inp = pop.querySelector('.fl-in'); if (inp) { inp.focus(); inp.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' && inp.value.trim()) { flAdd(tok, k, inp.value.trim()); flReset(pop); inp.blur(); } if (ev.key === 'Escape') { flReset(pop); inp.blur(); } }); }
+    else { var f = pop.querySelector('[data-fv]'); if (f) f.focus(); }
+  }, true);
+  D.addEventListener('focusout', function (e) { var tok = e.target.closest && e.target.closest('.lf-tok'); if (!tok) return; setTimeout(function () { if (!tok.contains(D.activeElement)) { var pop = tok.querySelector('.lf-pop'); if (pop) flReset(pop); } }, 0); });
+  D.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('a,button,[role=tab],[role=button],[role=switch]');
+    if (!el || !el.isConnected || el.closest('.lp-layer') || el.disabled || /\bdis\b/.test(el.className) || live(el)) return;
+    if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
+    e.preventDefault(); act(el, e);
+  }, false);
+})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
+  _hdr() {
+    const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
+    const M = [
+      ['安全', '高防-002 正在遭受 UDP Flood 攻击', '峰值 86 Gbps，已超过保底 80 Gbps', '10:12', 'DdosInstances.dc.html', 1],
+      ['产品', '德迅云眼发现 3 个高危风险', '其中 www.example.com 首页被植入暗链', '09:40', 'EyeRisk.dc.html', 1],
+      ['费用', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPayFix.dc.html', 1],
+      ['费用', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'BillInvoice.dc.html', 0],
+      ['账号', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'OrgSecurity.dc.html', 0],
+      ['产品', 'SCDN 证书 8 天后到期', 'shop.example.com', '10-23', 'ScdnDomainDetail.dc.html', 0]
+    ];
+    const read = !!st.allRead; const mt = st.mt || '全部';
+    const msgs = M.filter((m) => mt === '全部' || m[0] === mt).map(([c, t, s, d, href, u]) => ({ c, t, s, d, href, dot: u && !read ? 'u' : '', lc: u && !read ? '' : 'read' }));
+    const unread = read ? 0 : M.filter((m) => m[5]).length;
+    const mtabs = ['全部', '安全', '费用', '产品'].map((n) => ({ n, cls: n === mt ? 'on' : '', go: () => this.setState({ mt: n }) }));
+    const B = (v) => 'ac-tb' + (v === 'me' ? ' me' : '') + (dd === v ? ' on' : '');
+    return { feeOn: dd === 'fee', msgOn: dd === 'msg', meOn: dd === 'me', any: !!dd, feeEx: dd === 'fee' ? 'true' : 'false', msgEx: dd === 'msg' ? 'true' : 'false', meEx: dd === 'me' ? 'true' : 'false',
+      feeCls: B('fee'), msgCls: B('msg'), meCls: B('me'), fee: set('fee'), msg: set('msg'), me: set('me'), close: () => this.setState({ dd: '' }),
+      msgs, mtabs, unread, hasUnread: unread > 0, readAll: () => this.setState({ allRead: true }) };
+  }
+  /* /hdr62 */
+  _rv() {
+    const cur = '日志服务';
+    const pages = {'域名管理': 'Main.dc.html', '证书管理': 'ScdnCerts.dc.html', '刷新缓存': 'ScdnPurge.dc.html', '回源规则': 'ScdnAdvanced.dc.html', 'Web 应用防火墙': 'ScdnWaf.dc.html', 'CC 防护': 'ScdnCC.dc.html', 'Bot 管理': 'ScdnBot.dc.html', 'API 安全': 'ScdnApi.dc.html', '访问控制': 'ScdnAcl.dc.html', '内容安全': 'ScdnTamper.dc.html', '云蜜罐': 'ScdnHoneypot.dc.html', '统计报表': 'ScdnStats.dc.html', '拦截记录': 'ScdnBlocks.dc.html', '日志服务': 'ScdnLogs.dc.html', '实例与套餐': 'ScdnPlan.dc.html'};
+    const st = this.state || {};
+    const noop = () => {};
+    const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
+    const K = (k) => { const t = Array.isArray(k) ? k[0] : k; return { t, ext: Array.isArray(k) ? k[1] : '', href: pages[t] || '#', cls: t === cur ? 'kc-ki on' : 'kc-ki' }; };
+    const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
+      return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
+    const nav = [
+      { label: '接入与加速', items: [L("域名管理", 'link'), L("证书管理", 'lock'), L("刷新缓存", 'nrefresh'), L("回源规则", 'nroute')] },
+      { label: '安全防护', items: [L("Web 应用防火墙", 'shield'), L("CC 防护", 'ngauge'), L("Bot 管理", 'nbot'), L("API 安全", 'napi'), L("访问控制", 'nfilter'), L("内容安全", 'doc'), L("云蜜罐", 'nhex')] },
+      { label: '统计与日志', items: [L("统计报表", 'chart'), L("拦截记录", 'nban'), L("日志服务", 'nlog')] },
+      { label: '资源', items: [L("实例与套餐", 'box')] }
+    ];
+    const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
+      return { t: x.t === undefined ? '' : String(x.t), a: !!x.a, href: x.a || '#', p: !x.a, cls: x.tag ? 'kc-tag ' + x.tag : (x.c || ''), bar: x.bar !== undefined, w: 'width:' + Math.min(100, x.bar || 0) + '%', bc: x.bc || '', hasSub: !!x.s, s: x.s || '', sc: 'kc-sub ' + (x.sc || ''), td: x.td || '' }; };
+    const O = (o) => ({ t: o[0], href: o[1] || '#', cls: o[2] || '' });
+    // nav101
+    const __qs = (() => { try { return /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search) : null; } catch (x) { return null; } })();
+    const TABS = (defs, rows, key, dflt) => { const __uq = __qs && __qs.get(key); const __ud = __uq ? defs.find((d) => d[1] === __uq || d[0] === __uq) : null; const cur = st[key] || (__ud && __ud[0]) || dflt || defs[0][0];
+      const tabs = defs.map(([n, k]) => { const c = rows.filter((r) => !k || (' ' + r.k + ' ').indexOf(' ' + k + ' ') >= 0).length; return { n, c, on: n === cur, cls: n === cur ? 'kc-tab on' : 'kc-tab', cc: k === 'att' && c ? 'kc-cnt r' : 'kc-cnt', pick: () => { this.setState({ [key]: n }); try { if (__qs) { const u = new URL(location.href); if (k) u.searchParams.set(key, k); else u.searchParams.delete(key); history.replaceState(null, '', u); } } catch (x) {} } }; });
+      const kk = (defs.find((d) => d[0] === cur) || defs[0])[1];
+      return { tabs, rows: rows.filter((r) => !kk || (' ' + r.k + ' ').indexOf(' ' + kk + ' ') >= 0) }; };
+    const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
+
+    const tb = st.tb || 0; const dw = st.dw || '';
+    const T = {};
+    for (let i = 0; i < 3; i++) { T['tb' + i] = tb === i; T['tc' + i] = tb === i ? 'on' : ''; T['tp' + i] = () => this.setState({ tb: i, dw: '' }); }
+    ["push"].forEach((k) => { T['dw_' + k] = dw === k; T['dw_' + k + '_x'] = () => this.setState({ dw: '' }); T['op_' + k] = (e) => { ev(e); this.setState({ dw: k }); }; });
+
+    const __R = Object.assign({ nav }, Object.assign(T, typeof XX === 'undefined' ? {} : XX, {}));
+
+    const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
+
+    [["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]], ["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]], ["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]], ["新增", ["新增", "追加", "删除"]], ["追加", ["新增", "追加", "删除"]], ["删除", ["新增", "追加", "删除"]], ["新增", ["新增", "追加", "删除"]], ["www.example.com", ["shop.example.com", "pay.example.com", "www.example.com", "m.example.com", "api.example.com", "img.example.com"]], ["shop.example.com", ["shop.example.com", "pay.example.com", "www.example.com", "m.example.com", "api.example.com", "img.example.com"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+
+      DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
+
+    return Object.assign(__R, DDX);
+  }
+}
+</script>
+</body>
+</html>

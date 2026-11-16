@@ -1,0 +1,373 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>德迅云设计规范</title>
+<link rel="stylesheet" href="ds/dexun/tokens.css"><link rel="stylesheet" href="ds/dexun/components/bundle.css">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#F7F8FA;color:#1D2129;font-family:var(--font-sans);font-size:14px;line-height:22px;-webkit-font-smoothing:antialiased}
+.ds{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100vh}
+.ds-nav{position:sticky;top:0;height:100vh;overflow:auto;background:#fff;border-right:1px solid #E5E6EB;padding:24px 12px}
+.ds-nav h1{font-size:16px;font-weight:600;margin:0 8px 4px}.ds-nav small{display:block;color:#86909C;font-size:12px;margin:0 8px 16px}
+.ds-nav a{display:block;padding:8px;border-radius:4px;color:#4E5969;text-decoration:none}.ds-nav a:hover{background:#F2F3F5;color:#165DFF}
+.ds-nav .bk{margin-top:16px;border-top:1px solid #E5E6EB;padding-top:16px}
+.ds-main{padding:32px 40px 80px;max-width:1160px}
+.ds-sec{margin-bottom:56px}.ds-sec>h2{font-size:24px;line-height:32px;font-weight:600;margin:0 0 6px}.ds-lead{color:#4E5969;margin:0 0 16px}
+.ds-sec h3{font-size:16px;font-weight:600;margin:24px 0 12px}.ds-note{color:#4E5969}
+code{font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#F2F3F5;padding:1px 5px;border-radius:3px;color:#4E5969}
+.md{color:#1D2129}.md h3{font-size:16px}.md h4{font-size:14px;margin:16px 0 8px}.md p,.md li{color:#4E5969}.md ul{padding-left:20px;margin:8px 0}.md li{margin:4px 0}.md b{color:#1D2129}.md-q{border-left:3px solid #E5E6EB;padding-left:12px}
+.md-t{border-collapse:collapse;background:#fff;width:100%;margin:8px 0;font-size:13px}.md-t th,.md-t td{border:1px solid #E5E6EB;padding:8px 12px;text-align:left;vertical-align:middle}.md-t th{background:#F7F8FA;font-weight:500}
+.sw-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.sw{display:flex;gap:12px;background:#fff;border:1px solid #E5E6EB;border-radius:8px;padding:12px}.sw>i{flex:none;width:44px;height:44px;border-radius:6px;border:1px solid rgba(0,0,0,.06)}
+.sw b{display:block;font-weight:500}.sw code{background:none;padding:0;margin-right:8px}.sw code.dk{color:#86909C}.sw p{margin:4px 0 0;font-size:12px;line-height:18px;color:#6B7785}
+.ty{background:#fff;border:1px solid #E5E6EB;border-radius:8px}.ty-r{display:grid;grid-template-columns:260px 1fr;gap:16px;padding:16px;border-top:1px solid #E5E6EB;align-items:center}.ty-r:first-child{border-top:0}
+.ty-m b{display:block;font-weight:500}.ty-m code{background:none;padding:0}.ty-m p{margin:4px 0 0;font-size:12px;color:#6B7785;line-height:18px}
+.tk td:nth-child(3){width:200px}.bar{display:inline-block;height:12px;background:#BEDAFF;border-radius:2px}.rb{display:inline-block;width:48px;height:32px;border:2px solid #165DFF;background:#E8F3FF}.sb{display:inline-block;width:64px;height:32px;background:#fff;border-radius:6px;margin:8px}.hb{display:inline-block;width:64px;background:#E8F3FF;border:1px solid #94BFFF;border-radius:4px}
+.cd{background:#fff;border:1px solid #E5E6EB;border-radius:8px;margin-bottom:16px;overflow:hidden}.cd-h{display:flex;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #E5E6EB}.cd-h b{font-weight:600}.cd-h span{color:#6B7785;font-size:13px}
+.cd-p{position:relative;transform:translateZ(0);overflow:hidden;border-bottom:1px solid #E5E6EB}.cd-p .kc{min-height:0!important}
+.cd-d{padding:4px 16px 12px;font-size:13px}
+@media(max-width:900px){.ds{grid-template-columns:1fr}.ds-nav{position:static;height:auto}.ds-main{padding:24px 16px}.ty-r{grid-template-columns:1fr}}
+</style></head><body class="mo-ready"><div class="ds"><nav class="ds-nav"><h1>德迅云设计规范</h1><small>颜色、文字和公共组件</small><a href="#intro">规范说明</a><a href="#color">颜色</a><a href="#type">文字</a><a href="#space">间距、圆角、阴影与尺寸</a><a href="#g-0">控制台 · 基础</a><a href="#g-1">控制台 · 导航</a><a href="#g-2">控制台 · 表单</a><a href="#g-3">控制台 · 数据展示</a><a href="#g-4">控制台 · 反馈</a><a href="#g-5">控制台 · 浮层</a><a href="#g-6">官网 · 基础</a><a href="#g-7">官网 · 区块</a><a href="#g-8">官网 · 控制台数据卡</a><div class="bk"><a href="../index.html">← 返回原型目录</a></div></nav><main class="ds-main"><section id="intro" class="ds-sec"><h2>规范说明</h2><p class="ds-lead">德迅云安全官网与控制台改版的统一设计语言。内容与线上「德迅云设计规范」一致。</p><div class="md"><p>德迅云安全官网与控制台改版的统一设计语言。以 Arco Design 为组件基础，主色 #165DFF，风格对标火山引擎、腾讯云：克制、留白充足、用数据说话。官网和控制台共用这一套令牌，Figma 中按此建立颜色、文字和效果样式。</p>
+<p class="md-q">版本 1，2026-10-21。基于现官网与控制台的分析整理，Logo 取自现官网。Arco 不完善的组件参考 Arco Pro、Ant Design ProTable、TDesign 补充，补充时只换外观不换令牌。</p>
+<h4>面向谁</h4>
+<ul>
+<li><b>政企客户</b>：看重资质、合规（等保）、服务保障。页面要稳重、可信，信息完整。</li>
+<li><b>中小企业与游戏客户</b>：看重价格、试用、上手速度。页面要直接给出套餐、价格（目前写“价格面谈”）和行动按钮。</li>
+</ul>
+<p>官网首屏用两个按钮分流：“免费试用”（主按钮，中小企业）和“联系专家”（次按钮，政企）。</p>
+<h4>文案原则</h4>
+<ul>
+<li>用具体数字代替形容词：写“5 秒发现恶意请求，10 秒阻断攻击”，不写“强大”“领先”。</li>
+<li>语气专业、平实。不用“轻松躺着过”“无视任何攻击”这类口语或绝对化表达，政企客户会因此降低信任。</li>
+<li>产品名首次出现写全称加英文缩写，如“安全加速 SCDN”；中英文之间加空格。</li>
+<li>按钮用动词开头：立即咨询、创建实例、查看详情。</li>
+<li>空状态要说明下一步：写“还没有接入域名，点击‘添加域名’开始”，不只写“暂无数据”。</li>
+</ul>
+<h4>颜色</h4>
+<ul>
+<li><b>主色 <code>primary-6</code>（#165DFF）</b>：主按钮、链接、选中、焦点环。一个视图里大面积使用的主色不超过一处。</li>
+<li><b>Logo 色 <code>brand-navy</code>（#034099）</b>：只属于 Logo，不用于界面控件。</li>
+<li><b>中性色</b>：控制台页面底 <code>bg-2</code>，卡片 <code>bg-1</code>，表头 <code>bg-3</code>；文字 <code>text-1</code> / <code>text-2</code> / <code>text-3</code>，<code>text-4</code> 只用于占位和禁用。</li>
+<li><b>语义色</b>：成功 <code>success-6</code>、警告 <code>warning-6</code>、危险 <code>danger-6</code>，只表达状态，不做装饰。语义色作文字时对比度不足，状态标签一律“浅底 + 圆点 + 深色文字”。</li>
+<li><b>图表色</b>：<code>chart-1</code> 到 <code>chart-5</code> 依次取用；0 值或无数据用 <code>chart-empty</code>。</li>
+<li>两套主题：浅色为默认，深色用于控制台的深色模式和官网态势大屏类页面。</li>
+</ul>
+<h4>文字</h4>
+<p>字体栈 PingFang SC / Microsoft YaHei，不加载网络字体。官网和控制台各一组字号：</p>
+<table class="md-t"><thead><tr><th>用途</th><th>官网</th><th>控制台</th></tr></thead><tbody><tr><td>最大标题</td><td><code>display-1</code> 48/56</td><td><code>title-1</code> 20/28</td></tr><tr><td>区块标题</td><td><code>heading-1</code> 32/40</td><td><code>title-2</code> 16/24</td></tr><tr><td>正文</td><td><code>lead</code> 16/26</td><td><code>body-1</code> 14/22</td></tr><tr><td>辅助</td><td><code>body-2</code> 12/20</td><td><code>body-2</code> 12/20</td></tr></tbody></table>
+<p>数字统一用等宽数字（tabular-nums），统计卡大数字用 <code>number-1</code>。</p>
+<h4>布局与间距</h4>
+<ul>
+<li>4px 栅格，间距只取 <code>space-*</code> 令牌。</li>
+<li><b>官网</b>：设计稿 1440 宽，内容区 1200 居中，12 栏，栏间距 24。区块上下间距 <code>space-20</code>（80px），标题到内容 <code>space-12</code>。移动端 375 宽，左右边距 16，单栏。</li>
+<li><b>控制台</b>：设计稿 1440 宽。顶栏 56 高；左侧导航常驻，展开 220、收起 48；内容区边距 <code>space-6</code>，卡片之间 <code>space-4</code>。</li>
+<li>圆角：标签 2，按钮和输入框 4，卡片和弹窗 8。</li>
+<li>卡片默认只描边（<code>border-1</code>），悬停才加 <code>shadow-1</code>；弹窗、下拉用 <code>shadow-2</code>/<code>shadow-3</code>。</li>
+</ul>
+<h4>控制台交互规则</h4>
+<p>这几条直接对应客户反馈的“卡顿、难用”：</p>
+<ul>
+<li><b>导航常驻</b>：左侧二级菜单默认展开，顶部提供产品切换和常用产品收藏，不再把全局菜单藏在抽屉里。</li>
+<li><b>每个子页面有独立网址</b>，刷新、收藏、分享都能回到原页面（设计稿中标注给研发）。</li>
+<li><b>分块加载</b>：每张卡片、每个表格各自显示骨架屏，先到先显示，不整页 loading。</li>
+<li><b>操作即时反馈</b>：提交后按钮立即进入加载态，完成后轻提示“已保存”。</li>
+<li><b>0 值和空状态统一</b>：0 值不染色，图表用灰色底环，空表格给出下一步操作。</li>
+<li>列表页顶部只有一个主按钮，其余动作用次按钮或收进“更多”。</li>
+</ul>
+<h4>图标与图形</h4>
+<ul>
+<li>界面图标用 Arco Icon 线性风格，16px 为主，与文字同色。</li>
+<li>官网插画从现在的 2.5D 等轴插画改为抽象几何、光效和产品界面截图，主色系 <code>primary-3</code> 到 <code>primary-8</code>。</li>
+<li>现官网的客户 Logo 墙保留，统一为灰度或单色、等高展示。</li>
+</ul>
+<h4>Logo</h4>
+<p>使用现有 Logo（见“Logos”资产组），不改形。浅色背景用原色，深色背景（页脚、<code>surface-deep</code>、深色主题）需要白色反白版，现官网页脚已有，需从设计源文件取用。</p>
+<h4>控制台组件（kc-*）</h4>
+<p>控制台原型的所有页面共用 <code>components/bundle.css</code> 这一份样式（前面一小段 <code>dx-*</code> 是官网基础组件，后面是控制台），组件名以 <code>kc-</code> 开头（提示条 <code>ac-al</code>、下拉面板 <code>dd-*</code>、弹窗和轻提示 <code>lp-*</code> 是同一套里的历史命名）。各组件的结构和用法见「控制台 ·」开头的组件卡片。</p>
+<ul>
+<li>颜色写成 <code>var(--令牌名, 兜底值)</code>。在本页改令牌后同步到画布，所有控制台页面一起变；括号里的兜底值只在令牌缺失时生效。</li>
+<li>控制台用火山风格的一组颜色：主色 <code>kc-primary</code>（#1664FF），文字 <code>kc-text-1</code> / <code>kc-text-2</code> / <code>kc-text-3</code>，页面底 <code>kc-bg</code>，状态文字 <code>kc-danger-text</code> / <code>kc-warning-text</code> / <code>kc-success-text</code>。官网用 <code>primary-6</code>（#165DFF）这一组，两组主色目前差一点点，统一与否待定。</li>
+<li>页面里不要再写一份公共组件样式。页面自己的少量样式写在页面里，放在 console.css 之后，同名规则以页面为准。</li>
+<li>尺寸也有令牌：按钮高度 <code>kc-btn-h</code> / <code>kc-btn-h-sm</code>、按钮内边距 <code>kc-btn-px</code>、输入框高度 <code>kc-input-h</code>、标签高度 <code>kc-tag-h</code>、页签高度 <code>kc-tab-h</code>（「Size」分组），圆角 <code>kc-control-radius</code>、<code>kc-tag-radius</code>、<code>kc-card-radius</code>（「Radius」分组）。</li>
+<li>改颜色、尺寸、圆角：改令牌。其它外观（描边、阴影、字重等）：改 <code>components/bundle.css</code> 里对应的规则。改完说「同步组件库」，画布里的副本才会更新。</li>
+<li>火山式细节（2026-11-05）：顶栏 Logo 文字显示当前中心名（费用中心、SCDN 等），悬停换成「德迅云控制台」，结构为 <code>.kc-logo &gt; .kc-ln &gt; .kc-ln-c / .kc-ln-b</code>；筛选区下拉 <code>kc-dd</code> 的第一个 <code>span</code> 是固定前缀，带分隔线；页面一级页签 <code>ia-tabs</code> 为卡片式，选中白底加顶部蓝条。</li>
+</ul></div></section><section id="color" class="ds-sec"><h2>颜色</h2><p class="ds-lead">浅色为默认主题；带「深色」值的令牌在深色主题下替换。</p><h3>官网主色</h3><div class="sw-g"><div class="sw"><i style="background:#E8F3FF"></i><div><b>primary-1</b><code>#E8F3FF</code><code class="dk">深色 rgba(60,126,255,0.16)</code><p>主色最浅：选中行、菜单选中背景、信息提示底色。</p></div></div><div class="sw"><i style="background:#BEDAFF"></i><div><b>primary-2</b><code>#BEDAFF</code><code class="dk">深色 rgba(60,126,255,0.32)</code><p>禁用态主按钮、标签描边。</p></div></div><div class="sw"><i style="background:#94BFFF"></i><div><b>primary-3</b><code>#94BFFF</code><p>插画与图表辅助色。</p></div></div><div class="sw"><i style="background:#6AA1FF"></i><div><b>primary-4</b><code>#6AA1FF</code><p>插画与图表辅助色。</p></div></div><div class="sw"><i style="background:#4080FF"></i><div><b>primary-5</b><code>#4080FF</code><code class="dk">深色 #689FFF</code><p>主按钮悬停。</p></div></div><div class="sw"><i style="background:#165DFF"></i><div><b>primary-6</b><code>#165DFF</code><code class="dk">深色 #3C7EFF</code><p>品牌主色：主按钮、链接、选中态、焦点环。与 Arco 默认品牌蓝一致。</p></div></div><div class="sw"><i style="background:#0E42D2"></i><div><b>primary-7</b><code>#0E42D2</code><code class="dk">深色 #2962D5</code><p>主按钮按下。</p></div></div><div class="sw"><i style="background:#072CA6"></i><div><b>primary-8</b><code>#072CA6</code><p>官网深色区块渐变终点、插画暗部。</p></div></div><div class="sw"><i style="background:#031A79"></i><div><b>primary-9</b><code>#031A79</code><p>插画暗部。</p></div></div><div class="sw"><i style="background:#000D4D"></i><div><b>primary-10</b><code>#000D4D</code><p>插画最暗部。</p></div></div></div><h3>品牌与深色底</h3><div class="sw-g"><div class="sw"><i style="background:#034099"></i><div><b>brand-navy</b><code>#034099</code><p>Logo 原色。只用于 Logo 及与 Logo 并置的品牌色块，不用于按钮或链接。</p></div></div><div class="sw"><i style="background:#0A1633"></i><div><b>surface-deep</b><code>#0A1633</code><p>官网首屏深色版、页脚背景。两种主题下都是深色，上面只放白色文字和白色 Logo。</p></div></div></div><h3>中性色</h3><div class="sw-g"><div class="sw"><i style="background:#FFFFFF"></i><div><b>bg-1</b><code>#FFFFFF</code><code class="dk">深色 #17171A</code><p>卡片、弹窗、官网页面底色。</p></div></div><div class="sw"><i style="background:#F7F8FA"></i><div><b>bg-2</b><code>#F7F8FA</code><code class="dk">深色 #232324</code><p>控制台页面底色；官网隔行区块底色。</p></div></div><div class="sw"><i style="background:#F2F3F5"></i><div><b>bg-3</b><code>#F2F3F5</code><code class="dk">深色 #2A2A2B</code><p>表头、输入框填充、悬停行。</p></div></div><div class="sw"><i style="background:#E5E6EB"></i><div><b>border-1</b><code>#E5E6EB</code><code class="dk">深色 #333335</code><p>分割线、卡片描边。</p></div></div><div class="sw"><i style="background:#C9CDD4"></i><div><b>border-2</b><code>#C9CDD4</code><code class="dk">深色 #484849</code><p>输入框、次按钮描边（控件边界，需 3:1）。</p></div></div><div class="sw"><i style="background:#1D2129"></i><div><b>text-1</b><code>#1D2129</code><code class="dk">深色 rgba(255,255,255,0.9)</code><p>标题、正文、表格内容。</p></div></div><div class="sw"><i style="background:#4E5969"></i><div><b>text-2</b><code>#4E5969</code><code class="dk">深色 rgba(255,255,255,0.7)</code><p>次要正文、描述文字。</p></div></div><div class="sw"><i style="background:#6B7785"></i><div><b>text-3</b><code>#6B7785</code><code class="dk">深色 rgba(255,255,255,0.55)</code><p>辅助说明、表头、时间等。bg-1 上约 4.6:1，是可读文字的下限。</p></div></div><div class="sw"><i style="background:#86909C"></i><div><b>text-4</b><code>#86909C</code><code class="dk">深色 rgba(255,255,255,0.35)</code><p>占位符、禁用文字。对比度不足 4.5:1，不得用于需要阅读的信息。</p></div></div><div class="sw"><i style="background:#FFFFFF"></i><div><b>text-on-primary</b><code>#FFFFFF</code><p>主色、surface-deep 上的文字。</p></div></div></div><h3>语义色</h3><div class="sw-g"><div class="sw"><i style="background:#E8FFEA"></i><div><b>success-1</b><code>#E8FFEA</code><code class="dk">深色 rgba(39,195,70,0.16)</code><p>成功提示底色、成功标签底色。</p></div></div><div class="sw"><i style="background:#00B42A"></i><div><b>success-6</b><code>#00B42A</code><code class="dk">深色 #27C346</code><p>成功状态点、图标、标签文字（配底色）。单独作正文对比度不足。</p></div></div><div class="sw"><i style="background:#FFF7E8"></i><div><b>warning-1</b><code>#FFF7E8</code><code class="dk">深色 rgba(255,150,38,0.16)</code><p>警告提示底色。</p></div></div><div class="sw"><i style="background:#FF7D00"></i><div><b>warning-6</b><code>#FF7D00</code><code class="dk">深色 #FF9626</code><p>警告状态点、图标、促销角标。单独作正文对比度不足。</p></div></div><div class="sw"><i style="background:#FFECE8"></i><div><b>danger-1</b><code>#FFECE8</code><code class="dk">深色 rgba(247,105,101,0.16)</code><p>错误提示底色、危险标签底色。</p></div></div><div class="sw"><i style="background:#F53F3F"></i><div><b>danger-6</b><code>#F53F3F</code><code class="dk">深色 #F76965</code><p>错误、攻击告警、危险按钮。</p></div></div></div><h3>图表色</h3><div class="sw-g"><div class="sw"><i style="background:#165DFF"></i><div><b>chart-1</b><code>#165DFF</code><p>图表第 1 序列。</p></div></div><div class="sw"><i style="background:#14C9C9"></i><div><b>chart-2</b><code>#14C9C9</code><code class="dk">深色 #30C9C9</code><p>图表第 2 序列。</p></div></div><div class="sw"><i style="background:#F7BA1E"></i><div><b>chart-3</b><code>#F7BA1E</code><code class="dk">深色 #F9CC45</code><p>图表第 3 序列。</p></div></div><div class="sw"><i style="background:#722ED1"></i><div><b>chart-4</b><code>#722ED1</code><code class="dk">深色 #8D4EDA</code><p>图表第 4 序列。</p></div></div><div class="sw"><i style="background:#F77234"></i><div><b>chart-5</b><code>#F77234</code><code class="dk">深色 #F9925A</code><p>图表第 5 序列。</p></div></div><div class="sw"><i style="background:#E5E6EB"></i><div><b>chart-empty</b><code>#E5E6EB</code><p>数据为 0 或无数据时的环形图、柱状图底色。0 值不得显示为彩色满环。</p></div></div></div><h3>控制台（kc-*）</h3><div class="sw-g"><div class="sw"><i style="background:#1664FF"></i><div><b>kc-primary</b><code>#1664FF</code><p>控制台主色：主按钮、链接、选中态、页签下划线、开关打开。参照火山引擎控制台，比官网 primary-6 略偏亮。</p></div></div><div class="sw"><i style="background:#F2F7FF"></i><div><b>kc-primary-bg</b><code>#F2F7FF</code><p>控制台浅蓝底：下拉选中项、选中卡片、分段按钮选中底色。</p></div></div><div class="sw"><i style="background:#EAF2FF"></i><div><b>kc-primary-bg-2</b><code>#EAF2FF</code><p>控制台浅蓝底（稍深）：菜单选中、信息标签底色。</p></div></div><div class="sw"><i style="background:#0C0D0E"></i><div><b>kc-text-1</b><code>#0C0D0E</code><p>控制台标题与重点数字，用在白底 bg-1 和 kc-bg 上。</p></div></div><div class="sw"><i style="background:#42464E"></i><div><b>kc-text-2</b><code>#42464E</code><p>控制台正文、次按钮文字、表格内容，用在白底和 kc-bg 上。</p></div></div><div class="sw"><i style="background:#737A87"></i><div><b>kc-text-3</b><code>#737A87</code><p>控制台辅助说明、表头、时间、面包屑（白底约 4.5:1，可读下限）。</p></div></div><div class="sw"><i style="background:#F5F7FB"></i><div><b>kc-bg</b><code>#F5F7FB</code><p>控制台页面底色。</p></div></div><div class="sw"><i style="background:#E4EAF0"></i><div><b>kc-border-2</b><code>#E4EAF0</code><p>控制台输入框、旧版按钮描边。</p></div></div><div class="sw"><i style="background:#EAEDF1"></i><div><b>kc-border-3</b><code>#EAEDF1</code><p>控制台卡片描边、卡片标题分割线。</p></div></div><div class="sw"><i style="background:#F0F2F5"></i><div><b>kc-fill-2</b><code>#F0F2F5</code><p>控制台卡片弱描边、浅灰填充。</p></div></div><div class="sw"><i style="background:#FAFBFC"></i><div><b>kc-fill-3</b><code>#FAFBFC</code><p>控制台表头与面板的极浅底色。</p></div></div><div class="sw"><i style="background:#CB2634"></i><div><b>kc-danger-text</b><code>#CB2634</code><p>控制台危险状态文字（高危、未解决），配 danger-1 或白底。</p></div></div><div class="sw"><i style="background:#D25F00"></i><div><b>kc-warning-text</b><code>#D25F00</code><p>控制台警告状态文字（即将到期、待处理），配 warning-1 或白底。</p></div></div><div class="sw"><i style="background:#00754E"></i><div><b>kc-success-text</b><code>#00754E</code><p>控制台成功状态文字（正常、已解决），配 success-1 或白底。</p></div></div></div></section><section id="type" class="ds-sec"><h2>文字</h2><p class="ds-note">字体栈：<code>&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Hiragino Sans GB&quot;, &quot;Noto Sans SC&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Arial, sans-serif</code></p><h3>官网</h3><div class="ty"><div class="ty-r"><div class="ty-m"><b>display-1</b><code>48px / 56px · 600</code><p>官网首屏主标题，每页最多一处。</p></div><div class="ty-s" style="font-size:48px;line-height:56px;font-weight:600">下一代云安全服务</div></div><div class="ty-r"><div class="ty-m"><b>display-2</b><code>40px / 48px · 600</code><p>产品页首屏标题。</p></div><div class="ty-s" style="font-size:40px;line-height:48px;font-weight:600">DDoS 高防 IP</div></div><div class="ty-r"><div class="ty-m"><b>heading-1</b><code>32px / 40px · 600</code><p>官网区块标题。</p></div><div class="ty-s" style="font-size:32px;line-height:40px;font-weight:600">安全稳定的产品，守护云上安全</div></div><div class="ty-r"><div class="ty-m"><b>heading-2</b><code>24px / 32px · 600</code><p>官网子区块标题、卡片大标题。</p></div><div class="ty-s" style="font-size:24px;line-height:32px;font-weight:600">全行业安全解决方案</div></div><div class="ty-r"><div class="ty-m"><b>lead</b><code>16px / 26px · 400</code><p>官网首屏和区块的副标题。</p></div><div class="ty-s" style="font-size:16px;line-height:26px;font-weight:400">5 秒发现恶意请求，10 秒阻断攻击。</div></div></div><h3>控制台</h3><div class="ty"><div class="ty-r"><div class="ty-m"><b>title-1</b><code>20px / 28px · 500</code><p>页面标题。</p></div><div class="ty-s" style="font-size:20px;line-height:28px;font-weight:500">安全加速 SCDN</div></div><div class="ty-r"><div class="ty-m"><b>title-2</b><code>16px / 24px · 500</code><p>卡片标题、弹窗标题。</p></div><div class="ty-s" style="font-size:16px;line-height:24px;font-weight:500">本周安全告警</div></div><div class="ty-r"><div class="ty-m"><b>body-1</b><code>14px / 22px · 400</code><p>正文、表格、表单。控制台默认字号。</p></div><div class="ty-s" style="font-size:14px;line-height:22px;font-weight:400">域名接入后，请将 CNAME 指向下方地址。</div></div><div class="ty-r"><div class="ty-m"><b>body-2</b><code>12px / 20px · 400</code><p>辅助说明、标签。不用于大段文字。</p></div><div class="ty-s" style="font-size:12px;line-height:20px;font-weight:400">更新于 2026-10-21 08:00</div></div><div class="ty-r"><div class="ty-m"><b>number-1</b><code>28px / 36px · 600</code><p>统计卡大数字，配 tabular-nums。</p></div><div class="ty-s" style="font-size:28px;line-height:36px;font-weight:600">1,286</div></div></div></section><section id="space" class="ds-sec"><h2>间距、圆角、阴影与尺寸</h2><h3>间距</h3><table class="md-t tk"><thead><tr><th>令牌</th><th>值</th><th>示意</th><th>用途</th></tr></thead><tbody><tr><td><code>space-1</code></td><td><code>4px</code></td><td><span class="bar" style="width:4px"></span></td><td>图标与文字间距。</td></tr><tr><td><code>space-2</code></td><td><code>8px</code></td><td><span class="bar" style="width:8px"></span></td><td>标签之间、紧凑控件内边距。</td></tr><tr><td><code>space-3</code></td><td><code>12px</code></td><td><span class="bar" style="width:12px"></span></td><td>表单项内间距。</td></tr><tr><td><code>space-4</code></td><td><code>16px</code></td><td><span class="bar" style="width:16px"></span></td><td>控件组间距、控制台卡片之间。</td></tr><tr><td><code>space-5</code></td><td><code>20px</code></td><td><span class="bar" style="width:20px"></span></td><td>控制台卡片内边距。</td></tr><tr><td><code>space-6</code></td><td><code>24px</code></td><td><span class="bar" style="width:24px"></span></td><td>官网卡片内边距、控制台页面边距。</td></tr><tr><td><code>space-8</code></td><td><code>32px</code></td><td><span class="bar" style="width:32px"></span></td><td>官网卡片之间。</td></tr><tr><td><code>space-12</code></td><td><code>48px</code></td><td><span class="bar" style="width:48px"></span></td><td>官网区块标题到内容。</td></tr><tr><td><code>space-20</code></td><td><code>80px</code></td><td><span class="bar" style="width:80px"></span></td><td>官网区块上下间距。</td></tr></tbody></table><h3>圆角</h3><table class="md-t tk"><thead><tr><th>令牌</th><th>值</th><th>示意</th><th>用途</th></tr></thead><tbody><tr><td><code>radius-small</code></td><td><code>2px</code></td><td><span class="rb" style="border-radius:2px"></span></td><td>标签、复选框。</td></tr><tr><td><code>radius-medium</code></td><td><code>4px</code></td><td><span class="rb" style="border-radius:4px"></span></td><td>按钮、输入框、下拉框。</td></tr><tr><td><code>radius-large</code></td><td><code>8px</code></td><td><span class="rb" style="border-radius:8px"></span></td><td>卡片、弹窗、官网图片。</td></tr><tr><td><code>radius-round</code></td><td><code>999px</code></td><td><span class="rb" style="border-radius:999px"></span></td><td>状态点、头像、胶囊标签。</td></tr><tr><td><code>kc-control-radius</code></td><td><code>4px</code></td><td><span class="rb" style="border-radius:4px"></span></td><td>控制台按钮、输入框、下拉框圆角。</td></tr><tr><td><code>kc-tag-radius</code></td><td><code>4px</code></td><td><span class="rb" style="border-radius:4px"></span></td><td>控制台状态标签圆角。</td></tr><tr><td><code>kc-card-radius</code></td><td><code>8px</code></td><td><span class="rb" style="border-radius:8px"></span></td><td>控制台卡片圆角。</td></tr></tbody></table><h3>阴影</h3><table class="md-t tk"><thead><tr><th>令牌</th><th>值</th><th>示意</th><th>用途</th></tr></thead><tbody><tr><td><code>shadow-1</code></td><td><code>0 2px 6px rgba(29,33,41,0.06)</code></td><td><span class="sb" style="box-shadow:0 2px 6px rgba(29,33,41,0.06)"></span></td><td>卡片悬停。默认卡片不加阴影，用 border-1 描边。</td></tr><tr><td><code>shadow-2</code></td><td><code>0 4px 12px rgba(29,33,41,0.1)</code></td><td><span class="sb" style="box-shadow:0 4px 12px rgba(29,33,41,0.1)"></span></td><td>下拉菜单、官网大导航面板。</td></tr><tr><td><code>shadow-3</code></td><td><code>0 8px 24px rgba(29,33,41,0.12)</code></td><td><span class="sb" style="box-shadow:0 8px 24px rgba(29,33,41,0.12)"></span></td><td>弹窗、抽屉。</td></tr></tbody></table><h3>控制台尺寸</h3><table class="md-t tk"><thead><tr><th>令牌</th><th>值</th><th>示意</th><th>用途</th></tr></thead><tbody><tr><td><code>kc-btn-h</code></td><td><code>32px</code></td><td><span class="hb" style="height:32px"></span></td><td>控制台按钮高度（kc-btn）。</td></tr><tr><td><code>kc-btn-h-sm</code></td><td><code>28px</code></td><td><span class="hb" style="height:28px"></span></td><td>小按钮高度（kc-btn sm），用于提示条和表格行内。</td></tr><tr><td><code>kc-btn-px</code></td><td><code>16px</code></td><td><span class="hb" style="height:16px"></span></td><td>按钮左右内边距。</td></tr><tr><td><code>kc-input-h</code></td><td><code>32px</code></td><td><span class="hb" style="height:32px"></span></td><td>输入框高度（kc-in）。</td></tr><tr><td><code>kc-tag-h</code></td><td><code>22px</code></td><td><span class="hb" style="height:22px"></span></td><td>状态标签高度（kc-tag）。</td></tr><tr><td><code>kc-tab-h</code></td><td><code>44px</code></td><td><span class="hb" style="height:44px"></span></td><td>页签高度（kc-tab）。</td></tr></tbody></table></section><section id="g-0" class="ds-sec"><h2>控制台 · 基础</h2><article class="cd" id="c-KcBadge"><div class="cd-h"><b>KcBadge</b><span>数量与风险等级：kc-cnt、kc-lv3</span></div><div class="cd-p" style="min-height:96px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:16px;align-items:center">防护功能<span class="kc-cnt">5/7</span> 待处理<span class="kc-cnt r">12</span></div>
+<div style="display:flex;gap:20px;align-items:center;color:var(--kc-text-2,#42464e)"><span><i class="kc-lv3 r"></i>紧急</span><span><i class="kc-lv3 o"></i>未受保护</span><span><i class="kc-lv3 y"></i>可疑</span><span><i class="kc-lv3 g"></i>已解决</span></div>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>两个小部件：</p>
+<ul>
+<li><b>数量 <code>kc-cnt</code></b>：跟在标题或页签后面的数字，灰底胶囊。需要警示时加 <code>.r</code>（红字）。放在页签里时自动变成纯数字。</li>
+<li><b>风险等级 <code>i.kc-lv3</code></b>：8px 圆点放在文字前，<code>r</code> 紧急、<code>o</code> 未受保护、<code>y</code> 可疑、<code>g</code> 已解决。圆点后面必须跟等级文字。</li>
+</ul></div></article><article class="cd" id="c-KcButton"><div class="cd-h"><b>KcButton</b><span>按钮：主按钮、次按钮、小号、危险、禁用</span></div><div class="cd-p" style="min-height:96px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<button type="button" class="kc-btn pri">立即全面检测</button>
+<button type="button" class="kc-btn">告警设置</button>
+<button type="button" class="kc-btn sm">知道了</button>
+<button type="button" class="kc-btn lp-danger">确定卸载</button>
+<button type="button" class="kc-btn pri" disabled>保存</button>
+<a class="kc-t-link" href="#" style="color:var(--kc-primary,#1664ff);text-decoration:none">查看详情</a>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>控制台按钮统一用 <code>kc-btn</code>。一个页面只放一个主按钮 <code>kc-btn pri</code>，其余用次按钮或文字链接。</p>
+<ul>
+<li><code>kc-btn pri</code>：主操作（创建、保存、立即检测）。</li>
+<li><code>kc-btn</code>：次操作（设置、导出、取消）。</li>
+<li><code>kc-btn sm</code>：放在提示条、表格行里的小按钮。</li>
+<li><code>kc-btn lp-danger</code>：只用在确认弹窗里的危险操作（卸载、删除、重装）。</li>
+<li>禁用写 <code>disabled</code> 属性或 <code>.dis</code> 类。</li>
+<li>表格操作列、卡片右上角的动作用文字链接，不用按钮。</li>
+</ul></div></article><article class="cd" id="c-KcTag"><div class="cd-h"><b>KcTag</b><span>状态标签：正常 / 警告 / 危险 / 信息 / 中性</span></div><div class="cd-p" style="min-height:90px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+<span class="kc-tag ok">运行中</span><span class="kc-tag warn">即将到期</span><span class="kc-tag err">有风险</span><span class="kc-tag info">主账号</span><span class="kc-tag mut">已停用</span>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>状态标签 <code>kc-tag</code> 加一个状态类：<code>ok</code> 正常、<code>warn</code> 警告、<code>err</code> 危险、<code>info</code> 信息、<code>mut</code> 中性。描边加同色文字，透明底。</p>
+<ul>
+<li>只表达状态，不做装饰；文字 2 到 5 个字，不加标点。</li>
+<li>状态由文字说清楚，颜色只做辅助，不能只靠颜色。</li>
+<li>表格的状态列直接放 <code>kc-tag</code>，不要再包圆点或图标。</li>
+</ul></div></article></section><section id="g-1" class="ds-sec"><h2>控制台 · 导航</h2><article class="cd" id="c-KcPageHeader"><div class="cd-h"><b>KcPageHeader</b><span>页面标题区：kc-hd（标题、说明、右侧按钮）与面包屑</span></div><div class="cd-p" style="min-height:130px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<nav class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="#">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="#">德迅安全卫士</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>告警中心</b></nav>
+<div class="kc-hd" style="margin-top:12px"><div class="kc-hdl"><div><h1 class="kc-h1">告警中心</h1><p class="kc-desc">只放需要人处理的入侵类告警。</p></div></div><div class="kc-btns"><button type="button" class="kc-btn">告警设置</button><button type="button" class="kc-btn pri">立即全面检测</button></div></div>
+</div>
+
+</div><div class="cd-d md"><p>每个控制台页面顶部：<code>kc-hd</code> 左边 <code>kc-hdl</code>（可选 <code>kc-ico</code> 图标 + <code>h1.kc-h1</code> + <code>p.kc-desc</code>），右边 <code>kc-btns</code>。</p>
+<ul>
+<li>标题用菜单里的名字；说明一句话，不写也可以。</li>
+<li>右侧最多一个主按钮，其余次按钮；实例的设置收进按钮 + 抽屉，不放在页面底部。</li>
+<li>面包屑 <code>kc-crumb</code> 在顶栏里，每一级都能点，最后一级是 <code>&lt;b&gt;</code>。</li>
+</ul></div></article><article class="cd" id="c-KcTabs"><div class="cd-h"><b>KcTabs</b><span>页签：kc-tabs / kc-tab</span></div><div class="cd-p" style="min-height:90px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div class="kc-tabs" role="tablist">
+<button type="button" class="kc-tab on" role="tab" aria-selected="true">全部 <span class="kc-cnt">20</span></button>
+<button type="button" class="kc-tab" role="tab" aria-selected="false">紧急 <span class="kc-cnt r">3</span></button>
+<button type="button" class="kc-tab" role="tab" aria-selected="false">未防护 <span class="kc-cnt">1</span></button>
+<button type="button" class="kc-tab" role="tab" aria-selected="false">已处理</button>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>卡片内或页面内的页签。容器 <code>kc-tabs</code>（role=tablist），每项 <code>kc-tab</code>（role=tab），选中加 <code>.on</code> 和 <code>aria-selected="true"</code>。</p>
+<ul>
+<li>数量写成 <code>&lt;span class="kc-cnt"&gt;</code>，需要警示时加 <code>.r</code>。</li>
+<li>页签 2 到 6 个；更多的筛选用下拉或筛选条件，不要再加页签。</li>
+</ul></div></article></section><section id="g-2" class="ds-sec"><h2>控制台 · 表单</h2><article class="cd" id="c-KcInput"><div class="cd-h"><b>KcInput</b><span>输入框与搜索：kc-in</span></div><div class="cd-p" style="min-height:90px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+<input class="kc-in" style="width:320px" type="search" aria-label="搜索服务器名称、IP 或 ID" placeholder="搜索服务器名称、IP 或 ID">
+<input class="kc-in" style="width:200px" type="text" aria-label="备注" value="web-prod-01">
+</div>
+</div>
+
+</div><div class="cd-d md"><p>单行输入和搜索框统一用 <code>input.kc-in</code>，灰底无描边，聚焦时出现主色描边。宽度在使用处指定。</p>
+<ul>
+<li>搜索框占位写清能搜什么：「搜索服务器名称、IP 或 ID」。</li>
+<li>输入框一定要有 <code>aria-label</code> 或可见标签。</li>
+</ul></div></article><article class="cd" id="c-KcSelect"><div class="cd-h"><b>KcSelect</b><span>下拉选择：kc-dd + dd-w + dd-p（展开态）</span></div><div class="cd-p" style="min-height:230px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div style="display:flex;gap:16px;align-items:flex-start;min-height:190px">
+<span class="dd-w"><button class="kc-dd" type="button" aria-haspopup="listbox"><b>全部资产</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button></span>
+<span class="dd-w on"><button class="kc-dd" type="button" aria-haspopup="listbox" aria-expanded="true"><b>最近 7 天</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><span class="dd-p" role="listbox"><button type="button" role="option">今天</button><button type="button" role="option" class="on">最近 7 天</button><button type="button" role="option">最近 30 天</button><button type="button" role="option">自定义时间</button></span></span>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>控制台不用原生 <code>&lt;select&gt;</code>。结构：<code>span.dd-w</code> 包住 <code>button.kc-dd</code>（<code>&lt;b&gt;</code> 当前值 + 下箭头）；展开时 <code>dd-w</code> 加 <code>.on</code>，后面跟遮罩 <code>span.dd-m</code> 和选项面板 <code>span.dd-p</code>（role=listbox），选项是 <code>button role=option</code>，当前项加 <code>.on</code>。</p>
+<ul>
+<li>点遮罩或选中后收起。</li>
+<li>选项超过 8 个时面板自动滚动；靠近页面底部时 <code>dd-p</code> 加 <code>.up</code> 向上展开。</li>
+</ul></div></article><article class="cd" id="c-KcSwitch"><div class="cd-h"><b>KcSwitch</b><span>开关：kc-sw-row + button.kc-sw</span></div><div class="cd-p" style="min-height:150px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div>
+<div class="kc-sw-row"><div>夜间免打扰<div class="kc-sub">22:00–08:00 的短信和电话顺延到早上 8 点发送，紧急告警不受影响</div></div><button type="button" class="kc-sw on" role="switch" aria-checked="true" aria-label="夜间免打扰"></button></div>
+<div class="kc-sw-row"><div>同类告警合并<div class="kc-sub">同一台主机 10 分钟内的同类告警只通知一次</div></div><button type="button" class="kc-sw" role="switch" aria-checked="false" aria-label="同类告警合并"></button></div>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>设置项一行一个：<code>kc-sw-row</code> 左边是名称和 <code>.kc-sub</code> 说明，右边是 <code>button.kc-sw</code>（role=switch）。打开加 <code>.on</code> 和 <code>aria-checked="true"</code>。</p>
+<ul>
+<li>开关即时生效，不再配「保存」按钮；需要批量确认的设置才用表单 + 保存。</li>
+<li>说明写清楚打开后会发生什么，一行以内。</li>
+</ul></div></article></section><section id="g-3" class="ds-sec"><h2>控制台 · 数据展示</h2><article class="cd" id="c-KcKeyValue"><div class="cd-h"><b>KcKeyValue</b><span>键值信息：kc-cb.kc-kvg</span></div><div class="cd-p" style="min-height:150px">
+<div class="kc" style="padding:16px;background:#fff;min-height:0">
+<section class="kc-card"><div class="kc-cb kc-kvg">
+<div><span>服务器 ID</span>idc-wz-0193</div><div><span>机房</span>温州电信 A 机房 · 机柜 A12</div><div><span>公网 IP</span>115.231.**.12</div>
+<div><span>CPU</span>E5-2680 v4 × 2（28 核）</div><div><span>内存</span>64 GB DDR4</div><div><span>到期时间</span>2026-11-20</div>
+</div></section>
+</div>
+
+</div><div class="cd-d md"><p>详情页的基本信息用 <code>kc-cb kc-kvg</code>，每项是 <code>&lt;div&gt;&lt;span&gt;标签&lt;/span&gt;值&lt;/div&gt;</code>，自动排成多列网格。</p>
+<ul>
+<li>标签 4 到 6 个字，值里可以放 <code>kc-tag</code> 或文字链接。</li>
+<li>一组超过 12 项时按主题拆成几张卡片（配置 / 网络与防护 / 计费）。</li>
+</ul></div></article><article class="cd" id="c-KcStatTiles"><div class="cd-h"><b>KcStatTiles</b><span>数字卡片：kc-card &gt; kc-cb.kc-tiles &gt; kc-tile</span></div><div class="cd-p" style="min-height:150px">
+<div class="kc" style="padding:16px;background:#fff;min-height:0">
+<section class="kc-card"><div class="kc-cb kc-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<a class="kc-tile" href="#"><span>入侵行为</span><b>0</b></a>
+<a class="kc-tile" href="#"><span>高危漏洞</span><b>2</b><span class="kc-sub">较昨日 +1</span></a>
+<div class="kc-tile"><span>弱口令</span><b>0</b></div>
+<a class="kc-tile" href="#"><span>低危基线</span><b>14</b></a>
+</div></section>
+</div>
+
+</div><div class="cd-d md"><p>成组的关键数字。外层 <code>kc-card</code>，内容区 <code>kc-cb kc-tiles</code>，每格 <code>kc-tile</code>：<code>&lt;span&gt;</code> 标签、<code>&lt;b&gt;</code> 数值、可选 <code>.kc-sub</code> 补充说明。</p>
+<ul>
+<li>能点进去看明细的格子用 <code>&lt;a class="kc-tile"&gt;</code>，悬停有反馈；只展示的用 <code>&lt;div&gt;</code>。</li>
+<li>列数在 <code>kc-tiles</code> 上用 <code>grid-template-columns</code> 指定，一行 3 到 5 格。</li>
+<li>0 值不染色；数值字体是 Barlow，等宽数字。</li>
+</ul></div></article><article class="cd" id="c-KcTable"><div class="cd-h"><b>KcTable</b><span>表格与分页：kc-tw &gt; table.kc-t、kc-pg</span></div><div class="cd-p" style="min-height:300px">
+<div class="kc" style="padding:16px;background:#fff;min-height:0">
+<section class="kc-card">
+<div class="kc-tw"><table class="kc-t"><thead><tr><th>告警</th><th>影响对象</th><th>状态</th><th>发现时间</th><th>操作</th></tr></thead><tbody>
+<tr><td><i class="kc-lv3 r"></i>异常登录</td><td>web-prod-01</td><td><span class="kc-tag err">待处理</span></td><td>今天 10:28</td><td><a href="#">处理</a></td></tr>
+<tr><td><i class="kc-lv3 o"></i>未安装客户端</td><td>backup-02</td><td><span class="kc-tag warn">未受保护</span></td><td>今天 09:12</td><td><a href="#">安装</a></td></tr>
+<tr><td><i class="kc-lv3 g"></i>弱口令</td><td>db-01</td><td><span class="kc-tag ok">已解决</span></td><td>昨天 18:40</td><td><a href="#">详情</a></td></tr>
+</tbody></table></div>
+<div style="display:flex;justify-content:flex-end;padding:12px 16px"><div class="kc-pg"><button type="button" aria-label="上一页">‹</button><button type="button" class="on">1</button><button type="button">2</button><button type="button">3</button><button type="button" aria-label="下一页">›</button></div></div>
+</section>
+</div>
+
+</div><div class="cd-d md"><p>列表一律用 <code>kc-tw &gt; table.kc-t</code>，外面包 <code>kc-card</code>。</p>
+<ul>
+<li>操作列放文字链接（处理、详情），不放按钮；多于 3 个收进「更多」。</li>
+<li>状态列用 <code>kc-tag</code>，等级列用 <code>kc-lv3</code> 圆点加文字。</li>
+<li>数字列加 <code>.num</code> 右对齐。</li>
+<li>分页 <code>kc-pg</code> 放在卡片底部右侧，当前页加 <code>.on</code>。</li>
+</ul></div></article></section><section id="g-4" class="ds-sec"><h2>控制台 · 反馈</h2><article class="cd" id="c-KcAlert"><div class="cd-h"><b>KcAlert</b><span>提示条：警告（默认）、错误、信息</span></div><div class="cd-p" style="min-height:190px">
+<div class="kc" style="padding:20px;background:#fff;min-height:0">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div class="ac-al"><i>!</i><span><b>1 台服务器没有安装德迅安全卫士</b>backup-02 目前不受保护，安装后自动加入「标准防护」策略。</span><button type="button" class="kc-btn sm">一键安装</button></div>
+<div class="ac-al e"><i>!</i><span>web-prod-01 检测到 2 个高危漏洞，建议今天内处理。</span></div>
+<div class="ac-al i"><i>!</i><span>这台服务器使用策略「标准防护」，下面的开关会同时作用于 64 台主机。<a href="#">在防护策略中查看</a></span></div>
+</div>
+</div>
+
+</div><div class="cd-d md"><p>页面内提示条 <code>ac-al</code>，结构固定为 <code>&lt;i&gt;!&lt;/i&gt;&lt;span&gt;…&lt;/span&gt;</code>，右侧可以再放一个 <code>kc-btn sm</code>。</p>
+<ul>
+<li>默认（橙色）：需要注意但不紧急，比如未安装客户端、即将到期。</li>
+<li><code>.e</code>（红色）：有风险、操作失败。</li>
+<li><code>.i</code>（蓝色）：说明信息、操作影响范围。</li>
+<li><code>&lt;span&gt;</code> 里先写一句 <code>&lt;b&gt;</code> 标题再写说明时，标题单独一行。</li>
+<li>一个区域最多一条；不要用大面积红色横幅，红色只留给真正的风险。</li>
+</ul></div></article><article class="cd" id="c-KcToast"><div class="cd-h"><b>KcToast</b><span>轻提示：lp-toast ok / info / warn / err</span></div><div class="cd-p" style="min-height:80px">
+<div class="kc" style="padding:16px;background:#fff;min-height:0">
+<div style="position:relative;height:44px"><div class="lp-toast ok" role="status" style="top:0"><svg class="lp-ti" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg><span>已保存，策略对 64 台主机生效</span></div></div>
+</div>
+
+</div><div class="cd-d md"><p>操作完成后的轻提示 <code>lp-toast</code>，加 <code>ok</code> / <code>info</code> / <code>warn</code> / <code>err</code>。出现在页面顶部居中，2.2 秒后自动消失。</p>
+<ul>
+<li>文案写结果，不写「操作成功」：「已保存，策略对 64 台主机生效」。</li>
+<li>失败时用 <code>err</code> 并说明原因和下一步。</li>
+</ul></div></article></section><section id="g-5" class="ds-sec"><h2>控制台 · 浮层</h2><article class="cd" id="c-KcDrawer"><div class="cd-h"><b>KcDrawer</b><span>抽屉：kc-dw（头、内容、底部按钮）</span></div><div class="cd-p" style="min-height:330px">
+<div class="kc" style="padding:0px;background:#fff;min-height:0">
+<div class="kc-demo" style="position:relative;height:290px;background:var(--kc-bg,#f5f7fb);overflow:hidden">
+<div class="kc-dmask" style="top:0"></div>
+<aside class="kc-dw" role="dialog" aria-label="安全配置" style="top:0;width:380px">
+<div class="kc-dwh">安全配置<button class="kc-x" type="button" aria-label="关闭">×</button></div>
+<div class="kc-dwb"><div class="kc-sw-row"><div>自动拦截<div class="kc-sub">发现暴力破解时自动封禁来源 IP</div></div><button type="button" class="kc-sw on" role="switch" aria-checked="true" aria-label="自动拦截"></button></div></div>
+<div class="kc-dwf"><button type="button" class="kc-btn pri">完成</button></div>
+</aside></div>
+</div>
+
+</div><div class="cd-d md"><p>查看详情、改实例设置用右侧抽屉 <code>aside.kc-dw</code>（role=dialog），配遮罩 <code>kc-dmask</code>。结构：<code>kc-dwh</code> 标题 + 关闭按钮 <code>kc-x</code>，<code>kc-dwb</code> 内容，<code>kc-dwf</code> 底部按钮。</p>
+<ul>
+<li>宽 520px，从顶栏下方 56px 开始。</li>
+<li>改动即时生效的设置，底部只放「完成」。</li>
+<li>带副作用的操作（卸载、重装）不在抽屉里直接执行，先弹确认框。</li>
+</ul></div></article><article class="cd" id="c-KcModal"><div class="cd-h"><b>KcModal</b><span>确认弹窗：lp-mask &gt; lp-modal</span></div><div class="cd-p" style="min-height:240px">
+<div class="kc" style="padding:0px;background:#fff;min-height:0">
+<div style="position:relative;height:210px">
+<div class="lp-mask" style="animation:none"><div class="lp-modal" role="dialog" aria-modal="true" style="width:380px">
+<h3>卸载 web-prod-01 的客户端？</h3><p>卸载后这台服务器不再受保护，已有的告警和日志会保留 30 天。</p>
+<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:18px"><button type="button" class="kc-btn">取消</button><button type="button" class="kc-btn lp-danger">确定卸载</button></div>
+</div></div></div>
+</div>
+
+</div><div class="cd-d md"><p>有副作用的操作执行前弹确认框：遮罩 <code>lp-mask</code>，框体 <code>lp-modal</code>，标题 <code>&lt;h3&gt;</code> 用问句写清对象，<code>&lt;p&gt;</code> 写影响范围和时间。</p>
+<ul>
+<li>按钮：左「取消」，右确认；危险操作用 <code>kc-btn lp-danger</code>，其它用 <code>kc-btn pri</code>。</li>
+<li>确认后关闭弹窗并弹出轻提示。</li>
+</ul></div></article></section><section id="g-6" class="ds-sec"><h2>官网 · 基础</h2><article class="cd" id="c-Button"><div class="cd-h"><b>Button</b><span>主 / 次 / 文字 / 危险 / 禁用</span></div><div class="cd-p" style="min-height:150px">
+<div class="dx-root" style="padding:16px;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <button class="dx-btn dx-btn--primary">立即购买</button>
+    <button class="dx-btn dx-btn--secondary">查看文档</button>
+    <button class="dx-btn dx-btn--text">控制面板</button>
+    <button class="dx-btn dx-btn--danger">删除域名</button>
+    <button class="dx-btn dx-btn--primary" disabled>提交中</button>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <button class="dx-btn dx-btn--primary dx-btn--large">免费试用</button>
+    <button class="dx-btn dx-btn--secondary dx-btn--large">联系专家</button>
+  </div>
+</div>
+</div><div class="cd-d md"><p>按钮分主、次、文字、危险四种，一个区域只放一个主按钮。</p>
+<ul>
+<li><b>主按钮</b>（<code>dx-btn--primary</code>）：页面或卡片里最重要的一个动作，如“立即购买”“创建”。现控制台列表页顶部“通用流量 / 维护QQ / 投诉与建议”与“创建”同为蓝色实心，改版后只有“创建”用主按钮，其余用次按钮或收进“更多”。</li>
+<li><b>次按钮</b>（<code>dx-btn--secondary</code>）：并列的其他动作。</li>
+<li><b>文字按钮</b>（<code>dx-btn--text</code>）：表格操作列、卡片底部的“查看详情”。</li>
+<li><b>危险按钮</b>（<code>dx-btn--danger</code>）：删除、释放实例等不可撤销操作，点击后必须二次确认。</li>
+<li><b>大号</b>（<code>dx-btn--large</code>，40px 高）：只用于官网首屏和 CTA 区块。官网首屏固定为“免费试用”（主）+“联系专家”（次），分别面向中小企业和政企。</li>
+</ul>
+<p>尺寸：默认 32px 高，左右内边距 <code>space-4</code>，圆角 <code>radius-medium</code>。禁用态用 <code>bg-3</code> 底 + <code>text-4</code> 字。 文案用动词开头，2~4 个字，写清楚会发生什么。</p></div></article><article class="cd" id="c-Tag"><div class="cd-h"><b>Tag</b><span>功能标签与状态标签</span></div><div class="cd-p" style="min-height:110px">
+<div class="dx-root" style="padding:16px;display:flex;flex-direction:column;gap:12px">
+  <div style="display:flex;flex-wrap:wrap;gap:8px">
+    <span class="dx-tag">流量清洗</span>
+    <span class="dx-tag">CC 防御</span>
+    <span class="dx-tag dx-tag--primary">推荐</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px">
+    <span class="dx-tag dx-tag--success"><span class="dx-dot"></span>运行中</span>
+    <span class="dx-tag dx-tag--warning"><span class="dx-dot"></span>即将到期</span>
+    <span class="dx-tag dx-tag--danger"><span class="dx-dot"></span>攻击中</span>
+    <span class="dx-tag"><span class="dx-dot"></span>已停止</span>
+  </div>
+</div>
+</div><div class="cd-d md"><p>标签用于产品卖点和实例状态，统一为 22px 高、<code>radius-small</code> 圆角、浅底无描边。</p>
+<ul>
+<li><b>功能标签</b>：灰底 <code>bg-3</code> + <code>text-2</code>，用在产品卡片、套餐卡的卖点，每张卡最多 4 个。替代现官网的蓝色描边小框。</li>
+<li><b>状态标签</b>：浅色语义底 + 同色圆点 + <code>text-1</code> 文字。状态靠圆点颜色和文字两者表达，不能只靠颜色。</li>
+<li>文字 2~6 个字，不加标点。</li>
+</ul></div></article></section><section id="g-7" class="ds-sec"><h2>官网 · 区块</h2><article class="cd" id="c-PlanCard"><div class="cd-h"><b>PlanCard</b><span>首页精选推荐套餐卡，价格暂为面谈</span></div><div class="cd-p" style="min-height:250px">
+<div class="dx-root" style="padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+  <div class="dx-card dx-plan">
+    <div class="dx-plan__head"><span class="dx-plan__name">DDoS 高防 IP</span><span class="dx-plan__badge">热门</span></div>
+    <div class="dx-plan__desc">T 级防护能力，近源清洗，业务不中断</div>
+    <div class="dx-plan__tags"><span class="dx-tag">流量清洗</span><span class="dx-tag">智能识别</span></div>
+    <div class="dx-plan__foot"><span class="dx-plan__price">价格面谈</span><button class="dx-btn dx-btn--primary">立即咨询</button></div>
+  </div>
+  <div class="dx-card dx-plan">
+    <div class="dx-plan__head"><span class="dx-plan__name">安全加速 SCDN</span></div>
+    <div class="dx-plan__desc">DDoS、CC、WAF 防护与网站加速一体</div>
+    <div class="dx-plan__tags"><span class="dx-tag">防 Web 攻击</span><span class="dx-tag">CC 防御</span></div>
+    <div class="dx-plan__foot"><span class="dx-plan__price">¥1999<small>/月起</small></span><button class="dx-btn dx-btn--secondary">立即咨询</button></div>
+  </div>
+</div>
+</div><div class="cd-d md"><p>官网首页“精选推荐”和产品页的套餐卡，结构参考快快网络的内容做法：名称、一句话卖点、功能标签、价格和咨询按钮。</p>
+<ul>
+<li>价格目前统一写“价格面谈”（<code>primary-6</code>，20px 600）。卡片已预留价格位，商务给出价格后直接替换为“¥xxx/月起”，见第二张示例（示例价格仅作版式演示）。</li>
+<li>角标“热门”最多出现在 1~2 张卡上，用 <code>warning-1</code> 底。</li>
+<li>卡片默认描边不加阴影，悬停加 <code>shadow-1</code>。</li>
+<li>同一行卡片高度一致，按钮固定在底部。</li>
+</ul></div></article></section><section id="g-8" class="ds-sec"><h2>官网 · 控制台数据卡</h2><article class="cd" id="c-StatCard"><div class="cd-h"><b>StatCard</b><span>统计数字、0 值与加载中</span></div><div class="cd-p" style="min-height:220px">
+<div class="dx-root" style="padding:16px;background:var(--bg-2);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px">
+  <div class="dx-card dx-stat" style="padding:20px"><span class="dx-stat__label">今日 DDoS 攻击</span><span class="dx-stat__value dx-stat__value--danger">12</span><span class="dx-stat__meta">最近一次 07:42 · 已清洗</span></div>
+  <div class="dx-card dx-stat" style="padding:20px"><span class="dx-stat__label">Web 攻击</span><span class="dx-stat__value">0</span><span class="dx-stat__meta">本周无攻击</span></div>
+  <div class="dx-card dx-stat" style="padding:20px">
+    <span class="dx-skeleton" style="width:60%;height:16px"></span>
+    <span class="dx-skeleton" style="width:40%;height:32px"></span>
+    <span class="dx-skeleton" style="width:80%;height:12px"></span>
+  </div>
+</div>
+</div><div class="cd-d md"><p>控制台总览和产品概览里的统计卡：标签、大数字、一行说明。</p>
+<ul>
+<li>数字用 <code>number-1</code>（28px 600，等宽数字）。只有需要用户处理的数字（攻击中、风险）才用 <code>danger-6</code>；0 值一律用 <code>text-1</code>，并在说明行写“本周无攻击”这类结论，不显示彩色。</li>
+<li>与之配套的环形图/柱状图：数据为 0 时整环用 <code>chart-empty</code> 灰色，不得画成一半橙一半蓝或满环红黄（现德迅卫士概览的问题）。</li>
+<li><b>加载中</b>：每张卡独立显示骨架屏（第三张），数据到一张显示一张，不整页白屏或整页 loading。这是缓解“控制台卡顿”感受的主要手段。</li>
+<li>卡片间距 <code>space-4</code>，内边距 <code>space-5</code>，页面底色 <code>bg-2</code>。</li>
+</ul></div></article></section></main></div>
+<script>document.documentElement.classList.add("mo-ready")</script></body></html>
