@@ -9,7 +9,7 @@ NEW = """const P = [['云安全', [['DDoS 高防 IP', '大流量攻击清洗', '
         ['应用加速', '跨地域跨运营商加速', '../ProductAccel.dc.html', 0, '加速'], ['WAAP 全站防护', 'Web 与 API 一体防护', '../ProductWAAP.dc.html', 0, 'waap api'], ['Web 应用防火墙', 'WAF', '../ProductWAF.dc.html', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl']]],
       ['主机安全', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵']]],
       ['业务安全', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '../ProductAtlas.dc.html', 0, '威胁'], ['态势感知', '安全态势总览', '../ProductSitu.dc.html', 0, '态势'], ['德迅蜂巢', '容器安全', '../ProductBeehive.dc.html', 0, '容器 k8s'], ['德迅零域', '微隔离', '../ProductMicro.dc.html', 0, '微隔离'], ['德迅猎鹰', '云蜜罐', '../ProductHoneypot.dc.html', 0, '蜜罐']]],
-      ['安全运营', [['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞'], ['等保合规', '等保咨询与测评', '../Services.dc.html#djbh', 0, '等保']]],
+      ['安全运营', [['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞'], ['等保合规', '等保咨询与测评', '../ServiceDJBH.dc.html', 0, '等保']]],
       ['服务器', [['服务器租用', '高防 / 电信 / 高性能', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启 高防服务器'], ['弹性云服务器', '弹性伸缩的云主机', '../ProductECS.dc.html', 0, 'ecs 云服务器 云主机'], ['裸金属服务器', '独享物理机', '../ProductBareMetal.dc.html', 0, '裸金属 物理机']]]];"""
 pat = re.compile(r"const P = \[\['云安全', \[\[.*?\]\]\]\];", re.S)
 n = 0
@@ -31,7 +31,7 @@ open(p, 'w', encoding='utf-8').write(s)
 # 规格板 Switcher：静态面板里的 '#' 按同样规则改
 p = os.path.join(D, 'Switcher.dc.html'); s = open(p, encoding='utf-8').read()
 MAP = {'用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', 'Web 应用防火墙': '../ProductWAF.dc.html', '德迅零域': '../ProductMicro.dc.html', '德迅蜂巢': '../ProductBeehive.dc.html', '德迅猎鹰': '../ProductHoneypot.dc.html',
-       '德迅云图': '../ProductAtlas.dc.html', '态势感知': '../ProductSitu.dc.html', '等保合规': '../Services.dc.html#djbh', '云服务器': '../ProductECS.dc.html', '裸金属': '../ProductBareMetal.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html'}
+       '德迅云图': '../ProductAtlas.dc.html', '态势感知': '../ProductSitu.dc.html', '等保合规': '../ServiceDJBH.dc.html', '云服务器': '../ProductECS.dc.html', '裸金属': '../ProductBareMetal.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html'}
 def fix(m):
     a = m.group(0)
     for k, v in MAP.items():
@@ -50,3 +50,18 @@ for p in sorted(glob.glob(os.path.join(D, '*.dc.html'))):
     s2 = s.replace('const k = {"DDoS 高防 IP": "ddos",', 'const k = {' + ADD + '"DDoS 高防 IP": "ddos",')
     if s2 != s: open(p, 'w', encoding='utf-8').write(s2)
 print('icons ok')
+
+# 规格板 Switcher 有自己的一份 groups / href 数据，同步成和面板一样
+p = os.path.join(D, 'Switcher.dc.html'); s = open(p, encoding='utf-8').read()
+s = re.sub(r"const href = \{ 'SCDN': 'Main\.dc\.html'.*?\};", """const href = { 'SCDN': 'Main.dc.html', 'DDoS 高防 IP': 'DdosInstances.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器': 'IdcServers.dc.html', '德迅安全卫士': 'SecHome.dc.html', 'SSL 证书': 'AcctProducts.dc.html', '漏洞扫描 VSS': 'AcctProducts.dc.html',
+      '应用加速': '../ProductAccel.dc.html', 'WAAP 全站防护': '../ProductWAAP.dc.html', 'Web 应用防火墙': '../ProductWAF.dc.html', '德迅云图': '../ProductAtlas.dc.html', '态势感知': '../ProductSitu.dc.html', '德迅蜂巢': '../ProductBeehive.dc.html', '德迅零域': '../ProductMicro.dc.html', '德迅猎鹰': '../ProductHoneypot.dc.html', '等保合规': '../ServiceDJBH.dc.html' };""", s, count=1, flags=re.S)
+s = re.sub(r"const groups = \[\s*\['云安全'.*?\]\]\]\s*\];", """const groups = [
+      ['云安全', [['DDoS 高防 IP','大流量攻击清洗',1],['游戏盾','游戏 TCP/UDP 防护',1],['SCDN','加速 + Web 防护',1],['应用加速','跨地域跨运营商加速',0],['WAAP 全站防护','Web 与 API 一体防护',0],['Web 应用防火墙','WAF',0],['SSL 证书','HTTPS 加密',1]]],
+      ['主机安全', [['德迅安全卫士','安全中心 · 主机安全',1]]],
+      ['业务安全', [['德迅云眼','网站安全监测',1],['德迅云图','威胁检测与分析',0],['态势感知','安全态势总览',0],['德迅蜂巢','容器安全',0],['德迅零域','微隔离',0],['德迅猎鹰','云蜜罐',0]]],
+      ['安全运营', [['漏洞扫描 VSS','网站与主机漏洞',1],['等保合规','等保咨询与测评',0]]],
+      ['服务器', [['服务器','租用 / 弹性云 / 裸金属',1]]]
+    ];""", s, count=1, flags=re.S)
+s = s.replace('<a href="#">在文档中搜索</a> 或 <a href="#">提交工单</a>', '<a href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html">在文档中搜索</a> 或 <a href="SupTicketNew.dc.html">提交工单</a>')
+open(p, 'w', encoding='utf-8').write(s)
+print('switcher spec ok')

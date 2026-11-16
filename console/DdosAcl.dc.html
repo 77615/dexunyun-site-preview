@@ -307,7 +307,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"服务器": "idc", "应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   constructor(p) { super(p); this.state = { icmp: true, udp: false, frag: true, fp: true }; }
   /* top70 */
@@ -321,14 +321,14 @@ class Component extends DCLogic {
         ['应用加速', '跨地域跨运营商加速', '../ProductAccel.dc.html', 0, '加速'], ['WAAP 全站防护', 'Web 与 API 一体防护', '../ProductWAAP.dc.html', 0, 'waap api'], ['Web 应用防火墙', 'WAF', '../ProductWAF.dc.html', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl']]],
       ['主机安全', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵']]],
       ['业务安全', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '../ProductAtlas.dc.html', 0, '威胁'], ['态势感知', '安全态势总览', '../ProductSitu.dc.html', 0, '态势'], ['德迅蜂巢', '容器安全', '../ProductBeehive.dc.html', 0, '容器 k8s'], ['德迅零域', '微隔离', '../ProductMicro.dc.html', 0, '微隔离'], ['德迅猎鹰', '云蜜罐', '../ProductHoneypot.dc.html', 0, '蜜罐']]],
-      ['安全运营', [['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞'], ['等保合规', '等保咨询与测评', '../Services.dc.html#djbh', 0, '等保']]],
-      ['服务器', [['服务器租用', '高防 / 电信 / 高性能', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启 高防服务器'], ['弹性云服务器', '弹性伸缩的云主机', '../ProductECS.dc.html', 0, 'ecs 云服务器 云主机'], ['裸金属服务器', '独享物理机', '../ProductBareMetal.dc.html', 0, '裸金属 物理机']]]];
-    const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
+      ['安全运营', [['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞'], ['等保合规', '等保咨询与测评', '../ServiceDJBH.dc.html', 0, '等保']]],
+      ['服务器', [['服务器', '租用 / 弹性云 / 裸金属', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启 高防服务器 服务器租用 云服务器 弹性云 ecs 裸金属 物理机']]]];
+    const favs = st.pfav || ['DDoS 高防 IP', '服务器']; const pq = (st.gpq || '').trim().toLowerCase();
     let openN = 0, allN = 0; const favList = [];
     const cats = P.map(([cn, ps]) => ({ n: cn, items: ps.filter(([n, s, href, op, al]) => { allN++; if (op) openN++; if (favs.indexOf(n) >= 0) favList.push({ n, di: this.__di(n), cat: cn, href }); return !pq || (n + ' ' + s + ' ' + al).toLowerCase().indexOf(pq) >= 0; })
       .map(([n, s, href, op]) => { const on = favs.indexOf(n) >= 0; return { n, di: this.__di(n), s: s || cn, href, st: op ? '已开通' : '未开通', tc: op ? 'kc-tag ok' : 'kc-tag mut', fc: on ? 'on' : '', star: on ? '★' : '☆', fl: on ? '取消收藏' : '收藏',
         fav: (e) => { ev(e); this.setState({ pfav: on ? favs.filter((x) => x !== n) : favs.concat([n]) }); } }; }) })).filter((c) => c.items.length);
-    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
+    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
     // 全局搜索
     const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
     const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],

@@ -7,7 +7,13 @@
 import re, sys, os
 D = sys.argv[1] if len(sys.argv) > 1 else 'console'
 SHELL = open(os.path.join(D, 'IdcServers.dc.html'), encoding='utf-8').read()
-PAGES = "{ '服务器': 'IdcServers.dc.html', '监控报表': 'IdcMonitor.dc.html', '操作记录': 'IdcLogs.dc.html' }"
+PAGES = "{ '服务器列表': 'IdcServers.dc.html', '防护设置': 'IdcProtect.dc.html', '安全组': 'IdcSecGroup.dc.html', '监控报表': 'IdcMonitor.dc.html', '操作记录': 'IdcLogs.dc.html' }"
+NAV = """const nav = [
+      { label: '工作区', items: [L("服务器列表", 'box')] },
+      { label: '网络与安全', items: [L("防护设置", 'shield'), L("安全组", 'lock')] },
+      { label: '运维', items: [L("监控报表", 'chart'), L("操作记录", 'doc')] }
+    ];"""
+NAVPAT = re.compile(r"const nav = \[\s*\{ label: '工作区', items: \[L\(\"服务器(?:列表)?\", 'box'\).*?\];", re.S)
 CHEV = '<svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>'
 
 def dd(i, label=None, cls='kc-dd', up=False):
@@ -71,11 +77,11 @@ MON_MAIN = '''<main data-pg="IdcMonitor" class="kc-main">
       </section>
     </main>'''
 MON_JS = r'''
-    const SV = [['全部服务器（7 台）', '', 'all'], ['web-prod-01', '115.231.**.12', 'web-prod-01'], ['db-01', '115.231.**.13', 'db-01'], ['backup-02', '60.191.**.40', 'backup-02'], ['web-new-03', '115.231.**.21', 'web-new-03'], ['web-new-04', '115.231.**.22', 'web-new-04'], ['web-new-05', '115.231.**.25', 'web-new-05'], ['web-old-01', '115.231.**.30', 'web-old-01']];
+    const SV = [['全部服务器（9 台）', '', 'all'], ['web-prod-01', '115.231.**.12', 'web-prod-01'], ['db-01', '115.231.**.13', 'db-01'], ['backup-02', '60.191.**.40', 'backup-02'], ['web-new-03', '115.231.**.21', 'web-new-03'], ['web-new-04', '115.231.**.22', 'web-new-04'], ['web-new-05', '115.231.**.25', 'web-new-05'], ['web-old-01', '115.231.**.30', 'web-old-01'], ['ecs-app-01', '47.98.**.61', 'ecs-app-01'], ['bm-db-01', '115.231.**.40', 'bm-db-01']];
     const TM = ['近 24 小时', '近 7 天', '近 30 天'];
     const s0 = st.ddv0 || SV[0][0]; const t0 = st.ddv1 || TM[0];
-    const D = { 'web-prod-01': [23, 61, 41, 100, 8, 3, '运行中'], 'db-01': [41, 78, 12, 50, 52, 0, '运行中'], 'backup-02': [8, 22, 2, 20, 6, 0, '运行中'], 'web-new-03': [3, 9, 1, 50, 2, 0, '运行中'], 'web-new-04': [2, 7, 1, 50, 1, 0, '运行中'], 'web-new-05': [1, 5, 0, 50, 1, 0, '运行中'], 'web-old-01': [0, 0, 0, 20, 0, 0, '已停机'] };
-    const memU = { 'web-prod-01': [64, 38], 'db-01': [128, 101], 'backup-02': [32, 9], 'web-new-03': [64, 6], 'web-new-04': [64, 5], 'web-new-05': [64, 4], 'web-old-01': [32, 0] };
+    const D = { 'web-prod-01': [23, 61, 41, 100, 8, 3, '运行中'], 'db-01': [41, 78, 12, 50, 52, 0, '运行中'], 'backup-02': [8, 22, 2, 20, 6, 0, '运行中'], 'web-new-03': [3, 9, 1, 50, 2, 0, '运行中'], 'web-new-04': [2, 7, 1, 50, 1, 0, '运行中'], 'web-new-05': [1, 5, 0, 50, 1, 0, '运行中'], 'web-old-01': [0, 0, 0, 20, 0, 0, '已停机'], 'ecs-app-01': [17, 44, 4, 10, 6, 0, '运行中'], 'bm-db-01': [36, 71, 28, 100, 40, 1, '运行中'] };
+    const memU = { 'web-prod-01': [64, 38], 'db-01': [128, 101], 'backup-02': [32, 9], 'web-new-03': [64, 6], 'web-new-04': [64, 5], 'web-new-05': [64, 4], 'web-old-01': [32, 0], 'ecs-app-01': [8, 5], 'bm-db-01': [256, 141] };
     const one = s0.indexOf('全部') < 0 ? s0 : '';
     const pick = one ? [one] : Object.keys(D);
     const seed = (s) => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 9973; return h; };
@@ -161,7 +167,7 @@ LOG_MAIN = '''<main data-pg="IdcLogs" class="kc-main">
       </aside></sc-if>
     </main>'''
 LOG_JS = r'''
-    const IP = { 'web-prod-01': '115.231.**.12', 'db-01': '115.231.**.13', 'backup-02': '60.191.**.40', 'web-new-03': '115.231.**.21', 'web-new-04': '115.231.**.22', 'web-new-05': '115.231.**.25', 'web-old-01': '115.231.**.30' };
+    const IP = { 'web-prod-01': '115.231.**.12', 'db-01': '115.231.**.13', 'backup-02': '60.191.**.40', 'web-new-03': '115.231.**.21', 'web-new-04': '115.231.**.22', 'web-new-05': '115.231.**.25', 'web-old-01': '115.231.**.30', 'ecs-app-01': '47.98.**.61', 'bm-db-01': '115.231.**.40' };
     const LG = [
       ['11-16 10:12', 'web-prod-01', '重启', '正常重启', 'wangqi', '控制台', 'ok', '0'],
       ['11-16 09:40', 'web-new-05', '安装客户端', '德迅安全卫士 V4.3.2 自动安装', '系统', '交付任务', 'ok', '0'],
@@ -174,10 +180,12 @@ LOG_JS = r'''
       ['11-10 11:02', 'web-new-03', '重装系统', 'Ubuntu 22.04 → CentOS 7.9', '王五', '控制台', 'err', '2'],
       ['11-05 00:00', 'web-old-01', '到期停机', '已到期，自动停机，数据保留 7 天', '系统', '到期处理', 'warn', '0'],
       ['11-01 15:30', 'web-new-04', '服务器交付', 'Ubuntu 22.04 · 温州电信 A 机房', '系统', '交付任务', 'ok', '0'],
+      ['11-13 20:30', 'ecs-app-01', '升级配置', '2 核 4G → 4 核 8G，重启后生效', 'wangqi', '控制台', 'ok', '0'],
+      ['11-08 10:00', 'bm-db-01', '服务器交付', 'Rocky Linux 9 · 温州电信 A 机房', '系统', '交付任务', 'ok', '0'],
       ['10-30 09:18', 'db-01', '重启', '强制重启（系统无响应）', '张三', '控制台', 'ok', '0']];
     const RS = { ok: ['成功', 'kc-tag ok'], err: ['失败', 'kc-tag err'], ing: ['付款核验中', 'kc-tag info'], warn: ['已执行', 'kc-tag warn'] };
     const TY = ['全部', '开关机与重启', '重装系统', '修改密码', '续费与到期', '安全客户端'];
-    const tyOf = (op) => /开机|关机|重启/.test(op) ? '开关机与重启' : op === '重装系统' ? '重装系统' : op === '修改密码' ? '修改密码' : /续费|到期|交付/.test(op) ? '续费与到期' : '安全客户端';
+    const tyOf = (op) => /开机|关机|重启/.test(op) ? '开关机与重启' : op === '重装系统' ? '重装系统' : op === '修改密码' ? '修改密码' : /续费|到期|交付|升级/.test(op) ? '续费与到期' : '安全客户端';
     const SVS = ['全部'].concat(Object.keys(IP)); const TMS = ['近 7 天', '近 30 天', '近 180 天'];
     const fs = st.ddv0 || '全部', ft = st.ddv1 || '全部', fm = st.ddv2 || '近 30 天', qq = (st.q || '').trim();
     const tab = st.lt || '全部';
@@ -212,27 +220,179 @@ DDJS = r'''
 </body>
 </html>'''
 
+
+# ---------- 防护设置 ----------
+PRO_CSS = MON_CSS + LOG_CSS + """
+.pr-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0;border-bottom:1px solid #f2f3f5}
+.pr-row:last-child{border-bottom:0}
+.pr-row .kc-sub{margin-top:2px}
+.pr-add{display:flex;gap:8px;align-items:center;margin:0 0 12px}
+.pr-add .kc-in{width:220px}
+.kc .kc-sw{flex:none}
+"""
+PRO_MAIN = """<main data-pg="IdcProtect" class="kc-main">
+      <div class="mo-sel"><span>服务器</span>""" + dd(0) + """</div>
+      <div class="kc-hd">
+        <div class="kc-hdl"><div><h1 class="kc-h1">防护设置</h1><p class="kc-desc">服务器的 DDoS 防护、CC 防护和 IP 黑白名单。改完立即生效，不需要重启服务器。</p></div></div>
+        <div class="kc-btns"><a class="kc-btn" href="IdcLogs.dc.html">操作记录</a><a class="kc-btn pri" href="BillConfirm.dc.html">升级防护</a></div>
+      </div>
+      <sc-if value="{{tOn}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>✓</i><span><b>{{tT}}</b>{{tD}}</span><a class="s1-x" href="#" onClick="{{tX}}">知道了</a></div></sc-if>
+      <div class="kc-kpis"><sc-for list="{{kpis}}" as="k" hint-placeholder-count="4"><div class="kc-card kc-kpi"><span>{{k.n}}</span><b>{{k.v}} <i>{{k.u}}</i></b><i>{{k.s}}</i></div></sc-for></div>
+      <div class="kc-g2">
+        <section class="kc-card">
+          <div class="kc-ch"><h2>DDoS 防护</h2><span class="kc-sub">{{line}}</span></div>
+          <div class="kc-cb">
+            <div class="pr-row"><div>防护等级<div class="kc-sub">{{lvD}}</div></div><div class="kc-sg" role="group" aria-label="防护等级"><sc-for list="{{lv}}" as="m" hint-placeholder-count="3"><button class="{{m.cls}}" type="button" onClick="{{m.go}}">{{m.n}}</button></sc-for></div></div>
+            <sc-for list="{{sws}}" as="w" hint-placeholder-count="3"><div class="pr-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.cls}}" role="switch" aria-checked="{{w.on}}" aria-label="{{w.n}}" onClick="{{w.go}}"></button></div></sc-for>
+          </div>
+        </section>
+        <section class="kc-card">
+          <div class="kc-ch"><h2>CC 防护</h2><span class="kc-sub">只对网站（HTTP / HTTPS）生效</span></div>
+          <div class="kc-cb">
+            <sc-for list="{{cc}}" as="w" hint-placeholder-count="2"><div class="pr-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.cls}}" role="switch" aria-checked="{{w.on}}" aria-label="{{w.n}}" onClick="{{w.go}}"></button></div></sc-for>
+            <div class="pr-row"><div>单 IP 访问频率上限<div class="kc-sub">超过后要求验证，验证不过再拦截</div></div><span>{{ccRate}}</span></div>
+          </div>
+        </section>
+      </div>
+      <section class="kc-card">
+        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
+        <div class="kc-cb">
+          <div class="pr-add"><input class="kc-in" aria-label="IP 或网段" placeholder="IP 或网段，例如 203.0.113.0/24" value="{{nIp}}" onChange="{{onIp}}"><input class="kc-in" aria-label="备注" placeholder="备注（选填）" value="{{nNote}}" onChange="{{onNote}}"><button type="button" class="{{addCls}}" onClick="{{add}}">添加到{{tabN}}</button><span class="kc-sub">{{tabD}}</span></div>
+          <div class="kc-tw"><table class="kc-t op-fix">
+            <thead><tr><th>IP / 网段</th><th>备注</th><th>添加人</th><th>添加时间</th><th>操作</th></tr></thead>
+            <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="3"><tr><td>{{r.ip}}</td><td>{{r.note}}</td><td>{{r.who}}</td><td>{{r.tm}}</td><td><a href="#" onClick="{{r.del}}">删除</a></td></tr></sc-for></tbody>
+          </table></div>
+          <sc-if value="{{none}}" hint-placeholder-val="{{false}}"><div style="padding:32px 0;text-align:center;color:rgba(0,0,0,.5);font-size:12px">还没有{{tabN}}</div></sc-if>
+        </div>
+      </section>
+    </main>"""
+PRO_JS = r"""
+    const SV = [['web-prod-01', '高防服务器 · 200G 保底', 200, 12, 3, '高防'], ['db-01', '电信服务器 · 基础防护 10G', 10, 0, 0, '基础'], ['backup-02', 'BGP 服务器 · 基础防护 20G', 20, 0, 0, '基础'], ['ecs-app-01', '弹性云服务器 · 基础防护 5G', 5, 0, 0, '基础'], ['bm-db-01', '裸金属服务器 · 基础防护 10G', 10, 2.4, 1, '基础']];
+    const sn = st.ddv0 || SV[0][0]; const S = SV.find((x) => x[0] === sn) || SV[0];
+    const key = (k) => sn + ':' + k; const g = (k, d) => (st[key(k)] === undefined ? d : st[key(k)]);
+    const T = (k, d, n, desc) => { const on = g(k, d); return { n, d: desc, on: on ? 'true' : 'false', cls: on ? 'kc-sw on' : 'kc-sw', go: () => this.setState({ [key(k)]: !on, tOn: 1, tT: n + (on ? '已关闭' : '已开启'), tD: '对 ' + sn + ' 立即生效，已记入操作记录。' }) }; };
+    const lvK = g('lv', '正常');
+    const LVD = { '宽松': '只拦截明显的攻击流量，误拦最少，适合业务刚接入时观察', '正常': '推荐。拦截攻击流量和异常连接，对正常访问基本无影响', '严格': '被持续攻击时使用。可能误拦少量正常访问，攻击结束后建议调回正常' };
+    const lv = ['宽松', '正常', '严格'].map((n) => ({ n, cls: n === lvK ? 'on' : '', go: () => this.setState({ [key('lv')]: n, tOn: 1, tT: '防护等级已改为「' + n + '」', tD: '对 ' + sn + ' 立即生效。' }) }));
+    const hi = S[5] === '高防';
+    const sws = [T('el', false, '超出保底后弹性防护', hi ? '攻击超过 ' + S[2] + 'G 时自动扩到 300G，按实际峰值计费；关闭则超过后进入黑洞' : '基础防护不支持弹性，需要的话请升级为高防服务器'), T('sms', true, '攻击开始和结束时通知我', '短信 + 站内信，发给服务器负责人和主账号'), T('auto', true, '黑洞后自动解封', '黑洞 30 分钟后自动尝试解封，每天最多 3 次')];
+    if (!hi) sws[0] = { n: sws[0].n, d: sws[0].d, on: 'false', cls: 'kc-sw dis', go: () => this.setState({ tOn: 1, tT: '基础防护不支持弹性防护', tD: '可以在「升级防护」里换成高防服务器。' }) };
+    const cc = [T('cc', hi, 'CC 防护', '识别并拦截刷接口、刷页面的请求'), T('js', false, '可疑请求先做人机验证', '浏览器访问会看到一次验证，接口调用不受影响')];
+    const BL0 = { 'web-prod-01': { b: [['45.134.**.12', '反弹 Shell 来源', '系统', '11-15 17:40'], ['103.97.**.0/24', '持续 CC 攻击', 'wangqi', '11-12 21:03']], w: [['115.236.**.20', '办公室出口', 'wangqi', '10-28 10:11']] } };
+    const lists = st[key('bl')] || BL0[sn] || { b: [], w: [] };
+    const tab = st.ptab || '黑名单'; const tk = tab === '黑名单' ? 'b' : 'w';
+    const tabs = [['黑名单', 'b'], ['白名单', 'w']].map(([n, k]) => ({ n, c: lists[k].length, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ ptab: n }) }));
+    const nIp = st.nIp || '', nNote = st.nNote || ''; const ok = /^\d{1,3}(\.\d{1,3}|\.\*\*){3}(\/\d{1,2})?$/.test(nIp.trim());
+    const rows = lists[tk].map((r, i) => ({ ip: r[0], note: r[1] || '—', who: r[2], tm: r[3], del: (e) => { ev(e); const nl = { b: lists.b.slice(), w: lists.w.slice() }; nl[tk].splice(i, 1); this.setState({ [key('bl')]: nl, tOn: 1, tT: '已从' + tab + '删除 ' + r[0], tD: '立即生效。' }); } }));
+    const __R = { nav, kpis: [{ n: '保底防护', v: S[2], u: 'Gbps', s: hi ? '高防服务器 · 可弹性到 300G' : '基础防护' }, { n: '当前状态', v: S[3] ? '已清洗' : '正常', u: '', s: S[3] ? '最近一次 11-15 17:31，已结束' : '近 24 小时无攻击' }, { n: '近 7 天攻击', v: S[4], u: '次', s: S[4] ? '峰值 ' + S[3] + ' Gbps · 全部拦截' : '未发现攻击' }, { n: '黑洞', v: '未触发', u: '', s: '超过保底且未开弹性时触发' }],
+      line: S[1], lv, lvD: LVD[lvK], sws, cc, ccRate: g('cc', hi) ? '每秒 60 次' : '未开启', tabs, rows, none: !rows.length, tabN: tab, tabD: tk === 'b' ? '这些 IP 的所有请求直接拦截' : '这些 IP 不做任何拦截，请只放自己的出口 IP',
+      nIp, nNote, onIp: (e) => this.setState({ nIp: e.target.value }), onNote: (e) => this.setState({ nNote: e.target.value }), addCls: ok ? 'kc-btn pri' : 'kc-btn pri dis',
+      add: () => { if (!ok) { this.setState({ tOn: 1, tT: '请输入正确的 IP 或网段', tD: '例如 203.0.113.12 或 203.0.113.0/24。' }); return; } const nl = { b: lists.b.slice(), w: lists.w.slice() }; nl[tk].unshift([nIp.trim(), nNote.trim(), 'wangqi', '刚刚']); this.setState({ [key('bl')]: nl, nIp: '', nNote: '', tOn: 1, tT: '已添加到' + tab + '：' + nIp.trim(), tD: '约 10 秒内生效。' }); },
+      tOn: !!st.tOn, tT: st.tT || '', tD: st.tD || '', tX: (e) => { ev(e); this.setState({ tOn: 0 }); } };
+    const DDS = [[SV[0][0], SV.map((x) => x[0])]];
+"""
+
+# ---------- 安全组 ----------
+SG_CSS = LOG_CSS + """
+.sg-add td .kc-in{width:100%;box-sizing:border-box}
+.sg-pol{display:inline-flex;gap:0}
+"""
+SG_MAIN = """<main data-pg="IdcSecGroup" class="kc-main">
+      <div class="kc-hd">
+        <div class="kc-hdl"><div><h1 class="kc-h1">安全组</h1><p class="kc-desc">安全组是服务器的虚拟防火墙，按规则放行或拒绝进出服务器的流量。一台服务器可以关联多个安全组，规则修改后立即生效。</p></div></div>
+        <div class="kc-btns"><button type="button" class="kc-btn pri" onClick="{{newSg}}">新建安全组</button></div>
+      </div>
+      <sc-if value="{{fixShow}}" hint-placeholder-val="{{true}}"><div class="{{fixCls}}"><i>{{fixI}}</i><span><b>{{fixT}}</b>{{fixD}}</span><sc-if value="{{fixIdle}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn sm pri" onClick="{{fix}}">一键放行</button></sc-if></div></sc-if>
+      <sc-if value="{{tOn}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>✓</i><span><b>{{tT}}</b>{{tD}}</span><a class="s1-x" href="#" onClick="{{tX}}">知道了</a></div></sc-if>
+      <section class="kc-card">
+        <div class="kc-tw"><table class="kc-t op-fix">
+          <thead><tr><th>安全组</th><th>关联服务器</th><th>入站规则</th><th>出站规则</th><th>说明</th><th>创建时间</th><th>操作</th></tr></thead>
+          <tbody><sc-for list="{{groups}}" as="g" hint-placeholder-count="3"><tr>
+            <td><a href="#" onClick="{{g.open}}">{{g.n}}</a><div class="kc-sub">{{g.id}}</div></td>
+            <td>{{g.svs}}<div class="kc-sub">{{g.svN}}</div></td><td>{{g.inN}} 条</td><td>{{g.outN}} 条</td><td>{{g.d}}</td><td>{{g.tm}}</td>
+            <td><a href="#" onClick="{{g.open}}">配置规则</a><a href="#" onClick="{{g.del}}">{{g.delT}}</a></td>
+          </tr></sc-for></tbody>
+        </table></div>
+      </section>
+      <sc-if value="{{dwOn}}" hint-placeholder-val="{{false}}"><div class="lg-dw-m" onClick="{{dwX}}"></div><aside class="kc-dw" role="dialog" aria-modal="true" aria-label="{{dwT}}" style="width:760px">
+        <div class="kc-dwh">{{dwT}}<button type="button" class="kc-btn sm" aria-label="关闭" onClick="{{dwX}}">×</button></div>
+        <div class="kc-dwb">
+          <sc-if value="{{isNew}}" hint-placeholder-val="{{false}}"><div class="kc-kv"><span>名称</span><input class="kc-in" aria-label="安全组名称" value="{{nName}}" onChange="{{onName}}" placeholder="例如 sg-web"><span>模板</span><div class="kc-sg" role="group" aria-label="模板"><sc-for list="{{tpls}}" as="m" hint-placeholder-count="3"><button class="{{m.cls}}" type="button" onClick="{{m.go}}">{{m.n}}</button></sc-for></div><span></span><span class="kc-sub">{{tplD}}</span></div></sc-if>
+          <div class="kc-tabs" role="tablist"><sc-for list="{{dirs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
+          <div class="kc-tw" style="margin-top:12px"><table class="kc-t">
+            <thead><tr><th>策略</th><th>协议端口</th><th>{{peer}}</th><th>备注</th><th>操作</th></tr></thead>
+            <tbody><sc-for list="{{rules}}" as="r" hint-placeholder-count="3"><tr><td><span class="{{r.pc}}">{{r.p}}</span></td><td>{{r.port}}</td><td>{{r.src}}</td><td>{{r.note}}</td><td><a href="#" onClick="{{r.del}}">删除</a></td></tr></sc-for>
+              <tr class="sg-add"><td><div class="kc-sg" role="group" aria-label="策略"><sc-for list="{{pols}}" as="m" hint-placeholder-count="2"><button class="{{m.cls}}" type="button" onClick="{{m.go}}">{{m.n}}</button></sc-for></div></td><td><input class="kc-in" aria-label="协议端口" placeholder="TCP:443" value="{{rPort}}" onChange="{{onPort}}"></td><td><input class="kc-in" aria-label="来源或目标" placeholder="0.0.0.0/0" value="{{rSrc}}" onChange="{{onSrc}}"></td><td><input class="kc-in" aria-label="备注" placeholder="选填" value="{{rNote}}" onChange="{{onNote}}"></td><td><a href="#" onClick="{{addRule}}">添加</a></td></tr>
+            </tbody>
+          </table></div>
+          <p class="kc-sub" style="margin-top:12px">规则从上到下匹配，命中第一条即停止。没有命中任何规则时：入站默认拒绝，出站默认允许。</p>
+        </div>
+        <div class="kc-dwf"><button type="button" class="kc-btn" onClick="{{dwX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{save}}">{{saveT}}</button></div>
+      </aside></sc-if>
+    </main>"""
+SG_JS = r"""
+    const G0 = [
+      { n: 'sg-web', id: 'sg-3f2a91c0', svs: ['web-prod-01', 'web-new-03', 'web-new-05', 'ecs-app-01'], d: '网站服务器：放行 80 / 443 / 22', tm: '2026-08-12', in: [['允许', 'TCP:80,443', '0.0.0.0/0', '网站访问'], ['允许', 'TCP:22', '115.236.**.20/32', '办公室 SSH'], ['拒绝', 'ALL', '0.0.0.0/0', '其余全部拒绝']], out: [['允许', 'ALL', '0.0.0.0/0', '']] },
+      { n: 'sg-db', id: 'sg-7c10de44', svs: ['db-01', 'bm-db-01'], d: '数据库：只放行内网 3306', tm: '2026-08-12', in: [['允许', 'TCP:3306', '10.0.0.0/16', '内网应用'], ['允许', 'TCP:22', '115.236.**.20/32', '办公室 SSH']], out: [['允许', 'ALL', '0.0.0.0/0', '']] },
+      { n: 'sg-strict', id: 'sg-a90b2e17', svs: ['web-new-04'], d: '严格模式：出站只放行 DNS 和 80', tm: '2026-10-30', in: [['允许', 'TCP:22', '115.236.**.20/32', '办公室 SSH']], out: [['允许', 'UDP:53', '0.0.0.0/0', 'DNS'], ['允许', 'TCP:80', '0.0.0.0/0', ''], ['拒绝', 'ALL', '0.0.0.0/0', '']] },
+      { n: 'default', id: 'sg-00000001', svs: ['backup-02', 'web-old-01'], d: '默认安全组：放行全部出站，入站只放行 22', tm: '2026-03-01', in: [['允许', 'TCP:22', '0.0.0.0/0', '']], out: [['允许', 'ALL', '0.0.0.0/0', '']] }];
+    const G = st.sgs || G0; const fx = st.fx || '';
+    const put = (gs, t, d) => this.setState(Object.assign({ sgs: gs }, t ? { tOn: 1, tT: t, tD: d || '立即生效，已记入操作记录。' } : {}));
+    const groups = G.map((g, i) => ({ n: g.n, id: g.id, svs: g.svs.slice(0, 2).join('、') + (g.svs.length > 2 ? ' 等' : ''), svN: g.svs.length + ' 台', inN: g.in.length, outN: g.out.length, d: g.d, tm: g.tm,
+      open: (e) => { ev(e); this.setState({ dw: i, dir: 'in', rPort: '', rSrc: '', rNote: '', rPol: '允许' }); }, delT: g.svs.length ? '解绑后可删除' : '删除',
+      del: (e) => { ev(e); if (g.svs.length) { this.setState({ tOn: 1, tT: g.n + ' 还关联着 ' + g.svs.length + ' 台服务器', tD: '先在服务器详情里换绑到其他安全组，再删除。' }); return; } put(G.filter((_, j) => j !== i), '已删除安全组 ' + g.n); } }));
+    const dwi = st.dw === undefined ? -1 : st.dw; const isNew = dwi === 'new';
+    const TPL = { 'Web 服务器': [[['允许', 'TCP:80,443', '0.0.0.0/0', '网站访问'], ['允许', 'TCP:22', '0.0.0.0/0', 'SSH，建议改成办公室 IP']], '放行 80 / 443 / 22'], '仅 SSH': [[['允许', 'TCP:22', '0.0.0.0/0', '']], '只放行 22，其余入站拒绝'], '自定义': [[], '不带规则，自己添加'] };
+    const tplK = st.tpl || 'Web 服务器';
+    const cg = isNew ? (st.draft || { n: '', id: '', svs: [], d: '', tm: '刚刚', in: TPL[tplK][0].slice(), out: [['允许', 'ALL', '0.0.0.0/0', '']] }) : (dwi >= 0 ? G[dwi] : null);
+    const dir = st.dir || 'in';
+    const setCur = (c) => { if (isNew) this.setState({ draft: c }); else { const gs = G.slice(); gs[dwi] = c; this.setState({ sgs: gs }); } };
+    const rules = cg ? cg[dir].map((r, i) => ({ p: r[0], pc: r[0] === '允许' ? 'kc-tag ok' : 'kc-tag err', port: r[1], src: r[2], note: r[3] || '—', del: (e) => { ev(e); const c = Object.assign({}, cg); c[dir] = cg[dir].filter((_, j) => j !== i); setCur(c); } })) : [];
+    const rPol = st.rPol || '允许';
+    const __R = { nav, groups, dwOn: !!cg, isNew, dwT: isNew ? '新建安全组' : cg ? '配置规则 · ' + cg.n : '', peer: dir === 'in' ? '来源' : '目标',
+      dirs: [['入站规则', 'in'], ['出站规则', 'out']].map(([n, k]) => ({ n, c: cg ? cg[k].length : 0, on: k === dir, cls: k === dir ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ dir: k }) })), rules,
+      pols: ['允许', '拒绝'].map((n) => ({ n, cls: n === rPol ? 'on' : '', go: () => this.setState({ rPol: n }) })),
+      rPort: st.rPort || '', rSrc: st.rSrc || '', rNote: st.rNote || '', onPort: (e) => this.setState({ rPort: e.target.value }), onSrc: (e) => this.setState({ rSrc: e.target.value }), onNote: (e) => this.setState({ rNote: e.target.value }),
+      addRule: (e) => { ev(e); const pt = (st.rPort || '').trim(); if (!pt) { this.setState({ tOn: 1, tT: '请填写协议端口', tD: '例如 TCP:443、UDP:53 或 ALL。' }); return; } const c = Object.assign({}, cg); c[dir] = cg[dir].concat([[rPol, pt, (st.rSrc || '').trim() || '0.0.0.0/0', (st.rNote || '').trim()]]); setCur(c); this.setState({ rPort: '', rSrc: '', rNote: '' }); },
+      tpls: Object.keys(TPL).map((n) => ({ n, cls: n === tplK ? 'on' : '', go: () => this.setState({ tpl: n, draft: Object.assign({}, cg, { in: TPL[n][0].slice() }) }) })), tplD: TPL[tplK][1],
+      nName: (st.draft && st.draft.n) || '', onName: (e) => this.setState({ draft: Object.assign({}, cg, { n: e.target.value }) }),
+      saveT: isNew ? '创建' : '完成',
+      save: () => { if (isNew) { if (!cg.n.trim()) { this.setState({ tOn: 1, tT: '请填写安全组名称', tD: '' }); return; } const ng = Object.assign({}, cg, { id: 'sg-' + (Date.now() % 1e8).toString(16), d: TPL[tplK][1] }); this.setState({ sgs: G.concat([ng]), dw: -1, draft: null, tOn: 1, tT: '已创建安全组 ' + ng.n, tD: '还没有关联服务器，可以在服务器详情里关联。' }); return; } this.setState({ dw: -1, tOn: 1, tT: '规则已保存', tD: '对 ' + cg.svs.length + ' 台服务器立即生效。' }); },
+      dwX: (e) => { ev(e); this.setState({ dw: -1, draft: null }); }, newSg: () => this.setState({ dw: 'new', dir: 'in', draft: null, tpl: 'Web 服务器' }),
+      fixShow: fx !== 'gone', fixIdle: !fx, fixCls: fx === 'ok' ? 'ac-al i' : 'ac-al', fixI: fx === 'ok' ? '✓' : '!',
+      fixT: fx === 'ok' ? '已放行 sg-strict 出方向 TCP:443' : 'web-new-04 的安全组 sg-strict 拦截了出方向 443，德迅安全卫士客户端装不上',
+      fixD: fx === 'ok' ? '已在服务器上重新安装客户端，约 2 分钟。' : '一键放行会在 sg-strict 出站规则里加一条「允许 TCP:443 → agent.dexunyun.com」，只放行安装源，不影响其他规则。',
+      fix: () => { const gs = G.map((g) => g.n !== 'sg-strict' ? g : Object.assign({}, g, { out: [['允许', 'TCP:443', 'agent.dexunyun.com', '德迅安全卫士安装源']].concat(g.out) })); this.setState({ sgs: gs, fx: 'ok' }); },
+      tOn: !!st.tOn, tT: st.tT || '', tD: st.tD || '', tX: (e) => { ev(e); this.setState({ tOn: 0 }); } };
+    const DDS = [];
+"""
+
 def build(name, title, cur, css, main, js):
     s = SHELL
     s = s.replace('<title>服务器列表</title>', '<title>%s</title>' % title, 1)
     s = s.replace('</style>\n</head>', css + '</style>\n</head>', 1)
-    s = s.replace('<b>服务器</b></nav>', '<b>%s</b></nav>' % cur, 1)
+    s = re.sub(r'<b>服务器(?:列表)?</b></nav>', '<b>%s</b></nav>' % cur, s, count=1)
     s = s.replace('id="kcf-IdcServers"', 'id="kcf-%s"' % name).replace('for="kcf-IdcServers"', 'for="kcf-%s"' % name)
     a = s.find('<main data-pg="IdcServers"'); b = s.find('</main>', a) + len('</main>')
     s = s[:a] + main + s[b:]
-    s = s.replace("const cur = '服务器';", "const cur = '%s';" % cur, 1)
-    s = re.sub(r"const pages = \{ '服务器': 'IdcServers\.dc\.html'[^}]*\};", "const pages = %s;" % PAGES, s, count=1)
+    s = re.sub(r"const cur = '[^']*';", "const cur = '%s';" % cur, s, count=1)
+    s = re.sub(r"const pages = \{ '服务器(?:列表)?': 'IdcServers\.dc\.html'[^}]*\};", "const pages = %s;" % PAGES, s, count=1)
+    s = NAVPAT.sub(lambda m: NAV, s, count=1)
     a = s.find('    const R = [[', s.find('  _rv() {')); assert a > s.find('  _rv() {') > 0
     s = s[:a] + js + DDJS
     open(os.path.join(D, name + '.dc.html'), 'w', encoding='utf-8').write(s)
 
 build('IdcMonitor', '服务器 · 监控报表', '监控报表', MON_CSS, MON_MAIN, MON_JS)
 build('IdcLogs', '服务器 · 操作记录', '操作记录', LOG_CSS, LOG_MAIN, LOG_JS)
+build('IdcProtect', '服务器 · 防护设置', '防护设置', PRO_CSS, PRO_MAIN, PRO_JS)
+build('IdcSecGroup', '服务器 · 安全组', '安全组', SG_CSS, SG_MAIN, SG_JS)
 
 # 现有服务器页：侧栏接上新页面；运行时兜底跳转表也改过来
 for f in ['IdcServers', 'IdcServerDetail', 'IdcReinstall']:
     p = os.path.join(D, f + '.dc.html'); s = open(p, encoding='utf-8').read()
-    s = re.sub(r"const pages = \{ '服务器': 'IdcServers\.dc\.html'[^}]*\};", "const pages = %s;" % PAGES, s, count=1)
+    s = re.sub(r"const pages = \{ '服务器(?:列表)?': 'IdcServers\.dc\.html'[^}]*\};", "const pages = %s;" % PAGES, s, count=1)
+    s = NAVPAT.sub(lambda m: NAV, s, count=1)
+    s = s.replace("const cur = '服务器';", "const cur = '服务器列表';")
     s = s.replace("'监控报表': 'IdcServerDetail.dc.html'", "'监控报表': 'IdcMonitor.dc.html'").replace("'操作记录': 'IdcServerDetail.dc.html'", "'操作记录': 'IdcLogs.dc.html'")
     open(p, 'w', encoding='utf-8').write(s)
 print('ok')

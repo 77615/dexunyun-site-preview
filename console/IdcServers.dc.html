@@ -54,7 +54,7 @@ td .sl-st.b{color:#165dff}
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">服务器租用</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
+    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">服务器</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
@@ -71,7 +71,7 @@ td .sl-st.b{color:#165dff}
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
     </div></sc-if></span>
-    <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器租用</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>服务器</b></nav>
+    <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>服务器列表</b></nav>
     <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
       <div class="tp-sh"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索" placeholder="搜功能、域名、IP、实例或文档，例如 封 IP、发票、203.0.113.12" value="{{hd.q}}" onChange="{{hd.onQ}}"><kbd>Esc</kbd></div>
@@ -128,8 +128,8 @@ td .sl-st.b{color:#165dff}
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <input type="checkbox" id="kcf-IdcServers" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="服务器租用菜单">
-      <div class="kc-sh"><b>服务器租用</b><span>德迅科技 · 7 台服务器</span></div>
+    <input type="checkbox" id="kcf-IdcServers" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="服务器菜单">
+      <div class="kc-sh"><b>服务器</b><span>德迅科技 · 9 台</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -144,18 +144,18 @@ td .sl-st.b{color:#165dff}
     <div class="kc-foldbar"><label for="kcf-IdcServers" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-IdcServers" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="IdcServers" class="kc-main">
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1">服务器</h1></div></div>
+        <div class="kc-hdl"><div><h1 class="kc-h1">服务器列表</h1></div></div>
         
       </div>
       <sc-if value="{{insShow}}" hint-placeholder-val="{{true}}"><div class="{{insCls}}"><i>{{insI}}</i><span><b>{{insT}}</b>{{insD}}</span><sc-if value="{{insIdle}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn sm pri" onClick="{{doIns}}">{{insB}}</button></sc-if></div></sc-if>
       <sc-if value="{{msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>✓</i><span><b>{{msgT}}</b>{{msgD}}</span><a class="s1-x" href="{{msgH}}">{{msgA}}</a><a class="s1-x" href="#" onClick="{{msgX}}">知道了</a></div></sc-if>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
-        <div class="kc-bar lf-bar lf-s"><div class="lf-q"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input class="kc-in" style="width:360px" type="search" aria-label="搜索服务器名称、IP 或 ID" placeholder="搜索服务器名称、IP 或 ID"></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>机房</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="lf-r"><a class="kc-btn pri" href="../ServerBuy.dc.html">购买服务器</a></div></div>
+        <div class="kc-bar lf-bar lf-s"><div class="lf-q"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input class="kc-in" style="width:360px" type="search" aria-label="搜索服务器名称、IP 或 ID" placeholder="搜索服务器名称、IP 或 ID"></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>类型</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="lf-r"><a class="kc-btn pri" href="../ServerBuy.dc.html">购买服务器</a></div></div>
         <div class="kc-tw"><table class="kc-t lf-st5 op-fix">
-          <thead><tr><th>服务器</th><th>公网 IP / 线路</th><th>配置</th><th>系统</th><th>状态</th><th>安全</th><th>到期时间</th><th>操作</th></tr></thead>
+          <thead><tr><th>服务器</th><th>类型</th><th>公网 IP / 线路</th><th>配置</th><th>系统</th><th>状态</th><th>安全</th><th>到期时间</th><th>操作</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="3"><tr>
-            <td><a href="IdcServerDetail.dc.html">{{r.n}}</a><div class="kc-sub">{{r.id}}</div></td>
+            <td><a href="IdcServerDetail.dc.html">{{r.n}}</a><div class="kc-sub">{{r.id}}</div></td><td>{{r.ty}}<div class="kc-sub">{{r.tyS}}</div></td>
             <td>{{r.ip}}<div class="kc-sub">{{r.ln}}</div></td><td>{{r.cfg}}<div class="kc-sub">{{r.room}}</div></td><td>{{r.os}}</td>
             <td><span class="{{r.tc}}">{{r.st}}</span><div class="kc-sub">CPU {{r.cpu}} · 带宽 {{r.bw}}</div></td>
             <td><span class="{{r.sc}}">{{r.sec}}</span><div class="kc-sub">{{r.secS}}</div><sc-if value="{{r.pg}}" hint-placeholder-val="{{false}}"><a class="s1-lk" href="#" onClick="{{r.pgo}}">{{r.pgT}}</a></sc-if></td>
@@ -175,7 +175,7 @@ td .sl-st.b{color:#165dff}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"服务器": "idc", "应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   /* top70 */
   componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
@@ -188,14 +188,14 @@ class Component extends DCLogic {
         ['应用加速', '跨地域跨运营商加速', '../ProductAccel.dc.html', 0, '加速'], ['WAAP 全站防护', 'Web 与 API 一体防护', '../ProductWAAP.dc.html', 0, 'waap api'], ['Web 应用防火墙', 'WAF', '../ProductWAF.dc.html', 0, 'waf'], ['SSL 证书', 'HTTPS 加密', 'AcctProducts.dc.html', 1, '证书 https ssl']]],
       ['主机安全', [['德迅安全卫士', '安全中心 · 主机安全', 'SecHome.dc.html', 1, '主机 hids 卫士 安全中心 告警 漏洞 基线 入侵']]],
       ['业务安全', [['德迅云眼', '网站安全监测', 'EyeRisk.dc.html', 1, '监测 暗链 篡改'], ['德迅云图', '威胁检测与分析', '../ProductAtlas.dc.html', 0, '威胁'], ['态势感知', '安全态势总览', '../ProductSitu.dc.html', 0, '态势'], ['德迅蜂巢', '容器安全', '../ProductBeehive.dc.html', 0, '容器 k8s'], ['德迅零域', '微隔离', '../ProductMicro.dc.html', 0, '微隔离'], ['德迅猎鹰', '云蜜罐', '../ProductHoneypot.dc.html', 0, '蜜罐']]],
-      ['安全运营', [['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞'], ['等保合规', '等保咨询与测评', '../Services.dc.html#djbh', 0, '等保']]],
-      ['服务器', [['服务器租用', '高防 / 电信 / 高性能', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启 高防服务器'], ['弹性云服务器', '弹性伸缩的云主机', '../ProductECS.dc.html', 0, 'ecs 云服务器 云主机'], ['裸金属服务器', '独享物理机', '../ProductBareMetal.dc.html', 0, '裸金属 物理机']]]];
-    const favs = st.pfav || ['DDoS 高防 IP', '服务器租用']; const pq = (st.gpq || '').trim().toLowerCase();
+      ['安全运营', [['漏洞扫描 VSS', '网站与主机漏洞', 'AcctProducts.dc.html', 1, 'vss 漏洞'], ['等保合规', '等保咨询与测评', '../ServiceDJBH.dc.html', 0, '等保']]],
+      ['服务器', [['服务器', '租用 / 弹性云 / 裸金属', 'IdcServers.dc.html', 1, '服务器 主机 idc 重装 重启 高防服务器 服务器租用 云服务器 弹性云 ecs 裸金属 物理机']]]];
+    const favs = st.pfav || ['DDoS 高防 IP', '服务器']; const pq = (st.gpq || '').trim().toLowerCase();
     let openN = 0, allN = 0; const favList = [];
     const cats = P.map(([cn, ps]) => ({ n: cn, items: ps.filter(([n, s, href, op, al]) => { allN++; if (op) openN++; if (favs.indexOf(n) >= 0) favList.push({ n, di: this.__di(n), cat: cn, href }); return !pq || (n + ' ' + s + ' ' + al).toLowerCase().indexOf(pq) >= 0; })
       .map(([n, s, href, op]) => { const on = favs.indexOf(n) >= 0; return { n, di: this.__di(n), s: s || cn, href, st: op ? '已开通' : '未开通', tc: op ? 'kc-tag ok' : 'kc-tag mut', fc: on ? 'on' : '', star: on ? '★' : '☆', fl: on ? '取消收藏' : '收藏',
         fav: (e) => { ev(e); this.setState({ pfav: on ? favs.filter((x) => x !== n) : favs.concat([n]) }); } }; }) })).filter((c) => c.items.length);
-    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器租用', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
+    const recent = [['SCDN', '域名管理', 'Main.dc.html'], ['DDoS 高防 IP', '高防-002', 'DdosInstanceDetail.dc.html'], ['服务器', 'web-prod-01', 'IdcServerDetail.dc.html']].map(([n, s, href]) => ({ n, di: this.__di(n), s, href }));
     // 全局搜索
     const q = st.gq || ''; const ql = q.trim().toLowerCase(); const stab = st.gstab || '全部';
     const F = [['域名管理', 'SCDN', 'Main.dc.html', 'link', '域名 cdn 接入'], ['添加域名', 'SCDN › 域名管理', 'Main.dc.html', 'link', '接入 cname'], ['证书管理', 'SCDN', 'ScdnCerts.dc.html', 'lock', '证书 ssl https'],
@@ -770,8 +770,8 @@ class Component extends DCLogic {
   }
   /* /hdr62 */
   _rv() {
-    const cur = '服务器';
-    const pages = { '服务器': 'IdcServers.dc.html', '监控报表': 'IdcMonitor.dc.html', '操作记录': 'IdcLogs.dc.html' };
+    const cur = '服务器列表';
+    const pages = { '服务器列表': 'IdcServers.dc.html', '防护设置': 'IdcProtect.dc.html', '安全组': 'IdcSecGroup.dc.html', '监控报表': 'IdcMonitor.dc.html', '操作记录': 'IdcLogs.dc.html' };
     const st = this.state || {};
     const noop = () => {};
     const L = (t, ic, ext) => ({ t, ic: 'kc-ic i-' + ic, ext: ext || '', href: pages[t] || '#', cls: t === cur ? 'kc-it on' : 'kc-it', chev: '', open: false, ex: '', kids: [], tog: noop });
@@ -779,7 +779,9 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("服务器", 'box'), L("监控报表", 'chart'), L("操作记录", 'doc')] }
+      { label: '工作区', items: [L("服务器列表", 'box')] },
+      { label: '网络与安全', items: [L("防护设置", 'shield'), L("安全组", 'lock')] },
+      { label: '运维', items: [L("监控报表", 'chart'), L("操作记录", 'doc')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
     const C = (x) => { if (x === null || x === undefined) x = ''; if (typeof x !== 'object') x = { t: String(x) };
@@ -799,13 +801,16 @@ class Component extends DCLogic {
       ['web-new-03', 'idc-wz-0201', '115.231.**.21', '电信 · 50M 独享', 'E5-2680×2 / 64G', '温州电信 A 机房', 'CentOS 7.9', '运行中', 'ok', '3%', '1M', '2026-12-01', '剩 23 天', ''],
       ['web-new-04', 'idc-wz-0202', '115.231.**.22', '电信 · 50M 独享', 'E5-2680×2 / 64G', '温州电信 A 机房', 'Ubuntu 22.04', '运行中', 'ok', '2%', '1M', '2026-12-01', '剩 23 天', ''],
       ['web-new-05', 'idc-wz-0205', '115.231.**.25', '电信 · 50M 独享', 'E5-2680×2 / 64G', '温州电信 A 机房', 'CentOS 7.9', '运行中', 'ok', '1%', '0M', '2026-12-08', '剩 30 天', ''],
-      st.rn ? ['web-old-01', 'idc-wz-0150', '115.231.**.30', '电信 · 20M 独享', 'E5-2650×2 / 32G', '温州电信 A 机房', 'CentOS 7.9', '运行中', 'ok', '2%', '1M', '2026-12-05', '剩 27 天', ''] : ['web-old-01', 'idc-wz-0150', '115.231.**.30', '电信 · 20M 独享', 'E5-2650×2 / 32G', '温州电信 A 机房', 'CentOS 7.9', '已停机', 'mut', '0%', '0M', '2026-11-05', '已到期 3 天', 'exp']];
+      st.rn ? ['web-old-01', 'idc-wz-0150', '115.231.**.30', '电信 · 20M 独享', 'E5-2650×2 / 32G', '温州电信 A 机房', 'CentOS 7.9', '运行中', 'ok', '2%', '1M', '2026-12-05', '剩 27 天', ''] : ['web-old-01', 'idc-wz-0150', '115.231.**.30', '电信 · 20M 独享', 'E5-2650×2 / 32G', '温州电信 A 机房', 'CentOS 7.9', '已停机', 'mut', '0%', '0M', '2026-11-05', '已到期 3 天', 'exp'],
+      ['ecs-app-01', 'ecs-hz-1032', '47.98.**.61', 'BGP · 10M 按固定带宽', '4 核 / 8G · 系统盘 80G', '杭州 BGP 可用区 B', 'CentOS 7.9', '运行中', 'ok', '17%', '4M', '2027-01-15', '剩 60 天', ''],
+      ['bm-db-01', 'bm-wz-0012', '115.231.**.40', '电信 · 100M 独享', '至强 6330×2 / 256G · NVMe 3.84T×2', '温州电信 A 机房', 'Rocky Linux 9', '运行中', 'ok', '36%', '28M', '2027-03-08', '剩 112 天', '']];
     const ins = st.ins || '';
     const SEC = { 'web-prod-01': ['有风险', 'kc-tag err', '2 项高危 · 1 项中危', ' sec'], 'db-01': ['正常', 'kc-tag ok', '今天 10:28 检测', ''], 'backup-02': ins === 'ok' ? ['接入中', 'kc-tag info', '首次检测中', ''] : ins === 'ing' ? ['接入中', 'kc-tag info', '正在安装，约 2 分钟', ' noag'] : ['未受保护', 'kc-tag warn', '原因：已卸载', ' noag'], 'web-new-03': ins === 'ok' ? ['接入中', 'kc-tag info', '首次检测中', ''] : ins === 'ing' ? ['接入中', 'kc-tag info', '正在安装，约 2 分钟', ' noag'] : ['未受保护', 'kc-tag warn', '原因：未安装', ' noag'], 'web-new-04': ins === 'ok' ? ['接入中', 'kc-tag info', '首次检测中', ''] : ins === 'ing' ? ['接入中', 'kc-tag info', '正在安装，约 2 分钟', ' noag'] : ['未受保护', 'kc-tag warn', '原因：部署失败，连不上安装源', ' noag'] };
     /* s1 */ const f4 = st.f4 || ''; const n5 = !!st.n5;
     if (ins === 'done') Object.assign(SEC, { 'web-new-03': ['正常', 'kc-tag ok', '首检完成 · 未发现风险', ''], 'backup-02': ['有风险', 'kc-tag err', '首检完成 · 1 项中危', ' sec'], 'web-new-04': ['正常', 'kc-tag ok', '首检完成 · 未发现风险', ''] });
     if (!ins) SEC['web-new-04'] = ['未受保护', 'kc-tag warn', '部署失败：已自动重试 3 次', ' noag'];
     if (f4) SEC['web-new-04'] = f4 === 'ing' ? ['接入中', 'kc-tag info', '正在安装（备用安装源）', ''] : f4 === 'chk' ? ['接入中', 'kc-tag info', '首次检测中，约 10 分钟', ''] : ['正常', 'kc-tag ok', '首检完成 · 未发现风险', ''];
+    SEC['ecs-app-01'] = ['正常', 'kc-tag ok', '今天 09:12 检测', '']; SEC['bm-db-01'] = ['正常', 'kc-tag ok', '今天 10:05 检测', ''];
     SEC['web-new-05'] = n5 ? ['有风险', 'kc-tag err', '首检完成 · 1 项高危', ' sec'] : ['接入中', 'kc-tag info', '首次检测中 · 3/5 项', ''];
     Object.keys(SEC).forEach((k) => { if (SEC[k][0] === '接入中') SEC[k] = SEC[k].slice(0, 3).concat([SEC[k][3].replace(' noag', '') + ' acc']); });
     SEC['web-old-01'] = !st.rn ? ['已停机', 'kc-tag mut', '到期停机，暂停检测，不告警（数据保留至 11-12）', ''] : st.rn === 'ing' ? ['接入中', 'kc-tag info', '已续费，重新首次检测', ' acc'] : ['正常', 'kc-tag ok', '首检完成 · 未发现风险', ''];
@@ -825,7 +830,10 @@ class Component extends DCLogic {
     const all = R.map(([n, id, ip, ln, cfg, room, os, s, tc, cpu, bw, exp, left, k]) => ({ n, id, ip, ln, cfg, room, os, st: s, tc: 'kc-tag ' + tc, cpu, bw, exp, left, ec: k ? 'o' : '', lc: k ? 'kc-sub o' : 'kc-sub', k: k + (s === '运行中' ? ' run' : ' off') + SEC[n][3], sec: SEC[n][0], sc: SEC[n][1], secS: SEC[n][2], pg: (SEC[n][0] === '接入中' && n !== 'web-old-01') || (n === 'web-new-04' && !ins && !f4) || (n === 'web-old-01' && !st.rn), pgT: n === 'web-old-01' ? '演示：续费恢复' : SEC[n][0] === '接入中' ? '查看进度' : '查看原因', pgo: (e) => { ev(e); if (n === 'web-old-01') { if (st.rn) return; this.setState({ rn: 'ing' }); setTimeout(() => this.setState({ rn: 'ok', msg: 'rn' }), 3000); return; } this.setState({ pm: n }); } }));
     const tabs = [['全部', ''], ['有安全风险', 'sec'], ['接入中', 'acc'], ['未受保护', 'noag'], ['即将到期', 'exp'], ['已停机', 'off']].map(([n, k]) => ({ n, c: all.filter((r) => !k || r.k.indexOf(k) >= 0).length, cc: 'kc-cnt', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ ft: n }) }));
     const kk = { '全部': '', '有安全风险': 'sec', '接入中': 'acc', '未受保护': 'noag', '即将到期': 'exp', '已停机': 'off' }[tab];
-    const rows = all.filter((r) => !kk || r.k.indexOf(kk) >= 0);
+    const TYM = { 'ecs-app-01': ['弹性云服务器', '按月 · 可升降配'], 'bm-db-01': ['裸金属服务器', '独享物理机'], 'web-prod-01': ['服务器租用', '高防服务器 · 200G'], 'backup-02': ['服务器租用', 'BGP 服务器'] };
+    all.forEach((r) => { const t = TYM[r.n] || ['服务器租用', '电信服务器']; r.ty = t[0]; r.tyS = t[1]; });
+    const __ty = st.ddv0 || '全部';
+    const rows = all.filter((r) => (!kk || r.k.indexOf(kk) >= 0) && (__ty === '全部' || r.ty === __ty));
 
     const __R = Object.assign({ nav }, s1, { tabs, rows, total: rows.length,
       insShow: ins !== 'ok', insIdle: !ins, insCls: ins === 'ing' || ins === 'done' ? 'ac-al i' : 'ac-al', insI: ins === 'ing' ? 'i' : ins === 'done' ? '✓' : '!', insB: f4 ? '一键安装 2 台' : '一键安装 3 台',
@@ -835,7 +843,7 @@ class Component extends DCLogic {
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 
-    [["全部", ["全部", "温州电信 A 机房", "杭州 BGP 机房"]], ["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
+    [["全部", ["全部", "服务器租用", "弹性云服务器", "裸金属服务器"]], ["10 条/页", ["10 条/页", "20 条/页", "50 条/页", "100 条/页"]]].forEach(([v0, opts], i) => { const v = __s['ddv' + i] || (v0[0] === '@' ? __R[v0.slice(1)] : v0); const on = __o === i; DDX['ddV' + i] = v; DDX['ddO' + i] = on; DDX['ddC' + i] = on ? 'dd-w on' : 'dd-w';
 
       DDX['ddT' + i] = () => this.setState({ ddo: on ? -1 : i }); DDX['ddL' + i] = opts.map((t) => ({ t, cls: t === v ? 'on' : '', go: () => this.setState({ ['ddv' + i]: t, ddo: -1 }) })); });
 
