@@ -462,6 +462,60 @@
 .kc .sc2-x p .lv{color:#f64041}
 .kc .sc2-l a{width:32px;text-align:right;font-size:12px;color:#1664ff;text-decoration:none;flex:none}
 .kc .sc2>.kc-tipai{margin-top:16px}
+
+/* tcl-v1 控制台总览 · 腾讯式布局 */
+.kc .kc-body>.kc-main{flex:1 1 100%;min-width:0;margin-left:0!important}
+.kc main.kc-main>.kc-hd.kc-hd{padding:28px 24px 0!important}
+.kc main.kc-main>.kc-hd.kc-hd .kc-h1{font-size:22px!important;line-height:32px!important}
+.kc .kc-main>nav.tcl-tabs{margin:12px 24px 20px!important}
+.tcl-tabs{display:flex;gap:32px;height:48px;align-items:flex-end;border-bottom:1px solid rgba(0,0,0,.06)}
+.tcl-tabs a{position:relative;display:flex;align-items:center;height:40px;font-size:14px;color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s}
+.tcl-tabs a:hover{color:rgba(0,0,0,.9)}
+.tcl-tabs a.on{color:rgba(0,0,0,.9);font-weight:600}
+.tcl-tabs a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+.kc .kc-main>.h8{margin:0 24px 32px!important}
+.kc .h8-cols{grid-template-columns:minmax(0,1fr) 440px!important}
+.kc .h8-rl{position:static!important}
+.tcl-acct{padding:24px!important}
+.tcl-who{display:flex;align-items:center;gap:14px}
+.tcl-who .h8-av{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:16px;background:#e3ecff;color:#1664ff}
+.tcl-who .h8-who{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.tcl-who .h8-who b{font-size:16px;font-weight:600;color:rgba(0,0,0,.9)}
+.tcl-who .h8-who p{flex-basis:100%;margin:0;font-size:12px;color:rgba(0,0,0,.5)}
+.tcl-hint{display:flex!important;margin:16px 0 0!important;border-radius:18px;padding:8px 14px!important;font-size:12px}
+.tcl-fee{margin-top:20px}
+.tcl-lh{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:rgba(0,0,0,.5)}
+.tcl-lh nav{display:flex}
+.tcl-lh nav a{padding:0 10px;color:rgba(0,0,0,.7);text-decoration:none;border-left:1px solid #e6e9ef;line-height:12px}
+.tcl-lh nav a:first-child{border-left:0}
+.tcl-lh nav a:last-child{padding-right:0}
+.tcl-lh nav a:hover{color:#1664ff}
+.tcl-big{display:flex;align-items:baseline;gap:16px;margin:6px 0 4px}
+.tcl-big strong,.tcl-pay strong{font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums;font-size:28px;line-height:36px;font-weight:600;color:rgba(0,0,0,.9)}
+.tcl-big strong small,.tcl-pay strong small{font-size:20px}
+.tcl-big a{font-size:14px;color:#1664ff;text-decoration:none}
+.tcl-pay{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:end;margin-top:16px;padding-top:16px;border-top:1px solid #e9ecf1}
+.tcl-pl label{display:block;font-size:12px;color:rgba(0,0,0,.5)}
+.tcl-pl label span{margin-left:6px;color:#ff7d00}
+.tcl-pay strong{font-size:22px;line-height:32px;display:block;margin:4px 0 10px}
+.tcl-pay strong small{font-size:16px}
+.tcl-pl .kc-btns{display:flex;gap:8px}
+.tcl-mc header{display:flex;white-space:nowrap;gap:8px;justify-content:space-between;font-size:12px;color:rgba(0,0,0,.5);margin-bottom:6px}
+.tcl-mc header small{font-size:11px;color:rgba(0,0,0,.3)}
+.tcl-bars{position:relative;display:flex;align-items:flex-end;gap:10px;height:64px;padding-bottom:18px;border-bottom:1px solid #e9ecf1}
+.tcl-bars i{position:relative;flex:1;background:#b4ceff;min-height:2px}
+.tcl-bars i:hover{background:#1664ff}
+.tcl-bars i.cur{background:#1664ff}
+.tcl-bars em{position:absolute;left:50%;bottom:-19px;transform:translateX(-50%);font-style:normal;font-size:11px;color:rgba(0,0,0,.5);white-space:nowrap}
+.tcl-kv{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:18px 0 0}
+.tcl-kv div{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.tcl-kv dt{color:rgba(0,0,0,.5);display:flex;align-items:center;gap:6px}
+.tcl-kv dd{margin:0;color:rgba(0,0,0,.9);font-family:Barlow,Inter,"PingFang SC",sans-serif;font-variant-numeric:tabular-nums;font-size:14px;font-weight:500}
+.tcl-kv dd a{color:#1664ff;text-decoration:none}
+.kc .h8-rl .h8-g3{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px}
+.kc .h8-rl .h8-ac{flex-direction:column;align-items:flex-start;gap:10px;padding:14px 16px!important}
+.kc .h8-rl .h8-tip.lu b{white-space:nowrap}
+.kc .h8-rl .h8-ac .kc-btn{height:28px;padding:0 12px;font-size:12px}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -540,27 +594,13 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <input type="checkbox" id="kcf-ConsoleHome" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="控制台菜单">
-      <div class="kc-sh"><b>控制台</b><span>德迅科技 · 主账号</span></div>
-      <nav class="kc-nv" aria-label="产品菜单">
-      <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
-        <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
-        <sc-for list="{{g.items}}" as="it" hint-placeholder-count="4">
-          <a class="{{it.cls}}" href="{{it.href}}" onClick="{{it.tog}}" aria-expanded="{{it.ex}}"><i class="{{it.ic}}"></i><span>{{it.t}}</span><em>{{it.ext}}</em><b class="{{it.chev}}"></b></a>
-          <sc-if value="{{it.open}}" hint-placeholder-val="{{true}}">
-            <div class="kc-sub2"><sc-for list="{{it.kids}}" as="k" hint-placeholder-count="3"><a class="{{k.cls}}" href="{{k.href}}">{{k.t}}<em>{{k.ext}}</em></a></sc-for></div>
-          </sc-if>
-        </sc-for>
-      </sc-for>
-      </nav>
-    <div class="kc-foldbar"><label for="kcf-ConsoleHome" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-ConsoleHome" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="ConsoleHome" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div>
         <div class="kc-btns"></div>
       </div>
+      <nav class="tcl-tabs" aria-label="控制台分区"><a class="on" aria-current="page" href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="h8">
-        <div class="h8-box h8-id" data-annotation-id="home-account"><div class="h8-id-l"><div class="h8-av">德</div><div class="h8-who"><b>wangqi</b><span class="kc-tag info">主账号</span><a class="kc-tag ok" href="OrgVerify.dc.html" style="text-decoration:none">企业已认证</a><p>德迅科技 · 账号 ID 100014655316</p></div></div><div class="h8-id-k"><a href="BillOverview.dc.html"><span>账户余额<em>充值</em></span><strong>¥1,260.00</strong></a><a href="BillPayment.dc.html"><span>待付款</span><strong>1<small>笔</small></strong></a><a href="AcctSubs.dc.html?ft=exp"><span><i class="h8-dot"></i>到期与即将到期</span><strong>5<small>项</small></strong></a><a href="SupTickets.dc.html"><span>未关闭工单</span><strong>4<small>个</small></strong></a><a href="OrgSecurity.dc.html"><span>账号安全分</span><strong>81<small>/ 100</small></strong></a></div></div>
         <div class="h8-cols"><div class="h8-m">
         <section class="h8-sec h8-rsc">
           <p class="h8-sub">最近访问</p><div class="h8-g4"><a class="h8-qk" href="Main.dc.html"><i class="dt dt-scdn"></i><b>SCDN · 域名管理</b><small>今天</small></a><a class="h8-qk" href="DdosInstances.dc.html"><i class="dt dt-ddos"></i><b>DDoS 高防 IP</b><small>今天</small></a><a class="h8-qk" href="IdcServers.dc.html"><i class="dt dt-idc"></i><b>服务器租用</b><small>10-26</small></a><a class="h8-qk" href="EyeRisk.dc.html"><i class="dt dt-eye"></i><b>德迅云眼</b><small>10-25</small></a><a class="h8-qk" href="BillOrders.dc.html"><i class="dt dt-order"></i><b>我的订单</b><small>10-25</small></a><a class="h8-qk" href="BillInvoice.dc.html"><i class="dt dt-invoice"></i><b>发票管理</b><small>10-24</small></a><a class="h8-qk" href="SupTickets.dc.html"><i class="dt dt-ticket"></i><b>我的工单</b><small>10-23</small></a><a class="h8-qk" href="OrgMembers.dc.html"><i class="dt dt-member"></i><b>成员管理</b><small>10-20</small></a></div>
@@ -585,8 +625,17 @@
         </section>
         
         </div><aside class="h8-rl">
-        <section class="h8-sec"><div class="h8-st"><h2 data-annotation-id="home-fees">费用信息</h2><a href="BillOverview.dc.html">账务概览<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-          <div class="h8-box h8-fee"><div class="h8-fl"><label>待付款（1 笔）</label><span class="big">¥ 320.00</span><span class="note kc-tipai"><svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg><span>另有 1 笔汇款核验未匹配，<a href="BillPayFix.dc.html">补充信息</a>即可，不用再转账</span></span><div class="kc-btns"><a class="kc-btn pri" href="BillPayment.dc.html">去付款</a><a class="kc-btn" href="BillInvoiceApply.dc.html">申请开票</a></div><dl><div><dt><label>本月已付款</label></dt><dd>¥ 1,305.00</dd></div><div><dt><label>可开票金额</label></dt><dd>¥ 1,169.84</dd></div></dl></div><div class="h8-fr"><header>近半年付款 <small>数据更新至 2026-10-27</small></header><div class="h8-ch"><div class="gl" style="bottom:0%"><em>¥0</em></div><div class="gl" style="bottom:25%"><em>¥2,500</em></div><div class="gl" style="bottom:50%"><em>¥5,000</em></div><div class="gl" style="bottom:75%"><em>¥7,500</em></div><div class="gl" style="bottom:100%"><em>¥10,000</em></div><div class="bar" style="height:32.0%" title="2026-05 · ¥3,200"><span>5月</span></div><div class="bar" style="height:18.0%" title="2026-06 · ¥1,800"><span>6月</span></div><div class="bar" style="height:46.0%" title="2026-07 · ¥4,600"><span>7月</span></div><div class="bar" style="height:21.0%" title="2026-08 · ¥2,100"><span>8月</span></div><div class="bar" style="height:94.0%" title="2026-09 · ¥9,400"><span>9月</span></div><div class="bar cur" style="height:13.1%" title="2026-10 · ¥1,305"><span>2026-10</span></div></div><div class="h8-lg"><span><i></i>已付款</span><span><i class="c"></i>本月（截至今日）</span></div></div></div>
+        <section class="h8-sec tcl-acct" data-annotation-id="home-account">
+          <div class="tcl-who"><div class="h8-av">德</div><div class="h8-who"><b>wangqi</b><span class="kc-tag info">主账号</span><a class="kc-tag ok" href="OrgVerify.dc.html" style="text-decoration:none">企业已认证</a><p>德迅科技 · 账号 ID 100014655316</p></div></div>
+          <div class="kc-tipai tcl-hint"><svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg><span>另有 1 笔汇款核验未匹配，<a href="BillPayFix.dc.html">补充信息</a>即可，不用再转账</div>
+          <div class="tcl-fee" data-annotation-id="home-fees">
+            <div class="tcl-lh"><label>账户余额（元）</label><nav><a href="BillOrders.dc.html">查订单</a><a href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillOverview.dc.html">账务概览</a></nav></div>
+            <div class="tcl-big"><strong>1,260<small>.00</small></strong><a href="BillOverview.dc.html">充值</a></div>
+            <div class="tcl-pay"><div class="tcl-pl"><label>待付款（元）<span>1 笔</span></label><strong>320<small>.00</small></strong><div class="kc-btns"><a class="kc-btn pri sm" href="BillPayment.dc.html">去付款</a><a class="kc-btn sm" href="BillInvoiceApply.dc.html">申请开票</a></div></div>
+              <div class="tcl-mc"><header>近半年付款<small>数据更新至 2026-10-27</small></header><div class="tcl-bars"><i class="" style="height:32.0%" title="2026-05 · ¥3,200"><em>5月</em></i><i class="" style="height:18.0%" title="2026-06 · ¥1,800"><em>6月</em></i><i class="" style="height:46.0%" title="2026-07 · ¥4,600"><em>7月</em></i><i class="" style="height:21.0%" title="2026-08 · ¥2,100"><em>8月</em></i><i class="" style="height:94.0%" title="2026-09 · ¥9,400"><em>9月</em></i><i class="cur" style="height:13.1%" title="2026-10 · ¥1,305"><em>本月</em></i></div></div></div>
+            <dl class="tcl-kv"><div><dt>本月已付款（元）</dt><dd>1,305.00</dd></div><div><dt>可开票金额（元）</dt><dd>1,169.84</dd></div>
+              <div><dt><i class="h8-dot"></i>到期与即将到期</dt><dd><a href="AcctSubs.dc.html?ft=exp">5</a> 项</dd></div><div><dt>未关闭工单</dt><dd><a href="SupTickets.dc.html">4</a> 个</dd></div></dl>
+          </div>
         </section>
         <section class="h8-sec"><div class="h8-st"><h2 data-annotation-id="home-company">企业</h2><a href="OrgMembers.dc.html">成员管理<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
           <div class="h8-tip lu"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b><span class="lu-a">https://uc.dexunyun.com/sub-login?ent=100014655316</span><button type="button" class="lu-cp" data-v="https://uc.dexunyun.com/sub-login?ent=100014655316" aria-label="复制成员登录地址" title="复制"><svg class="i-cp" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3Zm2 0h7a1 1 0 0 1 1 1v9h2V4H9v2ZM5 8v12h10V8H5Z"></path></svg><svg class="i-ok" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m10 15.17 9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17Z"></path></svg></button></div><div class="h8-g3"><div class="h8-ac"><div><span>成员</span><strong>5</strong></div><a class="kc-btn" href="OrgMemberNew.dc.html">添加成员</a></div><div class="h8-ac"><div><span>角色</span><strong>4</strong></div><a class="kc-btn" href="OrgRoles.dc.html">管理角色</a></div><div class="h8-ac"><div><span>账号安全分</span><strong>81<small>2 项可提升</small></strong></div><a class="kc-btn" href="OrgSecurity.dc.html">去提升</a></div></div>
