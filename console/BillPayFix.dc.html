@@ -87,6 +87,17 @@
 .dt-dl{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
 .ac-drw .bd .dt-f:last-child{margin-bottom:0}
 .kc-tile b,.dz-k .v,.ac-st b,.fl-sum b,.sp-kpi b,.b8-amt,.sx-num b,.ac-ph b.amt,.kc-kpi b,.lp-g4 b,.h8-fl .big,.kc-ring b,.big b,.h8-kpi strong,.kc-card > b,.kc-hb em,.b8-todo b,.b8-inv b,.pf-why b{font-family:Barlow,Inter,"PingFang SC",sans-serif;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.2px}
+
+/* tcl2-v1 账号侧 · 腾讯式一级页签（无左侧菜单） */
+.kc .kc-body>.kc-main{flex:1 1 100%;min-width:0;margin-left:0!important}
+.kc .kc-main>nav.tcl-tabs{margin:8px 20px 16px!important}
+.tcl-tabs{display:flex;gap:32px;height:48px;align-items:flex-end;border-bottom:1px solid rgba(0,0,0,.06)}
+.tcl-tabs>a{position:relative;display:flex;align-items:center;height:44px;font-size:16px;color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s}
+.tcl-tabs>a:hover{color:rgba(0,0,0,.9)}
+.tcl-tabs>a.on{color:rgba(0,0,0,.9);font-weight:600}
+.tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
+.kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
+.tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -165,21 +176,8 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <input type="checkbox" id="kcf-BillPayFix" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="控制台菜单">
-      <div class="kc-sh"><b>控制台</b><span>德迅科技 · 主账号</span></div>
-      <nav class="kc-nv" aria-label="产品菜单">
-      <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
-        <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
-        <sc-for list="{{g.items}}" as="it" hint-placeholder-count="4">
-          <a class="{{it.cls}}" href="{{it.href}}" onClick="{{it.tog}}" aria-expanded="{{it.ex}}"><i class="{{it.ic}}"></i><span>{{it.t}}</span><em>{{it.ext}}</em><b class="{{it.chev}}"></b></a>
-          <sc-if value="{{it.open}}" hint-placeholder-val="{{true}}">
-            <div class="kc-sub2"><sc-for list="{{it.kids}}" as="k" hint-placeholder-count="3"><a class="{{k.cls}}" href="{{k.href}}">{{k.t}}<em>{{k.ext}}</em></a></sc-for></div>
-          </sc-if>
-        </sc-for>
-      </sc-for>
-      </nav>
-    <div class="kc-foldbar"><label for="kcf-BillPayFix" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-BillPayFix" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="BillPayFix" class="kc-main">
+      <nav class="tcl-tabs" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a class="on" aria-current="page" href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">补充汇款信息</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html?product=billing&amp;q=%E4%BB%98%E6%AC%BE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">付款常见问题<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a></div>
