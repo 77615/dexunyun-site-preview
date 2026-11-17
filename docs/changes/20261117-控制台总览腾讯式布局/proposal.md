@@ -24,6 +24,13 @@ F1、F3：总览页左侧只有 4 个菜单，下面整列留白，页面没有�
 - ConsoleHome 去掉 Axhub 标注插件（两个 script 和 7 个 data-annotation-id）；axhub-annotation.global.js、home-annotations.* 文件留在仓库，需要时可以再挂回去。
 - 产品控制台（SCDN、DDoS、卫士等）的左侧菜单不动。
 
+## 第三轮（F6）
+- 12 个分组页（AcctProducts、AcctSubs、BillOverview、BillOrders、BillPay、BillBalance、BillInvoice、BillContract、OrgInfo、OrgMembers、OrgRoles、OrgSecurity）加首页同款头部：欢迎语、蓝色渐变背景，一级页签与首页同一位置，切换时头部不动。
+- 一级页签行只放页签；原来挂在这一行右侧的页面按钮挪到二级页签行右侧。
+- 二级页签改成首页「最近访问」同款胶囊（选中浅蓝底蓝字）。
+- 卡片统一首页样式：无边框、直角、0 1px 4px 阴影；左右边距 24 与首页一致。
+- 详情和流程页不加欢迎语，保持原标题。
+
 ## 不改什么
 - 页面上的数据、文案、链接、安全中心和其他待办的交互都不变。
 - 顶栏不变。
