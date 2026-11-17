@@ -1047,8 +1047,8 @@ class Component extends DCLogic {
     '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
     '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
     '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
-    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
-    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
     '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
     '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
   };
@@ -1332,7 +1332,7 @@ class Component extends DCLogic {
     const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
     const HOST = {
       '正常': ['共 57 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
-      '有风险': ['', [['web-prod-01', '10.0.1.11', '紧急 2 · 高危 1', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
+      '有风险': ['', [['web-prod-01', '10.0.1.11', '高危 3', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
       '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，未授权去绑定。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '未授权', 'kc-tag warn', '绑定授权', () => toast('跳转到「授权管理」', 'info')]]],
       '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
       '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
@@ -1343,7 +1343,7 @@ class Component extends DCLogic {
     };
     const hostDw = (k) => ({ t: k + '的主机', p: HOST[k][0], h: ['主机', 'IP', '状态', '操作'], r: H(HOST[k][1]), lk: '在资产管理查看', lkGo: navT('资产管理') });
     const REC = [['EVT-0998', 'web-prod-01', '已解决', 'kc-tag ok', '恶意文件已阻断，复检通过'], ['EVT-1003', 'app-03', '已解决', 'kc-tag ok', '高危端口已关闭'], ['EVT-0999', 'cache-01', '待复检', 'kc-tag warn', '可疑进程已隔离'], ['EVT-1005', 'web-prod-02', '待复检', 'kc-tag warn', 'Nginx 已升级'], ['EVT-0990', 'api-01', '已忽略', 'kc-tag mut', '测试账号，已确认'], ['EVT-0981', 'backup-02', '旧环境归档', 'kc-tag mut', '重装前的 3 条风险']];
-    const recDw = (f) => ({ t: f ? '处置记录 · ' + f : '处置记录 · 近 7 天', p: f === '新发现' ? '近 7 天新发现 14 项，其中紧急 4 项。' : '', h: ['事件', '主机', '结果', '说明'],
+    const recDw = (f) => ({ t: f ? '处置记录 · ' + f : '处置记录 · 近 7 天', p: f === '新发现' ? '近 7 天新发现 14 项，其中高危 4 项。' : '', h: ['事件', '主机', '结果', '说明'],
       r: REC.filter((r) => !f || f === '新发现' || r[2] === f).map(([a, b, c, cc, d]) => ({ a, b, c, cc, o: '', go: undefined, d })).map((x) => Object.assign(x, { b: x.b + ' · ' + x.d })), lk: '查看全部处置记录', lkGo: navT('处置记录') });
     const DW = {
       score: { t: '评分详情', p: '安全评分 = 100 − 扣分。修复后下次检测时更新评分。', h: ['扣分项', '主机', '扣分', '操作'],
@@ -1434,10 +1434,10 @@ class Component extends DCLogic {
       if (st.shDw === 'ai') { const AM = { '异常登录': 'R1', 'OpenSSH 漏洞': 'R3', '客户端已卸载': 'U1' }; sx.dw.r.forEach((r) => { const id = AM[r.a]; if (id) { r.o = '查看'; r.go = GO('SecRiskDetail', {}, id); } }); }
       // 告警中心卡片：与列表同一份数据
       const pend = RK.filter((r) => PEND.indexOf(r.st) >= 0);
-      const AT = [['全部', ''], ['紧急', '紧急'], ['未受保护', '未受保护'], ['可疑', '可疑'], ['提醒', '提醒']];
+      const AT = [['全部', ''], ['高危', '高危'], ['未受保护', '未受保护'], ['中危', '中危'], ['低危', '低危']];
       const at = st.atab || '全部'; const ak = (AT.find((x) => x[0] === at) || AT[0])[1];
       sx.tabs = AT.map(([n, k]) => ({ n, c: pend.filter((r) => !k || r.lv === k).length, on: n === at, cls: n === at ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }));
-      const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
+      const ORD = { '高危': 0, '未受保护': 1, '中危': 2, '低危': 3 };
       const RG2 = { R1: () => openDw('judge'), R3: () => openMd('fix'), U1: () => openMd('install'), R6: () => openMd('retry') };
       sx.rows = pend.filter((r) => !ak || r.lv === ak).sort((a, b) => ORD[a.lv] - ORD[b.lv]).slice(0, 6).map((r) => ({ lv: LVC[r.lv], lvT: r.lv, t: r.n, a: r.as, p: r.prod, sc: 'sh-st', st: r.st === '处置中' ? '自动清洗中' : r.st, tm: r.t.slice(-5) === '00:00' ? r.t.slice(0, 5) : r.t,
         dh: r.ext || '#', goD: r.ext ? undefined : GO('SecRiskDetail', {}, r.id), ah: '#', goA: r.ext ? GOX(r.ext) : r.hs.length > 1 ? GO('SecRiskDetail', {}, r.id) : HOSTGO(r.hs[0]),
@@ -1477,38 +1477,38 @@ class Component extends DCLogic {
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
     // 风险：编号, 名称, 类型, 级别, 影响主机, 状态, 检测项, 来源产品, 发现时间, 近7天, AI 研判, 已验证, 外部链接, 资产, 主操作
     const R = [
-      ['R1', '异常登录', '入侵', '紧急', ['web-prod-01'], '待处理', '异常登录', '德迅安全卫士', '11-02 10:12', 1, 1, 0, '', '', 'AI 研判'],
-      ['R2', '可疑进程外联', '入侵', '可疑', ['web-prod-01'], '待处理', '威胁狩猎', '德迅安全卫士', '10-24 22:41', 0, 1, 0, '', '', '处理'],
-      ['R3', 'OpenSSH 远程代码执行漏洞', '漏洞', '紧急', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-21 03:00', 0, 1, 0, '', '', '一键修复'],
-      ['R4', 'Nginx 拒绝服务漏洞', '漏洞', '可疑', ['app-03'], '待处理', '漏洞检测', '德迅安全卫士', '10-20 03:00', 0, 1, 0, '', '', '一键修复'],
-      ['R5', 'sudo 本地提权漏洞', '漏洞', '提醒', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-18 03:00', 0, 0, 0, '', '', '一键修复'],
-      ['R6', '弱口令（3 个账号）', '基线', '可疑', ['web-prod-01'], '处置失败', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 1, 0, '', '', '重试'],
-      ['R7', 'SSH 允许 root 直接登录', '基线', '提醒', ['web-prod-01', 'app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
-      ['R8', '未设置密码有效期', '基线', '提醒', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
-      ['R9', '未开启操作审计日志', '基线', '提醒', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
-      ['R10', '/tmp 未单独挂载', '基线', '提醒', ['web-prod-01'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '查看方法'],
-      ['R11', '高危端口 3389 对公网开放', '网络', '可疑', ['app-03'], '待处理', '网络防火墙', '德迅安全卫士', '10-22 11:05', 0, 1, 0, '', '', '关闭端口'],
+      ['R1', '异常登录', '入侵', '高危', ['web-prod-01'], '待处理', '异常登录', '德迅安全卫士', '11-02 10:12', 1, 1, 0, '', '', 'AI 研判'],
+      ['R2', '可疑进程外联', '入侵', '中危', ['web-prod-01'], '待处理', '威胁狩猎', '德迅安全卫士', '10-24 22:41', 0, 1, 0, '', '', '处理'],
+      ['R3', 'OpenSSH 远程代码执行漏洞', '漏洞', '高危', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-21 03:00', 0, 1, 0, '', '', '一键修复'],
+      ['R4', 'Nginx 拒绝服务漏洞', '漏洞', '中危', ['app-03'], '待处理', '漏洞检测', '德迅安全卫士', '10-20 03:00', 0, 1, 0, '', '', '一键修复'],
+      ['R5', 'sudo 本地提权漏洞', '漏洞', '低危', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-18 03:00', 0, 0, 0, '', '', '一键修复'],
+      ['R6', '弱口令（3 个账号）', '基线', '中危', ['web-prod-01'], '处置失败', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 1, 0, '', '', '重试'],
+      ['R7', 'SSH 允许 root 直接登录', '基线', '低危', ['web-prod-01', 'app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R8', '未设置密码有效期', '基线', '低危', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R9', '未开启操作审计日志', '基线', '低危', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R10', '/tmp 未单独挂载', '基线', '低危', ['web-prod-01'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '查看方法'],
+      ['R11', '高危端口 3389 对公网开放', '网络', '中危', ['app-03'], '待处理', '网络防火墙', '德迅安全卫士', '10-22 11:05', 0, 1, 0, '', '', '关闭端口'],
       ['U1', '客户端已卸载', '主机状态', '未受保护', ['backup-02'], '待处理', '客户端', '德迅安全卫士', '10-29 16:20', 0, 0, 0, '', '', '重新安装'],
-      ['W1', 'Web 高危漏洞', 'Web 安全', '紧急', [], '待处理', '网站监测', '德迅云眼', '11-02 09:30', 1, 0, 0, EYE, 'www.example.com', '修复'],
-      ['C1', 'CC 攻击未拦截', 'Web 攻击', '紧急', [], '待处理', 'CC 防护', 'SCDN', '11-02 10:41', 1, 0, 0, CDN, 'shop.example.com', '开启防护'],
-      ['D1', 'DDoS 攻击（UDP Flood）', 'DDoS 攻击', '可疑', [], '处置中', '流量清洗', 'DDoS 高防 IP', '11-02 10:24', 1, 0, 0, ATK, '高防-002', '查看'],
-      ['O1', '源站 IP 暴露', 'Web 安全', '可疑', [], '待处理', '源站保护', 'SCDN', '10-29 14:00', 1, 0, 0, CDN, 'shop.example.com', '查看'],
-      ['S1', 'SSL 证书 12 天后到期', '证书', '提醒', [], '待处理', '证书管理', 'SCDN', '10-28 09:00', 1, 0, 0, CERT, 'www.example.com', '续费'],
-      ['H1', '未开启 HTTPS', 'Web 安全', '提醒', [], '待处理', '证书管理', 'SCDN', '10-26 09:00', 0, 0, 0, CDN, 'm.example.com', '开启'],
-      ['EVT-0998', '恶意文件已阻断', '入侵', '紧急', ['web-prod-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-31 14:02', 1, 0, 1, '', '', '查看'],
-      ['EVT-1003', '高危端口 22 对公网开放', '网络', '可疑', ['app-03'], '已解决', '网络防火墙', '德迅安全卫士', '10-30 11:20', 1, 0, 1, '', '', '查看'],
-      ['EVT-1001', 'Redis 未授权访问', '漏洞', '紧急', ['cache-01'], '已解决', '漏洞检测', '德迅安全卫士', '10-28 03:00', 1, 0, 1, '', '', '查看'],
-      ['EVT-0996', '挖矿程序', '入侵', '紧急', ['api-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-27 23:10', 1, 0, 1, '', '', '查看'],
-      ['EVT-0997', 'Log4j 远程代码执行漏洞', '漏洞', '可疑', ['web-prod-02'], '已解决', '漏洞检测', '德迅安全卫士', '10-29 03:00', 1, 0, 0, '', '', '查看'],
-      ['EVT-1002', '账号异常提权', '入侵', '可疑', ['web-prod-03'], '已解决', '本地提权', '德迅安全卫士', '10-30 15:42', 1, 0, 0, '', '', '查看'],
-      ['EVT-1006', 'SSH 暴力破解', '入侵', '可疑', ['db-01'], '已解决', '网络防火墙', '德迅安全卫士', '11-01 02:15', 1, 0, 0, '', '', '查看'],
-      ['EVT-1000', '未设置登录失败锁定', '基线', '提醒', ['cache-01'], '已解决', '基线检查', '德迅安全卫士', '10-28 03:10', 1, 0, 0, '', '', '查看'],
-      ['EVT-1004', 'Docker API 未授权访问', '漏洞', '可疑', ['node-07'], '已解决', '漏洞检测', '德迅安全卫士', '10-31 03:00', 1, 0, 0, '', '', '查看'],
-      ['EVT-0999', '可疑进程已隔离', '入侵', '可疑', ['cache-01'], '待复检', '病毒查杀', '德迅安全卫士', '10-31 20:05', 1, 0, 0, '', '', '复检'],
-      ['EVT-1005', 'Nginx 版本过低', '漏洞', '提醒', ['web-prod-02'], '待复检', '漏洞检测', '德迅安全卫士', '11-01 03:00', 1, 0, 0, '', '', '复检'],
-      ['EVT-0990', '弱口令（测试账号）', '基线', '提醒', ['api-01'], '已忽略', '基线检查', '德迅安全卫士', '10-29 03:10', 1, 0, 0, '', '', '恢复'],
-      ['EVT-0995', '可疑进程（运维备份脚本）', '入侵', '提醒', ['db-01'], '已加白', '应用运行防护', '德迅安全卫士', '10-27 02:00', 1, 0, 0, '', '', '查看'], /* gap161 */
-      ['EVT-0981', '重装前的 3 条风险', '主机状态', '提醒', ['backup-02'], '已归档', '客户端', '德迅安全卫士', '10-28 10:00', 1, 0, 0, '', '', '查看']];
+      ['W1', 'Web 高危漏洞', 'Web 安全', '高危', [], '待处理', '网站监测', '德迅云眼', '11-02 09:30', 1, 0, 0, EYE, 'www.example.com', '修复'],
+      ['C1', 'CC 攻击未拦截', 'Web 攻击', '高危', [], '待处理', 'CC 防护', 'SCDN', '11-02 10:41', 1, 0, 0, CDN, 'shop.example.com', '开启防护'],
+      ['D1', 'DDoS 攻击（UDP Flood）', 'DDoS 攻击', '中危', [], '处置中', '流量清洗', 'DDoS 高防 IP', '11-02 10:24', 1, 0, 0, ATK, '高防-002', '查看'],
+      ['O1', '源站 IP 暴露', 'Web 安全', '中危', [], '待处理', '源站保护', 'SCDN', '10-29 14:00', 1, 0, 0, CDN, 'shop.example.com', '查看'],
+      ['S1', 'SSL 证书 12 天后到期', '证书', '低危', [], '待处理', '证书管理', 'SCDN', '10-28 09:00', 1, 0, 0, CERT, 'www.example.com', '续费'],
+      ['H1', '未开启 HTTPS', 'Web 安全', '低危', [], '待处理', '证书管理', 'SCDN', '10-26 09:00', 0, 0, 0, CDN, 'm.example.com', '开启'],
+      ['EVT-0998', '恶意文件已阻断', '入侵', '高危', ['web-prod-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-31 14:02', 1, 0, 1, '', '', '查看'],
+      ['EVT-1003', '高危端口 22 对公网开放', '网络', '中危', ['app-03'], '已解决', '网络防火墙', '德迅安全卫士', '10-30 11:20', 1, 0, 1, '', '', '查看'],
+      ['EVT-1001', 'Redis 未授权访问', '漏洞', '高危', ['cache-01'], '已解决', '漏洞检测', '德迅安全卫士', '10-28 03:00', 1, 0, 1, '', '', '查看'],
+      ['EVT-0996', '挖矿程序', '入侵', '高危', ['api-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-27 23:10', 1, 0, 1, '', '', '查看'],
+      ['EVT-0997', 'Log4j 远程代码执行漏洞', '漏洞', '中危', ['web-prod-02'], '已解决', '漏洞检测', '德迅安全卫士', '10-29 03:00', 1, 0, 0, '', '', '查看'],
+      ['EVT-1002', '账号异常提权', '入侵', '中危', ['web-prod-03'], '已解决', '本地提权', '德迅安全卫士', '10-30 15:42', 1, 0, 0, '', '', '查看'],
+      ['EVT-1006', 'SSH 暴力破解', '入侵', '中危', ['db-01'], '已解决', '网络防火墙', '德迅安全卫士', '11-01 02:15', 1, 0, 0, '', '', '查看'],
+      ['EVT-1000', '未设置登录失败锁定', '基线', '低危', ['cache-01'], '已解决', '基线检查', '德迅安全卫士', '10-28 03:10', 1, 0, 0, '', '', '查看'],
+      ['EVT-1004', 'Docker API 未授权访问', '漏洞', '中危', ['node-07'], '已解决', '漏洞检测', '德迅安全卫士', '10-31 03:00', 1, 0, 0, '', '', '查看'],
+      ['EVT-0999', '可疑进程已隔离', '入侵', '中危', ['cache-01'], '待复检', '病毒查杀', '德迅安全卫士', '10-31 20:05', 1, 0, 0, '', '', '复检'],
+      ['EVT-1005', 'Nginx 版本过低', '漏洞', '低危', ['web-prod-02'], '待复检', '漏洞检测', '德迅安全卫士', '11-01 03:00', 1, 0, 0, '', '', '复检'],
+      ['EVT-0990', '弱口令（测试账号）', '基线', '低危', ['api-01'], '已忽略', '基线检查', '德迅安全卫士', '10-29 03:10', 1, 0, 0, '', '', '恢复'],
+      ['EVT-0995', '可疑进程（运维备份脚本）', '入侵', '低危', ['db-01'], '已加白', '应用运行防护', '德迅安全卫士', '10-27 02:00', 1, 0, 0, '', '', '查看'], /* gap161 */
+      ['EVT-0981', '重装前的 3 条风险', '主机状态', '低危', ['backup-02'], '已归档', '客户端', '德迅安全卫士', '10-28 10:00', 1, 0, 0, '', '', '查看']];
     const TXT = {
       R1: ['web-prod-01 在 10:12 被 45.142.xx.xx（荷兰）以 root 登录，此前 1 小时该 IP 尝试登录 312 次，登录后下载并执行了 /tmp/.x。', '先确认是不是本人登录。不是本人：封禁该 IP、修改 root 密码，并对主机做一次全面检测。', [['来源 IP', '45.142.xx.xx · 荷兰'], ['登录账号', 'root'], ['登录前', '1 小时内失败 312 次']]],
       R2: ['威胁狩猎发现 web-prod-01 上的进程 /tmp/.x 持续连接境外地址 45.142.xx.xx:4444，与异常登录为同一来源。', '终止进程并隔离文件，再检查计划任务和启动项里有没有同名程序。', [['进程', '/tmp/.x（PID 26796）'], ['外联地址', '45.142.xx.xx:4444']]],
@@ -1525,7 +1525,7 @@ class Component extends DCLogic {
     };
     const RK = R.map(([id, n, ty, lv, hs, st, src, prod, t, d7, ai, ver, ext, as, act]) => Object.assign({ id, n, ty, lv, hs, st, src, prod, t, d7: !!d7, ai: !!ai, ver: !!ver, ext, as: as || (hs.length > 1 ? hs[0] + ' 等 ' + hs.length + ' 台' : hs[0] || ''), act },
       { desc: (TXT[id] || [])[0] || n + '，详细信息见处置记录。', fix: (TXT[id] || [])[1] || '', kv: ((TXT[id] || [])[2] || []).map(([k, v]) => ({ k, v })) }));
-    const LVC = { '紧急': 'kc-lv3 r', '未受保护': 'kc-lv3 o', '可疑': 'kc-lv3 y', '提醒': 'kc-lv3 b' };
+    const LVC = { '高危': 'kc-lv3 r', '未受保护': 'kc-lv3 o', '中危': 'kc-lv3 y', '低危': 'kc-lv3 b' };
     const PEND = ['待处理', '处置中', '处置失败'];
     const GO = (p, f, x) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); /* split160 */ if (p === 'SecRisks') { const t0 = (f || {})['类型'], s0 = (f || {})['检测项']; if (t0 === '漏洞' || s0 === '漏洞检测') { p = 'SecVuln'; f = Object.assign({}, f); delete f['类型']; } else if (t0 === '基线' || t0 === '网络' || s0 === '基线检查' || s0 === '网络防火墙') p = 'SecBaseline'; }
       const sc = (this.state || {}).scope || ''; const ff = Object.assign({}, f || {}); if (p !== 'SecRiskDetail') { if (sc.indexOf('德迅服务器') === 0) ff['机房'] = '德迅服务器'; else if (sc.indexOf('其他机房') === 0) ff['机房'] = '其他机房'; }
@@ -1715,7 +1715,7 @@ class Component extends DCLogic {
         ['a7', '11-03 15:10', '李四', '安全运营', '防护策略', '修改策略', '标准防护', '系统内置模板', 'fail', '权限不足', '115.236.**.20', { p: '安全运营角色不能修改防护策略，需要管理员操作。本次没有产生任何改动。' }],
         ['a8', '11-02 10:00', 'wangqi', '管理员', '防护策略', '添加全局黑名单', '60.191.**.22', '全部 68 台主机', 'ok', '', '115.236.**.20', { p: '备注：「持续扫描 Web 目录」。已写入全部主机防火墙。' }],
         ['a9', '11-02 09:41', '王五', '运维', '主机运维', '下发脚本', '安装日志采集', '8 台主机', 'ok', '8 台成功', '183.134.**.7', { code: 'bash /opt/scripts/install-filebeat.sh --server log.internal:5044', p: '脚本来源：脚本库「安装日志采集 v2」，由 wangqi 于 10-28 审核通过。' }],
-        ['a10', '11-01 14:18', 'wangqi', '管理员', '设置', '修改通知规则', '可疑告警', '通知设置', 'ok', '', '115.236.**.20', { df: [['邮件', '关闭', '开启']] }],
+        ['a10', '11-01 14:18', 'wangqi', '管理员', '设置', '修改通知规则', '中危告警', '通知设置', 'ok', '', '115.236.**.20', { df: [['邮件', '关闭', '开启']] }],
         ['a11', '10-31 16:40', '李四', '安全运营', '告警处置', '忽略', 'EVT-0981', '基线不合规 · test-07', 'ok', '', '115.236.**.20', { p: '忽略原因：「测试机，下周下线」。可以在告警中心「已忽略」里恢复。' }],
         ['a12', '10-30 11:05', 'wangqi', '管理员', '设置', '卸载客户端', 'backup-02', '60.191.**.40', 'ok', '', '115.236.**.20', { p: '卸载原因：「迁移到新机房，重新安装」。二次确认已勾选。' }]]
         .map(([id, t, who, role, cat, act, obj, objS, res, resS, ip, x]) => ({ id, t, who, role, cat, act, obj, objS, res, resS, ip, x }));
@@ -1727,7 +1727,7 @@ class Component extends DCLogic {
       o.rows = tb.page.map((r) => ({ t: r.t, who: r.who, role: r.role, cat: r.cat, act: r.act, obj: r.obj, objS: r.objS, res: RS[r.res][0], rc: RS[r.res][1], resS: r.resS, ip: r.ip, view: ev(() => S({ lgDw: r.id })) }));
       const d = st.lgDw && A.find((r) => r.id === st.lgDw);
       if (d) { const x = d.x;
-        const LK = { '防护策略': ['查看策略', 'SecPolicy.dc.html'], '主机运维': ['查看任务记录', 'SecOps.dc.html?tab=log'], '告警处置': ['查看告警', 'SecRisks.dc.html'], '设置': ['打开设置', d.obj === '授权管理' ? 'SecLicense.dc.html' : d.obj === '可疑告警' ? 'SecNotify.dc.html' : 'SecAgent.dc.html'] }[d.cat];
+        const LK = { '防护策略': ['查看策略', 'SecPolicy.dc.html'], '主机运维': ['查看任务记录', 'SecOps.dc.html?tab=log'], '告警处置': ['查看告警', 'SecRisks.dc.html'], '设置': ['打开设置', d.obj === '授权管理' ? 'SecLicense.dc.html' : d.obj === '中危告警' ? 'SecNotify.dc.html' : 'SecAgent.dc.html'] }[d.cat];
         o.dw = Object.assign(o.dw, { on: true, t: d.act + ' · ' + d.obj, kv: [['时间', '2026-' + d.t], ['操作人', d.who + '（' + d.role + '）'], ['类别', d.cat], ['对象', d.obj + ' · ' + d.objS], ['结果', RS[d.res][0] + (d.resS ? '：' + d.resS : '')], ['来源 IP', d.ip]].map(([k, v]) => ({ k, v })),
           hasDf: !!x.df, dfT: '变更内容', df: (x.df || []).map(([k, b, a]) => ({ k, b, a })), codeT: '执行内容', code: x.code || '', pT: '说明', p: x.p || '',
           ops: [{ n: LK[0], c: 'kc-btn', go: ev(() => { try { location.href = LK[1]; } catch (e2) {} }) }] }); }
@@ -1827,13 +1827,13 @@ class Component extends DCLogic {
       ls.isTask = tab === '修复任务'; ls.tasks = TK.map(([id, n, as, hn, pr, pc, t, op]) => ({ id, n, as, hn, pr, pc, t, op, go: ev(() => toast(op === '重试' ? '已重新下发修复任务 ' + id : '任务 ' + id + '：' + pr, 'info')) }));
       ls.tabs = TBS.map((t) => { const c = t === '修复任务' ? TK.length : rk.filter((r) => qm(r) && m(r, Object.assign({}, lf, { '状态': t }))).length;
         return { n: t, c, cls: t === tab ? 'kc-tab on' : 'kc-tab', on: t === tab, pick: ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: Object.assign({}, lf, { '状态': t }), pg: 1 })) }; });
-      const ATTR = Object.assign({ '级别': uniq(['紧急', '可疑', '提醒'].filter((v) => RK.some((r) => r.lv === v))) }, PGN === 'SecBaseline' ? { '类型': ['基线', '网络'] } : {}, { '主机': uniq([].concat.apply([], RK.map((r) => r.hs))), '机房': ['德迅服务器', '其他机房'],
+      const ATTR = Object.assign({ '级别': uniq(['高危', '中危', '低危'].filter((v) => RK.some((r) => r.lv === v))) }, PGN === 'SecBaseline' ? { '类型': ['基线', '网络'] } : {}, { '主机': uniq([].concat.apply([], RK.map((r) => r.hs))), '机房': ['德迅服务器', '其他机房'],
         '检测项': uniq(RK.map((r) => r.src)), 'AI 研判': ['已研判'], '时间': ['近 7 天'], '验证': ['已验证'] });
       picker(lf, ATTR);
       ls.chips = chipsOf(lf, '状态', { '时间': '发现时间' }); ls.hasF = ls.chips.length > 0;
       ls.clear = ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: { '状态': tab }, pg: 1, q: '' }));
       ls.q = q; ls.onQ = (e) => S({ q: e.target.value, qT: Date.now(), pg: 1, pgT: Date.now() });
-      const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
+      const ORD = { '高危': 0, '未受保护': 1, '中危': 2, '低危': 3 };
       const rows = rk.filter((r) => qm(r) && m(r, Object.assign({}, lf, { '状态': tab }))).sort((a, b) => ORD[a.lv] - ORD[b.lv]);
       ls.n = ls.isTask ? ls.tasks.length : rows.length; ls.empty = !ls.isTask && !rows.length; ls.has = !ls.isTask && !!rows.length;
       const pg = pager(ls.isTask ? 0 : rows.length, 10);
@@ -1963,19 +1963,19 @@ class Component extends DCLogic {
 
     // sechome: 德迅安全卫士总览
     const SD = 'IdcServerDetail.dc.html', SL = 'IdcServers.dc.html', EYE = 'EyeRisk.dc.html', CDN = 'Main.dc.html', ATK = 'DdosInstanceDetail.dc.html', CERT = 'ScdnCerts.dc.html';
-    const AL = [['hi', '紧急', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'sh-st', '10:12', '处理', SD],
-      ['hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '修复', SD],
-      ['hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'sh-st', '09:30', '修复', EYE],
-      ['hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'sh-st', '10:41', '开启防护', CDN],
+    const AL = [['hi', '高危', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'sh-st', '10:12', '处理', SD],
+      ['hi', '高危', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '修复', SD],
+      ['hi', '高危', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'sh-st', '09:30', '修复', EYE],
+      ['hi', '高危', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'sh-st', '10:41', '开启防护', CDN],
       ['un', '未受保护', '客户端已卸载', 'backup-02', '德迅安全卫士', '待处理', 'sh-st', '10-29', '重新安装', SL],
-      ['md', '可疑', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'sh-st', '10:24', '查看', ATK],
-      ['md', '可疑', '弱口令（3 个账号）', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '处理', SD],
-      ['md', '可疑', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'sh-st', '10-29', '查看', CDN],
-      ['lo', '提醒', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'sh-st', '10-28', '续费', CERT],
-      ['lo', '提醒', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'sh-st', '10-26', '开启', CDN]];
+      ['md', '中危', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'sh-st', '10:24', '查看', ATK],
+      ['md', '中危', '弱口令（3 个账号）', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '处理', SD],
+      ['md', '中危', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'sh-st', '10-29', '查看', CDN],
+      ['lo', '低危', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'sh-st', '10-28', '续费', CERT],
+      ['lo', '低危', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'sh-st', '10-26', '开启', CDN]];
     const LV = { hi: 'kc-lv3 r', un: 'kc-lv3 o', md: 'kc-lv3 y', lo: 'kc-lv3 b' };
     const atab = st.atab || '全部';
-    const ATABS = [['全部', ''], ['紧急', 'hi'], ['未受保护', 'un'], ['可疑', 'md'], ['提醒', 'lo']];
+    const ATABS = [['全部', ''], ['高危', 'hi'], ['未受保护', 'un'], ['中危', 'md'], ['低危', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
     const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
@@ -2000,7 +2000,7 @@ class Component extends DCLogic {
       scL: ['全部主机 · 68 台', '德迅服务器 · 7 台', '其他机房接入 · 61 台'].map((n) => ({ n, cls: n === (st.scope || '全部主机 · 68 台') ? 'on' : '', pick: () => this.setState({ scope: n, scOpen: false }) })),
       pv: ['按状态', '按风险等级'].map((n) => ({ n, on: n === pv, cls: n === pv ? 'on' : '', pick: () => this.setState({ pv: n }) })),
       byRisk: pv === '按风险等级', byState: pv !== '按风险等级',
-      grades: [['E', 'g-e', '有紧急风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 55, []], ['—', 'g-x', '未检测', '未受保护 6 · 接入中 3 · 已停机 2', 11, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
+      grades: [['E', 'g-e', '有高危风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 55, []], ['—', 'g-x', '未检测', '未受保护 6 · 接入中 3 · 已停机 2', 11, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
       upd: rf === 'ok' ? '11-02 10:45' : '11-02 10:42',
       refT: rf === 'ing' ? '刷新中…' : '手动刷新',
       refresh: () => { if (rf === 'ing') return; this.setState({ rf: 'ing' }); setTimeout(() => this.setState({ rf: 'ok' }), 1000); },
@@ -2027,7 +2027,7 @@ class Component extends DCLogic {
       dist: [['正常', 55, 'ok', '持续检测中'], ['有风险', 2, 'err', 'web-prod-01 等'], ['未受保护', 6, 'warn', '按原因分 6 种'], ['接入中', 3, 'info', '首次检测中'], ['重装中', 0, 'mut2', ''], ['已停机', 2, 'mut', '不检测']].map(([n, v, c, s2]) => ({ n, v, s: s2, c: 'sh-' + c, lc: v ? '' : 'z', w: 'flex:' + v })),
       tabs: ATABS.map(([n, k]) => { const c = AL.filter((r) => !k || r[0] === k).length; return { n, c, on: n === atab, cls: n === atab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }; }),
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
-      prog: [['新发现', '14', '其中紧急 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
+      prog: [['新发现', '14', '其中高危 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
       caps: CAP.map(([n, k, m, fl, f, mm, d]) => { const ps = plug[n] || ''; const isP = m === 'plug'; const on = !isP || ps === 'ok';
         return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'sh-ent' : 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })

