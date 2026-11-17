@@ -127,8 +127,8 @@
           <p class="kc-sub" style="margin: 4px 10px; line-height: 1.6;">点产品右侧的星标即可收藏。</p>
         </sc-if>
         <h3 style="margin-top: 20px;">账号与费用</h3>
-        <a class="kc-rl" href="#"><i class="dt dt-member"></i>用户中心</a>
-        <a class="kc-rl" href="#"><i class="dt dt-order"></i>费用</a>
+        <a class="kc-rl" href="ConsoleHome.dc.html"><i class="dt dt-member"></i>用户中心</a>
+        <a class="kc-rl" href="BillOverview.dc.html"><i class="dt dt-order"></i>费用</a>
       </div>
       <div class="kc-pm">
         <label class="kc-ps">
@@ -175,12 +175,12 @@
           </div>
         </sc-if>
         <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
-          <p style="margin: 32px 0; text-align: center; color:#42464e;">没有找到「{{q}}」，可以试试 <a href="#">在文档中搜索</a> 或 <a href="#">提交工单</a>。</p>
+          <p style="margin: 32px 0; text-align: center; color:#42464e;">没有找到「{{q}}」，可以试试 <a href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html">在文档中搜索</a> 或 <a href="SupTicketNew.dc.html">提交工单</a>。</p>
         </sc-if>
       </div>
       <div class="kc-pf">
         <span class="kc-sub">未开通的产品点击后进入官网产品页了解和购买</span>
-        <a href="#" style="margin-left: auto;">查看全部产品与价格</a>
+        <a href="AcctPurchase.dc.html" style="margin-left: auto;">查看全部产品与价格</a>
       </div>
     </div>
   </div>
@@ -188,7 +188,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
-  __di(n) { const k = {"DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
+  __di(n) { const k = {"服务器": "idc", "应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   constructor(p) { super(p); this.state = { q: '', fav: { 'DDoS 高防 IP': true, '德迅安全卫士': true } }; }
   /* hdr62 */
@@ -729,12 +729,14 @@ class Component extends DCLogic {
   }
   /* /hdr62 */
   _rv() {
-    const href = { 'SCDN': 'Main.dc.html', 'DDoS 高防 IP': 'DdosInstances.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '德迅安全卫士': 'SecHome.dc.html', 'SSL 证书': 'AcctProducts.dc.html', '漏洞扫描 VSS': 'AcctProducts.dc.html' };
+    const href = { 'SCDN': 'Main.dc.html', 'DDoS 高防 IP': 'DdosInstances.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器': 'IdcServers.dc.html', '德迅安全卫士': 'SecHome.dc.html', 'SSL 证书': 'AcctProducts.dc.html', '漏洞扫描 VSS': 'AcctProducts.dc.html',
+      '应用加速': '../ProductAccel.dc.html', 'WAAP 全站防护': '../ProductWAAP.dc.html', 'Web 应用防火墙': '../ProductWAF.dc.html', '德迅云图': '../ProductAtlas.dc.html', '态势感知': '../ProductSitu.dc.html', '德迅蜂巢': '../ProductBeehive.dc.html', '德迅零域': '../ProductMicro.dc.html', '德迅猎鹰': '../ProductHoneypot.dc.html', '等保合规': '../ServiceDJBH.dc.html' };
     const groups = [
-      ['云安全', [['DDoS 高防 IP','大流量攻击清洗',1],['游戏盾','游戏 TCP/UDP 防护',1],['SCDN','加速 + Web 防护',1],['Web 应用防火墙','WAF',0],['SSL 证书','HTTPS 加密',1],['漏洞扫描 VSS','网站与主机漏洞',1]]],
-      ['主机与容器', [['德迅安全卫士','安全中心 · 主机安全',1],['德迅零域','微隔离',0],['德迅蜂巢','容器安全',0],['德迅猎鹰','云蜜罐',0]]],
-      ['安全运营', [['德迅云眼','网站安全监测',1],['德迅云图','威胁检测与分析',0],['态势感知','',0],['等保合规','等保咨询与测评',0],['日志审计','',0],['数据库审计','',0],['应用加固','Android / iOS / H5',0],['身份核验','实名、四要素',0]]],
-      ['计算与 IDC', [['服务器租用','独享物理服务器',1],['云服务器','',0],['裸金属','',0],['机柜托管','',0]]]
+      ['云安全', [['DDoS 高防 IP','大流量攻击清洗',1],['游戏盾','游戏 TCP/UDP 防护',1],['SCDN','加速 + Web 防护',1],['应用加速','跨地域跨运营商加速',0],['WAAP 全站防护','Web 与 API 一体防护',0],['Web 应用防火墙','WAF',0],['SSL 证书','HTTPS 加密',1]]],
+      ['主机安全', [['德迅安全卫士','安全中心 · 主机安全',1]]],
+      ['业务安全', [['德迅云眼','网站安全监测',1],['德迅云图','威胁检测与分析',0],['态势感知','安全态势总览',0],['德迅蜂巢','容器安全',0],['德迅零域','微隔离',0],['德迅猎鹰','云蜜罐',0]]],
+      ['安全运营', [['漏洞扫描 VSS','网站与主机漏洞',1],['等保合规','等保咨询与测评',0]]],
+      ['服务器', [['服务器','租用 / 弹性云 / 裸金属',1]]]
     ];
     const q = (this.state.q || '').trim().toLowerCase();
     const fav = this.state.fav;
