@@ -56,7 +56,7 @@ td .sl-st.b{color:#165dff}
 .kc .kc-kpi b{font-size:24px;line-height:32px;font-weight:600;font-family:Barlow,Inter,sans-serif}
 .kc .kc-kpi b span{font-size:inherit;color:inherit}
 .kc .kc-kpi b i,.kc .kc-kpi b i span{font-size:13px!important;font-weight:400;font-style:normal;color:rgba(0,0,0,.5)}
-.mo-sel{display:flex;align-items:center;gap:8px;margin:20px 0 4px;font-size:12px;color:rgba(0,0,0,.7)}
+.mo-tt{display:flex;align-items:center;gap:16px;margin:0 0 4px}.mo-tt .kc-h1{margin:0!important}.mo-sel{display:inline-flex;position:relative}.kc-main>.kc-hd:first-child{margin-top:0}
 </style>
 </head>
 <body>
@@ -158,9 +158,8 @@ td .sl-st.b{color:#165dff}
       </nav>
     <div class="kc-foldbar"><label for="kcf-IdcMonitor" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-IdcMonitor" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="IdcMonitor" class="kc-main">
-      <div class="mo-sel"><span>服务器</span><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div>
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1">监控报表</h1><p class="kc-desc">服务器的 CPU、内存、带宽和攻击情况。单台服务器的详细曲线也可以在服务器详情的「监控与报表」里看。</p></div></div>
+        <div class="kc-hdl"><div><div class="mo-tt"><h1 class="kc-h1">监控报表</h1><span class="mo-sel"><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>服务器</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></span></div><p class="kc-desc">服务器的 CPU、内存、带宽和攻击情况。单台服务器的详细曲线也可以在服务器详情的「监控与报表」里看。</p></div></div>
         <div class="kc-btns"><span class="{{ddC1}}"><button data-dd="1" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT1}}"><span>时间</span><b>{{ddV1}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO1}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL1}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><button type="button" class="kc-btn" onClick="{{exp}}">导出报表</button></div>
       </div>
       <sc-if value="{{expOn}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>✓</i><span><b>报表已生成</b>{{expT}}，已开始下载（示例）。</span><a class="s1-x" href="#" onClick="{{expX}}">知道了</a></div></sc-if>
@@ -498,8 +497,8 @@ class Component extends DCLogic {
     '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
     '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
     '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
-    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
-    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
     '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
     '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
   };

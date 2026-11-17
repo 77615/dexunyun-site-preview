@@ -56,7 +56,7 @@ td .sl-st.b{color:#165dff}
 .kc .kc-kpi b{font-size:24px;line-height:32px;font-weight:600;font-family:Barlow,Inter,sans-serif}
 .kc .kc-kpi b span{font-size:inherit;color:inherit}
 .kc .kc-kpi b i,.kc .kc-kpi b i span{font-size:13px!important;font-weight:400;font-style:normal;color:rgba(0,0,0,.5)}
-.mo-sel{display:flex;align-items:center;gap:8px;margin:20px 0 4px;font-size:12px;color:rgba(0,0,0,.7)}
+.mo-tt{display:flex;align-items:center;gap:16px;margin:0 0 4px}.mo-tt .kc-h1{margin:0!important}.mo-sel{display:inline-flex;position:relative}.kc-main>.kc-hd:first-child{margin-top:0}
 
 .lg-dw-m{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1000}
 .lg-steps{list-style:none;margin:0;padding:0}
@@ -75,6 +75,43 @@ td .sl-st.b{color:#165dff}
 .pr-add{display:flex;gap:8px;align-items:center;margin:0 0 12px}
 .pr-add .kc-in{width:220px}
 .kc .kc-sw{flex:none}
+.pv-card{padding:0}
+.pv-hide{display:none}
+.pv-st{display:flex;align-items:flex-start;gap:48px;padding:16px 24px;border-bottom:1px solid #f2f3f5}
+.pv-st>div{display:flex;flex-direction:column;gap:4px;font-size:12px}
+.pv-st>div>span{color:rgba(0,0,0,.5)}
+.kc .pv-st>div b{font-size:14px;font-weight:500;color:rgba(0,0,0,.9)}
+.kc .pv-st>div b.ok{color:#00875a}.kc .pv-st>div b.err{color:#f53f3f}
+.pv-st>div em{font-style:normal;color:rgba(0,0,0,.5)}
+.pv-st .pv-mo{margin-left:auto;align-self:center}
+.pv-tabs{padding:0 24px}
+.pv-tabs .kc-tab{height:44px;margin-right:32px;font-size:14px}
+.pv-cb{padding:8px 24px 16px}
+.pv-rows>.pr-row:last-child{border-bottom:0}
+.pv-why{margin:12px 0 4px;font-size:12px;color:rgba(0,0,0,.5)}
+.pv-n{font-size:14px;color:rgba(0,0,0,.9)}
+.pv-v{display:flex;align-items:center;gap:16px;flex:none;font-size:14px;color:rgba(0,0,0,.9)}
+.pv-v .mut{color:rgba(0,0,0,.5)}
+.pv-a{font-size:14px;color:#165dff;text-decoration:none;min-width:56px;text-align:right}
+.pv-a:hover{text-decoration:underline}
+.pv-emp{padding:40px 0 32px;max-width:560px}
+.pv-emp b{display:block;font-size:14px;font-weight:500;margin-bottom:8px}
+.pv-emp p{font-size:12px;color:rgba(0,0,0,.6);line-height:1.7;margin:0 0 16px}
+.pv-bar{display:flex;align-items:center;gap:16px;margin:16px 0 12px}
+.pv-bar .pv-add{margin-left:auto}
+.pv-ops{display:flex;flex-direction:column;gap:8px;margin:12px 0 16px}
+.pv-ops button{display:flex;gap:10px;align-items:flex-start;text-align:left;border:1px solid #e6e9ef;background:#fff;padding:12px 14px;cursor:pointer;font:inherit}
+.pv-ops button i{flex:none;width:14px;height:14px;border:1px solid #c9cdd4;border-radius:50%;margin-top:2px;box-sizing:border-box}
+.pv-ops button.on{border-color:#165dff;background:#f2f7ff}
+.pv-ops button.on i{border:4px solid #165dff}
+.pv-ops button.dis{opacity:.5;cursor:not-allowed}
+.pv-ops b{display:block;font-size:14px;font-weight:500;color:rgba(0,0,0,.9);margin-bottom:2px}
+.pv-ops em{font-style:normal;font-size:12px;color:rgba(0,0,0,.6);line-height:1.6}
+.pv-f{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(0,0,0,.7);margin:12px 0 16px}
+.pv-fc{flex-direction:column;align-items:stretch;gap:6px;margin:12px 0}
+.pv-ta{height:96px;padding:8px 12px;resize:vertical;font-family:inherit;line-height:1.6}
+.pv-err{font-size:12px;color:#f53f3f;margin:0 0 8px}
+.pv-md footer{margin-top:16px}
 </style>
 </head>
 <body>
@@ -176,40 +213,50 @@ td .sl-st.b{color:#165dff}
       </nav>
     <div class="kc-foldbar"><label for="kcf-IdcProtect" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-IdcProtect" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="IdcProtect" class="kc-main">
-      <div class="mo-sel"><span>服务器</span><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div>
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1">防护设置</h1><p class="kc-desc">服务器的 DDoS 防护、CC 防护和 IP 黑白名单。改完立即生效，不需要重启服务器。</p></div></div>
+        <div class="kc-hdl"><div><div class="mo-tt"><h1 class="kc-h1">防护设置</h1><span class="mo-sel"><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>服务器</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></span></div><p class="kc-desc">按服务器设置。改完立即生效，不需要重启服务器。</p></div></div>
         <div class="kc-btns"><a class="kc-btn" href="IdcLogs.dc.html">操作记录</a><a class="kc-btn pri" href="BillConfirm.dc.html">升级防护</a></div>
       </div>
       <sc-if value="{{tOn}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>✓</i><span><b>{{tT}}</b>{{tD}}</span><a class="s1-x" href="#" onClick="{{tX}}">知道了</a></div></sc-if>
-      <div class="kc-kpis"><sc-for list="{{kpis}}" as="k" hint-placeholder-count="4"><div class="kc-card kc-kpi"><span>{{k.n}}</span><b>{{k.v}} <i>{{k.u}}</i></b><i>{{k.s}}</i></div></sc-for></div>
-      <div class="kc-g2">
-        <section class="kc-card">
-          <div class="kc-ch"><h2>DDoS 防护</h2><span class="kc-sub">{{line}}</span></div>
-          <div class="kc-cb">
-            <div class="pr-row"><div>防护等级<div class="kc-sub">{{lvD}}</div></div><div class="kc-sg" role="group" aria-label="防护等级"><sc-for list="{{lv}}" as="m" hint-placeholder-count="3"><button class="{{m.cls}}" type="button" onClick="{{m.go}}">{{m.n}}</button></sc-for></div></div>
-            <sc-for list="{{sws}}" as="w" hint-placeholder-count="3"><div class="pr-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.cls}}" role="switch" aria-checked="{{w.on}}" aria-label="{{w.n}}" onClick="{{w.go}}"></button></div></sc-for>
+      <sc-if value="{{bhOn}}" hint-placeholder-val="{{false}}"><div class="ac-al e"><i>!</i><span><b>{{sn}} 在黑洞中，公网 IP 暂时访问不了。</b><em>{{bhD}}</em></span><a class="s1-x" href="#" onClick="{{unbk}}">提前解封</a></div></sc-if>
+      <section class="kc-card pv-card">
+        <div class="pv-st"><sc-for list="{{stl}}" as="x" hint-placeholder-count="4"><div><span>{{x.n}}</span><b class="{{x.c}}">{{x.v}}</b><em>{{x.s}}</em></div></sc-for><a class="s1-lk pv-mo" href="IdcMonitor.dc.html">攻击记录</a></div>
+        <div class="kc-tabs pv-tabs" role="tablist"><sc-for list="{{ptabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
+        <div class="kc-cb pv-cb">
+          <sc-if value="{{isRows}}" hint-placeholder-val="{{true}}">
+            <p class="pv-why">{{why}}</p>
+            <div class="pv-rows"><sc-for list="{{prs}}" as="r" hint-placeholder-count="4"><div class="pr-row"><div class="pv-n">{{r.n}}<div class="kc-sub">{{r.d}}</div></div><div class="pv-v"><span class="{{r.vc}}">{{r.v}}</span><sc-if value="{{r.sw}}" hint-placeholder-val="{{false}}"><button type="button" class="{{r.swc}}" role="switch" aria-checked="{{r.on}}" aria-label="{{r.n}}" onClick="{{r.go}}"></button></sc-if><sc-if value="{{r.lk}}" hint-placeholder-val="{{true}}"><a class="pv-a" href="{{r.h}}" onClick="{{r.go}}">{{r.lt}}</a></sc-if></div></div></sc-for></div>
+          </sc-if>
+          <sc-if value="{{isCcOff}}" hint-placeholder-val="{{false}}">
+            <div class="pv-emp"><b>这台服务器没有开 CC 防护</b><p>CC 防护只对服务器上的网站（HTTP / HTTPS）有用，用来拦截刷接口、刷页面的请求。服务器上没有网站就不用开。</p><button type="button" class="kc-btn pri" onClick="{{ccEn}}">开启 CC 防护</button></div>
+          </sc-if>
+          <div class="{{blC}}">
+            <div class="pv-bar"><div class="kc-sg" role="group" aria-label="名单类型"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button class="{{t.sg}}" type="button" onClick="{{t.pick}}">{{t.n}} {{t.c}}</button></sc-for></div><span class="kc-sub">{{tabD}}</span><button type="button" class="kc-btn pri pv-add" onClick="{{addOpen}}">添加 IP</button></div>
+            <div class="kc-tw"><table class="kc-t op-fix">
+              <thead><tr><th>IP / 网段</th><th>备注</th><th>添加人</th><th>添加时间</th><th>操作</th></tr></thead>
+              <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="3"><tr><td>{{r.ip}}</td><td>{{r.note}}</td><td>{{r.who}}</td><td>{{r.tm}}</td><td><a href="#" onClick="{{r.del}}">删除</a></td></tr></sc-for></tbody>
+            </table></div>
+            <sc-if value="{{none}}" hint-placeholder-val="{{false}}"><div style="padding:32px 0;text-align:center;color:rgba(0,0,0,.5);font-size:12px">还没有{{tabN}}</div></sc-if>
           </div>
-        </section>
-        <section class="kc-card">
-          <div class="kc-ch"><h2>CC 防护</h2><span class="kc-sub">只对网站（HTTP / HTTPS）生效</span></div>
-          <div class="kc-cb">
-            <sc-for list="{{cc}}" as="w" hint-placeholder-count="2"><div class="pr-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.cls}}" role="switch" aria-checked="{{w.on}}" aria-label="{{w.n}}" onClick="{{w.go}}"></button></div></sc-for>
-            <div class="pr-row"><div>单 IP 访问频率上限<div class="kc-sub">超过后要求验证，验证不过再拦截</div></div><span>{{ccRate}}</span></div>
-          </div>
-        </section>
-      </div>
-      <section class="kc-card">
-        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="kc-cnt">{{t.c}}</span></button></sc-for></div>
-        <div class="kc-cb">
-          <div class="pr-add"><input class="kc-in" aria-label="IP 或网段" placeholder="IP 或网段，例如 203.0.113.0/24" value="{{nIp}}" onChange="{{onIp}}"><input class="kc-in" aria-label="备注" placeholder="备注（选填）" value="{{nNote}}" onChange="{{onNote}}"><button type="button" class="{{addCls}}" onClick="{{add}}">添加到{{tabN}}</button><span class="kc-sub">{{tabD}}</span></div>
-          <div class="kc-tw"><table class="kc-t op-fix">
-            <thead><tr><th>IP / 网段</th><th>备注</th><th>添加人</th><th>添加时间</th><th>操作</th></tr></thead>
-            <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="3"><tr><td>{{r.ip}}</td><td>{{r.note}}</td><td>{{r.who}}</td><td>{{r.tm}}</td><td><a href="#" onClick="{{r.del}}">删除</a></td></tr></sc-for></tbody>
-          </table></div>
-          <sc-if value="{{none}}" hint-placeholder-val="{{false}}"><div style="padding:32px 0;text-align:center;color:rgba(0,0,0,.5);font-size:12px">还没有{{tabN}}</div></sc-if>
         </div>
       </section>
+      <sc-if value="{{mdOn}}" hint-placeholder-val="{{false}}">
+        <div class="s1-mask" onClick="{{mdX}}"></div>
+        <div class="s1-md pv-md" role="dialog" aria-label="{{mdT}}">
+          <header><b>{{mdT}}</b><button type="button" aria-label="关闭" onClick="{{mdX}}">×</button></header>
+          <sc-if value="{{mdNote}}" hint-placeholder-val="{{false}}"><p class="s1-note">{{mdNote}}</p></sc-if>
+          <sc-if value="{{mdHasOps}}" hint-placeholder-val="{{false}}"><div class="pv-ops" role="radiogroup"><sc-for list="{{mdOps}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.on}}" class="{{o.cls}}" onClick="{{o.go}}"><i></i><span><b>{{o.n}}</b><em>{{o.d}}</em></span></button></sc-for></div></sc-if>
+          <sc-if value="{{mdRate}}" hint-placeholder-val="{{false}}"><label class="pv-f"><span>单个 IP 每秒最多</span><input class="kc-in" style="width:96px" type="number" min="5" max="1000" value="{{rateV}}" onChange="{{onRate}}"><span>次请求</span></label></sc-if>
+          <sc-if value="{{mdAdd}}" hint-placeholder-val="{{false}}">
+            <label class="pv-f pv-fc"><span>IP 或网段</span><textarea class="kc-in pv-ta" placeholder="每行一个，例如
+203.0.113.12
+203.0.113.0/24" onChange="{{onIp}}">{{nIp}}</textarea></label>
+            <label class="pv-f pv-fc"><span>备注（选填）</span><input class="kc-in" value="{{nNote}}" onChange="{{onNote}}"></label>
+            <sc-if value="{{addErr}}" hint-placeholder-val="{{false}}"><p class="pv-err">{{addErr}}</p></sc-if>
+          </sc-if>
+          <footer><button type="button" class="kc-btn" onClick="{{mdX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{mdOk}}">{{mdOkT}}</button></footer>
+        </div>
+      </sc-if>
     </main>
   </div>
 </div>
@@ -517,8 +564,8 @@ class Component extends DCLogic {
     '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
     '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
     '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
-    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
-    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
     '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
     '监控报表': 'IdcServerDetail.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcServerDetail.dc.html'
   };
@@ -837,27 +884,59 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
 
-    const SV = [['web-prod-01', '高防服务器 · 200G 保底', 200, 12, 3, '高防'], ['db-01', '电信服务器 · 基础防护 10G', 10, 0, 0, '基础'], ['backup-02', 'BGP 服务器 · 基础防护 20G', 20, 0, 0, '基础'], ['ecs-app-01', '弹性云服务器 · 基础防护 5G', 5, 0, 0, '基础'], ['bm-db-01', '裸金属服务器 · 基础防护 10G', 10, 2.4, 1, '基础']];
+    const SV = [['web-prod-01', '高防服务器', 200, 300, '11-15 17:31 · 峰值 12 Gbps · 已清洗', 1, 0], ['db-01', '电信服务器 · 基础防护', 10, 0, '近 30 天没有攻击', 0, 0], ['backup-02', 'BGP 服务器 · 基础防护', 20, 0, '近 30 天没有攻击', 0, 0], ['ecs-app-01', '弹性云服务器 · 基础防护', 5, 0, '近 30 天没有攻击', 0, 0], ['bm-db-01', '裸金属服务器 · 基础防护', 10, 0, '今天 10:42 · 峰值 14 Gbps · 超过保底', 0, 1]];
     const sn = st.ddv0 || SV[0][0]; const S = SV.find((x) => x[0] === sn) || SV[0];
     const key = (k) => sn + ':' + k; const g = (k, d) => (st[key(k)] === undefined ? d : st[key(k)]);
-    const T = (k, d, n, desc) => { const on = g(k, d); return { n, d: desc, on: on ? 'true' : 'false', cls: on ? 'kc-sw on' : 'kc-sw', go: () => this.setState({ [key(k)]: !on, tOn: 1, tT: n + (on ? '已关闭' : '已开启'), tD: '对 ' + sn + ' 立即生效，已记入操作记录。' }) }; };
-    const lvK = g('lv', '正常');
-    const LVD = { '宽松': '只拦截明显的攻击流量，误拦最少，适合业务刚接入时观察', '正常': '推荐。拦截攻击流量和异常连接，对正常访问基本无影响', '严格': '被持续攻击时使用。可能误拦少量正常访问，攻击结束后建议调回正常' };
-    const lv = ['宽松', '正常', '严格'].map((n) => ({ n, cls: n === lvK ? 'on' : '', go: () => this.setState({ [key('lv')]: n, tOn: 1, tT: '防护等级已改为「' + n + '」', tD: '对 ' + sn + ' 立即生效。' }) }));
-    const hi = S[5] === '高防';
-    const sws = [T('el', false, '超出保底后弹性防护', hi ? '攻击超过 ' + S[2] + 'G 时自动扩到 300G，按实际峰值计费；关闭则超过后进入黑洞' : '基础防护不支持弹性，需要的话请升级为高防服务器'), T('sms', true, '攻击开始和结束时通知我', '短信 + 站内信，发给服务器负责人和主账号'), T('auto', true, '黑洞后自动解封', '黑洞 30 分钟后自动尝试解封，每天最多 3 次')];
-    if (!hi) sws[0] = { n: sws[0].n, d: sws[0].d, on: 'false', cls: 'kc-sw dis', go: () => this.setState({ tOn: 1, tT: '基础防护不支持弹性防护', tD: '可以在「升级防护」里换成高防服务器。' }) };
-    const cc = [T('cc', hi, 'CC 防护', '识别并拦截刷接口、刷页面的请求'), T('js', false, '可疑请求先做人机验证', '浏览器访问会看到一次验证，接口调用不受影响')];
+    const hi = !!S[5]; const toast = (t, d) => ({ tOn: 1, tT: t, tD: d || '' });
+    const bh = !!S[6] && !g('unbk', false);
+    const lvK = g('lv', '正常'); const elK = g('el', '关闭');
+    const LV = [['宽松', '只拦截明显的攻击流量，几乎不会误拦。适合业务刚接入、还在观察的时候。'], ['正常', '推荐。拦截攻击流量和异常连接，对正常访问基本没有影响。'], ['严格', '正在被持续攻击时用。可能误拦少量正常访问，攻击结束后建议调回「正常」。']];
+    const EL = [['关闭', '攻击超过保底 ' + S[2] + 'G 时进入黑洞，公网 IP 暂停访问 30 分钟起。不产生额外费用。'], ['弹性到 300G', '超过保底的部分按当天攻击峰值计费，参考 ¥80/G·天。'], ['弹性到 500G', '超过保底的部分按当天攻击峰值计费，参考 ¥80/G·天。适合游戏、直播等容易被大流量攻击的业务。']];
+    const md = st.pmd || ''; const pick = st.ppick;
+    const ptab = st.pptab || (__qs && { cc: 'CC 防护', bl: 'IP 黑白名单' }[__qs.get('tab')]) || 'DDoS 防护';
+    const ptabs = ['DDoS 防护', 'CC 防护', 'IP 黑白名单'].map((n) => ({ n, on: n === ptab, cls: n === ptab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ pptab: n }) }));
+    const SW = (k, d, n, desc) => { const on = g(k, d); return { n, d: desc, v: '', vc: '', sw: true, swc: on ? 'kc-sw on' : 'kc-sw', on: on ? 'true' : 'false', lk: false, go: () => this.setState(Object.assign({ [key(k)]: !on }, toast(n + (on ? '已关闭' : '已开启'), '对 ' + sn + ' 立即生效，已记入操作记录。'))) }; };
+    const LK = (n, desc, v, lt, go, h, vc) => ({ n, d: desc, v, vc: vc || '', sw: false, lk: true, lt, h: h || '#', go: go ? (e) => { ev(e); go(); } : null });
+    const open = (m, p) => () => this.setState({ pmd: m, ppick: p, addErr: '' });
+    const ccOn = g('cc', hi);
+    let prs = [], why = '';
+    if (ptab === 'DDoS 防护') {
+      why = '应对大流量攻击。通常设一次就不用再动，被攻击时可以临时调严。';
+      prs = [LK('防护等级', LV.find((x) => x[0] === lvK)[1], lvK, '修改', open('lv', lvK)),
+        hi ? LK('超过保底时', elK === '关闭' ? '攻击超过 ' + S[2] + 'G 后进入黑洞' : '攻击超过 ' + S[2] + 'G 后继续清洗，超出部分按天计费', elK === '关闭' ? '进入黑洞' : elK, '修改', open('el', elK))
+          : LK('超过保底时', '基础防护只能进入黑洞，不支持弹性防护', '进入黑洞', '升级防护', null, 'BillConfirm.dc.html', 'mut'),
+        SW('auto', true, '黑洞后自动解封', '进入黑洞 30 分钟后自动尝试解封，每天最多 3 次'),
+        LK('攻击通知', '攻击开始和结束时发短信和站内信，在消息设置里改接收人', '已开启', '去设置', null, 'Notifications.dc.html')];
+    } else if (ptab === 'CC 防护' && ccOn) {
+      why = '拦截刷接口、刷页面的请求，只对服务器上的网站（HTTP / HTTPS）生效。';
+      prs = [SW('cc', hi, 'CC 防护', '关闭后不再识别和拦截 CC 攻击'),
+        LK('单 IP 访问频率上限', '超过后先要求验证，验证不通过再拦截', '每秒 ' + g('rate', 60) + ' 次', '修改', open('rate', g('rate', 60))),
+        SW('js', false, '可疑请求先做人机验证', '浏览器访问会看到一次验证，接口调用不受影响')];
+    }
     const BL0 = { 'web-prod-01': { b: [['45.134.**.12', '反弹 Shell 来源', '系统', '11-15 17:40'], ['103.97.**.0/24', '持续 CC 攻击', 'wangqi', '11-12 21:03']], w: [['115.236.**.20', '办公室出口', 'wangqi', '10-28 10:11']] } };
     const lists = st[key('bl')] || BL0[sn] || { b: [], w: [] };
     const tab = st.ptab || '黑名单'; const tk = tab === '黑名单' ? 'b' : 'w';
-    const tabs = [['黑名单', 'b'], ['白名单', 'w']].map(([n, k]) => ({ n, c: lists[k].length, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ ptab: n }) }));
-    const nIp = st.nIp || '', nNote = st.nNote || ''; const ok = /^\d{1,3}(\.\d{1,3}|\.\*\*){3}(\/\d{1,2})?$/.test(nIp.trim());
-    const rows = lists[tk].map((r, i) => ({ ip: r[0], note: r[1] || '—', who: r[2], tm: r[3], del: (e) => { ev(e); const nl = { b: lists.b.slice(), w: lists.w.slice() }; nl[tk].splice(i, 1); this.setState({ [key('bl')]: nl, tOn: 1, tT: '已从' + tab + '删除 ' + r[0], tD: '立即生效。' }); } }));
-    const __R = { nav, kpis: [{ n: '保底防护', v: S[2], u: 'Gbps', s: hi ? '高防服务器 · 可弹性到 300G' : '基础防护' }, { n: '当前状态', v: S[3] ? '已清洗' : '正常', u: '', s: S[3] ? '最近一次 11-15 17:31，已结束' : '近 24 小时无攻击' }, { n: '近 7 天攻击', v: S[4], u: '次', s: S[4] ? '峰值 ' + S[3] + ' Gbps · 全部拦截' : '未发现攻击' }, { n: '黑洞', v: '未触发', u: '', s: '超过保底且未开弹性时触发' }],
-      line: S[1], lv, lvD: LVD[lvK], sws, cc, ccRate: g('cc', hi) ? '每秒 60 次' : '未开启', tabs, rows, none: !rows.length, tabN: tab, tabD: tk === 'b' ? '这些 IP 的所有请求直接拦截' : '这些 IP 不做任何拦截，请只放自己的出口 IP',
-      nIp, nNote, onIp: (e) => this.setState({ nIp: e.target.value }), onNote: (e) => this.setState({ nNote: e.target.value }), addCls: ok ? 'kc-btn pri' : 'kc-btn pri dis',
-      add: () => { if (!ok) { this.setState({ tOn: 1, tT: '请输入正确的 IP 或网段', tD: '例如 203.0.113.12 或 203.0.113.0/24。' }); return; } const nl = { b: lists.b.slice(), w: lists.w.slice() }; nl[tk].unshift([nIp.trim(), nNote.trim(), 'wangqi', '刚刚']); this.setState({ [key('bl')]: nl, nIp: '', nNote: '', tOn: 1, tT: '已添加到' + tab + '：' + nIp.trim(), tD: '约 10 秒内生效。' }); },
+    const tabs = [['黑名单', 'b'], ['白名单', 'w']].map(([n, k]) => ({ n, c: lists[k].length, sg: n === tab ? 'on' : '', pick: () => this.setState({ ptab: n }) }));
+    const nIp = st.nIp || '', nNote = st.nNote || '';
+    const rows = lists[tk].map((r, i) => ({ ip: r[0], note: r[1] || '—', who: r[2], tm: r[3], del: (e) => { ev(e); const nl = { b: lists.b.slice(), w: lists.w.slice() }; nl[tk].splice(i, 1); this.setState(Object.assign({ [key('bl')]: nl }, toast('已从' + tab + '删除 ' + r[0], '约 10 秒内生效。'))); } }));
+    const OPS = (L, cur, dis) => L.map(([n, d]) => ({ n, d, on: n === cur ? 'true' : 'false', cls: (n === cur ? 'on' : '') + (dis && dis(n) ? ' dis' : ''), go: () => this.setState({ ppick: n }) }));
+    const close = (x) => this.setState(Object.assign({ pmd: '', addErr: '' }, x || {}));
+    const MD = {
+      lv: { t: '修改防护等级', note: '', ops: OPS(LV, pick), ok: '确定', go: () => close(Object.assign({ [key('lv')]: pick }, toast('防护等级已改为「' + pick + '」', '对 ' + sn + ' 立即生效，已记入操作记录。'))) },
+      el: { t: '攻击超过保底 ' + S[2] + 'G 时', note: '弹性防护只在攻击超过保底时才产生费用，当天没有超过就不收费。', ops: OPS(EL, pick), ok: '确定', go: () => close(Object.assign({ [key('el')]: pick }, toast(pick === '关闭' ? '已关闭弹性防护' : '已开启弹性防护，上限 ' + pick.replace('弹性到 ', ''), pick === '关闭' ? '超过保底后会进入黑洞。' : '对 ' + sn + ' 立即生效，费用按天出账。'))) },
+      rate: { t: '修改单 IP 访问频率上限', note: '一般网站每秒 60 次够用；接口调用多的业务可以调高。', rate: true, ok: '确定', go: () => { const v = Math.max(5, Math.min(1000, parseInt(st.prate || pick, 10) || 60)); close(Object.assign({ [key('rate')]: v, prate: '' }, toast('访问频率上限已改为每秒 ' + v + ' 次', '立即生效。'))); } },
+      add: { t: '添加到' + tab, note: tk === 'b' ? '黑名单里的 IP 发来的所有请求都会被直接拦截。' : '白名单里的 IP 不做任何拦截，请只添加自己公司的出口 IP。', add: true, ok: '添加', go: () => { const ips = nIp.split(/[\s,，]+/).map((x) => x.trim()).filter(Boolean); const bad = ips.filter((x) => !/^\d{1,3}(\.\d{1,3}){3}(\/\d{1,2})?$/.test(x)); if (!ips.length || bad.length) { this.setState({ addErr: ips.length ? '格式不对：' + bad.join('、') : '请填写 IP 或网段' }); return; } const nl = { b: lists.b.slice(), w: lists.w.slice() }; ips.reverse().forEach((x) => nl[tk].unshift([x, nNote.trim(), 'wangqi', '刚刚'])); close(Object.assign({ [key('bl')]: nl, nIp: '', nNote: '' }, toast('已添加 ' + ips.length + ' 个 IP 到' + tab, '约 10 秒内生效。'))); } },
+      unbk: { t: '提前解封 ' + sn + '？', note: '解封后如果攻击还在继续，会再次进入黑洞，并且下次封禁时间更长。今天还可以提前解封 2 次。', ok: '提前解封', go: () => close(Object.assign({ [key('unbk')]: true }, toast(sn + ' 已解封', '公网 IP 恢复访问，约 1 分钟生效。'))) } };
+    const m = MD[md] || null;
+    const stl = [{ n: '防护类型', v: S[1], c: '', s: '' }, { n: '防护能力', v: '保底 ' + S[2] + 'G' + (hi && elK !== '关闭' ? '，' + elK : ''), c: '', s: hi ? '' : '不支持弹性' },
+      { n: '当前状态', v: bh ? '黑洞中' : '正常', c: bh ? 'err' : 'ok', s: bh ? '预计 11:12 自动解封' : '没有正在进行的攻击' }, { n: '最近一次攻击', v: S[4].split(' · ')[0], c: '', s: S[4].split(' · ').slice(1).join(' · ') }];
+    const __R = { nav, sn, stl, ptabs, prs, why, isRows: prs.length > 0, isCcOff: ptab === 'CC 防护' && !ccOn, blC: ptab === 'IP 黑白名单' ? 'pv-bl' : 'pv-bl pv-hide',
+      ccEn: () => this.setState(Object.assign({ [key('cc')]: true }, toast('CC 防护已开启', '默认单 IP 每秒 60 次，可以随时修改。'))),
+      bhOn: bh, bhD: '今天 10:42 攻击峰值 14 Gbps，超过保底 10G。预计 11:12 自动解封。', unbk: (e) => { ev(e); open('unbk')(); },
+      tabs, rows, none: !rows.length, tabN: tab, tabD: tk === 'b' ? '这些 IP 的所有请求直接拦截' : '这些 IP 不做任何拦截',
+      addOpen: open('add'), nIp, nNote, onIp: (e) => this.setState({ nIp: e.target.value }), onNote: (e) => this.setState({ nNote: e.target.value }), addErr: st.addErr || '',
+      mdOn: !!m, mdT: m ? m.t : '', mdNote: m ? m.note : '', mdHasOps: !!(m && m.ops), mdOps: (m && m.ops) || [], mdRate: !!(m && m.rate), mdAdd: !!(m && m.add), rateV: st.prate || pick || 60, onRate: (e) => this.setState({ prate: e.target.value }),
+      mdOkT: m ? m.ok : '', mdOk: () => m && m.go(), mdX: (e) => { ev(e); close(); },
       tOn: !!st.tOn, tT: st.tT || '', tD: st.tD || '', tX: (e) => { ev(e); this.setState({ tOn: 0 }); } };
     const DDS = [[SV[0][0], SV.map((x) => x[0])]];
 

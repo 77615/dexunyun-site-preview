@@ -16,6 +16,10 @@
 .s4-sec b{display:block;color:rgba(0,0,0,.9);font-weight:500;margin-bottom:2px}
 .s4-sec ul{margin:0;padding-left:18px}
 .vf-dlg .kc-btn.dis,.vf-dlg button.dis{opacity:.45;pointer-events:none}
+.kc-tile b span,.kc-tile .kc-sub span,.kc-kvg div span span,.kc-kvg div span+span{font:inherit;color:inherit;width:auto;display:inline}
+.ss-tiles .kc-tile > span{font-size:12px;color:rgba(0,0,0,.7)}
+.ss-tiles .kc-tile b{font:600 20px/28px Inter,"PingFang SC",sans-serif;margin-top:4px;color:rgba(0,0,0,.9)}
+.ss-tiles .kc-tile .kc-sub{font-size:12px;line-height:18px;margin-top:2px}
 </style>
 </head>
 <body>
@@ -118,44 +122,33 @@
     <div class="kc-foldbar"><label for="kcf-IdcReinstall" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-IdcReinstall" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="IdcReinstall" class="kc-main">
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1 sv-hd">web-prod-01<span class="{{stCls}}">{{stTxt}}</span></h1><p class="sv-desc">115.231.**.12 · 电信 100M 独享 · E5-2680×2 / 64G · 温州电信 A 机房</p></div></div>
-        <div class="kc-btns"><a class="kc-btn" href="IdcServers.dc.html">返回服务器列表</a></div>
+        <div class="kc-hdl"><span class="kc-ico" aria-hidden="true"><svg class="rx" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.00488 2.99979H21.0049C21.5572 2.99979 22.0049 3.4475 22.0049 3.99979V19.9998C22.0049 20.5521 21.5572 20.9998 21.0049 20.9998H3.00488C2.4526 20.9998 2.00488 20.5521 2.00488 19.9998V3.99979C2.00488 3.4475 2.4526 2.99979 3.00488 2.99979ZM20.0049 10.9998H4.00488V18.9998H20.0049V10.9998ZM20.0049 8.99979V4.99979H4.00488V8.99979H20.0049ZM14.0049 14.9998H18.0049V16.9998H14.0049V14.9998Z"></path></svg></span><div>
+          <h1 class="kc-h1">web-prod-01 <span class="{{stCls}}">{{stTxt}}</span></h1>
+          <p class="kc-desc">idc-wz-0193 · 115.231.**.12 · 温州电信 A 机房 · E5-2680×2 / 64G · 电信 100M 独享</p></div>
+        </div>
+        <div class="kc-btns"><a class="kc-btn" href="IdcServers.dc.html">返回列表</a><button class="kc-btn" type="button">远程控制台</button><button class="kc-btn" type="button" onClick="{{goCfg}}">安全配置</button>
+          <sc-if value="{{idle}}" hint-placeholder-val="{{true}}"><button class="kc-btn" type="button" onClick="{{openRb}}">重启</button><button class="kc-btn" type="button" onClick="{{openRi}}">重装系统</button></sc-if>
+          <sc-if value="{{busy}}" hint-placeholder-val="{{false}}"><button class="kc-btn" type="button" disabled="">重启</button><button class="kc-btn" type="button" disabled="">重装系统</button></sc-if>
+          <a class="kc-btn pri" href="BillConfirm.dc.html">续费</a></div>
       </div>
       <sc-if value="{{doneMsg}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><span>{{doneMsg}}</span><button type="button" class="kc-btn sm" onClick="{{hideMsg}}">知道了</button></div></sc-if>
-      <div class="sv-tasks">
-        <section class="sv-task"><header><i><span class="kc-ic i-doc"></span></i>到期与续费<a href="BillOrders.dc.html">续费记录</a></header>
-          <div class="sv-big o">2026-11-20<small>剩 24 天到期</small></div>
-          <div class="sv-line">月付 ¥399/月 · 到期后保留 7 天（示例值），之后释放并清空数据</div>
-          <div class="sv-act"><a class="kc-btn pri" href="BillConfirm.dc.html">续费</a><a class="kc-btn" href="BillConfirm.dc.html">升级配置</a></div></section>
-        <section class="sv-task"><header><i><span class="kc-ic i-gear"></span></i>重启与重装<button type="button" onClick="{{goLog}}">操作记录</button></header>
-          <div class="sv-big">{{osName}}<small>{{runTxt}}</small></div>
-          <div class="sv-line">{{osLine}}</div>
-          <sc-if value="{{idle}}" hint-placeholder-val="{{true}}"><div class="sv-act"><button class="kc-btn" type="button" onClick="{{openRb}}">重启</button><button class="kc-btn" type="button" onClick="{{openRi}}">重装系统</button><button class="kc-btn" type="button">远程控制台</button></div></sc-if>
-          <sc-if value="{{busy}}" hint-placeholder-val="{{false}}"><div class="sv-prog"><div><span>{{busyTxt}}</span><span>{{pct}}%</span></div><span class="ac-bar"><i style="{{pgw}}"></i></span><div><span class="kc-sub">{{busyTip}}</span><button type="button" onClick="{{finish}}">演示：完成</button></div></div></sc-if>
-        </section>
-        <section class="sv-task"><header><i><span class="kc-ic i-chart"></span></i>运行与防护数据<button type="button" onClick="{{goRep}}">查看报表</button></header>
-          <div class="sv-mets"><div>CPU<b>23<small>%</small></b></div><div>出带宽<b>41<small>/100 Mbps</small></b></div><div>今日拦截<b class="r">3<small>次攻击</small></b></div></div>
-          <div class="sv-line">最近一次：10:12 UDP Flood 2.1 Gbps，已清洗</div>
-          <div class="sv-act"><button class="kc-btn" type="button" onClick="{{goRep}}">查看报表</button><a class="kc-btn" href="#">导出报表</a></div></section>
-      </div>
+      <sc-if value="{{busy}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>i</i><span>{{busyTxt}} {{pct}}%<em>{{busyTip}}</em></span><button type="button" class="kc-btn sm" onClick="{{finish}}">演示：完成</button></div></sc-if>
+
+      <section class="kc-card" style="margin-bottom:16px" aria-label="状态">
+        <div class="kc-cb kc-tiles ss-tiles" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+          <a class="kc-tile" href="IdcLogs.dc.html"><span>运行状态</span><b>{{stTxt}}</b><div class="kc-sub">{{runTxt}}</div></a>
+          <a class="kc-tile" href="BillConfirm.dc.html"><span>到期时间</span><b>24 天后</b><div class="kc-sub">2026-11-20 · 月付 ¥399</div></a>
+          <a class="kc-tile" href="IdcServerDetail.dc.html"><span>安全状态</span><b>{{secB}}</b><div class="kc-sub">{{secS}}</div></a>
+          <a class="kc-tile" href="IdcMonitor.dc.html"><span>今日防护</span><b>3 次攻击</b><div class="kc-sub">已全部拦截</div></a>
+          <a class="kc-tile" href="IdcMonitor.dc.html"><span>资源使用</span><b>CPU 23%</b><div class="kc-sub">出带宽 41 / 100 Mbps</div></a>
+        </div>
+      </section>
+
       <section class="kc-card">
-        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
-        <sc-if value="{{tRep}}" hint-placeholder-val="{{true}}">
-        <div class="sv-bar"><span class="kc-sub">运行数据每 1 分钟采集，防护数据来自机房清洗中心</span><div class="sv-rng"><sc-for list="{{rngs}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.cls}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></div><a class="kc-btn sm" href="#">导出</a></div>
-        <div class="sv-charts"><sc-for list="{{charts}}" as="c" hint-placeholder-count="4">
-          <div class="sv-ch"><div>{{c.n}}<b>{{c.v}}</b><em>{{c.s}}</em></div><div class="{{c.cc}}"><sc-for list="{{c.bars}}" as="b" hint-placeholder-count="24"><i style="{{b}}"></i></sc-for></div><div class="sv-ax"><sc-for list="{{ax}}" as="x" hint-placeholder-count="5"><span>{{x}}</span></sc-for></div></div>
-        </sc-for></div>
-        </sc-if>
-        <sc-if value="{{tInfo}}" hint-placeholder-val="{{false}}">
-        <div class="kc-cb kc-kvg"><div><span>服务器 ID</span>idc-wz-0193</div><div><span>机房</span>温州电信 A 机房 · 机柜 A12</div><div><span>公网 IP</span>115.231.**.12</div><div><span>线路</span>电信 · 100M 独享</div>
-          <div><span>CPU</span>E5-2680 v4 × 2（28 核）</div><div><span>内存</span>64 GB DDR4</div><div><span>硬盘</span>2 × 960 GB SSD · RAID 1</div><div><span>操作系统</span>{{osName}}</div>
-          <div><span>默认防护</span>20 Gbps DDoS 防护</div><div><span>计费方式</span>月付 ¥399/月</div><div><span>开通时间</span>2026-02-20</div><div><span>到期时间</span>2026-11-20</div></div>
-        </sc-if>
-        <sc-if value="{{tLog}}" hint-placeholder-val="{{false}}">
-        <div class="kc-tw"><table class="kc-t"><thead><tr><th>时间</th><th>操作</th><th>内容</th><th>操作人</th><th>结果</th></tr></thead><tbody>
-          <sc-for list="{{logs}}" as="l" hint-placeholder-count="4"><tr class="{{l.rc}}"><td>{{l.t}}</td><td>{{l.op}}</td><td>{{l.d}}</td><td>{{l.u}}</td><td><span class="{{l.tc}}">{{l.r}}</span></td></tr></sc-for>
-        </tbody></table></div>
-        </sc-if>
+        <div class="kc-tabs" role="tablist"><a class="kc-tab on" style="text-decoration:none" role="tab" aria-selected="true" href="IdcServerDetail.dc.html">基本信息</a><a class="kc-tab" style="text-decoration:none" role="tab" aria-selected="false" href="IdcServerDetail.dc.html">安全<span class="kc-cnt r">3</span></a><a class="kc-tab" style="text-decoration:none" role="tab" aria-selected="false" href="IdcServerDetail.dc.html">监控与报表</a><a class="kc-tab" style="text-decoration:none" role="tab" aria-selected="false" href="IdcLogs.dc.html">操作记录</a></div>
+                <div class="kc-cb kc-kvg"><div><span>服务器 ID</span>idc-wz-0193</div><div><span>CPU</span>E5-2680 v4 × 2（28 核）</div><div><span>内存</span>64 GB DDR4</div><div><span>硬盘</span>2 × 960 GB SSD · RAID 1</div>
+          <div><span>操作系统</span>{{osName}}</div><div><span>公网 IP</span>115.231.**.12</div><div><span>线路</span>电信 · 100M 独享</div><div><span>默认防护</span>20 Gbps DDoS 防护</div>
+          <div><span>机房</span>温州电信 A 机房 · A12</div><div><span>计费方式</span>月付 ¥399/月</div><div><span>开通时间</span>2026-02-20</div><div><span>资产负责人</span>王五（运维工程师）· 风险通知同时发给 TA 和主账号</div><div><span>到期时间</span>2026-11-20</div></div>
       </section>
     </main>
   </div>
@@ -490,8 +483,8 @@ class Component extends DCLogic {
     '查看操作日志': 'DdosInstanceDetail.dc.html', '在防护日志中查看全部': 'DdosLogs.dc.html', '以表格查看': 'DdosLogs.dc.html', '告警联系人': 'DdosAlerts.dc.html',
     '从其他厂商迁移': 'SupTicketNew.dc.html', '去「访问分析」查看': 'GameAnalytics.dc.html', '掉线率': 'GameAnalytics.dc.html', '网站可用性': 'EyeUptime.dc.html',
     '去「攻击报表」查看': 'ScdnStats.dc.html', '今日拦截攻击': 'ScdnStats.dc.html', '流量包剩余': 'ScdnPlan.dc.html', '本月弹性费用': 'BillOverview.dc.html',
-    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html?tab=p',
-    '续费到期资源': 'AcctSubs.dc.html?ft=exp', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
+    '上传新证书': 'ScdnCertsEdit.dc.html', '编辑配置': 'ScdnDomainDetail.dc.html', '4 个域名': 'DdosAccess.dc.html', '3 个端口': 'DdosAccess.dc.html',
+    '续费到期资源': 'AcctSubs.dc.html', '提交工单': 'SupTicketNew.dc.html', '查看': 'DdosPolicy.dc.html',
     '用户中心': 'ConsoleHome.dc.html', '费用': 'BillOverview.dc.html', '游戏盾': 'GameAccess.dc.html', '德迅云眼': 'EyeRisk.dc.html', '服务器租用': 'IdcServers.dc.html', '查看全部产品与价格': 'AcctPurchase.dc.html',
     '监控报表': 'IdcMonitor.dc.html', '查看拦截记录': 'ScdnBlocks.dc.html', '操作记录': 'IdcLogs.dc.html'
   };
@@ -845,7 +838,7 @@ class Component extends DCLogic {
       goRep: () => this.setState({ tab: '运行与防护报表' }), goLog: () => this.setState({ tab: '操作记录' }),
       osName: os, runTxt: job ? (job === 'rb' ? '重启中' : '重装中') : '运行中 · 37 天', osLine: '最近一次重启 2026-10-12 23:05',
       idle: !job, busy: !!job, busyTxt: job === 'rb' ? '正在重启…' : '正在重装 ' + pick + '…', pct: job === 'rb' ? 60 : 35, pgw: 'width:' + (job === 'rb' ? 60 : 35) + '%',
-      busyTip: job === 'rb' ? '约 1 分钟后恢复' : '约 7 分钟，完成后短信通知', doneMsg: st.doneMsg || '', hideMsg: () => this.setState({ doneMsg: '' }),
+      busyTip: job === 'rb' ? '约 1 分钟后恢复' : '约 7 分钟，完成后短信通知', doneMsg: st.doneMsg || '', goCfg: (e) => { if (e && e.preventDefault) e.preventDefault(); location.href = 'IdcServerDetail.dc.html'; }, secB: job === 'ri' ? '暂停检测' : '有风险', secS: job === 'ri' ? '重装中，不发离线提醒' : '3 项待处理，2 项需立即处理', hideMsg: () => this.setState({ doneMsg: '' }),
       finish: () => { const ri = job === 'ri'; const ls = (st.logs || []).slice(); if (ls[0]) ls[0] = ls[0].slice(0, 4).concat(['成功']);
         this.setState({ job: '', logs: ls, os: ri ? pick + ' ' + (OS.find((o) => o[0] === pick) || ['', ''])[1] : os, doneMsg: ri ? '重装完成：' + pick + (pw === '设置新密码' ? '，请用新密码登录' : '，随机密码已短信发送') + '。德迅安全卫士已自动重新安装，正在首次检测' : '重启完成，服务器已恢复运行' }); },
       rbOpen: dlg === 'rb', riOpen: dlg === 'ri', openRb: () => this.setState({ dlg: 'rb' }), openRi: () => this.setState({ dlg: 'ri', bk: false, sent: false }), close: () => this.setState({ dlg: '' }),
