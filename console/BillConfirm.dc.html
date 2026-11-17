@@ -13,6 +13,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&amp;display=swap" data-r91="">
 <style>
 
+
+/* tcl2-v1 账号侧 · 腾讯式一级页签（无左侧菜单） */
+.kc .kc-body>.kc-main{flex:1 1 100%;min-width:0;margin-left:0!important}
+.kc .kc-main>nav.tcl-tabs{margin:8px 20px 16px!important}
+.tcl-tabs{display:flex;gap:32px;height:48px;align-items:flex-end;border-bottom:1px solid rgba(0,0,0,.06)}
+.tcl-tabs>a{position:relative;display:flex;align-items:center;height:44px;font-size:16px;color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s}
+.tcl-tabs>a:hover{color:rgba(0,0,0,.9)}
+.tcl-tabs>a.on{color:rgba(0,0,0,.9);font-weight:600}
+.tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
+.kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
+.tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -91,21 +102,8 @@
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
   <div class="kc-body">
-    <input type="checkbox" id="kcf-BillConfirm" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="控制台菜单">
-      <div class="kc-sh"><b>控制台</b><span>德迅科技 · 主账号</span></div>
-      <nav class="kc-nv" aria-label="产品菜单">
-      <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
-        <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
-        <sc-for list="{{g.items}}" as="it" hint-placeholder-count="4">
-          <a class="{{it.cls}}" href="{{it.href}}" onClick="{{it.tog}}" aria-expanded="{{it.ex}}"><i class="{{it.ic}}"></i><span>{{it.t}}</span><em>{{it.ext}}</em><b class="{{it.chev}}"></b></a>
-          <sc-if value="{{it.open}}" hint-placeholder-val="{{true}}">
-            <div class="kc-sub2"><sc-for list="{{it.kids}}" as="k" hint-placeholder-count="3"><a class="{{k.cls}}" href="{{k.href}}">{{k.t}}<em>{{k.ext}}</em></a></sc-for></div>
-          </sc-if>
-        </sc-for>
-      </sc-for>
-      </nav>
-    <div class="kc-foldbar"><label for="kcf-BillConfirm" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-BillConfirm" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="BillConfirm" class="kc-main">
+      <nav class="tcl-tabs" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a class="on" aria-current="page" href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">确认订单 · 续费</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">返回</a></div>
