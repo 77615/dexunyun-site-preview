@@ -25,6 +25,15 @@
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
 
+/* shell171 2026-11-17 77：四个一级页签共用总览的页头（问候语 + 渐变底 + 24px 边距），切换时不再跳 */
+.kc main.kc-main.kc-main{background:radial-gradient(1100px 300px at 82% -40px,#d6e6ff 0,rgba(214,230,255,.45) 45%,transparent 75%),#f2f4f8!important}
+.kc main.kc-main>.kc-hd.kc-hd{background:transparent!important;border:0!important;padding:28px 24px 0!important;min-height:0}
+.kc main.kc-main>.kc-hd.kc-hd .kc-h1{font-size:22px!important;line-height:32px!important;font-weight:600!important}
+.kc-h1 .kc-ai{width:16px;height:16px;margin-left:6px;vertical-align:0;fill:#1664ff;flex:none}
+.kc main.kc-main>*:not(.kc-hd){margin-left:24px!important;margin-right:24px!important}
+.kc main.kc-main>nav.tcl-tabs.tcl-top{margin:12px 24px 20px!important}
+.kc main.kc-main>nav.tcl-top+.ia-tabs{margin-top:-4px!important}
+
 /* tcl3-v1 分组页头部与首页统一 */
 .kc main.kc-main.kc-main{background:radial-gradient(1100px 300px at 82% -40px,#d6e6ff 0,rgba(214,230,255,.45) 45%,transparent 75%),#f2f4f8!important}
 .kc main.kc-main>.kc-hd.kc-hd{background:transparent!important;border:0!important;box-shadow:none!important;margin:0!important;padding:28px 24px 8px!important;min-height:0}
@@ -120,7 +129,10 @@
   </header>
   <div class="kc-body">
     <main data-pg="OrgRoles" class="kc-main">
-      <div class="kc-hd tcl-hd"><div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div><div class="kc-btns"></div></div>
+      <div class="kc-hd">
+        <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div>
+        <div class="kc-btns"></div>
+      </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a class="on" aria-current="page" href="OrgInfo.dc.html">企业</a></nav>
       <nav class="ia-tabs" aria-label="企业"><a href="OrgInfo.dc.html">企业信息</a><a href="OrgMembers.dc.html">成员</a><a class="on" aria-current="page" href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav>
       <section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2><i class="fi-i fi-users"></i>预置角色</h2><span class="kc-sub">角色变更实时生效，并会站内信通知本人</span></div>

@@ -35,7 +35,8 @@ for p in sys.argv[1:]:
         print('skip', name); continue
     if 'class="tcl-tabs tcl-top"' not in s:
         print('not group page', name); continue
-    s = s.replace('<nav class="tcl-tabs tcl-top"', HD + '<nav class="tcl-tabs tcl-top"', 1)
+    if 'shell171' not in s and '下午好，wangqi' not in s:
+        s = s.replace('<nav class="tcl-tabs tcl-top"', HD + '<nav class="tcl-tabs tcl-top"', 1)
     # 一级页签行在各分组保持一致：页面按钮挪到二级页签行右侧
     m = re.search(r'<div class="kc-btns tcl-r">(.*?)</div></nav>', s, flags=re.S)
     if m:
