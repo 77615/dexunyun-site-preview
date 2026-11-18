@@ -97,6 +97,32 @@
 .tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+
+/* shell171 2026-11-17 77：四个一级页签共用总览的页头（问候语 + 渐变底 + 24px 边距），切换时不再跳 */
+.kc main.kc-main.kc-main{background:radial-gradient(1100px 300px at 82% -40px,#d6e6ff 0,rgba(214,230,255,.45) 45%,transparent 75%),#f2f4f8!important}
+.kc main.kc-main>.kc-hd.kc-hd{background:transparent!important;border:0!important;padding:28px 24px 0!important;min-height:0}
+.kc main.kc-main>.kc-hd.kc-hd .kc-h1{font-size:22px!important;line-height:32px!important;font-weight:600!important}
+.kc-h1 .kc-ai{width:16px;height:16px;margin-left:6px;vertical-align:0;fill:#1664ff;flex:none}
+.kc main.kc-main>*:not(.kc-hd){margin-left:24px!important;margin-right:24px!important}
+.kc main.kc-main>nav.tcl-tabs.tcl-top{margin:12px 24px 20px!important}
+.kc main.kc-main>nav.tcl-top+.ia-tabs{margin-top:-4px!important}
+
+/* tcl3-v1 分组页头部与首页统一 */
+.kc main.kc-main.kc-main{background:radial-gradient(1100px 300px at 82% -40px,#d6e6ff 0,rgba(214,230,255,.45) 45%,transparent 75%),#f2f4f8!important}
+.kc main.kc-main>.kc-hd.kc-hd{background:transparent!important;border:0!important;box-shadow:none!important;margin:0!important;padding:28px 24px 8px!important;min-height:0}
+.kc main.kc-main>.kc-hd.kc-hd .kc-h1{font-size:22px!important;line-height:32px!important;font-weight:600!important;display:flex;align-items:center;gap:4px}
+.kc-hd .kc-ai{width:16px;height:16px;fill:#1664ff}
+.kc main.kc-main>*:not(.kc-hd){margin-left:24px!important;margin-right:24px!important}
+.kc .kc-main>nav.tcl-tabs{margin:12px 24px 20px!important}
+.kc .kc-main>nav.ia-tabs{display:flex;gap:8px!important;margin-top:0!important;margin-bottom:16px!important;padding:0!important;border:0!important;background:none!important}
+.kc .kc-main>nav.ia-tabs>a{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex;align-items:center;border:1px solid #e6e9ef!important;border-radius:16px!important;background:#fff!important;color:rgba(0,0,0,.7)!important;font-size:13px!important;font-weight:400!important;text-decoration:none;box-shadow:none!important}
+.kc .kc-main>nav.ia-tabs>.tcl-r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.kc .kc-main>nav.ia-tabs>.tcl-r>a.kc-btn{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex!important;align-items:center;gap:6px;border:1px solid #d6dbe3!important;background:#fff!important;color:rgba(0,0,0,.9)!important;font-size:13px!important;border-radius:0!important}
+.kc .kc-main>nav.ia-tabs>.tcl-r>a.kc-btn:hover{border-color:#1664ff!important;color:#1664ff!important}
+.kc .kc-main>nav.ia-tabs>a::after,.kc .kc-main>nav.ia-tabs>a::before{display:none!important}
+.kc .kc-main>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
+.kc .kc-main>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
+.kc .kc-main .kc-card,.kc .kc-main .b8-box,.kc .kc-main .ac-st{border:0!important;border-radius:0!important;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -176,6 +202,10 @@
   </header>
   <div class="kc-body">
     <main data-pg="OrgMembers" class="kc-main">
+      <div class="kc-hd">
+        <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div>
+        <div class="kc-btns"></div>
+      </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a class="on" aria-current="page" href="OrgInfo.dc.html">企业</a></nav>
       <nav class="ia-tabs" aria-label="企业"><a href="OrgInfo.dc.html">企业信息</a><a class="on" aria-current="page" href="OrgMembers.dc.html">成员</a><a href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav>
       <div class="h8-tip lu" style="margin-bottom:16px"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b><span class="lu-a">https://uc.dexunyun.com/sub-login?ent=100014655316</span><button type="button" class="lu-cp" data-v="https://uc.dexunyun.com/sub-login?ent=100014655316" aria-label="复制成员登录地址" title="复制"><svg class="i-cp" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3Zm2 0h7a1 1 0 0 1 1 1v9h2V4H9v2ZM5 8v12h10V8H5Z"></path></svg><svg class="i-ok" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m10 15.17 9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17Z"></path></svg></button></div>
