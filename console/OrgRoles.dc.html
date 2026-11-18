@@ -62,6 +62,29 @@
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+
+/* hier-v2 胶囊页签和内容同一个容器 */
+.kc main.kc-main>.hier-box{margin:0 24px!important;background:#fff;border:1px solid #e9ecf1;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.kc main.kc-main>.hier-box>nav.ia-tabs.ia-tabs{margin:0!important;padding:16px 20px!important;background:#fff!important;border:0!important;border-bottom:1px solid #f0f2f5!important;box-shadow:none!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in{display:block;padding:16px;background:#f5f6f8}
+.kc main.kc-main>.hier-box>.hier-in>*{margin-left:0!important;margin-right:0!important;margin-top:0!important;margin-bottom:0!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in>*+*{margin-top:16px!important}
+.kc main.kc-main>.hier-box>.hier-in section.kc-card{border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs.kc-tabs{display:inline-flex!important;gap:0!important;height:auto!important;margin:16px 16px 0!important;padding:2px!important;background:#f2f3f5!important;border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 14px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;font-size:13px!important;font-weight:400!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::before,.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+.kc main.kc-main>.hier-box>.hier-in>.b8{border-top:0!important;padding-top:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs{display:flex;gap:8px!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex;align-items:center;border:1px solid #e6e9ef!important;border-radius:16px!important;background:#fff!important;color:rgba(0,0,0,.7)!important;font-size:13px!important;font-weight:400!important;text-decoration:none;box-shadow:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a::after,.kc .kc-main>.hier-box>nav.ia-tabs>a::before{display:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex!important;align-items:center;gap:6px;border:1px solid #d6dbe3!important;background:#fff!important;color:rgba(0,0,0,.9)!important;font-size:13px!important;border-radius:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn:hover{border-color:#1664ff!important;color:#1664ff!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -146,7 +169,7 @@
         <div class="kc-btns"></div>
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a class="on" aria-current="page" href="OrgInfo.dc.html">企业</a></nav>
-      <nav class="ia-tabs" aria-label="企业"><a href="OrgInfo.dc.html">企业信息</a><a href="OrgMembers.dc.html">成员</a><a class="on" aria-current="page" href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav>
+      <div class="hier-box"><nav class="ia-tabs" aria-label="企业"><a href="OrgInfo.dc.html">企业信息</a><a href="OrgMembers.dc.html">成员</a><a class="on" aria-current="page" href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav><div class="hier-in">
       <section class="kc-card" style="margin-bottom:16px"><div class="kc-ch"><h2><i class="fi-i fi-users"></i>预置角色</h2><span class="kc-sub">角色变更实时生效，并会站内信通知本人</span></div>
         <div class="kc-tw"><table class="kc-t op-fix"><thead><tr><th>角色</th><th>职责与适用范围</th><th>成员数</th><th>操作</th></tr></thead><tbody>
           <tr><td><b>主账号</b></td><td>企业注册账号，拥有全部权限，转让和注销只能由主账号操作</td><td>1</td><td><span class="kc-sub">不可修改</span></td></tr>
@@ -159,7 +182,7 @@
         <div class="kc-tw"><table class="kc-t ac-mx"><thead><tr><th>操作</th><th>主账号</th><th>管理员</th><th>财务管理员</th><th>运维工程师</th><th>普通成员</th></tr></thead><tbody>
           <sc-for list="{{mx}}" as="m" hint-placeholder-count="8"><tr><td>{{m.n}}</td><sc-for list="{{m.v}}" as="v" hint-placeholder-count="5"><td class="{{v.c}}">{{v.t}}</td></sc-for></tr></sc-for>
         </tbody></table></div></section>
-    </main>
+    </div></div></main>
   </div>
 </div>
 </x-dc>

@@ -62,6 +62,29 @@
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+
+/* hier-v2 胶囊页签和内容同一个容器 */
+.kc main.kc-main>.hier-box{margin:0 24px!important;background:#fff;border:1px solid #e9ecf1;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.kc main.kc-main>.hier-box>nav.ia-tabs.ia-tabs{margin:0!important;padding:16px 20px!important;background:#fff!important;border:0!important;border-bottom:1px solid #f0f2f5!important;box-shadow:none!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in{display:block;padding:16px;background:#f5f6f8}
+.kc main.kc-main>.hier-box>.hier-in>*{margin-left:0!important;margin-right:0!important;margin-top:0!important;margin-bottom:0!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in>*+*{margin-top:16px!important}
+.kc main.kc-main>.hier-box>.hier-in section.kc-card{border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs.kc-tabs{display:inline-flex!important;gap:0!important;height:auto!important;margin:16px 16px 0!important;padding:2px!important;background:#f2f3f5!important;border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 14px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;font-size:13px!important;font-weight:400!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::before,.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+.kc main.kc-main>.hier-box>.hier-in>.b8{border-top:0!important;padding-top:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs{display:flex;gap:8px!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex;align-items:center;border:1px solid #e6e9ef!important;border-radius:16px!important;background:#fff!important;color:rgba(0,0,0,.7)!important;font-size:13px!important;font-weight:400!important;text-decoration:none;box-shadow:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a::after,.kc .kc-main>.hier-box>nav.ia-tabs>a::before{display:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex!important;align-items:center;gap:6px;border:1px solid #d6dbe3!important;background:#fff!important;color:rgba(0,0,0,.9)!important;font-size:13px!important;border-radius:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn:hover{border-color:#1664ff!important;color:#1664ff!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -146,7 +169,7 @@
         <div class="kc-btns"></div>
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a class="on" aria-current="page" href="OrgInfo.dc.html">企业</a></nav>
-      <nav class="ia-tabs" aria-label="企业"><a class="on" aria-current="page" href="OrgInfo.dc.html">企业信息</a><a href="OrgMembers.dc.html">成员</a><a href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav>
+      <div class="hier-box"><nav class="ia-tabs" aria-label="企业"><a class="on" aria-current="page" href="OrgInfo.dc.html">企业信息</a><a href="OrgMembers.dc.html">成员</a><a href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav><div class="hier-in">
       <div class="ac-col">
         <section class="kc-card"><div class="kc-ch"><h2><i class="fi-i fi-build"></i>企业认证</h2><span class="kc-tag ok">已认证</span></div>
           <div class="kc-cb"><div class="ac-kv"><div><span>企业名称</span>浙江德迅科技有限公司</div><div><span>统一社会信用代码</span>91330300MA2XXXXXXX</div><div><span>法定代表人</span>王*</div><div><span>认证时间</span>2025-06-30 10:05</div></div>
@@ -161,7 +184,7 @@
             <li><i><span class="fi-i fi-ding"></span></i><div><b>钉钉</b><span class="kc-tag mut">未绑定</span><p>绑定后可在钉钉群接收告警</p></div><a class="kc-btn sm" href="#">绑定</a></li>
           </ul></section>
       </div>
-    </main>
+    </div></div></main>
   </div>
 </div>
 </x-dc>

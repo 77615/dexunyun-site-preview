@@ -135,6 +135,29 @@
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
 .kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+
+/* hier-v2 胶囊页签和内容同一个容器 */
+.kc main.kc-main>.hier-box{margin:0 24px!important;background:#fff;border:1px solid #e9ecf1;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.kc main.kc-main>.hier-box>nav.ia-tabs.ia-tabs{margin:0!important;padding:16px 20px!important;background:#fff!important;border:0!important;border-bottom:1px solid #f0f2f5!important;box-shadow:none!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in{display:block;padding:16px;background:#f5f6f8}
+.kc main.kc-main>.hier-box>.hier-in>*{margin-left:0!important;margin-right:0!important;margin-top:0!important;margin-bottom:0!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in>*+*{margin-top:16px!important}
+.kc main.kc-main>.hier-box>.hier-in section.kc-card{border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs.kc-tabs{display:inline-flex!important;gap:0!important;height:auto!important;margin:16px 16px 0!important;padding:2px!important;background:#f2f3f5!important;border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 14px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;font-size:13px!important;font-weight:400!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::before,.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+.kc main.kc-main>.hier-box>.hier-in>.b8{border-top:0!important;padding-top:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs{display:flex;gap:8px!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex;align-items:center;border:1px solid #e6e9ef!important;border-radius:16px!important;background:#fff!important;color:rgba(0,0,0,.7)!important;font-size:13px!important;font-weight:400!important;text-decoration:none;box-shadow:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a::after,.kc .kc-main>.hier-box>nav.ia-tabs>a::before{display:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex!important;align-items:center;gap:6px;border:1px solid #d6dbe3!important;background:#fff!important;color:rgba(0,0,0,.9)!important;font-size:13px!important;border-radius:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn:hover{border-color:#1664ff!important;color:#1664ff!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -219,7 +242,7 @@
         <div class="kc-btns"></div>
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a class="on" aria-current="page" href="OrgInfo.dc.html">企业</a></nav>
-      <nav class="ia-tabs" aria-label="企业"><a href="OrgInfo.dc.html">企业信息</a><a class="on" aria-current="page" href="OrgMembers.dc.html">成员</a><a href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav>
+      <div class="hier-box"><nav class="ia-tabs" aria-label="企业"><a href="OrgInfo.dc.html">企业信息</a><a class="on" aria-current="page" href="OrgMembers.dc.html">成员</a><a href="OrgRoles.dc.html">角色权限</a><a href="OrgSecurity.dc.html">安全设置</a></nav><div class="hier-in">
       <div class="h8-tip lu" style="margin-bottom:16px"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg><b>成员登录地址：</b><span class="lu-a">https://uc.dexunyun.com/sub-login?ent=100014655316</span><button type="button" class="lu-cp" data-v="https://uc.dexunyun.com/sub-login?ent=100014655316" aria-label="复制成员登录地址" title="复制"><svg class="i-cp" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .55-.45 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3Zm2 0h7a1 1 0 0 1 1 1v9h2V4H9v2ZM5 8v12h10V8H5Z"></path></svg><svg class="i-ok" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m10 15.17 9.19-9.19 1.42 1.41L10 18 3.64 11.64l1.41-1.41L10 15.17Z"></path></svg></button></div>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
@@ -230,7 +253,7 @@
         </table></div>
         <div class="kc-foot lf-foot"><span class="lf-note">已创建 {{cnt}} / 50</span><div class="lf-pgr"><span>共 {{total}} 人</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC1}}"><button data-dd="1" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT1}}"><b>{{ddV1}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO1}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL1}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
       </section>
-    </main>
+    </div></div></main>
   </div>
   <sc-if value="{{dOpen}}" hint-placeholder-val="{{false}}">
   <div class="ac-drw" role="dialog" aria-label="新增成员">
