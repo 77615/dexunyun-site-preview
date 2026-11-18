@@ -156,6 +156,55 @@
 .pc-steps li:not(:last-child)::after{content:"";position:absolute;top:17px;bottom:-11px;left:-14px;width:1px;background:#e5e8ef}
 .pc-steps li.now::before{background:#1664ff}
 .pc-steps time{flex:none;color:rgba(0,0,0,.4);font-variant-numeric:tabular-nums}
+
+/* pcsem-v1 语义色和元素（腾讯控制台规范） */
+.pc{--e1:#fce8e8;--e8:#f64041;--e9:#b42c3f;--w1:#ffeddf;--w8:#ff7800;--w9:#c04100;--s1:#e7f8f0;--s8:#0cbf5b;--s9:#088f50;--n1:#e9ecf1;--t9:rgba(0,0,0,.9);--t7:rgba(0,0,0,.7);--t5:rgba(0,0,0,.5);--t3:rgba(0,0,0,.3)}
+.pc .pc-mk.err{background:var(--e8)}.pc .pc-mk.warn{background:var(--w8)}.pc .pc-mk.ok{background:var(--s8)}.pc .pc-mk.mut{background:#bcc4d0}
+.pc .pc-chip,.pc-dw .pc-chip{height:20px;padding:0 6px;border-radius:2px!important;font-size:12px;font-weight:400;line-height:20px;gap:4px}
+.pc .pc-chip.err,.pc-dw .pc-chip.err{background:var(--e1,#fce8e8);color:var(--e9,#b42c3f)}
+.pc .pc-chip.err .pc-mk,.pc-dw .pc-chip.err .pc-mk{background:var(--e9,#b42c3f)}
+.pc .pc-chip.warn,.pc-dw .pc-chip.warn{background:var(--w1,#ffeddf);color:var(--w9,#c04100)}
+.pc .pc-chip.warn .pc-mk,.pc-dw .pc-chip.warn .pc-mk{background:var(--w9,#c04100)}
+.pc .pc-chip.ok,.pc-dw .pc-chip.ok{padding:0;background:none;color:rgba(0,0,0,.7)}
+.pc .pc-chip.ok .pc-mk,.pc-dw .pc-chip.ok .pc-mk{background:#0cbf5b}
+.pc .pc-chip.mut,.pc-dw .pc-chip.mut{padding:0;background:none;color:rgba(0,0,0,.5)}
+.pc .pc-chip.mut .pc-mk,.pc-dw .pc-chip.mut .pc-mk{background:#bcc4d0}
+.pc .pc-st{color:var(--t7)}
+.pc .pc-ico,.pc-dw .pc-ico{border-radius:0;background:#e3ecff}
+.pc .pc-ico.t2,.pc-dw .pc-ico.t2{background:#d3f4ef}
+.pc .pc-ico.t3,.pc-dw .pc-ico.t3{background:#e5e9f0}
+.pc .pc-nm b{font-weight:500;color:var(--t9)}
+.pc .pc-nm small{color:var(--t5)}
+.pc .pc-tx{font-size:12px;line-height:20px;color:var(--t7)}
+.pc .pc-ub{height:4px;border-radius:0;background:#e6e9ef}
+.pc .pc-ub i,.pc .pc-ub i.o,.pc .pc-ub i.r{border-radius:0;background:#1664ff}
+.pc .pc-ub i.o{background:var(--w8)}
+.pc .pc-ub i.r{background:var(--e8)}
+.pc .pc-u em{color:var(--t5)}
+.pc .pc-u:has(i.r) em{color:var(--e8)}
+.pc .pc-u:has(i.o) em{color:var(--w8)}
+.pc .pc-ex{color:var(--t5)}
+.pc .pc-ex.o{color:var(--w8)}
+.pc .pc-ex.r{color:var(--e8)}
+.pc .pc-c{box-shadow:0 0 0 1px #e9ecf1}
+.pc .pc-c:hover{box-shadow:0 0 0 1px #e6e9ef,0 8px 24px -4px rgba(0,0,0,.1),0 8px 12px -8px rgba(0,0,0,.05)}
+.pc .pc-c.cur{box-shadow:0 0 0 1px #1664ff,0 8px 24px -4px rgba(0,0,0,.1)}
+.pc .pc-ft{background:#f7f8fb;border-top-color:#f0f2f5;font-size:12px}
+.pc .pc-act,.pc .pc-con{color:var(--t9)}
+.pc .pc-act:hover,.pc .pc-con:hover{color:#1664ff}
+.pc .pc-act.pri{color:#1664ff;font-weight:400}
+.pc .pc-lh>span{background:var(--n1);color:var(--t5)}
+.pc .pc-sc button>.pc-n{color:var(--t5)}
+.pc .pc-sc button>.pc-n.r{color:var(--e8);font-weight:500}
+.pc .pc-rp{color:var(--t5)}.pc .pc-rt{color:var(--t7)}
+.pc .pc-rw{font-size:12px}
+.pc .pc-rw:hover,.pc .pc-c.cur .pc-rw{background:#f7f8fb}
+.pc-dw .pc-dd{font-size:12px;line-height:20px;color:rgba(0,0,0,.7)}
+.pc-dw .pc-kv{font-size:12px}
+.pc-dw .pc-kv dt{color:rgba(0,0,0,.5)}
+.pc-dw .pc-steps{background:#f7f8fb}
+.pc-dw .pc-steps li{font-size:12px;color:rgba(0,0,0,.7)}
+.pc-dw .pc-steps time{color:rgba(0,0,0,.5)}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -241,26 +290,26 @@
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a class="on" aria-current="page" href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       
-      <section class="pc">
-        <nav class="pc-tabs" aria-label="我的产品"><a class="on" aria-current="page" href="AcctProducts.dc.html">按产品</a><a href="AcctSubs.dc.html">按资源</a></nav>
-        <div class="pc-in">
-        <div class="pc-bar">
-          <div class="pc-sc" role="tablist" aria-label="按状态筛选"><sc-for list="{{pcScopes}}" as="s" hint-placeholder-count="4"><button type="button" role="tab" class="{{s.cls}}" aria-selected="{{s.on}}" onClick="{{s.go}}">{{s.n}}<em class="pc-n">{{s.c}}</em></button></sc-for></div>
-          <div class="pc-tools"><div class="pc-vw" role="radiogroup" aria-label="视图"><button type="button" role="radio" title="卡片" aria-label="卡片" class="{{pcVbC}}" aria-checked="{{pcVbOn}}" onClick="{{pcToB}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"/></svg></button><button type="button" role="radio" title="列表" aria-label="列表" class="{{pcVlC}}" aria-checked="{{pcVlOn}}" onClick="{{pcToL}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 4h13v2H8V4zM3 3.5h3v3H3v-3zm0 7h3v3H3v-3zm0 7h3v3H3v-3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z"/></svg></button></div><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
+      <section class="pc" style="background-color: #FFFFFF00">
+        <nav class="pc-tabs" aria-label="我的产品" style="opacity: 1; border-style: solid; padding-right: 20px; padding-left: 20px; padding-top: 8px; padding-bottom: 8px; background-color: var(--bg-2, #f7f8fa); border-top-width: 0px; border-right-width: 0px; border-left-width: 0px; border-color: var(--border-1, #e5e6eb); border-bottom-width: 1px"><a class="on" aria-current="page" href="AcctProducts.dc.html" style="border-radius: 4px; background-color: var(--bg-1, #ffffff); color: var(--text-2, #4e5969); border-color: var(--border-1, #e5e6eb)">按产品</a><a href="AcctSubs.dc.html" style="border-radius: 4px; background-color: #EFEFEF; border-color: var(--border-1, #e5e6eb); color: var(--text-4, #86909c); font-weight: 500">按资源</a></nav>
+        <div class="pc-in" style="background-color: var(--bg-1, #ffffff); padding-left: 0px; padding-right: 0px; padding-bottom: 16px">
+        <div class="pc-bar" style="margin-right: 20px; margin-left: 20px">
+          <div class="pc-sc" role="tablist" aria-label="按状态筛选"><sc-for list="{{pcScopes}}" as="s" hint-placeholder-count="4"><button type="button" role="tab" class="{{s.cls}}" aria-selected="{{s.on}}" onClick="{{s.go}}">{{s.n}}<em class="{{s.nc}}">{{s.c}}</em></button></sc-for></div>
+          <div class="pc-tools"><div class="pc-vw" role="radiogroup" aria-label="视图"><button type="button" role="radio" title="卡片" aria-label="卡片" class="{{pcVbC}}" aria-checked="{{pcVbOn}}" onClick="{{pcToB}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"></path></svg></button><button type="button" role="radio" title="列表" aria-label="列表" class="{{pcVlC}}" aria-checked="{{pcVlOn}}" onClick="{{pcToL}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 4h13v2H8V4zM3 3.5h3v3H3v-3zm0 7h3v3H3v-3zm0 7h3v3H3v-3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z"></path></svg></button></div><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
         </div>
-        <sc-if value="{{pcBoard}}" hint-placeholder-val="{{true}}"><div class="pc-wall"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lane"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
+        <sc-if value="{{pcBoard}}" hint-placeholder-val="{{true}}"><div class="pc-wall" style="background-color: var(--bg-1, #ffffff); border-style: solid; border-color: var(--border-1, #e5e6eb); border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lane"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
           <ul class="pc-grid"><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-cm" onClick="{{p.open}}">
-            <span class="pc-tt"><span class="pc-ico"><i class="{{p.di}}"></i></span><span class="pc-nm"><b>{{p.n}}</b><small>{{p.plan}}</small></span><span class="{{p.chip}}"><i class="{{p.mk}}"></i>{{p.sw}}</span></span>
+            <span class="pc-tt"><span class="{{p.ic}}"><i class="{{p.di}}"></i></span><span class="pc-nm"><b>{{p.n}}</b><small>{{p.plan}}</small></span><span class="{{p.chip}}" style="border-radius: 2px"><i class="{{p.mk}}"></i>{{p.sw}}</span></span>
             <span class="pc-tx">{{p.text}}</span>
             <span class="{{p.uCls}}"><span class="pc-ub"><i class="{{p.uc}}" style="{{p.uw}}"></i></span><em>{{p.ut}}</em></span>
             <span class="pc-meta"><span class="{{p.exC}}">{{p.exp}}</span></span>
-          </button><div class="pc-ft"><sc-for list="{{p.acts}}" as="a" hint-placeholder-count="2"><a class="{{a.cls}}" href="{{a.href}}">{{a.t}}</a></sc-for><a class="pc-con" href="{{p.con}}">{{p.conT}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.17 12 8.22 7.05l1.42-1.41L16 12l-6.36 6.36-1.42-1.41z"/></svg></a></div></li></sc-for></ul></div></sc-for></div></sc-if>
+          </button><div class="pc-ft"><sc-for list="{{p.acts}}" as="a" hint-placeholder-count="2"><a class="{{a.cls}}" href="{{a.href}}">{{a.t}}</a></sc-for><a class="pc-con" href="{{p.con}}">{{p.conT}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.17 12 8.22 7.05l1.42-1.41L16 12l-6.36 6.36-1.42-1.41z"></path></svg></a></div></li></sc-for></ul></div></sc-for></div></sc-if>
         <sc-if value="{{pcList}}" hint-placeholder-val="{{false}}"><div class="pc-lst"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lg"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
-          <ul><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-rw" onClick="{{p.open}}"><span class="pc-rn"><span class="pc-ico sm"><i class="{{p.di}}"></i></span><b>{{p.n}}</b></span><span class="pc-rp">{{p.plan}}</span><span class="pc-rt">{{p.text}}</span><span class="pc-st"><i class="{{p.mk}}"></i>{{p.sw}}</span><span class="{{p.exC}}">{{p.exp}}</span></button></li></sc-for></ul></div></sc-for></div></sc-if>
+          <ul><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-rw" onClick="{{p.open}}"><span class="pc-rn"><span class="{{p.icS}}"><i class="{{p.di}}"></i></span><b>{{p.n}}</b></span><span class="pc-rp">{{p.plan}}</span><span class="pc-rt">{{p.text}}</span><span class="pc-st"><span class="{{p.chip}}"><i class="{{p.mk}}"></i>{{p.sw}}</span></span><span class="{{p.exC}}">{{p.exp}}</span></button></li></sc-for></ul></div></sc-for></div></sc-if>
         </div>
       </section>
       <sc-if value="{{pcDOn}}" hint-placeholder-val="{{false}}"><div class="kc-dmask" onClick="{{pcClose}}"></div><aside class="kc-dw pc-dw" role="dialog" aria-label="产品详情"><div class="kc-dwh"><span>产品详情</span><button type="button" class="pc-x" aria-label="关闭" onClick="{{pcClose}}">×</button></div>
-        <div class="kc-dwb"><div class="pc-dh"><span class="pc-ico"><i class="{{pcD.di}}"></i></span><div><h3>{{pcD.n}}</h3><p><span class="{{pcD.tag}}">{{pcD.sw}}</span><small>{{pcD.plan}}</small></p></div></div>
+        <div class="kc-dwb"><div class="pc-dh"><span class="{{pcD.ic}}"><i class="{{pcD.di}}"></i></span><div><h3>{{pcD.n}}</h3><p><span class="{{pcD.tag}}"><i class="{{pcD.mk}}"></i>{{pcD.sw}}</span><small>{{pcD.plan}}</small></p></div></div>
           <p class="pc-dd">{{pcD.text}}</p>
           <div class="pc-da"><sc-for list="{{pcD.acts}}" as="a" hint-placeholder-count="2"><a class="{{a.cls}}" href="{{a.href}}">{{a.t}}</a></sc-for></div>
           <dl class="pc-kv"><sc-for list="{{pcD.kv}}" as="k" hint-placeholder-count="4"><dt>{{k.k}}</dt><dd>{{k.v}}</dd></sc-for></dl>
@@ -896,18 +945,19 @@ class Component extends DCLogic {
     ];
     const lane = (t) => (t === 'err' || t === 'warn' ? 'need' : t === 'ok' ? 'ok' : 'end');
     const LN = [['need', '需处理', 'warn'], ['ok', '正常运行', 'ok'], ['end', '已结束', 'mut']];
-    const TAG = { err: 'kc-tag err', warn: 'kc-tag warn', ok: 'kc-tag ok', mut: 'kc-tag mut' };
+    const TAG = { err: 'pc-chip err', warn: 'pc-chip warn', ok: 'pc-chip ok', mut: 'pc-chip mut' };
+    const TINT = { '云安全': '', '主机安全': ' t2', '安全运营': ' t2', 'IDC 服务': ' t3', '安全服务': ' t3' };
     const cnt = (k) => P.filter((p) => lane(p[6]) === k).length;
-    const pcScopes = [['all', '全部', P.length]].concat(LN.map((l) => [l[0], l[1], cnt(l[0])])).map(([k, n, c]) => ({ n, c, on: k === sc ? 'true' : 'false', cls: k === sc ? 'on' : '', go: () => this.setState({ pcS: k }) }));
-    const item = (p) => ({ acts: p[10].map((x) => ({ t: x[0], href: x[1], cls: x[2] ? 'pc-act pri' : 'pc-act' })), con: p[11], conT: p[0] === 'dj' ? '查看服务' : '进入控制台', chip: 'pc-chip ' + p[6], n: p[1], plan: p[2], text: p[4], sw: p[5], mk: 'pc-mk ' + p[6], exp: p[7], exC: 'pc-ex' + (p[8] ? ' ' + p[8] : ''), di: this.__di(p[1]) || 'dt dt-db',
+    const pcScopes = [['all', '全部', P.length]].concat(LN.map((l) => [l[0], l[1], cnt(l[0])])).map(([k, n, c]) => ({ n, c, nc: k === 'need' && c ? 'pc-n r' : 'pc-n', on: k === sc ? 'true' : 'false', cls: k === sc ? 'on' : '', go: () => this.setState({ pcS: k }) }));
+    const item = (p) => ({ acts: p[10].map((x) => ({ t: x[0], href: x[1], cls: x[2] ? 'pc-act pri' : 'pc-act' })), con: p[11], conT: p[0] === 'dj' ? '查看服务' : '进入控制台', chip: 'pc-chip ' + p[6], ic: 'pc-ico' + (TINT[p[3]] || ''), icS: 'pc-ico sm' + (TINT[p[3]] || ''), n: p[1], plan: p[2], text: p[4], sw: p[5], mk: 'pc-mk ' + p[6], exp: p[7], exC: 'pc-ex' + (p[8] ? ' ' + p[8] : ''), di: this.__di(p[1]) || 'dt dt-db',
       uCls: p[9] ? 'pc-u' : 'pc-u no', ut: p[9] ? p[9][0] : '', uw: 'width:' + (p[9] ? p[9][1] : 0) + '%', uc: p[9] ? p[9][2] : '',
       cls: 'pc-c' + (op === p[0] ? ' cur' : ''), open: () => this.setState({ pcO: p[0] }) });
     const pcLanes = LN.filter((l) => sc === 'all' || sc === l[0]).map((l) => { const items = P.filter((p) => lane(p[6]) === l[0]).map(item); return { n: l[1], c: items.length, mk: 'pc-mk ' + l[2], items }; }).filter((l) => l.items.length);
     const D = P.find((p) => p[0] === op);
-    const pcD = D ? { n: D[1], plan: D[2], text: D[4], sw: D[5], tag: TAG[D[6]], di: this.__di(D[1]) || 'dt dt-db', con: D[11],
+    const pcD = D ? { n: D[1], plan: D[2], text: D[4], sw: D[5], tag: TAG[D[6]], mk: 'pc-mk ' + D[6], ic: 'pc-ico' + (TINT[D[3]] || ''), di: this.__di(D[1]) || 'dt dt-db', con: D[11],
       acts: D[10].map((a) => ({ t: a[0], href: a[1], cls: a[2] ? 'kc-btn pri' : 'kc-btn' })),
       kv: [{ k: '状态', v: D[5] }, { k: '分类', v: D[3] }, { k: '套餐', v: D[2] }].concat(D[9] ? [{ k: '用量', v: D[9][0] }] : []).concat(D[12].map((x) => ({ k: x[0], v: x[1] }))).concat([{ k: '到期', v: D[7] }]),
-      steps: D[13].map((x, i) => ({ t: x[0], d: x[1], cls: i === 0 ? 'now' : '' })) } : { n: '', plan: '', text: '', sw: '', tag: '', di: '', con: '#', acts: [], kv: [], steps: [] };
+      steps: D[13].map((x, i) => ({ t: x[0], d: x[1], cls: i === 0 ? 'now' : '' })) } : { n: '', plan: '', text: '', sw: '', tag: '', mk: '', ic: 'pc-ico', di: '', con: '#', acts: [], kv: [], steps: [] };
     return { pcScopes, pcLanes, pcBoard: vw === 'board', pcList: vw === 'list',
       pcVbC: vw === 'board' ? 'on' : '', pcVlC: vw === 'list' ? 'on' : '', pcVbOn: vw === 'board' ? 'true' : 'false', pcVlOn: vw === 'list' ? 'true' : 'false',
       pcToB: () => this.setState({ pcV: 'board' }), pcToL: () => this.setState({ pcV: 'list' }),
