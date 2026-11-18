@@ -9,9 +9,13 @@
 | T6 | 账号与费用 37 页 | 修改 | 去左侧菜单，加一级页签 .tcl-tabs（分组页替换标题行） | scripts/tcl2.py | 完成 |
 | T7 | ConsoleHome | 修改 | 去掉 Axhub 标注 script 和 data-annotation-id；页签 16px | 手工 | 完成 |
 | T8 | 12 个分组页 | 修改 | 首页同款头部 + 胶囊二级页签 + 卡片样式 | scripts/tcl3.py | 完成 |
+| T9 | AcctProducts | 修改 | 表格换成卡片版（状态分栏、卡片 / 列表切换、卡片操作栏、详情抽屉、胶囊容器页签、分段状态筛选） | scripts/pc.py | 完成 |
+| T10 | 11 个分组页 | 修改 | 二级胶囊页签放进白色容器顶部、连到首张卡片；卡片内状态页签改灰底分段筛选 | scripts/hier.py | 完成 |
 | T5 | canvas.json | 修改 | ConsoleHome 高度 1300，标题改 v6 | 手工 | 完成 |
 
 脚本幂等（标记 tcl-v1）；输入里有 data-annotation-id 时，新账户卡带上 home-account / home-fees。
 用法：`python3 scripts/tcl.py console/ConsoleHome.dc.html`
 
 第二轮：`python3 scripts/tcl2.py console/*.dc.html`（只改带账号侧 4 项菜单的页面，标记 tcl2-v1）。
+
+第四轮：`python3 scripts/pc.py console/AcctProducts.dc.html out.html`，再把 title 改成「我的产品」、data-pg 和「按产品」链接改回 AcctProducts；`python3 scripts/hier.py console/{AcctSubs,Bill*,Org*}.dc.html`（只改分组页，标记 hier-v1）。画布 E1uu v96。
