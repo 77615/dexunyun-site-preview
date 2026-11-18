@@ -9,9 +9,12 @@
 | T6 | 账号与费用 37 页 | 修改 | 去左侧菜单，加一级页签 .tcl-tabs（分组页替换标题行） | scripts/tcl2.py | 完成 |
 | T7 | ConsoleHome | 修改 | 去掉 Axhub 标注 script 和 data-annotation-id；页签 16px | 手工 | 完成 |
 | T8 | 12 个分组页 | 修改 | 首页同款头部 + 胶囊二级页签 + 卡片样式 | scripts/tcl3.py | 完成 |
+| T9 | 首页 + 12 个分组页 | 修改 | 页签切换改成纸张叠放效果：头部不动，旧内容退后淡出，新内容从后面升到前面；下划线 / 胶囊从上一个页签滑过来 | scripts/tsw.py | 完成 |
 | T5 | canvas.json | 修改 | ConsoleHome 高度 1300，标题改 v6 | 手工 | 完成 |
 
 脚本幂等（标记 tcl-v1）；输入里有 data-annotation-id 时，新账户卡带上 home-account / home-fees。
 用法：`python3 scripts/tcl.py console/ConsoleHome.dc.html`
 
 第二轮：`python3 scripts/tcl2.py console/*.dc.html`（只改带账号侧 4 项菜单的页面，标记 tcl2-v1）。
+
+第四轮（2026-11-18）：`python3 scripts/tsw.py console/ConsoleHome.dc.html console/{AcctProducts,AcctSubs,BillBalance,BillContract,BillInvoice,BillOrders,BillOverview,BillPay,OrgInfo,OrgMembers,OrgRoles,OrgSecurity}.dc.html`（标记 tsw-v1）。

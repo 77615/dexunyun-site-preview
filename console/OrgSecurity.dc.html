@@ -137,6 +137,23 @@
 .kc .kc-main>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
 .kc .kc-main>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
 .kc .kc-main .kc-card,.kc .kc-main .b8-box,.kc .kc-main .ac-st{border:0!important;border-radius:0!important;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
+
+/* tsw-v1 页签切换 · 纸张叠放 */
+.kc main.kc-main>.kc-hd,.kc main.kc-main>nav.tcl-tabs{animation:none!important}
+.kc main.kc-main.tsw-b>nav.ia-tabs{animation:none!important}
+.kc main.kc-main.tsw{position:relative}
+.kc main.kc-main.tsw::before{content:"";position:absolute;left:24px;right:24px;top:var(--tsw-top,180px);height:var(--tsw-h,640px);background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.05);transform-origin:50% 0;pointer-events:none;z-index:0;animation:tswGhost .62s cubic-bezier(.22,1,.36,1) both}
+.kc main.kc-main.tsw-a>nav.tcl-tabs~*,.kc main.kc-main.tsw-b>nav.ia-tabs~*{position:relative;z-index:1;transform-origin:50% 0;animation:tswIn .62s cubic-bezier(.22,1,.36,1) both,tswFade .34s ease .14s both!important}
+.kc main.kc-main.tsw-a>nav.tcl-tabs>a.on::after{transform-origin:0 50%;animation:tswBar .42s cubic-bezier(.22,1,.36,1) both}
+.kc main.kc-main.tsw-b>nav.ia-tabs>a:not(.on){position:relative;z-index:1;background:transparent!important}
+.kc main.kc-main.tsw-b>nav.ia-tabs>a.on{position:relative;z-index:0;isolation:isolate;background:transparent!important;border-color:transparent!important}
+.kc main.kc-main.tsw-b>nav.ia-tabs>a.on::before{content:""!important;display:block!important;position:absolute;left:-1px;top:-1px;bottom:-1px;width:calc(100% + 2px);border-radius:16px;background:#e5ecff;z-index:-1;animation:tswPill .42s cubic-bezier(.22,1,.36,1) both}
+@keyframes tswGhost{from{transform:none;opacity:1}55%{opacity:.7}to{transform:translateY(-12px) scale(.965);opacity:0}}
+@keyframes tswIn{from{transform:translateY(-12px) scale(.965)}to{transform:none}}
+@keyframes tswFade{from{opacity:0}to{opacity:1}}
+@keyframes tswBar{from{transform:translateX(var(--tsw-dx,0)) scaleX(var(--tsw-sx,1))}to{transform:none}}
+@keyframes tswPill{from{transform:translateX(var(--tsw-dx,0));width:var(--tsw-w0,100%)}to{transform:none;width:calc(100% + 2px)}}
+@media (prefers-reduced-motion:reduce){.kc main.kc-main.tsw::before{display:none}.kc main.kc-main.tsw-a>nav.tcl-tabs~*,.kc main.kc-main.tsw-b>nav.ia-tabs~*,.kc main.kc-main.tsw-a>nav.tcl-tabs>a.on::after,.kc main.kc-main.tsw-b>nav.ia-tabs>a.on::before{animation:none!important}}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -306,7 +323,37 @@ class Component extends DCLogic {
   __di(n) { const k = {"服务器": "idc", "应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   /* top70 */
-  componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
+  /* tsw-v1 页签切换：点页签时记下当前页签位置，新页面挂载后从那里滑过来 */
+  _tsw() {
+    const W = window, D = document;
+    if (!W.__tswOn) {
+      W.__tswOn = 1;
+      D.addEventListener('click', (e) => {
+        const a = e.target && e.target.closest ? e.target.closest('main.kc-main > nav.tcl-tabs > a, main.kc-main > nav.ia-tabs > a') : null;
+        if (!a || a.classList.contains('on')) return;
+        const nav = a.parentNode, on = nav.querySelector(':scope > a.on'); if (!on) return;
+        const nr = nav.getBoundingClientRect(), r = on.getBoundingClientRect();
+        const v = { l: nav.classList.contains('tcl-tabs') ? 'a' : 'b', x: r.left - nr.left, w: r.width, t: Date.now() };
+        W.__tswV = v; try { sessionStorage.setItem('tsw', JSON.stringify(v)); } catch (_) {}
+      }, true);
+    }
+    let v = W.__tswV; if (!v) { try { v = JSON.parse(sessionStorage.getItem('tsw') || 'null'); } catch (_) {} }
+    W.__tswV = null; try { sessionStorage.removeItem('tsw'); } catch (_) {}
+    if (!v || Date.now() - v.t > 5000) return;
+    const m = D.querySelector('main.kc-main'); if (!m) return;
+    const nav = m.querySelector(v.l === 'a' ? ':scope > nav.tcl-tabs' : ':scope > nav.ia-tabs'); if (!nav) return;
+    const on = nav.querySelector(':scope > a.on'); if (!on) return;
+    const nr = nav.getBoundingClientRect(), r = on.getBoundingClientRect(), mr = m.getBoundingClientRect();
+    on.style.setProperty('--tsw-dx', (v.x - (r.left - nr.left)).toFixed(1) + 'px');
+    on.style.setProperty('--tsw-sx', (v.w / (r.width || 1)).toFixed(3));
+    on.style.setProperty('--tsw-w0', v.w.toFixed(1) + 'px');
+    const top = nr.bottom - mr.top + (v.l === 'a' ? 20 : 16);
+    m.style.setProperty('--tsw-top', top + 'px');
+    m.style.setProperty('--tsw-h', Math.max(240, Math.min(720, mr.height - top - 24)) + 'px');
+    m.classList.add('tsw', 'tsw-' + v.l);
+    setTimeout(() => { m.classList.remove('tsw', 'tsw-a', 'tsw-b'); }, 900);
+  }
+  componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tsw(); this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
   componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
   _top() {
     const st = this.state || {}; const dd = st.dd || ''; const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
