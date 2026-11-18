@@ -869,10 +869,10 @@ class Component extends DCLogic {
   /* pc-v1 我的产品 · 卡片版 */
   _pc() {
     const st = this.state || {}; const sc = st.pcS || 'all'; const vw = st.pcV || 'board'; const op = st.pcO || '';
-    const DDOS = 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-d1c5e98bff1b', ATK = 'https://claude.ai/artifact/RL3XvNLs2o41CLGG3mLqe9#play-5b7ed2d4829c';
-    const HOST = 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-de5201e8a0c7', GAME = 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-ef67b4d479f4';
-    const SCDN = 'https://claude.ai/artifact/SfY2uSBB9Y6d1vwU1sb1cD#play-15dd8cd198dd', EYE = 'https://claude.ai/artifact/9WQ1i2DeBHUULxBDB2KQ6p#play-1f4762e5e343';
-    const IDC = 'https://claude.ai/artifact/N8Yuj4E7xMtsnFAbT8om5A#play-e1a7a42a37df', BUY = 'BillConfirm.dc.html';
+    const DDOS = 'DdosInstances.dc.html', ATK = 'DdosInstanceDetail.dc.html';
+    const HOST = 'SecHome.dc.html', GAME = 'GameAccess.dc.html';
+    const SCDN = 'Main.dc.html', EYE = 'EyeRisk.dc.html';
+    const IDC = 'IdcServers.dc.html', BUY = 'BillConfirm.dc.html';
     // key, name, plan, category, text, state word, tone, expiry, expiry tone, usage [text, pct, tone] | null, actions, console, kv extra, steps
     const P = [
       ['ddos', 'DDoS 高防 IP', '4 个实例', '云安全', '高防-002 正在被 UDP Flood 攻击，峰值 86 Gbps，已自动清洗。最早一个实例 13 天后到期。', '攻击中', 'err', '最早 11-09 到期 · 剩 13 天', 'o', null,
