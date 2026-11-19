@@ -225,6 +225,41 @@
 .pc .pc-wall .pc-act:hover{background:#f2f4f8;color:rgba(0,0,0,.9)}
 .pc .pc-wall .pc-act.pri{order:2;margin-left:4px;padding:0 12px;background:#fff;box-shadow:inset 0 0 0 1px #e6e9ef;color:rgba(0,0,0,.9);font-weight:500}
 .pc .pc-wall .pc-act.pri:hover{background:#fff;box-shadow:inset 0 0 0 1px #1664ff;color:#1664ff}
+
+/* pcf-v1 参考 Files：筛选一行、安静页签、搜索、加载中和空状态 */
+.pc .pc-bar{min-height:32px}
+.pc .pc-sc{gap:4px;padding:0;background:none}
+.pc .pc-sc button{height:28px;padding:0 10px;border-radius:2px;font-size:12px;color:rgba(0,0,0,.7);box-shadow:none}
+.pc .pc-sc button:hover{background:#f7f8fb;color:rgba(0,0,0,.9)}
+.pc .pc-sc button.on{background:#f2f4f8;color:rgba(0,0,0,.9);font-weight:500;box-shadow:none}
+.pc .pc-tools{gap:8px}
+.pc .pc-tools>nav.pc-tabs{display:inline-flex;gap:2px;padding:2px;margin:0;border:0;background:#f2f3f5}
+.pc .pc-tools>nav.pc-tabs>a{height:28px;padding:0 12px;border:0;border-radius:0;background:transparent;font-size:12px;font-weight:400;color:rgba(0,0,0,.6)}
+.pc .pc-tools>nav.pc-tabs>a:hover{color:rgba(0,0,0,.9)}
+.pc .pc-tools>nav.pc-tabs>a.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.pc-q{position:relative;display:inline-flex;align-items:center}
+.pc-q svg{position:absolute;left:10px;color:rgba(0,0,0,.4);pointer-events:none}
+.pc-q input{width:200px;height:32px;padding:0 10px 0 30px;border:1px solid #e6e9ef;border-radius:0;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.9);outline:0}
+.pc-q input::placeholder{color:rgba(0,0,0,.4)}
+.pc-q input:hover{border-color:#d6dbe3}
+.pc-q input:focus{border-color:#1664ff}
+@keyframes pcSk{0%{background-position:100% 0}100%{background-position:0 0}}
+.pc-sk{display:block;flex:none;border-radius:2px;background:linear-gradient(90deg,#eef0f4 0%,#f6f7f9 40%,#eef0f4 80%);background-size:300% 100%;animation:pcSk 1.4s ease-in-out infinite}
+.pc .pc-skw{background:#fff;border-top:1px solid #e5e6eb}
+.pc .pc-skw .pc-lh{gap:8px}
+.pc .pc-skc{height:236px;padding:20px;box-sizing:border-box;pointer-events:none}
+.pc-skr{display:flex;gap:12px;align-items:center}
+.pc-skl{display:grid;gap:8px}
+.pc-skf{display:flex;align-items:center;margin-top:24px}
+.pc-emp{display:grid;justify-items:center;gap:8px;margin:0;padding:64px 20px 72px;border-top:1px solid #e5e6eb;text-align:center}
+.pc-emp-ic{display:grid;place-items:center;width:56px;height:56px;margin-bottom:8px;border-radius:50%;background:#f2f4f8;color:rgba(0,0,0,.45)}
+.pc-emp b{font-size:14px;font-weight:500;color:rgba(0,0,0,.9)}
+.pc-emp p{max-width:360px;margin:0 0 8px;font-size:12px;line-height:20px;color:rgba(0,0,0,.5)}
+.pc-demo{position:sticky;bottom:16px;z-index:5;display:flex;align-items:center;gap:2px;width:max-content;margin:16px auto 0;padding:2px 2px 2px 10px;background:#f2f3f5;box-shadow:0 2px 8px -1px rgba(0,0,0,.08);font-size:12px}
+.pc-demo>span{margin-right:6px;color:rgba(0,0,0,.45)}
+.pc-demo button{height:26px;padding:0 12px;border:0;background:transparent;font:inherit;font-size:12px;color:rgba(0,0,0,.6);cursor:pointer}
+.pc-demo button.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+@media (prefers-reduced-motion:reduce){.pc-sk{animation:none}}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -311,11 +346,10 @@
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a class="on" aria-current="page" href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       
       <section class="pc" style="background-color: #FFFFFF00">
-        <nav class="pc-tabs" aria-label="我的产品" style="opacity: 1; border-style: solid; padding-right: 20px; padding-left: 20px; padding-top: 8px; padding-bottom: 8px; background-color: var(--bg-2, #f7f8fa); border-top-width: 0px; border-right-width: 0px; border-left-width: 0px; border-color: var(--border-1, #e5e6eb); border-bottom-width: 1px"><a class="on" aria-current="page" href="AcctProducts.dc.html" style="border-radius: 4px; background-color: var(--bg-1, #ffffff); color: var(--text-2, #4e5969); border-color: var(--border-1, #e5e6eb)">按产品</a><a href="AcctSubs.dc.html" style="border-radius: 4px; background-color: #EFEFEF; border-color: var(--border-1, #e5e6eb); color: var(--text-4, #86909c); font-weight: 500">按资源</a></nav>
         <div class="pc-in" style="background-color: var(--bg-1, #ffffff); padding-left: 0px; padding-right: 0px; padding-bottom: 16px">
         <div class="pc-bar" style="margin-right: 20px; margin-left: 20px">
           <div class="pc-sc" role="tablist" aria-label="按状态筛选"><sc-for list="{{pcScopes}}" as="s" hint-placeholder-count="4"><button type="button" role="tab" class="{{s.cls}}" aria-selected="{{s.on}}" onClick="{{s.go}}">{{s.n}}<em class="{{s.nc}}">{{s.c}}</em></button></sc-for></div>
-          <div class="pc-tools"><div class="pc-vw" role="radiogroup" aria-label="视图"><button type="button" role="radio" title="卡片" aria-label="卡片" class="{{pcVbC}}" aria-checked="{{pcVbOn}}" onClick="{{pcToB}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"></path></svg></button><button type="button" role="radio" title="列表" aria-label="列表" class="{{pcVlC}}" aria-checked="{{pcVlOn}}" onClick="{{pcToL}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 4h13v2H8V4zM3 3.5h3v3H3v-3zm0 7h3v3H3v-3zm0 7h3v3H3v-3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z"></path></svg></button></div><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
+          <div class="pc-tools"><nav class="pc-tabs" aria-label="查看方式"><a class="on" aria-current="page" href="AcctProducts.dc.html">按产品</a><a href="AcctSubs.dc.html">按资源</a></nav><div class="pc-vw" role="radiogroup" aria-label="视图"><button type="button" role="radio" title="卡片" aria-label="卡片" class="{{pcVbC}}" aria-checked="{{pcVbOn}}" onClick="{{pcToB}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"></path></svg></button><button type="button" role="radio" title="列表" aria-label="列表" class="{{pcVlC}}" aria-checked="{{pcVlOn}}" onClick="{{pcToL}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 4h13v2H8V4zM3 3.5h3v3H3v-3zm0 7h3v3H3v-3zm0 7h3v3H3v-3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z"></path></svg></button></div><label class="pc-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" aria-label="搜索产品" placeholder="搜索产品" value="{{pcQ}}" onChange="{{onPcQ}}"></label><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
         </div>
         <sc-if value="{{pcBoard}}" hint-placeholder-val="{{true}}"><div class="pc-wall" style="background-color: var(--bg-1, #ffffff); border-style: solid; border-color: var(--border-1, #e5e6eb); border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lane"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
           <ul class="pc-grid"><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-cm" onClick="{{p.open}}">
@@ -326,6 +360,10 @@
           </button><div class="pc-ft"><sc-for list="{{p.acts}}" as="a" hint-placeholder-count="2"><a class="{{a.cls}}" href="{{a.href}}">{{a.t}}</a></sc-for><a class="pc-con" href="{{p.con}}">{{p.conT}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.17 12 8.22 7.05l1.42-1.41L16 12l-6.36 6.36-1.42-1.41z"></path></svg></a></div></li></sc-for></ul></div></sc-for></div></sc-if>
         <sc-if value="{{pcList}}" hint-placeholder-val="{{false}}"><div class="pc-lst"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lg"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
           <ul><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-rw" onClick="{{p.open}}"><span class="pc-rn"><span class="{{p.icS}}"><i class="{{p.di}}"></i></span><b>{{p.n}}</b></span><span class="pc-rp">{{p.plan}}</span><span class="pc-rt">{{p.text}}</span><span class="pc-st"><span class="{{p.chip}}"><i class="{{p.mk}}"></i>{{p.sw}}</span></span><span class="{{p.exC}}">{{p.exp}}</span></button></li></sc-for></ul></div></sc-for></div></sc-if>
+        <sc-if value="{{pcLoad}}" hint-placeholder-val="{{false}}"><div class="pc-wall pc-skw" aria-busy="true" aria-label="正在加载产品"><div class="pc-lane"><header class="pc-lh"><i class="pc-sk" style="width:14px;height:14px"></i><i class="pc-sk" style="width:56px;height:10px"></i></header><ul class="pc-grid"><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li></ul></div><div class="pc-lane"><header class="pc-lh"><i class="pc-sk" style="width:14px;height:14px"></i><i class="pc-sk" style="width:56px;height:10px"></i></header><ul class="pc-grid"><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li></ul></div></div></sc-if>
+        <sc-if value="{{pcEmpty}}" hint-placeholder-val="{{false}}"><div class="pc-emp"><span class="pc-emp-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></span><b>还没有产品</b><p>购买后，产品会按「需处理 / 正常运行 / 已结束」分组显示在这里，到期和用量提醒也会出现在卡片上。</p><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div></sc-if>
+        <sc-if value="{{pcNone}}" hint-placeholder-val="{{false}}"><div class="pc-emp"><span class="pc-emp-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><b>没有找到相关产品</b><p>{{pcNoneT}}</p><button type="button" class="kc-btn" onClick="{{pcClrQ}}">清除搜索</button></div></sc-if>
+        <div class="pc-demo" role="group" aria-label="原型状态"><span>原型状态</span><sc-for list="{{pcModes}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.go}}">{{m.n}}</button></sc-for></div>
         </div>
       </section>
       <sc-if value="{{pcDOn}}" hint-placeholder-val="{{false}}"><div class="kc-dmask" onClick="{{pcClose}}"></div><aside class="kc-dw pc-dw" role="dialog" aria-label="产品详情"><div class="kc-dwh"><span>产品详情</span><button type="button" class="pc-x" aria-label="关闭" onClick="{{pcClose}}">×</button></div>
@@ -963,22 +1001,28 @@ class Component extends DCLogic {
       ['dj', '等保咨询', '二级 · 一次性服务', '安全服务', '服务已在 8 月 30 日完成，可以下载服务报告。', '已完成', 'mut', '2026-08-30 完成', '', null,
         [['服务报告', 'SupDocs.dc.html', 1]], 'SupDocs.dc.html', [], [['服务报告已上传', '08-30'], ['现场测评完成', '08-22']]]
     ];
+    const pq = (st.pcQ || '').trim(); const pql = pq.toLowerCase(); const pm = st.pcM || 'data';
+    const PS = pm === 'empty' ? [] : P.filter((p) => !pql || [p[1], p[2], p[3], p[4]].join(' ').toLowerCase().includes(pql));
     const lane = (t) => (t === 'err' || t === 'warn' ? 'need' : t === 'ok' ? 'ok' : 'end');
     const LN = [['need', '需处理', 'warn'], ['ok', '正常运行', 'ok'], ['end', '已结束', 'mut']];
     const TAG = { err: 'pc-chip err', warn: 'pc-chip warn', ok: 'pc-chip ok', mut: 'pc-chip mut' };
     const TINT = { '云安全': '', '主机安全': ' t2', '安全运营': ' t2', 'IDC 服务': ' t3', '安全服务': ' t3' };
-    const cnt = (k) => P.filter((p) => lane(p[6]) === k).length;
-    const pcScopes = [['all', '全部', P.length]].concat(LN.map((l) => [l[0], l[1], cnt(l[0])])).map(([k, n, c]) => ({ n, c, nc: k === 'need' && c ? 'pc-n r' : 'pc-n', on: k === sc ? 'true' : 'false', cls: k === sc ? 'on' : '', go: () => this.setState({ pcS: k }) }));
+    const cnt = (k) => PS.filter((p) => lane(p[6]) === k).length;
+    const pcScopes = [['all', '全部', PS.length]].concat(LN.map((l) => [l[0], l[1], cnt(l[0])])).map(([k, n, c]) => ({ n, c: pm === 'loading' ? '' : c, nc: k === 'need' && c ? 'pc-n r' : 'pc-n', on: k === sc ? 'true' : 'false', cls: k === sc ? 'on' : '', go: () => this.setState({ pcS: k }) }));
     const item = (p) => ({ acts: p[10].map((x) => ({ t: x[0], href: x[1], cls: x[2] ? 'pc-act pri' : 'pc-act' })), con: p[11], conT: p[0] === 'dj' ? '查看服务' : '进入控制台', chip: 'pc-chip ' + p[6], ic: 'pc-ico' + (TINT[p[3]] || ''), icS: 'pc-ico sm' + (TINT[p[3]] || ''), n: p[1], plan: p[2], text: p[4], sw: p[5], mk: 'pc-mk ' + p[6], exp: p[7], exC: 'pc-ex' + (p[8] ? ' ' + p[8] : ''), di: this.__di(p[1]) || 'dt dt-db',
       uCls: p[9] ? 'pc-u' : 'pc-u no', ut: p[9] ? p[9][0] : '', uw: 'width:' + (p[9] ? p[9][1] : 0) + '%', uc: p[9] ? p[9][2] : '',
       cls: 'pc-c' + (op === p[0] ? ' cur' : ''), open: () => this.setState({ pcO: p[0] }) });
-    const pcLanes = LN.filter((l) => sc === 'all' || sc === l[0]).map((l) => { const items = P.filter((p) => lane(p[6]) === l[0]).map(item); return { n: l[1], c: items.length, mk: 'pc-mk ' + l[2], items }; }).filter((l) => l.items.length);
+    const pcLanes = LN.filter((l) => sc === 'all' || sc === l[0]).map((l) => { const items = PS.filter((p) => lane(p[6]) === l[0]).map(item); return { n: l[1], c: items.length, mk: 'pc-mk ' + l[2], items }; }).filter((l) => l.items.length);
     const D = P.find((p) => p[0] === op);
     const pcD = D ? { n: D[1], plan: D[2], text: D[4], sw: D[5], tag: TAG[D[6]], mk: 'pc-mk ' + D[6], ic: 'pc-ico' + (TINT[D[3]] || ''), di: this.__di(D[1]) || 'dt dt-db', con: D[11],
       acts: D[10].map((a) => ({ t: a[0], href: a[1], cls: a[2] ? 'kc-btn pri' : 'kc-btn' })),
       kv: [{ k: '状态', v: D[5] }, { k: '分类', v: D[3] }, { k: '套餐', v: D[2] }].concat(D[9] ? [{ k: '用量', v: D[9][0] }] : []).concat(D[12].map((x) => ({ k: x[0], v: x[1] }))).concat([{ k: '到期', v: D[7] }]),
       steps: D[13].map((x, i) => ({ t: x[0], d: x[1], cls: i === 0 ? 'now' : '' })) } : { n: '', plan: '', text: '', sw: '', tag: '', mk: '', ic: 'pc-ico', di: '', con: '#', acts: [], kv: [], steps: [] };
-    return { pcScopes, pcLanes, pcBoard: vw === 'board', pcList: vw === 'list',
+    const pcHas = pm === 'data' && PS.length > 0;
+    return { pcScopes, pcLanes, pcBoard: pcHas && vw === 'board', pcList: pcHas && vw === 'list',
+      pcLoad: pm === 'loading', pcEmpty: pm === 'empty', pcNone: pm === 'data' && !PS.length, pcNoneT: '没有和「' + pq + '」匹配的产品，换个关键词试试。',
+      pcQ: st.pcQ || '', onPcQ: (e) => this.setState({ pcQ: e && e.target ? e.target.value : '' }), pcClrQ: () => this.setState({ pcQ: '' }),
+      pcModes: [['data', '数据'], ['loading', '加载中'], ['empty', '无产品']].map(([k, n]) => ({ n, cls: k === pm ? 'on' : '', go: () => this.setState({ pcM: k, pcO: '' }) })),
       pcVbC: vw === 'board' ? 'on' : '', pcVlC: vw === 'list' ? 'on' : '', pcVbOn: vw === 'board' ? 'true' : 'false', pcVlOn: vw === 'list' ? 'true' : 'false',
       pcToB: () => this.setState({ pcV: 'board' }), pcToL: () => this.setState({ pcV: 'list' }),
       pcDOn: !!D, pcD, pcClose: () => this.setState({ pcO: '' }) };
