@@ -50,19 +50,103 @@
 .kc .kc-main>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
 .kc .kc-main>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
 .kc .kc-main .kc-card,.kc .kc-main .b8-box,.kc .kc-main .ac-st{border:0!important;border-radius:0!important;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
+
+/* hier-v1 页签分层级：二级胶囊在容器顶部，三级分段筛选 */
+.kc main.kc-main:has(>nav.tcl-top)>nav.ia-tabs.ia-tabs{margin-bottom:0!important;padding:16px 20px!important;background:#fff!important;border-bottom:1px solid #f0f2f5!important;box-shadow:0 1px 4px rgba(0,0,0,.05)!important;position:relative;z-index:1}
+.kc main.kc-main:has(>nav.tcl-top)>nav.ia-tabs+*{margin-top:16px!important}
+.kc main.kc-main:has(>nav.tcl-top)>nav.ia-tabs+section.kc-card{margin-top:0!important;border-top:0!important;box-shadow:0 2px 4px rgba(0,0,0,.05)!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs.kc-tabs{display:inline-flex!important;gap:0!important;height:auto!important;margin:16px 16px 0!important;padding:2px!important;background:#f2f3f5!important;border:0!important;box-shadow:none!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 14px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;font-size:13px!important;font-weight:400!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab::before,.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab:hover{color:rgba(0,0,0,.9)!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
+.kc main.kc-main:has(>nav.tcl-top) .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+
+/* hier-v2 胶囊页签和内容同一个容器 */
+.kc main.kc-main>.hier-box{margin:0 24px!important;background:#fff;border:1px solid #e9ecf1;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.kc main.kc-main>.hier-box>nav.ia-tabs.ia-tabs{margin:0!important;padding:16px 20px!important;background:#fff!important;border:0!important;border-bottom:1px solid #f0f2f5!important;box-shadow:none!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in{display:block;padding:16px;background:#f5f6f8}
+.kc main.kc-main>.hier-box>.hier-in>*{margin-left:0!important;margin-right:0!important;margin-top:0!important;margin-bottom:0!important;animation:none!important}
+.kc main.kc-main>.hier-box>.hier-in>*+*{margin-top:16px!important}
+.kc main.kc-main>.hier-box>.hier-in section.kc-card{border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs.kc-tabs{display:inline-flex!important;gap:0!important;height:auto!important;margin:16px 16px 0!important;padding:2px!important;background:#f2f3f5!important;border:0!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 14px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;font-size:13px!important;font-weight:400!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::before,.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.08)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.4)!important}
+.kc main.kc-main>.hier-box>.hier-in .kc-card>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f53f3f!important}
+.kc main.kc-main>.hier-box>.hier-in>.b8{border-top:0!important;padding-top:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs{display:flex;gap:8px!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex;align-items:center;border:1px solid #e6e9ef!important;border-radius:16px!important;background:#fff!important;color:rgba(0,0,0,.7)!important;font-size:13px!important;font-weight:400!important;text-decoration:none;box-shadow:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a::after,.kc .kc-main>.hier-box>nav.ia-tabs>a::before{display:none!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex!important;align-items:center;gap:6px;border:1px solid #d6dbe3!important;background:#fff!important;color:rgba(0,0,0,.9)!important;font-size:13px!important;border-radius:0!important}
+.kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn:hover{border-color:#1664ff!important;color:#1664ff!important}
+
+/* sbu-v1 按资源页顶部和按产品统一 */
+.kc main.kc-main>.hier-box.sbu{border:0;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.kc main.kc-main>.hier-box.sbu>.hier-in{padding:0;background:#fff}
+.kc main.kc-main>.hier-box.sbu>.hier-in>section.kc-card{box-shadow:none!important;border:0!important}
+.sbu .sbu-top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px;padding:16px 20px;border-bottom:1px solid #e5e6eb}
+.kc .sbu .sbu-top>.kc-tabs.kc-tabs{display:inline-flex!important;gap:4px!important;height:auto!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+.kc .sbu .sbu-top>.kc-tabs>.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 10px!important;margin:0!important;border:0!important;border-radius:2px!important;background:transparent!important;box-shadow:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.7)!important}
+.kc .sbu .sbu-top>.kc-tabs>.kc-tab::before,.kc .sbu .sbu-top>.kc-tabs>.kc-tab::after{display:none!important}
+.kc .sbu .sbu-top>.kc-tabs>.kc-tab:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc .sbu .sbu-top>.kc-tabs>.kc-tab.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500!important}
+.kc .sbu .sbu-top>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.5)!important}
+.kc .sbu .sbu-top>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f64041!important;font-weight:500!important}
+.kc .sbu .kc-card>.lf-bar{padding:16px 20px 12px!important}
+.sbu .sbu-tools{display:flex;align-items:center;gap:8px}
+.sbu .sbu-tools>nav.pc-tabs{display:inline-flex;gap:2px;padding:2px;margin:0;border:0;background:#f2f3f5}
+.sbu .sbu-tools>nav.pc-tabs>a{display:inline-flex;align-items:center;height:28px;padding:0 12px;border:0;border-radius:0;background:transparent;font-size:12px;font-weight:400;color:rgba(0,0,0,.6);text-decoration:none}
+.sbu .sbu-tools>nav.pc-tabs>a:hover{color:rgba(0,0,0,.9)}
+.sbu .sbu-tools>nav.pc-tabs>a.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+
+/* ctr-v1 顶部 tab 只留视角：总览 / 我的产品 */
+
+/* cnav-v1 三个中心的导航入口 */
+.kc .kc-main>nav.tcl-tabs>.cnav-r{margin-left:auto;align-self:center;display:flex;gap:4px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;font-size:13px;font-weight:400;color:rgba(0,0,0,.7);text-decoration:none;border-radius:2px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a::after{display:none!important}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a:hover{background:rgba(255,255,255,.7);color:#1664ff}
+.cnav-r .kc-ic,.cnav-me .kc-ic{display:inline-block;flex:none;width:14px;height:14px;-webkit-mask-size:14px 14px;mask-size:14px 14px;background:currentColor!important;margin:0}
+.ac-pop:has(>.cnav-me){width:340px!important}
+.cnav-me{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px;border-bottom:1px solid #eef0f3}
+.cnav-me>a{display:flex;flex-direction:column;gap:4px;padding:10px;background:#f7f8fa;color:rgba(0,0,0,.9);text-decoration:none;border-radius:2px}
+.cnav-me>a:hover{background:#eef4ff;color:#1664ff}
+.cnav-me>a .kc-ic{width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;color:#1664ff;background:#1664ff!important}
+.cnav-me>a b{font-size:13px;font-weight:500}
+.cnav-me>a small{font-size:11px;color:rgba(0,0,0,.5);white-space:nowrap}
+.kc-side.ctr-side .kc-sh .cnav-back{display:inline-flex;align-items:center;gap:2px;margin-top:4px;font-size:12px;color:rgba(0,0,0,.5);text-decoration:none}
+.kc-side.ctr-side .kc-sh .cnav-back:hover{color:#1664ff}
+
+/* pin-v1 产品与服务弹窗左栏：固定的中心入口 */
+.tp-pp .tp-l>ul.tp-fix{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid #eef0f3}
+.tp-pp .tp-l>ul.tp-fix>li>a{display:flex;align-items:center;justify-content:space-between;gap:8px;height:36px}
+.tp-pp .tp-l>ul.tp-fix .tp-n{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:rgba(0,0,0,.9)}
+.tp-pp .tp-l>ul.tp-fix .tp-n b{font-weight:500}
+.tp-pp .tp-l>ul.tp-fix .kc-ic{display:inline-block;flex:none;width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;background:rgba(0,0,0,.6)!important;margin:0}
+.tp-pp .tp-l>ul.tp-fix>li>a:hover .kc-ic,.tp-pp .tp-l>ul.tp-fix>li>a.on .kc-ic{background:#1664ff!important}
+.tp-pp .tp-l>ul.tp-fix>li>a.on .tp-n{color:#1664ff}
+.tp-pp .tp-l>ul.tp-fix small.r{color:#f64041}
+
+/* gap-v1 产品与服务弹窗贴住顶栏 */
+.kc-top .tp-pp{top:100%!important}
+.kc-top .tp-dim{top:50px!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
-        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <ul class="tp-fix" aria-label="常用入口"><li><a href="ConsoleHome.dc.html"><span class="tp-n"><i class="kc-ic i-grid"></i><b>控制台总览</b></span></a></li><li><a class="on" href="AcctProducts.dc.html"><span class="tp-n"><i class="kc-ic i-box"></i><b>我的产品</b></span></a></li><li><a href="SecHome.dc.html"><span class="tp-n"><i class="kc-ic i-shield"></i><b>安全中心</b></span><small class="r">18 条待处理</small></a></li><li><a href="BillOverview.dc.html"><span class="tp-n"><i class="kc-ic i-doc"></i><b>费用中心</b></span></a></li><li><a href="OrgInfo.dc.html"><span class="tp-n"><i class="kc-ic i-users"></i><b>企业中心</b></span></a></li><li><a href="SupTickets.dc.html"><span class="tp-n"><i class="kc-ic i-help"></i><b>支持中心</b></span></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
@@ -70,7 +154,7 @@
         <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-    </div></sc-if></span>
+    </div></sc-if></span><a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
     <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">我的产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>按资源</b></nav>
     <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
@@ -101,7 +185,7 @@
             <li><span>代金券<em>1 张可用</em></span></li>
           </ul>
           <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
-          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">进入费用中心<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
@@ -112,12 +196,12 @@
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
-          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div><div class="cnav-me"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i><b>费用中心</b><small>订单 · 付款 · 发票</small></a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i><b>企业中心</b><small>认证 · 成员 · 权限</small></a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i><b>支持中心</b><small>工单 · 消息 · 文档</small></a></div>
           <ul class="ac-rows">
             <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
             <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            
           </ul>
           <ul class="ac-rows" style="border-bottom:0">
             <li><a href="#">切换账号</a></li>
@@ -133,10 +217,10 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div>
         <div class="kc-btns"></div>
       </div>
-      <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a class="on" aria-current="page" href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
-      <nav class="ia-tabs" aria-label="我的产品"><a href="AcctProducts.dc.html">按产品</a><a class="on" aria-current="page" href="AcctSubs.dc.html">按资源</a><div class="kc-btns tcl-r"><a class="kc-btn" href="AcctTransfer.dc.html">权益转移</a><a class="kc-btn" href="#">到期提醒设置</a></div></nav>
+      <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a class="on" aria-current="page" href="AcctProducts.dc.html">我的产品</a><span class="tcl-r cnav-r"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i>费用中心</a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i>企业中心</a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i>支持中心</a></span></nav>
+      <div class="hier-box sbu"><div class="hier-in">
       <section class="kc-card">
-        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
+        <div class="sbu-top"><div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div><div class="sbu-tools"><nav class="pc-tabs" aria-label="查看方式"><a href="AcctProducts.dc.html">按产品</a><a class="on" aria-current="page" href="AcctSubs.dc.html">按资源</a></nav><a class="kc-btn" href="AcctTransfer.dc.html">权益转移</a><a class="kc-btn" href="#">到期提醒设置</a></div></div>
         <div class="kc-bar lf-bar lf-m"><div class="lf-fs"><span class="{{ddC0}}"><button data-dd="0" class="lf-fk" type="button" aria-haspopup="listbox" onClick="{{ddT0}}">{{ddV0}}<svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><input class="kc-in" type="search" aria-label="搜索实例 ID、名称、订单号或 IP" placeholder="搜索实例 ID、名称、订单号或 IP"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg></div><span class="{{ddC1}}"><button data-dd="1" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT1}}"><span>产品</span><b>{{ddV1}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO1}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL1}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><span class="{{ddC2}}"><button data-dd="2" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT2}}"><span>地域</span><b>{{ddV2}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO2}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL2}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="ac-selbar">已选 <b>{{selN}}</b> 项<a class="{{renewCls}}" href="BillConfirm.dc.html">批量续费</a></div><div class="lf-r"><button class="lf-ib" type="button" aria-label="刷新" title="刷新"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.46257 4.43262C7.21556 2.91688 9.5007 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C9.84982 4 7.89777 4.84827 6.46023 6.22842L5.46257 4.43262ZM18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 9.86386 2.66979 7.88416 3.8108 6.25944L7 12H4C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"></path></svg></button><button class="lf-ib" type="button" aria-label="列设置" title="列设置"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 5H5V19H11V5ZM13 5V19H19V5H13ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"></path></svg></button><button class="lf-ib" type="button" aria-label="导出" title="导出"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg></button></div></div>
         <div class="kc-tw"><table class="kc-t lf-st5 op-fix">
           <thead><tr><th style="width:40px"><button type="button" class="{{allCls}}" aria-label="全选" onClick="{{selAll}}"></button></th><th>资源 / 实例 ID</th><th>所属订单</th><th>配置 / 地域</th><th>授权使用</th><th>安全保护</th><th>状态</th><th>到期时间</th><th>操作</th></tr></thead>
@@ -144,7 +228,7 @@
         </table></div>
         <div class="kc-foot lf-foot"><span class="lf-note">续费只支持对公转账，提交后在「付款管理」里付款</span><div class="lf-pgr"><span>共 {{total}} 条</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC3}}"><button data-dd="3" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT3}}"><b>{{ddV3}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO3}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL3}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
       </section>
-    </main>
+    </div></div></main>
   </div>
 </div>
 </x-dc>
