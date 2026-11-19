@@ -24,9 +24,18 @@
 .tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+
+/* ctr-v1 费用、企业、支持三个中心：左侧菜单 + 右内容（只作用于 .kc.ctr） */
+.kc.ctr .kc-body{flex-wrap:nowrap!important}
+.kc.ctr .kc-body>.kc-main{flex:1 1 0!important;min-width:0}
+.kc.ctr main.kc-main.kc-main{background:#f2f4f8!important}
+.kc.ctr main.kc-main>.kc-hd.kc-hd{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px!important}
+.kc.ctr main.kc-main>.kc-hd.kc-hd .kc-h1{font-size:20px!important;line-height:28px!important;font-weight:600!important}
+.kc.ctr main.kc-main>.hier-box{margin-top:0!important}
+.kc.ctr .kc-side .kc-sh b{font-size:14px;font-weight:600;color:rgba(0,0,0,.9)}
 </style>
 </helmet>
-<div class="kc ux-wrap">
+<div class="kc ux-wrap ctr">
   <header class="kc-top">
     <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">支持中心</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
@@ -101,9 +110,8 @@
     </nav>
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
-  <div class="kc-body">
+  <div class="kc-body"><input type="checkbox" id="kcf-SupTicketNew" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side ctr-side" aria-label="支持中心菜单"><div class="kc-sh"><b>支持中心</b><span>德迅科技 · 主账号</span></div><nav class="kc-nv" aria-label="支持中心菜单"><a class="kc-it" href="SupTickets.dc.html"><i class="kc-ic i-doc"></i><span>我的工单</span></a><a class="kc-it on" href="SupTicketNew.dc.html" aria-current="page"><i class="kc-ic i-help"></i><span>提交工单</span></a><a class="kc-it" href="Notifications.dc.html"><i class="kc-ic i-bell"></i><span>消息</span></a><a class="kc-it" href="SupDocs.dc.html"><i class="kc-ic i-link"></i><span>文档</span></a></nav><div class="kc-foldbar"><label for="kcf-SupTicketNew" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SupTicketNew" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SupTicketNew" class="kc-main">
-      <nav class="tcl-tabs" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">提交工单</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="https://77615.github.io/dexunyun-site-preview/Docs.dc.html" target="_blank" rel="noopener">先查帮助文档<svg class="dx-ext" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path></svg></a></div>
