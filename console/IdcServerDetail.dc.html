@@ -492,7 +492,7 @@ td .sl-st.b{color:#165dff}
           <h3 class="ss-h">最近一次检测<span class="kc-sub">今天 10:28</span></h3>
           <div class="kc-tiles ss-tiles" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="kc-tile"><span>入侵行为</span><b>0</b></div><div class="kc-tile"><span>高危漏洞</span><b>0</b></div><div class="kc-tile"><span>弱口令</span><b>0</b></div><a class="kc-tile" href="BgMap.dc.html"><span>低危基线</span><b>2</b></a></div>
           </sc-if>
-          <h3 class="ss-h">防护功能<span class="kc-cnt">{{plgOn}}/7</span></h3>
+          <h3 class="ss-h">防护功能<span class="kc-cnt">{{plgOn}}/7</span><span class="kc-sub" style="margin-left:12px;font-weight:400">德迅云服务器随服务器赠送德迅安全卫士，不占授权台数</span></h3>
           <div class="kc-tw ss-tw"><table class="kc-t"><thead><tr><th style="width:140px">功能</th><th>说明</th><th style="width:96px">类型</th><th style="width:96px">状态</th><th style="width:260px">操作</th></tr></thead><tbody>
             <sc-for list="{{plgs}}" as="g" hint-placeholder-count="7"><tr>
               <td>{{g.n}}</td><td>{{g.d}}</td><td>{{g.tp}}</td><td><span class="{{g.tc}}">{{g.st}}</span></td>
@@ -1343,8 +1343,8 @@ class Component extends DCLogic {
     ];
     const plg = st.plg || {};
     const P0 = [['入侵检测', '异常登录、暴力破解、木马、挖矿', 'base'], ['漏洞检测', '系统和软件漏洞，给出修复方法', 'base'], ['基线检查', '弱口令、危险配置', 'base'], ['威胁狩猎', '攻击链溯源与节点证据', 'base'],
-      ['防勒索', '识别勒索加密行为，自动备份关键文件', 'base'], ['网页防篡改', '网站目录被改动时立即还原', 'base'], ['AI 研判', '自动分析告警真假、给出处置建议（企业版）', 'base']];
-    const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: n === 'AI 研判' ? '企业版' : t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
+      ['防勒索', '识别勒索加密行为，自动备份关键文件', 'base'], ['网页防篡改', '网站目录被改动时立即还原', 'base'], ['AI 研判', '自动分析告警真假、给出处置建议', 'base']];
+    const plgs = P0.map(([n, d, t]) => { const v = plg[n]; const on = t === 'base' || v === 'ok'; return { n, d: on || t === 'ent' ? d : d + '（安装后可用）', on, ins: t === 'plug' && v !== 'ok', ent: t === 'ent', tp: t === 'base' ? '基础功能' : t === 'plug' ? '插件' : '企业版', tc: on ? 'kc-tag ok' : v === 'ing' ? 'kc-tag info' : 'kc-tag mut', st: on ? '已启用' : v === 'ing' ? '安装中' : t === 'ent' ? '未开通' : '未安装',
       cls: on ? 'sq-pg on' : t === 'ent' ? 'sq-pg ent' : 'sq-pg off', btn: v === 'ing' ? '安装中…' : '安装插件',
       go: (e) => { if (e && e.preventDefault) e.preventDefault(); if (v) return; this.setState({ plg: Object.assign({}, plg, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plg: Object.assign({}, this.state.plg || {}, { [n]: 'ok' }) }), 1500); } }; });
     /* pmd 2026-11-09 · pmB2 */ const PMX = (() => { /* pmB 2026-11-09 · hpk：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
@@ -1379,7 +1379,7 @@ class Component extends DCLogic {
         const HOSTS = (() => { const L = []; const add = (g, n, ip, dis) => L.push({ g, n, ip, dis: dis || '' });
           [['web-prod-01', '115.231.**.12'], ['web-prod-02', '115.231.**.14'], ['web-prod-03', '115.231.**.15'], ['web-new-05', '10.0.1.25'], ['web-old-01', '115.231.**.21']].forEach((x) => add('web 组', x[0], x[1]));
           for (let i = 6; L.length < 24; i++) add('web 组', 'web-node-' + String(i).padStart(2, '0'), '10.0.1.' + (30 + i));
-          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '未授权']].forEach((x) => add('app 组', x[0], x[1], x[2]));
+          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '授权已用满']].forEach((x) => add('app 组', x[0], x[1], x[2]));
           for (let i = 8; L.length < 36; i++) add('app 组', 'app-' + String(i).padStart(2, '0'), '10.0.2.' + (20 + i));
           [['db-01', '115.231.**.13'], ['db-02', '10.0.4.12'], ['db-new-01', '10.0.4.61'], ['db-new-02', '10.0.4.62'], ['db-03', '10.0.4.13'], ['db-04', '10.0.4.14']].forEach((x) => add('db 组', x[0], x[1]));
           [['cache-01', '10.0.3.31'], ['cache-02', '10.0.3.32'], ['cache-03', '10.0.3.33'], ['cache-04', '10.0.3.34']].forEach((x) => add('cache 组', x[0], x[1]));
@@ -1417,7 +1417,7 @@ class Component extends DCLogic {
       d: TMP ? '这台在临时重保范围内，至 ' + TMP.end + ' 结束，全部能力命中后自动处置。' : uni ? '全部能力都是' + uni + '模式。' : cqCap.filter((c, i) => ms[i] !== '标准').map((c) => c[0] + ' ' + cmOf(c[1])).join('、') + '，其余能力是标准模式。',
       share: '模式按主机范围设置，在能力页或防护策略里修改',
       caps: cqCap.map((c) => { const m = cmOf(c[1]); return { n: c[0], d: c[2] + ' · 命中后' + (m === '重保' ? c[3] : '只告警'), t: m + '模式', tc: MT[m], rc: 'kc-sw-row' }; })
-        .concat([{ n: '漏洞与基线扫描', d: '漏洞每天 03:00，基线每 7 天', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }, { n: 'AI 研判', d: '企业版能力，自动分析告警真假', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }]) };
+        .concat([{ n: '漏洞与基线扫描', d: '漏洞每天 03:00，基线每 7 天', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }, { n: 'AI 研判', d: '自动分析告警真假', t: '已开启', tc: 'kc-tag ok', rc: 'kc-sw-row' }]) };
     const igM = st.igK ? (() => { const r = R0.find((x) => x.k === st.igK) || R0[0]; const w = (st.igW || '').trim(); const ok = !!st.igR && (st.igR !== '其他' || !!w);
       return { igOn: true, igT: '忽略「' + r.t + '」', igSub: '只对这台服务器生效。忽略后不再提醒，也不计入待处理。', igW: st.igW || '', igOnW: (e) => this.setState({ igW: e && e.target ? e.target.value : '' }),
         igR: IGR.map((n) => ({ n, c: n === st.igR ? 'ig7-o on' : 'ig7-o', a: n === st.igR ? 'true' : 'false', t: (e) => { pv(e); this.setState({ igR: n }); } })),

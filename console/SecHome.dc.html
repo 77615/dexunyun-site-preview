@@ -872,7 +872,7 @@ main.kc-main.sh .sh-r .sh-lic-act{margin-top:4px}
   </header>
   <div class="kc-body">
     <input type="checkbox" id="kcf-SecHome" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="德迅安全卫士菜单">
-      <div class="kc-sh"><b>德迅安全卫士</b><span>企业版 · 68 台主机</span></div>
+      <div class="kc-sh"><b>德迅安全卫士</b><span>68 台主机 · 授权 57/57</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -907,7 +907,7 @@ main.kc-main.sh .sh-r .sh-lic-act{margin-top:4px}
         </div>
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><div class="sh-rc1"><a class="sh-rch" href="#" onClick="{{k.goR}}"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></a><div class="sh-rcv"><a href="#" onClick="{{k.goR}}" title="查看这些风险"><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></a><a href="#" onClick="{{k.goH}}" title="查看这些主机"><small>影响主机</small><b>{{k.m}}</b><i>台</i></a></div></div></sc-for></div>
       </section>
-      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><i class="kai-ic lg" aria-hidden="true"></i>优先处置<span class="sh-aib kai-tag" title="企业版：AI 根据风险等级、可利用性和影响范围排序">AI 已排序</span></h2><a class="sh-wk" href="#" onClick="{{sx.go.wk}}"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>&nbsp;/14</em></a><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
+      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><i class="kai-ic lg" aria-hidden="true"></i>优先处置<span class="sh-aib kai-tag" title="AI 根据风险等级、可利用性和影响范围排序">AI 已排序</span></h2><a class="sh-wk" href="#" onClick="{{sx.go.wk}}"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>&nbsp;/14</em></a><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
         <div class="kc-cb sh-pw">
           <ul class="sh-tl"><sc-for list="{{sx.pri}}" as="p" hint-placeholder-count="4"><li>
             <i class="{{p.dot}}" aria-hidden="true"></i>
@@ -948,9 +948,9 @@ main.kc-main.sh .sh-r .sh-lic-act{margin-top:4px}
         </div>
         <div class="sh-r">
           <section class="kc-card sh-lic {{sx.lic.cls}}">
-            <div class="sh-lic-top"><i class="sh-lic-md" aria-hidden="true"></i><div class="sh-lic-nm"><small>德迅安全卫士</small><b onClick="{{sx.lic.flip}}" title="设计预览：点击切换基础版 / 企业版样式">{{sx.lic.ed}}</b></div><span class="sh-lic-tag">{{sx.lic.tag}}</span></div>
-            <div class="sh-lic-use"><div class="sh-lic-uh"><span>授权台数</span><span class="sh-lic-n"><b>65</b><em>/ 64 台</em></span></div><div class="sh-lic-bar"><i></i></div><p class="sh-lic-ov">已超额 1 台（app-07），这台只告警不防护</p></div>
-            <div class="sh-lic-row"><span>到期</span><em>11-01 · 数据保留至 11-08</em></div><div class="sh-lic-row"><span>授权明细</span><em><a href="#" onClick="{{sx.go.lic}}">授权管理</a></em></div>
+            <div class="sh-lic-top"><i class="sh-lic-md" aria-hidden="true"></i><div class="sh-lic-nm"><small>德迅安全卫士</small><b>{{sx.lic.ed}}</b></div><span class="sh-lic-tag">{{sx.lic.tag}}</span></div>
+            <div class="sh-lic-use"><div class="sh-lic-uh"><span>授权台数</span><span class="sh-lic-n"><b>57</b><em>/ 57 台</em></span></div><div class="sh-lic-bar"><i></i></div><p class="sh-lic-ov">已用满，app-07 没能加入；删除不用的主机会立刻空出名额</p></div>
+            <div class="sh-lic-row"><span>已购授权到期</span><em>11-01 · 数据保留至 11-08</em></div><div class="sh-lic-row"><span>德迅云服务器</span><em>7 台 · 随服务器赠送</em></div><div class="sh-lic-row"><span>授权明细</span><em><a href="#" onClick="{{sx.go.lic}}">授权管理</a></em></div>
             <div class="sh-lic-act"><a class="kc-btn pri sh-lic-b" href="BillConfirm.dc.html">{{sx.lic.pb}}</a><a class="kc-btn sh-lic-b" href="BillConfirm.dc.html">续费</a></div>
           </section><section class="kc-card"><div class="kc-ch"><h2>资产与防护健康</h2><a href="#" onClick="{{sx.go.assets}}">资产管理<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
             <div class="kc-cb"><ul class="sh-hl"><sc-for list="{{sx.health}}" as="h" hint-placeholder-count="4"><li><div class="sh-hh"><span>{{h.n}}</span><b>{{h.p}}</b></div><div class="sh-hb"><i style="{{h.w}}"></i></div><div class="sh-hf"><small>{{h.f}}</small><a href="#" onClick="{{h.go}}">{{h.l}}</a></div></li></sc-for></ul></div></section>
@@ -1608,7 +1608,7 @@ class Component extends DCLogic {
         ['c1', '客户端', '客户端离线清理', '离线超过 15 天的主机自动移出列表，释放授权', '全部主机', 1, 0],
         ['c2', '客户端', '客户端自保护 - 防卸载', '卸载需二次校验，被恶意卸载后自动重装', '全部主机', 1, 1],
         ['c3', '客户端', '客户端自保护 - 进程守护', '驱动级守护客户端进程，防止被结束', '全部主机', 1, 0],
-        ['c4', '客户端', '新主机自动安装客户端', '德迅云新开服务器预装客户端；是否自动绑定授权见「授权管理」', '德迅云服务器', 1, 1],
+        ['c4', '客户端', '新主机自动安装客户端', '德迅云新开服务器预装客户端，随服务器赠送，不占授权', '德迅云服务器', 1, 1],
         ['c5', '客户端', '客户端轻量化', '扫描跳过数据盘，降低 CPU 与磁盘占用', '—', 0, 0]];
       /* pmh 2026-11-09 · pmB2 */ { const K = ['SecLogin', 'SecShell', 'SecPriv', 'SecCmd', 'SecApp', 'SecVirus', 'SecFirewall', 'SecRansom', 'SecTamper', 'SecRemote']; const PMX = (() => { /* pmB 2026-11-09 · hpk：能力模式按主机范围设置（后面的范围覆盖前面的）；临时重保另算一层 */
         const GP = { 'web 组': ['web-', 24], 'app 组': ['app-', 12], 'db 组': ['db-', 6], 'cache 组': ['cache-', 4] };
@@ -1642,7 +1642,7 @@ class Component extends DCLogic {
         const HOSTS = (() => { const L = []; const add = (g, n, ip, dis) => L.push({ g, n, ip, dis: dis || '' });
           [['web-prod-01', '115.231.**.12'], ['web-prod-02', '115.231.**.14'], ['web-prod-03', '115.231.**.15'], ['web-new-05', '10.0.1.25'], ['web-old-01', '115.231.**.21']].forEach((x) => add('web 组', x[0], x[1]));
           for (let i = 6; L.length < 24; i++) add('web 组', 'web-node-' + String(i).padStart(2, '0'), '10.0.1.' + (30 + i));
-          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '未授权']].forEach((x) => add('app 组', x[0], x[1], x[2]));
+          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '授权已用满']].forEach((x) => add('app 组', x[0], x[1], x[2]));
           for (let i = 8; L.length < 36; i++) add('app 组', 'app-' + String(i).padStart(2, '0'), '10.0.2.' + (20 + i));
           [['db-01', '115.231.**.13'], ['db-02', '10.0.4.12'], ['db-new-01', '10.0.4.61'], ['db-new-02', '10.0.4.62'], ['db-03', '10.0.4.13'], ['db-04', '10.0.4.14']].forEach((x) => add('db 组', x[0], x[1]));
           [['cache-01', '10.0.3.31'], ['cache-02', '10.0.3.32'], ['cache-03', '10.0.3.33'], ['cache-04', '10.0.3.34']].forEach((x) => add('cache 组', x[0], x[1]));
@@ -1702,7 +1702,7 @@ class Component extends DCLogic {
     const HOST = {
       '正常': ['共 57 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
       '有风险': ['', [['web-prod-01', '10.0.1.11', '高危 3', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
-      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，未授权去绑定。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '未授权', 'kc-tag warn', '绑定授权', () => toast('跳转到「授权管理」', 'info')]]],
+      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，授权已用满的删掉不用的主机或购买授权。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '授权已用满', 'kc-tag warn', '购买授权', () => toast('跳转到「授权管理」：删除不用的主机或购买授权后，app-07 会自动加入', 'info')]]],
       '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
       '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
       '离线': ['', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
@@ -1798,7 +1798,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
-      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '未授权'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
@@ -1824,7 +1824,7 @@ class Component extends DCLogic {
         sx.gFc = String(Math.min(100, Math.round((sc + urg) * 10) / 10)); sx.gAl = '安全评分 ' + sc + ' 分，满分 100'; sx.gUnp = '其中未受保护 ' + hostR.filter((r) => r.lv === '未受保护').length + ' 台扣 ' + (hostR.filter((r) => r.lv === '未受保护').length * 2) + ' 分'; }
       if (st.shDw === 'score') { sx.dw.p = '安全评分 = 100 − 扣分合计 ' + dedSum + ' = ' + (100 - dedSum) + ' 分。修复后下次检测时更新评分。';
         sx.dw.r = hostR.map((r) => ({ a: r.n, b: r.as, c: '−' + DED(r), cc: 'sh-red', o: r.hgo ? '去处理' : '查看', go: r.hgo || GO('SecRiskDetail', {}, r.id) })); sx.dw.lk = '查看评分规则'; sx.dw.lkGo = ev(() => openDw('rule')); }
-      if (st.shDw === 'rule') { const RL = [['高危 · 漏洞', '可被远程利用，或已有公开利用代码', '−5', (r) => r.lv === '高危' && r.ty === '漏洞', { '级别': '高危', '类型': '漏洞' }], ['高危 · 入侵', '已确认或高度疑似被入侵', '−4', (r) => r.lv === '高危' && r.ty === '入侵', { '级别': '高危', '类型': '入侵' }], ['未受保护', '每台未受保护的主机（未安装、已卸载、部署失败、离线、检测过期、未授权）', '−2', (r) => r.lv === '未受保护', { '级别': '未受保护' }], ['中危', '需要判断或修复的中等风险', '−1', (r) => r.lv === '中危', { '级别': '中危' }], ['低危', '配置优化类，不影响当前运行', '−0.6', (r) => r.lv === '低危', { '级别': '低危' }]];
+      if (st.shDw === 'rule') { const RL = [['高危 · 漏洞', '可被远程利用，或已有公开利用代码', '−5', (r) => r.lv === '高危' && r.ty === '漏洞', { '级别': '高危', '类型': '漏洞' }], ['高危 · 入侵', '已确认或高度疑似被入侵', '−4', (r) => r.lv === '高危' && r.ty === '入侵', { '级别': '高危', '类型': '入侵' }], ['未受保护', '每台未受保护的主机（未安装、已卸载、部署失败、离线、检测过期、授权已用满）', '−2', (r) => r.lv === '未受保护', { '级别': '未受保护' }], ['中危', '需要判断或修复的中等风险', '−1', (r) => r.lv === '中危', { '级别': '中危' }], ['低危', '配置优化类，不影响当前运行', '−0.6', (r) => r.lv === '低危', { '级别': '低危' }]];
         sx.dw.kv = [['优秀', '90–100'], ['良好', '75–89'], ['一般', '60–74'], ['危险', '0–59']].map(([k, v]) => ({ k: k === sx.gG ? k + '（当前）' : k, v, c: '' })); sx.dw.r = RL.map(([a, b, c, f, q]) => ({ a, b, c, cc: 'sh-red', o: hostR.filter(f).length + ' 项', go: GO('SecRisks', Object.assign({ '状态': '待处置', '来源产品': '德迅安全卫士' }, q)) })); }
       if (st.shDw === 'ai') { const AM = { '异常登录': 'R1', 'OpenSSH 漏洞': 'R3', '客户端已卸载': 'U1' }; sx.dw.r.forEach((r) => { const id = AM[r.a]; if (id) { r.o = '查看'; r.go = GO('SecRiskDetail', {}, id); } }); }
       // 告警通知设置
@@ -1889,7 +1889,7 @@ class Component extends DCLogic {
       ['web-old-01', '115.231.**.30', '德迅服务器', '已停机', '到期停机，暂停检测，数据保留至 11-12', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.2', '11-05 23:58'],
       ['cache-03', '10.0.3.33', '其他机房', '未受保护', '离线 · 客户端 2 小时没有心跳', '—', '离线', '客户端离线', '生效', '未覆盖', '离线', 'V4.3.2', '11-02 08:31'],
       ['app-06', '10.0.2.26', '其他机房', '未受保护', '检测过期 · 超过 3 天没有完成检测', '—', '异常', '检测过期', '生效', '未覆盖', '在线', 'V4.3.2', '10-29 03:00'],
-      ['app-07', '10.0.2.27', '其他机房', '未受保护', '未授权 · 授权已用完，这台没有绑定', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
+      ['app-07', '10.0.2.27', '其他机房', '未受保护', '授权已用满 · 客户端已装好，授权用满没能加入', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
     for (let i = 1; X.length < 68; i++) { const p = String(i).padStart(2, '0'); X.push(['node-' + p, '10.0.' + (6 + Math.floor(i / 40)) + '.' + (10 + i % 40), '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:' + String(10 + i % 30)]); }
     const HS = X.map(([n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk]) => ({ n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk, dx: room === '德迅服务器' }));
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
@@ -2154,7 +2154,7 @@ class Component extends DCLogic {
     const ATABS = [['全部', ''], ['高危', 'hi'], ['未受保护', 'un'], ['中危', 'md'], ['低危', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
-    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
+    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '基础', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
     const scan = st.scan || '';
     const rng = st.rng || '近 24 小时', rf = st.rf || '';
     const TR = rng === '近 24 小时'
@@ -2167,7 +2167,7 @@ class Component extends DCLogic {
       ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '客户端没有改密权限，确认以 root 运行后重试', '处置记录', SD, '重试', 0]];
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
-    const NB = [['授权已到期', 'sh-nk r', '企业版授权 11-01 已到期，宽限期还剩 4 天：11-08 后停止检测并清理数据；另有 1 台主机（app-07）超出授权', '去续费', 'BillConfirm.dc.html'],
+    const NB = [['授权已到期', 'sh-nk r', '已购的 54 台授权 11-01 已到期，宽限期还剩 4 天：11-08 后这部分主机停止检测；另外授权已用满，app-07 没能加入', '去续费', 'BillConfirm.dc.html'],
       ['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
@@ -2181,7 +2181,7 @@ class Component extends DCLogic {
       refT: rf === 'ing' ? '刷新中…' : '手动刷新',
       refresh: () => { if (rf === 'ing') return; this.setState({ rf: 'ing' }); setTimeout(() => this.setState({ rf: 'ok' }), 1000); },
       ranges: ['近 24 小时', '近 7 天'].map((n) => ({ n, on: n === rng, cls: n === rng ? 'on' : '', pick: () => this.setState({ rng: n }) })),
-      lic: (() => { const ed = (this.state || {}).ed || '企业版'; const ent = ed === '企业版'; return { ed, ent, cls: ent ? 'ent' : 'base', tag: ent ? 'AI 研判已开启' : '不含 AI 研判', pb: ent ? '扩容授权' : '升级企业版', flip: () => this.setState({ ed: ent ? '基础版' : '企业版' }) }; })(),
+      lic: { ed: '授权 57 台', ent: false, cls: 'base', tag: '免费 3 + 已购 54', pb: '购买授权', flip: undefined },
       gOn: scan !== 'ing', gOff: scan === 'ing',
       arc: 'stroke-dasharray:' + (2 * Math.PI * 56 * 0.82).toFixed(1) + ' 400',
       nIdx: (ni + 1) + ' / ' + NB.length, nb: NB[ni],
@@ -2207,7 +2207,7 @@ class Component extends DCLogic {
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
       prog: [['新发现', '14', '其中高危 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
       caps: CAP.map(([n, k, m, fl, f, mm, d]) => { const ps = plug[n] || ''; const isP = m === 'plug'; const on = !isP || ps === 'ok';
-        return { n, k, ic: 'sh-ci ic' + ["入侵检测", "漏洞检测", "基线检查", "威胁狩猎", "病毒查杀", "AI 研判", "防勒索", "网页防篡改"].indexOf(n), d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'sh-ent' : 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
+        return { n, k, ic: 'sh-ci ic' + ["入侵检测", "漏洞检测", "基线检查", "威胁狩猎", "病毒查杀", "AI 研判", "防勒索", "网页防篡改"].indexOf(n), d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: '已开启', tc: 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })
     } };
     this._shx(SXD.sx);

@@ -925,7 +925,7 @@ main.kc-main > .pl-al{margin:0 24px 12px}
   </header>
   <div class="kc-body">
     <input type="checkbox" id="kcf-SecPolicy" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="德迅安全卫士菜单">
-      <div class="kc-sh"><b>德迅安全卫士</b><span>企业版 · 68 台主机</span></div>
+      <div class="kc-sh"><b>德迅安全卫士</b><span>68 台主机 · 授权 57/57</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -986,7 +986,7 @@ main.kc-main > .pl-al{margin:0 24px 12px}
             <sc-for list="{{pl.dw.dg}}" as="g" hint-placeholder-count="4"><div class="kc-sw-row pl-swr pq-dg"><div><b>{{g.g}}</b><span class="pq-dgn">{{g.cnt}}</span><a href="#" class="pq-dgx" aria-expanded="{{g.ae}}" onClick="{{g.x}}">{{g.xn}}</a></div><button type="button" class="{{g.swc}}" role="switch" aria-checked="{{g.a}}" aria-label="{{g.g}}" onClick="{{g.tog}}"></button></div>
               <sc-if value="{{g.open}}" hint-placeholder-val="{{false}}"><div class="pq-dgi"><sc-for list="{{g.items}}" as="c" hint-placeholder-count="3"><div class="kc-sw-row pq-ci"><span>{{c.n}}</span><button type="button" class="{{c.swc}}" role="switch" aria-checked="{{c.a}}" aria-label="{{c.n}}" onClick="{{c.tog}}"></button></div></sc-for></div></sc-if></sc-for>
             </div></sc-if>
-            <h5 class="pl-gh">企业版</h5>
+            <h5 class="pl-gh">AI 研判</h5>
             <sc-for list="{{pl.dw.pg}}" as="c" hint-placeholder-count="3"><div class="kc-sw-row pl-swr pq-pg2"><span>{{c.n}}</span><span class="pq-pgs">{{c.s}}<sc-if value="{{c.hasLk}}" hint-placeholder-val="{{false}}"><a class="pq-lk" href="{{c.href}}">{{c.lk}}</a></sc-if></span></div></sc-for></div></sc-if>
           <sc-if value="{{pl.dw.showImp}}" hint-placeholder-val="{{false}}"><div class="pq-st pq-cf"><h4>确认影响</h4><sc-for list="{{pl.dw.imp}}" as="x" hint-placeholder-count="2"><p class="{{x.c}}">{{x.t}}</p></sc-for></div></sc-if>
         </div>
@@ -1594,7 +1594,7 @@ class Component extends DCLogic {
     const HOST = {
       '正常': ['共 57 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
       '有风险': ['', [['web-prod-01', '10.0.1.11', '高危 3', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
-      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，未授权去绑定。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '未授权', 'kc-tag warn', '绑定授权', () => toast('跳转到「授权管理」', 'info')]]],
+      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，授权已用满的删掉不用的主机或购买授权。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '授权已用满', 'kc-tag warn', '购买授权', () => toast('跳转到「授权管理」：删除不用的主机或购买授权后，app-07 会自动加入', 'info')]]],
       '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
       '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
       '离线': ['', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
@@ -1674,7 +1674,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
-      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '未授权'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
@@ -1732,7 +1732,7 @@ class Component extends DCLogic {
       ['web-old-01', '115.231.**.30', '德迅服务器', '已停机', '到期停机，暂停检测，数据保留至 11-12', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.2', '11-05 23:58'],
       ['cache-03', '10.0.3.33', '其他机房', '未受保护', '离线 · 客户端 2 小时没有心跳', '—', '离线', '客户端离线', '生效', '未覆盖', '离线', 'V4.3.2', '11-02 08:31'],
       ['app-06', '10.0.2.26', '其他机房', '未受保护', '检测过期 · 超过 3 天没有完成检测', '—', '异常', '检测过期', '生效', '未覆盖', '在线', 'V4.3.2', '10-29 03:00'],
-      ['app-07', '10.0.2.27', '其他机房', '未受保护', '未授权 · 授权已用完，这台没有绑定', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
+      ['app-07', '10.0.2.27', '其他机房', '未受保护', '授权已用满 · 客户端已装好，授权用满没能加入', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
     for (let i = 1; X.length < 68; i++) { const p = String(i).padStart(2, '0'); X.push(['node-' + p, '10.0.' + (6 + Math.floor(i / 40)) + '.' + (10 + i % 40), '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:' + String(10 + i % 30)]); }
     const HS = X.map(([n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk]) => ({ n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk, dx: room === '德迅服务器' }));
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
@@ -1811,10 +1811,10 @@ class Component extends DCLogic {
       ['网络防护', '网络访问防护', '检测暴力破解、端口扫描、CC；是否封禁由「自动处置」决定', ''], ['网络防护', '外联管控', '主机主动连接的地址按规则告警', ''],
       ['风险检测', '漏洞检测', '每天 03:00', ''], ['风险检测', '基线定时扫描', '每 7 天，含弱口令检查', ''],
       ['自动处置', '恶意文件自动隔离', '命中后直接隔离文件，可能影响业务进程', 'au'], ['自动处置', '高危命令自动拦截', '命中后直接阻断命令，可能拦截运维脚本', 'au'], ['自动处置', '攻击来源 IP 自动封禁', '暴力破解、扫描、CC 来源自动封禁 3600 秒', 'au'],
-      ['防勒索与防篡改', '防勒索', '诱饵文件 + 关键目录保护', ''], ['防勒索与防篡改', '网页防篡改', '网站目录写保护', ''], ['企业版', 'AI 研判', '企业版 · 告警自动研判与处置建议', 'ent']];
+      ['防勒索与防篡改', '防勒索', '诱饵文件 + 关键目录保护', ''], ['防勒索与防篡改', '网页防篡改', '网站目录写保护', ''], ['AI 研判', 'AI 研判', '告警自动研判与处置建议', '']];
     const NC = CAPS.length; const AU = [12, 13, 14];
     const PLUG = { 15: ['db-01', 'web-prod-01', 'web-prod-02', 'web-prod-03'], 16: ['web-prod-01', 'web-prod-02', 'web-prod-03'] }; // 已安装插件的主机
-    const ENT = false; // 企业版未开通
+    const ENT = true; // 2026-11-19 不分版本，AI 研判所有账号都有
     const on = (idx) => CAPS.map((c, i) => idx.indexOf(i) >= 0);
     const TPL = [['lite', '轻量防护', '资源占用最低，只保留核心检测', on([0, 1, 5, 7, 10, 11])],
       ['std', '标准防护', '推荐给大多数业务主机，全部检测、只告警', on([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16])],
@@ -1905,7 +1905,7 @@ class Component extends DCLogic {
         const HOSTS = (() => { const L = []; const add = (g, n, ip, dis) => L.push({ g, n, ip, dis: dis || '' });
           [['web-prod-01', '115.231.**.12'], ['web-prod-02', '115.231.**.14'], ['web-prod-03', '115.231.**.15'], ['web-new-05', '10.0.1.25'], ['web-old-01', '115.231.**.21']].forEach((x) => add('web 组', x[0], x[1]));
           for (let i = 6; L.length < 24; i++) add('web 组', 'web-node-' + String(i).padStart(2, '0'), '10.0.1.' + (30 + i));
-          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '未授权']].forEach((x) => add('app 组', x[0], x[1], x[2]));
+          [['app-03', '10.0.2.23'], ['app-05', '10.0.2.25'], ['app-07', '10.0.2.27', '授权已用满']].forEach((x) => add('app 组', x[0], x[1], x[2]));
           for (let i = 8; L.length < 36; i++) add('app 组', 'app-' + String(i).padStart(2, '0'), '10.0.2.' + (20 + i));
           [['db-01', '115.231.**.13'], ['db-02', '10.0.4.12'], ['db-new-01', '10.0.4.61'], ['db-new-02', '10.0.4.62'], ['db-03', '10.0.4.13'], ['db-04', '10.0.4.14']].forEach((x) => add('db 组', x[0], x[1]));
           [['cache-01', '10.0.3.31'], ['cache-02', '10.0.3.32'], ['cache-03', '10.0.3.33'], ['cache-04', '10.0.3.34']].forEach((x) => add('cache 组', x[0], x[1]));
@@ -1988,7 +1988,7 @@ class Component extends DCLogic {
       if (pl.caps.length) Object.assign(pl.caps[0], { gh: '可切换模式的能力', ghd: '命中后只告警还是自动处置，由模式决定；可以按主机范围设置不同模式' });
       const NOM = [['SecVuln', '漏洞检测', '系统漏洞 · 应用漏洞 · Web-CMS 漏洞 · 应急漏洞', '每天 02:00 自动扫描', '发现后提醒，给出修复方法', '已开启', 'kc-tag ok', '漏洞设置'], ['SecBaseline', '基线检查', '德迅安全基线 · 弱口令检测', '每天 03:00 自动检查', '发现后提醒，给出加固方法', '已开启', 'kc-tag ok', '检查设置'],
         ['SecHunt', '威胁狩猎', '攻击链溯源 · 节点证据', '全部主机', '生成调查线索，由你研判', '已开启', 'kc-tag ok', '功能设置'], ['SecFinger', '资产指纹', '进程 · 端口 · 账号 · 软件 · 启动项等', '每天 01:00 采集', '只采集，不告警', '已开启', 'kc-tag ok', '采集设置'],
-        ['SecLicense', 'AI 研判', '告警自动研判与处置建议', '企业版能力', '给出研判结论和处置建议', '未开通', 'kc-tag mut', '去开通']];
+        ['SecLicense', 'AI 研判', '告警自动研判与处置建议', '默认开启', '给出研判结论和处置建议', '已开启', 'kc-tag ok', '查看']];
       NOM.forEach((c, i) => pl.caps.push({ canX: false, open: false, n: c[1], href: c[0] + '.dc.html', subs: c[2], m: c[5], mc: c[6], back: c[3], cmp: '', cc: '', noC: true, act: c[4], on: c[5] === '未开通' ? '—' : '按设置', off: '', adjN: '', adj0: true, adjH: '', op: c[7], gh: i ? '' : '不区分模式的能力', ghd: i ? '' : '只做检测和扫描，在各自页面单独设置' }));
       /* simp 2026-11-09：简化列表数据 */
       { const MT = { '轻量': 'kc-tag mut', '标准': 'kc-tag info', '重保': 'kc-tag warn' };
@@ -2084,10 +2084,10 @@ class Component extends DCLogic {
       const groups = []; if (cur) CAPS.forEach(([g, n, d, ty], i) => { let x = groups.find((y) => y.g === g); if (!x) { x = { g, items: [] }; groups.push(x); }
         const lock = ty === 'ent' && !ENT; const noAu = ty === 'au' && isDefEd; const ed = capsEd && !lock && !noAu && !pickP;
         const tgt = mode === 'edit' ? hostsOf(editP.id).map((h) => h.n) : sel; const miss = ty === 'pg' && cur[i] ? tgt.filter((n2) => PLUG[i].indexOf(n2) < 0) : [];
-        x.items.push({ n, d: lock ? '企业版能力，当前未开通' : d, swc: 'kc-sw' + (cur[i] && !lock ? ' on' : '') + (ed ? '' : ' dis'), a: cur[i] && !lock ? 'true' : 'false', rc: lock ? 'kc-sw-row pl-swr pq-lkr' : 'kc-sw-row pl-swr',
+        x.items.push({ n, d: d, swc: 'kc-sw' + (cur[i] && !lock ? ' on' : '') + (ed ? '' : ' dis'), a: cur[i] && !lock ? 'true' : 'false', rc: lock ? 'kc-sw-row pl-swr pq-lkr' : 'kc-sw-row pl-swr',
           tag: lock ? '未开通' : ty === 'pg' ? '插件' : ty === 'au' ? '自动处置' : '', tc: lock ? 'kc-tag mut' : ty === 'au' ? 'kc-tag warn' : 'kc-tag info', hasTag: !!(lock || ty),
           note: miss.length ? miss.length + ' 台未安装插件（' + miss.slice(0, 2).join('、') + (miss.length > 2 ? ' 等' : '') + '），安装后自动按策略生效' : noAu ? '默认策略不开启自动处置' : '', hasNote: !!(miss.length || noAu),
-          lk: lock, tt: lock ? '需开通企业版' : !adm ? NOP : '',
+          lk: lock, tt: !adm ? NOP : '',
           tog: ev(() => { if (!ed) return; S({ plDr: Object.assign({}, dr, { [i]: !cur[i] }) }); }) }); });
       D.groups = groups;
       { const capOk = capsEd && !pickP; const tg = (o) => S({ plDr: Object.assign({}, dr, o) }); const anyAu = !!cur && AU.some((i) => cur[i]);
@@ -2107,7 +2107,7 @@ class Component extends DCLogic {
             tog: ev(() => { if (!capOk) return; const o = {}; ix.forEach((i) => { o[i] = !allOn; }); tg(o); }),
             items: ix.map((i) => ({ n: CAPS[i][1], a: cur[i] ? 'true' : 'false', swc: 'kc-sw' + (cur[i] ? ' on' : '') + (capOk ? '' : ' dis'), tog: ev(() => { if (!capOk) return; tg({ [i]: !cur[i] }); }) })) }; });
         const tgt2 = mode === 'edit' ? hostsOf(editP.id).map((h) => h.n) : sel;
-        D.pg = [].concat([{ n: 'AI 研判', s: ENT ? '已开通' : '未开通', hasLk: !ENT, lk: '开通企业版', href: 'SecLicense.dc.html' }]); }
+        D.pg = [].concat([{ n: 'AI 研判', s: ENT ? '已开通' : '未开通', hasLk: !ENT, lk: '', href: 'SecLicense.dc.html' }]); }
       // 更换默认
       D.showDef = mode === 'def';
       D.defs = pols.map((p) => { const au = auN(p.caps) > 0; return { n: p.n, d: au ? '含自动处置，不能设为默认' : p.d, rc: (pick || defId) === p.id ? 'pq-pk on' : au ? 'pq-pk dis' : 'pq-pk', ra: (pick || defId) === p.id ? 'true' : 'false', pick: ev(() => { if (au) return; S({ plPick: p.id }); }) }; });
@@ -2400,7 +2400,7 @@ class Component extends DCLogic {
     const ATABS = [['全部', ''], ['高危', 'hi'], ['未受保护', 'un'], ['中危', 'md'], ['低危', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
-    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
+    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '基础', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
     const scan = st.scan || '';
     const rng = st.rng || '近 24 小时', rf = st.rf || '';
     const TR = rng === '近 24 小时'
@@ -2414,7 +2414,7 @@ class Component extends DCLogic {
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
-      ['授权', 'sh-nk o', '企业版授权 11-01 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'BillConfirm.dc.html'],
+      ['授权', 'sh-nk o', '已购授权 11-01 已到期，保留至 11-08；授权已用满，app-07 没能加入', '续费或购买授权', 'BillConfirm.dc.html'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',
@@ -2451,7 +2451,7 @@ class Component extends DCLogic {
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
       prog: [['新发现', '14', '其中高危 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
       caps: CAP.map(([n, k, m, fl, f, mm, d]) => { const ps = plug[n] || ''; const isP = m === 'plug'; const on = !isP || ps === 'ok';
-        return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'sh-ent' : 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
+        return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: '已开启', tc: 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })
     } };
     this._shx(SXD.sx);

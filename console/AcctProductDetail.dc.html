@@ -108,7 +108,7 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">德迅安全卫士</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctTransfer.dc.html">转移权益</a><a class="kc-btn pri" href="#">进入控制台</a></div>
       </div>
-      <div class="ac-al e"><i>!</i><span>1 项服务已到期 · 授权超出 18 台<em>续费和扩容在下方对应服务里操作</em></span></div>
+      <div class="ac-al e"><i>!</i><span>1 项服务已到期 · 授权已用满（57 / 57）<em>续费和购买授权在下方对应服务里操作</em></span></div>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <sc-if value="{{isOv}}" hint-placeholder-val="{{true}}">
@@ -755,9 +755,9 @@ class Component extends DCLogic {
 
     const tab = st.ft || '概览';
     const tabs = [['概览', ''], ['服务实例', 2], ['关联订单', 4]].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ ft: n }) }));
-    const svcs = [ROW([{ t: 'dx-guard-01', a: '#' }, '企业版 · 全局', { t: '68 / 50 台', c: 'r', s: '超出 18 台', sc: 'r' }, { t: '运行中', tag: 'ok' }, '2027-01-26'], [['扩容', 'BillConfirm.dc.html'], ['转移权益', 'AcctTransfer.dc.html']]),
-      ROW([{ t: 'dx-guard-02', a: '#' }, '企业版 · 全局', '2 / 2 台', { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-10-25', s: '保留至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html']])];
-    const ods = [['DX20261007003', '扩容', '授权 +25 台', ['已完成', 'ok'], '¥25.00'], ['DX20260801004', '续费', 'dx-guard-02 续费 3 个月', ['已完成', 'ok'], '¥995.00'], ['DX20260412002', '扩容', '授权 +10 台', ['已完成', 'ok'], '¥990.00'], ['DX20260126001', '新购', '企业版 1 份 · 1 年', ['已完成', 'ok'], '¥3,980.00']]
+    const svcs = [ROW([{ t: 'dx-guard-01', a: '#' }, '购买授权', { t: '54 台', s: '另有免费 3 台，共 57 / 57 已用满', sc: 'o' }, { t: '运行中', tag: 'ok' }, '2027-01-26'], [['扩容', 'BillConfirm.dc.html'], ['转移权益', 'AcctTransfer.dc.html']]),
+      ROW([{ t: 'dx-guard-02', a: '#' }, '购买授权', '2 台', { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-10-25', s: '保留至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html']])];
+    const ods = [['DX20261007003', '扩容', '授权 +25 台', ['已完成', 'ok'], '¥25.00'], ['DX20260801004', '续费', 'dx-guard-02 续费 3 个月', ['已完成', 'ok'], '¥995.00'], ['DX20260412002', '扩容', '授权 +10 台', ['已完成', 'ok'], '¥990.00'], ['DX20260126001', '新购', '授权 20 台 · 1 年', ['已完成', 'ok'], '¥3,980.00']]
       .map(([o, t, c, s, a]) => ROW([{ t: o, a: 'BillOrderDetail.dc.html' }, t, c, { t: s[0], tag: s[1] }, { t: a, c: 'ac-n', td: 'num' }], [['详情', 'BillOrderDetail.dc.html']]));
 
     return Object.assign({ nav }, { tabs, isOv: tab === '概览', isSv: tab === '服务实例', isOd: tab === '关联订单', svcs, ods });
