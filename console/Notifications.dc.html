@@ -24,6 +24,32 @@
 .tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+
+/* ssy-v1 二级页（工单、消息、权益转移）页签和卡片同步分组页 */
+.kc main.kc-main section.kc-card.ssy{border:0!important;border-radius:0;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs.kc-tabs{display:flex!important;gap:4px!important;height:auto!important;margin:0!important;padding:16px 20px!important;border:0!important;border-bottom:1px solid #e5e6eb!important;background:none!important;box-shadow:none!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 10px!important;margin:0!important;border:0!important;border-radius:2px!important;background:transparent!important;box-shadow:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.7)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab::before,.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.5)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f64041!important;font-weight:500!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt:empty{display:none}
+.kc main.kc-main section.kc-card.ssy>.lf-bar{padding-left:20px!important;padding-right:20px!important}
+/* 消息：分段切换 + 安静筛选 */
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs.kc-tabs{gap:0!important}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs.kc-tabs::before{content:none}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs>.kc-tab.kc-tab{height:32px!important;padding:0 14px!important;border-radius:0!important;background:#f2f3f5!important;box-shadow:inset 0 0 0 2px #f2f3f5!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs>.kc-tab.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;box-shadow:inset 0 0 0 2px #f2f3f5,0 1px 2px rgba(0,0,0,.06)!important}
+.kc main.kc-main section.kc-card.ssy .ac-chips{gap:4px;padding:12px 20px 0;align-items:center}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button{height:28px;padding:0 10px;border:0!important;border-radius:2px;background:transparent!important;color:rgba(0,0,0,.7)!important;font-weight:400}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button[style]{background:none!important;color:#1664ff!important;font-weight:400}
+/* 统计卡同费用概览模块 */
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st{border:1px solid #e9ecf1!important;border-radius:4px!important;box-shadow:none!important;padding:16px 20px}
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st:hover{border-color:#d5dae3!important}
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st.o b{color:#ff7800}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -108,7 +134,7 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">消息</h1></div></div>
         <div class="kc-btns"></div>
       </div>
-      <section class="kc-card">
+      <section class="kc-card ssy ssy-seg">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <sc-if value="{{isList}}" hint-placeholder-val="{{true}}">
         <div class="ac-chips"><sc-for list="{{cats}}" as="c" hint-placeholder-count="5"><button type="button" class="{{c.cls}}" onClick="{{c.go}}">{{c.n}}</button></sc-for><button type="button" style="margin-left:auto;border:0;color:#1664ff" onClick="{{readAll}}">全部已读</button></div>

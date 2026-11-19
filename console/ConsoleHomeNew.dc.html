@@ -24,6 +24,32 @@
 .tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+
+/* ssy-v1 二级页（工单、消息、权益转移）页签和卡片同步分组页 */
+.kc main.kc-main section.kc-card.ssy{border:0!important;border-radius:0;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs.kc-tabs{display:flex!important;gap:4px!important;height:auto!important;margin:0!important;padding:16px 20px!important;border:0!important;border-bottom:1px solid #e5e6eb!important;background:none!important;box-shadow:none!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 10px!important;margin:0!important;border:0!important;border-radius:2px!important;background:transparent!important;box-shadow:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.7)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab::before,.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.5)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f64041!important;font-weight:500!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt:empty{display:none}
+.kc main.kc-main section.kc-card.ssy>.lf-bar{padding-left:20px!important;padding-right:20px!important}
+/* 消息：分段切换 + 安静筛选 */
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs.kc-tabs{gap:0!important}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs.kc-tabs::before{content:none}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs>.kc-tab.kc-tab{height:32px!important;padding:0 14px!important;border-radius:0!important;background:#f2f3f5!important;box-shadow:inset 0 0 0 2px #f2f3f5!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs>.kc-tab.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;box-shadow:inset 0 0 0 2px #f2f3f5,0 1px 2px rgba(0,0,0,.06)!important}
+.kc main.kc-main section.kc-card.ssy .ac-chips{gap:4px;padding:12px 20px 0;align-items:center}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button{height:28px;padding:0 10px;border:0!important;border-radius:2px;background:transparent!important;color:rgba(0,0,0,.7)!important;font-weight:400}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button[style]{background:none!important;color:#1664ff!important;font-weight:400}
+/* 统计卡同费用概览模块 */
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st{border:1px solid #e9ecf1!important;border-radius:4px!important;box-shadow:none!important;padding:16px 20px}
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st:hover{border-color:#d5dae3!important}
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st.o b{color:#ff7800}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -103,11 +129,11 @@
   </header>
   <div class="kc-body">
     <main data-pg="ConsoleHomeNew" class="kc-main">
-      <nav class="tcl-tabs" aria-label="控制台分区"><a class="on" aria-current="page" href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="kc-hd">
-        <div class="kc-hdl"><div><h1 class="kc-h1">下午好，新用户</h1></div></div>
+        <div class="kc-hdl"><div><h1 class="kc-h1">下午好，新用户<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div>
         <div class="kc-btns"><a class="kc-btn pri" href="AcctPurchase.dc.html">选购产品</a></div>
       </div>
+      <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a class="on" aria-current="page" href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="on-hero"><div><h2>欢迎使用德迅云</h2><p>完成下面 3 步就可以开通第一个安全产品。</p></div></div>
       <div class="on-steps">
         <div class="on-step done"><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg></i><b>个人实名认证</b><p>已完成 · 可以购买、续费和付款</p></div>

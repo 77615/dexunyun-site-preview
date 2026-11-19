@@ -24,6 +24,32 @@
 .tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+
+/* ssy-v1 二级页（工单、消息、权益转移）页签和卡片同步分组页 */
+.kc main.kc-main section.kc-card.ssy{border:0!important;border-radius:0;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs.kc-tabs{display:flex!important;gap:4px!important;height:auto!important;margin:0!important;padding:16px 20px!important;border:0!important;border-bottom:1px solid #e5e6eb!important;background:none!important;box-shadow:none!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab.kc-tab{display:inline-flex!important;align-items:center;gap:6px;height:28px!important;min-width:0!important;padding:0 10px!important;margin:0!important;border:0!important;border-radius:2px!important;background:transparent!important;box-shadow:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.7)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab::before,.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab::after{display:none!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt{min-width:0!important;height:auto!important;padding:0!important;background:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.5)!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt.r{color:#f64041!important;font-weight:500!important}
+.kc main.kc-main section.kc-card.ssy>.kc-tabs>.kc-tab>.kc-cnt:empty{display:none}
+.kc main.kc-main section.kc-card.ssy>.lf-bar{padding-left:20px!important;padding-right:20px!important}
+/* 消息：分段切换 + 安静筛选 */
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs.kc-tabs{gap:0!important}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs.kc-tabs::before{content:none}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs>.kc-tab.kc-tab{height:32px!important;padding:0 14px!important;border-radius:0!important;background:#f2f3f5!important;box-shadow:inset 0 0 0 2px #f2f3f5!important;color:rgba(0,0,0,.6)!important}
+.kc main.kc-main section.kc-card.ssy.ssy-seg>.kc-tabs>.kc-tab.kc-tab.on{background:#fff!important;color:rgba(0,0,0,.9)!important;box-shadow:inset 0 0 0 2px #f2f3f5,0 1px 2px rgba(0,0,0,.06)!important}
+.kc main.kc-main section.kc-card.ssy .ac-chips{gap:4px;padding:12px 20px 0;align-items:center}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button{height:28px;padding:0 10px;border:0!important;border-radius:2px;background:transparent!important;color:rgba(0,0,0,.7)!important;font-weight:400}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500}
+.kc main.kc-main section.kc-card.ssy .ac-chips>button[style]{background:none!important;color:#1664ff!important;font-weight:400}
+/* 统计卡同费用概览模块 */
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st{border:1px solid #e9ecf1!important;border-radius:4px!important;box-shadow:none!important;padding:16px 20px}
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st:hover{border-color:#d5dae3!important}
+.kc main.kc-main>.ac-stats.ssy-st>.ac-st.o b{color:#ff7800}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -108,14 +134,14 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">权益转移</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">返回订阅与资源</a></div>
       </div>
-      <div class="ac-stats">
+      <div class="ac-stats ssy-st">
         <div class="ac-st"><span>待对方确认</span><b>1</b><em>24 小时内未确认自动失效</em></div>
         <div class="ac-st o"><span>待我确认</span><b>1</b><em>请尽快确认或拒绝</em></div>
         <div class="ac-st"><span>已完成</span><b>1</b><em>含转出与转入</em></div>
         <div class="ac-st"><span>已拒绝 / 撤回 / 失效</span><b>3</b><em>资源仍保留在原账户</em></div>
       </div>
       <div class="ac-al "><i>!</i><span>有 1 项资源等待你确认接收：云备份 · 标准版（来自 139****4321）<em>超过 24 小时未确认会自动失效</em></span><button class="kc-btn sm" type="button" onClick="{{openR}}">去处理</button></div>
-      <section class="kc-card">
+      <section class="kc-card ssy">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <div class="kc-tw"><table class="kc-t lf-st5 op-fix">
           <thead><tr><th>转移单号</th><th>资源</th><th>发起方</th><th>接收方</th><th>状态</th><th>发起时间</th><th>操作</th></tr></thead>
