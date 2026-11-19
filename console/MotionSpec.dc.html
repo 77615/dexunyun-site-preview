@@ -26,6 +26,22 @@
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
 
 /* ctr-v1 顶部 tab 只留视角：总览 / 我的产品 */
+
+/* cnav-v1 三个中心的导航入口 */
+.kc .kc-main>nav.tcl-tabs>.cnav-r{margin-left:auto;align-self:center;display:flex;gap:4px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;font-size:13px;font-weight:400;color:rgba(0,0,0,.7);text-decoration:none;border-radius:2px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a::after{display:none!important}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a:hover{background:rgba(255,255,255,.7);color:#1664ff}
+.cnav-r .kc-ic,.cnav-me .kc-ic{display:inline-block;flex:none;width:14px;height:14px;-webkit-mask-size:14px 14px;mask-size:14px 14px;background:currentColor!important;margin:0}
+.ac-pop:has(>.cnav-me){width:340px!important}
+.cnav-me{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px;border-bottom:1px solid #eef0f3}
+.cnav-me>a{display:flex;flex-direction:column;gap:4px;padding:10px;background:#f7f8fa;color:rgba(0,0,0,.9);text-decoration:none;border-radius:2px}
+.cnav-me>a:hover{background:#eef4ff;color:#1664ff}
+.cnav-me>a .kc-ic{width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;color:#1664ff;background:#1664ff!important}
+.cnav-me>a b{font-size:13px;font-weight:500}
+.cnav-me>a small{font-size:11px;color:rgba(0,0,0,.5);white-space:nowrap}
+.kc-side.ctr-side .kc-sh .cnav-back{display:inline-flex;align-items:center;gap:2px;margin-top:4px;font-size:12px;color:rgba(0,0,0,.5);text-decoration:none}
+.kc-side.ctr-side .kc-sh .cnav-back:hover{color:#1664ff}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -38,7 +54,7 @@
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
+        <h4>管理中心</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用中心</a></li><li><a href="OrgInfo.dc.html">企业中心</a></li><li><a href="SupTickets.dc.html">支持中心</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
@@ -77,7 +93,7 @@
             <li><span>代金券<em>1 张可用</em></span></li>
           </ul>
           <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
-          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">进入费用中心<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
@@ -88,12 +104,12 @@
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
-          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div><div class="cnav-me"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i><b>费用中心</b><small>订单 · 付款 · 发票</small></a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i><b>企业中心</b><small>认证 · 成员 · 权限</small></a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i><b>支持中心</b><small>工单 · 消息 · 文档</small></a></div>
           <ul class="ac-rows">
             <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
             <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            
           </ul>
           <ul class="ac-rows" style="border-bottom:0">
             <li><a href="#">切换账号</a></li>
@@ -105,7 +121,7 @@
   </header>
   <div class="kc-body">
     <main data-pg="MotionSpec" class="kc-main">
-      <nav class="tcl-tabs" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a></nav>
+      <nav class="tcl-tabs" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><span class="tcl-r cnav-r"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i>费用中心</a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i>企业中心</a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i>支持中心</a></span></nav>
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">页面切换与交互动效</h1></div></div>
         <div class="kc-btns"></div>
