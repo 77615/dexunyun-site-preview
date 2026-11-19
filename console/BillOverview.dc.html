@@ -186,6 +186,24 @@
 .kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r{margin-left:auto;display:flex;gap:8px;align-items:center}
 .kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn{height:32px!important;padding:0 16px!important;margin:0!important;display:inline-flex!important;align-items:center;gap:6px;border:1px solid #d6dbe3!important;background:#fff!important;color:rgba(0,0,0,.9)!important;font-size:13px!important;border-radius:0!important}
 .kc .kc-main>.hier-box>nav.ia-tabs>.tcl-r>a.kc-btn:hover{border-color:#1664ff!important;color:#1664ff!important}
+
+/* bsy-v1 费用、企业页签和背景同步「我的产品」 */
+.kc main.kc-main>.hier-box.bsy{border:0;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.kc main.kc-main>.hier-box.bsy>nav.ia-tabs.ia-tabs{padding:16px 20px!important;border-bottom:1px solid #e5e6eb!important;gap:8px!important}
+.kc .kc-main>.hier-box.bsy>nav.ia-tabs>.bsy-seg{display:inline-flex;gap:2px;padding:2px;background:#f2f3f5}
+.kc .kc-main>.hier-box.bsy>nav.ia-tabs>.bsy-seg>a{display:inline-flex;align-items:center;height:28px!important;padding:0 14px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;font-size:12px!important;font-weight:400!important;color:rgba(0,0,0,.6)!important;text-decoration:none}
+.kc .kc-main>.hier-box.bsy>nav.ia-tabs>.bsy-seg>a::before,.kc .kc-main>.hier-box.bsy>nav.ia-tabs>.bsy-seg>a::after{display:none!important}
+.kc .kc-main>.hier-box.bsy>nav.ia-tabs>.bsy-seg>a:hover{color:rgba(0,0,0,.9)!important}
+.kc .kc-main>.hier-box.bsy>nav.ia-tabs>.bsy-seg>a.on{background:#fff!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:0 1px 2px rgba(0,0,0,.06)!important}
+.kc main.kc-main>.hier-box.bsy>.hier-in .kc-card>.kc-tabs.kc-tabs.kc-tabs{gap:4px!important;margin:16px 20px 0!important;padding:0!important;background:none!important}
+.kc main.kc-main>.hier-box.bsy>.hier-in .kc-card>.kc-tabs.kc-tabs>.kc-tab.kc-tab{height:28px!important;padding:0 10px!important;border-radius:2px!important;font-size:12px!important;color:rgba(0,0,0,.7)!important;background:transparent!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box.bsy>.hier-in .kc-card>.kc-tabs.kc-tabs>.kc-tab.kc-tab:hover{background:#f7f8fb!important;color:rgba(0,0,0,.9)!important}
+.kc main.kc-main>.hier-box.bsy>.hier-in .kc-card>.kc-tabs.kc-tabs>.kc-tab.kc-tab.on{background:#f2f4f8!important;color:rgba(0,0,0,.9)!important;font-weight:500!important;box-shadow:none!important}
+.kc main.kc-main>.hier-box.bsy>.hier-in .kc-card>.kc-tabs.kc-tabs>.kc-tab>.kc-cnt{color:rgba(0,0,0,.5)!important}
+.kc main.kc-main>.hier-box.bsy>.hier-in .kc-card>.kc-tabs.kc-tabs>.kc-tab>.kc-cnt.r{color:#f64041!important;font-weight:500!important}
+.kc main.kc-main>.hier-box.bsy .kc-card>.lf-bar{padding-left:20px!important;padding-right:20px!important}
+.kc main.kc-main>.hier-box.bsy.bsy-one>.hier-in{padding:0;background:#fff}
+.kc main.kc-main>.hier-box.bsy.bsy-one>.hier-in>section.kc-card{box-shadow:none!important;border:0!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -270,9 +288,9 @@
         <div class="kc-btns"></div>
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a class="on" aria-current="page" href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
-      <div class="hier-box"><nav class="ia-tabs" aria-label="费用"><a class="on" aria-current="page" href="BillOverview.dc.html">概览</a><a href="BillOrders.dc.html">订单</a><a href="BillPay.dc.html">付款</a><a href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a></nav><div class="hier-in">
+      <div class="hier-box bsy"><nav class="ia-tabs" aria-label="费用"><span class="bsy-seg"><a class="on" aria-current="page" href="BillOverview.dc.html">概览</a><a href="BillOrders.dc.html">订单</a><a href="BillPay.dc.html">付款</a><a href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a></span></nav><div class="hier-in">
       <div class="b8">
-        <div class="b8-m">
+        <div class="b8-m" style="padding-right: 0px; padding-top: 0px">
         <div class="b8-hero">
           <div class="b8-lb">待付款 · 1 笔订单</div>
           <div class="b8-amt"><small>¥</small>320.00</div>

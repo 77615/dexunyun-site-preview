@@ -16,6 +16,7 @@
 | T13 | AcctProducts | 修改 | 状态分组改成浅灰容器、标题在容器里；卡片 4px 圆角极浅阴影；底部去掉灰底条，左「进入控制台 ›」，右文字按钮 + 白底描边主按钮 | scripts/pcboard.py | 完成 |
 | T14 | AcctProducts | 修改 | 筛选合成一行：左状态安静页签，右按产品/按资源分段、卡片/列表、搜索、购买产品；搜索过滤和无结果状态；加载中占位；无产品空状态；原型状态切换 | scripts/pcfiles.py | 完成 |
 | T15 | AcctSubs | 修改 | 去掉容器顶部胶囊条；卡片顶部一行：左状态安静页签，右按产品/按资源分段 + 权益转移、到期提醒设置；容器白底，筛选栏与表格左右对齐 20 | scripts/subsuni.py | 完成 |
+| T16 | Bill* 6 页、Org* 4 页 | 修改 | 二级页签改分段切换；卡片内状态页签改安静页签；容器去描边改浅阴影；订单、发票、合同容器内全白，其他页保留浅灰内底；筛选栏和表格左右对齐 20；保留 77 在概览、收支明细的内边距微调 | scripts/billsync.py | 完成 |
 | T5 | canvas.json | 修改 | ConsoleHome 高度 1300，标题改 v6 | 手工 | 完成 |
 
 脚本幂等（标记 tcl-v1）；输入里有 data-annotation-id 时，新账户卡带上 home-account / home-fees。
@@ -29,3 +30,4 @@
 第七轮：`python3 scripts/pcboard.py console/AcctProducts.dc.html`（在 pcsem.py 之后，标记 pcb-v1）。
 第八轮：`python3 scripts/pcfiles.py console/AcctProducts.dc.html`（在 pcboard.py 之后，标记 pcf-v1）。
 第九轮：`python3 scripts/subsuni.py console/AcctSubs.dc.html`（在 hier2.py 之后，标记 sbu-v1）。
+第十轮：`python3 scripts/billsync.py console/{Bill*,Org*}.dc.html`（10 个分组页，在 hier2.py 之后，标记 bsy-v1）。
