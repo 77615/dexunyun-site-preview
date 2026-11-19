@@ -204,6 +204,27 @@
 .kc main.kc-main>.hier-box.bsy .kc-card>.lf-bar{padding-left:20px!important;padding-right:20px!important}
 .kc main.kc-main>.hier-box.bsy.bsy-one>.hier-in{padding:0;background:#fff}
 .kc main.kc-main>.hier-box.bsy.bsy-one>.hier-in>section.kc-card{box-shadow:none!important;border:0!important}
+
+/* bmod-v1 费用页按模块分层 */
+.kc .hier-box.bsy>.hier-in:has(>.b8){padding:20px 20px 24px!important;background:#fff!important}
+.kc .hier-box.bsy .b8.b8{gap:20px!important;margin:0!important;border-top:0!important;padding:0!important}
+.kc .hier-box.bsy .b8 .b8-m,.kc .hier-box.bsy .b8 .b8-r{padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+.kc .hier-box.bsy .b8 .b8-hero,.kc .hier-box.bsy .b8 .b8-sec{position:relative;margin:32px 0 0!important;padding:20px!important;background:#fff!important;border:1px solid #e9ecf1!important;border-radius:4px!important;box-shadow:none!important;overflow:visible!important}
+.kc .hier-box.bsy .b8 .b8-hero+.b8-sec,.kc .hier-box.bsy .b8 .b8-sec+.b8-sec{margin-top:56px!important}
+.kc .hier-box.bsy .b8 .b8-hero{background:linear-gradient(100deg,#f2f6ff 0%,#fff 72%)!important}
+.kc .hier-box.bsy .b8 .b8-hero::after{display:none!important}
+.kc .hier-box.bsy .b8 .b8-st{position:absolute;left:0;right:0;top:-32px;height:22px;margin:0!important}
+.kc .hier-box.bsy .b8 .b8-st h2{font-size:13px!important;line-height:22px;font-weight:500!important;color:rgba(0,0,0,.6)!important}
+.kc .hier-box.bsy .b8 .b8-st h2 small{font-weight:400;color:rgba(0,0,0,.4)!important}
+.kc .hier-box.bsy .b8 .b8-hero>.b8-lb{position:absolute;left:0;top:-32px;height:22px;font-size:13px;font-weight:500;color:rgba(0,0,0,.6)}
+.kc .hier-box.bsy .b8 .b8-hero>.b8-amt{margin-top:0!important}
+.kc .hier-box.bsy .b8 .b8-inv{border:0!important;background:#f7f8fa!important;border-radius:4px!important}
+.kc .hier-box.bsy .b8 .b8-todo{background:#f7f8fa!important;border-radius:4px!important}
+.kc .hier-box.bsy .b8 .b8-todo a:hover{background:#fff!important}
+.kc .hier-box.bsy .b8 .b8-sec>.b8-t{margin:-4px 0 -8px}
+.kc .hier-box.bsy .b8 .b8-t th{background:#f7f8fa!important}
+.kc .hier-box.bsy .b8 .b8-t tr:last-child td{border-bottom:0!important}
+.kc .hier-box.bsy .b8 .b8-set li{min-height:44px}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -288,7 +309,7 @@
         <div class="kc-btns"></div>
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a class="on" aria-current="page" href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
-      <div class="hier-box bsy"><nav class="ia-tabs" aria-label="费用"><span class="bsy-seg"><a class="on" aria-current="page" href="BillOverview.dc.html">概览</a><a href="BillOrders.dc.html">订单</a><a href="BillPay.dc.html">付款</a><a href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a></span></nav><div class="hier-in">
+      <div class="hier-box bsy"><nav class="ia-tabs" aria-label="费用"><span class="bsy-seg"><a class="on" aria-current="page" href="BillOverview.dc.html">概览</a><a href="BillOrders.dc.html">订单</a><a href="BillPay.dc.html">付款</a><a href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a></span></nav><div class="hier-in" style="background-color: var(--bg-1, #ffffff)">
       <div class="b8">
         <div class="b8-m" style="padding-right: 0px; padding-top: 0px">
         <div class="b8-hero">

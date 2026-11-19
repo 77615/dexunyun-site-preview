@@ -204,6 +204,27 @@
 .kc main.kc-main>.hier-box.bsy .kc-card>.lf-bar{padding-left:20px!important;padding-right:20px!important}
 .kc main.kc-main>.hier-box.bsy.bsy-one>.hier-in{padding:0;background:#fff}
 .kc main.kc-main>.hier-box.bsy.bsy-one>.hier-in>section.kc-card{box-shadow:none!important;border:0!important}
+
+/* bmod-v1 费用页按模块分层 */
+.kc .hier-box.bsy>.hier-in:has(>.b8){padding:20px 20px 24px!important;background:#fff!important}
+.kc .hier-box.bsy .b8.b8{gap:20px!important;margin:0!important;border-top:0!important;padding:0!important}
+.kc .hier-box.bsy .b8 .b8-m,.kc .hier-box.bsy .b8 .b8-r{padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+.kc .hier-box.bsy .b8 .b8-hero,.kc .hier-box.bsy .b8 .b8-sec{position:relative;margin:32px 0 0!important;padding:20px!important;background:#fff!important;border:1px solid #e9ecf1!important;border-radius:4px!important;box-shadow:none!important;overflow:visible!important}
+.kc .hier-box.bsy .b8 .b8-hero+.b8-sec,.kc .hier-box.bsy .b8 .b8-sec+.b8-sec{margin-top:56px!important}
+.kc .hier-box.bsy .b8 .b8-hero{background:linear-gradient(100deg,#f2f6ff 0%,#fff 72%)!important}
+.kc .hier-box.bsy .b8 .b8-hero::after{display:none!important}
+.kc .hier-box.bsy .b8 .b8-st{position:absolute;left:0;right:0;top:-32px;height:22px;margin:0!important}
+.kc .hier-box.bsy .b8 .b8-st h2{font-size:13px!important;line-height:22px;font-weight:500!important;color:rgba(0,0,0,.6)!important}
+.kc .hier-box.bsy .b8 .b8-st h2 small{font-weight:400;color:rgba(0,0,0,.4)!important}
+.kc .hier-box.bsy .b8 .b8-hero>.b8-lb{position:absolute;left:0;top:-32px;height:22px;font-size:13px;font-weight:500;color:rgba(0,0,0,.6)}
+.kc .hier-box.bsy .b8 .b8-hero>.b8-amt{margin-top:0!important}
+.kc .hier-box.bsy .b8 .b8-inv{border:0!important;background:#f7f8fa!important;border-radius:4px!important}
+.kc .hier-box.bsy .b8 .b8-todo{background:#f7f8fa!important;border-radius:4px!important}
+.kc .hier-box.bsy .b8 .b8-todo a:hover{background:#fff!important}
+.kc .hier-box.bsy .b8 .b8-sec>.b8-t{margin:-4px 0 -8px}
+.kc .hier-box.bsy .b8 .b8-t th{background:#f7f8fa!important}
+.kc .hier-box.bsy .b8 .b8-t tr:last-child td{border-bottom:0!important}
+.kc .hier-box.bsy .b8 .b8-set li{min-height:44px}
 </style>
 </helmet>
 <div class="kc ux-wrap">
@@ -288,7 +309,7 @@
         <div class="kc-btns"></div>
       </div>
       <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a class="on" aria-current="page" href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
-      <div class="hier-box bsy"><nav class="ia-tabs" aria-label="费用"><span class="bsy-seg"><a href="BillOverview.dc.html">概览</a><a href="BillOrders.dc.html">订单</a><a href="BillPay.dc.html">付款</a><a class="on" aria-current="page" href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a></span></nav><div class="hier-in">
+      <div class="hier-box bsy"><nav class="ia-tabs" aria-label="费用"><span class="bsy-seg"><a href="BillOverview.dc.html">概览</a><a href="BillOrders.dc.html">订单</a><a href="BillPay.dc.html">付款</a><a class="on" aria-current="page" href="BillBalance.dc.html">收支明细</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a></span></nav><div class="hier-in" style="background-color: var(--bg-1, #ffffff)">
       <div class="b8" style="display:block"><div class="b8-m" style="padding-top: 0px; padding-right: 0px">
         <div class="b8-hero"><div class="b8-lb">可用余额</div><div class="b8-amt"><small>¥</small>1,260.00</div><p style="margin:8px 0 16px;font-size:12px;color:rgba(0,0,0,.7)">续费、升级和按量扣费优先从余额扣；余额不足时生成待付款订单，按对公转账付款。</p><div class="b8-act"><button class="kc-btn pri" type="button">充值</button><button class="kc-btn" type="button" onClick="{{openAcc}}">对公转账账户</button></div></div>
         <div class="b8-sec"><div class="b8-st"><h2>收支明细</h2><div class="b8-seg"><button type="button" class="on">近 3 个月</button><button type="button">近 12 个月</button></div></div><table class="b8-t"><thead><tr><th>时间</th><th>类型</th><th class="num">金额</th><th class="num">余额</th><th>关联单号</th><th>说明</th></tr></thead><tbody><tr><td>2026-11-03 10:12</td><td><span class="kc-tag mut">扣费</span></td><td class="num" style="color:rgba(0,0,0,.9)">-¥320.00</td><td class="num">¥1,260.00</td><td><a href="BillOrderDetail.dc.html">DX20261103002</a></td><td>SCDN 企业版续费 1 个月</td></tr><tr><td>2026-11-01 09:30</td><td><span class="kc-tag ok">充值</span></td><td class="num" style="color:#00b42a">+¥1,400.00</td><td class="num">¥1,580.00</td><td><a href="BillOrderDetail.dc.html">CZ20261101001</a></td><td>对公转账充值</td></tr><tr><td>2026-10-28 15:05</td><td><span class="kc-tag mut">扣费</span></td><td class="num" style="color:rgba(0,0,0,.9)">-¥385.00</td><td class="num">¥180.00</td><td><a href="BillOrderDetail.dc.html">DX20261028004</a></td><td>DDoS 高防 IP 弹性防护 10-27 用量</td></tr><tr><td>2026-10-20 11:40</td><td><span class="kc-tag info">退款</span></td><td class="num" style="color:#00b42a">+¥80.00</td><td class="num">¥565.00</td><td><a href="BillOrderDetail.dc.html">DX20261018006</a></td><td>服务器租用退订 · 按天退回</td></tr><tr><td>2026-10-12 09:00</td><td><span class="kc-tag mut">扣费</span></td><td class="num" style="color:rgba(0,0,0,.9)">-¥799.00</td><td class="num">¥485.00</td><td><a href="BillOrderDetail.dc.html">DX20261012001</a></td><td>游戏盾 标准版续费 1 个月</td></tr></tbody></table></div>
