@@ -109,7 +109,7 @@
         <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">订阅与资源</a></div>
       </div>
       <div class="ac-stats c3"><sc-for list="{{cards}}" as="s" hint-placeholder-count="3"><button type="button" class="{{s.cls}}" onClick="{{s.go}}"><span>{{s.n}}</span><b>{{s.v}}</b><em>{{s.d}}<a>{{s.l}}</a></em></button></sc-for></div>
-      <div class="ac-al e"><i>!</i><span>dx-guard-01 授权超出 1 台（app-07）：超出的主机不会安装防护<em>扩容付款核验到账后生效，按剩余天数补差价</em></span><a class="kc-btn pri sm" href="BillConfirm.dc.html">扩容</a></div>
+      <div class="ac-al e"><i>!</i><span>德迅安全卫士授权已用满（57 / 57）：新主机无法加入<em>删除不用的主机，或购买授权，付款核验到账后立即生效</em></span><a class="kc-btn pri sm" href="AcctPurchase.dc.html">购买授权</a></div>
       <section class="kc-card">
         <div class="kc-ch"><h2><i class="fi-i fi-gauge"></i>授权使用情况</h2><span class="kc-sub">{{fl}}</span></div>
         <div class="kc-bar lf-bar lf-s"><div class="lf-q"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input class="kc-in" style="width:360px" type="search" aria-label="搜索资源 ID" placeholder="搜索资源 ID"></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>产品</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="lf-r"></div></div>
@@ -473,7 +473,7 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const R = [
-      [[{ t: 'dx-guard-01', a: '#' }, { t: '德迅安全卫士', s: '企业版' }, { t: '64 台', c: 'ac-n' }, { t: '65 台', c: 'ac-n r' }, { t: '102%', bar: 100, bc: 'r', c: 'r' }, { t: '超出 1 台', tag: 'err' }], [['扩容', 'BillConfirm.dc.html']], 'over'],
+      [[{ t: 'dx-guard-01', a: '#' }, { t: '德迅安全卫士', s: '免费 3 + 已购 54' }, { t: '57 台', c: 'ac-n' }, { t: '57 台', c: 'ac-n' }, { t: '100%', bar: 100, bc: 'o', c: 'o' }, { t: '已用满', tag: 'warn' }], [['购买授权', 'AcctPurchase.dc.html']], 'over'],
       [[{ t: '游戏盾-001', a: 'GameAccess.dc.html' }, { t: '游戏盾', s: '专业版' }, { t: '2,000 并发', c: 'ac-n' }, { t: '1,700', c: 'ac-n o' }, { t: '85%', bar: 85, bc: 'o', c: 'o' }, { t: '接近上限', tag: 'warn' }], [['升级', 'BillConfirm.dc.html']], 'near'],
       [[{ t: 'web-prod-01', a: '#' }, { t: '服务器租用', s: 'E5-2680×2 / 64G' }, { t: '1 台', c: 'ac-n' }, { t: '1 台', c: 'ac-n' }, { t: '100%', bar: 100, bc: '' }, { t: '已用满', tag: 'info' }], [['查看资源']], 'near'],
       [[{ t: 'SCDN-001', a: 'Main.dc.html' }, { t: 'SCDN', s: '企业版' }, { t: '10 域名', c: 'ac-n' }, { t: '6', c: 'ac-n' }, { t: '60%', bar: 60, bc: 'g' }, { t: '正常', tag: 'ok' }], [['扩容', 'BillConfirm.dc.html']], ''],
@@ -482,11 +482,11 @@ class Component extends DCLogic {
     ];
     const all = R.map((r) => ROW(r[0], r[1], r[2]));
     const f = st.f || '';
-    const CD = [['授权型资源', String(all.length), '', '有授权上限的资源'], ['超授权', '1', 'over', '超出部分不受保护'], ['接近上限', '2', 'near', '使用率 ≥ 80%']];
+    const CD = [['授权型资源', String(all.length), '', '有授权上限的资源'], ['已用满', '1', 'over', '新增资源无法加入'], ['接近上限', '2', 'near', '使用率 ≥ 80%']];
     const cards = CD.map(([n, v, k, d], i) => ({ n, v, d, l: i ? '筛选 ›' : '', cls: 'ac-st' + (i === 1 ? ' r' : i === 2 ? ' o' : '') + (f === k && (k || !f) ? ' on' : ''), go: () => this.setState({ f: f === k ? '' : k }) }));
     const rows = all.filter((r) => !f || r.k === f);
 
-    const __R = Object.assign({ nav }, { cards, rows, total: rows.length, fl: f ? '已筛选：' + (f === 'over' ? '超授权' : '接近上限') : '按使用率从高到低' });
+    const __R = Object.assign({ nav }, { cards, rows, total: rows.length, fl: f ? '已筛选：' + (f === 'over' ? '已用满' : '接近上限') : '按使用率从高到低' });
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 

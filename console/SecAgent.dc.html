@@ -695,7 +695,7 @@ td .sl-st.b{color:#165dff}
   </header>
   <div class="kc-body">
     <input type="checkbox" id="kcf-SecAgent" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side" aria-label="德迅安全卫士菜单">
-      <div class="kc-sh"><b>德迅安全卫士</b><span>企业版 · 68 台主机</span></div>
+      <div class="kc-sh"><b>德迅安全卫士</b><span>68 台主机 · 授权 57/57</span></div>
       <nav class="kc-nv" aria-label="产品菜单">
       <sc-for list="{{nav}}" as="g" hint-placeholder-count="2">
         <div class="kc-gl"><svg class="rx" width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>{{g.label}}</div>
@@ -711,7 +711,8 @@ td .sl-st.b{color:#165dff}
     <main data-pg="SecAgent" class="kc-main sh sl st">
       <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">客户端管理</h1><p class="kc-desc">客户端负责在主机上采集和执行防护。在这里安装、升级、查看卸载和离线记录。</p></div></div></div>
       <section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{st.tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}<sc-if value="{{t.c}}" hint-placeholder-val="{{false}}"> <span class="kc-cnt">{{t.c}}</span></sc-if></button></sc-for></div>
-        <sc-if value="{{st.tIns}}" hint-placeholder-val="{{true}}"><div class="st-pn"><div class="st-row"><span class="st-seg"><sc-for list="{{st.oss}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span><span class="sl-n">德迅服务器开通时已默认安装，这里用于其他机房的主机</span></div>
+        <sc-if value="{{st.tIns}}" hint-placeholder-val="{{true}}"><div class="st-pn"><div class="st-row"><span class="st-seg"><sc-for list="{{st.oss}}" as="o" hint-placeholder-count="2"><button type="button" class="{{o.cls}}" onClick="{{o.pick}}">{{o.n}}</button></sc-for></span><span class="sl-n">德迅服务器开通时已默认安装，随服务器赠送，不占授权；这里用于其他机房的主机</span></div>
+          <div class="ac-al" style="margin:0 0 16px"><i>!</i><span>授权已用满（57 / 57），新装的主机不会加入。先在资产列表删除不用的主机，或<a href="AcctPurchase.dc.html">购买授权</a>；有空余名额后，已装好客户端的主机会自动加入。</span></div>
           <h4 class="st-h">{{st.insT}}</h4><div class="sh-code"><code>{{st.cmd}}</code><button type="button" class="sh-op" onClick="{{st.copy}}">{{st.cpT}}</button></div>
           <p class="st-p">{{st.insP}}</p><p class="st-p">安装后约 1 分钟上线，自动跟随默认策略（标准模式）并开始首次检测。</p></div></sc-if>
         <sc-if value="{{st.tAcc}}" hint-placeholder-val="{{false}}"><div class="kc-tw"><table class="kc-t op-fix"><thead><tr><th>主机</th><th>来源</th><th>接入进度</th><th>状态</th><th>说明</th><th>操作</th></tr></thead><tbody><sc-for list="{{st.accs}}" as="r" hint-placeholder-count="4"><tr><td><div class="sl-a">{{r.h}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.src}}<div class="sl-sub">{{r.t}}</div></td><td><span class="s1-pr"><sc-for list="{{r.ps}}" as="p" hint-placeholder-count="3"><i class="{{p.c}}">{{p.n}}</i></sc-for></span></td><td><span class="{{r.sc}}">{{r.st}}</span></td><td class="s1-why">{{r.d}}</td><td><sc-if value="{{r.op}}" hint-placeholder-val="{{true}}"><a class="sl-op" href="#" onClick="{{r.go}}">{{r.op}}</a></sc-if></td></tr></sc-for></tbody></table></div><div class="sl-ft" style="justify-content:flex-start"><span class="sl-n" style="margin:0">德迅服务器交付后自动安装客户端。装不上会自动重试 3 次（间隔 5 分钟、15 分钟），还失败就发站内信通知你。首次检测约 10 分钟，发现风险默认只告警，不拦截。</span></div></sc-if>
@@ -1314,7 +1315,7 @@ class Component extends DCLogic {
     const HOST = {
       '正常': ['共 57 台，以下为最近检测的 5 台。', [['web-prod-02', '10.0.1.12', '持续检测中', 'kc-tag ok'], ['web-prod-03', '10.0.1.13', '持续检测中', 'kc-tag ok'], ['api-01', '10.0.2.21', '持续检测中', 'kc-tag ok'], ['cache-01', '10.0.3.31', '持续检测中', 'kc-tag ok'], ['db-01', '10.0.4.41', '持续检测中', 'kc-tag ok']]],
       '有风险': ['', [['web-prod-01', '10.0.1.11', '高危 3', 'kc-tag err', '查看风险', () => toast('跳转到「web-prod-01」主机详情', 'info')], ['app-03', '10.0.2.23', '高危端口开放', 'kc-tag warn', '查看风险', () => toast('跳转到「app-03」主机详情', 'info')]]],
-      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，未授权去绑定。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '未授权', 'kc-tag warn', '绑定授权', () => toast('跳转到「授权管理」', 'info')]]],
+      '未受保护': ['共 6 台，按原因处理：能装的直接装，离线先排查，授权已用满的删掉不用的主机或购买授权。', [['web-new-03', '115.231.**.21', '未安装', 'kc-tag warn', '一键安装', () => openMd('install')], ['backup-02', '60.191.**.40', '已卸载', 'kc-tag warn', '重新安装', () => openMd('install')], ['web-new-04', '115.231.**.22', '部署失败', 'kc-tag warn', '重试安装', () => openMd('install')], ['cache-03', '10.0.3.33', '离线', 'kc-tag mut', '排查', () => toast('已发起连通性检测，约 1 分钟出结果', 'info')], ['app-06', '10.0.2.26', '检测过期', 'kc-tag warn', '立即检测', () => toast('已下发检测任务', 'info')], ['app-07', '10.0.2.27', '授权已用满', 'kc-tag warn', '购买授权', () => toast('跳转到「授权管理」：删除不用的主机或购买授权后，app-07 会自动加入', 'info')]]],
       '接入中': ['新接入主机首次检测约需 10 分钟。', [['db-new-01', '10.0.4.61', '首次检测中', 'kc-tag info'], ['db-new-02', '10.0.4.62', '首次检测中', 'kc-tag info']]],
       '已停机': ['停机期间不检测，开机后自动恢复。', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
       '离线': ['', [['test-07', '10.0.9.17', '已停机 3 天', 'kc-tag mut']]],
@@ -1394,7 +1395,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
-      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '未授权'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
@@ -1452,7 +1453,7 @@ class Component extends DCLogic {
       ['web-old-01', '115.231.**.30', '德迅服务器', '已停机', '到期停机，暂停检测，数据保留至 11-12', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.2', '11-05 23:58'],
       ['cache-03', '10.0.3.33', '其他机房', '未受保护', '离线 · 客户端 2 小时没有心跳', '—', '离线', '客户端离线', '生效', '未覆盖', '离线', 'V4.3.2', '11-02 08:31'],
       ['app-06', '10.0.2.26', '其他机房', '未受保护', '检测过期 · 超过 3 天没有完成检测', '—', '异常', '检测过期', '生效', '未覆盖', '在线', 'V4.3.2', '10-29 03:00'],
-      ['app-07', '10.0.2.27', '其他机房', '未受保护', '未授权 · 授权已用完，这台没有绑定', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
+      ['app-07', '10.0.2.27', '其他机房', '未受保护', '授权已用满 · 客户端已装好，授权用满没能加入', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
     for (let i = 1; X.length < 68; i++) { const p = String(i).padStart(2, '0'); X.push(['node-' + p, '10.0.' + (6 + Math.floor(i / 40)) + '.' + (10 + i % 40), '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:' + String(10 + i % 30)]); }
     const HS = X.map(([n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk]) => ({ n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk, dx: room === '德迅服务器' }));
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
@@ -1527,14 +1528,14 @@ class Component extends DCLogic {
     const o = { tsOn: !!st.stT, toast: st.stT || { t: '', c: '' } };
     const UC = 'BillConfirm.dc.html';
     if (PG === 'SecLicense') {
-      o.tiles = [['授权台数', '64', ' 台', '企业版 64 台', '', 'b'], ['已绑定', '64', ' / 64', '剩余可用 0 台', '', 'b'], ['未绑定主机', '1', ' 台', 'app-07 只告警不防护', 'o', 'h'], ['宽限期剩余', '4', ' 天', '11-08 后停止检测并清理数据', 'r', 'b']]
-        .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'h' ? ev(() => toast('跳转到「资产列表」，筛选未绑定授权的主机', 'info')) : ev(() => {}) }));
-      const ar = st.lsAr === undefined ? false : st.lsAr; const ab = st.lsAb === undefined ? true : st.lsAb;
-      o.sws = [['新主机自动绑定授权', '有剩余授权时，新接入的主机自动绑定；没有剩余时只告警不防护', ab, () => { S({ lsAb: !ab }); toast(!ab ? '已开启自动绑定' : '已关闭自动绑定，新主机需要手动绑定', 'info'); }]]
-        .map(([n, d, v, f]) => Object.assign({ n, d, tog: ev(f) }, sw(v)));
+      o.tiles = [['授权台数', '57', ' 台', '免费 3 + 已购 54', '', 'b'], ['已用', '57', ' / 57', '剩余 0 台，新主机无法加入', 'o', 'b'], ['没能加入', '1', ' 台', 'app-07 · 删除不用的主机或购买授权', 'o', 'h'], ['宽限期剩余', '4', ' 天', '已购授权 11-08 后失效', 'r', 'b']]
+        .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'h' ? ev(() => toast('跳转到「资产列表」，筛选「授权已用满」的主机', 'info')) : ev(() => {}) }));
+      o.sws = [];
       const lk = (n) => ({ n, href: UC, go: undefined });
-      o.lics = [['LIC-20251026-0031', '德迅安全卫士 · 企业版', '企业版（含 AI 研判）', '64 / 64', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费'), lk('扩容')]]]
-        .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops: ops.concat(id.indexOf('LIC') === 0 ? [{ n: '绑定主机', href: '#', go: ev(() => toast('打开绑定主机列表：50 台已绑定', 'info')) }] : []) }));
+      o.lics = [['FREE-100014655316', '免费额度', '注册赠送', '3 台', '长期有效', '生效中', 'sl-st', '', []],
+        ['LIC-20251026-0031', '购买授权', '在线购买', '54 台', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费')]],
+        ['7 台德迅云服务器', '随服务器赠送', '德迅云服务器', '7 台 · 不占授权', '跟随服务器到期', '生效中', 'sl-st', '', [{ n: '查看服务器', href: 'IdcServers.dc.html', go: undefined }]]]
+        .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops }));
     }
     if (PG === 'SecAgent') {
       const QT = (() => { try { return { acc: '接入记录', ver: '版本与升级', off: '卸载与离线' }[new URLSearchParams(location.search).get('tab')] || ''; } catch (x) { return ''; } })();
@@ -1546,10 +1547,11 @@ class Component extends DCLogic {
         ['web-new-04', '115.231.**.22', '德迅服务器交付', '11-01 15:30', aj === 0 ? P3('ok', 'err', '') : aj === 1 ? P3('ok', 'ing', '') : aj === 2 ? P3('ok', 'ok', 'ing') : P3('ok', 'ok', 'ok'), aj === 0 ? '部署失败' : aj === 3 ? '正常' : '接入中', aj === 0 ? 'sl-st r' : aj === 3 ? 'sl-st g' : 'sl-st b',
           aj === 0 ? '已自动重试 3 次（15:31、15:36、15:51），都连不上安装源 agent.dexunyun.com:443' : aj === 1 ? '正在用备用安装源重新安装，约 2 分钟' : aj === 2 ? '首次检测中，约 10 分钟' : '首检完成 · 未发现风险', aj === 0 ? '重试安装' : '',
           () => { S({ agJ: 1 }); toast('已换用备用安装源重新安装，约 2 分钟', 'info'); setTimeout(() => this.setState({ agJ: 2 }), 1800); setTimeout(() => { this.setState({ agJ: 3 }); toast('web-new-04 接入完成，首次检测未发现风险'); }, 4600); }],
+        ['app-07', '10.0.2.27', '安装命令 · 其他机房', '11-03 11:20', P3('ok', 'ok', 'err', '上线'), '没能加入', 'sl-st r', '授权已用满（57 / 57），客户端已装好但没有加入；删除不用的主机或购买授权后自动加入', '购买授权', () => toast('跳转到「授权管理」', 'info')],
         ['cache-01', '10.0.3.31', '安装命令 · 其他机房', '11-06 14:20', P3('ok', 'ok', 'ok', '上线'), '正常', 'sl-st g', '首检完成 · 未发现风险', '', null],
         ['app-03', '10.0.2.23', '德迅服务器交付', '11-05 09:40', P3('ok', 'ok', 'ok'), '有风险', 'sl-st r', '首检完成 · 发现 1 项中危，已发站内信（只告警，未拦截）', '查看风险', () => toast('跳转到风险列表，已筛选 app-03', 'info')]]
         .map(([h, ip, src, t, ps, s2, sc, d, op, fn]) => ({ h, ip, src, t, ps, st: s2, sc, d, op, go: fn ? ev(fn) : ev(() => {}) }));
-      const accN = o.accs.filter((r) => r.st === '接入中' || r.st === '部署失败').length;
+      const accN = o.accs.filter((r) => r.st === '接入中' || r.st === '部署失败' || r.st === '没能加入').length;
       o.tabs = [['安装客户端', 0], ['接入记录', accN], ['版本与升级', 0], ['卸载与离线', 3]].map(([n, c]) => ({ n, c: c ? String(c) : '', on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', pick: ev(() => S({ agTab: n })) }));
       o.tIns = tab === '安装客户端'; o.tAcc = tab === '接入记录'; o.tVer = tab === '版本与升级'; o.tOff = tab === '卸载与离线'; o.tPlg = tab === '插件';
       const os = st.agOs || 'Linux';
@@ -1568,7 +1570,7 @@ class Component extends DCLogic {
         ['cache-02', '10.0.3.32', '心跳超时', '11-02 10:18', '网络波动，12 分钟未上报', '在线', 'sl-st g', '查看主机', () => toast('跳转到 cache-02 主机详情', 'info')]]
         .map(([h, ip, e, t, by, s2, sc, op, f]) => ({ h, ip, e, t, by, st: s2, sc, op, go: f ? ev(f) : ev(() => {}) }));
       const pi = st.agPi || {};
-      o.plgs = [['ransom', '防勒索', '自动备份关键文件，拦截可疑的批量加密行为。需要先在授权管理购买插件授权。'], ['tamper', '网页防篡改', '锁定网站目录，发现篡改后自动还原。需要客户端 V4.3.0 及以上。']]
+      o.plgs = [['ransom', '防勒索', '自动备份关键文件，拦截可疑的批量加密行为。默认开启。'], ['tamper', '网页防篡改', '锁定网站目录，发现篡改后自动还原。需要客户端 V4.3.0 及以上。']]
         .map(([k, n, d]) => ({ n, d, i: pi[k] ? 64 : 0, op: pi[k] ? '管理' : '安装插件', go: ev(() => { if (pi[k]) { toast('跳转到「入侵防御 · ' + n + '」页', 'info'); return; } toast('还没有' + n + '插件授权，跳转到用户中心购买', 'info'); }) }));
     }
     if (PG === 'SecNotify') {
@@ -1788,7 +1790,7 @@ class Component extends DCLogic {
     const ATABS = [['全部', ''], ['高危', 'hi'], ['未受保护', 'un'], ['中危', 'md'], ['低危', 'lo']];
     const akey = (ATABS.find((x) => x[0] === atab) || ATABS[0])[1];
     const plug = st.plug || {};
-    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '企业版', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
+    const CAP = [['入侵检测', '基础', 'on', '发现入侵', 2, 1], ['漏洞检测', '基础', 'on', '待修复漏洞', 3, 2], ['基线检查', '基础', 'on', '不合规项', 5, 2], ['威胁狩猎', '基础', 'on', '可疑线索', 1, 1], ['病毒查杀', '基础', 'on', '发现病毒', 0, 0], ['AI 研判', '基础', 'on', '已研判事件', 6, 2], ['防勒索', '基础', 'on', '拦截勒索', 0, 0], ['网页防篡改', '基础', 'on', '拦截篡改', 0, 0]];
     const scan = st.scan || '';
     const rng = st.rng || '近 24 小时', rf = st.rf || '';
     const TR = rng === '近 24 小时'
@@ -1802,7 +1804,7 @@ class Component extends DCLogic {
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
-      ['授权', 'sh-nk o', '企业版授权 11-01 已到期，保留至 11-08；1 台主机（app-07）超出授权上限', '续费并扩容', 'BillConfirm.dc.html'],
+      ['授权', 'sh-nk o', '已购授权 11-01 已到期，保留至 11-08；授权已用满，app-07 没能加入', '续费或购买授权', 'BillConfirm.dc.html'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {
       scV: st.scope || '全部主机 · 68 台', scOpen: !!st.scOpen, scW: st.scOpen ? 'dd-w on' : 'dd-w',
@@ -1839,7 +1841,7 @@ class Component extends DCLogic {
       rows: AL.filter((r) => !akey || r[0] === akey).slice(0, 5).map(([g, lvT, t, a, p, st2, sc, tm, op, href]) => ({ lv: LV[g], lvT, t, a, p, st: st2, sc, tm, op, href })),
       prog: [['新发现', '14', '其中高危 4'], ['已解决', '9', '复检通过'], ['待复检', '2', '已修复，等待确认'], ['已忽略', '1', '附忽略原因'], ['旧环境归档', '1', '重装前的风险']].map(([n, v, s2]) => ({ n, v, s: s2 })),
       caps: CAP.map(([n, k, m, fl, f, mm, d]) => { const ps = plug[n] || ''; const isP = m === 'plug'; const on = !isP || ps === 'ok';
-        return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: k === '企业版' ? '企业版' : '已开启', tc: k === '企业版' ? 'sh-ent' : 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
+        return { n, k, d: d || '', fl, f, m: mm, a: on ? 64 : 0, fc: f ? 'r' : '', lock: isP && !on, btn: isP && !on, bt: ps === 'ing' ? '安装中…' : '安装插件', tag: on, st: '已开启', tc: 'sh-on', cls: on ? 'sh-cc' : 'sh-cc off',
           go: () => { if (ps) return; this.setState({ plug: Object.assign({}, plug, { [n]: 'ing' }) }); setTimeout(() => this.setState({ plug: Object.assign({}, this.state.plug || {}, { [n]: 'ok' }) }), 1600); } }; })
     } };
     this._shx(SXD.sx);
