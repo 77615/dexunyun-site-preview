@@ -1,0 +1,123 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>控制台总览标注</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* 左：整页截图 + 编号框（sticky 在右侧说明旁）；右：按编号的说明栏 */
+:root{
+  --bg:#F4F6FA; --panel:#FFFFFF; --fg:#1D2129; --muted:#5C6575; --line:#E3E7EE;
+  --accent:#165DFF; --accent-soft:rgba(22,93,255,.10); --mark:#F53F3F;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151B; --panel:#1B1F27; --fg:#E6E9EF; --muted:#9AA3B2; --line:#2B313C;
+  --accent:#4C82FF; --accent-soft:rgba(76,130,255,.16); --mark:#FF6B6B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151B; --panel:#1B1F27; --fg:#E6E9EF; --muted:#9AA3B2; --line:#2B313C;
+  --accent:#4C82FF; --accent-soft:rgba(76,130,255,.16); --mark:#FF6B6B; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 48px}
+.wrap{max-width:1480px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+header h1{font-size:22px;margin:0;text-wrap:balance}
+header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.meta span{font-size:12px;color:var(--muted);border:1px solid var(--line);background:var(--panel);padding:2px 8px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start}
+.shot{position:relative;background:var(--panel);border:1px solid var(--line);line-height:0}
+.shot img{width:100%;display:block}
+.bx{position:absolute;border:2px solid var(--mark);background:transparent;transition:background .15s,border-color .15s}
+.bx span{position:absolute;left:-2px;top:-2px;transform:translate(-40%,-40%);width:26px;height:26px;border-radius:50%;
+  background:var(--mark);color:#fff;font:700 13px/26px var(--sans);text-align:center;box-shadow:0 0 0 2px var(--panel)}
+.bx:hover,.bx.on{background:rgba(245,63,63,.08)}
+.bx:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+aside{position:sticky;top:16px;display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - 32px);overflow:auto}
+.card{background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+.card h2{font-size:14px;margin:0 0 8px}
+.card p,.card li{font-size:13px;color:var(--muted)}
+.card p{margin:0}
+.card ul{margin:0;padding-left:18px}
+ol.notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+ol.notes li{display:flex;gap:12px;padding:14px 18px;border-top:1px solid var(--line);cursor:pointer;scroll-margin-top:16px}
+ol.notes li:first-child{border-top:0}
+ol.notes li.on{background:var(--accent-soft)}
+ol.notes li:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.num{flex:none;width:22px;height:22px;border-radius:50%;background:var(--mark);color:#fff;font:700 12px/22px var(--sans);text-align:center;margin-top:2px}
+ol.notes h3{font-size:14px;margin:0 0 2px;font-weight:700}
+ol.notes p{font-size:13px;margin:0;color:var(--muted)}
+.notes-wrap{padding:0}
+.notes-wrap h2{padding:14px 18px 0;margin:0 0 6px}
+@media (max-width:980px){.grid{grid-template-columns:1fr}aside{position:static;max-height:none}}
+@media (prefers-reduced-motion:reduce){.bx{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>控制台总览 · 评审标注</h1>
+    <p>截图来自预览站 console/ConsoleHome.dc.html，1440 宽整页。点编号框或右侧条目可互相定位。</p>
+    <div class="meta"><span>截图日期 2026-11-17</span><span>数字、日期、状态为原型演示数据</span><span>页面改版后需重新截图</span></div>
+  </header>
+  <div class="grid">
+    <div class="shot">
+      <img src="console-home.webp" width="1440" height="1742" alt="控制台总览整页截图">
+      <a class="bx" href="#n1" data-i="1" style="left:15.556%;top:7.233%;width:82.778%;height:6.602%"><span>1</span></a>
+<a class="bx" href="#n2" data-i="2" style="left:15.556%;top:21.871%;width:53.611%;height:15.729%"><span>2</span></a>
+<a class="bx" href="#n3" data-i="3" style="left:15.556%;top:38.749%;width:53.611%;height:20.666%"><span>3</span></a>
+<a class="bx" href="#n4" data-i="4" style="left:15.556%;top:60.563%;width:53.611%;height:11.825%"><span>4</span></a>
+<a class="bx" href="#n5" data-i="5" style="left:70.556%;top:14.983%;width:27.778%;height:43.628%"><span>5</span></a>
+<a class="bx" href="#n6" data-i="6" style="left:70.556%;top:59.759%;width:27.778%;height:22.790%"><span>6</span></a>
+<a class="bx" href="#n7" data-i="7" style="left:70.556%;top:83.697%;width:27.778%;height:13.777%"><span>7</span></a>
+    </div>
+    <aside>
+      <div class="card">
+        <h2>用户与核心任务</h2>
+        <p>企业管理员、运维和财务人员进入首页，先判断需要处理的风险、服务到期与付款事项，再进入对应对象。</p>
+      </div>
+      <div class="card">
+        <h2>信息优先级</h2>
+        <ul>
+          <li><b>P0</b>　安全风险与待处理事项</li>
+          <li><b>P1</b>　产品状态、企业身份和费用摘要</li>
+          <li><b>P2</b>　快捷访问、企业管理与公告</li>
+        </ul>
+      </div>
+      <div class="card notes-wrap">
+        <h2>模块说明</h2>
+        <ol class="notes">
+          <li id="n1" data-i="1" tabindex="0"><span class="num">1</span><div><h3>账户与企业身份</h3><p>核对当前账号、企业身份与认证提示。摘要数字为原型演示数据，不能用于判断实际账户状态。</p></div></li>
+<li id="n2" data-i="2" tabindex="0"><span class="num">2</span><div><h3>我的资源</h3><p>按产品查看规模及异常状态，再进入对应产品。正式用户中心名称以 V1.2 基线的「我的产品 / 订阅与资源」为准；当前页面名称属于待对齐项。</p></div></li>
+<li id="n3" data-i="3" tabindex="0"><span class="num">3</span><div><h3>安全中心</h3><p>先查看紧急风险，再进入对应产品进行分析和处置。打开详情、关闭抽屉或完成操作不代表风险已解决；处置结果需要独立确认。</p></div></li>
+<li id="n4" data-i="4" tabindex="0"><span class="num">4</span><div><h3>其他待办</h3><p>核对到期、付款等待办的对象与目标入口。正式基线要求统一「待处理事件」摘要，当前分区方式记录为待对齐项，不在本次标注接入中重构。</p></div></li>
+<li id="n5" data-i="5" tabindex="0"><span class="num">5</span><div><h3>费用信息</h3><p>付款、订单和交付状态应分别表达。V1 付款方式为对公转账，核验未匹配时补充汇款信息，避免重复转账。首页余额展示属于已确认的演示例外，不能视为真实交易能力。</p></div></li>
+<li id="n6" data-i="6" tabindex="0"><span class="num">6</span><div><h3>企业</h3><p>成员管理回答谁在企业中，角色权限回答能做什么。真实权限、跨企业隔离和操作校验仍需单独验收。</p></div></li>
+<li id="n7" data-i="7" tabindex="0"><span class="num">7</span><div><h3>公告</h3><p>公告为辅助信息。通知统一从顶栏铃铛进入；当前公告「更多」的落点与通知关系需要评审确认。</p></div></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h2>验收边界</h2>
+        <p>数字、日期和状态沿用线上快照，不与真实接口同步。真实付款、交付、安全处置及权限不能按页面可点击认定完成。现有命名、分区及目标链接与正式基线的差异需要另行评审。</p>
+      </div>
+    </aside>
+  </div>
+</div>
+<script>
+(function(){
+  var bxs=document.querySelectorAll('.bx'),lis=document.querySelectorAll('ol.notes li');
+  function on(i,scrollTo){
+    bxs.forEach(function(b){b.classList.toggle('on',b.dataset.i===i)});
+    lis.forEach(function(l){l.classList.toggle('on',l.dataset.i===i)});
+    if(scrollTo==='note'){var l=document.getElementById('n'+i);l&&l.scrollIntoView({block:'nearest',behavior:'smooth'})}
+    if(scrollTo==='box'){var b=document.querySelector('.bx[data-i="'+i+'"]');b&&b.scrollIntoView({block:'center',behavior:'smooth'})}
+  }
+  bxs.forEach(function(b){
+    b.addEventListener('click',function(e){e.preventDefault();on(b.dataset.i,'note')});
+    b.addEventListener('mouseenter',function(){on(b.dataset.i)});
+  });
+  lis.forEach(function(l){
+    l.addEventListener('click',function(){on(l.dataset.i,'box')});
+    l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();on(l.dataset.i,'box')}});
+    l.addEventListener('mouseenter',function(){on(l.dataset.i)});
+  });
+})();
+</script>
