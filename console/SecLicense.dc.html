@@ -675,12 +675,13 @@
       <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">授权管理</h1><p class="kc-desc">每个账号免费 3 台，超出按台购买。授权只数台数，不绑定 IP 和设备。购买、续费在用户中心完成，按对公转账付款。</p></div></div></div>
       <section class="kc-card"><div class="kc-ch"><h2>授权概况</h2><span class="sl-n">更新于 11-04 09:00</span></div><div class="kc-cb kc-tiles g4 st-pn">
         <sc-for list="{{st.tiles}}" as="k" hint-placeholder-count="4"><a class="kc-tile" href="#" onClick="{{k.go}}"><span>{{k.n}}</span><b class="{{k.c}}">{{k.v}}<em>{{k.u}}</em></b><small>{{k.s}}</small></a></sc-for></div>
-        <div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>已购的 54 台授权 11-01 到期，现在处于宽限期（到 11-08）：检测和告警照常，自动处置暂停，宽限期内不再接入新主机。11-08 后按最后接入时间，超出免费 3 台的 54 台主机停止检测，数据保留 30 天；续费核验到账后自动恢复。已提交汇款的，宽限顺延到核验结束（最多 5 个工作日）；超过宽限期再来，需要重新购买。卫士管理可以提前在<a href="SecHosts.dc.html">资产列表</a>里更换保留的 3 台。</span></div>
+        <div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>已购的 54 台授权 11-01 到期，现在处于宽限期（到 11-08）：检测和告警照常，自动处置暂停，宽限期内不再接入新主机。11-08 后按最后接入时间，超出免费 3 台的 54 台主机停止检测，数据保留 30 天；续费核验到账后自动恢复。已提交汇款的，宽限顺延到核验结束（最多 5 个工作日）；超过宽限期再来，需要重新购买。卫士管理可以提前<a href="#" onClick="{{st.swOpen}}">更换保留的 3 台</a>。</span></div>
         <div class="ac-al i" style="margin:0 20px 16px"><i>i</i><span>授权已用满，新主机无法加入（app-07 已被拒绝）。换机器时在资产列表删除旧主机，会立刻空出名额；名额空出后先恢复被停的主机，再按尝试接入的先后让等待的主机加入。卸载客户端的主机仍占名额，离线 15 天自动移出后释放，重新上线会重新排队。德迅云服务器随服务器赠送，不占授权。</span></div>
         <div class="st-sws"><sc-for list="{{st.sws}}" as="w" hint-placeholder-count="2"><div class="kc-sw-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.c}}" role="switch" aria-checked="{{w.a}}" aria-label="{{w.n}}" onClick="{{w.tog}}"></button></div></sc-for></div></section>
       <section class="kc-card"><div class="kc-ch"><h2>授权明细</h2><a class="kc-btn pri" href="AcctPurchase.dc.html">购买授权</a></div><div class="kc-tw"><table class="kc-t op-fix"><thead><tr><th>授权</th><th>来源</th><th>台数</th><th>有效期</th><th>状态</th><th>操作</th></tr></thead><tbody>
         <sc-for list="{{st.lics}}" as="r" hint-placeholder-count="3"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.id}}</div></td><td>{{r.ed}}</td><td>{{r.use}}</td><td>{{r.t}}</td><td><span class="{{r.sc}}">{{r.st}}</span><div class="sl-sub">{{r.why}}</div></td>
           <td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="sl-op" href="{{o.href}}" onClick="{{o.go}}">{{o.n}}</a></sc-for></td></tr></sc-for></tbody></table></div></section>
+      <sc-if value="{{st.swOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{st.swX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="更换保留主机"><header><h3>更换保留主机</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{st.swX}}">×</button></header><div class="sh-dwb"><div class="ac-al i" style="margin:0 0 16px"><i>i</i><span>11-08 宽限期结束后只剩免费 3 台。默认保留最早接入的 3 台，其余 54 台停止检测，数据保留 30 天；续费核验到账后全部恢复。只有卫士管理可以更换</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px"><input class="kc-in" type="search" placeholder="搜索主机名称或 IP" aria-label="搜索主机" style="width:280px"><span class="sl-sub">已选 {{st.swN}} / 3 台</span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th style="width:40px"><span class="sl-sub">保留</span></th><th>主机</th><th>接入时间</th><th>11-08 后</th></tr></thead><tbody><sc-for list="{{st.swRows}}" as="r" hint-placeholder-count="8"><tr><td><button type="button" class="{{r.c}}" role="checkbox" aria-checked="{{r.a}}" aria-label="保留 {{r.n}}" onClick="{{r.pick}}"></button></td><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.j}}</td><td><span class="{{r.sc}}">{{r.st}}</span></td></tr></sc-for></tbody></table></div><p class="sl-sub" style="margin-top:8px">共 57 台，显示最早接入的 10 台</p></div><footer><button type="button" class="kc-btn" onClick="{{st.swX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{st.swOk}}">保存</button></footer></aside></sc-if>
       <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{st.toast.c}}"></i>{{st.toast.t}}</div></sc-if>
     </main>
   </div>
@@ -1493,9 +1494,16 @@ class Component extends DCLogic {
       o.sws = [];
       const lk = (n) => ({ n, href: UC, go: undefined });
       o.lics = [['FREE-100014655316', '免费额度', '注册赠送', '3 台', '长期有效', '生效中', 'sl-st', '', []],
-        ['LIC-20251026-0031', '购买授权', '在线购买', '54 台', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '数据保留至 11-08', [lk('续费')]],
+        ['LIC-20251026-0031', '购买授权', '在线购买', '54 台', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '宽限至 11-08', [lk('续费'), { n: '更换保留主机', href: '#', go: ev(() => S({ slSw: 1 })) }]],
         ['7 台德迅云服务器', '随服务器赠送', '德迅云服务器', '7 台 · 不占授权', '跟随服务器到期', '生效中', 'sl-st', '', [{ n: '查看服务器', href: 'IdcServers.dc.html', go: undefined }]]]
         .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops }));
+      /* sl-swap 2026-11-23 更换保留主机 */
+      const KP0 = { 'web-prod-01': 1, 'web-prod-02': 1, 'db-01': 1 }; const keep = st.slKeep || KP0;
+      const HL = [['web-prod-01', '10.0.1.11', '2025-11-02'], ['web-prod-02', '10.0.1.12', '2025-11-02'], ['db-01', '10.0.4.41', '2025-11-03'], ['web-prod-03', '10.0.1.13', '2025-11-05'], ['app-01', '10.0.2.21', '2025-11-08'], ['app-02', '10.0.2.22', '2025-11-08'], ['app-03', '10.0.2.23', '2025-11-12'], ['cache-01', '10.0.3.31', '2025-12-01'], ['cache-02', '10.0.3.32', '2025-12-01'], ['api-01', '10.0.5.51', '2026-01-15']];
+      o.swOn = !!st.slSw; o.swOpen = ev(() => S({ slSw: 1 })); o.swX = ev(() => S({ slSw: 0 })); o.swN = Object.keys(keep).length;
+      o.swRows = HL.map(([n, ip, j]) => { const on = !!keep[n]; return { n, ip, j, c: on ? 'sh-ck on' : 'sh-ck', a: on ? 'true' : 'false', st: on ? '继续检测' : '停止检测', sc: on ? 'kc-tag ok' : 'kc-tag mut',
+        pick: ev(() => { const k = Object.assign({}, keep); if (k[n]) delete k[n]; else { if (Object.keys(k).length >= 3) { toast('最多保留 3 台，先取消一台', 'info'); return; } k[n] = 1; } S({ slKeep: k }); }) }; });
+      o.swOk = ev(() => { if (!Object.keys(keep).length) { toast('至少保留 1 台', 'info'); return; } S({ slSw: 0 }); toast('已保存：11-08 后保留 ' + Object.keys(keep).join('、') + ' 继续检测'); });
     }
     if (PG === 'SecAgent') {
       const QT = (() => { try { return { ver: '版本与升级', off: '卸载与离线' }[new URLSearchParams(location.search).get('tab')] || ''; } catch (x) { return ''; } })();

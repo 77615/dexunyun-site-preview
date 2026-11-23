@@ -111,12 +111,13 @@
       <div class="ac-al i"><i>!</i><span>续费从各资源的当前到期日起算；已到期资源在保留期内续费，核验到账后恢复。德迅安全卫士授权续费时可以减少台数，减少的部分从当前到期日起停止检测</span></div>
       <section class="kc-card">
         <div class="kc-ch"><h2><i class="fi-i fi-box"></i>续费资源</h2><span class="kc-sub">共 {{n}} 项</span></div>
-        <div class="fl-row" style="border-top:0;border-bottom:1px solid #f2f4f8"><span>续费时长</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="5"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
+        <div class="fl-row" style="border-top:0"><span>卫士授权台数</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{gDec}}">−</button><b>{{gq}}</b><button type="button" aria-label="增加" onClick="{{gInc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{gTip}}</span></div></div>
+        <div class="fl-row" style="border-bottom:1px solid #f2f4f8"><span>续费时长</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="5"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
         <div class="kc-tw"><table class="kc-t">
           <thead><tr><th>资源</th><th>配置</th><th>当前到期</th><th>续费后到期</th><th class="num">单价</th><th class="num">金额</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for></tr></sc-for></tbody>
         </table></div>
-        <div class="fl-tot"><div>商品合计<b>¥{{sum}}</b></div><div>代金券<b><a href="#" onClick="{{togV}}">{{vTxt}}</a></b></div><div class="big">应付金额<b>¥{{pay}}</b></div></div>
+        <div class="fl-tot"><div>商品合计<b>¥{{sum}} + 卫士授权（价格待定）</b></div><div>代金券<b><a href="#" onClick="{{togV}}">{{vTxt}}</a></b></div><div class="big">应付金额<b>¥{{pay}}</b></div></div>
       </section>
       <section class="kc-card" style="margin-top:16px">
         <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>付款与票据</h2></div>
@@ -754,16 +755,18 @@ class Component extends DCLogic {
     const durs = D.map(([n]) => ({ n, cls: n === dn ? 'on' : '', go: () => this.setState({ dur: n }) }));
     const add = (ym, k) => { let [y, mo] = ym.split('-').map(Number); mo += k; y += Math.floor((mo - 1) / 12); mo = ((mo - 1) % 12) + 1; return y + '-' + String(mo).padStart(2, '0'); };
     const IT = [['高防-003', 'DDoS 高防 IP · ddos-1e8d07', '保底 50 Gbps · 电信 + 联通', '2026-11-09', '剩 13 天', 1999], ['web-prod-01', '服务器租用', 'E5-2680×2 / 64G / 100M · 温州', '2026-11-20', '剩 24 天', 80]];
+    const gq = st.gq === undefined ? 54 : st.gq; const gCut = 54 - gq;
     const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const rows = IT.map(([n, p, cfg, exp, left, price]) => ROW([{ t: n, a: '#', s: p }, cfg, { t: exp, s: left, sc: 'o' }, { t: add(exp.slice(0, 7), m) + exp.slice(7), c: 'ac-n' },
       { t: '¥' + fmt(price) + ' /月', c: 'ac-n m', td: 'num' }, { t: '¥' + fmt(price * m), c: 'ac-n', td: 'num' }], []));
+    rows.push(ROW([{ t: 'dx-guard-01', a: 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-de5201e8a0c7', s: '德迅安全卫士授权' }, gq + ' 台', { t: '2026-11-01', s: '宽限至 11-08', sc: 'o' }, { t: add('2026-11', m) + '-01', c: 'ac-n' }, { t: '待定 /台/年', c: 'ac-n m', td: 'num' }, { t: '价格待定', c: 'ac-n', td: 'num' }], []));
     const sum = IT.reduce((a, r) => a + r[5] * m, 0);
     const v = !!st.v; const pay = v ? Math.max(0, sum - 100) : sum;
     const cn = st.con || '不需要';
     const cons = ['不需要', '电子合同'].map((n) => ({ n, cls: n === cn ? 'on' : '', go: () => this.setState({ con: n }) }));
     const agree = st.agree !== false;
 
-    return Object.assign({ nav }, { durs, rows, n: IT.length, sum: fmt(sum), pay: fmt(pay), vTxt: v ? '−¥100.00 · 不使用' : '1 张可用，使用', togV: (e) => { ev(e); this.setState({ v: !v }); }, cons, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
+    return Object.assign({ nav }, { gq, gDec: () => this.setState({ gq: Math.max(0, gq - 1) }), gInc: () => this.setState({ gq: Math.min(54, gq + 1) }), gTip: gCut > 0 ? '减少 ' + gCut + ' 台：核验到账后这 ' + gCut + ' 台停止检测，可以先在资产列表选择保留哪些主机' : gCut < 0 ? '增加的台数请走扩容，续费只能保持或减少台数' : '现有 54 台，续费可以减少台数；要加台数请走扩容', durs, rows, n: IT.length + 1, sum: fmt(sum), pay: fmt(pay), vTxt: v ? '−¥100.00 · 不使用' : '1 张可用，使用', togV: (e) => { ev(e); this.setState({ v: !v }); }, cons, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
   }
 }
 </script>

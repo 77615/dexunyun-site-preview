@@ -611,7 +611,7 @@ class Component extends DCLogic {
         toast(el, t === '退出登录' ? '已退出' : '已' + t);
       }); return;
     }
-    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
+    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。接收前需完成个人实名认证，未认证会先去认证。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
     if (/^清除缓存$/.test(t)) { confirmBox(el, '清除' + (nm2 && /\./.test(nm2) ? ' ' + nm2 + ' 的' : '') + '缓存？', '清除后首批请求会回源，源站压力会短暂上升。', '清除缓存', false, function () { toast(el, '已提交，约 5 分钟全网生效'); }); return; }
     // 提示类
     var TO = { '刷新': '已刷新，数据更新于刚刚', '导出': '导出任务已创建，生成后在「消息」里下载', '导出报表': '报表生成中，完成后在「消息」里下载', '生成报告': '报告生成中，约 1 分钟后可在「报告」里查看',

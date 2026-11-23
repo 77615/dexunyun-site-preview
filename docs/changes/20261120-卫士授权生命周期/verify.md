@@ -14,15 +14,20 @@
 
 ## 能点通
 - [x] 宽限提示里「资产列表」链到 SecHosts；AcctPurchase 提示里「续费」链到 BillConfirm
-- [ ] 「更换保留主机」只有文字说明和链接，没有做选择主机的交互
-- [ ] 没有处于「授权已到期」状态的示例主机（演示数据仍在宽限期内）
+- [x] 「更换保留主机」：授权管理里的抽屉，最多选 3 台，默认最早接入的 3 台（第二轮）
+- [ ] 没有处于「授权已到期」状态的示例主机：演示数据在宽限期内（11-04），加了会自相矛盾；抽屉里用「11-08 后停止检测」表达
 
 ## 发布
 - 卫士 LE5c v327、账号与费用 E1uu v206、服务器 N8Yuj v10、官网 JTat v122（2026-11-23）
 
+## 第二轮（2026-11-23，77：做完未完成的；选购页对齐费用中心）
+- AcctPurchase 按 BillConfirm 结构重建，三态用页头「演示」切换；BillConfirm 加卫士台数步进器（只能减，减量核验到账后生效）
+- kyno3x 3903f36 合入：AcctSubs、AcctTransfer、AcctTransferDetail（卫士转移那句画布已无对应文案，跳过）、BillBalance（余额只展示，退款原路退回）、BillOrders（用量账单、核验超时、开通失败、申请退款、已退款页签）、BillPayment（实名提示；保留现行「7 天未付自动取消」）、SupTicketDetail（问题未解决）、SupTicketNew（关联订单 / 退款 / 复制工单）、DdosInstances、ScdnPlan
+- 发布：E1uu v207、LE5c v328、DDoS RL3X v41、SCDN SfY2 v44
+- 仓库 console/ 仍是 11-17 前的账号页版式（费用中心左侧菜单版在 r7hjqo 分支未合入），仓库里的 AcctPurchase 按仓库现有的 BillConfirm 重建
+- 未做渲染截图（环境不允许本地起浏览器渲染），逻辑脚本全部过 node --check
+
 ## 不通过项
 | 项 | 原因 | 处理 |
 | --- | --- | --- |
-| BillBalance「续费优先从余额扣」(P7) | 和 kyno3x 3903f36 的逆向修改一起处理 | 任务 6，推迟 |
-| kyno3x 3903f36 合入（开通失败、核验超时、到期不续、退款） | 要逐页对照 11-17 之后的账号页版式 | 任务 6，推迟 |
-| AcctPurchase 新购 / 扩容两态、BillConfirm 台数步进器 | 本次只改了提示文案 | 任务 3、5、12 部分完成 |
+| 到期不续开关（kyno 放在 AcctProductDetail） | 该画板已取消，没有新位置 | 待定：放到我的产品卡片「更多」里 |
