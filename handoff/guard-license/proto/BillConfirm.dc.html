@@ -144,7 +144,7 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">确认订单 · 续费</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">返回</a></div>
       </div>
-      <div class="ac-al i"><i>!</i><span>续费从各资源的当前到期日起算；已到期资源在保留期内续费，核验到账后恢复。德迅安全卫士授权续费时可以减少台数，减少的部分从当前到期日起停止检测</span></div>
+      <div class="ac-al i"><i>!</i><span>续费从各资源的当前到期日起算；已到期资源在保留期内续费，核验到账后恢复。德迅安全卫士授权续费时可以减少台数：到期前续费，减少的部分从当前到期日起停止检测；宽限期内续费，核验到账后即停止检测</span></div>
       <section class="kc-card">
         <div class="kc-ch"><h2><i class="fi-i fi-box"></i>续费资源</h2><span class="kc-sub">共 {{n}} 项</span></div>
         <div class="fl-row" style="border-top:0"><span>卫士授权台数</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{gDec}}">−</button><b>{{gq}}</b><button type="button" aria-label="增加" onClick="{{gInc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{gTip}}</span></div></div>
@@ -153,7 +153,7 @@
           <thead><tr><th>资源</th><th>配置</th><th>当前到期</th><th>续费后到期</th><th class="num">单价</th><th class="num">金额</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for></tr></sc-for></tbody>
         </table></div>
-        <div class="fl-tot"><div>商品合计<b>¥{{sum}} + 卫士授权（价格待定）</b></div><div>代金券<b><a href="#" onClick="{{togV}}">{{vTxt}}</a></b></div><div class="big">应付金额<b>¥{{pay}}</b></div></div>
+        <div class="fl-tot"><div>商品合计<b>¥{{sum}} + 卫士授权（价格待定）</b></div><div>代金券<b><a href="#" onClick="{{togV}}">{{vTxt}}</a></b></div><div class="big">应付金额<b>¥{{pay}} + 卫士授权（价格待定）</b></div></div>
       </section>
       <section class="kc-card" style="margin-top:16px">
         <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>付款与票据</h2></div>
@@ -161,7 +161,7 @@
         <div class="fl-row"><span>合同</span><div><div class="fl-seg"><sc-for list="{{cons}}" as="d" hint-placeholder-count="2"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
         <div class="fl-row"><span>发票</span><div>付款完成后在「发票管理」申请，抬头默认 <b style="font-weight:500">浙江德迅科技有限公司</b></div></div>
       </section>
-      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>¥{{pay}}</b><a class="{{subCls}}" href="BillPayment.dc.html">提交订单</a></div>
+      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>¥{{pay}} + 卫士授权（价格待定）</b><a class="{{subCls}}" href="BillPayment.dc.html">提交订单</a></div>
     </main>
   </div>
 </div>
@@ -802,7 +802,7 @@ class Component extends DCLogic {
     const cons = ['不需要', '电子合同'].map((n) => ({ n, cls: n === cn ? 'on' : '', go: () => this.setState({ con: n }) }));
     const agree = st.agree !== false;
 
-    return Object.assign({ nav }, { gq, gDec: () => this.setState({ gq: Math.max(0, gq - 1) }), gInc: () => this.setState({ gq: Math.min(54, gq + 1) }), gTip: gCut > 0 ? '减少 ' + gCut + ' 台：核验到账后这 ' + gCut + ' 台停止检测，可以先在资产列表选择保留哪些主机' : gCut < 0 ? '增加的台数请走扩容，续费只能保持或减少台数' : '现有 54 台，续费可以减少台数；要加台数请走扩容', durs, rows, n: IT.length + 1, sum: fmt(sum), pay: fmt(pay), vTxt: v ? '−¥100.00 · 不使用' : '1 张可用，使用', togV: (e) => { ev(e); this.setState({ v: !v }); }, cons, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
+    return Object.assign({ nav }, { gq, gDec: () => this.setState({ gq: Math.max(0, gq - 1) }), gInc: () => this.setState({ gq: Math.min(54, gq + 1) }), gTip: gCut > 0 ? '减少 ' + gCut + ' 台：现在处于宽限期，核验到账后这 ' + gCut + ' 台停止检测（到期前续费则从到期日起停止）；可以先在授权管理选择保留哪些主机' : gCut < 0 ? '增加的台数请走扩容，续费只能保持或减少台数' : '现有 54 台，续费可以减少台数；要加台数请走扩容', durs, rows, n: IT.length + 1, sum: fmt(sum), pay: fmt(pay), vTxt: v ? '−¥100.00 · 不使用' : '1 张可用，使用', togV: (e) => { ev(e); this.setState({ v: !v }); }, cons, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
   }
 }
 </script>

@@ -24,19 +24,56 @@
 .tcl-tabs .tcl-r{margin-left:auto;align-self:center;display:flex;gap:8px}
 .kc .kc-main>nav.tcl-tabs+.ia-tabs{padding-left:0!important;padding-right:0!important}
 .tcl-tabs>a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(0,0,0,.9)}
+
+/* ctr-v1 费用、企业、支持三个中心：左侧菜单 + 右内容（只作用于 .kc.ctr） */
+.kc.ctr .kc-body{flex-wrap:nowrap!important}
+.kc.ctr .kc-body>.kc-main{flex:1 1 0!important;min-width:0}
+.kc.ctr main.kc-main.kc-main{background:#f2f4f8!important}
+.kc.ctr main.kc-main>.kc-hd.kc-hd{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px!important}
+.kc.ctr main.kc-main>.kc-hd.kc-hd .kc-h1{font-size:20px!important;line-height:28px!important;font-weight:600!important}
+.kc.ctr main.kc-main>.hier-box{margin-top:0!important}
+.kc.ctr .kc-side .kc-sh b{font-size:14px;font-weight:600;color:rgba(0,0,0,.9)}
+
+/* cnav-v1 三个中心的导航入口 */
+.kc .kc-main>nav.tcl-tabs>.cnav-r{margin-left:auto;align-self:center;display:flex;gap:4px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;font-size:13px;font-weight:400;color:rgba(0,0,0,.7);text-decoration:none;border-radius:2px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a::after{display:none!important}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a:hover{background:rgba(255,255,255,.7);color:#1664ff}
+.cnav-r .kc-ic,.cnav-me .kc-ic{display:inline-block;flex:none;width:14px;height:14px;-webkit-mask-size:14px 14px;mask-size:14px 14px;background:currentColor!important;margin:0}
+.ac-pop:has(>.cnav-me){width:340px!important}
+.cnav-me{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px;border-bottom:1px solid #eef0f3}
+.cnav-me>a{display:flex;flex-direction:column;gap:4px;padding:10px;background:#f7f8fa;color:rgba(0,0,0,.9);text-decoration:none;border-radius:2px}
+.cnav-me>a:hover{background:#eef4ff;color:#1664ff}
+.cnav-me>a .kc-ic{width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;color:#1664ff;background:#1664ff!important}
+.cnav-me>a b{font-size:13px;font-weight:500}
+.cnav-me>a small{font-size:11px;color:rgba(0,0,0,.5);white-space:nowrap}
+.kc-side.ctr-side .kc-sh .cnav-back{display:inline-flex;align-items:center;gap:2px;margin-top:4px;font-size:12px;color:rgba(0,0,0,.5);text-decoration:none}
+.kc-side.ctr-side .kc-sh .cnav-back:hover{color:#1664ff}
+
+/* pin-v1 产品与服务弹窗左栏：固定的中心入口 */
+.tp-pp .tp-l>ul.tp-fix{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid #eef0f3}
+.tp-pp .tp-l>ul.tp-fix>li>a{display:flex;align-items:center;justify-content:space-between;gap:8px;height:36px}
+.tp-pp .tp-l>ul.tp-fix .tp-n{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:rgba(0,0,0,.9)}
+.tp-pp .tp-l>ul.tp-fix .tp-n b{font-weight:500}
+.tp-pp .tp-l>ul.tp-fix .kc-ic{display:inline-block;flex:none;width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;background:rgba(0,0,0,.6)!important;margin:0}
+.tp-pp .tp-l>ul.tp-fix>li>a:hover .kc-ic,.tp-pp .tp-l>ul.tp-fix>li>a.on .kc-ic{background:#1664ff!important}
+.tp-pp .tp-l>ul.tp-fix>li>a.on .tp-n{color:#1664ff}
+.tp-pp .tp-l>ul.tp-fix small.r{color:#f64041}
+
+/* gap-v1 产品与服务弹窗贴住顶栏 */
+.kc-top .tp-pp{top:100%!important}
+.kc-top .tp-dim{top:50px!important}
 </style>
 </helmet>
-<div class="kc ux-wrap">
+<div class="kc ux-wrap ctr">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">费用中心</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
-        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <ul class="tp-fix" aria-label="常用入口"><li><a href="ConsoleHome.dc.html"><span class="tp-n"><i class="kc-ic i-grid"></i><b>控制台总览</b></span></a></li><li><a href="AcctProducts.dc.html"><span class="tp-n"><i class="kc-ic i-box"></i><b>我的产品</b></span></a></li><li><a href="SecHome.dc.html"><span class="tp-n"><i class="kc-ic i-shield"></i><b>安全中心</b></span><small class="r">18 条待处理</small></a></li><li><a class="on" href="BillOverview.dc.html"><span class="tp-n"><i class="kc-ic i-doc"></i><b>费用中心</b></span></a></li><li><a href="OrgInfo.dc.html"><span class="tp-n"><i class="kc-ic i-users"></i><b>企业中心</b></span></a></li><li><a href="SupTickets.dc.html"><span class="tp-n"><i class="kc-ic i-help"></i><b>支持中心</b></span></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
@@ -44,7 +81,7 @@
         <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-    </div></sc-if></span>
+    </div></sc-if></span><a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">费用中心</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">我的产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctSubs.dc.html">按资源</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>确认订单</b></nav>
     <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
@@ -75,7 +112,7 @@
             <li><span>代金券<em>1 张可用</em></span></li>
           </ul>
           <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
-          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">进入费用中心<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
@@ -86,12 +123,12 @@
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
-          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div><div class="cnav-me"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i><b>费用中心</b><small>订单 · 付款 · 发票</small></a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i><b>企业中心</b><small>认证 · 成员 · 权限</small></a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i><b>支持中心</b><small>工单 · 消息 · 文档</small></a></div>
           <ul class="ac-rows">
             <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
             <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            
           </ul>
           <ul class="ac-rows" style="border-bottom:0">
             <li><a href="#">切换账号</a></li>
@@ -101,14 +138,13 @@
     </nav>
     <sc-if value="{{hd.any}}" hint-placeholder-val="{{false}}"><div class="ac-mask" onClick="{{hd.close}}"></div></sc-if>
   </header>
-  <div class="kc-body">
+  <div class="kc-body"><input type="checkbox" id="kcf-BillConfirm" class="kc-fold-ck" aria-label="收起左侧菜单"><aside class="kc-side ctr-side" aria-label="费用中心菜单"><div class="kc-sh"><b>费用中心</b><a class="cnav-back" href="ConsoleHome.dc.html">‹ 返回控制台总览</a></div><nav class="kc-nv" aria-label="费用中心菜单"><a class="kc-it" href="BillOverview.dc.html"><i class="kc-ic i-grid"></i><span>概览</span></a><a class="kc-it on" href="BillOrders.dc.html" aria-current="page"><i class="kc-ic i-doc"></i><span>订单</span></a><a class="kc-it" href="BillPay.dc.html"><i class="kc-ic i-check"></i><span>付款</span></a><a class="kc-it" href="BillBalance.dc.html"><i class="kc-ic i-chart"></i><span>收支明细</span></a><a class="kc-it" href="BillInvoice.dc.html"><i class="kc-ic i-layers"></i><span>发票</span></a><a class="kc-it" href="BillContract.dc.html"><i class="kc-ic i-policy"></i><span>合同</span></a></nav><div class="kc-foldbar"><label for="kcf-BillConfirm" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-BillConfirm" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="BillConfirm" class="kc-main">
-      <nav class="tcl-tabs" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a href="AcctProducts.dc.html">我的产品</a><a class="on" aria-current="page" href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">确认订单 · 续费</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctSubs.dc.html">返回</a></div>
       </div>
-      <div class="ac-al i"><i>!</i><span>续费从各资源的当前到期日起算；已到期资源在保留期内续费，核验到账后恢复。德迅安全卫士授权续费时可以减少台数，减少的部分从当前到期日起停止检测</span></div>
+      <div class="ac-al i"><i>!</i><span>续费从各资源的当前到期日起算；已到期资源在保留期内续费，核验到账后恢复。德迅安全卫士授权续费时可以减少台数：到期前续费，减少的部分从当前到期日起停止检测；宽限期内续费，核验到账后即停止检测</span></div>
       <section class="kc-card">
         <div class="kc-ch"><h2><i class="fi-i fi-box"></i>续费资源</h2><span class="kc-sub">共 {{n}} 项</span></div>
         <div class="fl-row" style="border-top:0"><span>卫士授权台数</span><div><span class="pu-step"><button type="button" aria-label="减少" onClick="{{gDec}}">−</button><b>{{gq}}</b><button type="button" aria-label="增加" onClick="{{gInc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{gTip}}</span></div></div>
@@ -117,7 +153,7 @@
           <thead><tr><th>资源</th><th>配置</th><th>当前到期</th><th>续费后到期</th><th class="num">单价</th><th class="num">金额</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for></tr></sc-for></tbody>
         </table></div>
-        <div class="fl-tot"><div>商品合计<b>¥{{sum}} + 卫士授权（价格待定）</b></div><div>代金券<b><a href="#" onClick="{{togV}}">{{vTxt}}</a></b></div><div class="big">应付金额<b>¥{{pay}}</b></div></div>
+        <div class="fl-tot"><div>商品合计<b>¥{{sum}} + 卫士授权（价格待定）</b></div><div>代金券<b><a href="#" onClick="{{togV}}">{{vTxt}}</a></b></div><div class="big">应付金额<b>¥{{pay}} + 卫士授权（价格待定）</b></div></div>
       </section>
       <section class="kc-card" style="margin-top:16px">
         <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>付款与票据</h2></div>
@@ -125,7 +161,7 @@
         <div class="fl-row"><span>合同</span><div><div class="fl-seg"><sc-for list="{{cons}}" as="d" hint-placeholder-count="2"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
         <div class="fl-row"><span>发票</span><div>付款完成后在「发票管理」申请，抬头默认 <b style="font-weight:500">浙江德迅科技有限公司</b></div></div>
       </section>
-      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>¥{{pay}}</b><a class="{{subCls}}" href="BillPayment.dc.html">提交订单</a></div>
+      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>¥{{pay}} + 卫士授权（价格待定）</b><a class="{{subCls}}" href="BillPayment.dc.html">提交订单</a></div>
     </main>
   </div>
 </div>
@@ -759,14 +795,14 @@ class Component extends DCLogic {
     const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const rows = IT.map(([n, p, cfg, exp, left, price]) => ROW([{ t: n, a: '#', s: p }, cfg, { t: exp, s: left, sc: 'o' }, { t: add(exp.slice(0, 7), m) + exp.slice(7), c: 'ac-n' },
       { t: '¥' + fmt(price) + ' /月', c: 'ac-n m', td: 'num' }, { t: '¥' + fmt(price * m), c: 'ac-n', td: 'num' }], []));
-    rows.push(ROW([{ t: 'dx-guard-01', a: 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-de5201e8a0c7', s: '德迅安全卫士授权' }, gq + ' 台', { t: '2026-11-01', s: '宽限至 11-08', sc: 'o' }, { t: add('2026-11', m) + '-01', c: 'ac-n' }, { t: '待定 /台/年', c: 'ac-n m', td: 'num' }, { t: '价格待定', c: 'ac-n', td: 'num' }], []));
+    rows.push(ROW([{ t: 'dx-guard-01', a: 'SecHome.dc.html', s: '德迅安全卫士授权' }, gq + ' 台', { t: '2026-11-01', s: '宽限至 11-08', sc: 'o' }, { t: add('2026-11', m) + '-01', c: 'ac-n' }, { t: '待定 /台/年', c: 'ac-n m', td: 'num' }, { t: '价格待定', c: 'ac-n', td: 'num' }], []));
     const sum = IT.reduce((a, r) => a + r[5] * m, 0);
     const v = !!st.v; const pay = v ? Math.max(0, sum - 100) : sum;
     const cn = st.con || '不需要';
     const cons = ['不需要', '电子合同'].map((n) => ({ n, cls: n === cn ? 'on' : '', go: () => this.setState({ con: n }) }));
     const agree = st.agree !== false;
 
-    return Object.assign({ nav }, { gq, gDec: () => this.setState({ gq: Math.max(0, gq - 1) }), gInc: () => this.setState({ gq: Math.min(54, gq + 1) }), gTip: gCut > 0 ? '减少 ' + gCut + ' 台：核验到账后这 ' + gCut + ' 台停止检测，可以先在资产列表选择保留哪些主机' : gCut < 0 ? '增加的台数请走扩容，续费只能保持或减少台数' : '现有 54 台，续费可以减少台数；要加台数请走扩容', durs, rows, n: IT.length + 1, sum: fmt(sum), pay: fmt(pay), vTxt: v ? '−¥100.00 · 不使用' : '1 张可用，使用', togV: (e) => { ev(e); this.setState({ v: !v }); }, cons, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
+    return Object.assign({ nav }, { gq, gDec: () => this.setState({ gq: Math.max(0, gq - 1) }), gInc: () => this.setState({ gq: Math.min(54, gq + 1) }), gTip: gCut > 0 ? '减少 ' + gCut + ' 台：现在处于宽限期，核验到账后这 ' + gCut + ' 台停止检测（到期前续费则从到期日起停止）；可以先在授权管理选择保留哪些主机' : gCut < 0 ? '增加的台数请走扩容，续费只能保持或减少台数' : '现有 54 台，续费可以减少台数；要加台数请走扩容', durs, rows, n: IT.length + 1, sum: fmt(sum), pay: fmt(pay), vTxt: v ? '−¥100.00 · 不使用' : '1 张可用，使用', togV: (e) => { ev(e); this.setState({ v: !v }); }, cons, agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: agree ? 'kc-btn pri' : 'kc-btn pri dis' });
   }
 }
 </script>
