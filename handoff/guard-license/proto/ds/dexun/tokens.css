@@ -1,0 +1,118 @@
+/* 德迅云设计规范 — generated from tokens.json */
+:root, [data-theme="light"] {
+  --primary-1: #e8f3ff;
+  --primary-2: #bedaff;
+  --primary-3: #94bfff;
+  --primary-4: #6aa1ff;
+  --primary-5: #4080ff;
+  --primary-6: #165dff;
+  --primary-7: #0e42d2;
+  --primary-8: #072ca6;
+  --primary-9: #031a79;
+  --primary-10: #000d4d;
+  --brand-navy: #034099;
+  --surface-deep: #0a1633;
+  --bg-1: #ffffff;
+  --bg-2: #f7f8fa;
+  --bg-3: #f2f3f5;
+  --border-1: #e5e6eb;
+  --border-2: #c9cdd4;
+  --text-1: #1d2129;
+  --text-2: #4e5969;
+  --text-3: #6b7785;
+  --text-4: #86909c;
+  --text-on-primary: #ffffff;
+  --success-1: #e8ffea;
+  --success-6: #00b42a;
+  --warning-1: #fff7e8;
+  --warning-6: #ff7d00;
+  --danger-1: #ffece8;
+  --danger-6: #f53f3f;
+  --chart-1: var(--primary-6);
+  --chart-2: #14c9c9;
+  --chart-3: #f7ba1e;
+  --chart-4: #722ed1;
+  --chart-5: #f77234;
+  --chart-empty: var(--border-1);
+  --kc-primary: #1664ff;
+  --kc-primary-bg: #f2f7ff;
+  --kc-primary-bg-2: #eaf2ff;
+  --kc-text-1: #0c0d0e;
+  --kc-text-2: #42464e;
+  --kc-text-3: #737a87;
+  --kc-bg: #f5f7fb;
+  --kc-border-2: #e4eaf0;
+  --kc-border-3: #eaedf1;
+  --kc-fill-2: #f0f2f5;
+  --kc-fill-3: #fafbfc;
+  --kc-danger-text: #cb2634;
+  --kc-warning-text: #d25f00;
+  --kc-success-text: #00754e;
+  --shadow-1: 0 2px 6px rgba(29,33,41,0.06);
+  --shadow-2: 0 4px 12px rgba(29,33,41,0.1);
+  --shadow-3: 0 8px 24px rgba(29,33,41,0.12);
+}
+[data-theme="dark"] {
+  --primary-1: rgba(60,126,255,0.16);
+  --primary-2: rgba(60,126,255,0.32);
+  --primary-5: #689fff;
+  --primary-6: #3c7eff;
+  --primary-7: #2962d5;
+  --bg-1: #17171a;
+  --bg-2: #232324;
+  --bg-3: #2a2a2b;
+  --border-1: #333335;
+  --border-2: #484849;
+  --text-1: rgba(255,255,255,0.9);
+  --text-2: rgba(255,255,255,0.7);
+  --text-3: rgba(255,255,255,0.55);
+  --text-4: rgba(255,255,255,0.35);
+  --success-1: rgba(39,195,70,0.16);
+  --success-6: #27c346;
+  --warning-1: rgba(255,150,38,0.16);
+  --warning-6: #ff9626;
+  --danger-1: rgba(247,105,101,0.16);
+  --danger-6: #f76965;
+  --chart-2: #30c9c9;
+  --chart-3: #f9cc45;
+  --chart-4: #8d4eda;
+  --chart-5: #f9925a;
+  --shadow-1: 0 2px 6px rgba(0,0,0,0.4);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.5);
+  --shadow-3: 0 8px 24px rgba(0,0,0,0.6);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-20: 80px;
+  --radius-small: 2px;
+  --radius-medium: 4px;
+  --radius-large: 8px;
+  --radius-round: 999px;
+  --kc-control-radius: 4px;
+  --kc-tag-radius: 4px;
+  --kc-card-radius: 8px;
+  --kc-btn-h: 32px;
+  --kc-btn-h-sm: 28px;
+  --kc-btn-px: 16px;
+  --kc-input-h: 32px;
+  --kc-tag-h: 22px;
+  --kc-tab-h: 44px;
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+.display-1 { font-family: var(--font-sans); font-size: 48px; line-height: 56px; font-weight: 600; }
+.display-2 { font-family: var(--font-sans); font-size: 40px; line-height: 48px; font-weight: 600; }
+.heading-1 { font-family: var(--font-sans); font-size: 32px; line-height: 40px; font-weight: 600; }
+.heading-2 { font-family: var(--font-sans); font-size: 24px; line-height: 32px; font-weight: 600; }
+.lead { font-family: var(--font-sans); font-size: 16px; line-height: 26px; font-weight: 400; }
+.title-1 { font-family: var(--font-sans); font-size: 20px; line-height: 28px; font-weight: 500; }
+.title-2 { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 500; }
+.body-1 { font-family: var(--font-sans); font-size: 14px; line-height: 22px; font-weight: 400; }
+.body-2 { font-family: var(--font-sans); font-size: 12px; line-height: 20px; font-weight: 400; }
+.number-1 { font-family: var(--font-sans); font-size: 28px; line-height: 36px; font-weight: 600; }

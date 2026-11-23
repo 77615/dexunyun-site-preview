@@ -314,7 +314,7 @@ class Component extends DCLogic {
     '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
     '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };
-  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
   var regNav = function (t) {
     if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
     if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
@@ -611,7 +611,7 @@ class Component extends DCLogic {
         toast(el, t === '退出登录' ? '已退出' : '已' + t);
       }); return;
     }
-    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
+    if (/^(确认接收)$/.test(t)) { confirmBox(el, '接收这批产品？', '接收后产品归属本企业，续费和工单由本企业处理。接收前需完成个人实名认证，未认证会先去认证。', '确认接收', false, function () { toast(el, '已接收'); }); return; }
     if (/^清除缓存$/.test(t)) { confirmBox(el, '清除' + (nm2 && /\./.test(nm2) ? ' ' + nm2 + ' 的' : '') + '缓存？', '清除后首批请求会回源，源站压力会短暂上升。', '清除缓存', false, function () { toast(el, '已提交，约 5 分钟全网生效'); }); return; }
     // 提示类
     var TO = { '刷新': '已刷新，数据更新于刚刚', '导出': '导出任务已创建，生成后在「消息」里下载', '导出报表': '报表生成中，完成后在「消息」里下载', '生成报告': '报告生成中，约 1 分钟后可在「报告」里查看',
