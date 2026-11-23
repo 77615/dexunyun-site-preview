@@ -34,6 +34,7 @@
   var SRC = null;
   function tag() {
     if (!SRC) return false;
+    rewriteLinks();
     var changed = false;
     SRC.data.nodes.forEach(function (n) {
       if (n.pageId !== PAGE) return;
@@ -48,17 +49,39 @@
     return changed;
   }
 
+  /* 画布里跨画板的链接（claude.ai/artifact/…#play-…）对应的页面；没列出的保持原链接 */
+  var PLAY = { '8b7e5ba1733c': 'AcctPurchase', '35307ce48e3c': 'SupTicketNew', '2282494ce44b': 'Notifications', '1485656c1a39': 'AcctSubs',
+    '0bd5ab5fb47a': 'AcctProducts', '094b594265d1': 'BillOrders', '193923411f50': 'BillConfirm', '4ab1237f99cc': 'BillPay', 'f652d6276a76': 'BillPay',
+    '8e83e0b89da5': 'BillOverview', '1909709bb28d': 'ConsoleHome', '05cf95a88fb3': 'BillInvoice', 'ba64a36f03c2': 'BillContract', '036a55ff5109': 'SupTickets',
+    '2c61206fbe61': 'OrgInfo', '7d0ed99f0705': 'OrgSecurity', '42d2ad7b7c9a': 'OrgMembers', 'f7d3546c83c2': 'BillInvoiceApply', '3d4eab0695df': 'OrgVerify',
+    'de5201e8a0c7': 'SecHome' };
   /* 快照里没有的页面：改去仓库里的完整预览 */
+  function target(h, pages) {
+    var pm = h.match(/^https:\/\/claude\.ai\/artifact\/(?:E1uu|LE5c)[A-Za-z0-9]*#play-([0-9a-f]{12})/);
+    if (pm && PLAY[pm[1]]) h = PLAY[pm[1]] + '.dc.html';
+    var m = h.match(/^(?:\.\/)?([A-Za-z0-9-]+\.dc\.html)(.*)$/);
+    if (!m) return null;
+    if (pages.indexOf(m[1]) >= 0) return BASE + 'proto/' + m[1] + m[2];
+    var site = /^(Main|Login|Legal|Docs|Register|Forgot|Product|Solution|Service|About|Contact|News|Trust|Faq)/.test(m[1]);
+    return 'https://77615.github.io/dexunyun-site-preview/' + (site ? '' : 'console/') + m[1] + m[2];
+  }
+  function rewriteLinks() {
+    var pages = window.__GL_PAGES__ || [], as = document.querySelectorAll('#dc-root a[href]');
+    for (var i = 0; i < as.length; i++) { var h = as[i].getAttribute('href'); if (h.indexOf(BASE) === 0) continue; var u = target(h, pages); if (u) as[i].setAttribute('href', u); }
+  }
   function fixLinks(pages) {
-    document.addEventListener('click', function (ev) {
+    window.addEventListener('click', function (ev) {
       var a = ev.target.closest && ev.target.closest('a[href]');
       if (!a) return;
       var h = a.getAttribute('href') || '';
+      var pm = h.match(/^https:\/\/claude\.ai\/artifact\/(?:E1uu|LE5c)[A-Za-z0-9]*#play-([0-9a-f]{12})/);
+      if (pm && PLAY[pm[1]]) h = PLAY[pm[1]] + '.dc.html';
       var m = h.match(/^(?:\.\/)?([A-Za-z0-9-]+\.dc\.html)(.*)$/);
+      if (m && pages.indexOf(m[1]) >= 0 && h !== a.getAttribute('href')) { ev.preventDefault(); ev.stopPropagation(); location.href = BASE + 'proto/' + m[1]; return; }
       if (!m || pages.indexOf(m[1]) >= 0) return;
       ev.preventDefault(); ev.stopPropagation();
       var site = /^(Main|Login|Legal|Docs|Register|Forgot|Product|Solution|Service|About|Contact|News|Trust|Faq)/.test(m[1]);
-      location.href = BASE + (site ? '../../' : '../../console/') + m[1] + m[2];
+      location.href = 'https://77615.github.io/dexunyun-site-preview/' + (site ? '' : 'console/') + m[1] + m[2];
     }, true);
   }
 
