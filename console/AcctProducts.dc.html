@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>产品列表</title>
+<title>我的产品</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="ds/dexun/tokens.css">
 <link rel="stylesheet" href="ds/dexun/components/bundle.css">
@@ -50,19 +50,259 @@
 .kc .kc-main>nav.ia-tabs>a:hover{color:#1664ff!important;border-color:#c6d8ff!important}
 .kc .kc-main>nav.ia-tabs>a.on{background:#e5ecff!important;border-color:#e5ecff!important;color:#1664ff!important;font-weight:500!important}
 .kc .kc-main .kc-card,.kc .kc-main .b8-box,.kc .kc-main .ac-st{border:0!important;border-radius:0!important;box-shadow:0 1px 4px rgba(0,0,0,.05)!important}
+
+/* pc-v1 我的产品 · 卡片版 */
+.kc .kc-main>.pc{margin-top:0!important}
+.kc main.kc-main>.kc-dmask,.kc main.kc-main>.kc-dw{margin:0!important}
+.kc .kc-main>.pc{display:block!important;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.pc-tabs{display:flex;gap:8px;padding:16px 20px;border-bottom:1px solid #f0f2f5}
+.pc-tabs>a{display:inline-flex;align-items:center;height:32px;padding:0 16px;border:1px solid #e6e9ef;border-radius:16px;background:#fff;font-size:13px;color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s,border-color .15s}
+.pc-tabs>a:hover{color:#1664ff;border-color:#c6d8ff}
+.pc-tabs>a.on{background:#e5ecff;border-color:#e5ecff;color:#1664ff;font-weight:500}
+.kc .kc-main .pc>.pc-in{margin:0!important;padding:16px 20px 20px}
+.pc-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 16px}
+.pc-sc{display:inline-flex;padding:2px;background:#f2f3f5}
+.pc-sc button{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 14px;border:0;background:transparent;font:inherit;font-size:13px;color:rgba(0,0,0,.6);cursor:pointer;transition:background-color .14s,color .14s}
+.pc-sc button:hover{color:rgba(0,0,0,.9)}
+.pc-sc button.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.pc-sc button>.pc-n{font-style:normal;font-size:12px;font-weight:400;color:rgba(0,0,0,.4);font-variant-numeric:tabular-nums}
+.pc-tools{display:flex;align-items:center;gap:12px}
+.pc-vw{display:inline-flex;gap:2px;padding:2px;background:#f2f3f5}
+.pc-vw button{display:grid;place-items:center;width:28px;height:28px;border:0;background:transparent;color:rgba(0,0,0,.5);cursor:pointer}
+.pc-vw button:hover{color:rgba(0,0,0,.9)}
+.pc-vw button.on{background:#fff;color:#1664ff;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.pc-lane+.pc-lane{margin-top:24px}
+.pc-lh{display:flex;align-items:center;gap:8px;height:24px;margin:0 0 12px;font-size:13px}
+.pc-lh b{font-weight:500;color:rgba(0,0,0,.9)}
+.pc-lh>span{min-width:20px;padding:0 6px;background:#e5e8ef;font-size:12px;line-height:18px;text-align:center;color:rgba(0,0,0,.6);font-variant-numeric:tabular-nums}
+.pc-mk{display:inline-block;flex:none;width:14px;height:14px;box-sizing:border-box;border-radius:50%}
+.pc-mk.err{width:14px;height:14px;border:0;border-radius:0;background:#f53f3f;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z'/%3E%3Cpath d='M12 8v4.5'/%3E%3Cpath d='M12 16h.01'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z'/%3E%3Cpath d='M12 8v4.5'/%3E%3Cpath d='M12 16h.01'/%3E%3C/svg%3E") center/contain no-repeat}
+.pc-mk.warn{width:14px;height:14px;border-radius:0;background:#ff7d00;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E") center/contain no-repeat}
+.pc-mk.ok{width:14px;height:14px;border:0;border-radius:0;background:#00b42a;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z'/%3E%3Cpath d='m8.5 12.2 2.4 2.4 4.6-4.8'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z'/%3E%3Cpath d='m8.5 12.2 2.4 2.4 4.6-4.8'/%3E%3C/svg%3E") center/contain no-repeat}
+.pc-mk.mut{width:14px;height:14px;border:0;border-radius:0;background:#86909c;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z'/%3E%3Cpath d='M8.5 12h7'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z'/%3E%3Cpath d='M8.5 12h7'/%3E%3C/svg%3E") center/contain no-repeat}
+.pc-ico .dt{width:20px!important;height:20px!important;flex-basis:20px!important;filter:none!important;opacity:1!important;vertical-align:0}
+.pc-ico.sm{width:28px;height:28px}
+.pc-ico.sm .dt{width:16px!important;height:16px!important;flex-basis:16px!important}
+.pc-wall{padding:20px;background:#f5f6f8}
+.pc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin:0;padding:0;list-style:none}
+.pc-c:hover{box-shadow:0 0 0 1px rgba(22,100,255,.18),0 8px 24px -8px rgba(15,23,42,.14)}
+.pc-c.cur{box-shadow:0 0 0 1px #1664ff,0 8px 24px -8px rgba(22,100,255,.25)}
+.pc-tt{display:flex;align-items:flex-start;gap:12px;min-width:0}
+.pc-ico{display:grid;flex:none;place-items:center;width:40px;height:40px;border-radius:2px;background:linear-gradient(145deg,#eef4ff,#e1eaff)}
+.pc-nm{display:grid;flex:1;min-width:0;padding-top:1px}
+.pc-nm b{overflow:hidden;font-size:14px;font-weight:600;line-height:22px;white-space:nowrap;text-overflow:ellipsis;color:rgba(0,0,0,.9)}
+.pc-nm small{font-size:12px;line-height:18px;color:rgba(0,0,0,.45)}
+.pc-chip{display:inline-flex;flex:none;align-items:center;gap:4px;height:22px;padding:0 8px 0 6px;border-radius:11px;font-size:12px;font-weight:500;white-space:nowrap}
+.pc-chip .pc-mk{width:12px;height:12px}
+.pc-chip.err{background:#fff0f0;color:#cb2634}
+.pc-chip.warn{background:#fff5e8;color:#c2570a}
+.pc-chip.ok{background:#ebf9ef;color:#0e8a3a}
+.pc-chip.mut{background:#f2f3f5;color:#4e5969}
+.pc-tx{display:-webkit-box;height:40px;margin-top:14px;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:13px;line-height:20px;color:rgba(0,0,0,.6)}
+.pc-u{display:flex;align-items:center;gap:12px;height:16px;margin-top:14px}
+.pc-ub{position:relative;flex:1;height:4px;border-radius:2px;background:#eef0f4;overflow:hidden}
+.pc-ub i{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:linear-gradient(90deg,#4e8dff,#1664ff)}
+.pc-ub i.o{background:linear-gradient(90deg,#ffb35c,#ff7d00)}
+.pc-ub i.r{background:linear-gradient(90deg,#ff7a7a,#f53f3f)}
+.pc-u em{flex:none;font-style:normal;font-size:12px;color:rgba(0,0,0,.5);font-variant-numeric:tabular-nums}
+.pc-ex{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:rgba(0,0,0,.5);font-variant-numeric:tabular-nums}
+.pc-ex.o{color:#c2570a}
+.pc-ex.r{color:#cb2634}
+.pc-c{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:2px;box-shadow:0 0 0 1px rgba(15,23,42,.04),0 1px 2px rgba(15,23,42,.04);transition:box-shadow .2s}
+.pc-cm{display:flex;flex:1;flex-direction:column;gap:0;width:100%;padding:20px 20px 16px;border:0;background:none;font:inherit;text-align:left;cursor:pointer}
+.pc-meta{display:flex;align-items:center;height:18px;margin-top:12px;font-size:12px}
+.pc-ft{display:flex;align-items:center;gap:20px;height:44px;padding:0 20px;background:#fafbfc;border-top:1px solid #f2f3f5;font-size:13px}
+.pc-act{color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s}
+.pc-act:hover{color:#1664ff}
+.pc-act.pri{color:#1664ff;font-weight:500}
+.pc-act.pri:hover{color:#4080ff}
+.pc-con{display:inline-flex;align-items:center;gap:2px;margin-left:auto;color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s}
+.pc-con svg{transition:transform .2s}
+.pc-con:hover{color:#1664ff}
+.pc-con:hover svg{transform:translateX(2px)}
+.pc-u.no{visibility:hidden}
+.pc-st{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:rgba(0,0,0,.9)}
+.pc-lst{border:1px solid #f0f2f5}
+.pc-lg .pc-lh{margin:0!important}
+.pc-lg .pc-lh{height:40px;margin:0;padding:0 20px;background:#f7f8fa}
+.pc-lg+.pc-lg{margin-top:8px}
+.pc-lg ul{margin:0;padding:0;list-style:none}
+.pc-rw{display:grid;grid-template-columns:200px 150px minmax(0,1fr) 110px 190px;align-items:center;gap:16px;width:100%;height:56px;padding:0 20px;border:0;background:none;font:inherit;font-size:13px;text-align:left;cursor:pointer}
+.kc .pc-lg li{margin:0;border:0!important;border-bottom:1px solid #f0f2f5!important}
+.kc .pc-lg li:last-child{border-bottom:0!important}
+.pc-rw:hover,.pc-c.cur .pc-rw{background:#f5f8ff}
+.pc-rn{display:flex;align-items:center;gap:10px;min-width:0}
+.pc-rn b{overflow:hidden;font-weight:500;white-space:nowrap;text-overflow:ellipsis;color:rgba(0,0,0,.9)}
+.pc-rp{color:rgba(0,0,0,.55);white-space:nowrap}
+.pc-rt{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:rgba(0,0,0,.65)}
+.pc-rw .pc-ex{text-align:right}
+.pc-lst .pc-c{background:none;box-shadow:none}
+.pc-x{width:28px;height:28px;border:0;background:none;font-size:20px;line-height:1;color:rgba(0,0,0,.5);cursor:pointer}
+.pc-x:hover{color:rgba(0,0,0,.9)}
+.pc-dh{display:flex;align-items:center;gap:14px}
+.pc-dh .pc-ico{width:48px;height:48px}
+.pc-dh h3{margin:0;font-size:18px;line-height:26px;font-weight:600;color:rgba(0,0,0,.9)}
+.pc-dh p{display:flex;align-items:center;gap:8px;margin:4px 0 0}
+.pc-dh small{font-size:12px;color:rgba(0,0,0,.5)}
+.pc-dd{margin:16px 0 0;font-size:13px;line-height:22px;color:rgba(0,0,0,.75)}
+.pc-da{display:flex;gap:8px;margin-top:16px}
+.pc-kv{display:grid;grid-template-columns:88px minmax(0,1fr);row-gap:12px;margin:24px 0 0;padding:16px 0 0;border-top:1px solid #f0f2f5;font-size:13px}
+.pc-kv dt{color:rgba(0,0,0,.5)}
+.pc-kv dd{margin:0;color:rgba(0,0,0,.9);font-variant-numeric:tabular-nums}
+.pc-dw .kc-dwb h4{margin:24px 0 12px;font-size:13px;font-weight:500;color:rgba(0,0,0,.9)}
+.pc-steps{position:relative;display:grid;gap:12px;margin:0;padding:14px 16px 14px 32px;list-style:none;background:#f7f8fa}
+.pc-steps li{position:relative;display:flex;justify-content:space-between;gap:12px;font-size:13px;line-height:20px;color:rgba(0,0,0,.75)}
+.pc-steps li::before{content:"";position:absolute;top:7px;left:-16px;width:6px;height:6px;border-radius:50%;background:#c2c7d0}
+.pc-steps li:not(:last-child)::after{content:"";position:absolute;top:17px;bottom:-11px;left:-14px;width:1px;background:#e5e8ef}
+.pc-steps li.now::before{background:#1664ff}
+.pc-steps time{flex:none;color:rgba(0,0,0,.4);font-variant-numeric:tabular-nums}
+
+/* pcsem-v1 语义色和元素（腾讯控制台规范） */
+.pc{--e1:#fce8e8;--e8:#f64041;--e9:#b42c3f;--w1:#ffeddf;--w8:#ff7800;--w9:#c04100;--s1:#e7f8f0;--s8:#0cbf5b;--s9:#088f50;--n1:#e9ecf1;--t9:rgba(0,0,0,.9);--t7:rgba(0,0,0,.7);--t5:rgba(0,0,0,.5);--t3:rgba(0,0,0,.3)}
+.pc .pc-mk.err{background:var(--e8)}.pc .pc-mk.warn{background:var(--w8)}.pc .pc-mk.ok{background:var(--s8)}.pc .pc-mk.mut{background:#bcc4d0}
+.pc .pc-chip,.pc-dw .pc-chip{height:20px;padding:0 6px;border-radius:2px!important;font-size:12px;font-weight:400;line-height:20px;gap:4px}
+.pc .pc-chip.err,.pc-dw .pc-chip.err{background:var(--e1,#fce8e8);color:var(--e9,#b42c3f)}
+.pc .pc-chip.err .pc-mk,.pc-dw .pc-chip.err .pc-mk{background:var(--e9,#b42c3f)}
+.pc .pc-chip.warn,.pc-dw .pc-chip.warn{background:var(--w1,#ffeddf);color:var(--w9,#c04100)}
+.pc .pc-chip.warn .pc-mk,.pc-dw .pc-chip.warn .pc-mk{background:var(--w9,#c04100)}
+.pc .pc-chip.ok,.pc-dw .pc-chip.ok{padding:0;background:none;color:rgba(0,0,0,.7)}
+.pc .pc-chip.ok .pc-mk,.pc-dw .pc-chip.ok .pc-mk{background:#0cbf5b}
+.pc .pc-chip.mut,.pc-dw .pc-chip.mut{padding:0;background:none;color:rgba(0,0,0,.5)}
+.pc .pc-chip.mut .pc-mk,.pc-dw .pc-chip.mut .pc-mk{background:#bcc4d0}
+.pc .pc-st{color:var(--t7)}
+.pc .pc-ico,.pc-dw .pc-ico{border-radius:0;background:#e3ecff}
+.pc .pc-ico.t2,.pc-dw .pc-ico.t2{background:#d3f4ef}
+.pc .pc-ico.t3,.pc-dw .pc-ico.t3{background:#e5e9f0}
+.pc .pc-nm b{font-weight:500;color:var(--t9)}
+.pc .pc-nm small{color:var(--t5)}
+.pc .pc-tx{font-size:12px;line-height:20px;color:var(--t7)}
+.pc .pc-ub{height:4px;border-radius:0;background:#e6e9ef}
+.pc .pc-ub i,.pc .pc-ub i.o,.pc .pc-ub i.r{border-radius:0;background:#1664ff}
+.pc .pc-ub i.o{background:var(--w8)}
+.pc .pc-ub i.r{background:var(--e8)}
+.pc .pc-u em{color:var(--t5)}
+.pc .pc-u:has(i.r) em{color:var(--e8)}
+.pc .pc-u:has(i.o) em{color:var(--w8)}
+.pc .pc-ex{color:var(--t5)}
+.pc .pc-ex.o{color:var(--w8)}
+.pc .pc-ex.r{color:var(--e8)}
+.pc .pc-c{box-shadow:0 0 0 1px #e9ecf1}
+.pc .pc-c:hover{box-shadow:0 0 0 1px #e6e9ef,0 8px 24px -4px rgba(0,0,0,.1),0 8px 12px -8px rgba(0,0,0,.05)}
+.pc .pc-c.cur{box-shadow:0 0 0 1px #1664ff,0 8px 24px -4px rgba(0,0,0,.1)}
+.pc .pc-ft{background:#f7f8fb;border-top-color:#f0f2f5;font-size:12px}
+.pc .pc-act,.pc .pc-con{color:var(--t9)}
+.pc .pc-act:hover,.pc .pc-con:hover{color:#1664ff}
+.pc .pc-act.pri{color:#1664ff;font-weight:400}
+.pc .pc-lh>span{background:var(--n1);color:var(--t5)}
+.pc .pc-sc button>.pc-n{color:var(--t5)}
+.pc .pc-sc button>.pc-n.r{color:var(--e8);font-weight:500}
+.pc .pc-rp{color:var(--t5)}.pc .pc-rt{color:var(--t7)}
+.pc .pc-rw{font-size:12px}
+.pc .pc-rw:hover,.pc .pc-c.cur .pc-rw{background:#f7f8fb}
+.pc-dw .pc-dd{font-size:12px;line-height:20px;color:rgba(0,0,0,.7)}
+.pc-dw .pc-kv{font-size:12px}
+.pc-dw .pc-kv dt{color:rgba(0,0,0,.5)}
+.pc-dw .pc-steps{background:#f7f8fb}
+.pc-dw .pc-steps li{font-size:12px;color:rgba(0,0,0,.7)}
+.pc-dw .pc-steps time{color:rgba(0,0,0,.5)}
+
+/* pcb-v1 分组容器 + 卡片操作不加底色 */
+.pc .pc-wall{padding:20px}
+.pc .pc-wall .pc-lane{padding:0 12px 12px;background:#f5f6f8;border-radius:4px}
+.pc .pc-wall .pc-lane+.pc-lane{margin-top:16px}
+.pc .pc-wall .pc-lh{height:44px;margin:0;padding:0 4px;gap:8px;font-size:13px}
+.pc .pc-wall .pc-lh b{font-weight:500}
+.pc .pc-wall .pc-lh>span{min-width:20px;height:18px;padding:0 6px;border-radius:9px;background:#fff;box-shadow:0 0 0 1px #e9ecf1;font-size:12px;line-height:18px;color:rgba(0,0,0,.7)}
+.pc .pc-wall .pc-grid{gap:12px}
+.pc .pc-wall .pc-c{border:0!important;border-radius:4px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.05)}
+.pc .pc-wall .pc-c:hover{box-shadow:0 0 0 1px rgba(0,0,0,.05),0 8px 24px -4px rgba(0,0,0,.1),0 8px 12px -8px rgba(0,0,0,.05)}
+.pc .pc-wall .pc-c.cur{box-shadow:0 0 0 1px #1664ff,0 8px 24px -4px rgba(0,0,0,.1)}
+.pc .pc-wall .pc-cm{padding:20px 20px 12px}
+.pc .pc-wall .pc-ft{height:auto;gap:4px;padding:4px 16px 16px 20px;background:none;border-top:0;font-size:12px}
+.pc .pc-wall .pc-con{order:-1;margin:0 auto 0 0;color:rgba(0,0,0,.7)}
+.pc .pc-wall .pc-con:hover{color:#1664ff}
+.pc .pc-wall .pc-act{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:2px;color:rgba(0,0,0,.7);font-weight:400;transition:background-color .15s,color .15s,border-color .15s}
+.pc .pc-wall .pc-act:hover{background:#f2f4f8;color:rgba(0,0,0,.9)}
+.pc .pc-wall .pc-act.pri{order:2;margin-left:4px;padding:0 12px;background:#fff;box-shadow:inset 0 0 0 1px #e6e9ef;color:rgba(0,0,0,.9);font-weight:500}
+.pc .pc-wall .pc-act.pri:hover{background:#fff;box-shadow:inset 0 0 0 1px #1664ff;color:#1664ff}
+
+/* pcf-v1 参考 Files：筛选一行、安静页签、搜索、加载中和空状态 */
+.pc .pc-bar{min-height:32px}
+.pc .pc-sc{gap:4px;padding:0;background:none}
+.pc .pc-sc button{height:28px;padding:0 10px;border-radius:2px;font-size:12px;color:rgba(0,0,0,.7);box-shadow:none}
+.pc .pc-sc button:hover{background:#f7f8fb;color:rgba(0,0,0,.9)}
+.pc .pc-sc button.on{background:#f2f4f8;color:rgba(0,0,0,.9);font-weight:500;box-shadow:none}
+.pc .pc-tools{gap:8px}
+.pc .pc-tools>nav.pc-tabs{display:inline-flex;gap:2px;padding:2px;margin:0;border:0;background:#f2f3f5}
+.pc .pc-tools>nav.pc-tabs>a{height:28px;padding:0 12px;border:0;border-radius:0;background:transparent;font-size:12px;font-weight:400;color:rgba(0,0,0,.6)}
+.pc .pc-tools>nav.pc-tabs>a:hover{color:rgba(0,0,0,.9)}
+.pc .pc-tools>nav.pc-tabs>a.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.pc-q{position:relative;display:inline-flex;align-items:center}
+.pc-q svg{position:absolute;left:10px;color:rgba(0,0,0,.4);pointer-events:none}
+.pc-q input{width:200px;height:32px;padding:0 10px 0 30px;border:1px solid #e6e9ef;border-radius:0;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.9);outline:0}
+.pc-q input::placeholder{color:rgba(0,0,0,.4)}
+.pc-q input:hover{border-color:#d6dbe3}
+.pc-q input:focus{border-color:#1664ff}
+@keyframes pcSk{0%{background-position:100% 0}100%{background-position:0 0}}
+.pc-sk{display:block;flex:none;border-radius:2px;background:linear-gradient(90deg,#eef0f4 0%,#f6f7f9 40%,#eef0f4 80%);background-size:300% 100%;animation:pcSk 1.4s ease-in-out infinite}
+.pc .pc-skw{background:#fff;border-top:1px solid #e5e6eb}
+.pc .pc-skw .pc-lh{gap:8px}
+.pc .pc-skc{height:236px;padding:20px;box-sizing:border-box;pointer-events:none}
+.pc-skr{display:flex;gap:12px;align-items:center}
+.pc-skl{display:grid;gap:8px}
+.pc-skf{display:flex;align-items:center;margin-top:24px}
+.pc-emp{display:grid;justify-items:center;gap:8px;margin:0;padding:64px 20px 72px;border-top:1px solid #e5e6eb;text-align:center}
+.pc-emp-ic{display:grid;place-items:center;width:56px;height:56px;margin-bottom:8px;border-radius:50%;background:#f2f4f8;color:rgba(0,0,0,.45)}
+.pc-emp b{font-size:14px;font-weight:500;color:rgba(0,0,0,.9)}
+.pc-emp p{max-width:360px;margin:0 0 8px;font-size:12px;line-height:20px;color:rgba(0,0,0,.5)}
+.pc-demo{position:sticky;bottom:16px;z-index:5;display:flex;align-items:center;gap:2px;width:max-content;margin:16px auto 0;padding:2px 2px 2px 10px;background:#f2f3f5;box-shadow:0 2px 8px -1px rgba(0,0,0,.08);font-size:12px}
+.pc-demo>span{margin-right:6px;color:rgba(0,0,0,.45)}
+.pc-demo button{height:26px;padding:0 12px;border:0;background:transparent;font:inherit;font-size:12px;color:rgba(0,0,0,.6);cursor:pointer}
+.pc-demo button.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+@media (prefers-reduced-motion:reduce){.pc-sk{animation:none}}
+
+/* ctr-v1 顶部 tab 只留视角：总览 / 我的产品 */
+
+/* cnav-v1 三个中心的导航入口 */
+.kc .kc-main>nav.tcl-tabs>.cnav-r{margin-left:auto;align-self:center;display:flex;gap:4px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;font-size:13px;font-weight:400;color:rgba(0,0,0,.7);text-decoration:none;border-radius:2px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a::after{display:none!important}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a:hover{background:rgba(255,255,255,.7);color:#1664ff}
+.cnav-r .kc-ic,.cnav-me .kc-ic{display:inline-block;flex:none;width:14px;height:14px;-webkit-mask-size:14px 14px;mask-size:14px 14px;background:currentColor!important;margin:0}
+.ac-pop:has(>.cnav-me){width:340px!important}
+.cnav-me{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px;border-bottom:1px solid #eef0f3}
+.cnav-me>a{display:flex;flex-direction:column;gap:4px;padding:10px;background:#f7f8fa;color:rgba(0,0,0,.9);text-decoration:none;border-radius:2px}
+.cnav-me>a:hover{background:#eef4ff;color:#1664ff}
+.cnav-me>a .kc-ic{width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;color:#1664ff;background:#1664ff!important}
+.cnav-me>a b{font-size:13px;font-weight:500}
+.cnav-me>a small{font-size:11px;color:rgba(0,0,0,.5);white-space:nowrap}
+.kc-side.ctr-side .kc-sh .cnav-back{display:inline-flex;align-items:center;gap:2px;margin-top:4px;font-size:12px;color:rgba(0,0,0,.5);text-decoration:none}
+.kc-side.ctr-side .kc-sh .cnav-back:hover{color:#1664ff}
+
+/* pin-v1 产品与服务弹窗左栏：固定的中心入口 */
+.tp-pp .tp-l>ul.tp-fix{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid #eef0f3}
+.tp-pp .tp-l>ul.tp-fix>li>a{display:flex;align-items:center;justify-content:space-between;gap:8px;height:36px}
+.tp-pp .tp-l>ul.tp-fix .tp-n{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:rgba(0,0,0,.9)}
+.tp-pp .tp-l>ul.tp-fix .tp-n b{font-weight:500}
+.tp-pp .tp-l>ul.tp-fix .kc-ic{display:inline-block;flex:none;width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;background:rgba(0,0,0,.6)!important;margin:0}
+.tp-pp .tp-l>ul.tp-fix>li>a:hover .kc-ic,.tp-pp .tp-l>ul.tp-fix>li>a.on .kc-ic{background:#1664ff!important}
+.tp-pp .tp-l>ul.tp-fix>li>a.on .tp-n{color:#1664ff}
+.tp-pp .tp-l>ul.tp-fix small.r{color:#f64041}
+
+/* gap-v1 产品与服务弹窗贴住顶栏 */
+.kc-top .tp-pp{top:100%!important}
+.kc-top .tp-dim{top:50px!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
-        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <ul class="tp-fix" aria-label="常用入口"><li><a href="ConsoleHome.dc.html"><span class="tp-n"><i class="kc-ic i-grid"></i><b>控制台总览</b></span></a></li><li><a class="on" href="AcctProducts.dc.html"><span class="tp-n"><i class="kc-ic i-box"></i><b>我的产品</b></span></a></li><li><a href="SecHome.dc.html"><span class="tp-n"><i class="kc-ic i-shield"></i><b>安全中心</b></span><small class="r">18 条待处理</small></a></li><li><a href="BillOverview.dc.html"><span class="tp-n"><i class="kc-ic i-doc"></i><b>费用中心</b></span></a></li><li><a href="OrgInfo.dc.html"><span class="tp-n"><i class="kc-ic i-users"></i><b>企业中心</b></span></a></li><li><a href="SupTickets.dc.html"><span class="tp-n"><i class="kc-ic i-help"></i><b>支持中心</b></span></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
@@ -70,7 +310,8 @@
         <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-    </div></sc-if></span>
+    </div></sc-if></span><a class="kc-logo" href="ConsoleHome.dc.html" title="控制台总览"><span class="kc-mark">德</span>德迅云控制台</a>
+    
     <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="AcctProducts.dc.html">我的产品</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>按产品</b></nav>
     <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
@@ -101,7 +342,7 @@
             <li><span>代金券<em>1 张可用</em></span></li>
           </ul>
           <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
-          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">进入费用中心<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
@@ -112,12 +353,12 @@
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
-          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div><div class="cnav-me"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i><b>费用中心</b><small>订单 · 付款 · 发票</small></a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i><b>企业中心</b><small>认证 · 成员 · 权限</small></a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i><b>支持中心</b><small>工单 · 消息 · 文档</small></a></div>
           <ul class="ac-rows">
             <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
             <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
             <li><a href="OrgMembers.dc.html">成员管理<em>5 人</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
-            <li><a href="BillOverview.dc.html">费用与发票<i style="margin-left:auto"><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
+            
           </ul>
           <ul class="ac-rows" style="border-bottom:0">
             <li><a href="#">切换账号</a></li>
@@ -133,17 +374,36 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">下午好，wangqi<svg class="kc-ai" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.4 3.3 2.2 5.1 5.5 5.5v.9c-3.3.4-5.1 2.2-5.5 5.5h-.9c-.4-3.3-2.2-5.1-5.5-5.5V7c3.3-.4 5.1-2.2 5.5-5.5z"></path><path d="M13.2 1.2c.1.9.6 1.4 1.5 1.5v.3c-.9.1-1.4.6-1.5 1.5h-.3c-.1-.9-.6-1.4-1.5-1.5v-.3c.9-.1 1.4-.6 1.5-1.5z" opacity=".55"></path></svg></h1></div></div>
         <div class="kc-btns"></div>
       </div>
-      <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a class="on" aria-current="page" href="AcctProducts.dc.html">我的产品</a><a href="BillOverview.dc.html">费用</a><a href="OrgInfo.dc.html">企业</a></nav>
-      <nav class="ia-tabs" aria-label="我的产品"><a class="on" aria-current="page" href="AcctProducts.dc.html">按产品</a><a href="AcctSubs.dc.html">按资源</a></nav>
-      <section class="kc-card">
-        <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
-        <div class="kc-bar lf-bar lf-s"><div class="lf-q"><svg class="rx lf-qi" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><input class="kc-in" style="width:360px" type="search" aria-label="搜索产品名称或资源 ID" placeholder="搜索产品名称或资源 ID"></div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>到期</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><div class="lf-r"><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div></div>
-        <div class="kc-tw"><table class="kc-t lf-st5 op-fix">
-          <thead><tr><th>产品</th><th>套餐</th><th>授权使用量</th><th>到期时间</th><th>状态</th><th>操作</th></tr></thead>
-          <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="8"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="5"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a class="ac-pn" href="{{c.href}}"><i class="{{c.di}}"></i>{{c.t}}</a></sc-if><sc-if value="{{c.bar}}" hint-placeholder-val="{{false}}"><span class="ac-bar"><i class="{{c.bc}}" style="{{c.w}}"></i></span></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for><td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="{{o.cls}}" href="{{o.href}}" onClick="{{o.go}}">{{o.t}}</a></sc-for></td></tr></sc-for></tbody>
-        </table></div>
-        <div class="kc-foot lf-foot"><span class="lf-note"></span><div class="lf-pgr"><span>共 {{total}} 条</span><div class="kc-pg"><button type="button" aria-label="上一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button><button class="on" type="button" aria-current="page">1</button><button type="button" aria-label="下一页"><svg class="rx" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button></div><span class="{{ddC1}}"><button data-dd="1" class="kc-dd lf-sz" type="button" aria-haspopup="listbox" onClick="{{ddT1}}"><b>{{ddV1}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO1}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p up" role="listbox"><sc-for list="{{ddL1}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span><label class="lf-jp">跳至<input class="kc-in" aria-label="跳至页码" value="1">页</label></div></div>
+      <nav class="tcl-tabs tcl-top" aria-label="控制台分区"><a href="ConsoleHome.dc.html">总览</a><a class="on" aria-current="page" href="AcctProducts.dc.html">我的产品</a><span class="tcl-r cnav-r"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i>费用中心</a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i>企业中心</a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i>支持中心</a></span></nav>
+      
+      <section class="pc" style="background-color: #FFFFFF00">
+        <div class="pc-in" style="background-color: var(--bg-1, #ffffff); padding-left: 0px; padding-right: 0px; padding-bottom: 16px">
+        <div class="pc-bar" style="margin-right: 20px; margin-left: 20px">
+          <div class="pc-sc" role="tablist" aria-label="按状态筛选"><sc-for list="{{pcScopes}}" as="s" hint-placeholder-count="4"><button type="button" role="tab" class="{{s.cls}}" aria-selected="{{s.on}}" onClick="{{s.go}}">{{s.n}}<em class="{{s.nc}}">{{s.c}}</em></button></sc-for></div>
+          <div class="pc-tools"><nav class="pc-tabs" aria-label="查看方式"><a class="on" aria-current="page" href="AcctProducts.dc.html">按产品</a><a href="AcctSubs.dc.html">按资源</a></nav><div class="pc-vw" role="radiogroup" aria-label="视图"><button type="button" role="radio" title="卡片" aria-label="卡片" class="{{pcVbC}}" aria-checked="{{pcVbOn}}" onClick="{{pcToB}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"></path></svg></button><button type="button" role="radio" title="列表" aria-label="列表" class="{{pcVlC}}" aria-checked="{{pcVlOn}}" onClick="{{pcToL}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 4h13v2H8V4zM3 3.5h3v3H3v-3zm0 7h3v3H3v-3zm0 7h3v3H3v-3zM8 11h13v2H8v-2zm0 7h13v2H8v-2z"></path></svg></button></div><label class="pc-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" aria-label="搜索产品" placeholder="搜索产品" value="{{pcQ}}" onChange="{{onPcQ}}"></label><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div>
+        </div>
+        <sc-if value="{{pcBoard}}" hint-placeholder-val="{{true}}"><div class="pc-wall" style="background-color: var(--bg-1, #ffffff); border-style: solid; border-color: var(--border-1, #e5e6eb); border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lane" style="background-color: var(--bg-1, #ffffff); padding-right: 0px; padding-left: 0px"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
+          <ul class="pc-grid"><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-cm" onClick="{{p.open}}">
+            <span class="pc-tt"><span class="{{p.ic}}"><i class="{{p.di}}"></i></span><span class="pc-nm"><b>{{p.n}}</b><small>{{p.plan}}</small></span><span class="{{p.chip}}" style="border-radius: 2px"><i class="{{p.mk}}"></i>{{p.sw}}</span></span>
+            <span class="pc-tx">{{p.text}}</span>
+            <span class="{{p.uCls}}"><span class="pc-ub"><i class="{{p.uc}}" style="{{p.uw}}"></i></span><em>{{p.ut}}</em></span>
+            <span class="pc-meta"><span class="{{p.exC}}">{{p.exp}}</span></span>
+          </button><div class="pc-ft"><sc-for list="{{p.acts}}" as="a" hint-placeholder-count="2"><a class="{{a.cls}}" href="{{a.href}}">{{a.t}}</a></sc-for><a class="pc-con" href="{{p.con}}">{{p.conT}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.17 12 8.22 7.05l1.42-1.41L16 12l-6.36 6.36-1.42-1.41z"></path></svg></a></div></li></sc-for></ul></div></sc-for></div></sc-if>
+        <sc-if value="{{pcList}}" hint-placeholder-val="{{false}}"><div class="pc-lst"><sc-for list="{{pcLanes}}" as="l" hint-placeholder-count="3"><div class="pc-lg"><header class="pc-lh"><i class="{{l.mk}}"></i><b>{{l.n}}</b><span>{{l.c}}</span></header>
+          <ul><sc-for list="{{l.items}}" as="p" hint-placeholder-count="3"><li class="{{p.cls}}"><button type="button" class="pc-rw" onClick="{{p.open}}"><span class="pc-rn"><span class="{{p.icS}}"><i class="{{p.di}}"></i></span><b>{{p.n}}</b></span><span class="pc-rp">{{p.plan}}</span><span class="pc-rt">{{p.text}}</span><span class="pc-st"><span class="{{p.chip}}"><i class="{{p.mk}}"></i>{{p.sw}}</span></span><span class="{{p.exC}}">{{p.exp}}</span></button></li></sc-for></ul></div></sc-for></div></sc-if>
+        <sc-if value="{{pcLoad}}" hint-placeholder-val="{{false}}"><div class="pc-wall pc-skw" aria-busy="true" aria-label="正在加载产品"><div class="pc-lane"><header class="pc-lh"><i class="pc-sk" style="width:14px;height:14px"></i><i class="pc-sk" style="width:56px;height:10px"></i></header><ul class="pc-grid"><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li></ul></div><div class="pc-lane"><header class="pc-lh"><i class="pc-sk" style="width:14px;height:14px"></i><i class="pc-sk" style="width:56px;height:10px"></i></header><ul class="pc-grid"><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li><li class="pc-c pc-skc"><span class="pc-skr"><i class="pc-sk" style="width:40px;height:40px"></i><span class="pc-skl"><i class="pc-sk" style="width:96px;height:10px"></i><i class="pc-sk" style="width:64px;height:8px"></i></span></span><i class="pc-sk" style="width:92%;height:8px;margin-top:22px"></i><i class="pc-sk" style="width:64%;height:8px;margin-top:12px"></i><i class="pc-sk" style="width:100%;height:4px;margin-top:30px"></i><i class="pc-sk" style="width:40%;height:8px;margin-top:20px"></i><span class="pc-skf"><i class="pc-sk" style="width:72px;height:8px"></i><i class="pc-sk" style="width:52px;height:28px;margin-left:auto"></i></span></li></ul></div></div></sc-if>
+        <sc-if value="{{pcEmpty}}" hint-placeholder-val="{{false}}"><div class="pc-emp"><span class="pc-emp-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"></path><path d="m3 8 9 5 9-5M12 13v8"></path></svg></span><b>还没有产品</b><p>购买后，产品会按「需处理 / 正常运行 / 已结束」分组显示在这里，到期和用量提醒也会出现在卡片上。</p><a class="kc-btn pri" href="AcctPurchase.dc.html">购买产品</a></div></sc-if>
+        <sc-if value="{{pcNone}}" hint-placeholder-val="{{false}}"><div class="pc-emp"><span class="pc-emp-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></span><b>没有找到相关产品</b><p>{{pcNoneT}}</p><button type="button" class="kc-btn" onClick="{{pcClrQ}}">清除搜索</button></div></sc-if>
+        <div class="pc-demo" role="group" aria-label="原型状态"><span>原型状态</span><sc-for list="{{pcModes}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.go}}">{{m.n}}</button></sc-for></div>
+        </div>
       </section>
+      <sc-if value="{{pcDOn}}" hint-placeholder-val="{{false}}"><div class="kc-dmask" onClick="{{pcClose}}"></div><aside class="kc-dw pc-dw" role="dialog" aria-label="产品详情"><div class="kc-dwh"><span>产品详情</span><button type="button" class="pc-x" aria-label="关闭" onClick="{{pcClose}}">×</button></div>
+        <div class="kc-dwb"><div class="pc-dh"><span class="{{pcD.ic}}"><i class="{{pcD.di}}"></i></span><div><h3>{{pcD.n}}</h3><p><span class="{{pcD.tag}}"><i class="{{pcD.mk}}"></i>{{pcD.sw}}</span><small>{{pcD.plan}}</small></p></div></div>
+          <p class="pc-dd">{{pcD.text}}</p>
+          <div class="pc-da"><sc-for list="{{pcD.acts}}" as="a" hint-placeholder-count="2"><a class="{{a.cls}}" href="{{a.href}}">{{a.t}}</a></sc-for></div>
+          <dl class="pc-kv"><sc-for list="{{pcD.kv}}" as="k" hint-placeholder-count="4"><dt>{{k.k}}</dt><dd>{{k.v}}</dd></sc-for></dl>
+          <h4>最近动态</h4><ol class="pc-steps"><sc-for list="{{pcD.steps}}" as="x" hint-placeholder-count="3"><li class="{{x.cls}}"><span>{{x.t}}</span><time>{{x.d}}</time></li></sc-for></ol></div>
+        <div class="kc-dwf"><a class="kc-btn" href="{{pcD.con}}">进入控制台</a></div></aside></sc-if>
     </main>
   </div>
 </div>
@@ -635,6 +895,13 @@ class Component extends DCLogic {
     if (t === '上移') { var rw2 = row(el); if (rw2 && rw2.previousElementSibling) { rw2.parentElement.insertBefore(rw2, rw2.previousElementSibling); toast(el, '已上移，优先级 +1'); } else toast(el, '已经是第一条', 'info'); return; }
     if (/^(显示真实 IP|自动更新)$/.test(t)) { var tg = el.classList.toggle('on'); toast(el, (tg ? '已开启' : '已关闭') + t.replace('显示', '')); return; }
     // 菜单
+    if (t === '更多' && pre('AcctProducts')) {
+      var pn = ((el.closest('li') || el).querySelector('.pc-nm b') || {}).textContent || '该产品'; var nr = el.getAttribute('data-nr') === '1';
+      menu(el, [[nr ? '撤销到期不续' : '到期不续', function () {
+        if (nr) { el.setAttribute('data-nr', '0'); toast(el, '已撤销，' + pn + ' 恢复续费提醒'); return; }
+        confirmBox(el, pn + ' 到期不续？', '打开后不再发续费提醒，到期后进入保留期，保留期结束释放资源；到期前随时可以撤销。只改续费意向，不生成订单。' + (pn === '德迅安全卫士' ? '德迅安全卫士授权到期不续，宽限期后超出免费 3 台的主机停止检测；只想少买几台的话，续费时减少台数即可。' : '不支持降配：想换小规格，到期后再买新规格。'), '确定', false, function () { el.setAttribute('data-nr', '1'); toast(el, '已设为到期不续，可在「更多」里撤销'); });
+      }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }]]); return;
+    }
     if (t === '更多') {
       var items = pre('Main') || pre('Scdn') ? [['访问统计', function () { go(el, 'ScdnStats.dc.html'); }], ['拦截记录', function () { go(el, 'ScdnBlocks.dc.html'); }], ['复制配置到其他域名', function () { drawer(el, '复制配置', '<label class="lp-f"><span>来源域名</span><input class="kc-in" value="' + esc(nm2) + '" disabled></label><label class="lp-f"><span>复制到</span><input class="kc-in" placeholder="选择域名，可多选"></label>' + sw([['源站与回源', '', true], ['缓存规则', '', true], ['防护策略', '', true], ['HTTPS 证书', '证书需单独绑定', false]]), '复制'); }], ['暂停加速', function () { confirmBox(el, '暂停 ' + nm2 + ' 的加速和防护？', '暂停后流量直接回源，不再有防护。', '暂停', true, function () { toast(el, '已暂停'); }); }], ['删除域名', function () { confirmBox(el, '删除 ' + nm2 + '？', '删除前请先把 DNS 解析改回源站，否则网站会无法访问。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]]
         : [['查看详情', function () { drawer(el, nm2 || '详情', formFor(el, '详情'), '关闭', function () {}); }], ['操作记录', function () { go(el, 'Notifications.dc.html'); }], ['删除', function () { confirmBox(el, '删除「' + (nm2 || '该项') + '」？', '删除后无法恢复。', '删除', true, function () { var x = el.closest('tr'); if (x) x.remove(); toast(el, '已删除'); }); }, 1]];
@@ -723,7 +990,7 @@ class Component extends DCLogic {
     if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
     e.preventDefault(); act(el, e);
   }, false);
-})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); return o; }
+})(); const o = Object.assign(this._rv(), this._pc()); o.hd = Object.assign(this._hdr(), this._top()); return o; }
   _hdr() {
     const st = this.state || {}; const dd = st.dd || ''; const set = (v) => (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ dd: dd === v ? '' : v }); };
     const M = [
@@ -744,6 +1011,60 @@ class Component extends DCLogic {
       msgs, mtabs, unread, hasUnread: unread > 0, readAll: () => this.setState({ allRead: true }) };
   }
   /* /hdr62 */
+  /* pc-v1 我的产品 · 卡片版 */
+  _pc() {
+    const st = this.state || {}; const sc = st.pcS || 'all'; const vw = st.pcV || 'board'; const op = st.pcO || '';
+    const DDOS = 'DdosInstances.dc.html', ATK = 'DdosInstanceDetail.dc.html';
+    const HOST = 'SecHome.dc.html', GAME = 'GameAccess.dc.html';
+    const SCDN = 'Main.dc.html', EYE = 'EyeRisk.dc.html';
+    const IDC = 'IdcServers.dc.html', BUY = 'BillConfirm.dc.html';
+    // key, name, plan, category, text, state word, tone, expiry, expiry tone, usage [text, pct, tone] | null, actions, console, kv extra, steps
+    const P = [
+      ['ddos', 'DDoS 高防 IP', '4 个实例', '云安全', '高防-002 正在被 UDP Flood 攻击，峰值 86 Gbps，已自动清洗。最早一个实例 13 天后到期。', '攻击中', 'err', '最早 11-09 到期 · 剩 13 天', 'o', null,
+        [['查看攻击', ATK, 1], ['续费', BUY]], DDOS, [['实例', '4 个'], ['保底防护', '100 Gbps']], [['攻击峰值 86 Gbps，清洗中', '今天 10:24'], ['高防-002 开始被攻击，已自动清洗', '今天 10:06'], ['高防-001 续费成功', '10-27']]],
+      ['host', '德迅安全卫士', '免费 3 台 + 已购 54 台', '主机安全', '已购的 54 台授权 11-01 到期，宽限至 11-08，宽限期内只能续费；11-08 后超出免费 3 台的主机停止检测。授权 57 台已用满，app-07 没能加入；另有 7 台德迅云服务器随服务器赠送。', '宽限期', 'err', '11-01 到期 · 宽限至 11-08', 'r', ['57 / 57 台', 100, 'r'],
+        [['续费', BUY, 1]], HOST, [['授权', '57 台'], ['已用', '57 台']], [['授权已用满，app-07 没能加入', '11-03'], ['已购授权到期，进入宽限期', '11-01']]],
+      ['game', '游戏盾', '专业版 · 2,000 并发', '云安全', '并发已用 85%，晚高峰可能超过上限，超出部分会被限流。', '接近上限', 'warn', '2027-01-12 到期 · 剩 77 天', '', ['1,700 / 2,000 并发', 85, 'o'],
+        [['升级', BUY, 1], ['续费', BUY]], GAME, [['并发上限', '2,000'], ['当前并发', '1,700']], [['并发峰值 1,700', '昨天 21:52'], ['并发超过 80%', '昨天 21:40']]],
+      ['ssl', 'SSL 证书', 'DV × 3 张', '云安全', 'www.example.com 的证书 8 天后到期，到期后浏览器会提示网站不安全。', '即将到期', 'warn', '最早 11-04 到期 · 剩 8 天', 'o', null,
+        [['续费', BUY, 1]], 'AcctSubs.dc.html', [['证书', '3 张']], [['到期提醒已发送', '10-27'], ['m.example.com 证书签发', '09-12']]],
+      ['idc', '服务器租用', '独享型 · 3 台', 'IDC 服务', '3 台服务器运行中，最早一台 24 天后到期。', '即将到期', 'warn', '最早 11-20 到期 · 剩 24 天', 'o', null,
+        [['续费', BUY, 1], ['升级配置', BUY]], IDC, [['服务器', '3 台']], [['到期提醒已发送', '10-27'], ['web-prod-01 重启完成', '10-26']]],
+      ['scdn', 'SCDN', '企业版 · 10 域名', '云安全', '已接入 6 个域名，还可以再接入 4 个。', '运行中', 'ok', '2027-03-18 到期 · 剩 142 天', '', ['6 / 10 域名', 60, ''],
+        [['续费', BUY], ['升级', BUY]], SCDN, [['域名', '6 / 10']], [['CC 防护改为严格模式', '今天 10:41'], ['shop.example.com 接入完成', '10-21']]],
+      ['eye', '德迅云眼', '标准版 · 20 资产', '安全运营', '正在监测 12 个资产，还可以再添加 8 个。', '运行中', 'ok', '2027-05-02 到期 · 剩 187 天', '', ['12 / 20 资产', 60, ''],
+        [['续费', BUY], ['扩容', BUY]], EYE, [['资产', '12 / 20']], [['完成一次全量监测', '今天 03:00'], ['新增资产 m.example.com', '10-26']]],
+      ['vss', '漏洞扫描 VSS', '基础版 · 5 站点', '安全运营', '已添加 2 个站点，还可以再添加 3 个。', '运行中', 'ok', '2027-02-20 到期 · 剩 116 天', '', ['2 / 5 站点', 40, ''],
+        [['续费', BUY], ['升级', BUY]], 'AcctSubs.dc.html', [['站点', '2 / 5']], [['www.example.com 扫描完成', '10-28']]],
+      ['dj', '等保咨询', '二级 · 一次性服务', '安全服务', '服务已在 8 月 30 日完成，可以下载服务报告。', '已完成', 'mut', '2026-08-30 完成', '', null,
+        [['服务报告', 'SupDocs.dc.html', 1]], 'SupDocs.dc.html', [], [['服务报告已上传', '08-30'], ['现场测评完成', '08-22']]]
+    ];
+    const pq = (st.pcQ || '').trim(); const pql = pq.toLowerCase(); const pm = st.pcM || 'data';
+    const PS = pm === 'empty' ? [] : P.filter((p) => !pql || [p[1], p[2], p[3], p[4]].join(' ').toLowerCase().includes(pql));
+    const lane = (t) => (t === 'err' || t === 'warn' ? 'need' : t === 'ok' ? 'ok' : 'end');
+    const LN = [['need', '需处理', 'warn'], ['ok', '正常运行', 'ok'], ['end', '已结束', 'mut']];
+    const TAG = { err: 'pc-chip err', warn: 'pc-chip warn', ok: 'pc-chip ok', mut: 'pc-chip mut' };
+    const TINT = { '云安全': '', '主机安全': ' t2', '安全运营': ' t2', 'IDC 服务': ' t3', '安全服务': ' t3' };
+    const cnt = (k) => PS.filter((p) => lane(p[6]) === k).length;
+    const pcScopes = [['all', '全部', PS.length]].concat(LN.map((l) => [l[0], l[1], cnt(l[0])])).map(([k, n, c]) => ({ n, c: pm === 'loading' ? '' : c, nc: k === 'need' && c ? 'pc-n r' : 'pc-n', on: k === sc ? 'true' : 'false', cls: k === sc ? 'on' : '', go: () => this.setState({ pcS: k }) }));
+    const item = (p) => ({ acts: p[10].map((x) => ({ t: x[0], href: x[1], cls: x[2] ? 'pc-act pri' : 'pc-act' })).concat(p[0] === 'dj' ? [] : [{ t: '更多', href: '#', cls: 'pc-act' }]), con: p[11], conT: p[0] === 'dj' ? '查看服务' : '进入控制台', chip: 'pc-chip ' + p[6], ic: 'pc-ico' + (TINT[p[3]] || ''), icS: 'pc-ico sm' + (TINT[p[3]] || ''), n: p[1], plan: p[2], text: p[4], sw: p[5], mk: 'pc-mk ' + p[6], exp: p[7], exC: 'pc-ex' + (p[8] ? ' ' + p[8] : ''), di: this.__di(p[1]) || 'dt dt-db',
+      uCls: p[9] ? 'pc-u' : 'pc-u no', ut: p[9] ? p[9][0] : '', uw: 'width:' + (p[9] ? p[9][1] : 0) + '%', uc: p[9] ? p[9][2] : '',
+      cls: 'pc-c' + (op === p[0] ? ' cur' : ''), open: () => this.setState({ pcO: p[0] }) });
+    const pcLanes = LN.filter((l) => sc === 'all' || sc === l[0]).map((l) => { const items = PS.filter((p) => lane(p[6]) === l[0]).map(item); return { n: l[1], c: items.length, mk: 'pc-mk ' + l[2], items }; }).filter((l) => l.items.length);
+    const D = P.find((p) => p[0] === op);
+    const pcD = D ? { n: D[1], plan: D[2], text: D[4], sw: D[5], tag: TAG[D[6]], mk: 'pc-mk ' + D[6], ic: 'pc-ico' + (TINT[D[3]] || ''), di: this.__di(D[1]) || 'dt dt-db', con: D[11],
+      acts: D[10].map((a) => ({ t: a[0], href: a[1], cls: a[2] ? 'kc-btn pri' : 'kc-btn' })),
+      kv: [{ k: '状态', v: D[5] }, { k: '分类', v: D[3] }, { k: '套餐', v: D[2] }].concat(D[9] ? [{ k: '用量', v: D[9][0] }] : []).concat(D[12].map((x) => ({ k: x[0], v: x[1] }))).concat([{ k: '到期', v: D[7] }]),
+      steps: D[13].map((x, i) => ({ t: x[0], d: x[1], cls: i === 0 ? 'now' : '' })) } : { n: '', plan: '', text: '', sw: '', tag: '', mk: '', ic: 'pc-ico', di: '', con: '#', acts: [], kv: [], steps: [] };
+    const pcHas = pm === 'data' && PS.length > 0;
+    return { pcScopes, pcLanes, pcBoard: pcHas && vw === 'board', pcList: pcHas && vw === 'list',
+      pcLoad: pm === 'loading', pcEmpty: pm === 'empty', pcNone: pm === 'data' && !PS.length, pcNoneT: '没有和「' + pq + '」匹配的产品，换个关键词试试。',
+      pcQ: st.pcQ || '', onPcQ: (e) => this.setState({ pcQ: e && e.target ? e.target.value : '' }), pcClrQ: () => this.setState({ pcQ: '' }),
+      pcModes: [['data', '数据'], ['loading', '加载中'], ['empty', '无产品']].map(([k, n]) => ({ n, cls: k === pm ? 'on' : '', go: () => this.setState({ pcM: k, pcO: '' }) })),
+      pcVbC: vw === 'board' ? 'on' : '', pcVlC: vw === 'list' ? 'on' : '', pcVbOn: vw === 'board' ? 'true' : 'false', pcVlOn: vw === 'list' ? 'true' : 'false',
+      pcToB: () => this.setState({ pcV: 'board' }), pcToL: () => this.setState({ pcV: 'list' }),
+      pcDOn: !!D, pcD, pcClose: () => this.setState({ pcO: '' }) };
+  }
   _rv() {
     const cur = '我的产品';
     const pages = { '总览': 'ConsoleHome.dc.html', '我的产品': 'AcctProducts.dc.html', '费用': 'BillOverview.dc.html', '企业': 'OrgInfo.dc.html' };
