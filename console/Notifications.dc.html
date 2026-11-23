@@ -753,7 +753,7 @@ class Component extends DCLogic {
       ['费用', 'warn', '付款核验未匹配', '订单 DX20261024001 需补充汇款信息', '昨天', 'BillPayFix.dc.html', '补充', 1],
       ['费用', 'mut', '发票申请审核通过', '¥1,280.00 电子发票已发送至邮箱', '10-25', 'BillInvoice.dc.html', '查看', 0],
       ['账号', 'mut', '检测到异地登录', '浙江 杭州 · Chrome / macOS', '10-24', 'OrgSecurity.dc.html', '查看', 0],
-      ['产品', 'mut', '德迅安全卫士 dx-guard-01 已到期', '资源保留至 11-08，续费后恢复防护', '10-25', 'BillConfirm.dc.html', '续费', 0]];
+      ['产品', 'mut', '德迅安全卫士已购授权 11-01 到期', '宽限期到 11-08，之后超出免费 3 台的 54 台主机停止检测；续费核验到账后恢复', '11-01', 'BillConfirm.dc.html', '续费', 0]];
     const cats = ['全部', '安全', '费用', '产品', '账号'].map((n) => ({ n, cls: n === cat ? 'on' : '', go: () => this.setState({ cat: n }) }));
     const msgs = M.filter((m) => cat === '全部' || m[0] === cat).map(([c, tc, t, s, d, href, a, u]) => { const un = u && !all; return { c, tc: 'kc-tag ' + tc, t, s, d, href, a, dc: un ? '' : 'r', bc: un ? '' : 'r' }; });
     const on = st.on || {};

@@ -108,11 +108,11 @@
         <div class="kc-hdl"><div><h1 class="kc-h1">德迅安全卫士</h1></div></div>
         <div class="kc-btns"><a class="kc-btn" href="AcctTransfer.dc.html">转移权益</a><a class="kc-btn pri" href="#">进入控制台</a></div>
       </div>
-      <div class="ac-al e"><i>!</i><span>1 项服务已到期 · 授权已用满（57 / 57）<em>续费和购买授权在下方对应服务里操作</em></span></div>
+      <div class="ac-al e"><i>!</i><span>已购的 54 台授权 11-01 到期，宽限期到 11-08 · 授权已用满（57 / 57）<em>宽限期内只能续费，不能扩容；11-08 后超出免费 3 台的主机停止检测，数据保留 30 天</em></span></div>
       <section class="kc-card">
         <div class="kc-tabs" role="tablist"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
         <sc-if value="{{isOv}}" hint-placeholder-val="{{true}}">
-        <div class="kc-cb"><div class="ac-stats c3" style="margin:0"><div class="ac-st"><span>授权总数</span><b>52 <small>台</small></b></div><div class="ac-st r"><span>已使用</span><b>70 <small>台</small></b><em>使用率 134.6%</em></div><div class="ac-st r"><span>超出</span><b>18 <small>台</small></b><em>超出的主机不受保护<a href="BillConfirm.dc.html">扩容</a></em></div></div></div>
+        <div class="kc-cb"><div class="ac-stats c3" style="margin:0"><div class="ac-st"><span>授权台数</span><b>57 <small>台</small></b><em>免费 3 + 已购 54</em></div><div class="ac-st r"><span>已用</span><b>57 <small>/ 57</small></b><em>已用满，新主机无法加入</em></div><div class="ac-st r"><span>宽限期剩余</span><b>4 <small>天</small></b><em>11-08 后 54 台停止检测<a href="BillConfirm.dc.html">续费</a></em></div></div></div>
         <div class="kc-ch" style="border-top:1px solid #f2f4f8"><h2>产品资料</h2></div>
         <div class="kc-cb"><div class="ac-kv"><div><span>产品名称</span>德迅安全卫士</div><div><span>所属分类</span>主机安全</div><div><span>服务数量</span>2 项有效 · 0 项已释放</div><div><span>首次购买</span>2026-01-26</div></div></div>
         </sc-if>
@@ -755,9 +755,8 @@ class Component extends DCLogic {
 
     const tab = st.ft || '概览';
     const tabs = [['概览', ''], ['服务实例', 2], ['关联订单', 4]].map(([n, c]) => ({ n, c, on: n === tab, cls: n === tab ? 'kc-tab on' : 'kc-tab', cc: 'kc-cnt', pick: () => this.setState({ ft: n }) }));
-    const svcs = [ROW([{ t: 'dx-guard-01', a: '#' }, '购买授权', { t: '54 台', s: '另有免费 3 台，共 57 / 57 已用满', sc: 'o' }, { t: '运行中', tag: 'ok' }, '2027-01-26'], [['扩容', 'BillConfirm.dc.html'], ['转移权益', 'AcctTransfer.dc.html']]),
-      ROW([{ t: 'dx-guard-02', a: '#' }, '购买授权', '2 台', { t: '已到期 · 保留中', tag: 'err' }, { t: '2026-10-25', s: '保留至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html']])];
-    const ods = [['DX20261007003', '扩容', '授权 +25 台', ['已完成', 'ok'], '¥25.00'], ['DX20260801004', '续费', 'dx-guard-02 续费 3 个月', ['已完成', 'ok'], '¥995.00'], ['DX20260412002', '扩容', '授权 +10 台', ['已完成', 'ok'], '¥990.00'], ['DX20260126001', '新购', '授权 20 台 · 1 年', ['已完成', 'ok'], '¥3,980.00']]
+    const svcs = [ROW([{ t: 'dx-guard-01', a: '#' }, '购买授权', { t: '54 台', s: '另有免费 3 台，共 57 / 57 已用满', sc: 'o' }, { t: '宽限期', tag: 'err' }, { t: '2026-11-01', s: '宽限至 11-08', sc: 'r' }], [['续费', 'BillConfirm.dc.html']])];
+    const ods = [['DX20260412002', '扩容', '授权 +4 台 · 折算至 2026-11-01', ['已完成', 'ok'], '单价待定'], ['DX20251025002', '新购', '授权 50 台 · 1 年', ['已完成', 'ok'], '单价待定']]
       .map(([o, t, c, s, a]) => ROW([{ t: o, a: 'BillOrderDetail.dc.html' }, t, c, { t: s[0], tag: s[1] }, { t: a, c: 'ac-n', td: 'num' }], [['详情', 'BillOrderDetail.dc.html']]));
 
     return Object.assign({ nav }, { tabs, isOv: tab === '概览', isSv: tab === '服务实例', isOd: tab === '关联订单', svcs, ods });

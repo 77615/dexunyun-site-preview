@@ -1798,7 +1798,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
-      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '授权已到期'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
@@ -2167,7 +2167,7 @@ class Component extends DCLogic {
       ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '客户端没有改密权限，确认以 root 运行后重试', '处置记录', SD, '重试', 0]];
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
-    const NB = [['授权已到期', 'sh-nk r', '已购的 54 台授权 11-01 已到期，宽限期还剩 4 天：11-08 后这部分主机停止检测；另外授权已用满，app-07 没能加入', '去续费', 'BillConfirm.dc.html'],
+    const NB = [['授权已到期', 'sh-nk r', '已购的 54 台授权 11-01 已到期，宽限期还剩 4 天：11-08 后超出免费 3 台的 54 台主机停止检测，数据保留 30 天；另外授权已用满，app-07 没能加入', '去续费', 'BillConfirm.dc.html'],
       ['紧急漏洞', 'sh-nk r', 'OpenSSH 远程代码执行（CVE-2024-6387）已支持检测，影响 1 台主机', '立即检测', '#'],
       ['产品播报', 'sh-nk', '德迅安全卫士 V4.3.2 已发布：防勒索、网页防篡改默认开启', '查看', '#']].map(([k, c, t, o, h]) => ({ k, c, t, o, h }));
     const SXD = { sx: {

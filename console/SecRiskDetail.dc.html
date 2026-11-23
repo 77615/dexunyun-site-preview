@@ -1370,7 +1370,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
-      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '授权已到期'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];

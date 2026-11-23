@@ -572,7 +572,7 @@ td .sl-st.b{color:#165dff}
   <div class="vf-mask"><div class="vf-dlg" role="dialog" aria-label="卸载客户端">
     <header><b>卸载 web-prod-01 的德迅安全卫士？</b><button type="button" aria-label="关闭" onClick="{{close}}">×</button></header>
     <div class="bd"><div class="sv-warn"><b>卸载后这台服务器将不受保护。</b>不再检测入侵、漏洞和基线，发生风险也不会收到短信。</div>
-      <ul class="s4-ul"><li>释放 1 个德迅安全卫士授权，可以绑定到其他服务器</li><li>之后重装系统、续费都不会自动装回，需要手动重新安装</li><li>当前未处理的 {{unRisk}} 个风险保留，数量不变</li><li>主账号和卫士管理员会收到站内信</li></ul>
+      <ul class="s4-ul"><li>这台服务器的防护随服务器赠送，不占授权台数；卸载后停止检测，不会空出其他名额</li><li>之后重装系统、续费都不会自动装回，需要手动重新安装</li><li>当前未处理的 {{unRisk}} 个风险保留，数量不变</li><li>主账号和卫士管理员会收到站内信</li></ul>
       <div class="s4-rs"><b>卸载原因<em>*</em></b><div class="ig7-rad" role="radiogroup" aria-label="卸载原因"><sc-for list="{{unOps}}" as="o" hint-placeholder-count="5"><button type="button" class="{{o.c}}" role="radio" aria-checked="{{o.a}}" onClick="{{o.t}}"><i></i>{{o.n}}</button></sc-for></div>
         <sc-if value="{{unOther}}" hint-placeholder-val="{{false}}"><textarea class="ig7-ta" aria-label="说明原因" placeholder="请说明卸载原因（必填）" value="{{unW}}" onChange="{{unOnW}}"></textarea></sc-if></div>
       <p class="s4-who">只有「卫士管理」角色可以卸载。卸载记录会写进操作审计。</p></div>
