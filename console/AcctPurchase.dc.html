@@ -110,17 +110,17 @@
     <main data-pg="AcctPurchase" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">选购产品 · {{modeT}}</h1></div></div>
-        <div class="kc-btns"><div class="fl-seg pu-demo" aria-label="演示状态"><sc-for list="{{modes}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div><a class="kc-btn" href="AcctProducts.dc.html">返回</a></div>
+        <div class="kc-btns"><span class="kc-sub pu-demo-l" style="margin-right:8px">演示</span><div class="fl-seg pu-demo" aria-label="演示状态"><sc-for list="{{modes}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div><a class="kc-btn" href="AcctProducts.dc.html">返回</a></div>
       </div>
       <div class="ac-al i"><i>!</i><span>德迅安全卫士每个账号免费 3 台，当前已用 {{used}}；超出按台购买，只数台数，不绑定 IP 和设备。德迅云服务器随服务器赠送，不占授权。下单前需完成个人实名认证，对公转账付款，核验到账后生效</span></div>
-      <sc-if value="{{isGrace}}" hint-placeholder-val="{{false}}"><div class="ac-al e"><i>!</i><span>你已有 54 台已购授权，2026-11-01 到期，宽限至 11-08。宽限期内不能扩容，请先续费；过了宽限期需要重新购买</span><a class="kc-btn sm" href="BillConfirm.dc.html">去续费</a></div></sc-if>
+      <sc-if value="{{hasAl}}" hint-placeholder-val="{{false}}"><div class="{{alC}}"><i>!</i><span>{{alT}}</span><a class="kc-btn sm" href="{{alHref}}">{{alBtn}}</a></div></sc-if>
       <section class="kc-card">
         <div class="kc-ch"><h2><i class="fi-i fi-box"></i>购买资源</h2><span class="kc-sub">共 1 项</span></div>
-        <div class="fl-row" style="border-top:0"><span>购买产品</span><div><span class="{{ddC0}}"><button data-dd="0" class="kc-dd" type="button" aria-haspopup="listbox" onClick="{{ddT0}}"><span>产品</span><b>{{ddV0}}</b><svg class="rx" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></button><sc-if value="{{ddO0}}" hint-placeholder-val="{{false}}"><span class="dd-m" onClick="{{ddX}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ddL0}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.cls}}" onClick="{{o.go}}">{{o.t}}</button></sc-for></span></sc-if></span></div></div>
+        <div class="fl-row" style="border-top:0"><span>购买产品</span><div><b style="font-weight:500">德迅安全卫士 · 主机授权</b><p class="kc-hint">按台购买的产品在这里下单。服务器去<a href="https://claude.ai/artifact/JTatd1LoQ65E2izzN6Aizu#artboard-ServerBuy">服务器选购页</a>选配置；高防 IP、SCDN、游戏盾等按规格购买的产品，在官网产品页选择规格后下单</p></div></div>
         <div class="fl-row"><span>购买方式</span><div class="pu-m"><b>{{modeB}}</b><p class="kc-hint">{{modeH}}</p></div></div>
         <sc-if value="{{isNew}}" hint-placeholder-val="{{true}}"><div class="fl-row"><span>服务期限</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="6"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div></sc-if>
         <sc-if value="{{notNew}}" hint-placeholder-val="{{false}}"><div class="fl-row"><span>服务期限</span><div>{{termTxt}}</div></div></sc-if>
-        <div class="fl-row" style="border-bottom:1px solid #f2f4f8"><span>购买台数</span><div><span class="{{stepCls}}"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">购买后共 {{hosts}} 台（含免费 3 台）</span></div></div>
+        <div class="fl-row" style="border-bottom:1px solid #f2f4f8"><span>购买台数</span><div><span class="{{stepCls}}"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{qtyTip}}</span></div></div>
         <div class="kc-tw"><table class="kc-t">
           <thead><tr><th>资源</th><th>配置</th><th>期限</th><th>到期</th><th class="num">单价</th><th class="num">金额</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="1"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for></tr></sc-for></tbody>
@@ -134,7 +134,7 @@
         <div class="fl-row"><span>发票</span><div>付款完成后在「发票管理」申请，抬头默认 <b style="font-weight:500">浙江德迅科技有限公司</b></div></div>
       </section>
       <sc-if value="{{needId}}" hint-placeholder-val="{{false}}"><div class="ac-al" style="margin-top:16px"><i>!</i><span>购买前需完成个人实名认证<em>订单会保存为草稿，认证通过后回到这里继续</em></span><a class="kc-btn sm" href="OrgVerify.dc.html">去认证</a></div></sc-if>
-      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>价格待定</b><a class="{{subCls}}" href="BillPayment.dc.html">提交订单</a></div>
+      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>价格待定</b><a class="{{subCls}}" href="{{subHref}}">{{subTxt}}</a></div>
     </main>
   </div>
 </div>
@@ -762,26 +762,32 @@ class Component extends DCLogic {
     const D = [['1 个月', 1], ['3 个月', 3], ['6 个月', 6], ['1 年', 12], ['2 年', 24], ['3 年', 36]];
     const dn = st.dur || '1 年'; const m = D.find((d) => d[0] === dn)[1];
     const durs = D.map(([n]) => ({ n, cls: n === dn ? 'on' : '', go: () => this.setState({ dur: n }) }));
-    const MD = [['演示：新购', 'new'], ['演示：扩容', 'add'], ['演示：宽限期', 'grace']];
+    const MD = [['新购', 'new'], ['扩容', 'add'], ['不足 30 天', 'near'], ['宽限期', 'grace'], ['已过宽限期', 'lapsed'], ['有待付款单', 'pending']];
     const mode = st.mode || 'new';
     const modes = MD.map(([n, k]) => ({ n, cls: k === mode ? 'on' : '', go: () => this.setState({ mode: k }) }));
-    const isNew = mode === 'new', isAdd = mode === 'add', isGrace = mode === 'grace';
-    const qty = st.q || 5; const base = isNew ? 3 : 57;
+    const isLap = mode === 'lapsed', isNear = mode === 'near', isPend = mode === 'pending';
+    const isNew = mode === 'new' || isLap, isAdd = mode === 'add' || isNear || isPend, isGrace = mode === 'grace';
+    const blocked = isGrace || isNear || isPend;
+    const qty = st.q || 5; const base = mode === 'new' ? 3 : isLap ? 3 : 57;
+    const AL = { grace: ['ac-al e', '你已有 54 台已购授权，2026-11-01 到期，宽限至 11-08。宽限期内不能扩容，请先续费；过了宽限期需要重新购买', '去续费', 'BillConfirm.dc.html'], near: ['ac-al e', '现有 54 台授权 2026-12-10 到期，只剩 17 天。剩余不足 30 天不能扩容，请先续费，续费到账后再扩容', '去续费', 'BillConfirm.dc.html'], pending: ['ac-al', '这份授权已有 1 笔待付款订单 DX20261102005（续费 1 年）。同一份授权同时只能有 1 笔待付款订单，请先付款，或在订单里取消后再下单', '去付款', 'BillPayment.dc.html'], lapsed: ['ac-al', '已购的 54 台授权 11-08 宽限期已过，54 台主机已停止检测，数据保留至 12-08。这次按新购计算，从到账日起算；到账后先按最早接入的顺序恢复被停的主机，买几台恢复几台', '查看被停主机', 'https://claude.ai/artifact/LE5cNnQWZjPMjXvXCC4MG7#play-de5201e8a0c7'] }[mode];
     const cn = st.con || '不需要';
     const cons = ['不需要', '电子合同'].map((n) => ({ n, cls: n === cn ? 'on' : '', go: () => this.setState({ con: n }) }));
-    const agree = st.agree !== false; const can = agree && !isGrace;
-    const term = isNew ? dn : isAdd ? '折算 64 天' : '—';
-    const exp = isNew ? { t: '到账日起 ' + dn, s: '核验到账后开始计算', sc: '' } : isAdd ? { t: '2027-01-26', s: '跟随现有授权', sc: '' } : { t: '2026-11-01', s: '宽限至 11-08', sc: 'o' };
-    const rows = [ROW([{ t: '德迅安全卫士授权', s: isNew ? '新购' : '扩容 · 并入现有授权' }, qty + ' 台', term, exp, { t: '待定 /台/年', c: 'ac-n m', td: 'num' }, { t: '价格待定', c: 'ac-n', td: 'num' }], [])];
+    const agree = st.agree !== false; const can = agree && !blocked;
+    const term = isNew ? dn : (isAdd && !isNear) ? '折算 64 天' : '—';
+    const exp = isLap ? { t: '到账日起 ' + dn, s: '原授权已过宽限期', sc: '' } : isNear ? { t: '2026-12-10', s: '剩 17 天', sc: 'o' } : isNew ? { t: '到账日起 ' + dn, s: '核验到账后开始计算', sc: '' } : isAdd ? { t: '2027-01-26', s: '跟随现有授权', sc: '' } : { t: '2026-11-01', s: '宽限至 11-08', sc: 'o' };
+    const rows = [ROW([{ t: '德迅安全卫士授权', s: isLap ? '重新购买' : isNew ? '新购' : '扩容 · 并入现有授权' }, qty + ' 台', term, exp, { t: '待定 /台/年', c: 'ac-n m', td: 'num' }, { t: '价格待定', c: 'ac-n', td: 'num' }], [])];
     const __R = Object.assign({ nav }, {
-      durs, modes, isNew, notNew: !isNew, isGrace, qty, hosts: base + qty, used: isNew ? '3 / 3' : '57 / 57',
-      modeT: isNew ? '新购' : isAdd ? '扩容' : '宽限期内',
-      modeB: isNew ? '新购授权' : '扩容 · 并入现有授权',
-      modeH: isNew ? '账号还没有已购授权，选择台数和服务期限' : isAdd ? '现有 54 台，2027-01-26 到期（剩 64 天）。扩容的台数跟随这个到期日，按剩余天数折算价格；剩余不足 30 天时请先续费' : '现有 54 台已到期，处于宽限期',
-      termTxt: isAdd ? '跟随现有授权，到期 2027-01-26（折算 64 天）' : '宽限期内不能扩容，请先续费',
-      rows, cons, stepCls: isGrace ? 'pu-step dis' : 'pu-step',
+      durs, modes, isNew, notNew: !isNew, isGrace, qty, hosts: base + qty, used: mode === 'new' ? '3 / 3' : isLap ? '3 / 3（另有 54 台已停止检测）' : '57 / 57',
+      modeT: isLap ? '重新购买' : isNew ? '新购' : isGrace ? '宽限期内' : '扩容',
+      modeB: isLap ? '重新购买授权' : isNew ? '新购授权' : '扩容 · 并入现有授权',
+      modeH: isLap ? '原授权已过宽限期，重新购买的授权从到账日起算，和原授权无关' : isNew ? '账号还没有已购授权，选择台数和服务期限' : isNear ? '现有 54 台，2026-12-10 到期（剩 17 天）' : isPend ? '现有 54 台，2027-01-26 到期（剩 64 天）' : isAdd ? '现有 54 台，2027-01-26 到期（剩 64 天）。扩容的台数跟随这个到期日，按剩余天数折算价格；剩余不足 30 天时请先续费' : '现有 54 台已到期，处于宽限期',
+      termTxt: isGrace ? '宽限期内不能扩容，请先续费' : isNear ? '剩余不足 30 天，不能扩容' : '跟随现有授权，到期 2027-01-26（折算 64 天）',
+      hasAl: !!AL, alC: AL ? AL[0] : '', alT: AL ? AL[1] : '', alBtn: AL ? AL[2] : '', alHref: AL ? AL[3] : '#',
+      qtyTip: isLap ? '购买后共 ' + (3 + qty) + ' 台（含免费 3 台）；到账后恢复 ' + Math.min(qty, 54) + ' 台被停主机' + (qty < 54 ? '，其余 ' + (54 - qty) + ' 台仍停止检测' : '') : '购买后共 ' + (base + qty) + ' 台（含免费 3 台）',
+      subTxt: isPend ? '去付款' : '提交订单', subHref: isPend ? 'BillPayment.dc.html' : 'BillPayment.dc.html',
+      rows, cons, stepCls: blocked ? 'pu-step dis' : 'pu-step',
       dec: () => this.setState({ q: Math.max(1, qty - 1) }), inc: () => this.setState({ q: Math.min(999, qty + 1) }), needId: false,
-      agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: can ? 'kc-btn pri' : 'kc-btn pri dis' });
+      agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: isPend ? 'kc-btn pri' : can ? 'kc-btn pri' : 'kc-btn pri dis' });
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 
