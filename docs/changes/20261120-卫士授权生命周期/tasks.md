@@ -11,5 +11,8 @@
 | 7 | 服务器 N8Yuj | IdcServerDetail | 卸载弹窗文案 | kc-modal | scripts/t_srv.py | [ ] |
 | 8 | 官网 JTat | Register | 注册即送 3 台 | — | scripts/t_site.py | [ ] |
 | 9 | 仓库 | specs/德迅安全卫士-授权.md、decisions.md | 写入新规则；台账加两条（11-20 #1、#2） | — | — | [ ] |
+| 10 | 卫士 LE5c | SecHosts、SecLicense | 恢复顺序、数据保留日期、更换保留主机权限 | kc-tag、ac-al | scripts/t_sec.py | [ ] |
+| 11 | 卫士 LE5c / 账号 E1uu | SecNotify、Notifications | 宽限期结束通知 | 现有通知行 | scripts/t_sec.py、t_acct.py | [ ] |
+| 12 | 账号与费用 E1uu | AcctPurchase | 临近到期 / 宽限期扩容限制 | ac-al | scripts/t_acct.py | [ ] |
 
 实施前：重读线上画布，把 77 在画布里的改动合并进来。
