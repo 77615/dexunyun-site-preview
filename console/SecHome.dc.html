@@ -692,6 +692,46 @@
 /* align176 */
 .kc .kc-main.kc-main .kc-card.cp-card > .kc-tw,.kc .kc-main.kc-main .kc-card.bl-card > .kc-tw{margin-left:0!important;margin-right:0!important}
 </style>
+<style data-shsc="1">
+/* score1123：安全评分区宽屏补位。≥1600 扣分构成，≥2060 评分趋势；窄屏保持原样 */
+.shsc-dx,.shsc-tr{display:none}
+@media (min-width:1600px){
+ main.kc-main.sh .sh-hero .sh-score{gap:0!important;padding-right:24px!important;align-items:center}
+ .sh .sh-hero .sh-score > .sh-ring{margin-right:20px}
+ .sh .sh-hero .sh-sd2{flex:0 0 236px;width:auto!important;min-width:0}
+ .sh .sh-hero .sh-sd2 .sh-unp2{display:none!important}
+ .sh .sh-hero .shsc-dx,.sh .sh-hero .shsc-tr{display:flex;flex-direction:column;align-self:stretch;justify-content:flex-start;margin-left:24px;padding:12px 0 8px 24px;border-left:1px solid rgba(22,100,255,.1);min-width:0}
+ .sh .sh-hero .shsc-dx{flex:1 1 0;min-width:300px;max-width:420px}
+ .sh .sh-hero .shsc-tr{display:none}
+}
+@media (min-width:2060px){
+ .sh .sh-hero .shsc-tr{display:flex;flex:1.15 1 0;min-width:280px;max-width:640px}
+ main.kc-main.sh .sh-hero.kc-hero{grid-template-columns:minmax(0,1fr) minmax(540px,680px)!important}
+}
+.sh .shsc-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:12px;color:rgba(0,0,0,.5);white-space:nowrap}
+.sh .shsc-h b{font-size:14px;font-weight:600;color:rgba(0,0,0,.9)}
+.sh .shsc-h em{font-style:normal;color:rgba(0,0,0,.9);font-weight:500}
+.sh .shsc-bar{display:flex;gap:2px;height:8px;margin:12px 0 10px;background:rgba(22,100,255,.06)}
+.sh .shsc-bar i{display:block;height:100%;min-width:3px}
+.sh .shsc-d.r{background:#f53f3f}.sh .shsc-d.o{background:#ff7d00}.sh .shsc-d.y{background:#ffc53d}.sh .shsc-d.g{background:#c9cdd4}
+.sh .shsc-ls{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
+.sh .shsc-ls a{white-space:nowrap;display:flex;align-items:center;gap:8px;height:28px;margin:0 -6px;padding:0 6px;font-size:12px;color:rgba(0,0,0,.7);text-decoration:none}
+.sh .shsc-ls a:hover{background:rgba(22,100,255,.06)}.sh .shsc-ls a:hover span{color:#1664ff}
+.sh .shsc-ls i{width:6px;height:6px;border-radius:50%;flex:none}
+.sh .shsc-ls small{font-size:12px;color:rgba(0,0,0,.4)}
+.sh .shsc-ls b{margin-left:auto;font:500 13px/1 Barlow,Inter,sans-serif;color:rgba(0,0,0,.9)}
+.sh .shsc-why{display:flex;flex-wrap:wrap;gap:2px 10px;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(22,100,255,.12);font-size:12px;line-height:20px}
+.sh .shsc-why span{color:rgba(0,0,0,.5)}
+.sh .shsc-why a{color:#1664ff;text-decoration:none}.sh .shsc-why a:hover{text-decoration:underline}
+.sh .shsc-ch{position:relative;flex:1 1 auto;min-height:100px;margin:22px 34px 0 0}
+.sh .shsc-ch svg{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:visible}
+.sh .shsc-ln{fill:none;stroke:#1664ff;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.sh .shsc-ref{stroke:rgba(0,0,0,.18);stroke-width:1;stroke-dasharray:3 3}
+.sh .shsc-rl{position:absolute;left:4px;font-size:12px;line-height:16px;color:rgba(0,0,0,.4)}
+.sh .shsc-pt{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff;border:2px solid #1664ff;box-sizing:border-box}
+.sh .shsc-pv{position:absolute;margin:-8px 0 0 8px;font:600 13px/16px Barlow,Inter,sans-serif;color:#1664ff}
+.sh .shsc-ax{display:flex;justify-content:space-between;margin:8px 34px 0 0;font:12px/1 Barlow,Inter,sans-serif;color:rgba(0,0,0,.4)}
+</style>
 <style data-s3="1">.sh-unp2.s3w{flex-wrap:wrap;white-space:normal;max-width:236px;row-gap:4px;column-gap:0}.sh-unp2.s3w i{margin-right:6px}.sh-unp2.s3w a.sh-ul{flex-basis:calc(100% - 12px);font-weight:500}.sh-unp2.s3w .sh-ins{margin-left:0;padding-left:0;font-weight:400;width:33.3%}
 /* 安全总览 · 腾讯云样式适配 2026-11-13 */
 /* 间距：卡片间距 16，卡片内边距 左右 24（右栏 20），标题区 20/24/12 */
@@ -903,7 +943,7 @@ main.kc-main.sh .sh-r .sh-lic-act{margin-top:4px}
       <section class="kc-card kc-hero sh-hero">
         <div class="sh-score" style="width: 100%">
           <div class="sh-ring sh-gauge2" role="img" aria-label="{{sx.gAl}}"><svg width="220" height="170" viewBox="0 0 220 170" aria-hidden="true"><defs><linearGradient id="shGg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#7aa7ff"></stop><stop offset="1" stop-color="#1664ff"></stop></linearGradient></defs><g class="sh-gt"><line x1="35.5" y1="155.0" x2="27.7" y2="159.5" class="mj"></line><line x1="31.4" y1="147.0" x2="26.0" y2="149.4" class=""></line><line x1="28.2" y1="138.6" x2="22.5" y2="140.4" class=""></line><line x1="25.9" y1="129.9" x2="20.0" y2="131.1" class=""></line><line x1="24.5" y1="121.0" x2="18.5" y2="121.6" class=""></line><line x1="24.0" y1="112.0" x2="18.0" y2="112.0" class=""></line><line x1="24.5" y1="103.0" x2="18.5" y2="102.4" class=""></line><line x1="25.9" y1="94.1" x2="20.0" y2="92.9" class=""></line><line x1="28.2" y1="85.4" x2="22.5" y2="83.6" class=""></line><line x1="31.4" y1="77.0" x2="26.0" y2="74.6" class=""></line><line x1="35.5" y1="69.0" x2="27.7" y2="64.5" class="mj"></line><line x1="40.4" y1="61.5" x2="35.6" y2="57.9" class=""></line><line x1="46.1" y1="54.5" x2="41.6" y2="50.4" class=""></line><line x1="52.5" y1="48.1" x2="48.4" y2="43.6" class=""></line><line x1="59.5" y1="42.4" x2="55.9" y2="37.6" class=""></line><line x1="67.0" y1="37.5" x2="64.0" y2="32.3" class=""></line><line x1="75.0" y1="33.4" x2="72.6" y2="28.0" class=""></line><line x1="83.4" y1="30.2" x2="81.6" y2="24.5" class=""></line><line x1="92.1" y1="27.9" x2="90.9" y2="22.0" class=""></line><line x1="101.0" y1="26.5" x2="100.4" y2="20.5" class=""></line><line x1="110.0" y1="26.0" x2="110.0" y2="17.0" class="mj"></line><line x1="119.0" y1="26.5" x2="119.6" y2="20.5" class=""></line><line x1="127.9" y1="27.9" x2="129.1" y2="22.0" class=""></line><line x1="136.6" y1="30.2" x2="138.4" y2="24.5" class=""></line><line x1="145.0" y1="33.4" x2="147.4" y2="28.0" class=""></line><line x1="153.0" y1="37.5" x2="156.0" y2="32.3" class=""></line><line x1="160.5" y1="42.4" x2="164.1" y2="37.6" class=""></line><line x1="167.5" y1="48.1" x2="171.6" y2="43.6" class=""></line><line x1="173.9" y1="54.5" x2="178.4" y2="50.4" class=""></line><line x1="179.6" y1="61.5" x2="184.4" y2="57.9" class=""></line><line x1="184.5" y1="69.0" x2="192.3" y2="64.5" class="mj"></line><line x1="188.6" y1="77.0" x2="194.0" y2="74.6" class=""></line><line x1="191.8" y1="85.4" x2="197.5" y2="83.6" class=""></line><line x1="194.1" y1="94.1" x2="200.0" y2="92.9" class=""></line><line x1="195.5" y1="103.0" x2="201.5" y2="102.4" class=""></line><line x1="196.0" y1="112.0" x2="202.0" y2="112.0" class=""></line><line x1="195.5" y1="121.0" x2="201.5" y2="121.6" class=""></line><line x1="194.1" y1="129.9" x2="200.0" y2="131.1" class=""></line><line x1="191.8" y1="138.6" x2="197.5" y2="140.4" class=""></line><line x1="188.6" y1="147.0" x2="194.0" y2="149.4" class=""></line><line x1="184.5" y1="155.0" x2="192.3" y2="159.5" class="mj"></line></g><g class="sh-gl"><text x="18.2" y="169.0">0</text><text x="18.2" y="63.0">25</text><text x="110.0" y="10.0">50</text><text x="201.8" y="63.0">75</text><text x="201.8" y="169.0">100</text></g><path class="sh-gtr" d="M47.6 148.0A72 72 0 1 1 172.4 148.0" fill="none" stroke-width="12" stroke-linecap="round"></path><sc-if value="{{sx.gOn}}" hint-placeholder-val="{{true}}"><path class="sh-gv" d="M47.6 148.0A72 72 0 1 1 172.4 148.0" fill="none" stroke="url(#shGg)" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="{{sx.gDa}}"></path><circle class="sh-gk" cx="{{sx.gCx}}" cy="{{sx.gCy}}" r="5"></circle></sc-if></svg><div class="sh-rv"><sc-if value="{{sx.gOn}}" hint-placeholder-val="{{true}}"><b style="height: 152px; text-align: center; font-size: 30px; line-height: 1.5">{{sx.gS}}</b><span>{{sx.gG}}</span></sc-if><sc-if value="{{sx.gOff}}" hint-placeholder-val="{{false}}"><b class="sh-gnil"><i></i><i></i></b><span class="sh-gst">检测中</span></sc-if></div></div>
-          <div class="sh-sd sh-sd2" style="width: 100%"><div class="sh-sdh" style="width: 100%; flex-direction: row; display: block; flex-grow: 0"><span class="sh-kn">安全评分&nbsp;&nbsp;</span><em class="sh-kd2">{{sx.gUnp}}</em></div><p class="sh-fc" style="width: 100%">修复 2 项高危风险后预计 <b>{{sx.gFc}}</b> 分</p><div class="sh-unp2 s3w" style="width: 100%"><i></i><a class="sh-ul" href="#" onClick="{{sx.go.unp}}" style="width: 100%">未受保护 6 台</a><sc-for list="{{sx.unpR}}" as="u" hint-placeholder-count="6"><a class="sh-ins" href="#" onClick="{{u.go}}">{{u.n}} {{u.c}}</a></sc-for></div><div class="sh-kl sh-kl2" style="width: 100%"><a href="#" onClick="{{sx.go.rule}}">评分规则</a><i></i><a href="#" onClick="{{sx.go.score}}">扣分项 {{sx.scN}}</a></div></div>
+          <div class="sh-sd sh-sd2" style="width: 100%"><div class="sh-sdh" style="width: 100%; flex-direction: row; display: block; flex-grow: 0"><span class="sh-kn">安全评分&nbsp;&nbsp;</span><em class="sh-kd2">{{sx.gUnp}}</em></div><p class="sh-fc" style="width: 100%">修复 2 项高危风险后预计 <b>{{sx.gFc}}</b> 分</p><div class="sh-unp2 s3w" style="width: 100%"><i></i><a class="sh-ul" href="#" onClick="{{sx.go.unp}}" style="width: 100%">未受保护 6 台</a><sc-for list="{{sx.unpR}}" as="u" hint-placeholder-count="6"><a class="sh-ins" href="#" onClick="{{u.go}}">{{u.n}} {{u.c}}</a></sc-for></div><div class="sh-kl sh-kl2" style="width: 100%"><a href="#" onClick="{{sx.go.rule}}">评分规则</a><i></i><a href="#" onClick="{{sx.go.score}}">扣分项 {{sx.scN}}</a></div></div><div class="shsc-dx"><div class="shsc-h"><b>扣分构成</b><span>共扣 <em>{{sx.dxT}}</em> 分 · {{sx.scN}} 项</span></div><div class="shsc-bar" role="img" aria-label="{{sx.dxAl}}"><sc-for list="{{sx.dx}}" as="d" hint-placeholder-count="4"><i class="{{d.c}}" style="{{d.w}}"></i></sc-for></div><ul class="shsc-ls"><sc-for list="{{sx.dx}}" as="d" hint-placeholder-count="4"><li><a href="#" onClick="{{d.go}}"><i class="{{d.c}}"></i><span>{{d.n}}</span><small>{{d.k}}</small><b>{{d.d}}</b></a></li></sc-for></ul><div class="shsc-why"><span>未受保护原因</span><sc-for list="{{sx.unpR}}" as="u" hint-placeholder-count="6"><a href="#" onClick="{{u.go}}">{{u.n}} {{u.c}}</a></sc-for></div></div><div class="shsc-tr"><div class="shsc-h"><b>评分趋势</b><span>{{sx.trR}} · <em>{{sx.trD}}</em></span></div><div class="shsc-ch"><svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="shscG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1664ff" stop-opacity=".16"></stop><stop offset="1" stop-color="#1664ff" stop-opacity="0"></stop></linearGradient></defs><line class="shsc-ref" x1="0" x2="300" y1="{{sx.trRy}}" y2="{{sx.trRy}}" vector-effect="non-scaling-stroke"></line><path d="{{sx.trA}}" fill="url(#shscG)"></path><path class="shsc-ln" d="{{sx.trL}}" vector-effect="non-scaling-stroke"></path></svg><span class="shsc-rl" style="{{sx.trRt}}">良好 75</span><i class="shsc-pt" style="{{sx.trPt}}"></i><span class="shsc-pv" style="{{sx.trPt}}">{{sx.gS}}</span></div><div class="shsc-ax"><sc-for list="{{sx.trX}}" as="x" hint-placeholder-count="7"><span>{{x.t}}</span></sc-for></div></div>
         </div>
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><div class="sh-rc1"><a class="sh-rch" href="#" onClick="{{k.goR}}"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></a><div class="sh-rcv"><a href="#" onClick="{{k.goR}}" title="查看这些风险"><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></a><a href="#" onClick="{{k.goH}}" title="查看这些主机"><small>影响主机</small><b>{{k.m}}</b><i>台</i></a></div></div></sc-for></div>
       </section>
@@ -1822,6 +1862,22 @@ class Component extends DCLogic {
       { const sc = Math.max(0, Math.round((100 - dedSum) * 10) / 10); const th = (210 - 2.4 * sc) * Math.PI / 180; const urg = hostR.filter((r) => r.lv === '高危').slice(0, 2).reduce((n, r) => n + DED(r), 0);
         sx.gS = String(sc); sx.gG = sc >= 90 ? '优秀' : sc >= 75 ? '良好' : sc >= 60 ? '一般' : '危险'; sx.gDa = sc + ' 100'; sx.gCx = (110 + 72 * Math.cos(th)).toFixed(1); sx.gCy = (112 - 72 * Math.sin(th)).toFixed(1);
         sx.gFc = String(Math.min(100, Math.round((sc + urg) * 10) / 10)); sx.gAl = '安全评分 ' + sc + ' 分，满分 100'; sx.gUnp = '其中未受保护 ' + hostR.filter((r) => r.lv === '未受保护').length + ' 台扣 ' + (hostR.filter((r) => r.lv === '未受保护').length * 2) + ' 分'; }
+      { // score1123: 扣分构成 + 评分趋势（宽屏）
+        const GP = [['高危漏洞', (r) => r.lv === '高危' && r.ty === '漏洞', 'r', { '级别': '高危', '类型': '漏洞' }], ['高危入侵', (r) => r.lv === '高危' && r.ty === '入侵', 'r', { '级别': '高危', '类型': '入侵' }], ['未受保护', (r) => r.lv === '未受保护', 'o', null], ['中危', (r) => r.lv === '中危', 'y', { '级别': '中危' }], ['低危', (r) => r.lv === '低危', 'g', { '级别': '低危' }]];
+        sx.dx = GP.map(([n, f, c, q]) => { const L2 = hostR.filter(f); const d = Math.round(L2.reduce((s, r) => s + DED(r), 0) * 10) / 10;
+          return { n, c: 'shsc-d ' + c, k: L2.length + (n === '未受保护' ? ' 台' : ' 项'), d: '−' + d, v: d, w: 'width:' + (dedSum ? (d / dedSum * 100).toFixed(2) : 0) + '%', go: q ? GO('SecRisks', Object.assign({ '状态': '待处置', '来源产品': '德迅安全卫士' }, q)) : sx.go.unp }; }).filter((x) => x.v > 0);
+        sx.dxT = '−' + dedSum; sx.dxAl = '扣分构成：' + sx.dx.map((x) => x.n + ' ' + x.d).join('，');
+        const s0 = Number(sx.gS), d7 = (st.rng || '近 24 小时') === '近 7 天';
+        const off = d7 ? [6, 4, 5, 2, 3, 1, 0] : [4, 4, 3, 3, 2, 1, 1, 0];
+        const lab = d7 ? ['10-27', '10-28', '10-29', '10-30', '10-31', '11-01', '11-02'] : ['13:00', '16:00', '19:00', '22:00', '01:00', '04:00', '07:00', '10:42'];
+        const vs = off.map((o) => Math.min(100, s0 + o)), lo = Math.min(...vs, 75) - 4, hi = Math.max(...vs, 75) + 4;
+        const Y = (v) => (96 - (v - lo) / (hi - lo) * 88), X = (i) => i / (vs.length - 1) * 300;
+        const pts = vs.map((v, i) => X(i).toFixed(1) + ' ' + Y(v).toFixed(1));
+        sx.trL = 'M' + pts.join(' L'); sx.trA = sx.trL + ' L300 100 L0 100 Z';
+        sx.trRy = Y(75).toFixed(1); sx.trRt = 'top:calc(' + (Y(75)).toFixed(1) + '% + 4px)';
+        sx.trPt = 'left:100%;top:' + Y(s0).toFixed(1) + '%';
+        sx.trX = lab.map((t) => ({ t })); sx.trR = d7 ? '近 7 天' : '近 24 小时';
+        const dd = Math.round((s0 - vs[0]) * 10) / 10; sx.trD = (d7 ? '较 7 天前 ' : '较 24 小时前 ') + (dd > 0 ? '+' + dd : dd < 0 ? '−' + (-dd) : '持平'); }
       if (st.shDw === 'score') { sx.dw.p = '安全评分 = 100 − 扣分合计 ' + dedSum + ' = ' + (100 - dedSum) + ' 分。修复后下次检测时更新评分。';
         sx.dw.r = hostR.map((r) => ({ a: r.n, b: r.as, c: '−' + DED(r), cc: 'sh-red', o: r.hgo ? '去处理' : '查看', go: r.hgo || GO('SecRiskDetail', {}, r.id) })); sx.dw.lk = '查看评分规则'; sx.dw.lkGo = ev(() => openDw('rule')); }
       if (st.shDw === 'rule') { const RL = [['高危 · 漏洞', '可被远程利用，或已有公开利用代码', '−5', (r) => r.lv === '高危' && r.ty === '漏洞', { '级别': '高危', '类型': '漏洞' }], ['高危 · 入侵', '已确认或高度疑似被入侵', '−4', (r) => r.lv === '高危' && r.ty === '入侵', { '级别': '高危', '类型': '入侵' }], ['未受保护', '每台未受保护的主机（未安装、已卸载、部署失败、离线、检测过期、授权已用满）', '−2', (r) => r.lv === '未受保护', { '级别': '未受保护' }], ['中危', '需要判断或修复的中等风险', '−1', (r) => r.lv === '中危', { '级别': '中危' }], ['低危', '配置优化类，不影响当前运行', '−0.6', (r) => r.lv === '低危', { '级别': '低危' }]];
