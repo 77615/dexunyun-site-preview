@@ -1798,7 +1798,7 @@ class Component extends DCLogic {
     '提交工单': 'SupTicketNew.dc.html', '资产发现': 'EyeAssets.dc.html', '处理记录': 'Notifications.dc.html', '查看全部': 'Notifications.dc.html',
     '证书管理': 'ScdnCerts.dc.html', '更换': 'ScdnCerts.dc.html', '更换证书': 'ScdnCerts.dc.html', '去「报告管理」查看': 'EyeRisk.dc.html', '访问控制': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnAcl.dc.html', 'CC 防护': pre('Ddos') ? 'DdosPolicy.dc.html' : 'ScdnCC.dc.html'
   }; };
-  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', AcctUsage: 'AcctProductDetail.dc.html', AcctProducts: 'AcctProductDetail.dc.html', AcctSubs: 'AcctProductDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
+  var DETAIL = { SupTickets: 'SupTicketDetail.dc.html', BillInvoice: 'BillInvoiceDetail.dc.html', BillContract: 'BillContractDetail.dc.html', BillOrders: 'BillOrderDetail.dc.html', BillPay: 'BillOrderDetail.dc.html', EyeAssets: 'EyeAssetDetail.dc.html', GameAccess: 'GameInstanceDetail.dc.html', DdosInstances: 'DdosInstanceDetail.dc.html', IdcServers: 'IdcServerDetail.dc.html' };
   var regNav = function (t) {
     if (/^DX\d{11}$/.test(t)) return 'BillOrderDetail.dc.html';
     if (/^DX-\d{8}-\d{3}$/.test(t)) return 'BillContractDetail.dc.html';
