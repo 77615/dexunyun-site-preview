@@ -147,31 +147,32 @@
     <main data-pg="AcctPurchase" class="kc-main">
       <div class="kc-hd">
         <div class="kc-hdl"><div><h1 class="kc-h1">选购产品 · {{modeT}}</h1></div></div>
-        <div class="kc-btns"><span class="kc-sub pu-demo-l" style="margin-right:8px">演示</span><div class="fl-seg pu-demo" aria-label="演示状态"><sc-for list="{{modes}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div><a class="kc-btn" href="AcctProducts.dc.html">返回</a></div>
+        <div class="kc-btns"><span class="kc-sub pu-demo-l" style="margin-right:8px">演示</span><div class="fl-seg pu-demo" aria-label="演示产品"><sc-for list="{{prods}}" as="d" hint-placeholder-count="4"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div><sc-if value="{{isG}}" hint-placeholder-val="{{true}}"><div class="fl-seg pu-demo" aria-label="演示状态"><sc-for list="{{modes}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></sc-if><a class="kc-btn" href="AcctProducts.dc.html">返回</a></div>
       </div>
-      <div class="ac-al i"><i>!</i><span>德迅安全卫士每个账号免费 3 台，当前已用 {{used}}；超出按台购买，只数台数，不绑定 IP 和设备。德迅云服务器随服务器赠送，不占授权。下单前需完成个人实名认证，对公转账付款，核验到账后生效</span></div>
+      <sc-if value="{{isS}}" hint-placeholder-val="{{false}}"><div class="ac-al i"><i>!</i><span>{{sTip}}</span></div></sc-if><sc-if value="{{isG}}" hint-placeholder-val="{{true}}"><div class="ac-al i"><i>!</i><span>德迅安全卫士每个账号免费 3 台，当前已用 {{used}}；超出按台购买，只数台数，不绑定 IP 和设备。德迅云服务器随服务器赠送，不占授权。下单前需完成个人实名认证，对公转账付款，核验到账后生效</span></div></sc-if>
       <sc-if value="{{hasAl}}" hint-placeholder-val="{{false}}"><div class="{{alC}}"><i>!</i><span>{{alT}}</span><a class="kc-btn sm" href="{{alHref}}">{{alBtn}}</a></div></sc-if>
       <section class="kc-card">
         <div class="kc-ch"><h2><i class="fi-i fi-box"></i>购买资源</h2><span class="kc-sub">共 1 项</span></div>
-        <div class="fl-row" style="border-top:0"><span>购买产品</span><div><b style="font-weight:500">德迅安全卫士 · 主机授权</b><p class="kc-hint">按台购买的产品在这里下单。服务器去<a href="../ServerBuy.dc.html">服务器选购页</a>选配置；高防 IP、SCDN、游戏盾等按规格购买的产品，在官网产品页选择规格后下单</p></div></div>
-        <div class="fl-row"><span>购买方式</span><div class="pu-m"><b>{{modeB}}</b><p class="kc-hint">{{modeH}}</p></div></div>
+        <div class="fl-row" style="border-top:0"><span>购买产品</span><div><b style="font-weight:500">{{prodN}}</b><sc-if value="{{isG}}" hint-placeholder-val="{{true}}"><p class="kc-hint">按台购买的产品在这里下单。服务器去<a href="../ServerBuy.dc.html">服务器选购页</a>选配置；高防 IP、SCDN、游戏盾等按规格购买的产品，在官网产品页选择规格后下单</p></sc-if><sc-if value="{{isS}}" hint-placeholder-val="{{false}}"><p class="kc-hint">{{prodH}}</p></sc-if></div></div>
+        <sc-if value="{{isG}}" hint-placeholder-val="{{true}}"><div class="fl-row"><span>购买方式</span><div class="pu-m"><b>{{modeB}}</b><p class="kc-hint">{{modeH}}</p></div></div>
         <sc-if value="{{isNew}}" hint-placeholder-val="{{true}}"><div class="fl-row"><span>服务期限</span><div><div class="fl-seg"><sc-for list="{{durs}}" as="d" hint-placeholder-count="6"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div></sc-if>
         <sc-if value="{{notNew}}" hint-placeholder-val="{{false}}"><div class="fl-row"><span>服务期限</span><div>{{termTxt}}</div></div></sc-if>
-        <div class="fl-row" style="border-bottom:1px solid #f2f4f8"><span>购买台数</span><div><span class="{{stepCls}}"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{qtyTip}}</span></div></div>
+        <div class="fl-row" style="border-bottom:1px solid #f2f4f8"><span>购买台数</span><div><span class="{{stepCls}}"><button type="button" aria-label="减少" onClick="{{dec}}">−</button><b>{{qty}}</b><button type="button" aria-label="增加" onClick="{{inc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{qtyTip}}</span></div></div></sc-if>
+        <sc-if value="{{isS}}" hint-placeholder-val="{{false}}"><div class="fl-row"><span>规格</span><div><div class="fl-seg" style="flex-wrap:wrap"><sc-for list="{{specs}}" as="d" hint-placeholder-count="6"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div><p class="kc-hint">{{specH}}</p></div></div><div class="fl-row"><span>购买时长</span><div><div class="fl-seg"><sc-for list="{{sdurs}}" as="d" hint-placeholder-count="4"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div><p class="kc-hint">{{durH}}</p></div></div><div class="fl-row" style="border-bottom:1px solid #f2f4f8"><span>{{qtyL}}</span><div><span class="{{sStepCls}}"><button type="button" aria-label="减少" onClick="{{sDec}}">−</button><b>{{sQty}}</b><button type="button" aria-label="增加" onClick="{{sInc}}">+</button></span><span class="pu-formula" style="margin-left:12px">{{sQtyTip}}</span></div></div></sc-if>
         <div class="kc-tw"><table class="kc-t">
           <thead><tr><th>资源</th><th>配置</th><th>期限</th><th>到期</th><th class="num">单价</th><th class="num">金额</th></tr></thead>
           <tbody><sc-for list="{{rows}}" as="r" hint-placeholder-count="1"><tr class="{{r.rc}}"><sc-for list="{{r.c}}" as="c" hint-placeholder-count="6"><td class="{{c.td}}"><sc-if value="{{c.a}}" hint-placeholder-val="{{false}}"><a href="{{c.href}}">{{c.t}}</a></sc-if><sc-if value="{{c.p}}" hint-placeholder-val="{{true}}"><span class="{{c.cls}}">{{c.t}}</span></sc-if><sc-if value="{{c.hasSub}}" hint-placeholder-val="{{false}}"><div class="{{c.sc}}">{{c.s}}</div></sc-if></td></sc-for></tr></sc-for></tbody>
         </table></div>
-        <div class="fl-tot"><div>商品合计<b>价格待定</b></div><div>代金券<b>暂无可用</b></div><div class="big">应付金额<b>价格待定</b></div></div>
+        <div class="fl-tot"><div>商品合计<b>{{totT}}</b></div><div>代金券<b>暂无可用</b></div><div class="big">应付金额<b>{{totT}}</b></div></div>
       </section>
       <section class="kc-card" style="margin-top:16px">
         <div class="kc-ch"><h2><i class="fi-i fi-wallet"></i>付款与票据</h2></div>
-        <div class="fl-row"><span>付款方式</span><div><b style="font-weight:500">对公转账</b><p class="kc-hint">提交后在付款页查看收款账户；财务核验到账后自动开通</p></div></div>
+        <div class="fl-row"><span>付款方式</span><div><b style="font-weight:500">对公转账</b><p class="kc-hint">{{openH}}</p></div></div>
         <div class="fl-row"><span>合同</span><div><div class="fl-seg"><sc-for list="{{cons}}" as="d" hint-placeholder-count="2"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></div></div></div>
         <div class="fl-row"><span>发票</span><div>付款完成后在「发票管理」申请，抬头默认 <b style="font-weight:500">浙江德迅科技有限公司</b></div></div>
       </section>
       <sc-if value="{{needId}}" hint-placeholder-val="{{false}}"><div class="ac-al" style="margin-top:16px"><i>!</i><span>购买前需完成个人实名认证<em>订单会保存为草稿，认证通过后回到这里继续</em></span><a class="kc-btn sm" href="OrgVerify.dc.html">去认证</a></div></sc-if>
-      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>价格待定</b><a class="{{subCls}}" href="{{subHref}}">{{subTxt}}</a></div>
+      <div class="fl-sum"><label class="agree"><button type="button" class="{{agreeCls}}" aria-label="同意协议" onClick="{{togA}}"></button>我已阅读并同意<a href="#">《德迅云服务协议》</a></label><small>应付</small><b>{{totT}}</b><a class="{{subCls}}" href="{{subHref}}">{{subTxt}}</a></div>
     </main>
   </div>
 </div>
@@ -813,18 +814,47 @@ class Component extends DCLogic {
     const term = isNew ? dn : (isAdd && !isNear) ? '折算 64 天' : '—';
     const exp = isLap ? { t: '到账日起 ' + dn, s: '原授权已过宽限期', sc: '' } : isNear ? { t: '2026-12-10', s: '剩 17 天', sc: 'o' } : isNew ? { t: '到账日起 ' + dn, s: '核验到账后开始计算', sc: '' } : isAdd ? { t: '2027-01-26', s: '跟随现有授权', sc: '' } : { t: '2026-11-01', s: '宽限至 11-08', sc: 'o' };
     const rows = [ROW([{ t: '德迅安全卫士授权', s: isLap ? '重新购买' : isNew ? '新购' : '扩容 · 并入现有授权' }, qty + ' 台', term, exp, { t: '待定 /台/年', c: 'ac-n m', td: 'num' }, { t: '价格待定', c: 'ac-n', td: 'num' }], [])];
+    /* pur3: 按规格购买的产品 */
+    const SP = { ddos: ['DDoS 高防 IP', [['基础型', '100G 防御', 1999], ['专业型', '200G 防御', 2999], ['企业型', '300G 防御', 3999], ['商务型', '400G 防御', 5999], ['旗舰型-01', '600G 防御', 9999], ['旗舰型-02', '800G 防御', 19999], ['全力防护', '1000G 防御', 0]], '个', '元/月'],
+      game: ['游戏盾', [['入门级', '在线峰数 200', 799], ['基础级', '在线峰数 300', 1399], ['专业级', '在线峰数 400', 1999], ['企业级', '在线峰数 600', 3999], ['尊享级', '在线峰数 1000', 6999], ['增强版', '旗舰 A–E 型', 0]], '个', '元/月'],
+      ssl: ['SSL 证书', [['PositiveSSL', '单个域名', 68], ['PositiveSSL 多域名', '多个域名', 399], ['PositiveSSL 通配符', '单个域名 · 通配符', 888]], '张', '元/年'] };
+    const __qp = __qs && __qs.get('p'); const __qv = __qs ? parseInt(__qs.get('v') || '0', 10) : 0;
+    const pk = st.pk || (SP[__qp] ? __qp : 'host'); const isS = pk !== 'host', isG = !isS;
+    const PD = [['卫士授权', 'host'], ['DDoS 高防 IP', 'ddos'], ['游戏盾', 'game'], ['SSL 证书', 'ssl']];
+    const prods = PD.map(([n, k]) => ({ n, cls: k === pk ? 'on' : '', go: () => this.setState({ pk: k, sv: undefined, sq: 1, sd: undefined }) }));
+    const SPk = SP[pk] || SP.ddos; const tiers = SPk[1];
+    const svi = Math.max(0, Math.min(tiers.length - 1, st.sv !== undefined ? st.sv : (pk === __qp && !isNaN(__qv) ? __qv : 0)));
+    const tier = tiers[svi]; const nego = isS && !tier[2];
+    const specs = tiers.map(([n, d, pr], i) => ({ n: n + ' · ' + d, cls: i === svi ? 'on' : '', go: () => this.setState({ sv: i }) }));
+    const SD = pk === 'ssl' ? [['1 年', 1], ['2 年', 2], ['3 年', 3]] : [['1 个月', 1], ['3 个月', 3], ['6 个月', 6], ['1 年', 12]];
+    const sdn = st.sd && SD.find((d) => d[0] === st.sd) ? st.sd : SD[0][0]; const sm = SD.find((d) => d[0] === sdn)[1];
+    const sdurs = SD.map(([n]) => ({ n, cls: n === sdn ? 'on' : '', go: () => this.setState({ sd: n }) }));
+    const sQty = st.sq || 1; const money = (x) => '¥' + x.toLocaleString('en-US') + '.00';
+    const sTot = tier[2] * sm * sQty;
+    const sRows = [ROW([{ t: SPk[0], s: '新购' }, { t: tier[0], s: tier[1] }, sdn, { t: '开通日起 ' + sdn, s: '核验到账后开通', sc: '' }, { t: nego ? '面议' : money(tier[2]).replace('.00', '') + ' ' + SPk[3], c: 'ac-n m', td: 'num' }, { t: nego ? '面议' : money(sTot), c: 'ac-n', td: 'num' }], [])];
+    const OPEN = { ddos: ['实例出现在 DDoS 高防 IP 实例列表，状态「待接入」，配置转发规则、把业务解析到高防 IP 后开始防护', 'DdosInstances.dc.html'], game: ['实例出现在游戏盾「应用接入」，状态「待接入」，接入 SDK 或配置转发后开始防护', 'GameAccess.dc.html'], ssl: ['证书出现在「我的产品」，状态「待提交资料」，完成域名验证后签发（通常 10 分钟到 1 个工作日）', 'AcctProducts.dc.html'] }[pk] || ['', ''];
     const __R = Object.assign({ nav }, {
       durs, modes, isNew, notNew: !isNew, isGrace, qty, hosts: base + qty, used: mode === 'new' ? '3 / 3' : isLap ? '3 / 3（另有 54 台已停止检测）' : '57 / 57',
-      modeT: isLap ? '重新购买' : isNew ? '新购' : isGrace ? '宽限期内' : '扩容',
+      modeT: isS ? SPk[0] : isLap ? '重新购买' : isNew ? '新购' : isGrace ? '宽限期内' : '扩容',
       modeB: isLap ? '重新购买授权' : isNew ? '新购授权' : '扩容 · 并入现有授权',
       modeH: isLap ? '原授权已过宽限期，重新购买的授权从到账日起算，和原授权无关' : isNew ? '账号还没有已购授权，选择台数和服务期限' : isNear ? '现有 54 台，2026-12-10 到期（剩 17 天）' : isPend ? '现有 54 台，2027-01-26 到期（剩 64 天）' : isAdd ? '现有 54 台，2027-01-26 到期（剩 64 天）。扩容的台数跟随这个到期日，按剩余天数折算价格（以核验到账日计算，这里按今天预估）；剩余不足 30 天时请先续费' : '现有 54 台已到期，处于宽限期',
       termTxt: isGrace ? '宽限期内不能扩容，请先续费' : isNear ? '剩余不足 30 天，不能扩容' : '跟随现有授权，到期 2027-01-26（折算 64 天）',
       hasAl: !!AL, alC: AL ? AL[0] : '', alT: AL ? AL[1] : '', alBtn: AL ? AL[2] : '', alHref: AL ? AL[3] : '#',
       qtyTip: isLap ? '购买后共 ' + (3 + qty) + ' 台（含免费 3 台）；到账后恢复 ' + Math.min(qty, 54) + ' 台被停主机' + (qty < 54 ? '，其余 ' + (54 - qty) + ' 台仍停止检测' : '') : '购买后共 ' + (base + qty) + ' 台（含免费 3 台）',
-      subTxt: isPend ? '去付款' : '提交订单', subHref: isPend ? 'BillPayment.dc.html' : 'BillPayment.dc.html',
-      rows, cons, stepCls: blocked ? 'pu-step dis' : 'pu-step',
+      subTxt: nego ? '咨询专家' : isS ? '提交订单' : isPend ? '去付款' : '提交订单', subHref: nego ? '../Contact.dc.html' : 'BillPayment.dc.html',
+      rows: isS ? sRows : rows, cons, stepCls: blocked ? 'pu-step dis' : 'pu-step',
+      prods, isS, isG, specs, sdurs, sQty, sStepCls: nego ? 'pu-step dis' : 'pu-step',
+      sDec: () => this.setState({ sq: Math.max(1, sQty - 1) }), sInc: () => this.setState({ sq: Math.min(20, sQty + 1) }),
+      qtyL: pk === 'ssl' ? '购买张数' : '购买数量', sQtyTip: nego ? '该规格没有公开价格，请咨询专家定制' : '每个' + (pk === 'ssl' ? '证书' : '实例') + '单独计费、单独到期',
+      specH: nego ? '没有公开价格，提交后由专家联系你，按方案报价' : '来自官网规格选择，可以在同一产品内更换规格；升配在实例上操作',
+      durH: pk === 'ssl' ? '证书按年签发，到期前 30 天提醒重新签发' : '到期前 30 / 7 / 1 天提醒；到期后保留 7 天，服务降级，续费核验到账后恢复',
+      sTip: SPk[0] + '：下单前需完成个人实名认证，对公转账付款，核验到账后开通。开通后' + OPEN[0],
+      prodN: isS ? SPk[0] : '德迅安全卫士 · 主机授权',
+      prodH: '按规格购买，规格从官网产品页带过来。其他产品请到对应产品页选择规格',
+      openH: isS ? '提交后在付款页查看收款账户；核验到账后开通，订单状态变为「开通中」，开通失败会提示提交工单' : '提交后在付款页查看收款账户；财务核验到账后自动开通',
+      totT: isS ? (nego ? '面议' : money(sTot)) : '价格待定',
       dec: () => this.setState({ q: Math.max(1, qty - 1) }), inc: () => this.setState({ q: Math.min(999, qty + 1) }), needId: false,
-      agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: isPend ? 'kc-btn pri' : can ? 'kc-btn pri' : 'kc-btn pri dis' });
+      agreeCls: agree ? 'ac-cbx on' : 'ac-cbx', togA: () => this.setState({ agree: !agree }), subCls: isS ? (agree || nego ? 'kc-btn pri' : 'kc-btn pri dis') : isPend ? 'kc-btn pri' : can ? 'kc-btn pri' : 'kc-btn pri dis' });
 
     const __s = this.state || {}; const __o = __s.ddo === undefined ? -1 : __s.ddo; const DDX = { ddX: () => this.setState({ ddo: -1 }) };
 

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>通用状态与到期规范</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/dexun/tokens.css">
+<link rel="stylesheet" href="ds/dexun/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.gs{width:1440px;box-sizing:border-box;padding:48px 56px 64px;background:var(--kc-bg);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--kc-text-1);font-size:14px;line-height:1.6}
+.gs h1{margin:0 0 8px;font-size:28px;font-weight:600}
+.gs .gs-lead{margin:0 0 32px;max-width:960px;color:var(--kc-text-2)}
+.gs h2{margin:40px 0 16px;font-size:18px;font-weight:600;display:flex;align-items:center;gap:10px}
+.gs h2 i{font-style:normal;width:24px;height:24px;border-radius:2px;background:var(--kc-primary);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+.gs-row{display:grid;gap:16px}
+.gs-c3{grid-template-columns:repeat(3,1fr)}
+.gs-c2{grid-template-columns:repeat(2,1fr)}
+.gs-c4{grid-template-columns:repeat(4,1fr)}
+.gs-box{background:#fff;border:1px solid var(--kc-border-3);border-radius:2px;padding:20px}
+.gs-box h3{margin:0 0 4px;font-size:14px;font-weight:600}
+.gs-box .gs-when{margin:0 0 16px;font-size:12px;color:var(--kc-text-3)}
+.gs-demo{border:1px dashed var(--kc-border-2);border-radius:2px;background:var(--kc-fill-3);padding:24px;min-height:150px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
+.gs-demo b{font-weight:500}
+.gs-demo small{color:var(--kc-text-3);font-size:12px}
+.gs-ill{width:44px;height:44px;border-radius:50%;background:var(--kc-primary-bg-2);display:flex;align-items:center;justify-content:center;color:var(--kc-primary)}
+.gs-ill.e{background:#fff1f0;color:var(--kc-danger-text)}
+.gs-ill.w{background:#fff7e8;color:var(--kc-warning-text)}
+.gs-rule{margin:12px 0 0;padding:0;list-style:none;font-size:12px;color:var(--kc-text-2)}
+.gs-rule li{padding-left:12px;position:relative;margin-top:4px}
+.gs-rule li::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--kc-text-3)}
+.gs-toast{display:flex;align-items:flex-start;gap:8px;padding:10px 14px;border-radius:2px;background:#fff;box-shadow:var(--shadow-2);font-size:13px;text-align:left;max-width:360px}
+.gs-toast .d{width:16px;height:16px;border-radius:50%;flex:none;margin-top:2px;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.gs-toast .d.ok{background:var(--success-6)}
+.gs-toast .d.e{background:var(--danger-6)}
+.gs-toast small{display:block;color:var(--kc-text-3)}
+.gs-modal{background:#fff;box-shadow:var(--shadow-3);border-radius:2px;width:100%;max-width:400px;text-align:left}
+.gs-modal header{padding:14px 18px;border-bottom:1px solid var(--kc-border-3);font-weight:600}
+.gs-modal .bd{padding:14px 18px;font-size:13px;color:var(--kc-text-2)}
+.gs-modal footer{padding:10px 18px;border-top:1px solid var(--kc-border-3);display:flex;justify-content:flex-end;gap:8px}
+.gs-tb{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.gs-tb th,.gs-tb td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--kc-border-3)}
+.gs-tb th{color:var(--kc-text-3);font-weight:400}
+.gs-net{width:100%;background:#fff7e8;color:var(--kc-warning-text);font-size:13px;padding:8px 12px;border-radius:2px;text-align:left}
+.gs-dis{opacity:.45;cursor:not-allowed}
+.gs-tip{position:relative;display:inline-block}
+.gs-tip span{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;background:#1d2129;color:#fff;font-size:12px;padding:4px 8px;border-radius:2px}
+.gs-sk{height:12px;border-radius:2px;background:linear-gradient(90deg,#eef0f3,#f6f7f9,#eef0f3);width:100%}
+.gs-life{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid var(--kc-border-3);border-radius:2px}
+.gs-life>div{padding:20px;border-left:1px solid var(--kc-border-3)}
+.gs-life>div:first-child{border-left:0}
+.gs-life em{font-style:normal;font-size:12px;color:var(--kc-text-3)}
+.gs-life h4{margin:6px 0 8px;font-size:15px;font-weight:600;display:flex;gap:8px;align-items:center}
+.gs-life p{margin:0;font-size:13px;color:var(--kc-text-2)}
+.gs-big{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--kc-border-3);font-size:13px}
+.gs-big th,.gs-big td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--kc-border-3);vertical-align:top}
+.gs-big th{background:var(--kc-fill-3);color:var(--kc-text-3);font-weight:500}
+.gs-big td:first-child{font-weight:500;white-space:nowrap}
+.gs-note{margin-top:12px;font-size:12px;color:var(--kc-text-3)}
+</style>
+</helmet>
+<div class="gs">
+  <h1>通用状态与订阅到期规范</h1>
+  <p class="gs-lead">每个状态只定义一次，开发做成组件；页面只说用哪一种，不在每页重新画。加载与骨架屏见「加载与性能交互规范」。本页对应变更「全流程补齐」（2026-11-24，77 确认按建议）。</p>
+
+  <h2><i>1</i>空状态</h2>
+  <div class="gs-row gs-c4">
+    <div class="gs-box"><h3>从没用过</h3><p class="gs-when">该对象数量为 0</p>
+      <div class="gs-demo"><div class="gs-ill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 21h8"></path></svg></div><b>还没有接入的主机</b><small>安装客户端后，主机会自动出现在这里</small><a class="kc-btn pri sm" href="#">安装客户端</a></div>
+      <ul class="gs-rule"><li>写清这里能做什么，给一个主操作</li></ul></div>
+    <div class="gs-box"><h3>筛选无结果</h3><p class="gs-when">有数据，但筛选后为 0</p>
+      <div class="gs-demo"><b>没有符合条件的记录</b><small>当前筛选：状态 = 已到期</small><a class="kc-btn sm" href="#">清空筛选</a></div>
+      <ul class="gs-rule"><li>保留表头和筛选条，只替换表格内容</li></ul></div>
+    <div class="gs-box"><h3>时间范围无数据</h3><p class="gs-when">图表、日志</p>
+      <div class="gs-demo"><div class="gs-ill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-4.5"></path></svg></div><b>这段时间没有攻击</b><small>近 24 小时</small><a class="kc-btn sm" href="#">看近 7 天</a></div>
+      <ul class="gs-rule"><li>安全类用正面表述，不写「暂无数据」</li></ul></div>
+    <div class="gs-box"><h3>未开通产品</h3><p class="gs-when">进入未购买产品的控制台</p>
+      <div class="gs-demo"><b>还没有开通 SCDN</b><small>加速 + Web 防护，企业版起</small><a class="kc-btn pri sm" href="#">去购买</a></div>
+      <ul class="gs-rule"><li>模板：SCDN 控制台「未开通」页</li></ul></div>
+  </div>
+
+  <h2><i>2</i>加载失败</h2>
+  <div class="gs-row gs-c3">
+    <div class="gs-box"><h3>卡片加载失败</h3><p class="gs-when">一块接口失败或超时（10 秒）</p>
+      <div class="gs-demo"><div class="gs-ill e"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5.5M12 16.5v.5"></path></svg></div><b>攻击趋势加载失败</b><a class="kc-btn sm" href="#">重试</a></div>
+      <ul class="gs-rule"><li>只这张卡片报错，其他卡片照常</li><li>不弹窗、不整页报错</li></ul></div>
+    <div class="gs-box"><h3>连续 3 次失败</h3><p class="gs-when">同一块重试 3 次仍失败</p>
+      <div class="gs-demo"><b>攻击趋势加载失败</b><small>请求编号 req-7f3a21c0</small><div style="display:flex;gap:8px"><a class="kc-btn sm" href="#">重试</a><a class="kc-btn sm" href="#">提交工单</a></div></div>
+      <ul class="gs-rule"><li>工单自动带页面地址和请求编号</li></ul></div>
+    <div class="gs-box"><h3>资源不存在</h3><p class="gs-when">实例已释放、链接过期</p>
+      <div class="gs-demo"><b>这个实例不存在或已释放</b><small>高防-005 已于 10-31 释放</small><a class="kc-btn sm" href="#">返回实例列表</a></div>
+      <ul class="gs-rule"><li>整页接口 5xx：页面顶部提示「服务暂时不可用，正在恢复」+ 重试，菜单照常</li></ul></div>
+  </div>
+
+  <h2><i>3</i>操作反馈</h2>
+  <div class="gs-row gs-c3">
+    <div class="gs-box"><h3>成功 / 失败</h3><p class="gs-when">单个操作</p>
+      <div class="gs-demo" style="gap:12px"><div class="gs-toast"><span class="d ok">✓</span><div>已续费 3 个实例<small>3 秒后自动消失</small></div></div><div class="gs-toast"><span class="d e">!</span><div>没能提交：该实例有待付款订单<small>先去付款，或取消那笔订单 · 不自动消失</small></div></div></div>
+      <ul class="gs-rule"><li>写结果，不写「操作成功」</li><li>失败写原因 + 下一步，每个错误码都有中文</li><li>提交中按钮 loading 并禁用，防重复提交</li></ul></div>
+    <div class="gs-box"><h3>批量操作部分失败</h3><p class="gs-when">批量续费、批量处置、批量安装</p>
+      <div class="gs-demo" style="align-items:stretch"><div class="gs-modal"><header>批量安装结果</header><div class="bd">成功 8 台，失败 2 台<table class="gs-tb"><thead><tr><th>主机</th><th>原因</th></tr></thead><tbody><tr><td>app-07</td><td>授权已用满</td></tr><tr><td>db-03</td><td>连不上安装源</td></tr></tbody></table></div><footer><a class="kc-btn sm" href="#">关闭</a><a class="kc-btn pri sm" href="#">重试失败项</a></footer></div></div></div>
+    <div class="gs-box"><h3>异步任务与危险操作</h3><p class="gs-when">重装、扫描、安装；删除、释放</p>
+      <div class="gs-demo"><b>已提交重装任务</b><small>进度在「操作记录」查看，完成后站内信通知</small></div>
+      <ul class="gs-rule"><li>异步任务立即返回「已提交」，不让用户等在弹窗里</li><li>危险操作二次确认写后果；不可恢复的要输入名称或验证码</li></ul></div>
+  </div>
+
+  <h2><i>4</i>登录与网络</h2>
+  <div class="gs-row gs-c3">
+    <div class="gs-box"><h3>登录过期</h3><p class="gs-when">任意请求返回未登录</p>
+      <div class="gs-demo" style="align-items:stretch"><div class="gs-modal"><header>登录已过期</header><div class="bd">重新登录后会回到当前页面，没提交的内容会保留。</div><footer><a class="kc-btn pri sm" href="#">重新登录</a></footer></div></div>
+      <ul class="gs-rule"><li>弹窗登录，不跳走</li></ul></div>
+    <div class="gs-box"><h3>在其他设备登录</h3><p class="gs-when">账号被挤下线</p>
+      <div class="gs-demo" style="align-items:stretch"><div class="gs-modal"><header>账号在其他设备登录</header><div class="bd">10-27 14:02 在 浙江温州 的设备登录。不是你本人？请立即修改密码。</div><footer><a class="kc-btn sm" href="#">修改密码</a><a class="kc-btn pri sm" href="#">重新登录</a></footer></div></div></div>
+    <div class="gs-box"><h3>网络断开</h3><p class="gs-when">浏览器离线</p>
+      <div class="gs-demo"><div class="gs-net">网络连接已断开，恢复后会自动刷新当前数据</div></div>
+      <ul class="gs-rule"><li>顶部条，恢复后自动消失并刷新当前卡片</li></ul></div>
+  </div>
+
+  <h2><i>5</i>没有权限</h2>
+  <div class="gs-row gs-c3">
+    <div class="gs-box"><h3>能看不能改</h3><p class="gs-when">普通成员、财务管理员看产品页</p>
+      <div class="gs-demo"><span class="gs-tip"><span>需要运维工程师或管理员权限</span><a class="kc-btn pri sm gs-dis" href="#" aria-disabled="true">添加转发规则</a></span></div>
+      <ul class="gs-rule"><li>按钮置灰，悬停写需要的角色</li><li>不隐藏，免得以为没有这个功能</li></ul></div>
+    <div class="gs-box"><h3>金额只读</h3><p class="gs-when">运维工程师看费用</p>
+      <div class="gs-demo"><b>¥3,999.00</b><span class="gs-tip"><span>需要财务管理员或管理员权限</span><a class="kc-btn sm gs-dis" href="#" aria-disabled="true">去付款</a></span></div>
+      <ul class="gs-rule"><li>金额照常显示，付款、开票、下单置灰</li></ul></div>
+    <div class="gs-box"><h3>整个产品 / 中心没有权限</h3><p class="gs-when">财务管理员打开产品配置</p>
+      <div class="gs-demo"><b>菜单里不显示</b><small>直接打开链接 → 「无权限」页：写需要的角色、管理员是谁、申请权限</small><a class="kc-btn sm" href="NoAccess.dc.html">看「无权限」页</a></div>
+      <ul class="gs-rule"><li>使用中权限被改：下次操作提示「你的权限已变更」并刷新</li></ul></div>
+  </div>
+  <p class="gs-note">角色和操作的对照以「企业 · 角色权限」为准；德迅安全卫士另有 卫士管理 / 安全运营 / 只读 三档。</p>
+
+  <h2><i>6</i>订阅到期（德迅安全卫士以外的包月 / 包年产品）</h2>
+  <div class="gs-life">
+    <div><em>到期前 30 天起</em><h4>即将到期 <span class="kc-tag warn">剩 N 天</span></h4><p>到期前 30 / 7 / 1 天站内信 + 短信，发主账号和该产品的运维工程师。可以续费、升配。</p></div>
+    <div><em>到期日 → 第 7 天</em><h4>已到期 <span class="kc-tag err">保留至 X</span></h4><p>只能续费，不能升配、不能改配置；服务降级（见下表）。续费核验到账后恢复；保留期内提交了汇款信息，顺延到核验结束，最多 5 个工作日。</p></div>
+    <div><em>保留期结束</em><h4>已释放 <span class="kc-tag mut">已释放</span></h4><p>资源回收、配置删除。列表保留 30 天只读记录后消失；要再用只能新购。</p></div>
+    <div><em>任何时候</em><h4>到期不续</h4><p>在「我的产品」卡片「更多」里打开，不再发续费提醒，可撤销；到期后照上面走。</p></div>
+  </div>
+  <table class="gs-big" style="margin-top:16px">
+    <thead><tr><th>产品</th><th>保留期内（到期后 7 天）</th><th>释放后</th></tr></thead>
+    <tbody>
+      <tr><td>DDoS 高防 IP</td><td>转发不断，防护降到基础防护（超出的攻击可能触发黑洞）；不能改转发规则</td><td>高防 IP 回收，业务需提前切回源站 IP</td></tr>
+      <tr><td>游戏盾</td><td>已接入的连接继续转发，防护降级；不能新增接入</td><td>接入配置删除</td></tr>
+      <tr><td>SCDN</td><td>前 3 天照常加速和防护，之后 CNAME 指回源站，网站不中断</td><td>域名配置删除，可重新添加</td></tr>
+      <tr><td>德迅云眼</td><td>停止新的监测任务，已有报告可以看</td><td>资产和报告保留 30 天后删除</td></tr>
+      <tr><td>服务器</td><td>到期停机，数据盘保留</td><td>释放，数据删除</td></tr>
+      <tr><td>SSL 证书</td><td colspan="2">证书按签发有效期失效，和订阅无关；到期前 30 天提醒重新签发</td></tr>
+      <tr><td>德迅安全卫士</td><td colspan="2">不用本规则：叫「宽限期」，7 天内检测照常、自动处置暂停，之后超出免费 3 台的主机停止检测（见卫士授权规则）</td></tr>
+    </tbody>
+  </table>
+  <p class="gs-note">「保留期」（服务降级或停止）和卫士的「宽限期」（服务照常）不能混用。各产品保留期内的具体表现待研发确认。</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3040}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
