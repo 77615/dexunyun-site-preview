@@ -939,14 +939,16 @@ class Component extends DCLogic {
     const upd = !!st.upd;
     const R = [
       { n: '高防-002', id: 'ddos-9c0b44', ip: '203.0.113.20', line: 'BGP 多线', spec: upd ? '保底 150 Gbps' : '保底 80 Gbps', spec2: '弹性至 300 Gbps', used: '域名 12/50 · 端口 18/100', bar: 'width: 24%', st: '清洗中 · 86 Gbps', sc: 'kc-tag err', exp: '2027-06-02', left: '剩 223 天', k: 'atk', lv: 'e', iss: '攻击峰值 86 Gbps，超过保底 80 Gbps', fix: '升级保底' },
-      { n: '高防-003', id: 'ddos-1e8d07', ip: '198.51.100.8', line: '电信 + 联通', spec: '保底 50 Gbps', spec2: '弹性未开启', used: '域名 2/10 · 端口 0/20', bar: 'width: 20%', st: '运行中', sc: 'kc-tag ok', exp: '2026-11-09', left: '剩 16 天', k: 'exp', lv: 'w', iss: '16 天后到期，到期后高防 IP 停止转发', fix: '续费' },
+      { n: '高防-003', id: 'ddos-1e8d07', ip: '198.51.100.8', line: '电信 + 联通', spec: '保底 50 Gbps', spec2: '弹性未开启', used: '域名 2/10 · 端口 0/20', bar: 'width: 20%', st: '运行中', sc: 'kc-tag ok', exp: '2026-11-09', left: '剩 16 天', k: 'exp', lv: 'w', iss: '16 天后到期；到期后保留 7 天，转发不断但防护降到基础防护，之后释放、高防 IP 回收', fix: '续费' },
+      /* ddos3: 保留期示例 */
+      { n: '高防-005', id: 'ddos-5b21e0', ip: '203.0.113.50', line: 'BGP 多线', spec: '保底 30 Gbps', spec2: '保留期内弹性不可用', used: '域名 3/10 · 端口 2/20', bar: 'width: 30%', st: '已到期 · 保留至 10-31', sc: 'kc-tag err', exp: '2026-10-24', left: '保留期剩 4 天', k: 'hold', lv: 'e', iss: '已到期：转发不断，防护已降到基础防护，不能改转发规则；10-31 后释放，高防 IP 回收，请续费或提前把业务切回源站', fix: '续费' },
       { n: '高防-004', id: 'ddos-4a2c90', ip: '203.0.113.40', line: 'BGP 多线', spec: '保底 100 Gbps', spec2: '弹性至 300 Gbps', used: '域名 0/20 · 端口 0/50', bar: 'width: 0%', st: '运行中', sc: 'kc-tag ok', exp: '2027-10-20', left: '剩 361 天', k: 'idle', lv: 'w', iss: '买了 4 天还没接入业务，流量没有经过高防', fix: '接入业务' },
       { n: '高防-001', id: 'ddos-7f3a21', ip: '203.0.113.10', line: 'BGP 多线', spec: '保底 100 Gbps', spec2: '弹性至 300 Gbps', used: '域名 6/20 · 端口 4/50', bar: 'width: 30%', st: '运行中', sc: 'kc-tag ok', exp: '2027-03-18', left: '剩 145 天', k: '', lv: '', iss: '', fix: '' }
     ];
     const all = R.map((r) => { const solved = r.k === 'atk' && upd; return Object.assign({}, r, { rc: r.k === 'atk' && !solved ? 'kc-row-hot' : '',
       hasIss: !!r.iss && !solved, ic: 'ln-iss ' + r.lv, hasFix: !!r.fix && !solved, k: solved ? '' : r.k,
       doFix: (e) => { ev(e); if (r.k === 'atk') this.setState({ upd: true }); } }); });
-    const F = [['全部', () => true], ['需处理', (r) => !!r.k], ['攻击中', (r) => r.st.indexOf('清洗') === 0], ['即将到期', (r) => r.k === 'exp'], ['未接入业务', (r) => r.k === 'idle']];
+    const F = [['全部', () => true], ['需处理', (r) => !!r.k], ['攻击中', (r) => r.st.indexOf('清洗') === 0], ['即将到期', (r) => r.k === 'exp'], ['已到期', (r) => r.k === 'hold'], ['未接入业务', (r) => r.k === 'idle']];
     const ft = st.ft || '全部';
     const ftabs = F.map(([n, fn]) => { const c = all.filter(fn).length; return { n, c, cc: n === '需处理' && c ? 'kc-cnt r' : 'kc-cnt', on: n === ft, cls: n === ft ? 'kc-tab on' : 'kc-tab', pick: () => this.setState({ ft: n }) }; });
     const rows = all.filter((F.find(([n]) => n === ft) || F[0])[1]);
