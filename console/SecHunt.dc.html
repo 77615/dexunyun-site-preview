@@ -1614,6 +1614,26 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
 .hu-nxs .hg-act:hover{border-color:#1664ff}
 .hu-nxs .hg-act em{font-style:normal;font-size:12px;color:#1664ff}
 .hu-nxs .hg-act.in em{color:#00a72a}
+
+/* fold-v2：折叠卡改为「叠放的一摞卡片」，实线、灰底，底部是明确的展开按钮 */
+.hg-world .hg-card.fold{background:#f7f8fa;outline:0;box-shadow:0 0 0 1px rgba(29,33,41,.1),3px 3px 0 -1px #fff,3px 3px 0 0 rgba(29,33,41,.1),6px 6px 0 -1px #fff,6px 6px 0 0 rgba(29,33,41,.08)}
+.hg-world .hg-card.fold:hover{background:#fff;box-shadow:0 0 0 1px #1664ff,3px 3px 0 -1px #fff,3px 3px 0 0 rgba(22,100,255,.35),6px 6px 0 -1px #fff,6px 6px 0 0 rgba(22,100,255,.2)}
+.hg-world .hg-card.fold .hg-tag{display:none}
+.hg-world .hg-card.fold .hg-hd b{font-weight:500;color:rgba(0,0,0,.75)}
+.hg-world .hg-card.fold .hg-mk{background:#e8ebf0;box-shadow:none;color:rgba(0,0,0,.55)}
+.hg-world .hg-card.fold .hg-sub{color:rgba(0,0,0,.45)}
+.hg-world .hg-card.fold .hg-well{justify-content:center;gap:4px;height:28px;margin:0 -12px;padding:0;border-top:1px solid rgba(29,33,41,.08);border-radius:0 0 8px 8px;background:none}
+.hg-world .hg-card.fold .hg-well code{flex:none;font:500 12px/16px inherit;font-family:inherit;color:#1664ff}
+.hg-world .hg-card.fold .hg-well::after{content:"";width:10px;height:10px;background:#1664ff;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.hg-world .hg-card.fold:hover .hg-well{background:#f0f5ff}
+/* 展开后的「收起」卡：单层、不叠放，箭头朝上 */
+.hg-world .hg-card.fold[aria-label^="收起"]{background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.1)}
+.hg-world .hg-card.fold[aria-label^="收起"]:hover{box-shadow:0 0 0 1px #1664ff}
+.hg-world .hg-card.fold[aria-label^="收起"] .hg-well::after{transform:rotate(180deg)}
+.hg-vp.lod .hg-card.fold .hg-well{display:none}
+/* fsdw-v1 全屏时节点详情为整高侧栏，压在底部面板之上 */
+.hg.fs .hg-dw{position:fixed;top:52px;right:0;bottom:0;z-index:8;border-left:1px solid #e5e6eb;box-shadow:-8px 0 24px rgba(29,33,41,.08)}
+.hg.fs:has(.hg-dw) .hg-mid,.hg.fs:has(.hg-dw) .hg-dock{margin-right:368px}
 </style>
 <style>
 /* hux: 缺省状态 */
@@ -3482,7 +3502,7 @@ class Component extends DCLogic {
         const chipCOf = (k) => 'hg-chip ' + (k ? CC : '');
         const gs = st.hgGs || '';
         ls.hg.nodes = V.map((o) => { const id = o.id; const mq = act ? (mtO(o) ? ' mt' + (id === curM ? ' cur' : '') : ' dm') : ''; const [x, y] = XY(id); const pos2 = 'left:' + x + 'px;top:' + y + 'px;width:' + CW + 'px;height:' + CH + 'px';
-          if (o.t === 'f') { const nm = o.names ? o.names.filter((v2, i2, a2) => a2.indexOf(v2) === i2) : []; return { n: o.close ? '收起 ' + o.n + ' 个无告警进程' : '+' + o.n + ' 个无告警进程', sub: o.close ? '只显示攻击路径' : nm.slice(0, 3).join('、') + (nm.length > 3 ? ' 等' : ''), tag: o.close ? '已展开' : '已折叠', w: o.close ? '点击收起' : '点击展开', r: '', rC: 'hg-r', chip: '', chipC: '', ic: 'hg-mk more', on: 'false', al: (o.close ? '收起' : '展开') + o.n + ' 个无告警进程',
+          if (o.t === 'f') { const nm = o.names ? o.names.filter((v2, i2, a2) => a2.indexOf(v2) === i2) : []; return { n: o.close ? '已展开 ' + o.n + ' 个进程' : o.n + ' 个无告警进程', sub: o.close ? '收起后只显示攻击路径' : nm.slice(0, 3).join('、') + (nm.length > 3 ? ' 等 ' + nm.length + ' 种' : ''), tag: '', w: o.close ? '收起' : '展开查看', r: '', rC: 'hg-r', chip: '', chipC: '', ic: 'hg-mk more', on: 'false', al: (o.close ? '收起' : '展开') + o.n + ' 个无告警进程',
               c: 'hg-card fold' + (fd(id) ? ' fd' : '') + mq, ns: (o.close ? '−' : '+') + o.n, st: pos2, t: ev(() => S({ hgEx: Object.assign({}, st.hgEx || {}, { [exK]: Object.assign({}, exM, { [o.fp]: !o.close }) }) })), he: () => {} }; }
           if (o.t === 'g') { const m = o.m; const p0 = PRC[m[0]]; const ak = m.reduce((a2, x2) => a2 + alOf(x2).length, 0); const al0 = m.map(alOf).find((a2) => a2.length); const pids = m.map((x2) => PRC[x2][1]); const on = gs === id || m.indexOf(selN) >= 0 && expl;
             const rep = m.find((x2) => alOf(x2).length) || m[0]; const ts2 = m.map((x2) => PRC[x2][7]).filter(Boolean).sort();
