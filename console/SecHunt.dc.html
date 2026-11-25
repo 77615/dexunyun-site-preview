@@ -1634,6 +1634,9 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
 /* fsdw-v1 全屏时节点详情为整高侧栏，压在底部面板之上 */
 .hg.fs .hg-dw{position:fixed;top:52px;right:0;bottom:0;z-index:8;border-left:1px solid #e5e6eb;box-shadow:-8px 0 24px rgba(29,33,41,.08)}
 .hg.fs:has(.hg-dw) .hg-mid,.hg.fs:has(.hg-dw) .hg-dock{margin-right:368px}
+/* tray-v1 命令行改为卡片底部通栏底托（左右与卡片对齐） */
+.hg-world .hg-card:not(.fold) .hg-well{margin:auto -12px 0;height:30px;padding:0 12px;border-radius:0 0 8px 8px;border-top:1px solid rgba(29,33,41,.06);background:#f7f8fa}
+.hg-world .hg-card.on:not(.fold) .hg-well{background:#f2f6ff;border-top-color:rgba(22,100,255,.12)}
 </style>
 <style>
 /* hux: 缺省状态 */
