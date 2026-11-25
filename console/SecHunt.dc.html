@@ -1500,6 +1500,68 @@ html:has(.hg.fs) .kc-top{visibility:hidden}
 .hg-mmn.dm{opacity:.4}
 .hg-mmv{fill:rgba(22,100,255,.08);stroke:#1664ff;stroke-width:1.5;vector-effect:non-scaling-stroke}
 .hg-row.grp .hg-trl b{font-weight:600}
+/* 进程树：缩进列表 + 时间列 */
+.hgt{display:flex;flex:1;flex-direction:column;min-width:0;min-height:0;background:#fff;container-type:inline-size}
+.hgt-bar{display:flex;align-items:center;gap:6px;flex:none;height:44px;padding:0 10px 0 2px;border-bottom:1px solid #f0f1f3;font-size:12px}
+.hgt-bar .hg-q{padding-left:12px}
+.hgt-sp{flex:1}
+.hgt-cnt{color:rgba(0,0,0,.55);white-space:nowrap}
+.hgt-bar .hg-mode{margin-left:4px}
+.hgt-fs{display:grid;place-items:center;width:28px;height:28px;margin-left:4px;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.55);cursor:pointer}
+.hgt-fs:hover{background:#f2f3f5;color:rgba(0,0,0,.88)}
+.hgt-hd,.hgt-r{display:grid;grid-template-columns:minmax(200px,1.1fr) minmax(0,1.3fr) 84px minmax(180px,1fr);align-items:center;column-gap:12px;padding-right:16px}
+.hgt-hd{flex:none;height:30px;background:#fafbfc;border-bottom:1px solid #f0f1f3;font-size:12px;color:rgba(0,0,0,.5)}
+.hgt-hd>span:first-child{padding-left:30px}
+.hgt-tl{position:relative;height:30px}
+.hgt-tl em{position:absolute;top:0;font-style:normal;font:11px/30px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.4);transform:translateX(-50%);white-space:nowrap}
+.hgt-tl em:first-child{transform:none}
+.hgt-tl em:last-child{transform:translateX(-100%)}
+.hgt-bd{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+.hgt-r{position:relative;height:34px;border-bottom:1px solid #f5f6f8;cursor:pointer;font-size:13px}
+.hgt-r:hover{background:#f7f8fa}
+.hgt-r.on{background:#e8f3ff}
+.hgt-r.on::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#1664ff}
+.hgt-nm{display:flex;align-items:center;gap:6px;min-width:0;height:34px;box-sizing:border-box;white-space:nowrap}
+.hgt-nm b{overflow:hidden;text-overflow:ellipsis;font-weight:600;color:rgba(0,0,0,.88)}
+.hgt-nm small{flex:none;font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.42)}
+.hgt-tw{display:grid;flex:none;place-items:center;width:18px;height:18px;margin-left:-24px;padding:0;border:0;border-radius:4px;background:none;color:rgba(0,0,0,.45);cursor:pointer}
+.hgt-tw:hover{background:#e5e6eb;color:rgba(0,0,0,.88)}
+.hgt-tw svg{transition:transform .16s}
+.hgt-tw.op svg{transform:rotate(90deg)}
+.hgt-cm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
+.hgt-al{display:flex;justify-content:flex-end}
+.hgt-trk{position:relative;height:34px}
+.hgt-trk .hg-gl{top:0;bottom:0}
+.hgt-ln{position:absolute;top:50%;height:2px;margin-top:-1px;border-radius:1px;background:#c9cdd4}
+.hgt-r.hot .hgt-ln{background:#fbaca3}
+.hg.done .hgt-r.hot .hgt-ln{background:#9fc0ff}
+.hgt .hg-pt span{display:none}
+.hgt .hg-pt{top:50%}
+.hgt-r.fold{color:rgba(0,0,0,.55)}
+.hgt-r.fold b{font-weight:400;color:#1664ff}
+.hgt-r.fold code.hgt-cm{font-family:inherit;color:rgba(0,0,0,.42)}
+.hgt-r.grp b::after{content:"";display:inline-block}
+.hgt-r.sub{background:#fbfcfd}
+.hgt-r.sub:hover{background:#f2f3f5}
+.hgt-r.dm{opacity:.38}
+.hgt-r.mt{background:#fff7e8}
+.hgt-r.mt.cur{box-shadow:inset 0 0 0 1.5px #ff7d00}
+
+.hgt{--ind:20px}
+.hgt-nm{padding-left:calc(30px + var(--d,0) * var(--ind))}
+.hgt-nm b{flex:none;max-width:60%}
+.hgt-nm small{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.hgt-bar .hg-mode button,.hgt-bar .hg-stb{white-space:nowrap}
+.hgt-tl em:nth-child(2),.hgt-tl em:nth-child(4){display:none}
+@container (max-width:760px){
+  .hgt{--ind:12px}
+  .hgt-hd,.hgt-r{grid-template-columns:minmax(0,1.3fr) 76px minmax(120px,1fr);column-gap:8px;padding-right:12px}
+  .hgt-cm,.hgt-cnt{display:none}
+  .hgt-tl em:nth-child(3){display:none}
+  .hgt-bar .hg-q input{width:120px}
+}
+.hgt-nm{overflow:hidden}
 
 .hg-mk.ip{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13 1L13.001 4.06201C16.6192 4.51365 19.4869 7.38163 19.9381 11L23 11V13L19.938 13.001C19.4864 16.6189 16.6189 19.4864 13.001 19.938L13 23H11L11 19.9381C7.38163 19.4869 4.51365 16.6192 4.06201 13.001L1 13V11L4.06189 11C4.51312 7.38129 7.38129 4.51312 11 4.06189L11 1H13ZM12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6ZM12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10Z"/%3E%3C/svg%3E')}
 .hg-mk.up{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12 12.5858L16.2426 16.8284L14.8284 18.2426L13 16.415V22H11V16.413L9.17157 18.2426L7.75736 16.8284L12 12.5858ZM12 2C15.5934 2 18.5544 4.70761 18.9541 8.19395C21.2858 8.83154 23 10.9656 23 13.5C23 16.3688 20.8036 18.7246 18.0006 18.9776L18.0009 16.9644C19.6966 16.7214 21 15.2629 21 13.5C21 11.567 19.433 10 17.5 10C17.2912 10 17.0867 10.0183 16.8887 10.054C16.9616 9.7142 17 9.36158 17 9C17 6.23858 14.7614 4 12 4C9.23858 4 7 6.23858 7 9C7 9.36158 7.03838 9.7142 7.11205 10.0533C6.91331 10.0183 6.70879 10 6.5 10C4.567 10 3 11.567 3 13.5C3 15.2003 4.21241 16.6174 5.81986 16.934L6.00005 16.9646L6.00039 18.9776C3.19696 18.7252 1 16.3692 1 13.5C1 10.9656 2.71424 8.83154 5.04648 8.19411C5.44561 4.70761 8.40661 2 12 2Z"/%3E%3C/svg%3E')}
@@ -1801,7 +1863,14 @@ html:has(.hg.fs) .kc-top{visibility:hidden}
               <div class="hg-seg" role="tablist"><sc-for list="{{ls.vtabs}}" as="t" hint-placeholder-count="2"><button type="button" role="tab" aria-selected="{{t.on}}" class="{{t.sc}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
               <div class="hg-ctl"><button type="button" class="kc-btn pri" onClick="{{ls.hg.planO}}">处置方案<sc-if value="{{ls.planN}}" hint-placeholder-val="{{true}}"><em class="hg-pn">{{ls.planN}}</em></sc-if></button><button type="button" class="kc-btn" onClick="{{ls.hg.fsT}}">退出全屏<kbd>Esc</kbd></button></div></div></sc-if>
             <div class="hg-mid">
-            <div class="hg-vp" data-w="{{ls.hg.W}}" data-h="{{ls.hg.H}}" data-sx="{{ls.hg.sx}}" data-sy="{{ls.hg.sy}}" data-o="{{ls.hg.o}}" data-rx="{{ls.hg.rx}}" data-ry="{{ls.hg.ry}}" style="{{ls.hg.bg}}">
+            <sc-if value="{{ls.hg.isT}}" hint-placeholder-val="{{false}}"><div class="hgt">
+              <div class="hgt-bar"><label class="hg-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input type="search" placeholder="搜索进程名 / PID / 命令" aria-label="搜索节点" value="{{ls.hg.q}}" onChange="{{ls.hg.onQ}}" onKeyDown="{{ls.hg.onQk}}"></label>
+                <span class="hg-sp"><button type="button" class="{{ls.hg.stC}}" onClick="{{ls.hg.spT}}" aria-haspopup="listbox">{{ls.hg.stN}}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><sc-if value="{{ls.hg.spOpen}}" hint-placeholder-val="{{false}}"><span class="hg-spl" role="listbox"><sc-for list="{{ls.hg.stgs}}" as="x" hint-placeholder-count="4"><button type="button" role="option" class="{{x.c}}" onClick="{{x.t}}"><span>{{x.n}}</span><em>{{x.k}}</em></button></sc-for></span></sc-if></span>
+                <sc-if value="{{ls.hg.qHas}}" hint-placeholder-val="{{false}}"><span class="hg-qn">{{ls.hg.qn}}</span><button type="button" class="hg-qi" aria-label="上一个" onClick="{{ls.hg.qPrev}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button><button type="button" class="hg-qi" aria-label="下一个" onClick="{{ls.hg.qNext}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><button type="button" class="hg-qx" onClick="{{ls.hg.qClr}}">清除</button></sc-if><span class="hgt-sp"></span><span class="hgt-cnt">{{ls.hg.cnt}}</span><sc-if value="{{ls.hg.canF}}" hint-placeholder-val="{{false}}"><span class="hg-mode" role="group" aria-label="显示范围"><sc-for list="{{ls.hg.modes}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.c}}" onClick="{{x.t}}">{{x.n}}</button></sc-for></span></sc-if><button type="button" class="hgt-fs" onClick="{{ls.hg.fsT}}" title="{{ls.hg.fsN}}" aria-label="{{ls.hg.fsN}}"><sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M15 4v4a1 1 0 0 0 1 1h4M9 20v-4a1 1 0 0 0-1-1H4M15 20v-4a1 1 0 0 1 1-1h4"></path></svg></sc-if><sc-if value="{{ls.hg.nfs}}" hint-placeholder-val="{{true}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path></svg></sc-if></button></div>
+              <div class="hgt-hd"><span>进程</span><span class="hgt-cm">命令行</span><span>告警</span><span class="hgt-tl"><sc-for list="{{ls.hg.ticks}}" as="x" hint-placeholder-count="5"><em style="{{x.st}}">{{x.t}}</em></sc-for></span></div>
+              <div class="hgt-bd" role="tree"><sc-for list="{{ls.hg.trs}}" as="r" hint-placeholder-count="8"><div class="{{r.c}}" data-id="{{r.id}}" role="treeitem" onClick="{{r.t}}" onMouseEnter="{{r.he}}" onMouseLeave="{{ls.hx}}"><span class="hgt-nm" style="{{r.ind}}"><sc-if value="{{r.tw}}" hint-placeholder-val="{{false}}"><button type="button" class="{{r.twc}}" aria-label="{{r.twL}}" title="{{r.twL}}" onClick="{{r.twT}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></sc-if><i class="{{r.ic}}" aria-hidden="true"></i><b>{{r.n}}</b><small>{{r.pid}}</small></span><code class="hgt-cm">{{r.cmd}}</code><span class="hgt-al"><sc-if value="{{r.chip}}" hint-placeholder-val="{{false}}"><span class="{{r.chipC}}"><i></i>{{r.chip}}</span></sc-if></span><span class="hgt-trk"><sc-for list="{{ls.hg.ticks}}" as="x" hint-placeholder-count="5"><i class="hg-gl" style="{{x.st}}"></i></sc-for><sc-if value="{{r.ln}}" hint-placeholder-val="{{false}}"><i class="hgt-ln" style="{{r.lst}}"></i></sc-if><sc-for list="{{r.pts}}" as="p" hint-placeholder-count="1"><button type="button" class="{{p.c}}" style="{{p.st}}" title="{{p.tt}}" onClick="{{p.t}}" onMouseEnter="{{p.he}}" onMouseLeave="{{ls.hx}}"><span>{{p.n}}</span></button></sc-for></span></div></sc-for></div>
+            </div></sc-if>
+            <sc-if value="{{ls.hg.notT}}" hint-placeholder-val="{{true}}"><div class="hg-vp" data-w="{{ls.hg.W}}" data-h="{{ls.hg.H}}" data-sx="{{ls.hg.sx}}" data-sy="{{ls.hg.sy}}" data-o="{{ls.hg.o}}" data-rx="{{ls.hg.rx}}" data-ry="{{ls.hg.ry}}" style="{{ls.hg.bg}}">
               <div class="hg-world" style="{{ls.hg.tf}}">
                 <svg class="hg-svg" width="{{ls.hg.W}}" height="{{ls.hg.H}}" aria-hidden="true"><sc-for list="{{ls.hg.edges}}" as="e" hint-placeholder-count="6"><g class="{{e.c}}"><path class="hg-l" d="{{e.d}}"></path><sc-if value="{{e.flow}}" hint-placeholder-val="{{false}}"><path class="hg-f f3" d="{{e.d}}" style="{{e.dl}}"></path><path class="hg-f f2" d="{{e.d}}" style="{{e.dl}}"></path><path class="hg-f f1" d="{{e.d}}" style="{{e.dl}}"></path></sc-if></g></sc-for></svg>
                 <sc-for list="{{ls.hg.nodes}}" as="n" hint-placeholder-count="6"><button type="button" class="{{n.c}}" data-id="{{n.id}}" style="{{n.st}}" aria-pressed="{{n.on}}" aria-label="{{n.al}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="hg-tag">{{n.tag}}</span><span class="hg-hd"><i class="{{n.ic}}" aria-hidden="true"></i><b data-s="{{n.ns}}">{{n.n}}</b><sc-if value="{{n.chip}}" hint-placeholder-val="{{false}}"><span class="{{n.chipC}}"><i></i>{{n.chip}}</span></sc-if></span><span class="hg-sub">{{n.sub}}</span><span class="hg-well"><code>{{n.w}}</code><em class="{{n.rC}}">{{n.r}}</em></span></button></sc-for>
@@ -1823,7 +1892,7 @@ html:has(.hg.fs) .kc-top{visibility:hidden}
                 <i class="hg-sep"></i>
                 <button type="button" onClick="{{ls.hg.fsT}}" data-tip="{{ls.hg.fsN}}" aria-label="{{ls.hg.fsN}}"><sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M15 4v4a1 1 0 0 0 1 1h4M9 20v-4a1 1 0 0 0-1-1H4M15 20v-4a1 1 0 0 1 1-1h4"></path></svg></sc-if><sc-if value="{{ls.hg.nfs}}" hint-placeholder-val="{{true}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path></svg></sc-if></button>
               </div>
-            </div>
+            </div></sc-if>
             <sc-if value="{{ls.hg.dw}}" hint-placeholder-val="{{false}}"><aside class="hg-dw" aria-label="节点详情"><div class="hg-dwh"><span class="hg-tag s">{{ls.nd.kind}}</span><button type="button" class="hg-x" aria-label="关闭" onClick="{{ls.hg.clr}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
               <div class="hg-dwt"><b>{{ls.nd.n}}</b><span class="{{ls.nd.stC}}">{{ls.nd.st}}</span></div><p class="hg-mono hg-dws">{{ls.nd.s}}</p>
               <dl class="hg-kv"><sc-for list="{{ls.nd.kv}}" as="x" hint-placeholder-count="4"><div><dt>{{x.k}}</dt><dd class="{{x.c}}">{{x.v}}</dd></div></sc-for></dl>
@@ -1899,7 +1968,9 @@ class Component extends DCLogic {
     if (a === 'fit') { this._hgSet(vp, this._hgFit(vp, true), 1); return; }
     if (a === 'loc') { this._hgSet(vp, { x: r.width / 2 - (+vp.dataset.sx) * v.z, y: (r.height - 12) / 2 - (+vp.dataset.sy) * v.z, z: v.z }, 1); return; }
     const z = a === 'one' ? 1 : Math.max(0.2, Math.min(1.6, v.z * (a === 'in' ? 1.2 : 1 / 1.2))); const cx = r.width / 2, cy = r.height / 2; this._hgSet(vp, { x: cx - (cx - v.x) * z / v.z, y: cy - (cy - v.y) * z / v.z, z }, 1); }
-  componentDidUpdate() { this._hgSync(); const vp = document.querySelector('.hg .hg-vp'); if (!vp) return; this._hgMm(vp, this._hgCur(vp));
+  componentDidUpdate() { this._hgSync(); const g0 = this._hgGo; const tb = document.querySelector('.hg .hgt-bd');
+    if (tb) { if (g0 && g0 !== this._hgGone) { this._hgGone = g0; const el = [...tb.querySelectorAll('.hgt-r')].find((c) => c.getAttribute('data-id') === g0); if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } if (!g0) this._hgGone = ''; return; }
+    const vp = document.querySelector('.hg .hg-vp'); if (!vp) return; this._hgMm(vp, this._hgCur(vp));
     const g = this._hgGo; if (g && g !== this._hgGone) { this._hgGone = g; const el = [...vp.querySelectorAll('.hg-card')].find((c) => c.getAttribute('data-id') === g); if (el) { const r = vp.getBoundingClientRect(); const v = this._hgCur(vp); const z = Math.max(v.z, 0.8); const cx = parseFloat(el.style.left) + el.offsetWidth / 2, cy = parseFloat(el.style.top) + el.offsetHeight / 2; this._hgSet(vp, { x: r.width / 2 - cx * z, y: r.height / 2 - cy * z, z }, 1); } }
     if (!g) this._hgGone = ''; }
   _hgMmGo(d, e) { const svg = d.svg, vp = d.vp; if (!svg || !vp) return; const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY; const w = pt.matrixTransform(svg.getScreenCTM().inverse()); const v = this._hgCur(vp); const r = vp.getBoundingClientRect(); this._hgSet(vp, { x: r.width / 2 - w.x * v.z, y: r.height / 2 - w.y * v.z, z: v.z }); }
@@ -3376,9 +3447,9 @@ class Component extends DCLogic {
         ls.hg.cnt = (isTree ? nP + ' 个进程' : rIds.length + ' 个节点') + ' · ' + nAl + ' 个有告警';
         ls.hg.canF = rIds.some((id) => !imp(id)); ls.hg.modes = [['仅攻击路径', false], ['显示全部', true]].map(([n, v2]) => ({ n, c: v2 === showAll ? 'on' : '', t: ev(() => S({ hgAll: v2, hgEx: Object.assign({}, st.hgEx || {}, { [exK]: {} }) })) }));
         // 底部面板
-        const dt = st.hgDt || '时间轴'; const open = !st.hgFold;
+        const dt = isTree ? '告警' : st.hgDt || '时间轴'; const open = !st.hgFold;
         ls.hg.open = open; ls.hg.foldN = open ? '收起面板' : '展开面板'; ls.hg.foldC = open ? '' : 'up'; ls.hg.foldT = ev(() => S({ hgFold: open }));
-        ls.hg.dtabs = [['时间轴', ''], ['告警', inc.al.length]].map(([n, k]) => ({ n, k, c: 'hg-dtb' + (n === dt ? ' on' : ''), on: n === dt ? 'true' : 'false', t: ev(() => S({ hgDt: n, hgFold: false })) }));
+        ls.hg.dtabs = (isTree ? [['告警', inc.al.length]] : [['时间轴', ''], ['告警', inc.al.length]]).map(([n, k]) => ({ n, k, c: 'hg-dtb' + (n === dt ? ' on' : ''), on: n === dt ? 'true' : 'false', t: ev(() => S({ hgDt: n, hgFold: false })) }));
         ls.hg.dTr = dt === '时间轴'; ls.hg.dAl = dt === '告警';
         const dh = this._hgDH || 200; ls.hg.dockSt = '--hg-dh:' + dh + 'px';
         const T0 = tsec(inc.first), T1 = Math.max(tsec(inc.last), T0 + 60); const span = T1 - T0; const pad = span * 0.04; const a0 = T0 - pad, a1 = T1 + pad;
@@ -3402,6 +3473,32 @@ class Component extends DCLogic {
           ls.hg.rows.push({ n: g.nm + ' ×' + g.ids.length, s: op ? '收起' : '展开', ic: 'hg-mk sm proc', c: 'hg-row grp' + (op ? ' on' : ''),
             t: ev(() => S({ hgRo: Object.assign({}, st.hgRo || {}, { [exK]: Object.assign({}, tro, { [g.nm]: !op }) }), hgGs: op ? '' : gs })), bar: false, bc: '', bst: '', pts });
           (op ? g.ids : hot).forEach((x2) => ls.hg.rows.push(rowOf2(x2, ' sub'))); });
+        /* 进程树 = 缩进列表 + 时间列 */
+        ls.hg.isT = isTree; ls.hg.notT = !isTree; ls.hg.trs = [];
+        if (isTree) { const co = (st.hgCo || {})[exK] || {}; const go = (st.hgGo || {})[exK] || {}; const depO = {};
+          const dep = (id) => depO[id] !== undefined ? depO[id] : (depO[id] = VM[id].par ? dep(VM[id].par) + 1 : 0);
+          const hidA = (id) => { let p = VM[id].par; while (p) { if (co[p]) return true; p = VM[p].par; } return false; };
+          const stp = (k, id) => (e) => { if (e) { e.stopPropagation(); e.preventDefault(); } const m0 = k === 'co' ? co : go; S({ [k === 'co' ? 'hgCo' : 'hgGo']: Object.assign({}, st[k === 'co' ? 'hgCo' : 'hgGo'] || {}, { [exK]: Object.assign({}, m0, { [id]: !m0[id] }) }) }); };
+          const inR = (t) => t >= a0 && t <= a1;
+          const tk = (ids2) => { const pts = []; let t0 = Infinity, t1 = -Infinity; ids2.forEach((x2) => { const p = PRC[x2]; if (p && p[7] && inR(tsec(p[7]))) { const t = tsec(p[7]); t0 = Math.min(t0, t); t1 = Math.max(t1, t); pts.push({ n: '', tt: p[7] + ' · ' + p[0] + ' 启动（PID ' + p[1] + '）', st: 'left:' + L(t), c: 'hg-pt s', he: () => {}, t: ev(() => S({ huN: x2 })) }); }
+              alOf(x2).forEach((y) => { const t = tsec(y[1]); t0 = Math.min(t0, t); t1 = Math.max(t1, t); pts.push(ptOf(x2, y)); }); });
+            return { pts, ln: t1 > t0, lst: t1 > t0 ? 'left:' + L(t0) + ';width:calc(' + L(t1) + ' - ' + L(t0) + ')' : '' }; };
+          const chip = (k) => k ? { chip: k + ' 条告警', chipC: 'hg-chip ' + CC } : { chip: '', chipC: '' };
+          const row = (o) => Object.assign({ tw: false, twc: '', twT: () => {}, twL: '', cmd: '', pid: '', ic: 'hg-mk sm proc', he: () => {}, chip: '', chipC: '', pts: [], ln: false, lst: '' }, o);
+          const push = (r) => ls.hg.trs.push(row(r));
+          V.forEach((o) => { const id = o.id; if (hidA(id)) return; const d = dep(id); const ind = '--d:' + d;
+            const mq = act ? (mtO(o) ? ' mt' + (id === curM ? ' cur' : '') : ' dm') : '';
+            if (o.t === 'f') { const nm = o.names ? o.names.filter((v2, i2, a2) => a2.indexOf(v2) === i2) : [];
+              push({ id, n: o.close ? '收起 ' + o.n + ' 个无告警进程' : '+' + o.n + ' 个无告警进程', cmd: o.close ? '' : nm.slice(0, 4).join('、') + (nm.length > 4 ? ' 等' : ''), ic: 'hg-mk sm more', c: 'hgt-r fold' + mq, ind,
+                t: ev(() => S({ hgEx: Object.assign({}, st.hgEx || {}, { [exK]: Object.assign({}, exM, { [o.fp]: !o.close }) }) })) }); return; }
+            if (o.t === 'g') { const m = o.m; const op = !!go[id]; const pids = m.map((x2) => PRC[x2][1]); const ak = m.reduce((a2, x2) => a2 + alOf(x2).length, 0); const rep = m.find((x2) => alOf(x2).length) || m[0];
+              push(Object.assign({ id, n: o.nm + ' ×' + m.length, pid: 'PID ' + Math.min.apply(null, pids) + '–' + Math.max.apply(null, pids), cmd: PRC[m[0]][4], c: 'hgt-r grp' + (m.indexOf(selN) >= 0 && !op ? ' on' : '') + mq, ind,
+                tw: true, twc: 'hgt-tw' + (op ? ' op' : ''), twT: stp('go', id), twL: op ? '收起' : '展开 ' + m.length + ' 个进程', t: stp('go', id), he: HV('n:' + rep) }, chip(ak), tk(m)));
+              if (op) m.forEach((x2) => { const p = PRC[x2]; push(Object.assign({ id: x2, n: p[0], pid: 'PID ' + p[1], cmd: p[4], c: 'hgt-r sub' + (x2 === selN ? ' on' : '') + (act ? (mOne(x2) ? ' mt' : ' dm') : ''), ind: '--d:' + (d + 1), t: sel(x2), he: HV('n:' + x2) }, chip(alOf(x2).length), tk([x2]))); });
+              return; }
+            const p = PRC[id]; const hk = (kids[id] || []).length > 0; const cl = !!co[id];
+            push(Object.assign({ id, n: p[0], pid: 'PID ' + p[1], cmd: p[4], c: 'hgt-r' + (id === selN ? ' on' : '') + (alOf(id).length ? ' hot' : '') + mq, ind, t: sel(id), he: HV('n:' + id),
+              tw: hk, twc: 'hgt-tw' + (cl ? '' : ' op'), twT: stp('co', id), twL: cl ? '展开子进程' : '收起子进程' }, chip(alOf(id).length), tk([id]))); }); }
         ls.hg.planO = (e) => { this.setState({ hgFs: false }); if (ls.planO) ls.planO(e); };
         ls.vtabs.forEach((t) => { t.sc = t.on ? 'on' : ''; });
         ls.nx.forEach((x) => { x.dc = 'hg-act' + (x.c ? ' in' : ''); });
