@@ -1631,6 +1631,9 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
 .hg-world .hg-card.fold[aria-label^="收起"]:hover{box-shadow:0 0 0 1px #1664ff}
 .hg-world .hg-card.fold[aria-label^="收起"] .hg-well::after{transform:rotate(180deg)}
 .hg-vp.lod .hg-card.fold .hg-well{display:none}
+/* fsdw-v1 全屏时节点详情为整高侧栏，压在底部面板之上 */
+.hg.fs .hg-dw{position:fixed;top:52px;right:0;bottom:0;z-index:8;border-left:1px solid #e5e6eb;box-shadow:-8px 0 24px rgba(29,33,41,.08)}
+.hg.fs:has(.hg-dw) .hg-mid,.hg.fs:has(.hg-dw) .hg-dock{margin-right:368px}
 </style>
 <style>
 /* hux: 缺省状态 */
