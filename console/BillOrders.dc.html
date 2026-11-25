@@ -143,6 +143,8 @@
 .kc-top .tp-pp{top:100%!important}
 .kc-top .tp-dim{top:50px!important}
 .lf-mine{display:inline-flex;align-items:center;gap:6px;height:20px;margin-left:16px;padding-left:16px;border-left:1px solid #e5e6eb;align-self:center;font-size:13px;color:rgba(0,0,0,.7);cursor:pointer;white-space:nowrap}.lf-mine input{margin:0;width:14px;height:14px;accent-color:#1664ff}
+
+/* g15-v1 */
 </style>
 </helmet>
 <div class="kc ux-wrap ctr">
@@ -859,7 +861,7 @@ class Component extends DCLogic {
     const ROW = (cells, ops, k, extra) => Object.assign({ c: cells.map(C), ops: (ops || []).map(O), k: k || '', rc: '' }, extra || {});
 
     const R = [
-      [[{ t: 'DX20261101001', a: 'BillOrderDetail.dc.html' }, { t: 'DDoS 高防 IP', s: '高防-002 · 10 月弹性防护账单' }, { t: '用量账单', tag: 'warn' }, '系统', '2026-11-01 00:05', { t: '待付款', tag: 'warn' }, { t: '¥385.00', c: 'ac-n' }], [['去付款', 'BillPayment.dc.html']], 'unpaid'],
+      [[{ t: 'DX20261101001', a: 'BillOrderDetail.dc.html' }, { t: 'DDoS 高防 IP', s: '高防-002 · 10 月弹性防护账单' }, { t: '用量账单', tag: 'warn' }, '系统', '2026-11-01 00:05', { t: '已逾期 3 天', tag: 'err', s: '截止 11-15 · 逾期 7 天起限制新购' }, { t: '¥385.00', c: 'ac-n' }], [['去付款', 'BillPayment.dc.html']], 'unpaid'],
       [[{ t: 'DX20261024001', a: 'BillOrderDetail.dc.html' }, { t: '服务器租用', s: 'web-prod-01 · 续费 3 个月' }, { t: '续费', tag: 'mut' }, 'wangqi（主账号）', '2026-10-24 10:12', { t: '核验未匹配', tag: 'err' }, { t: '¥240.00', c: 'ac-n' }], [['补充信息', 'BillPayFix.dc.html']], 'unpaid'],
       [[{ t: 'DX20261022002', a: 'BillOrderDetail.dc.html' }, { t: '游戏盾', s: '游戏盾-001 · 专业版续费' }, { t: '续费', tag: 'mut' }, '张三（运维工程师）', '2026-10-22 15:40', { t: '待付款', tag: 'warn' }, { t: '¥320.00', c: 'ac-n' }], [['去付款', 'BillPayment.dc.html'], ['取消']], 'unpaid'],
       [[{ t: 'DX20261021011', a: 'BillOrderDetail.dc.html' }, { t: '云备份', s: 'backup-cloud-01 · 续费 1 年' }, { t: '续费', tag: 'mut' }, 'wangqi（主账号）', '2026-10-21 16:30', { t: '付款核验中 · 已超 2 个工作日', tag: 'warn' }, { t: '¥4,200.00', c: 'ac-n' }], [['付款记录', 'BillPayment.dc.html'], ['联系客服', 'SupTicketNew.dc.html?ty=%E8%B4%A2%E5%8A%A1%E9%97%AE%E9%A2%98&order=DX20261021011']], 'verify'],
