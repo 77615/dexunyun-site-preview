@@ -3017,7 +3017,7 @@ class Component extends DCLogic {
           W = wx + PAD; H = y - GY - TAG + PAD; }
         const XY = (id) => P[id];
         const hasAl = {}; const sub = (id) => { if (hasAl[id] !== undefined) return hasAl[id]; hasAl[id] = alOf(id).length > 0 || (kids[id] || []).some(sub); return hasAl[id]; }; ids.forEach(sub);
-        const expl = !!st.huN && st.huN === selN;
+        const expl = !!st.huN && st.huN === selN && ids.indexOf(selN) >= 0;
         const keep = new Set(); if (expl) { const dn = (id) => { keep.add(id); (kids[id] || []).forEach(dn); }; dn(selN); }
         const fd = (id) => expl && !keep.has(id);
         const sel = (id) => ev(() => S({ huN: st.huN === id ? '' : id, huNo: false, huAll: 0 }));
@@ -3066,7 +3066,7 @@ class Component extends DCLogic {
         const L = (t) => ((t - a0) / (a1 - a0) * 100).toFixed(2) + '%';
         const fmt = (t) => { const h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s2 = Math.floor(t % 60); return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s2).padStart(2, '0'); };
         ls.hg.ticks = [0, 1, 2, 3, 4].map((i) => { const t = T0 + span * i / 4; return { t: fmt(t), st: 'left:' + L(t) }; });
-        const dur = span >= 3600 ? Math.floor(span / 3600) + ' 小时 ' + Math.round(span % 3600 / 60) + ' 分' : Math.floor(span / 60) + ' 分 ' + (span % 60) + ' 秒';
+        const rs = Math.max(0, tsec(inc.last) - T0); const dur = rs >= 3600 ? Math.floor(rs / 3600) + ' 小时 ' + Math.round(rs % 3600 / 60) + ' 分' : rs >= 60 ? Math.floor(rs / 60) + ' 分 ' + (rs % 60) + ' 秒' : rs + ' 秒';
         ls.hg.axL = isTree ? '进程' : '节点';
         ls.hg.nums = [['告警', inc.al.length + ' 条'], ['涉及进程', procs.length + ' 个'], ['持续', dur], ['状态', s0]].map(([k, v2]) => ({ k, v: v2 }));
         ls.hg.rows = ids.map((id) => { const d = ND(id); const al = alOf(id); const ts = al.map((y) => tsec(y[1]));
