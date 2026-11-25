@@ -890,7 +890,7 @@ button.tw-s.on{background:#f0f5ff;box-shadow:inset 0 -2px 0 #1664ff}
 .tw-hit{display:grid;grid-template-columns:var(--twn) minmax(0,1fr);column-gap:12px;width:100%;height:100%;padding:0 20px 0 0;border:0;background:none;font:inherit;text-align:left;color:inherit;cursor:pointer}
 .tw-hit:focus-visible{outline:2px solid rgba(22,100,255,.7);outline-offset:-2px}
 .tw-nm{display:flex;align-items:center;gap:6px;min-width:0;padding-left:16px}
-.tw-gd{position:relative;flex:none;align-self:stretch;background:repeating-linear-gradient(90deg,transparent 0 7.5px,rgba(0,0,0,.09) 7.5px 8.5px,transparent 8.5px 16px)}
+.tw-gd{position:relative;flex:none;align-self:stretch;background:repeating-linear-gradient(90deg,transparent 0 7.5px,rgba(0,0,0,.06) 7.5px 8.5px,transparent 8.5px 16px)}
 .tw-chv{position:absolute;top:6px;z-index:2;display:grid;place-items:center;width:16px;height:20px;padding:0;border:0;border-radius:3px;background:none;color:rgba(0,0,0,.45);cursor:pointer}
 .tw-chv:hover{background:#f2f3f5;color:rgba(0,0,0,.85)}
 .tw-chv svg{transition:transform .24s cubic-bezier(.32,.72,.24,1)}
@@ -969,7 +969,7 @@ button.tw-s.on{background:#f0f5ff;box-shadow:inset 0 -2px 0 #1664ff}
 
 /* —— 进程树打磨 —— */
 .tw-gd{margin-right:12px}
-.tw-gd.e::after{content:"";position:absolute;top:50%;right:-6px;width:14px;height:1px;background:rgba(0,0,0,.12)}
+.tw-gd.e::after{content:"";position:absolute;top:50%;right:-6px;width:14px;height:1px;background:rgba(0,0,0,.08)}
 .tw-row.par .tw-gd.e::after{width:6px;right:2px}
 .tw-ic{position:relative;flex:none;display:grid;place-items:center;width:20px;height:20px;margin-right:2px;border-radius:5px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06)}
 .tw-ic i{width:8px;height:8px;border-radius:2px;background:#c9cdd4}
@@ -982,10 +982,9 @@ button.tw-s.on{background:#f0f5ff;box-shadow:inset 0 -2px 0 #1664ff}
 .tw-al{height:18px;padding:0 5px;background:rgba(245,63,63,.08);line-height:18px}
 .tw-row.on{box-shadow:inset 2px 0 0 #1664ff}
 .tw-chv{left:auto}
-/* 选中链路：引导线变蓝并有流光自上而下流动 */
-.tw-row.ln .tw-gd{background:repeating-linear-gradient(90deg,transparent 0 7.5px,rgba(22,100,255,.5) 7.5px 8.5px,transparent 8.5px 16px)}
-.tw-row.ln .tw-gd.e::after{background:rgba(22,100,255,.5)}
-.tw-row.ln .tw-gd::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0 30%,#1664ff 50%,transparent 70% 100%) 0 0/100% 300%;-webkit-mask:repeating-linear-gradient(90deg,transparent 0 7px,#000 7px 9px,transparent 9px 16px);mask:repeating-linear-gradient(90deg,transparent 0 7px,#000 7px 9px,transparent 9px 16px);animation:tw-flowy 1.6s linear infinite}
+/* 选中链路：引导线只略微加深，不做动画 */
+.tw-row.ln .tw-gd{background:repeating-linear-gradient(90deg,transparent 0 7.5px,rgba(22,100,255,.22) 7.5px 8.5px,transparent 8.5px 16px)}
+.tw-row.ln .tw-gd.e::after{background:rgba(22,100,255,.22)}
 /* 运行中的进程条：流光扫过 + 前沿呼吸 */
 .tw-b{overflow:hidden}
 .tw-b.run::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent) -80px 0/80px 100% no-repeat;animation:tw-sweep 2.4s linear infinite}
