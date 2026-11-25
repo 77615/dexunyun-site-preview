@@ -229,6 +229,8 @@
 /* gap-v1 产品与服务弹窗贴住顶栏 */
 .kc-top .tp-pp{top:100%!important}
 .kc-top .tp-dim{top:50px!important}
+
+/* g15-v1 */
 </style>
 </helmet>
 <div class="kc ux-wrap ctr">
@@ -326,13 +328,13 @@
           </li></sc-for></ul>
         </div>
       </section>
-      <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-hist"></i>登录记录</h2><a href="#">查看全部</a></div>
+      <section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-shield"></i>在线会话</h2><a href="#">全部踢下线</a></div><div class="kc-tw"><table class="kc-t"><thead><tr><th>设备</th><th>地点</th><th>IP</th><th>登录时间</th><th>最近活动</th><th>操作</th></tr></thead><tbody><tr><td>Chrome / Windows <span class="kc-tag ok">本机</span></td><td>浙江 温州</td><td>60.12.**.**</td><td>2026-10-27 09:12</td><td>刚刚</td><td><span class="kc-sub">当前设备</span></td></tr><tr><td>Chrome / macOS</td><td>浙江 杭州</td><td>115.236.**.**</td><td>2026-10-24 22:40</td><td>2 天前</td><td><a href="#">踢下线</a></td></tr><tr><td>德迅云 App / iOS</td><td>浙江 温州</td><td>223.104.**.**</td><td>2026-10-20 12:03</td><td>5 天前</td><td><a href="#">踢下线</a></td></tr></tbody></table></div><p class="kc-hint" style="margin:8px 0 0">修改密码后，其他设备会自动下线。</p></section><section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-hist"></i>登录记录</h2><a href="#">查看全部</a></div>
         <div class="kc-tw"><table class="kc-t"><thead><tr><th>登录时间</th><th>账号</th><th>方式</th><th>IP</th><th>地点</th><th>设备</th><th>结果</th></tr></thead><tbody>
           <tr><td>2026-10-27 09:12</td><td>wangqi</td><td>密码</td><td>60.12.**.**</td><td>浙江 温州</td><td>Chrome / Windows</td><td><span class="kc-tag ok">成功</span> <span class="kc-sub">本机</span></td></tr>
           <tr><td>2026-10-24 22:40</td><td>wangqi</td><td>微信扫码</td><td>115.236.**.**</td><td>浙江 杭州</td><td>Chrome / macOS</td><td><span class="kc-tag warn">异地登录</span></td></tr>
           <tr><td>2026-10-24 22:38</td><td>wangqi</td><td>密码</td><td>115.236.**.**</td><td>浙江 杭州</td><td>Chrome / macOS</td><td><span class="kc-tag err">密码错误</span></td></tr>
           <tr><td>2026-10-23 08:55</td><td>wangqi</td><td>密码</td><td>60.12.**.**</td><td>浙江 温州</td><td>Chrome / Windows</td><td><span class="kc-tag ok">成功</span></td></tr>
-        </tbody></table></div></section>
+        </tbody></table></div></section><section class="kc-card" style="margin-top:16px"><div class="kc-ch"><h2><i class="fi-i fi-hist"></i>注销账号</h2></div><div class="kc-cb" style="display:flex;align-items:center;gap:16px"><p class="kc-hint" style="margin:0;flex:1">注销后个人信息和资源配置会被删除且无法恢复，交易和发票记录按财税要求保留。只有主账号负责人可以注销；其他成员可以退出企业。</p><a class="kc-btn" href="OrgCloseAccount.dc.html">注销账号</a></div></section>
     </div></div></main>
   </div>
   <sc-if value="{{dPw}}" hint-placeholder-val="{{false}}">
