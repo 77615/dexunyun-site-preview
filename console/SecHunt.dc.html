@@ -1607,6 +1607,13 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
 .hu-recs{margin:0 20px 12px;padding:10px 14px;border-radius:6px;background:#f7f8fa}
 .hu-recs .hu-st{margin-bottom:4px}
 .hu-recs .hu-rec{padding:4px 0}
+.hu-rf2{flex:none}
+.hu-rf2 .hu-st small{margin-left:6px;font-size:12px;font-weight:400;color:rgba(0,0,0,.45)}
+.hu-nxs{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.hu-nxs .hg-act{display:flex;align-items:center;justify-content:space-between;height:32px;padding:0 10px;border:1px solid #e5e6eb;border-radius:4px;background:#fff;font:inherit;font-size:13px;color:rgba(0,0,0,.85);cursor:pointer}
+.hu-nxs .hg-act:hover{border-color:#1664ff}
+.hu-nxs .hg-act em{font-style:normal;font-size:12px;color:#1664ff}
+.hu-nxs .hg-act.in em{color:#00a72a}
 </style>
 <style>
 /* hux: 缺省状态 */
@@ -1962,7 +1969,7 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
             <sc-if value="{{ls.nd.canPi}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-pi" onClick="{{ls.nd.piGo}}">在主机详情中查看进程调查<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></sc-if>
             <div class="hu-sec"><div class="hu-st"><b>关键证据</b><span>{{ls.keyN}}</span></div><sc-for list="{{ls.keys}}" as="k" hint-placeholder-count="1"><div class="hu-ev"><div><b>{{k.n}}</b><time>{{k.tm}}</time></div><code>{{k.d}}</code></div></sc-for><sc-if value="{{ls.keyNone}}" hint-placeholder-val="{{false}}"><p class="hu-none">这个节点没有直接告警，是攻击链上的关联证据</p></sc-if></div>
             <div class="hu-sec"><div class="hu-st"><b>关联告警</b><span>{{ls.relN}}</span><sc-if value="{{ls.relMoreOn}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{ls.relAll}}">{{ls.relAllN}}</a></sc-if></div><sc-for list="{{ls.rel}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" onClick="{{r.t}}" onMouseEnter="{{r.he}}" onMouseLeave="{{ls.hx}}"><b>{{r.n}}</b><small>{{r.stg}} · {{r.st}}</small></button></sc-for></div></div>
-          </section>
+          <div class="hu-rf hu-rf2"><sc-if value="{{ls.nxHas}}" hint-placeholder-val="{{true}}"><div class="hu-st"><b>处置这个节点</b><small>加入方案，统一确认后执行</small></div><div class="hu-nxs"><sc-for list="{{ls.nx}}" as="x" hint-placeholder-count="3"><button type="button" class="{{x.dc}}" onClick="{{x.t}}"><span>{{x.n}}</span><em>{{x.e}}</em></button></sc-for></div></sc-if><button type="button" class="kc-btn pri hu-pb" onClick="{{ls.planO}}">查看处置方案<sc-if value="{{ls.planN}}" hint-placeholder-val="{{true}}"><em class="hu-bn">{{ls.planN}}</em></sc-if></button></div></section>
       </div>
       <sc-if value="{{ls.planOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.planX}}"></div><aside class="sh-dw sh-fx hu-dw" role="dialog" aria-modal="true" aria-label="处置方案"><header><div class="hu-dwt"><h3>处置方案</h3><small>{{ls.inc.id}} · {{ls.inc.n}}</small></div><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.planX}}">×</button></header>
         <div class="sh-dwb"><div class="kai-box sm hu-plan-ai"><div class="kai-hd"><i class="kai-ic sm" aria-hidden="true"></i><b>AI 处置建议</b></div><p class="kai-tx">{{ls.plan.ai}}</p></div>
@@ -3594,7 +3601,7 @@ class Component extends DCLogic {
         const rOpen = !!st.huN && !st.hgFs; ls.layC = (ls.layC || 'hu-lay') + (pin0 ? '' : ' rc' + (rOpen ? ' ro' : ''));
         ls.rPinA = pin0 ? 'true' : 'false'; ls.rPinN = pin0 ? '取消固定（改为点击节点时滑出）' : '固定在右侧'; ls.rPinC = 'hu-rpin' + (pin0 ? ' on' : ''); ls.rCanX = !pin0;
         ls.rPinT = ev(() => { const v = !pin0; try { localStorage.setItem('dxHuPin', v ? '1' : '0'); } catch (e) {} S({ huPin: v }); });
-        ls.rX = ev(() => S({ huN: '' })); ls.recHas = !ls.recNone; }
+        ls.rX = ev(() => S({ huN: '' })); ls.recHas = !ls.recNone; (ls.nx || []).forEach((x) => { x.dc = 'hg-act' + (x.c ? ' in' : ''); }); }
       return out;
     }
     if (PGN === 'SecHostDetail') {
