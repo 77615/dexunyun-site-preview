@@ -1593,6 +1593,20 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
 .hg-mk.proc{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM4 5V19H20V5H4ZM12 15H18V17H12V15ZM8.66685 12L5.83842 9.17157L7.25264 7.75736L11.4953 12L7.25264 16.2426L5.83842 14.8284L8.66685 12Z"/%3E%3C/svg%3E')}
 .hg-mk.file{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M15 4H5V20H19V8H15V4ZM3 2.9918C3 2.44405 3.44749 2 3.9985 2H16L20.9997 7L21 20.9925C21 21.5489 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"/%3E%3C/svg%3E')}
 .hg-mk.more{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"/%3E%3C/svg%3E')}
+/* 右栏抽屉 */
+.hu-lay{position:relative}
+.hu-lay.rc,.sl .hu-lay.rc{grid-template-columns:208px minmax(0,1fr)}
+.hu-lay.rc.qc,.sl .hu-lay.rc.qc{grid-template-columns:48px minmax(0,1fr)}
+.hu-lay.rc>.hu-r{position:absolute;top:0;right:0;bottom:0;width:320px;z-index:40;box-shadow:0 0 0 1px rgba(29,33,41,.06),-12px 0 32px rgba(29,33,41,.14);opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .2s,transform .24s cubic-bezier(.2,.8,.2,1),visibility 0s .24s}
+.hu-lay.rc.ro>.hu-r{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .24s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.hu-rpin,.hu-rx{display:grid;flex:none;place-items:center;width:26px;height:26px;padding:0;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.5);cursor:pointer}
+.hu-rpin:hover,.hu-rx:hover{background:#f2f3f5;color:rgba(0,0,0,.88)}
+.hu-rpin.on{color:#1664ff;background:#e8f3ff}
+.hu-rpin.on svg path{fill:currentColor}
+.hu-rh .hu-rpin{margin-left:4px}
+.hu-recs{margin:0 20px 12px;padding:10px 14px;border-radius:6px;background:#f7f8fa}
+.hu-recs .hu-st{margin-bottom:4px}
+.hu-recs .hu-rec{padding:4px 0}
 </style>
 <style>
 /* hux: 缺省状态 */
@@ -1881,6 +1895,7 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
                 <div class="hu-asec"><h4>建议继续调查</h4><ul class="hu-nxl"><sc-for list="{{ls.ai.next}}" as="x" hint-placeholder-count="3"><li>{{x.t}}</li></sc-for></ul></div>
                 <p class="hu-asg">处置建议：{{ls.plan.ai}}可在<a href="#" onClick="{{ls.planO}}">「处置方案」</a>中执行。</p></sc-if>
               <a href="#" class="hu-aim" onClick="{{ls.aiT}}">{{ls.aiTN}}<i class="{{ls.aiC}}" aria-hidden="true"></i></a></div><div class="kai-ft"><span>由 AI 根据关联告警和主机行为研判，结论仅供参考</span><span class="kai-fb"><button type="button" aria-label="有帮助" title="有帮助" onClick="{{ls.aiUp}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助" title="没帮助" onClick="{{ls.aiDn}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></div></div>
+          <sc-if value="{{ls.recHas}}" hint-placeholder-val="{{false}}"><div class="hu-recs"><div class="hu-st"><b>处置记录</b></div><sc-for list="{{ls.recs}}" as="r" hint-placeholder-count="1"><div class="hu-rec"><i class="{{r.c}}"></i><span>{{r.n}}<sc-if value="{{r.hasWhy}}" hint-placeholder-val="{{false}}"><small class="{{r.wc}}">{{r.why}}</small></sc-if></span><time>{{r.tm}}</time><sc-if value="{{r.re}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-rr" onClick="{{r.reGo}}">{{r.reN}}</a></sc-if></div></sc-for></div></sc-if>
           <div class="kc-tabs hu-tabs" role="tablist"><sc-for list="{{ls.vtabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for><span class="hu-tip">{{ls.tip}}</span></div>
           <div class="{{ls.hg.c}}" data-k="{{ls.hg.k}}" style="{{ls.hg.dockSt}}">
             <sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><div class="hg-top"><div class="hg-path"><span>威胁调查</span><i>/</i><b>{{ls.inc.id}} · {{ls.inc.n}}</b><i>/</i><span class="hg-mono">{{ls.inc.host}}</span><span class="{{ls.inc.stC}}">{{ls.inc.st}}</span></div>
@@ -1937,18 +1952,17 @@ code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
               </div></sc-if></div>
           </div>
         </section>
-        <section class="kc-card hu-r" aria-label="节点详情与证据"><div class="hu-rh"><b>节点详情与证据</b><sc-if value="{{ls.nd.hasSt}}" hint-placeholder-val="{{true}}"><span class="{{ls.nd.stC}}">{{ls.nd.st}}</span></sc-if><span class="hd-dw hu-nw"><button type="button" class="kc-dd hu-nop" aria-haspopup="menu" aria-expanded="{{ls.nopE}}" onClick="{{ls.nopT}}"><b>节点操作</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.17l4.95-4.95 1.41 1.41L12 16 5.64 9.64l1.41-1.41z"></path></svg></button>
+        <section class="kc-card hu-r" aria-label="节点详情与证据"><div class="hu-rh"><b>节点详情</b><sc-if value="{{ls.nd.hasSt}}" hint-placeholder-val="{{true}}"><span class="{{ls.nd.stC}}">{{ls.nd.st}}</span></sc-if><span class="hd-dw hu-nw"><button type="button" class="kc-dd hu-nop" aria-haspopup="menu" aria-expanded="{{ls.nopE}}" onClick="{{ls.nopT}}"><b>节点操作</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.17l4.95-4.95 1.41 1.41L12 16 5.64 9.64l1.41-1.41z"></path></svg></button>
             <sc-if value="{{ls.nopOn}}" hint-placeholder-val="{{false}}"><span class="hd-dm" onClick="{{ls.nopT}}"></span><div class="hu-menu" role="menu"><p class="hu-mh">{{ls.nd.n}} · {{ls.nd.s}}</p><small>查询（立即执行）</small><sc-for list="{{ls.nq}}" as="x" hint-placeholder-count="2"><button type="button" role="menuitem" onClick="{{x.t}}"><span>{{x.n}}</span></button></sc-for>
               <sc-if value="{{ls.nxHas}}" hint-placeholder-val="{{true}}"><small>处置（加入方案，统一确认后执行）</small><sc-for list="{{ls.nx}}" as="x" hint-placeholder-count="3"><button type="button" role="menuitem" class="{{x.c}}" onClick="{{x.t}}"><span>{{x.n}}</span><em>{{x.e}}</em></button></sc-for></sc-if>
-              <button type="button" role="menuitem" class="hu-ml" onClick="{{ls.planO}}"><span>查看处置方案</span><em><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></em></button></div></sc-if></span></div>
+              <button type="button" role="menuitem" class="hu-ml" onClick="{{ls.planO}}"><span>查看处置方案</span><em><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></em></button></div></sc-if></span><button type="button" class="{{ls.rPinC}}" onClick="{{ls.rPinT}}" title="{{ls.rPinN}}" aria-label="{{ls.rPinN}}" aria-pressed="{{ls.rPinA}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 4h6l-1 6 4 3v2H6v-2l4-3-1-6zM12 15v6"></path></svg></button><sc-if value="{{ls.rCanX}}" hint-placeholder-val="{{false}}"><button type="button" class="hu-rx" onClick="{{ls.rX}}" title="关闭（Esc）" aria-label="关闭详情"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></sc-if></div>
           <div class="hu-rb"><div class="hu-nk"><small>{{ls.nd.kind}}</small><b>{{ls.nd.n}}</b></div>
             <div class="hu-kv"><sc-for list="{{ls.nd.kv}}" as="k" hint-placeholder-count="5"><div><small>{{k.k}}</small><span class="{{k.c}}">{{k.v}}</span></div></sc-for></div>
             <sc-if value="{{ls.nd.hasCmd}}" hint-placeholder-val="{{true}}"><div class="hu-cmd"><div><small>{{ls.nd.cmdK}}</small><a href="#" onClick="{{ls.copy}}">复制</a></div><code>{{ls.nd.cmd}}</code></div></sc-if>
             <sc-if value="{{ls.nd.canPi}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-pi" onClick="{{ls.nd.piGo}}">在主机详情中查看进程调查<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></sc-if>
             <div class="hu-sec"><div class="hu-st"><b>关键证据</b><span>{{ls.keyN}}</span></div><sc-for list="{{ls.keys}}" as="k" hint-placeholder-count="1"><div class="hu-ev"><div><b>{{k.n}}</b><time>{{k.tm}}</time></div><code>{{k.d}}</code></div></sc-for><sc-if value="{{ls.keyNone}}" hint-placeholder-val="{{false}}"><p class="hu-none">这个节点没有直接告警，是攻击链上的关联证据</p></sc-if></div>
             <div class="hu-sec"><div class="hu-st"><b>关联告警</b><span>{{ls.relN}}</span><sc-if value="{{ls.relMoreOn}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{ls.relAll}}">{{ls.relAllN}}</a></sc-if></div><sc-for list="{{ls.rel}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" onClick="{{r.t}}" onMouseEnter="{{r.he}}" onMouseLeave="{{ls.hx}}"><b>{{r.n}}</b><small>{{r.stg}} · {{r.st}}</small></button></sc-for></div></div>
-          <div class="hu-rf"><div class="hu-st"><b>处置记录</b></div><sc-for list="{{ls.recs}}" as="r" hint-placeholder-count="1"><div class="hu-rec"><i class="{{r.c}}"></i><span>{{r.n}}<sc-if value="{{r.hasWhy}}" hint-placeholder-val="{{false}}"><small class="{{r.wc}}">{{r.why}}</small></sc-if></span><time>{{r.tm}}</time><sc-if value="{{r.re}}" hint-placeholder-val="{{false}}"><a href="#" class="hu-rr" onClick="{{r.reGo}}">{{r.reN}}</a></sc-if></div></sc-for><sc-if value="{{ls.recNone}}" hint-placeholder-val="{{true}}"><p class="hu-none">还没有发起处置</p></sc-if>
-            <button type="button" class="kc-btn pri hu-pb" onClick="{{ls.planO}}">查看处置方案<sc-if value="{{ls.planN}}" hint-placeholder-val="{{true}}"><em class="hu-bn">{{ls.planN}}</em></sc-if></button></div></section>
+          </section>
       </div>
       <sc-if value="{{ls.planOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.planX}}"></div><aside class="sh-dw sh-fx hu-dw" role="dialog" aria-modal="true" aria-label="处置方案"><header><div class="hu-dwt"><h3>处置方案</h3><small>{{ls.inc.id}} · {{ls.inc.n}}</small></div><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.planX}}">×</button></header>
         <div class="sh-dwb"><div class="kai-box sm hu-plan-ai"><div class="kai-hd"><i class="kai-ic sm" aria-hidden="true"></i><b>AI 处置建议</b></div><p class="kai-tx">{{ls.plan.ai}}</p></div>
@@ -1987,7 +2001,7 @@ class Component extends DCLogic {
       e.preventDefault(); const v = self._hgCur(vp);
       if (e.ctrlKey || e.metaKey) { const r = vp.getBoundingClientRect(); const z = Math.max(0.2, Math.min(1.6, v.z * Math.exp(-e.deltaY * 0.0022))); const px = e.clientX - r.left, py = e.clientY - r.top; self._hgSet(vp, { x: px - (px - v.x) * z / v.z, y: py - (py - v.y) * z / v.z, z }); }
       else self._hgSet(vp, { x: v.x - e.deltaX, y: v.y - e.deltaY, z: v.z }); };
-    this._hgKy = (e) => { if (e.target && e.target.tagName === 'INPUT') return; if (e.key === 'Escape' && (self.state || {}).hgFs) self.setState({ hgFs: false }); };
+    this._hgKy = (e) => { if (e.target && e.target.tagName === 'INPUT') return; if (e.key === 'Escape' && (self.state || {}).hgFs) self.setState({ hgFs: false }); else if (e.key === 'Escape' && document.querySelector('.hu-lay.ro')) self.setState({ huN: '' }); };
     document.addEventListener('pointerdown', this._hgPD); document.addEventListener('pointermove', this._hgPM); document.addEventListener('pointerup', this._hgPU);
     document.addEventListener('wheel', this._hgWh, { passive: false }); document.addEventListener('keydown', this._hgKy);
     setTimeout(() => this._hgSync(), 80); }
@@ -3575,6 +3589,12 @@ class Component extends DCLogic {
         ls.vtabs.forEach((t) => { t.sc = t.on ? 'on' : ''; });
         ls.nx.forEach((x) => { x.dc = 'hg-act' + (x.c ? ' in' : ''); });
       }
+      /* 右栏：默认收起为抽屉，可固定成第三栏 */
+      { let pin0 = st.huPin; if (pin0 === undefined) { let w = 1440; try { w = window.innerWidth; } catch (e) {} try { const v = localStorage.getItem('dxHuPin'); pin0 = v === null ? w >= 1680 : v === '1'; } catch (e) { pin0 = w >= 1680; } }
+        const rOpen = !!st.huN && !st.hgFs; ls.layC = (ls.layC || 'hu-lay') + (pin0 ? '' : ' rc' + (rOpen ? ' ro' : ''));
+        ls.rPinA = pin0 ? 'true' : 'false'; ls.rPinN = pin0 ? '取消固定（改为点击节点时滑出）' : '固定在右侧'; ls.rPinC = 'hu-rpin' + (pin0 ? ' on' : ''); ls.rCanX = !pin0;
+        ls.rPinT = ev(() => { const v = !pin0; try { localStorage.setItem('dxHuPin', v ? '1' : '0'); } catch (e) {} S({ huPin: v }); });
+        ls.rX = ev(() => S({ huN: '' })); ls.recHas = !ls.recNone; }
       return out;
     }
     if (PGN === 'SecHostDetail') {
