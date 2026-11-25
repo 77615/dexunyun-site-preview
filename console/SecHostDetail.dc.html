@@ -1162,7 +1162,7 @@ button.tw-s.on{background:#f0f5ff;box-shadow:inset 0 -2px 0 #1664ff}
 <div class="tw-cmd"><code>{{ls.tp.cmd}}</code><button type="button" class="tw-cp" aria-label="复制命令行" onClick="{{ls.piCopy}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.8"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.8"></path></svg></button></div>
 <div class="tw-pr"><span>父进程</span><sc-if value="{{ls.tp.hasPar}}" hint-placeholder-val="{{true}}"><a href="#" class="sl-a" onClick="{{ls.tp.parGo}}">{{ls.tp.par}}</a></sc-if><sc-if value="{{ls.tp.noPar}}" hint-placeholder-val="{{false}}"><em>{{ls.tp.par}}</em></sc-if><span class="tw-sg">{{ls.tp.sig}}</span></div>
 <sc-if value="{{ls.tp.evHas}}" hint-placeholder-val="{{true}}"><div class="tw-pe"><sc-for list="{{ls.tp.ev}}" as="e" hint-placeholder-count="2"><div class="{{e.c}}"><span class="pi-mono">{{e.t}}</span><b>{{e.ty}}</b><span title="{{e.d}}">{{e.d}}</span></div></sc-for></div></sc-if>
-<div class="tw-pf"><sc-if value="{{ls.tp.incHas}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn pri" onClick="{{ls.piOpen}}">在威胁调查中打开</button></sc-if><button type="button" class="kc-btn" onClick="{{ls.tp.evGo}}">{{ls.tp.evN}}</button></div></div></sc-if>
+<div class="tw-pf"><sc-if value="{{ls.tp.incHas}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn pri" onClick="{{ls.tp.open}}">在威胁调查中打开</button></sc-if><button type="button" class="kc-btn" onClick="{{ls.tp.evGo}}">{{ls.tp.evN}}</button></div></div></sc-if>
 </div>
 <div class="tw-lg"><span><i class="tw-lb m"></i>恶意</span><span><i class="tw-lb s"></i>可疑</span><span><i class="tw-lb n"></i>正常</span><span><i class="tw-mk"></i>告警</span><span class="tw-lgr">{{ls.twRgN}}</span></div></div>
 <div class="tw-sh">选中进程 <b>{{ls.piSelT}}</b></div><div class="pi-sub"><div class="hd-seg"><sc-for list="{{ls.piTabs}}" as="t" hint-placeholder-count="3"><button type="button" class="{{t.c}}" onClick="{{t.t}}">{{t.n}}</button></sc-for><button type="button" class="{{ls.piDescC}}" role="checkbox" aria-checked="{{ls.piDescA}}" onClick="{{ls.piDescT}}"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15.17l9.19-9.19 1.42 1.42L10 18 3.64 11.64l1.42-1.42z"></path></svg></i>包含后代进程</button></div>
@@ -2229,7 +2229,7 @@ class Component extends DCLogic {
         const STEP = [1, 2, 5, 10, 15, 30, 60, 120, 180, 360, 720, 1440, 2880, 10080];
         let fz = null; if (act.length) { const a0 = Math.min.apply(null, act), a1 = Math.max.apply(null, act); const st0 = STEP.find((x) => (a1 - a0 + 30) / x <= 8) || 60; fz = [Math.max(W[0], Math.floor((a0 - 10) / st0) * st0), Math.min(W[1], Math.ceil((a1 + 10) / st0) * st0)]; if (fz[1] - fz[0] >= (W[1] - W[0]) * 0.6) fz = null; }
         const focus = !!fz && st.hdFz !== false; const V = focus ? fz : W; const span = V[1] - V[0];
-        const ck = (m) => { const tot = m + 720 + 3 * 1440; const d = Math.floor(tot / 1440); const r = tot - d * 1440; const hh = Math.floor(r / 60), mm = Math.floor(r % 60); return { md: '11-' + String(d).padStart(2, '0'), hm: String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') }; };
+        const ck = (m) => { const dt = new Date(2026, 10, 3, 12, 0, 0); dt.setMinutes(dt.getMinutes() + Math.floor(m)); const p2 = (n) => String(n).padStart(2, '0'); return { md: p2(dt.getMonth() + 1) + '-' + p2(dt.getDate()), hm: p2(dt.getHours()) + ':' + p2(dt.getMinutes()) }; };
         const lab = (m) => { const c = ck(m); return (V[0] < 0 && V[1] - V[0] > 2880) ? c.md : c.hm; };
         const step = STEP.find((x) => span / x <= 7) || 10080; ls.twTk = [];
         for (let v = Math.ceil(V[0] / step) * step; v < V[1]; v += step) ls.twTk.push({ n: span > 2880 ? ck(v).md : (v === Math.ceil(V[0] / step) * step && span >= 1440 ? ck(v).md + ' ' + ck(v).hm : ck(v).hm), st: 'left:' + ((v - V[0]) / span * 100).toFixed(3) + '%' });
@@ -2239,7 +2239,7 @@ class Component extends DCLogic {
         ls.twRgN = '时间轴 ' + rgTxt(V[0], V[1]);
         const pct = (v) => (v - V[0]) / span * 100;
         const dur = (m) => { if (m < 1) return Math.max(1, Math.round(m * 60)) + ' 秒'; if (m < 60) return Math.round(m) + ' 分钟'; if (m < 1440) return Math.floor(m / 60) + ' 小时' + (Math.round(m % 60) ? ' ' + Math.round(m % 60) + ' 分' : ''); return Math.floor(m / 1440) + ' 天 ' + Math.floor((m % 1440) / 60) + ' 小时'; };
-        const fo = st.hdFo || {}; const popId = st.hdPop === undefined ? (nf['进程'] ? nf['进程'] : '') : st.hdPop;
+        const fo = st.hdFo || {}; const popId0 = st.hdPop === undefined ? (nf['进程'] ? nf['进程'] : '') : st.hdPop; const popId = popId0 === selId ? popId0 : '';
         const rows = []; const walk2 = (x, d, hid) => { if (!keep(x)) return; if (!hid) rows.push([x, d]); const f = hid || !!fo[x.id]; kids(x.id).forEach((k) => walk2(k, d + 1, f)); };
         PR.filter((x) => !x.par || x.par === '?').forEach((x) => walk2(x, 0, false));
         const evOf = (ids) => evIn.filter((e) => ids.indexOf(e.pr) >= 0);
@@ -2274,7 +2274,7 @@ class Component extends DCLogic {
             kv: [['启动', x.start.slice(0, 11)], ['持续', dur(x.t1 - x.t0)], ['自身告警', String(x.al), x.al ? 'r' : ''], ['子树告警', String(subAl(x.id)), subAl(x.id) ? 'r' : '']].map(([k, v, c]) => ({ k, v, c: c || '' })),
             hasPar: !!pp, noPar: !pp, par: pp ? pp.n + '（' + pp.pid + '）' : x.par === '?' ? '父进程缺失' : '无（根进程）', parGo: pp ? ev(() => S({ hdP: pp.id, hdPop: pp.id })) : ev(() => {}),
             evHas: own2.length > 0, ev: own2.slice(0, 4).map((e) => ({ t: e.t.slice(0, 5), ty: e.ty, d: e.d, c: '' })).concat(own2.length > 4 ? [{ t: '', ty: '', d: '另有 ' + (own2.length - 4) + ' 条，见下方行为时间线', c: 'x' }] : []),
-            incHas: !!inc1, evN: own2.length || subAl(x.id) ? '查看行为时间线' : '查看进程属性', evGo: ev(() => { S({ hdPt: own2.length || subAl(x.id) ? '行为时间线' : '进程属性', hdPop: '' }); try { setTimeout(() => { const el = document.querySelector('.pi-sub'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60); } catch (e) {} }) };
+            incHas: !!inc1, open: inc1 ? GO('SecHunt', { '事件': inc1, '节点': x.id }) : ev(() => {}), evN: own2.length || subAl(x.id) ? '查看行为时间线' : '查看进程属性', evGo: ev(() => { S({ hdPt: own2.length || subAl(x.id) ? '行为时间线' : '进程属性', hdPop: '' }); try { setTimeout(() => { const el = document.querySelector('.pi-sub'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60); } catch (e) {} }) };
         } else { ls.twPopS = ''; ls.tp = { kv: [], ev: [] }; }
         ls.piSelT = sel.n + '（' + sel.pid + '）'; }
       const rng = st.hdRg || '1 小时';
