@@ -837,6 +837,27 @@
 .kc-ic.i-policy{--m:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M21 10H11V17.3823C11 18.9449 11.7775 20.4053 13.074 21.2742L14.1569 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.44694 2 3.99826 2H15.9968L21 7V10ZM13 12H21V17.3823C21 18.2786 20.5544 19.1156 19.8125 19.6128L17 21.4978L14.1875 19.6128C13.4456 19.1156 13 18.2786 13 17.3823V12Z"/%3E%3C/svg%3E')}
 /* align176 */
 .kc .kc-main.kc-main .kc-card.cp-card > .kc-tw,.kc .kc-main.kc-main .kc-card.bl-card > .kc-tw{margin-left:0!important;margin-right:0!important}
+/* pi 进程链：与威胁调查画布同一套样式（点阵画布、白色卡片、细蓝连线 + 空心起点、攻击路径流动） */
+.sl .pi-cv{padding:28px 24px;background-color:#f7f8fa;background-image:radial-gradient(circle at 1px 1px,#d5d9e0 .8px,transparent 1.1px);background-size:20px 20px;border:1px solid #e5e6eb;border-radius:8px}
+.sl .pi-nd{gap:4px;width:148px;padding:10px 12px;border:0;border-radius:8px;background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.07),0 1px 2px rgba(29,33,41,.05);transition:box-shadow .16s}
+.sl .pi-nd:hover{box-shadow:0 0 0 1px rgba(29,33,41,.1),0 6px 16px rgba(29,33,41,.1)}
+.sl .pi-nd.on{background:#fff;box-shadow:0 0 0 1.5px #1664ff,0 6px 16px rgba(22,100,255,.14)}
+.sl .pi-nd b{font-size:13px;font-weight:600}
+.sl .pi-nd > span b::before{content:"";display:inline-block;width:6px;height:6px;margin:0 6px 2px 0;border-radius:50%;background:#c9cdd4;vertical-align:middle}
+.sl .pi-nd.m > span b::before{background:#f53f3f}
+.sl .pi-nd.s > span b::before{background:#ff7d00}
+.sl .pi-nd small{font-family:Menlo,Monaco,Consolas,monospace}
+.sl .pi-al{padding:0 5px;border-radius:4px;background:#ffece8;font:500 11px/18px Barlow,Inter,sans-serif}
+.sl .pi-chain .pi-ln{position:relative;width:36px;height:1.5px;background:#7aa3ff;overflow:visible}
+.sl .pi-chain .pi-ln::before{content:"";position:absolute;left:-4px;top:-3px;width:5px;height:5px;border:1.5px solid #7aa3ff;border-radius:50%;background:#fff}
+.sl .pi-chain .pi-ln::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,63,63,0),#f53f3f) no-repeat;background-size:14px 2px;animation:piFlow 1.8s cubic-bezier(.45,0,.4,1) infinite}
+.sl .pi-chain .pi-ln::after{display:none}
+.sl .pi-chain .pi-ln:has(+ .pi-nd.m)::after,.sl .pi-chain .pi-ln:has(+ .pi-nd.s)::after,.sl .pi-cv:has(.pi-kids .pi-nd.m) .pi-chain .pi-ln:last-child::after{display:block}
+@keyframes piFlow{0%{background-position:-14px 0}70%,100%{background-position:36px 0}}
+@media (prefers-reduced-motion:reduce){.sl .pi-cv .pi-chain .pi-ln::after{display:none!important}}
+.sl .pi-kids{gap:12px;padding-left:36px;margin-left:-36px}
+.sl .pi-kids::before{left:18px;top:24px;bottom:24px;border-left:1.5px solid #7aa3ff;border-radius:0}
+.sl .pi-kids .pi-nd::before{left:-18px;width:18px;border-top:1.5px solid #7aa3ff}
 </style>
 <style>
 /* lay1113: 内容区间距规范

