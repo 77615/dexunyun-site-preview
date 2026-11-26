@@ -858,6 +858,7 @@
 .shst-s a{color:inherit;text-decoration:none}.shst-s a:hover{color:#165dff}
 .shst svg{display:block;width:100%;height:28px;margin-top:2px}
 .shst polyline{fill:none;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.sh .sh-tdot.b{background:#165dff}
 </style>
 <style data-shsc="1">
 /* score1123：安全评分区宽屏补位。≥1600 扣分构成，≥2060 评分趋势；窄屏保持原样 */
@@ -1117,7 +1118,7 @@ main.kc-main.sh .sh-r .sh-lic-act{margin-top:4px}
         <div class="sh-rc"><sc-for list="{{sx.rcat}}" as="k" hint-placeholder-count="4"><div class="sh-rc1"><a class="sh-rch" href="#" onClick="{{k.goR}}"><span>{{k.n}}</span><em class="{{k.dc}}">{{k.d}}</em></a><div class="sh-rcv"><a href="#" onClick="{{k.goR}}" title="查看这些风险"><small>待处理风险</small><b class="{{k.vc}}">{{k.v}}</b><i>个</i></a><a href="#" onClick="{{k.goH}}" title="查看这些主机"><small>影响主机</small><b>{{k.m}}</b><i>台</i></a></div></div></sc-for></div>
       </section>
       <sc-if value="{{aw.open}}" hint-placeholder-val="{{true}}"><div class="kc-card sh-awb" role="status"><span class="sh-awb-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.5A8 8 0 1 1 11.5 4a6.5 6.5 0 0 0 8.5 8.5Z"></path></svg></span><b>你不在时</b><span class="sh-awb-t">昨晚 22:00 – 今早 08:30</span><span class="sh-awb-n">自动处置 <em>{{aw.cd}}</em></span><span class="sh-awb-n">需要你 <em class="w">{{aw.cn}}</em></span><span class="sh-awb-n">失败 <em class="r">{{aw.cf}}</em></span><span class="sh-awb-sp"></span><a href="SecEvents.dc.html">查看明细</a><button type="button" onClick="{{aw.fold}}">知道了</button></div></sc-if>
-      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><i class="kai-ic lg" aria-hidden="true"></i>优先处置<span class="sh-aib kai-tag" title="AI 根据风险等级、可利用性和影响范围排序">AI 已排序</span></h2><a class="sh-wk" href="#" onClick="{{sx.go.wk}}"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>&nbsp;/14</em></a><span class="sh-pl2"><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
+      <section class="kc-card sh-pri sh-aicard"><div class="kc-ch"><h2><i class="kai-ic lg" aria-hidden="true"></i>优先处置<span class="sh-aib kai-tag" title="AI 根据风险等级、可利用性和影响范围排序">AI 已排序</span></h2><a class="sh-wk" href="#" onClick="{{sx.go.wk}}"><span>本周已处置</span><i class="sh-wkb"><i style="{{sx.wkw}}"></i></i><b>{{sx.done}}</b><em>&nbsp;/14</em></a><span class="sh-pl2"><a href="#" onClick="{{sx.go.rec}}">处置记录</a><a href="#" onClick="{{sx.go.ai}}">AI 分析详情</a><a href="#" onClick="{{sx.go.allPri}}">全部待处置<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></span></div>
         <div class="kc-cb sh-pw">
           <ul class="sh-tl"><sc-for list="{{sx.pri}}" as="p" hint-placeholder-count="4"><li>
             <i class="{{p.dot}}" aria-hidden="true"></i>
@@ -1148,9 +1149,7 @@ main.kc-main.sh .sh-r .sh-lic-act{margin-top:4px}
 <sc-for list="{{gf.ex}}" as="x" hint-placeholder-count="3"><li class="gf2-ex" key="{{x.key}}"><span class="gf2-eb"><span class="{{x.tc}}">{{x.lead}}<mark class="gf2-hit">{{x.hit}}</mark>{{x.tail}}</span><span class="gf2-em"><span class="r">{{x.rule}}</span><span class="t">{{x.at}}</span></span></span><sc-if value="{{x.can}}" hint-placeholder-val="{{true}}"><button type="button" class="gf2-act" onClick="{{x.go}}">{{x.act}}</button></sc-if><sc-if value="{{x.done}}" hint-placeholder-val="{{false}}"><span class="gf2-dn"><i>✓</i>{{x.dl}}</span></sc-if></li></sc-for>
 <sc-for list="{{gf.parts}}" as="p" hint-placeholder-count="0"><li class="gf2-pt" key="{{p.key}}"><span class="gf2-pl"><span class="l">{{p.n}}</span><span class="n">{{p.note}}</span><span class="v">{{p.v}}</span><span class="p">{{p.p}}</span></span><span class="gf2-tr"><span class="gf2-fl" style="{{p.w}}"></span></span></li></sc-for>
 </ul></div></section></div></section>
-          <section class="kc-card"><div class="kc-ch"><h2>处置成果 · 近 7 天</h2><a href="#" onClick="{{sx.go.rec}}">处置记录<svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-            <div class="kc-cb kc-tiles"><sc-for list="{{sx.prog}}" as="p" hint-placeholder-count="5"><a class="kc-tile" href="#" onClick="{{p.go}}"><span>{{p.n}}</span><b>{{p.v}}</b><div class="kc-sub">{{p.s}}</div></a></sc-for></div>
-            <ul class="sh-ev"><sc-for list="{{sx.ev}}" as="e" hint-placeholder-count="2"><li><span class="{{e.c}}">{{e.k}}</span><span class="sh-evt">{{e.t}}</span><a href="#" onClick="{{e.go}}">{{e.o}}</a></li></sc-for></ul></section>
+          
           <section class="kc-card" id="sh-pend"><div class="kc-ch"><h2>待处理</h2><span class="sh-upd">10:42 更新 · 告警 {{sx.alA}} · 风险 {{sx.alR}} · 策略异常 {{sx.alP}}</span></div>
             <div class="kc-tabs" role="tablist"><sc-for list="{{sx.tabs}}" as="t" hint-placeholder-count="5"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}} <span class="{{t.cc}}">{{t.c}}</span></button></sc-for></div>
             <div class="kc-tw"><table class="kc-t op-fix">
@@ -2103,7 +2102,7 @@ class Component extends DCLogic {
       dwCpT: st.shDc ? '已复制' : '复制', dwCopy: ev(() => { try { navigator.clipboard.writeText(dw.code).catch(() => {}); } catch (x) {} S({ shDc: 1 }); }),
       fbUp: ev(() => toast('感谢反馈，AI 会参考你的评价')), fbDown: ev(() => toast('已记录，AI 会据此调整排序', 'info'))
     });
-    const PG = [() => openDw('judge'), () => openDw('vuln'), () => openMd('install'), () => openMd('retry')];
+    const PG = [() => openDw('judge'), () => openDw('vuln'), () => openMd('install'), () => openMd('retry'), () => openMd('recheck')];
     sx.pri.forEach((x, i) => { x.go = pd[i] ? ev(() => toast('已提交，处理中', 'info')) : ev(PG[i]); });
     sx.caps.forEach((c) => { if (c.btn) c.go = ev(() => { if ((plug[c.n] || '') === '') openMd('plug:' + c.n); }); });
     sx.dist.forEach((d) => { d.go = d.v ? ev(() => openDw('host:' + d.n)) : ev(() => {}); });
@@ -2123,7 +2122,7 @@ class Component extends DCLogic {
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
-      sx.pri.forEach((p, i) => { p.goT = GO('SecRiskDetail', {}, PID[i]); });
+      sx.pri.forEach((p, i) => { p.goT = PID[i] ? GO('SecRiskDetail', {}, PID[i]) : GO('SecRisks', { '状态': '待复检' }); });
       const CF = { '入侵检测': { '类型': '入侵' }, '漏洞检测': { '类型': '漏洞' }, '基线检查': { '类型': '基线' }, '威胁狩猎': { '检测项': '威胁狩猎' }, '病毒查杀': { '检测项': '病毒查杀' }, 'AI 研判': { 'AI 研判': '已研判' } };
       const CH = { '入侵检测': { '风险类型': '入侵' }, '漏洞检测': { '风险类型': '漏洞' }, '基线检查': { '风险类型': '基线' }, '威胁狩猎': { '检测项': '威胁狩猎' }, '病毒查杀': { '检测项': '病毒查杀' }, 'AI 研判': { 'AI 研判': '已研判' } };
       sx.caps.forEach((c) => { const z = !Number(c.f); c.zc = z ? 'z' : ''; c.goR = z ? ev(() => {}) : GO('SecRisks', CF[c.n] || {}); c.goH = z ? ev(() => {}) : GO('SecHosts', CH[c.n] || {}); });
@@ -2501,7 +2500,8 @@ class Component extends DCLogic {
     const PRI = [['高危', 'kc-tag err', '异常登录', 'EVT-1021', 'web-prod-01', '待研判', 'kc-tag warn', '疑似撞库成功：同一 IP 1 小时内尝试 312 次，请确认是否本人', '查看事件', SD, 'AI 研判', 1],
       ['高危', 'kc-tag err', 'OpenSSH 远程代码执行漏洞', 'EVT-1019', 'web-prod-01', '待处置', 'kc-tag warn', '22 端口对公网开放，可被远程利用，建议升级到 9.8p1', '漏洞详情', SD, '去修复', 0],
       ['未受保护', 'kc-tag warn', '客户端已卸载', 'EVT-1008', 'backup-02', '待处理', 'kc-tag mut', '10-29 由 root 手动卸载，这台主机目前不受检测', '主机详情', SL, '重新安装', 0],
-      ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '客户端没有改密权限，确认以 root 运行后重试', '处置记录', SD, '重试', 0]];
+      ['中危', 'kc-tag warn', '弱口令修复', 'EVT-1012', 'web-prod-01', '处置失败', 'kc-tag err', '客户端没有改密权限，确认以 root 运行后重试', '处置记录', SD, '重试', 0],
+      ['待复检', 'kc-tag info', '可疑进程已隔离 · 待复检', 'EVT-0999', 'cache-01', '待复检', 'kc-tag info', '已隔离，复检确认清除干净后才算解决', '处置记录', SD, '去复检', 0]];
     const pv = st.pv || '按状态';
     const ni = st.ni || 0;
     const NB = [['授权已到期', 'sh-nk r', '已购的 54 台授权 11-01 已到期，宽限期还剩 4 天：11-08 后超出免费 3 台的 54 台主机停止检测，数据保留 30 天；另外授权已用满，app-07 没能加入', '去续费', 'BillConfirm.dc.html'],
@@ -2530,7 +2530,7 @@ class Component extends DCLogic {
         ['未受保护', '6', '台', '6 种原因，点开按原因处理', '', 'warn2', SL],
         ['防护覆盖率', '87', '%', '较上周 +3%', 'up', 'ok', SL]].map(([n, v, u, d, dc, bc, h]) => ({ n, v, u, d, h, dc: 'sh-kd ' + dc, bc: 'sh-bl ' + bc })),
       pri: PRI.map(([lv, lc, t, id, a, st2, sc, s2, d, dh, bt, p], i) => ({ lv, lc, t, id, a, st: pd[i] ? '处理中' : st2, sc: pd[i] ? 'kc-tag info' : sc, s: s2, d, dh,
-        bt: pd[i] ? '已提交' : bt, dot: 'sh-tdot ' + ({ '高危': 'r', '未受保护': 'o', '中危': 'y' }[lv] || ''), fail: st2 === '处置失败' && !pd[i], tcls: (lv === '高危' || lv === '未受保护') && !pd[i] ? 'sh-task hot' : 'sh-task', bc: 'sh-op', go: () => this.setState({ pd: Object.assign({}, pd, { [i]: 1 }) }) })),
+        bt: pd[i] ? '已提交' : bt, dot: 'sh-tdot ' + ({ '高危': 'r', '未受保护': 'o', '中危': 'y', '待复检': 'b' }[lv] || ''), fail: st2 === '处置失败' && !pd[i], tcls: (lv === '高危' || lv === '未受保护') && !pd[i] ? 'sh-task hot' : 'sh-task', bc: 'sh-op', go: () => this.setState({ pd: Object.assign({}, pd, { [i]: 1 }) }) })),
       done: 9 + Object.keys(pd).length, left: 5 - Object.keys(pd).length,
       wkw: 'width:' + Math.round((9 + Object.keys(pd).length) / 14 * 100) + '%',
       harc: 'stroke-dasharray:' + (Math.PI * 72 * (9 + Object.keys(pd).length) / 14).toFixed(1) + ' 400',
