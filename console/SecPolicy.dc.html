@@ -788,6 +788,71 @@ main.kc-main > .pl-al{margin:0 24px 12px}
 .pq-md > *{min-width:0}
 /* align176 */
 .kc .kc-main.kc-main .kc-card.cp-card > .kc-tw,.kc .kc-main.kc-main .kc-card.bl-card > .kc-tw{margin-left:0!important;margin-right:0!important}
+
+/* pdl-v1 2026-11-26：防护档位拨盘 + 下发进度网格（参考 affectUI Autonomy Dial / Fan-out Grid） */
+.pl .pm-tbl2 th:nth-child(1){width:27%}
+.pl .pm-tbl2 th:nth-child(2){width:18%}
+.pl .pm-tbl2 th:nth-child(3){width:34%}
+.pdl{display:inline-flex;position:relative;background:#f2f3f5;border-radius:2px;padding:2px;gap:0}
+.pdl button{position:relative;z-index:1;height:26px;min-width:78px;padding:0 10px;border:0;background:transparent;border-radius:2px;font:inherit;font-size:12px;color:#4e5969;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;transition:color .2s,background .2s}
+.pdl button:hover{color:#1d2129}
+.pdl button.f{background:#e8f3ff;color:#165dff}
+.pdl button.f+button.f{border-left:1px solid #fff}
+.pdl button.on{font-weight:500;box-shadow:0 1px 2px rgba(29,33,41,.12)}
+.pdl button.on.l0{background:#fff;color:#1d2129}
+.pdl button.on.l1{background:#4080ff;color:#fff}
+.pdl button.on.l2{background:#165dff;color:#fff}
+.pdl button.lk{color:#c9cdd4;cursor:not-allowed}
+.pdl button.lk:hover{color:#c9cdd4}
+.pdl button.lk::before{content:"";width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 10h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 0 1 14 0v1zm-2 0V9A5 5 0 0 0 7 9v1h10zm-6 4v4h2v-4h-2z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 10h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 0 1 14 0v1zm-2 0V9A5 5 0 0 0 7 9v1h10zm-6 4v4h2v-4h-2z'/%3E%3C/svg%3E") center/contain no-repeat}
+.pdl.dis button{cursor:not-allowed}
+.pdl-t{margin-top:6px;font-size:12px;line-height:18px;color:#4e5969}
+.pdl-t.au{color:#165dff}
+.pdl-t small{display:block;color:#86909c;font-size:12px}
+.pdl-lg{display:inline-flex;align-items:center;gap:14px;margin-left:16px;font-size:12px;color:#86909c;font-weight:400}
+.pdl-lg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:0}
+.pdl-lg .l0{background:#c9cdd4}.pdl-lg .l1{background:#4080ff}.pdl-lg .l2{background:#165dff}
+.pdl-lg b{color:#1d2129;font-weight:500;margin-left:2px}
+.pq-tb .pq-tbn{display:inline-flex;align-items:center}
+
+.pfg{border:1px solid #e5e6eb;border-radius:2px;padding:16px 20px 14px;margin-bottom:16px;background:#fff}
+.pfg-h{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.pfg-h>b{font-size:14px;color:#1d2129;font-weight:500}
+.pfg-sum{font-size:12px;color:#4e5969}
+.pfg-sum.run{color:#165dff}
+.pfg-lg{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
+.pfg-li{display:inline-flex;align-items:center;font-size:12px;color:#4e5969;text-decoration:none}
+.pfg-li:hover{color:#165dff}
+.pfg-li b{color:#1d2129;font-weight:500;margin-left:4px}
+.pfg-li i{width:10px;height:10px;border-radius:2px;margin-right:6px;flex:none}
+.pfg-rt{height:28px;padding:0 12px;border:1px solid #165dff;background:#fff;color:#165dff;border-radius:2px;font:inherit;font-size:12px;cursor:pointer}
+.pfg-rt:hover{background:#e8f3ff}
+.pfg-rt.dis{border-color:#e5e6eb;color:#c9cdd4;cursor:not-allowed;background:#fff}
+.pfg-pr{height:4px;background:#f2f3f5;border-radius:2px;margin:12px 0 14px;overflow:hidden;display:flex;gap:2px}
+.pfg-pr span{display:block;height:100%;transition:width .3s}
+.pfg-g{display:grid;grid-template-columns:repeat(34,26px);gap:6px 5px}
+.pfg-c{position:relative;aspect-ratio:1/1;border-radius:2px;cursor:pointer;outline:none;transition:transform .15s,background .3s}
+.pfg-c:hover,.pfg-c:focus-visible{transform:scale(1.18);z-index:3;box-shadow:0 0 0 2px #fff,0 0 0 3px #86909c}
+.pfg .s-ok{background:#23c343}
+.pfg .s-run{background:#165dff}
+.pfg-c.s-run{animation:pfgP 1s ease-in-out infinite}
+.pfg .s-wait{background:#bedaff}
+.pfg .s-pz{background:#ff9a2e}
+.pfg .s-bad{background:#f53f3f}
+.pfg .s-no{background:repeating-linear-gradient(135deg,#e5e6eb 0 3px,#f7f8fa 3px 6px);box-shadow:inset 0 0 0 1px #c9cdd4}
+.pfg-c.s-ok.nw{animation:pfgIn .5s ease-out}
+@keyframes pfgP{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes pfgIn{0%{transform:scale(.6);background:#165dff}100%{transform:scale(1)}}
+.pfg-tp{display:none;position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);min-width:188px;max-width:260px;background:#1d2129;color:#fff;border-radius:4px;padding:8px 10px;font-size:12px;line-height:18px;pointer-events:none;box-shadow:0 4px 10px rgba(0,0,0,.15);white-space:normal;text-align:left}
+.pfg-c:hover .pfg-tp,.pfg-c:focus-visible .pfg-tp{display:block}
+.pfg-c.r .pfg-tp{left:auto;right:-4px;transform:none}
+.pfg-c.lf .pfg-tp{left:-4px;transform:none}
+.pfg-tp b{display:block;font-weight:500}
+.pfg-tp em{font-style:normal;color:#bedaff}
+.pfg-tp small{display:block;color:#c9cdd4;font-size:12px}
+.pfg-ft{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:12px;color:#86909c}
+.pfg-ft a{color:#165dff;text-decoration:none}
+.pfg-ft .sp{margin-left:auto}
 </style>
 <style>
 /* lay1113: 内容区间距规范
@@ -944,15 +1009,15 @@ main.kc-main > .pl-al{margin:0 24px 12px}
       <sc-if value="{{pl.ro}}" hint-placeholder-val="{{false}}"><div class="ac-al i pl-al"><i>!</i><span>{{pl.roT}}</span></div></sc-if>
       <section class="kc-card"><div class="kc-tabs" role="tablist"><sc-for list="{{pl.tabs}}" as="t" hint-placeholder-count="3"><button class="{{t.cls}}" type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.n}}<sc-if value="{{t.c}}" hint-placeholder-val="{{false}}"> <span class="kc-cnt">{{t.c}}</span></sc-if></button></sc-for></div>
         <sc-if value="{{pl.tPol}}" hint-placeholder-val="{{true}}"><div class="pl-pn">
-          <sc-if value="{{pl.wOn}}" hint-placeholder-val="{{true}}"><div class="ac-al pq-al"><i>!</i><span>{{pl.wT}}</span><a href="#" onClick="{{pl.wGo}}">查看主机</a></div></sc-if>
+          
           <div class="pm-ov"><div class="pm-ovl"><span class="pm-k">整体模式</span><div class="pm-vr"><b class="pm-v">{{pl.ov.n}}</b><sc-if value="{{pl.ov.tmp}}" hint-placeholder-val="{{false}}"><span class="kc-tag warn">临时</span></sc-if></div><p class="pm-d">{{pl.ov.d}}</p></div>
             <div class="pm-ovr"><span class="pm-k">一键切换（可选生效主机）</span><div class="pm-ps" role="group" aria-label="一键切换全部能力"><sc-for list="{{pl.ov.ps}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" title="{{o.t}}" aria-pressed="{{o.a}}" onClick="{{o.go}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></div></div></div>
           <sc-if value="{{pl.ov.tmp}}" hint-placeholder-val="{{false}}"><div class="ac-al pm-tmp"><i>!</i><span>{{pl.ov.tmpT}}</span><a href="#" class="{{pl.ov.opC}}" onClick="{{pl.ov.ext}}">延长</a><a href="#" class="{{pl.ov.opC}}" onClick="{{pl.ov.end}}">提前结束</a></div></sc-if>
-          <div class="pq-tb"><span class="pq-tbn">防护能力</span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
-          <div class="kc-tw"><table class="kc-t op-fix pm-tbl2"><thead><tr><th>防护能力</th><th>模式</th><th>命中后</th><th>单独调整</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.caps2}}" as="c" hint-placeholder-count="6"><tr>
+          <div class="pfg"><div class="pfg-h"><b>策略下发</b><span class="{{pl.fo.sc}}">{{pl.fo.sum}}</span><span class="pfg-lg"><sc-for list="{{pl.fo.lg}}" as="l" hint-placeholder-count="5"><a href="#" class="pfg-li" onClick="{{l.go}}"><i class="{{l.c}}"></i>{{l.n}}<b>{{l.k}}</b></a></sc-for></span><sc-if value="{{pl.fo.rtOn}}" hint-placeholder-val="{{true}}"><button type="button" class="{{pl.fo.rtC}}" title="{{pl.fo.rtT}}" onClick="{{pl.fo.rt}}">{{pl.fo.rtN}}</button></sc-if></div><div class="pfg-pr" aria-hidden="true"><sc-for list="{{pl.fo.pr}}" as="b" hint-placeholder-count="4"><span class="{{b.c}}" style="{{b.w}}"></span></sc-for></div><div class="pfg-g" role="list" aria-label="每台主机的下发状态"><sc-for list="{{pl.fo.cells}}" as="x" hint-placeholder-count="68"><span role="listitem" tabindex="0" class="{{x.c}}" aria-label="{{x.a}}" onClick="{{x.go}}"><span class="pfg-tp"><b>{{x.n}}</b><em>{{x.st}}</em><small>{{x.why}}</small></span></span></sc-for></div><div class="pfg-ft"><span>{{pl.fo.ft}}</span><sc-if value="{{pl.fo.noN}}" hint-placeholder-val="{{true}}"><a href="SecAgent.dc.html">去安装客户端</a></sc-if><a class="sp" href="#" onClick="{{pl.fo.all}}">查看全部主机</a></div></div><!-- pdl-v1 --><div class="pq-tb"><span class="pq-tbn">防护能力<span class="pdl-lg">防护档位<sc-for list="{{pl.dlg}}" as="g" hint-placeholder-count="3"><span><i class="{{g.c}}"></i>{{g.n}}<b>{{g.k}}</b></span></sc-for></span></span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
+          <div class="kc-tw"><table class="kc-t op-fix pm-tbl2"><thead><tr><th>防护能力</th><th>模式</th><th>命中后怎么做（防护档位）</th><th>单独调整</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.caps2}}" as="c" hint-placeholder-count="6"><tr>
             <td><a class="sl-op pm-cn" href="{{c.href}}">{{c.n}}</a><div class="sl-sub">{{c.subs}}</div></td>
             <td><span class="pm-mt"><sc-for list="{{c.mt}}" as="t" hint-placeholder-count="1"><span class="{{t.c}}">{{t.n}}</span></sc-for></span><sc-if value="{{c.note}}" hint-placeholder-val="{{false}}"><div class="sl-sub">{{c.note}}</div></sc-if></td>
-            <td>{{c.act}}</td>
+            <td><div class="{{c.dlC}}" role="radiogroup" aria-label="{{c.n}}命中后"><sc-for list="{{c.dl}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" class="{{o.c}}" aria-checked="{{o.a}}" title="{{o.t}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div><div class="{{c.dtC}}">{{c.dt}}<sc-if value="{{c.ds}}" hint-placeholder-val="{{false}}"><small>{{c.ds}}</small></sc-if></div></td>
             <td><sc-if value="{{c.adjN}}" hint-placeholder-val="{{false}}"><a href="#" class="sl-op" onClick="{{c.goA}}">{{c.adjN}} 台</a></sc-if><sc-if value="{{c.adj0}}" hint-placeholder-val="{{true}}">—</sc-if></td>
             <td><a class="sl-op" href="{{c.href}}">去修改</a></td>
           </tr></sc-for></tbody></table></div>
@@ -1998,6 +2063,24 @@ class Component extends DCLogic {
           const notes = [PMX.rules(c[0]).slice(1).map((r) => PMX.scTxt(r.sc) + ' 为' + r.m).join('，'), offN.length ? '关闭' + offN.join('、') : '', onN.length ? '开启' + onN.join('、') : '', CJ.au === true ? '开启自动处置' : CJ.au === false ? '关闭自动处置' : '', part ? '临时重保 ' + TMP.sc.n + ' 台' : TMP ? '至 ' + TMP.end + ' 结束' : ''].filter(Boolean);
           return { n: c[1], href: c[0] + '.dc.html', subs: c[2].join(' · '), mt, note: notes.join('；'), act: row.act, adjN: row.adjN, adj0: row.adj0, goA: row.goA }; });
         pl.oth = NOM.map((c) => ({ n: c[1], href: c[0] + '.dc.html', t: c[5], tc: c[6], d: c[3] })); }
+
+      /* pdl-v1 2026-11-26：防护档位（只告警 / 确认后处置 / 自动处置），部分能力锁定上限 */
+      { const LV = ['只告警', '确认后处置', '自动处置'];
+        const LOCK = { SecLogin: [1, '断开会话可能误踢正在操作的管理员，最多到「确认后处置」'], SecRemote: [1, '自动拦截远程登录可能把运维挡在门外，最多到「确认后处置」'] };
+        const cnt = [0, 0, 0];
+        pl.caps2.forEach((row, i) => { const c = CAPL[i]; const bm = rs0(c[0]); const CJ = PMX.items(c[0]); const def = bm === '重保' ? 2 : 0;
+          let lv = CJ.au === true ? 2 : CJ.au === false ? 0 : CJ.au === 'ask' ? 1 : def; const lk = LOCK[c[0]]; if (lk && lv > lk[0]) lv = lk[0];
+          const tmpAll = !!(TMP && !part); if (tmpAll) lv = lk ? lk[0] : 2; cnt[lv]++;
+          const hasMax = !!PMX.dist(c[0])['重保'] && bm !== '重保';
+          row.dlC = 'pdl' + (adm && !tmpAll ? '' : ' dis');
+          row.dl = LV.map((n, j) => { const locked = lk && j > lk[0]; return { n, a: j === lv ? 'true' : 'false', c: (locked ? 'lk' : j === lv ? 'on l' + j : j < lv && j > 0 ? 'f' : ''), t: locked ? lk[1] : j === lv ? '当前档位' : '切到「' + n + '」',
+            go: ev(() => { if (locked) { toast(lk[1], 'info'); return; } if (tmpAll) { toast('临时重保期间全部自动处置，结束后可以调整', 'info'); return; } if (!adm) { toast(NOP, 'info'); return; } if (j === lv) return;
+              const v = j === 2 ? true : j === 1 ? 'ask' : false; PMX.setItem(c[0], 'au', j === def ? null : v); S({ plCmV: Date.now() }); toast(c[1] + ' 命中后改为「' + n + '」，约 1 分钟下发到 ' + (hasMax ? '标准模式的主机' : '全部主机')); }) }; });
+          row.dt = lv === 2 ? '命中后' + c[4] : lv === 1 ? '告警并给出处置建议，你在告警中心确认后执行「' + c[4] + '」' : '只告警，' + c[4] + '需要你手动处理';
+          row.dtC = 'pdl-t' + (lv === 2 ? ' au' : '');
+          row.ds = [hasMax ? '重保主机（' + PMX.dist(c[0])['重保'] + ' 台）自动处置' : '', lk ? '已锁定：' + lk[1].split('，')[0] : '', tmpAll ? '临时重保中，结束后恢复' : ''].filter(Boolean).join('；');
+          row.note = (row.note || '').split('；').filter((x) => !/自动处置$/.test(x)).join('；'); });
+        pl.dlg = LV.map((n, j) => ({ n, k: cnt[j], c: 'l' + j })); }
       // 一键切换确认
       const ps = st.plPs || ''; const U = { '3 天': '11-12 18:00', '7 天': '11-16 18:00', '14 天': '11-23 18:00' }; const pu = st.plPsU || '3 天';
       const isMax = ps === '重保' || ps === 'ext';
@@ -2015,6 +2098,39 @@ class Component extends DCLogic {
           if (!pk.ok) return;
           if (isMax) { PMX.setTmp({ end: U[pu], sc: pk.sc }); S({ plCmV: Date.now(), plPs: '', plLog: [['开始重保', '范围：' + PMX.scTxt(pk.sc) + '；全部能力临时切到重保模式，至 ' + U[pu] + '，到期自动恢复', now + ' · wangqi']].concat(st.plLog || []) }); toast('已开始重保（' + PMX.scTxt(pk.sc) + '），至 ' + U[pu] + ' 自动恢复'); return; }
           CAPL.forEach((c) => PMX.apply(c[0], ps, pk.sc)); S({ plCmV: Date.now(), plPs: '', plLog: [['全部能力切到' + ps + '模式', '范围：' + PMX.scTxt(pk.sc), now + ' · wangqi']].concat(st.plLog || []) }); toast(PMX.scTxt(pk.sc) + ' 的全部能力已切到' + ps + '模式，约 1 分钟下发'); }) }; }
+
+    /* pdl-v1 2026-11-26：策略下发网格（每台主机一格；改动后逐台下发；失败可重试） */
+    { const nowT = Date.now(); const fix = st.plFix || []; const rtF = st.plRtF || [];
+      if (st.plCmV && st.plCmV !== this.__foV) { this.__foV = st.plCmV; this.__fo = { t0: nowT, end: nowT + 3600, names: null }; }
+      const FO = this.__fo && nowT < this.__fo.end ? this.__fo : null;
+      if (FO) { clearTimeout(this.__foTm); this.__foTm = setTimeout(() => this.setState({ plFoK: Date.now() }), 140); }
+      const dly = (i) => 250 + ((i * 53) % 29) * 105;
+      const K = { ok: ['已生效', 's-ok'], run: ['下发中', 's-run'], wait: ['等待生效', 's-wait'], pz: ['已暂停', 's-pz'], bad: ['下发失败', 's-bad'], no: ['未安装客户端', 's-no'] };
+      const kOf = (h, i) => { const s1 = stOf(h); if (h.ps === '未受保护') { if (fix.indexOf(h.n) >= 0) return ['ok', '重试成功，已按当前策略生效'];
+          if (/^离线|^检测过期/.test(h.why)) return ['bad', rtF.indexOf(h.n) >= 0 ? '重试失败：客户端仍然离线，上线后会自动重试' : h.why.replace(' · ', '：')];
+          return ['no', h.why.replace(' · ', '：') + '，装好客户端后才能下发']; }
+        if (s1[0] === '已暂停') return ['pz', s1[2]]; if (s1[0] === '等待生效' || s1[0] === '下发中') return ['wait', s1[2] || '首次检测完成后自动下发'];
+        return ['ok', '按当前策略生效']; };
+      const cells = HS.map((h, i) => { let [k, why] = kOf(h, i); const pend = FO && (FO.names ? FO.names.indexOf(h.n) >= 0 : k === 'ok') && nowT < FO.t0 + (FO.names ? 600 + FO.names.indexOf(h.n) * 900 : dly(i));
+        if (pend) { k = 'run'; why = FO.names ? '正在重试…' : '正在下发新策略…'; }
+        const fresh = FO && !pend && (FO.names ? FO.names.indexOf(h.n) >= 0 : k === 'ok') && nowT < FO.t0 + (FO.names ? 600 + FO.names.indexOf(h.n) * 900 : dly(i)) + 600;
+        const col = i % 34; const F = { ok: '已生效', run: '等待生效', wait: '等待生效', pz: '已暂停', bad: '未受保护', no: '未受保护' }[k];
+        return { k, n: h.n + ' · ' + h.ip, st: K[k][0], why, a: h.n + ' ' + K[k][0], c: 'pfg-c ' + K[k][1] + (fresh ? ' nw' : '') + (col >= 29 ? ' r' : col <= 3 ? ' lf' : ''), go: goHost(F) }; });
+      const ct = {}; cells.forEach((x) => { ct[x.k] = (ct[x.k] || 0) + 1; });
+      const bad = HS.filter((h, i) => cells[i].k === 'bad').map((h) => h.n);
+      const live = HS.length - (ct.no || 0);
+      const okN2 = ct.ok || 0;
+      pl.fo = { sc: 'pfg-sum' + (FO ? ' run' : ''), sum: FO ? (FO.names ? '正在重试 ' + FO.names.length + ' 台…' : '正在下发新策略 · ' + okN2 + '/' + (okN2 + (ct.run || 0)) + ' 台完成') : okN2 + '/' + HS.length + ' 台已按当前策略生效',
+        lg: ['ok', 'run', 'wait', 'pz', 'bad', 'no'].filter((k) => ct[k] || k === 'ok').map((k) => ({ n: K[k][0], k: ct[k] || 0, c: K[k][1], go: goHost({ ok: '已生效', run: '等待生效', wait: '等待生效', pz: '已暂停', bad: '未受保护', no: '未受保护' }[k]) })),
+        pr: ['ok', 'run', 'wait', 'pz', 'bad', 'no'].filter((k) => ct[k]).map((k) => ({ c: K[k][1], w: 'width:' + (ct[k] / HS.length * 100).toFixed(2) + '%' })),
+        cells, rtOn: bad.length > 0 || !!(FO && FO.names), rtN: FO && FO.names ? '重试中…' : '重试失败的 ' + bad.length + ' 台', rtC: 'pfg-rt' + (adm && !FO ? '' : ' dis'), rtT: adm ? '' : NOP,
+        rt: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (FO || !bad.length) return; const t0 = Date.now(); const dur = 600 + bad.length * 900;
+          this.__fo = { t0, end: t0 + dur + 700, names: bad };
+          const okS = bad.filter((n) => !/^离线/.test((HS.find((h) => h.n === n) || {}).why || '')); const noS = bad.filter((n) => okS.indexOf(n) < 0);
+          setTimeout(() => { this.setState((s0) => ({ plFix: (s0.plFix || []).concat(okS), plRtF: (s0.plRtF || []).concat(noS), plFoK: Date.now() })); toast('重试完成：' + okS.length + ' 台已生效' + (noS.length ? '，' + noS.length + ' 台仍然离线，上线后自动重试' : ''), noS.length ? 'info' : 'ok'); }, dur);
+          S({ plFoK: t0 }); }),
+        noN: (ct.no || 0) > 0, all: goHost(''),
+        ft: (ct.no ? ct.no + ' 台还没装客户端，策略无法下发。' : '') + (ct.wait ? ct.wait + ' 台首次检测中或已停机，就绪后自动下发。' : '') + '把鼠标移到方块上查看原因，点击查看对应主机。' }; }
     pl.tPol = tab === '防护模式'; pl.tHost = tab === '生效资产'; pl.tList = tab === '全局黑白名单';
     // 生效资产
     const NM = {}; pols.forEach((p) => { NM[p.id] = p.n; });
