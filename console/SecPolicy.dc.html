@@ -815,44 +815,78 @@ main.kc-main > .pl-al{margin:0 24px 12px}
 .pdl-lg b{color:#1d2129;font-weight:500;margin-left:2px}
 .pq-tb .pq-tbn{display:inline-flex;align-items:center}
 
-.pfg{border:1px solid #e5e6eb;border-radius:2px;padding:16px 20px 14px;margin-bottom:16px;background:#fff}
-.pfg-h{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.pfg-h>b{font-size:14px;color:#1d2129;font-weight:500}
-.pfg-sum{font-size:12px;color:#4e5969}
-.pfg-sum.run{color:#165dff}
-.pfg-lg{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
-.pfg-li{display:inline-flex;align-items:center;font-size:12px;color:#4e5969;text-decoration:none}
-.pfg-li:hover{color:#165dff}
-.pfg-li b{color:#1d2129;font-weight:500;margin-left:4px}
-.pfg-li i{width:10px;height:10px;border-radius:2px;margin-right:6px;flex:none}
-.pfg-rt{height:28px;padding:0 12px;border:1px solid #165dff;background:#fff;color:#165dff;border-radius:2px;font:inherit;font-size:12px;cursor:pointer}
-.pfg-rt:hover{background:#e8f3ff}
-.pfg-rt.dis{border-color:#e5e6eb;color:#c9cdd4;cursor:not-allowed;background:#fff}
-.pfg-pr{height:4px;background:#f2f3f5;border-radius:2px;margin:12px 0 14px;overflow:hidden;display:flex;gap:2px}
-.pfg-pr span{display:block;height:100%;transition:width .3s}
-.pfg-g{display:grid;grid-template-columns:repeat(34,26px);gap:6px 5px}
-.pfg-c{position:relative;aspect-ratio:1/1;border-radius:2px;cursor:pointer;outline:none;transition:transform .15s,background .3s}
-.pfg-c:hover,.pfg-c:focus-visible{transform:scale(1.18);z-index:3;box-shadow:0 0 0 2px #fff,0 0 0 3px #86909c}
-.pfg .s-ok{background:#23c343}
-.pfg .s-run{background:#165dff}
-.pfg-c.s-run{animation:pfgP 1s ease-in-out infinite}
-.pfg .s-wait{background:#bedaff}
-.pfg .s-pz{background:#ff9a2e}
-.pfg .s-bad{background:#f53f3f}
-.pfg .s-no{background:repeating-linear-gradient(135deg,#e5e6eb 0 3px,#f7f8fa 3px 6px);box-shadow:inset 0 0 0 1px #c9cdd4}
-.pfg-c.s-ok.nw{animation:pfgIn .5s ease-out}
-@keyframes pfgP{0%,100%{opacity:1}50%{opacity:.45}}
-@keyframes pfgIn{0%{transform:scale(.6);background:#165dff}100%{transform:scale(1)}}
-.pfg-tp{display:none;position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);min-width:188px;max-width:260px;background:#1d2129;color:#fff;border-radius:4px;padding:8px 10px;font-size:12px;line-height:18px;pointer-events:none;box-shadow:0 4px 10px rgba(0,0,0,.15);white-space:normal;text-align:left}
-.pfg-c:hover .pfg-tp,.pfg-c:focus-visible .pfg-tp{display:block}
-.pfg-c.r .pfg-tp{left:auto;right:-4px;transform:none}
-.pfg-c.lf .pfg-tp{left:-4px;transform:none}
-.pfg-tp b{display:block;font-weight:500}
-.pfg-tp em{font-style:normal;color:#bedaff}
-.pfg-tp small{display:block;color:#c9cdd4;font-size:12px}
-.pfg-ft{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:12px;color:#86909c}
-.pfg-ft a{color:#165dff;text-decoration:none}
-.pfg-ft .sp{margin-left:auto}
+.pfg{margin-bottom:16px;padding:14px 16px 16px;background:#f7f8fa;border-radius:4px}
+.pfg-h{display:flex;align-items:center;gap:8px;min-width:0;margin-bottom:12px}
+.pfg-mk{display:grid;place-items:center;width:16px;color:#165dff}
+.pfg-tt{font-size:14px;font-weight:500;color:#1d2129}
+.pfg-job{font-size:13px;color:#86909c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pfg-sum{display:flex;align-items:center;gap:14px;margin-left:auto;font-size:12px;color:#86909c;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pfg-sum b{font-weight:500;color:#1d2129}
+.pfg-big .sc-interp,.pfg-sum .sc-interp{font:inherit;color:inherit}
+.pfg-sum .run{color:#165dff}
+.pfg-p{position:relative;display:flex;gap:32px;align-items:center;padding:18px 20px 14px;background:#fff;border-radius:4px;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05)}
+.pfg-l{flex:none;display:flex;flex-direction:column;gap:16px}
+
+.pfg-g{display:grid;align-content:start;grid-template-columns:repeat(34,14px);gap:5px;padding:2px;margin:-2px}
+.pfg-c{--bg:rgba(0,0,0,.035);--ed:rgba(0,0,0,.08);--ink:#86909c;position:relative;width:14px;height:14px;border-radius:3px;background:var(--bg);box-shadow:inset 0 0 0 .5px var(--ed);cursor:pointer;outline:none;transition:background-color 360ms ease,box-shadow 200ms ease,opacity 220ms ease,transform 160ms ease;}
+.pfg-g.ent .pfg-c{animation:pfgIn2 420ms cubic-bezier(.32,.72,.24,1) calc(var(--d,0) * 6ms) backwards}
+.pfg .s-ok{--bg:rgba(95,200,138,.24);--ed:rgba(64,180,110,.5);--ink:#00873c}
+.pfg .s-run{--bg:rgba(22,93,255,.12);--ed:rgba(22,93,255,.38);--ink:#165dff}
+.pfg .s-rty{--bg:rgba(255,156,0,.19);--ed:rgba(242,138,46,.48);--ink:#b25e00}
+.pfg .s-pz{--bg:rgba(255,156,0,.19);--ed:rgba(242,138,46,.48);--ink:#b25e00}
+.pfg .s-wait{--bg:rgba(0,0,0,.035);--ed:rgba(0,0,0,.09);--ink:#86909c}
+.pfg .s-bad{--bg:rgba(245,43,0,.16);--ed:rgba(240,68,56,.5);--ink:#d72400}
+.pfg .s-no{--bg:#fff;--ed:rgba(0,0,0,.2);--ink:#86909c}
+.pfg-c.s-no{box-shadow:none;outline:1px dashed rgba(0,0,0,.22);outline-offset:-1px}
+.pfg-c.s-run{overflow:hidden}
+.pfg-c.s-run::before{content:"";position:absolute;inset:0;border-radius:3px;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.85) 50%,transparent 75%) 0 0/300% 100%;opacity:.8;animation:pfgSw 1300ms linear calc(var(--i,0) * -97ms) infinite}
+.pfg-c.s-rty{animation:pfgBr 1100ms ease-in-out infinite alternate}
+.pfg-c.nw{animation:pfgPop 420ms cubic-bezier(.32,.72,.24,1)}
+.pfg-c:hover,.pfg-c:focus-visible{box-shadow:inset 0 0 0 1px var(--ink);transform:scale(1.3);z-index:4}
+.pfg-c.s-no:hover,.pfg-c.s-no:focus-visible{outline-color:#86909c}
+.pfg-c.dim{opacity:.18}
+@keyframes pfgIn2{from{opacity:0;transform:scale(.6)}}
+@keyframes pfgPop{0%{transform:scale(.7)}55%{transform:scale(1.18)}100%{transform:scale(1)}}
+@keyframes pfgSw{from{background-position:100% 0}to{background-position:-50% 0}}
+@keyframes pfgBr{from{opacity:.55}to{opacity:1}}
+.pfg-tp{display:none;position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%) scale(.98);z-index:6;width:max-content;max-width:280px;min-width:200px;padding:9px 12px 10px;border-radius:8px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.08),0 12px 28px -10px rgba(0,0,0,.18),0 1px 2px rgba(0,0,0,.05);pointer-events:none;text-align:left;cursor:default}
+.pfg-c:hover .pfg-tp,.pfg-c:focus-visible .pfg-tp{display:grid;gap:3px;animation:pfgTp 160ms cubic-bezier(.32,.72,.24,1) both}
+.pfg-c:hover .pfg-tp{transform:translateX(-50%) scale(calc(1/1.3))}
+.pfg-c.r .pfg-tp{left:auto;right:-6px;transform:scale(calc(1/1.3));transform-origin:right bottom}
+.pfg-c.lf .pfg-tp{left:-6px;transform:scale(calc(1/1.3));transform-origin:left bottom}
+@keyframes pfgTp{from{opacity:0}}
+.pfg-th{display:flex;align-items:flex-start;gap:8px}
+.pfg-th b{font-size:13px;line-height:20px;font-weight:500;color:rgba(0,0,0,.88)}
+.pfg-pl{flex:none;margin-left:auto;margin-top:1px;height:18px;padding:0 6px;border-radius:4px;background:var(--bg);font-size:11px;font-weight:500;line-height:18px;color:var(--ink)}
+.pfg-pl.s-no{background:rgba(0,0,0,.05)}
+.pfg-tm{font-size:12px;line-height:16px;color:rgba(0,0,0,.45);font-variant-numeric:tabular-nums}
+.pfg-why{font-size:12.5px;line-height:18px;color:rgba(0,0,0,.61)}
+.pfg-why.err{color:#d72400}
+.pfg-ft{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+.pfg-lg{display:flex;flex-wrap:wrap;gap:0 2px;margin:-3px -6px}
+.pfg-k{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 6px;border:0;border-radius:6px;background:none;font:inherit;font-size:12px;line-height:16px;color:rgba(0,0,0,.45);cursor:pointer;transition:background-color 160ms ease,color 160ms ease,opacity 200ms ease}
+.pfg-k:hover,.pfg-k[aria-pressed="true"]{background:rgba(0,0,0,.06);color:rgba(0,0,0,.88)}
+.pfg-k.off{opacity:.45}
+.pfg-k .pfg-n{color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.pfg-sw{width:8px;height:8px;border-radius:2.5px;background:var(--bg);box-shadow:inset 0 0 0 .5px var(--ed)}
+.pfg-sw.s-no{box-shadow:none;outline:1px dashed rgba(0,0,0,.25);outline-offset:-1px}
+.pfg-rt{display:inline-flex;align-items:center;gap:5px;height:24px;margin:-3px -6px -3px auto;padding:0 6px;border:0;border-radius:6px;background:none;font:inherit;font-size:12px;font-weight:500;color:#d72400;cursor:pointer;transition:background-color 160ms ease}
+.pfg-rt:hover{background:rgba(245,43,0,.1)}
+.pfg-rt.dis{color:rgba(0,0,0,.27);cursor:not-allowed;background:none}
+.pfg-rt svg{width:13px;height:13px}
+.pfg-rt.dis svg{animation:pfgSpin 1s linear infinite}
+@keyframes pfgSpin{to{transform:rotate(-360deg)}}
+.pfg-s{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-left:28px;border-left:1px solid rgba(0,0,0,.06)}
+.pfg-big{display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums}
+.pfg-big .pv{font-size:28px;line-height:32px;font-weight:500;color:#1d2129}
+.pfg-big .pt{font-size:13px;color:rgba(0,0,0,.45)}
+.pfg-pr{display:flex;gap:2px;height:6px;border-radius:3px;overflow:hidden;background:rgba(0,0,0,.04)}
+.pfg-pr span{display:block;height:100%;background:var(--bg);box-shadow:inset 0 0 0 .5px var(--ed);transition:width .3s}
+.pfg-pr .s-ok{background:#5fc88a;box-shadow:none}.pfg-pr .s-run{background:#4080ff;box-shadow:none}.pfg-pr .s-rty,.pfg-pr .s-pz{background:#f2a15c;box-shadow:none}.pfg-pr .s-bad{background:#f04438;box-shadow:none}
+.pfg-s p{margin:0;font-size:12px;line-height:20px;color:rgba(0,0,0,.61)}
+.pfg-ln{font-size:12px;color:#165dff;text-decoration:none}
+.pfg-lks{display:flex;gap:16px}
+@media (prefers-reduced-motion:reduce){.pfg *,.pfg *::before{animation:none!important;transition:none!important}}
 </style>
 <style>
 /* lay1113: 内容区间距规范
@@ -1013,7 +1047,7 @@ main.kc-main > .pl-al{margin:0 24px 12px}
           <div class="pm-ov"><div class="pm-ovl"><span class="pm-k">整体模式</span><div class="pm-vr"><b class="pm-v">{{pl.ov.n}}</b><sc-if value="{{pl.ov.tmp}}" hint-placeholder-val="{{false}}"><span class="kc-tag warn">临时</span></sc-if></div><p class="pm-d">{{pl.ov.d}}</p></div>
             <div class="pm-ovr"><span class="pm-k">一键切换（可选生效主机）</span><div class="pm-ps" role="group" aria-label="一键切换全部能力"><sc-for list="{{pl.ov.ps}}" as="o" hint-placeholder-count="3"><button type="button" class="{{o.c}}" title="{{o.t}}" aria-pressed="{{o.a}}" onClick="{{o.go}}"><b>{{o.n}}</b><span>{{o.d}}</span></button></sc-for></div></div></div>
           <sc-if value="{{pl.ov.tmp}}" hint-placeholder-val="{{false}}"><div class="ac-al pm-tmp"><i>!</i><span>{{pl.ov.tmpT}}</span><a href="#" class="{{pl.ov.opC}}" onClick="{{pl.ov.ext}}">延长</a><a href="#" class="{{pl.ov.opC}}" onClick="{{pl.ov.end}}">提前结束</a></div></sc-if>
-          <div class="pfg"><div class="pfg-h"><b>策略下发</b><span class="{{pl.fo.sc}}">{{pl.fo.sum}}</span><span class="pfg-lg"><sc-for list="{{pl.fo.lg}}" as="l" hint-placeholder-count="5"><a href="#" class="pfg-li" onClick="{{l.go}}"><i class="{{l.c}}"></i>{{l.n}}<b>{{l.k}}</b></a></sc-for></span><sc-if value="{{pl.fo.rtOn}}" hint-placeholder-val="{{true}}"><button type="button" class="{{pl.fo.rtC}}" title="{{pl.fo.rtT}}" onClick="{{pl.fo.rt}}">{{pl.fo.rtN}}</button></sc-if></div><div class="pfg-pr" aria-hidden="true"><sc-for list="{{pl.fo.pr}}" as="b" hint-placeholder-count="4"><span class="{{b.c}}" style="{{b.w}}"></span></sc-for></div><div class="pfg-g" role="list" aria-label="每台主机的下发状态"><sc-for list="{{pl.fo.cells}}" as="x" hint-placeholder-count="68"><span role="listitem" tabindex="0" class="{{x.c}}" aria-label="{{x.a}}" onClick="{{x.go}}"><span class="pfg-tp"><b>{{x.n}}</b><em>{{x.st}}</em><small>{{x.why}}</small></span></span></sc-for></div><div class="pfg-ft"><span>{{pl.fo.ft}}</span><sc-if value="{{pl.fo.noN}}" hint-placeholder-val="{{true}}"><a href="SecAgent.dc.html">去安装客户端</a></sc-if><a class="sp" href="#" onClick="{{pl.fo.all}}">查看全部主机</a></div></div><!-- pdl-v1 --><div class="pq-tb"><span class="pq-tbn">防护能力<span class="pdl-lg">防护档位<sc-for list="{{pl.dlg}}" as="g" hint-placeholder-count="3"><span><i class="{{g.c}}"></i>{{g.n}}<b>{{g.k}}</b></span></sc-for></span></span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
+          <div class="pfg"><div class="pfg-h"><span class="pfg-mk"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="3" cy="8" r="1.9" fill="currentColor"></circle><rect x="10.2" y="1.6" width="3.6" height="3.6" rx="1" fill="currentColor" opacity="0.9"></rect><rect x="10.2" y="6.2" width="3.6" height="3.6" rx="1" fill="currentColor" opacity="0.6"></rect><rect x="10.2" y="10.8" width="3.6" height="3.6" rx="1" fill="currentColor" opacity="0.3"></rect><path d="M4.9 8H7c.6 0 .9-.3 1-.9l.4-2.4c.1-.6.4-.9 1-.9h.6M4.9 8h5.1M4.9 8H7c.6 0 .9.3 1 .9l.4 2.4c.1.6.4.9 1 .9h.6" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></path></svg></span><b class="pfg-tt">策略下发</b><span class="pfg-job">{{pl.fo.job}}</span><span class="pfg-sum"><span><b>{{pl.fo.okN}}</b> / {{pl.fo.tot}}</span><span class="{{pl.fo.tmC}}">{{pl.fo.tm}}</span></span></div><div class="pfg-p"><div class="pfg-l"><div class="{{pl.fo.gc}}" role="group" aria-label="每台主机的下发状态，点击查看主机"><sc-for list="{{pl.fo.cells}}" as="x" hint-placeholder-count="68"><span tabindex="0" class="{{x.c}}" style="{{x.sty}}" aria-label="{{x.a}}" onClick="{{x.go}}"><span class="pfg-tp" role="tooltip"><span class="pfg-th"><b>{{x.n}}</b><span class="{{x.pc}}">{{x.st}}</span></span><span class="pfg-tm">{{x.meta}}</span><span class="{{x.wc}}">{{x.why}}</span></span></span></sc-for></div><div class="pfg-ft"><div class="pfg-lg" role="group" aria-label="只看"><sc-for list="{{pl.fo.lg}}" as="l" hint-placeholder-count="5"><button type="button" class="{{l.c}}" aria-pressed="{{l.a}}" onClick="{{l.go}}"><i class="{{l.sw}}" aria-hidden="true"></i><span class="pfg-n">{{l.k}}</span>{{l.n}}</button></sc-for></div><sc-if value="{{pl.fo.rtOn}}" hint-placeholder-val="{{true}}"><button type="button" class="{{pl.fo.rtC}}" title="{{pl.fo.rtT}}" onClick="{{pl.fo.rt}}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.0092 2V5.13219C20.0092 5.42605 19.6418 5.55908 19.4537 5.33333C17.6226 3.2875 14.9617 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>{{pl.fo.rtN}}</button></sc-if></div></div><div class="pfg-s"><div class="pfg-big"><b class="pv">{{pl.fo.pct}}</b><span class="pt">{{pl.fo.pctT}}</span></div><div class="pfg-pr" aria-hidden="true"><sc-for list="{{pl.fo.pr}}" as="b" hint-placeholder-count="4"><span class="{{b.c}}" style="{{b.w}}"></span></sc-for></div><p>{{pl.fo.ft}}</p><div class="pfg-lks"><sc-if value="{{pl.fo.noN}}" hint-placeholder-val="{{true}}"><a class="pfg-ln" href="SecAgent.dc.html">去安装客户端</a></sc-if><a class="pfg-ln" href="#" onClick="{{pl.fo.all}}">查看主机列表</a></div></div></div></div><!-- pdl-v1 --><div class="pq-tb"><span class="pq-tbn">防护能力<span class="pdl-lg">防护档位<sc-for list="{{pl.dlg}}" as="g" hint-placeholder-count="3"><span><i class="{{g.c}}"></i>{{g.n}}<b>{{g.k}}</b></span></sc-for></span></span><a class="pq-lk" href="SecAudit.dc.html">变更记录</a></div>
           <div class="kc-tw"><table class="kc-t op-fix pm-tbl2"><thead><tr><th>防护能力</th><th>模式</th><th>命中后怎么做（防护档位）</th><th>单独调整</th><th>操作</th></tr></thead><tbody><sc-for list="{{pl.caps2}}" as="c" hint-placeholder-count="6"><tr>
             <td><a class="sl-op pm-cn" href="{{c.href}}">{{c.n}}</a><div class="sl-sub">{{c.subs}}</div></td>
             <td><span class="pm-mt"><sc-for list="{{c.mt}}" as="t" hint-placeholder-count="1"><span class="{{t.c}}">{{t.n}}</span></sc-for></span><sc-if value="{{c.note}}" hint-placeholder-val="{{false}}"><div class="sl-sub">{{c.note}}</div></sc-if></td>
@@ -2099,38 +2133,44 @@ class Component extends DCLogic {
           if (isMax) { PMX.setTmp({ end: U[pu], sc: pk.sc }); S({ plCmV: Date.now(), plPs: '', plLog: [['开始重保', '范围：' + PMX.scTxt(pk.sc) + '；全部能力临时切到重保模式，至 ' + U[pu] + '，到期自动恢复', now + ' · wangqi']].concat(st.plLog || []) }); toast('已开始重保（' + PMX.scTxt(pk.sc) + '），至 ' + U[pu] + ' 自动恢复'); return; }
           CAPL.forEach((c) => PMX.apply(c[0], ps, pk.sc)); S({ plCmV: Date.now(), plPs: '', plLog: [['全部能力切到' + ps + '模式', '范围：' + PMX.scTxt(pk.sc), now + ' · wangqi']].concat(st.plLog || []) }); toast(PMX.scTxt(pk.sc) + ' 的全部能力已切到' + ps + '模式，约 1 分钟下发'); }) }; }
 
-    /* pdl-v1 2026-11-26：策略下发网格（每台主机一格；改动后逐台下发；失败可重试） */
-    { const nowT = Date.now(); const fix = st.plFix || []; const rtF = st.plRtF || [];
+    /* pdl-v1/v2 2026-11-26：策略下发网格（参考 affectUI Fan-out Grid clean：浅色描边方格、扫光、落定弹跳、白色浮窗、图例筛选） */
+    { const nowT = Date.now(); const fix = st.plFix || []; const rtF = st.plRtF || []; const flt = st.plFoF || '';
       if (st.plCmV && st.plCmV !== this.__foV) { this.__foV = st.plCmV; this.__fo = { t0: nowT, end: nowT + 3600, names: null }; }
+      if (!this.__pfgM) this.__pfgM = nowT;
       const FO = this.__fo && nowT < this.__fo.end ? this.__fo : null;
       if (FO) { clearTimeout(this.__foTm); this.__foTm = setTimeout(() => this.setState({ plFoK: Date.now() }), 140); }
       const dly = (i) => 250 + ((i * 53) % 29) * 105;
-      const K = { ok: ['已生效', 's-ok'], run: ['下发中', 's-run'], wait: ['等待生效', 's-wait'], pz: ['已暂停', 's-pz'], bad: ['下发失败', 's-bad'], no: ['未安装客户端', 's-no'] };
-      const kOf = (h, i) => { const s1 = stOf(h); if (h.ps === '未受保护') { if (fix.indexOf(h.n) >= 0) return ['ok', '重试成功，已按当前策略生效'];
+      const K = { ok: ['已生效', 's-ok'], run: ['下发中', 's-run'], rty: ['重试中', 's-rty'], wait: ['等待生效', 's-wait'], pz: ['已暂停', 's-pz'], bad: ['下发失败', 's-bad'], no: ['未安装客户端', 's-no'] };
+      const kOf = (h) => { const s1 = stOf(h); if (h.ps === '未受保护') { if (fix.indexOf(h.n) >= 0) return ['ok', '重试成功，已按当前策略生效'];
           if (/^离线|^检测过期/.test(h.why)) return ['bad', rtF.indexOf(h.n) >= 0 ? '重试失败：客户端仍然离线，上线后会自动重试' : h.why.replace(' · ', '：')];
           return ['no', h.why.replace(' · ', '：') + '，装好客户端后才能下发']; }
         if (s1[0] === '已暂停') return ['pz', s1[2]]; if (s1[0] === '等待生效' || s1[0] === '下发中') return ['wait', s1[2] || '首次检测完成后自动下发'];
-        return ['ok', '按当前策略生效']; };
-      const cells = HS.map((h, i) => { let [k, why] = kOf(h, i); const pend = FO && (FO.names ? FO.names.indexOf(h.n) >= 0 : k === 'ok') && nowT < FO.t0 + (FO.names ? 600 + FO.names.indexOf(h.n) * 900 : dly(i));
-        if (pend) { k = 'run'; why = FO.names ? '正在重试…' : '正在下发新策略…'; }
-        const fresh = FO && !pend && (FO.names ? FO.names.indexOf(h.n) >= 0 : k === 'ok') && nowT < FO.t0 + (FO.names ? 600 + FO.names.indexOf(h.n) * 900 : dly(i)) + 600;
-        const col = i % 34; const F = { ok: '已生效', run: '等待生效', wait: '等待生效', pz: '已暂停', bad: '未受保护', no: '未受保护' }[k];
-        return { k, n: h.n + ' · ' + h.ip, st: K[k][0], why, a: h.n + ' ' + K[k][0], c: 'pfg-c ' + K[k][1] + (fresh ? ' nw' : '') + (col >= 29 ? ' r' : col <= 3 ? ' lf' : ''), go: goHost(F) }; });
+        return ['ok', '已按当前策略生效']; };
+      const cells = HS.map((h, i) => { let [k, why] = kOf(h); const tEnd = FO ? FO.t0 + (FO.names ? 600 + FO.names.indexOf(h.n) * 900 : dly(i)) : 0;
+        const inFo = FO && (FO.names ? FO.names.indexOf(h.n) >= 0 : k === 'ok'); const pend = inFo && nowT < tEnd;
+        if (pend) { k = FO.names ? 'rty' : 'run'; why = FO.names ? '正在重新下发…' : '正在下发新策略…'; }
+        const fresh = inFo && !pend && nowT < tEnd + 500;
+        const col = i % 34; const F = { ok: '已生效', run: '等待生效', rty: '未受保护', wait: '等待生效', pz: '已暂停', bad: '未受保护', no: '未受保护' }[k];
+        const meta = [h.ip, h.ver && h.ver !== '—' ? '客户端 ' + h.ver : '', h.chk && h.chk !== '—' ? '最近检测 ' + h.chk : ''].filter(Boolean).join(' · ');
+        return { k, n: h.n, st: K[k][0], why, meta, pc: 'pfg-pl ' + K[k][1], wc: 'pfg-why' + (k === 'bad' ? ' err' : ''), a: h.n + ' ' + K[k][0] + '，' + why, sty: '--i:' + i + ';--d:' + i,
+          c: 'pfg-c ' + K[k][1] + (fresh ? ' nw' : '') + (flt && flt !== k && !(flt === 'wait' && k === 'run') ? ' dim' : '') + (col >= 28 ? ' r' : col <= 4 ? ' lf' : ''), go: goHost(F) }; });
       const ct = {}; cells.forEach((x) => { ct[x.k] = (ct[x.k] || 0) + 1; });
-      const bad = HS.filter((h, i) => cells[i].k === 'bad').map((h) => h.n);
-      const live = HS.length - (ct.no || 0);
-      const okN2 = ct.ok || 0;
-      pl.fo = { sc: 'pfg-sum' + (FO ? ' run' : ''), sum: FO ? (FO.names ? '正在重试 ' + FO.names.length + ' 台…' : '正在下发新策略 · ' + okN2 + '/' + (okN2 + (ct.run || 0)) + ' 台完成') : okN2 + '/' + HS.length + ' 台已按当前策略生效',
-        lg: ['ok', 'run', 'wait', 'pz', 'bad', 'no'].filter((k) => ct[k] || k === 'ok').map((k) => ({ n: K[k][0], k: ct[k] || 0, c: K[k][1], go: goHost({ ok: '已生效', run: '等待生效', wait: '等待生效', pz: '已暂停', bad: '未受保护', no: '未受保护' }[k]) })),
-        pr: ['ok', 'run', 'wait', 'pz', 'bad', 'no'].filter((k) => ct[k]).map((k) => ({ c: K[k][1], w: 'width:' + (ct[k] / HS.length * 100).toFixed(2) + '%' })),
+      const bad = cells.filter((x) => x.k === 'bad').map((x) => x.n);
+      const okN2 = ct.ok || 0; const busy = (ct.run || 0) + (ct.rty || 0);
+      const KS = ['ok', 'run', 'rty', 'wait', 'pz', 'bad', 'no'];
+      pl.fo = { gc: 'pfg-g' + (nowT - this.__pfgM < 1500 ? ' ent' : ''), job: FO ? (FO.names ? '重新下发失败的主机' : '新策略逐台下发中') : '防护模式变更后逐台下发到主机', okN: okN2, tot: HS.length,
+        tm: FO ? (busy ? '约 ' + Math.max(1, Math.ceil((FO.end - nowT) / 1000)) + ' 秒' : '即将完成') : '最近下发 ' + now, tmC: FO ? 'run' : '',
+        pct: Math.round(okN2 / HS.length * 100) + '%', pctT: okN2 + ' / ' + HS.length + ' 台已按当前策略生效',
+        lg: KS.filter((k) => ct[k] || k === 'ok').map((k) => ({ n: K[k][0], k: ct[k] || 0, sw: 'pfg-sw ' + K[k][1], a: flt === k ? 'true' : 'false', c: 'pfg-k' + (flt && flt !== k ? ' off' : ''), go: ev(() => S({ plFoF: flt === k ? '' : k })) })),
+        pr: KS.filter((k) => ct[k] && k !== 'no' && k !== 'wait').map((k) => ({ c: K[k][1], w: 'width:' + (ct[k] / HS.length * 100).toFixed(2) + '%' })),
         cells, rtOn: bad.length > 0 || !!(FO && FO.names), rtN: FO && FO.names ? '重试中…' : '重试失败的 ' + bad.length + ' 台', rtC: 'pfg-rt' + (adm && !FO ? '' : ' dis'), rtT: adm ? '' : NOP,
         rt: ev(() => { if (!adm) { toast(NOP, 'info'); return; } if (FO || !bad.length) return; const t0 = Date.now(); const dur = 600 + bad.length * 900;
-          this.__fo = { t0, end: t0 + dur + 700, names: bad };
+          this.__fo = { t0, end: t0 + dur + 600, names: bad };
           const okS = bad.filter((n) => !/^离线/.test((HS.find((h) => h.n === n) || {}).why || '')); const noS = bad.filter((n) => okS.indexOf(n) < 0);
           setTimeout(() => { this.setState((s0) => ({ plFix: (s0.plFix || []).concat(okS), plRtF: (s0.plRtF || []).concat(noS), plFoK: Date.now() })); toast('重试完成：' + okS.length + ' 台已生效' + (noS.length ? '，' + noS.length + ' 台仍然离线，上线后自动重试' : ''), noS.length ? 'info' : 'ok'); }, dur);
           S({ plFoK: t0 }); }),
         noN: (ct.no || 0) > 0, all: goHost(''),
-        ft: (ct.no ? ct.no + ' 台还没装客户端，策略无法下发。' : '') + (ct.wait ? ct.wait + ' 台首次检测中或已停机，就绪后自动下发。' : '') + '把鼠标移到方块上查看原因，点击查看对应主机。' }; }
+        ft: [ct.bad ? ct.bad + ' 台下发失败，可以重试。' : '', ct.no ? ct.no + ' 台还没装客户端，装好后才能下发。' : '', ct.wait ? ct.wait + ' 台首次检测中或已停机，就绪后自动下发。' : ''].join('') }; }
     pl.tPol = tab === '防护模式'; pl.tHost = tab === '生效资产'; pl.tList = tab === '全局黑白名单';
     // 生效资产
     const NM = {}; pols.forEach((p) => { NM[p.id] = p.n; });
