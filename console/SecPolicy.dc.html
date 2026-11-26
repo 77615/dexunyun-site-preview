@@ -793,25 +793,22 @@ main.kc-main > .pl-al{margin:0 24px 12px}
 .pl .pm-tbl2 th:nth-child(1){width:27%}
 .pl .pm-tbl2 th:nth-child(2){width:18%}
 .pl .pm-tbl2 th:nth-child(3){width:34%}
-.pdl{display:inline-flex;position:relative;background:#f2f3f5;border-radius:2px;padding:2px;gap:0}
-.pdl button{position:relative;z-index:1;height:26px;min-width:78px;padding:0 10px;border:0;background:transparent;border-radius:2px;font:inherit;font-size:12px;color:#4e5969;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;transition:color .2s,background .2s}
-.pdl button:hover{color:#1d2129}
-.pdl button.f{background:#e8f3ff;color:#165dff}
-.pdl button.f+button.f{border-left:1px solid #fff}
-.pdl button.on{font-weight:500;box-shadow:0 1px 2px rgba(29,33,41,.12)}
-.pdl button.on.l0{background:#fff;color:#1d2129}
-.pdl button.on.l1{background:#4080ff;color:#fff}
-.pdl button.on.l2{background:#165dff;color:#fff}
-.pdl button.lk{color:#c9cdd4;cursor:not-allowed}
-.pdl button.lk:hover{color:#c9cdd4}
+.pdl{display:inline-flex;gap:8px}
+.pdl button{position:relative;height:24px;min-width:84px;padding:3px 10px;border:0;background:rgba(0,0,0,.06);border-radius:6px;font:inherit;font-size:12px;font-weight:500;line-height:18px;color:rgba(0,0,0,.61);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;transition:color 180ms ease,background-color 180ms ease,box-shadow 180ms ease}
+.pdl button:hover{background:rgba(0,0,0,.08);color:rgba(0,0,0,.88)}
+.pdl button.on,.pdl button.on:hover{background:#fff;color:#000;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05)}
+.pdl button:focus-visible{outline:2px solid rgba(0,96,226,.35);outline-offset:1px}
+.pdl button.lk{background:rgba(0,0,0,.03);color:rgba(0,0,0,.27);cursor:not-allowed}
+.pdl button.lk:hover{background:rgba(0,0,0,.03);color:rgba(0,0,0,.27)}
 .pdl button.lk::before{content:"";width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 10h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 0 1 14 0v1zm-2 0V9A5 5 0 0 0 7 9v1h10zm-6 4v4h2v-4h-2z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 10h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 0 1 14 0v1zm-2 0V9A5 5 0 0 0 7 9v1h10zm-6 4v4h2v-4h-2z'/%3E%3C/svg%3E") center/contain no-repeat}
 .pdl.dis button{cursor:not-allowed}
-.pdl-t{margin-top:6px;font-size:12px;line-height:18px;color:#4e5969}
-.pdl-t.au{color:#165dff}
-.pdl-t small{display:block;color:#86909c;font-size:12px}
+.pdl-t{margin-top:6px;font-size:12px;line-height:18px;color:rgba(0,0,0,.61)}
+.pdl-t.au{color:rgba(0,0,0,.88)}
+.pdl-t.au::before{content:"自动执行";display:inline-flex;align-items:center;height:18px;margin-right:6px;padding:0 6px;border-radius:4px;background:#ff9c0029;color:#b25e00;font-size:11px;font-weight:500;vertical-align:1px}
+.pdl-t small{display:block;color:rgba(0,0,0,.45);font-size:12px}
 .pdl-lg{display:inline-flex;align-items:center;gap:14px;margin-left:16px;font-size:12px;color:#86909c;font-weight:400}
 .pdl-lg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:0}
-.pdl-lg .l0{background:#c9cdd4}.pdl-lg .l1{background:#4080ff}.pdl-lg .l2{background:#165dff}
+.pdl-lg i{box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}.pdl-lg .l0{background:rgba(0,0,0,.06)}.pdl-lg .l1{background:#fff}.pdl-lg .l2{background:#ff9c0029;box-shadow:inset 0 0 0 .5px rgba(178,94,0,.35)}
 .pdl-lg b{color:#1d2129;font-weight:500;margin-left:2px}
 .pq-tb .pq-tbn{display:inline-flex;align-items:center}
 
@@ -2107,7 +2104,7 @@ class Component extends DCLogic {
           const tmpAll = !!(TMP && !part); if (tmpAll) lv = lk ? lk[0] : 2; cnt[lv]++;
           const hasMax = !!PMX.dist(c[0])['重保'] && bm !== '重保';
           row.dlC = 'pdl' + (adm && !tmpAll ? '' : ' dis');
-          row.dl = LV.map((n, j) => { const locked = lk && j > lk[0]; return { n, a: j === lv ? 'true' : 'false', c: (locked ? 'lk' : j === lv ? 'on l' + j : j < lv && j > 0 ? 'f' : ''), t: locked ? lk[1] : j === lv ? '当前档位' : '切到「' + n + '」',
+          row.dl = LV.map((n, j) => { const locked = lk && j > lk[0]; return { n, a: j === lv ? 'true' : 'false', c: (locked ? 'lk' : j === lv ? 'on l' + j : ''), t: locked ? lk[1] : j === lv ? '当前档位' : '切到「' + n + '」',
             go: ev(() => { if (locked) { toast(lk[1], 'info'); return; } if (tmpAll) { toast('临时重保期间全部自动处置，结束后可以调整', 'info'); return; } if (!adm) { toast(NOP, 'info'); return; } if (j === lv) return;
               const v = j === 2 ? true : j === 1 ? 'ask' : false; PMX.setItem(c[0], 'au', j === def ? null : v); S({ plCmV: Date.now() }); toast(c[1] + ' 命中后改为「' + n + '」，约 1 分钟下发到 ' + (hasMax ? '标准模式的主机' : '全部主机')); }) }; });
           row.dt = lv === 2 ? '命中后' + c[4] : lv === 1 ? '告警并给出处置建议，你在告警中心确认后执行「' + c[4] + '」' : '只告警，' + c[4] + '需要你手动处理';
