@@ -3598,7 +3598,7 @@ class Component extends DCLogic {
         const rowOf2 = (id, extra) => { const d = ND(id); const al = alOf(id); const ts = al.map((y) => tsec(y[1]));
           const bar = ts.length > 0; const b0 = bar ? Math.min.apply(null, ts) : 0; const b1 = d[0] === 'proc' && bar && live ? T1 : bar ? Math.max.apply(null, ts) : 0;
           return { n: d[1], s: d[0] === 'proc' ? d[2].replace('PID ', '') : d[2], ic: 'hg-mk sm ' + ICG[d[0]], c: 'hg-row' + (id === selN ? ' on' : '') + (VM[id] && fd(id) ? ' fd' : '') + (al.length ? '' : ' mu') + (extra || ''), t: sel(id),
-            bar: bar && b1 > b0, bc: 'hg-bar ' + CC, bst: 'left:' + L(b0) + ';width:calc(' + L(b1) + ' - ' + L(b0) + ')', pts: stOfP(id).concat(cluA(id, al)) }; };
+            bar: bar && b1 > b0, bc: 'hg-bar ' + CC, bst: 'left:' + L(b0) + ';width:calc(' + L(b1) + ' - ' + L(b0) + ')', pts: stOfP(id).concat(cluA(id, al.filter((y) => { const t = tsec(y[1]); return t >= a0 && t <= a1; }))) }; };
         const tro = (st.hgRo || {})[exK] || {}; const ent = []; const byNm = {};
         V.forEach((o) => { if (o.t === 'f') return; (o.t === 'g' ? o.m : [o.id]).forEach((id) => { const key = PRC[id] ? 'p:' + PRC[id][0] : 'n:' + id; if (!byNm[key]) { byNm[key] = { nm: PRC[id] ? PRC[id][0] : '', ids: [], gid: '' }; ent.push(byNm[key]); } byNm[key].ids.push(id); if (o.t === 'g') byNm[key].gid = o.id; }); });
         /* net-v1 筛选 + 排序 */
