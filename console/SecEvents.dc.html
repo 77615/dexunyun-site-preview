@@ -1137,13 +1137,13 @@ class Component extends DCLogic {
     /* agt-v1 2026-11-26：待你确认（防护档位「确认后处置」的处置请求，参考 Approval Gates） */
     { const G0 = [
         { id: 'g1', av: '壳', cap: '反弹 Shell', host: 'web-prod-02', at: '2 分钟前', act: '结束 bash 进程并断开外联 185.xx.xx.77:9001', why: 'Web 进程 php-fpm 派生 Shell 连向外部地址，AI 研判为入侵，置信度 92%。', lb: '将要执行',
-          txt: 'kill -9 23817            # bash，父进程 php-fpm(1204)\nconntrack -D -d 185.xx.xx.77 -p tcp --dport 9001\niptables -A OUTPUT -d 185.xx.xx.77 -j DROP   # 封禁 24 小时', imp: [['会中断 1 个连接', 'w'], ['不影响 Web 服务', ''], ['24 小时后自动解封', '']], hold: '确认前，这个 Shell 仍在运行', held: ' · 已等待 2 分钟', href: 'SecEvents.dc.html?ev=e2' },
+          txt: 'kill -9 23817            # bash，父进程 php-fpm(1204)\nconntrack -D -d 185.xx.xx.77 -p tcp --dport 9001\niptables -A OUTPUT -d 185.xx.xx.77 -j DROP   # 封禁 24 小时', imp: [['会中断 1 个连接', 'w'], ['不影响 Web 服务', ''], ['24 小时后自动解封', '']], hold: '确认前，这个 Shell 仍在运行', held: ' · 已等待 2 分钟', href: 'SecEvents.dc.html?ev=EV-3195' },
         { id: 'g2', av: '登', cap: '异常登录', host: 'web-prod-01', at: '6 分钟前', act: '断开 root 的远程会话，并封禁来源 IP 203.0.113.45', why: 'root 从新 IP 异地登录，5 分钟内下载并执行了远程脚本。', lb: '将要执行',
-          txt: 'pkill -KILL -t pts/3      # root 会话，来源 203.0.113.45\n封禁 203.0.113.45 → web-prod-01 全部端口，24 小时', imp: [['会踢掉 1 个 root 会话', 'w'], ['运维白名单不受影响', '']], hold: '确认前，该会话仍可执行命令', held: ' · 已等待 6 分钟', href: 'SecEvents.dc.html?ev=e1' },
+          txt: 'pkill -KILL -t pts/3      # root 会话，来源 203.0.113.45\n封禁 203.0.113.45 → web-prod-01 全部端口，24 小时', imp: [['会踢掉 1 个 root 会话', 'w'], ['运维白名单不受影响', '']], hold: '确认前，该会话仍可执行命令', held: ' · 已等待 6 分钟', href: 'SecEvents.dc.html?ev=EV-3206' },
         { id: 'g3', av: '勒', cap: '防勒索', host: 'db-01', at: '11 分钟前', act: '结束加密进程 sysupdate，并从快照恢复 1,204 个文件', why: '5 分钟内批量改写 1,204 个文件，扩展名变为 .locked。', lb: '将要执行',
-          txt: 'systemctl stop sysupdate.service && kill -9 8812\nrestore --snapshot 11-10_03:00 --path /data/app  # 1,204 个文件', imp: [['会停止 1 个系统服务', 'w'], ['恢复到 03:00 的快照', ''], ['恢复前自动备份当前文件', '']], hold: '确认前，加密进程已被暂停，文件未恢复', held: ' · 已等待 11 分钟', href: 'SecEvents.dc.html?ev=e3' },
-        { id: 'g4', av: '毒', cap: '病毒查杀', host: 'cache-01', at: '18 分钟前', act: '隔离挖矿程序 /tmp/.x/kworkerd', why: '文件哈希命中挖矿家族 XMRig，CPU 占用持续 96%。', lb: '将要执行',
-          txt: 'quarantine /tmp/.x/kworkerd   # sha256 9f2c…e01a\nkill -9 30177', imp: [['可随时从隔离区恢复', '']], hold: '确认前，挖矿进程仍占用 CPU', held: ' · 已等待 18 分钟', href: 'SecEvents.dc.html?ev=e6' }];
+          txt: 'systemctl stop sysupdate.service && kill -9 8812\nrestore --snapshot 11-10_03:00 --path /data/app  # 1,204 个文件', imp: [['会停止 1 个系统服务', 'w'], ['恢复到 03:00 的快照', ''], ['恢复前自动备份当前文件', '']], hold: '确认前，加密进程已被暂停，文件未恢复', held: ' · 已等待 11 分钟', href: 'SecEvents.dc.html?ev=EV-3188' },
+        { id: 'g4', av: '软', cap: '软件与进程', host: 'cache-01', at: '18 分钟前', act: '结束 nmap 扫描并卸载扫描工具', why: 'ops 账号未经授权安装 nmap，已对内网发起 4 次扫描。', lb: '将要执行',
+          txt: 'kill -9 30177              # nmap -sS 10.0.0.0/16\nyum remove -y nmap        # 卸载未授权软件', imp: [['会中断正在进行的扫描', 'w'], ['不影响 ops 账号登录', '']], hold: '确认前，扫描仍在进行', held: ' · 已等待 18 分钟', href: 'SecEvents.dc.html?ev=EV-3181' }];
       const D0 = [{ id: 'd0', act: '封禁 45.xx.xx.12，24 小时', who: '网络防火墙 · cache-03 · wangqi', d: 'approved', at: '09:40', note: '已执行：来源 IP 已封禁，24 小时后自动解封。' }];
       const dec = st.agDec || {}; const eds = st.agEd || {}; const lvS = this.__agLv || null;
       const open = G0.filter((g) => !dec[g.id]);
@@ -1173,6 +1173,7 @@ class Component extends DCLogic {
       ag.done = rows.map((r) => ({ rc: 'agt-row' + (r.id === fresh ? ' nw' : ''), m: r.d === 'rejected' ? '×' : '✓', mc: 'agt-rm' + (r.d === 'rejected' ? ' no' : ''), act: r.act, tg2: r.d !== 'approved', tgc: r.d === 'rejected' ? 'tg' : 'tg e', tgn: r.d === 'rejected' ? '已拒绝' : '改后执行', at: r.at,
         open: op === r.id, ae: op === r.id ? 'true' : 'false', tg: ev(() => set({ agOpen: op === r.id ? '' : r.id })), who: r.who, note: r.note, nc: 'agt-note' + (r.d === 'rejected' ? ' no' : ' ok'), canU: r.canU,
         undo: ev(() => { const d2 = Object.assign({}, dec); delete d2[r.id]; set({ agDec: d2, agOpen: '', agI: 0 }); toast('已放回待确认'); }) }));
+      if (ag.c) ag.c.onEd = ag.onEd;
       ag.dn = rows.length; ag.qn = open.length;
       ag.q = open.map((x, i) => ({ av: x.av, act: x.act, sub: x.cap + ' · ' + x.host + ' · ' + x.at, c: 'agt-qi' + (i === idx ? ' on' : ''), cur: i === idx ? 'true' : 'false', go: ev(() => set({ agI: i, agEdOn: '' })) }));
       const hostsN = Array.from(new Set(open.map((x) => x.host)));
