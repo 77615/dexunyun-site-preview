@@ -28,19 +28,47 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&amp;display=swap" data-r91="">
 <style>
 
+
+/* cnav-v1 三个中心的导航入口 */
+.kc .kc-main>nav.tcl-tabs>.cnav-r{margin-left:auto;align-self:center;display:flex;gap:4px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;font-size:13px;font-weight:400;color:rgba(0,0,0,.7);text-decoration:none;border-radius:2px}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a::after{display:none!important}
+.kc .kc-main>nav.tcl-tabs>.cnav-r>a:hover{background:rgba(255,255,255,.7);color:#1664ff}
+.cnav-r .kc-ic,.cnav-me .kc-ic{display:inline-block;flex:none;width:14px;height:14px;-webkit-mask-size:14px 14px;mask-size:14px 14px;background:currentColor!important;margin:0}
+.ac-pop:has(>.cnav-me){width:340px!important}
+.cnav-me{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px;border-bottom:1px solid #eef0f3}
+.cnav-me>a{display:flex;flex-direction:column;gap:4px;padding:10px;background:#f7f8fa;color:rgba(0,0,0,.9);text-decoration:none;border-radius:2px}
+.cnav-me>a:hover{background:#eef4ff;color:#1664ff}
+.cnav-me>a .kc-ic{width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;color:#1664ff;background:#1664ff!important}
+.cnav-me>a b{font-size:13px;font-weight:500}
+.cnav-me>a small{font-size:11px;color:rgba(0,0,0,.5);white-space:nowrap}
+.kc-side.ctr-side .kc-sh .cnav-back{display:inline-flex;align-items:center;gap:2px;margin-top:4px;font-size:12px;color:rgba(0,0,0,.5);text-decoration:none}
+.kc-side.ctr-side .kc-sh .cnav-back:hover{color:#1664ff}
+
+/* pin-v1 产品与服务弹窗左栏：固定的中心入口 */
+.tp-pp .tp-l>ul.tp-fix{margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid #eef0f3}
+.tp-pp .tp-l>ul.tp-fix>li>a{display:flex;align-items:center;justify-content:space-between;gap:8px;height:36px}
+.tp-pp .tp-l>ul.tp-fix .tp-n{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:rgba(0,0,0,.9)}
+.tp-pp .tp-l>ul.tp-fix .tp-n b{font-weight:500}
+.tp-pp .tp-l>ul.tp-fix .kc-ic{display:inline-block;flex:none;width:16px;height:16px;-webkit-mask-size:16px 16px;mask-size:16px 16px;background:rgba(0,0,0,.6)!important;margin:0}
+.tp-pp .tp-l>ul.tp-fix>li>a:hover .kc-ic,.tp-pp .tp-l>ul.tp-fix>li>a.on .kc-ic{background:#1664ff!important}
+.tp-pp .tp-l>ul.tp-fix>li>a.on .tp-n{color:#1664ff}
+.tp-pp .tp-l>ul.tp-fix small.r{color:#f64041}
+
+/* gap-v1 产品与服务弹窗贴住顶栏 */
+.kc-top .tp-pp{top:100%!important}
+.kc-top .tp-dim{top:50px!important}
 </style>
 </helmet>
 <div class="kc ux-wrap">
   <header class="kc-top">
-    <a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">服务器</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <span class="tp-dw"><button class="{{hd.prodCls}}" type="button" aria-expanded="{{hd.prodEx}}" onClick="{{hd.prod}}" aria-label="产品与服务" title="产品与服务"><span class="tp-hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <sc-if value="{{hd.prodOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim" onClick="{{hd.close}}"></div><div class="tp-pp" role="dialog" aria-label="产品与服务">
       <div class="tp-l">
-        <h4>安全中心</h4><ul class="sx-pinl"><li><a class="sx-pin" href="SecHome.dc.html"><span class="tp-n"><i class="dt dt-host"></i><b>德迅安全卫士</b></span><small class="r">18 条待处理</small></a></li></ul>
+        <ul class="tp-fix" aria-label="常用入口"><li><a href="ConsoleHome.dc.html"><span class="tp-n"><i class="kc-ic i-grid"></i><b>控制台总览</b></span></a></li><li><a href="AcctProducts.dc.html"><span class="tp-n"><i class="kc-ic i-box"></i><b>我的产品</b></span></a></li><li><a href="SecHome.dc.html"><span class="tp-n"><i class="kc-ic i-shield"></i><b>安全中心</b></span><small class="r">18 条待处理</small></a></li><li><a href="BillOverview.dc.html"><span class="tp-n"><i class="kc-ic i-doc"></i><b>费用中心</b></span></a></li><li><a href="OrgInfo.dc.html"><span class="tp-n"><i class="kc-ic i-users"></i><b>企业中心</b></span></a></li><li><a href="SupTickets.dc.html"><span class="tp-n"><i class="kc-ic i-help"></i><b>支持中心</b></span></a></li></ul>
         <h4>最近访问</h4><ul><sc-for list="{{hd.recent}}" as="r" hint-placeholder-count="3"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.s}}</small></a></li></sc-for></ul>
         <h4>我的收藏</h4><ul><sc-for list="{{hd.favList}}" as="r" hint-placeholder-count="2"><li><a href="{{r.href}}"><span class="tp-n"><i class="{{r.di}}"></i>{{r.n}}</span><small>{{r.cat}}</small></a></li></sc-for></ul>
         <sc-if value="{{hd.noFav}}" hint-placeholder-val="{{false}}"><p>点产品右侧的星标收藏</p></sc-if>
-        <h4>账号与费用</h4><ul><li><a href="ConsoleHome.dc.html">控制台总览</a></li><li><a href="AcctProducts.dc.html">我的产品</a></li><li><a href="BillOverview.dc.html">费用</a></li></ul>
       </div>
       <div class="tp-r">
         <label class="tp-q"><i class="fi-i fi-srch"></i><input type="search" aria-label="搜索产品" placeholder="搜索产品，例如 高防、证书、服务器" value="{{hd.pq}}" onChange="{{hd.onPq}}"><small>共 {{hd.allN}} 个产品</small></label>
@@ -48,7 +76,7 @@
         <sc-if value="{{hd.pNone}}" hint-placeholder-val="{{false}}"><div class="tp-none">没有找到「{{hd.pq}}」相关的产品 · <a href="SupTicketNew.dc.html">提交工单</a>或拨打 0577-26676666</div></sc-if>
       </div>
       <div class="tp-ft"><span>未开通的产品点击后进入官网产品页了解和购买</span><a href="AcctPurchase.dc.html">选购产品<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
-    </div></sc-if></span>
+    </div></sc-if></span><a class="kc-logo" href="ConsoleHome.dc.html" title="返回德迅云控制台总览"><span class="kc-mark">德</span><span class="kc-ln"><span class="kc-ln-c">服务器</span><span class="kc-ln-b" aria-hidden="true">德迅云控制台</span></span></a>
     <nav data-cb="" class="kc-crumb" aria-label="面包屑"><a class="cb-home" href="ConsoleHome.dc.html">首页</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><a href="IdcServers.dc.html">服务器</a><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i><b>web-prod-01</b></nav>
     <span class="tp-sw"><button class="kc-search tp-sb" type="button" aria-label="全局搜索" onClick="{{hd.srch}}"><svg class="rx rx-q" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg><span>搜索功能、域名、IP、实例或文档</span><kbd>Ctrl K</kbd></button>
     <sc-if value="{{hd.srchOn}}" hint-placeholder-val="{{false}}"><div class="tp-dim all" onClick="{{hd.close}}"></div><div class="tp-sp" role="dialog" aria-label="全局搜索">
@@ -79,7 +107,7 @@
             <li><span>代金券<em>1 张可用</em></span></li>
           </ul>
           <div class="ac-qk"><a href="BillOrders.dc.html">我的订单</a><a href="BillInvoice.dc.html">发票</a><a href="BillContract.dc.html">合同</a><a href="BillOverview.dc.html">账务概览</a></div>
-          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">前往账务概览<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
+          <div class="ac-pf" style="justify-content:center"><a href="BillOverview.dc.html">进入费用中心<svg class="rx rx-go" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></a></div>
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.msgCls}}" aria-expanded="{{hd.msgEx}}" onClick="{{hd.msg}}">消息<sc-if value="{{hd.hasUnread}}" hint-placeholder-val="{{true}}"><i class="ac-bdg">{{hd.unread}}</i></sc-if></button>
         <sc-if value="{{hd.msgOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="消息">
@@ -90,7 +118,7 @@
         </div></sc-if></span>
       <span class="ac-dw"><button type="button" class="{{hd.meCls}}" aria-expanded="{{hd.meEx}}" onClick="{{hd.me}}"><span class="kc-user"><b>wangqi</b><small>德迅科技 · 主账号</small></span><span class="kc-av" aria-hidden="true">德</span></button>
         <sc-if value="{{hd.meOn}}" hint-placeholder-val="{{false}}"><div class="ac-pop" role="dialog" aria-label="账户" style="width:300px">
-          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div>
+          <div class="ac-uh"><span class="kc-av">德</span><div><b>wangqi</b><span class="kc-tag info">主账号</span><small>账号 ID 100014655316 · 德迅科技</small></div></div><div class="cnav-me"><a href="BillOverview.dc.html"><i class="kc-ic i-doc"></i><b>费用中心</b><small>订单 · 付款 · 发票</small></a><a href="OrgInfo.dc.html"><i class="kc-ic i-users"></i><b>企业中心</b><small>认证 · 成员 · 权限</small></a><a href="SupTickets.dc.html"><i class="kc-ic i-help"></i><b>支持中心</b><small>工单 · 消息 · 文档</small></a></div>
           <ul class="ac-rows">
             <li><a href="OrgInfo.dc.html">企业信息与认证<em><span class="kc-tag ok">已认证</span></em></a></li>
             <li><a href="OrgSecurity.dc.html">安全设置<em>账号安全分 81</em><i><svg class="rx" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></i></a></li>
