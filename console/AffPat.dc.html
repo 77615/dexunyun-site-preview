@@ -38,7 +38,8 @@
 .afx-seg button.on{background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);color:rgba(0,0,0,.88);font-weight:500}
 
 /* 1 防护漏斗（按 Guardrail Funnel clean 重做） */
-.gf2{--gfc:#165dff;display:grid;min-width:0;max-width:880px;padding:14px 16px 16px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font-size:13px;line-height:20px;color:rgba(0,0,0,.61)}
+.gf2-cq{container:gf2 / inline-size}
+.gf2{--gfc:#165dff;display:grid;min-width:0;padding:14px 16px 16px;border-radius:2px;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.06),0 1px 1px -1px rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.05);font-size:13px;line-height:20px;color:rgba(0,0,0,.61)}
 .gf2-bar{display:flex;align-items:center;gap:8px;min-height:24px;margin-bottom:10px}
 .gf2-tt{font-weight:500;color:#000}
 .gf2-tot{font-size:12px;color:rgba(0,0,0,.45)}
@@ -98,6 +99,8 @@
 .gf2-pl .p{min-width:38px;font-size:11px;color:rgba(0,0,0,.45);text-align:right;font-variant-numeric:tabular-nums}
 .gf2-tr{display:block;height:4px;overflow:hidden;border-radius:2px;background:rgba(0,0,0,.025);box-shadow:inset 0 0 0 .5px rgba(0,0,0,.06)}
 .gf2-fl{display:block;height:100%;border-radius:inherit;background:color-mix(in srgb,var(--c) 45%,#fff);box-shadow:inset 0 0 0 .5px color-mix(in srgb,var(--c) 60%,transparent);animation:gf2Fill .7s cubic-bezier(.32,.72,.24,1) both}
+@container gf2 (min-width: 960px){.gf2{grid-template-columns:minmax(0,1fr) minmax(340px,38%);align-items:start}.gf2-bar{grid-column:1/-1}.gf2-stages{grid-column:1}.gf2-pn{grid-column:2;grid-row:2;align-self:stretch;align-content:start;margin:0 0 0 16px;padding:0 0 0 16px;border-top:0;border-left:.5px solid rgba(0,0,0,.06)}.gf2-exs{height:auto}}
+@container gf2 (max-width: 420px){.gf2-stages{grid-template-columns:minmax(0,1fr) minmax(72px,.7fr) 76px}.gf2-ph > span,.gf2-em .t,.gf2-pl .n{display:none}.gf2-ex{gap:8px}.gf2-live span{display:none}}
 @keyframes gf2Grow{from{transform:translateX(-50%) scaleX(0);opacity:0}}
 @keyframes gf2Sheen{0%{transform:translateX(-100%)}40%,100%{transform:translateX(150%)}}
 @keyframes gf2In{from{opacity:0;transform:translateY(3px)}}
@@ -284,14 +287,14 @@
 <p class="afx-sub">2026-11-26 · 参考 affectUI 的 Guardrail Funnel、Agent Recap、Permission Request、Commit Trail、Stat Card、Change Summary、Running Now，换成安全业务数据和系统样式（2px 圆角、紧凑间距）。每块都能点，看完再决定放不放进对应页面。</p>
 
 <section class="afx-sec"><div class="afx-sh"><span class="afx-no">4</span><span class="afx-st">防护漏斗</span><span class="afx-at">→ 安全总览</span><span class="afx-src">参考 Guardrail Funnel</span></div>
-<p class="afx-sd">进入主机的访问依次经过防火墙、入侵检测、病毒查杀，每层拦下的部分在带子两端用该层颜色标出，中间是继续往下走的部分（带子宽度只表示先后，准确数字看右侧）。点一层，下方显示它拦下的样例和命中的规则。</p>
-<section class="gf2" aria-label="防护漏斗"><div class="gf2-bar"><span class="gf2-tt">防护漏斗</span><span class="gf2-tot">共拦截 <b>{{gf.tot}}</b></span><span class="gf2-st"><span class="gf2-live"><i></i>实时</span><span class="gf2-rg" role="radiogroup" aria-label="时间范围"><sc-for list="{{gf.rg}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" role="radio" aria-checked="{{r.ck}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></span></span></div>
+<p class="afx-sd">进入主机的访问依次经过防火墙、入侵检测、病毒查杀，每层拦下的部分在带子两端用该层颜色标出，中间是继续往下走的部分（带子宽度只表示先后，准确数字看右侧）。点一层，显示它拦下的样例和命中的规则：宽度够时样例列在右侧，窄的时候放到下方。</p>
+<div class="gf2-cq"><section class="gf2" aria-label="防护漏斗"><div class="gf2-bar"><span class="gf2-tt">防护漏斗</span><span class="gf2-tot">共拦截 <b>{{gf.tot}}</b></span><span class="gf2-st"><span class="gf2-live"><i></i>实时</span><span class="gf2-rg" role="radiogroup" aria-label="时间范围"><sc-for list="{{gf.rg}}" as="r" hint-placeholder-count="3"><button type="button" class="{{r.c}}" role="radio" aria-checked="{{r.ck}}" onClick="{{r.go}}">{{r.n}}</button></sc-for></span></span></div>
 <div class="gf2-stages"><div class="gf2-list" role="listbox" aria-label="防护层"><sc-for list="{{gf.rows}}" as="s" hint-placeholder-count="5"><button type="button" class="{{s.c}}" role="option" aria-selected="{{s.sel}}" aria-label="{{s.al}}" onClick="{{s.go}}"><span class="gf2-nm"><span class="gf2-hd"><i class="{{s.ic}}" style="{{s.icc}}"></i><span class="gf2-lb">{{s.n}}</span></span><span class="gf2-mt">{{s.mt}}</span></span><span class="gf2-gap" aria-hidden="true"></span><span class="gf2-nums"><span class="gf2-cnt">{{s.cnt}}</span><span class="gf2-pct">{{s.pct}}</span></span></button></sc-for></div>
 <div class="gf2-fun" aria-hidden="true" key="{{gf.k}}"><svg viewBox="0 0 1000 200" preserveAspectRatio="none"><sc-for list="{{gf.tps}}" as="t" hint-placeholder-count="4"><path class="gf2-tp" d="{{t.d}}"></path></sc-for></svg><sc-for list="{{gf.bands}}" as="b" hint-placeholder-count="5"><div class="gf2-st2" style="{{b.st}}"><sc-if value="{{b.hasEnd}}" hint-placeholder-val="{{true}}"><span class="gf2-end"></span></sc-if><span class="{{b.cc}}" style="{{b.cw}}"></span><span class="gf2-sh" style="{{b.sd}}"></span></div></sc-for></div></div>
 <div class="gf2-pn" aria-live="polite" style="{{gf.pc}}"><div class="gf2-ph"><b>{{gf.pn}}</b><span>{{gf.ph}}</span></div><ul class="gf2-exs" style="list-style:none;margin:0;padding:0">
 <sc-for list="{{gf.ex}}" as="x" hint-placeholder-count="3"><li class="gf2-ex" key="{{x.key}}"><span class="gf2-eb"><span class="{{x.tc}}">{{x.lead}}<mark class="gf2-hit">{{x.hit}}</mark>{{x.tail}}</span><span class="gf2-em"><span class="r">{{x.rule}}</span><span class="t">{{x.at}}</span></span></span><sc-if value="{{x.can}}" hint-placeholder-val="{{true}}"><button type="button" class="gf2-act" onClick="{{x.go}}">{{x.act}}</button></sc-if><sc-if value="{{x.done}}" hint-placeholder-val="{{false}}"><span class="gf2-dn"><i>✓</i>{{x.dl}}</span></sc-if></li></sc-for>
 <sc-for list="{{gf.parts}}" as="p" hint-placeholder-count="0"><li class="gf2-pt" key="{{p.key}}"><span class="gf2-pl"><span class="l">{{p.n}}</span><span class="n">{{p.note}}</span><span class="v">{{p.v}}</span><span class="p">{{p.p}}</span></span><span class="gf2-tr"><span class="gf2-fl" style="{{p.w}}"></span></span></li></sc-for>
-</ul></div></section></section>
+</ul></div></section></div></section>
 
 <section class="afx-sec"><div class="afx-sh"><span class="afx-no">5</span><span class="afx-st">你不在时</span><span class="afx-at">→ 安全总览（隔夜或长时间未登录后首次打开时出现）</span><span class="afx-src">参考 Agent Recap</span></div>
 <p class="afx-sd">打开时曲线从左往右画出来，经过一件事就冒出一个点、点亮对应卡片，顶部计数跟着涨。下面三栏：需要你处理、失败、已完成，每张卡一个操作，做完原地变成结果和撤销。指向卡片或图上的点会互相点亮。</p>
