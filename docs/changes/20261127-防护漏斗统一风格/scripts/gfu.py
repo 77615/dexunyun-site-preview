@@ -67,8 +67,8 @@ css += [
  # 漏斗图：方角纯色，同趋势图配色
  P+'.gf2-tp{fill:#1664ff;fill-opacity:.05}',
  P+'.gf2-st2{height:12px}',
- P+'.gf2-end{border-radius:0;background:#c7ccd6;box-shadow:none}',
- P+'.gf2-core,'+P+'.gf2-core.last{border-radius:0;background:#1664ff;box-shadow:none}',
+ P+'.gf2-end{border-radius:0;background:#e1e5eb;box-shadow:none}',
+ P+'.gf2-core,'+P+'.gf2-core.last{border-radius:0;background:#94bfff;box-shadow:none}',
  P+'.gf2-sh{display:none}',
  # 右侧明细
  P+'.gf2-pn{border-color:#e9ecf1}',
@@ -92,7 +92,7 @@ css += [
  P+'.gf2-pl .n,'+P+'.gf2-pl .p{font-size:12px;color:rgba(0,0,0,.5)}',
  P+'.gf2-pl .v{font-weight:600;color:rgba(0,0,0,.9)}',
  P+'.gf2-tr{height:4px;border-radius:0;background:#e6e9ef;box-shadow:none}',
- P+'.gf2-fl{border-radius:0;background:#1664ff;box-shadow:none}',
+ P+'.gf2-fl{border-radius:0;background:#94bfff;box-shadow:none}',
 ]
 for k, v in ICON.items():
     css.append(P + '.gf2-ic.i-%s{--ic:%s}' % (k, v))
