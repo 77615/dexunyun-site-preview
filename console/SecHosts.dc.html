@@ -1565,7 +1565,7 @@ class Component extends DCLogic {
     { const { RK, HM, LVC, PEND, GO, GOX, HOSTGO } = this._sd();
       const RT = { '入侵检测': '入侵', '漏洞风险': '漏洞', '基线风险': '基线', '网络风险': '网络' };
       sx.rcat.forEach((k) => { const t = RT[k.n]; k.goR = GO('SecRisks', { '类型': t }); k.goH = GO('SecHosts', { '风险类型': t }); k.go = k.goR; });
-      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '授权已到期'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
+      { const HS6 = this._sd().HS; sx.unpR = ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '待绑定', '授权已到期'].map((n) => ({ n, c: HS6.filter((h) => h.ps === '未受保护' && (h.why || '').split(' · ')[0] === n).length, go: GO('SecHosts', { '保护状态': '未受保护', '原因': n }) })).filter((x) => x.c); }
       Object.assign(sx.go, { unp: GO('SecHosts', { '保护状态': '未受保护' }), allPri: GO('SecRisks', { '状态': '待处置' }), allAl: GO('SecRisks', { '状态': '待处置' }),
         wk: GO('SecRisks', { '状态': '已解决', '时间': '近 7 天' }), hosts: GO('SecHosts', {}), assets: GO('SecHosts', {}), rec: GO('SecRisks', { '状态': '全部', '时间': '近 7 天' }) });
       const PID = ['R1', 'R3', 'U1', 'R6'];
@@ -1623,7 +1623,7 @@ class Component extends DCLogic {
       ['web-old-01', '115.231.**.30', '德迅服务器', '已停机', '到期停机，暂停检测，数据保留至 11-12', '—', '离线', '', '生效', '未覆盖', '离线', 'V4.3.2', '11-05 23:58'],
       ['cache-03', '10.0.3.33', '其他机房', '未受保护', '离线 · 客户端 2 小时没有心跳', '—', '离线', '客户端离线', '生效', '未覆盖', '离线', 'V4.3.2', '11-02 08:31'],
       ['app-06', '10.0.2.26', '其他机房', '未受保护', '检测过期 · 超过 3 天没有完成检测', '—', '异常', '检测过期', '生效', '未覆盖', '在线', 'V4.3.2', '10-29 03:00'],
-      ['app-07', '10.0.2.27', '其他机房', '未受保护', '授权已用满 · 客户端已装好，授权用满没能加入', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
+      ['app-07', '10.0.2.27', '其他机房', '未受保护', (() => { try { return localStorage.getItem('dxLicDm') === '正常使用'; } catch (x) { return false; } })() ? '待绑定 · 客户端已装好，到授权管理绑定已购授权后开始检测' : '授权已用满 · 客户端已装好，授权用满没能加入', '—', '正常', '', '—', '未覆盖', '在线', 'V4.3.2', '—']];
     for (let i = 1; X.length < 68; i++) { const p = String(i).padStart(2, '0'); X.push(['node-' + p, '10.0.' + (6 + Math.floor(i / 40)) + '.' + (10 + i % 40), '其他机房', '正常', '', 'A', '正常', '', '生效', '已覆盖', '在线', 'V4.3.2', '11-02 10:' + String(10 + i % 30)]); }
     const HS = X.map(([n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk]) => ({ n, ip, room, ps, why, gr, ag, agw, po, cv, on, ver, chk, dx: room === '德迅服务器' }));
     const HM = {}; HS.forEach((h) => { HM[h.n] = h; });
@@ -1830,7 +1830,7 @@ class Component extends DCLogic {
       ls.tabs = ['全部', '正常', '有风险', '未受保护', '接入中', '已停机'].map((t) => { const c = HS.filter((h) => qm(h) && m(h, Object.assign({}, lf, { '保护状态': t }))).length;
         return { n: t, c, cls: t === tab ? 'kc-tab on' : 'kc-tab', on: t === tab, pick: ev(() => S({ lfT: Date.now(), pgT: Date.now(), lf: Object.assign({}, lf, { '保护状态': t }), pg: 1 })) }; });
       const ATTR = { '风险类型': ['入侵', '漏洞', '基线', '网络'], '风险等级': ['E', 'D', 'C', 'B', 'A', '—'], '机房': ['德迅服务器', '其他机房'], '客户端': ['正常', '异常'],
-        '策略': ['生效', '未生效'], '防护覆盖': ['已覆盖', '未覆盖'], '在线状态': ['在线', '离线'], '分组': ['德迅云服务器', '自有机房', '生产环境', '测试环境', '未分组'], '业务标签': ['Web 服务', '应用', '数据库', '缓存', 'API', '备份', '测试', '未打标签'], '检测项': ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索', '网页防篡改', '威胁狩猎', '漏洞检测', '基线检查', '网络防火墙'], 'AI 研判': ['已研判'], '原因': ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '授权已到期'] };
+        '策略': ['生效', '未生效'], '防护覆盖': ['已覆盖', '未覆盖'], '在线状态': ['在线', '离线'], '分组': ['德迅云服务器', '自有机房', '生产环境', '测试环境', '未分组'], '业务标签': ['Web 服务', '应用', '数据库', '缓存', 'API', '备份', '测试', '未打标签'], '检测项': ['异常登录', '反弹 Shell', '本地提权', '高危命令', '应用运行防护', '病毒查杀', '防勒索', '网页防篡改', '威胁狩猎', '漏洞检测', '基线检查', '网络防火墙'], 'AI 研判': ['已研判'], '原因': ['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '待绑定', '授权已到期'] };
       picker(lf, ATTR);
       const RN = {}; RK.forEach((r) => { RN[r.id] = r.n; });
       ls.chips = chipsOf(lf, '保护状态', {}).map((c) => (c.k === '风险' ? Object.assign(c, { v: RN[c.v] || c.v }) : c)); ls.hasF = ls.chips.length > 0;
@@ -1899,9 +1899,9 @@ class Component extends DCLogic {
       /* s3rs */ { const RSN = (h) => (h.why || '').split(' · ')[0]; const base = Object.assign({}, lf); delete base['原因']; const cur = lf['原因'] || '';
         const pool = HS.filter((h) => !delH[h.n] && h.ps === '未受保护' && !ins[h.n]);
         ls.rsOn = tab === '未受保护';
-        ls.rs = [['全部', '']].concat(['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '授权已到期'].map((n) => [n, n])).map(([n, v]) => ({ n, v: String(v ? pool.filter((h) => RSN(h) === v).length : pool.length), c: 's3-o' + (v === cur ? ' on' : ''), go: navF(v ? Object.assign({}, base, { '原因': v }) : base) }));
-        const TIP = { '未安装': '服务器开通后还没装客户端，可以一键安装', '已卸载': '客户端被手动卸载，重装系统和续费后不会自动装回，需要重新安装', '部署失败': '自动安装没成功，重试前可以先看失败原因', '离线': '客户端没有心跳，先排查网络和防火墙', '检测过期': '超过 3 天没有完成检测，可以立即检测一次', '授权已用满': '客户端已装好，但授权用满没能加入；删除不用的主机或购买授权后自动加入', '授权已到期': '已购授权到期且宽限期结束，按最后接入时间超出授权台数的主机停止检测，数据保留 30 天；续费到账后先恢复这些主机。卫士管理可以在授权管理里更换保留哪几台' };
-        ls.rsT = cur ? TIP[cur] : '未安装、已卸载、部署失败可以批量安装；离线先排查；检测过期可立即检测；授权已用满的删掉不用的主机或购买授权'; }
+        ls.rs = [['全部', '']].concat(['未安装', '已卸载', '部署失败', '离线', '检测过期', '授权已用满', '待绑定', '授权已到期'].map((n) => [n, n])).map(([n, v]) => ({ n, v: String(v ? pool.filter((h) => RSN(h) === v).length : pool.length), c: 's3-o' + (v === cur ? ' on' : ''), go: navF(v ? Object.assign({}, base, { '原因': v }) : base) }));
+        const TIP = { '未安装': '服务器开通后还没装客户端，可以一键安装', '已卸载': '客户端被手动卸载，重装系统和续费后不会自动装回，需要重新安装', '部署失败': '自动安装没成功，重试前可以先看失败原因', '离线': '客户端没有心跳，先排查网络和防火墙', '检测过期': '超过 3 天没有完成检测，可以立即检测一次', '授权已用满': '客户端已装好，但授权用满没能加入；删除不用的主机或购买授权后自动加入', '待绑定': '客户端已装好，免费 3 台已用完；到授权管理勾选这台绑定已购授权，绑定后开始检测', '授权已到期': '已购授权到期且宽限期结束，按最后接入时间超出授权台数的主机停止检测，数据保留 30 天；续费到账后先恢复这些主机。卫士管理可以在授权管理里更换保留哪几台' };
+        ls.rsT = cur ? TIP[cur] : '未安装、已卸载、部署失败可以批量安装；离线先排查；检测过期可立即检测；授权已用满的删掉不用的主机或购买授权；待绑定的到授权管理绑定'; }
       ls.n = rows.length; ls.empty = !rows.length; ls.has = !!rows.length;
       const pg = pager(rows.length, 10);
       const PC = { '正常': 'sl-d g', '有风险': 'sl-d r', '未受保护': 'sl-d o', '接入中': 'sl-d b', '已停机': 'sl-d x' };
@@ -1914,7 +1914,8 @@ class Component extends DCLogic {
           if (INS[rsn]) ops.push({ n: ins[h.n] === 2 ? '首检中' : ins[h.n] ? '安装中' : INS[rsn], go: ev(() => { if (ins[h.n]) return; S({ ins2: Object.assign({}, ins, { [h.n]: 1 }) }); s1adv([h.n]); toast(rsn === '部署失败' ? '已换用备用安装源重新安装，约 2 分钟，装好后自动开始首次检测' : '已下发安装，约 2 分钟，装好后自动开始首次检测', 'info'); }) });
           else if (rsn === '离线') ops.push({ n: '排查', go: ev(() => toast('已发起连通性检测，约 1 分钟出结果；常见原因是安全组或防火墙拦了 443 出方向', 'info')) });
           else if (rsn === '检测过期') ops.push({ n: '立即检测', go: ev(() => toast('已下发检测任务，约 5 分钟完成', 'info')) });
-          else if (rsn === '授权已用满') ops.push({ n: '购买授权', go: GO('SecLicense', {}) }); }
+          else if (rsn === '授权已用满') ops.push({ n: '购买授权', go: GO('SecLicense', {}) });
+          else if (rsn === '待绑定') ops.push({ n: '绑定授权', go: GO('SecLicense', {}) }); }
         if (h.ag === '异常' && h.ps !== '未受保护') ops.push({ n: h.ver === 'V4.1.0' ? '升级客户端' : '排查', go: ev(() => toast(h.ver === 'V4.1.0' ? '已下发升级任务' : '已发起连通性检测，约 1 分钟出结果', 'info')) });
         ops.push({ n: '详情', go: GO('SecHostDetail', {}, h.n) });
         const on1 = !!sel[h.n]; const old = h.ver === 'V4.3.1' || h.ver === 'V4.1.0'; const nov = h.ver === '—';
@@ -1926,7 +1927,7 @@ class Component extends DCLogic {
           ck: ev(() => { const o = Object.assign({}, sel); if (o[h.n]) delete o[h.n]; else o[h.n] = 1; S({ hsel: o }); }),
           ag: ins[h.n] >= 2 ? 'V4.3.2' : nov ? '未安装' : h.ver, ut: old && !nov ? '待升级' : '', uc: 'hs-u o', agX: !(ins[h.n] >= 2) && (h.ag === '异常' || h.on === '离线'),
           agw, onc: h.ag === '异常' || nov ? 'hs-dot o' : h.on === '离线' ? 'hs-dot x' : 'hs-dot g', chk: h.chk, ops: ops.slice(0, 1), opx: ops.slice(1),
-          ...(() => { const rdm = st.hrd || {}; const live = !nov && h.on !== '离线' && !/^授权已用满/.test(h.why || ''); const rd = rdm[h.n] !== undefined ? rdm[h.n] : live;
+          ...(() => { const rdm = st.hrd || {}; const live = !nov && h.on !== '离线' && !/^(授权已用满|待绑定)/.test(h.why || ''); const rd = rdm[h.n] !== undefined ? rdm[h.n] : live;
             const MF = { 'web-prod-01': ['pwd'], 'db-01': ['pwd', 'sms'], 'cache-01': ['wx'], 'api-01': ['wx', 'sms'] }; const on2 = MF[h.n] || [];
             const mo = st.hmo === h.n; const ask = mo && st.hmq === h.n;
             return { rdc: rd ? 'kc-sw on hs-sw' : 'kc-sw hs-sw', rda: rd ? 'true' : 'false', rdt: live ? (rd ? '远程桌面：已允许，点击关闭' : '远程桌面：已关闭，点击允许') : '主机离线或未安装客户端，无法设置',

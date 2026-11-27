@@ -1539,8 +1539,8 @@ class Component extends DCLogic {
     const UC = 'BillConfirm.dc.html';
     if (PG === 'SecLicense') {
       /* sl-bind 2026-11-27 购买的授权手动绑定 */
-      const dm = st.slDm || '宽限期'; o.dGr = dm === '宽限期'; o.dOk = !o.dGr;
-      o.dms = ['宽限期', '正常使用'].map((m) => ({ n: m, c: m === dm ? 'on' : '', go: ev(() => S({ slDm: m, slBd: 0 })) }));
+      const dm = st.slDm || (() => { try { return localStorage.getItem('dxLicDm'); } catch (x) { return ''; } })() || '宽限期'; o.dGr = dm === '宽限期'; o.dOk = !o.dGr;
+      o.dms = ['宽限期', '正常使用'].map((m) => ({ n: m, c: m === dm ? 'on' : '', go: ev(() => { try { localStorage.setItem('dxLicDm', m); } catch (x) {} S({ slDm: m, slBd: 0 }); }) }));
       const WT = [['web-new-05', '10.0.1.15', '11-26 16:40'], ['app-07', '10.0.2.27', '11-27 09:12'], ['test-09', '10.0.9.19', '11-27 10:05']];
       const OLD = [['api-02', '10.0.5.52', '11-20 14:02'], ['cache-03', '10.0.3.33', '11-18 10:30'], ['app-06', '10.0.2.26', '11-12 09:15'], ['web-prod-04', '10.0.1.14', '11-05 17:48']];
       const bnd = st.slBnd || {}; const unb = st.slUnb || {}; const pk = st.slPk || {};

@@ -274,3 +274,19 @@ s=addcss(s,'''.sl-dm{display:inline-flex;align-items:center;gap:0;margin-left:au
 .sl-bde{margin:0 0 8px;padding:16px;background:#f7f8fa;font-size:12px;color:rgba(0,0,0,.5)}''','bind27css')
 wr(n,s)
 print('ok5')
+
+# ---------- L. 资产列表「待绑定」状态（跟随授权管理的演示切换，localStorage dxLicDm）
+n='SecLicense.dc.html'; s=rd(n)
+s=rep(s,"const dm = st.slDm || '宽限期';","const dm = st.slDm || (() => { try { return localStorage.getItem('dxLicDm'); } catch (x) { return ''; } })() || '宽限期';",name='l1')
+s=rep(s,"go: ev(() => S({ slDm: m, slBd: 0 })) }));","go: ev(() => { try { localStorage.setItem('dxLicDm', m); } catch (x) {} S({ slDm: m, slBd: 0 }); }) }));",name='l2')
+wr(n,s)
+n='SecHosts.dc.html'; s=rd(n)
+s=s.replace("'授权已用满', '授权已到期']","'授权已用满', '待绑定', '授权已到期']")
+s=rep(s,"      ['app-07', '10.0.2.27', '其他机房', '未受保护', '授权已用满 · 客户端已装好，授权用满没能加入',",
+ "      ['app-07', '10.0.2.27', '其他机房', '未受保护', (() => { try { return localStorage.getItem('dxLicDm') === '正常使用'; } catch (x) { return false; } })() ? '待绑定 · 客户端已装好，到授权管理绑定已购授权后开始检测' : '授权已用满 · 客户端已装好，授权用满没能加入',",name='l3')
+s=rep(s,"'授权已用满': '客户端已装好，但授权用满没能加入；删除不用的主机或购买授权后自动加入', ","'授权已用满': '客户端已装好，但授权用满没能加入；删除不用的主机或购买授权后自动加入', '待绑定': '客户端已装好，免费 3 台已用完；到授权管理勾选这台绑定已购授权，绑定后开始检测', ",name='l4')
+s=rep(s,"检测过期可立即检测；授权已用满的删掉不用的主机或购买授权'","检测过期可立即检测；授权已用满的删掉不用的主机或购买授权；待绑定的到授权管理绑定'",name='l5')
+s=rep(s,"          else if (rsn === '授权已用满') ops.push({ n: '购买授权', go: GO('SecLicense', {}) }); }","          else if (rsn === '授权已用满') ops.push({ n: '购买授权', go: GO('SecLicense', {}) });\n          else if (rsn === '待绑定') ops.push({ n: '绑定授权', go: GO('SecLicense', {}) }); }",name='l6')
+s=s.replace("!/^授权已用满/.test(h.why || '')","!/^(授权已用满|待绑定)/.test(h.why || '')")
+wr(n,s)
+print('ok6')
