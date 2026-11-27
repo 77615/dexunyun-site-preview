@@ -554,6 +554,15 @@
 
 /* soon27 */
 .kc-side .kc-ki[href*="SecRunCmd"] em{flex:none;margin-left:auto;padding:0 6px;line-height:18px;border-radius:2px;background:#f2f3f5;color:rgba(0,0,0,.45);font-size:11px}
+
+/* bind27css */
+.sl-dm{display:inline-flex;align-items:center;gap:0;margin-left:auto;margin-right:12px;font-size:12px;color:rgba(0,0,0,.5)}
+.sl-dm button{height:24px;padding:0 10px;margin-left:-1px;border:1px solid #e5e6eb;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.7);cursor:pointer}
+.sl-dm button:first-of-type{margin-left:8px}
+.sl-dm button.on{position:relative;z-index:1;border-color:#1664ff;color:#1664ff;background:#f0f5ff}
+.sl-bdh{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sl-bdh b{font-weight:500;font-size:14px;color:rgba(0,0,0,.9)}
+.sl-bde{margin:0 0 8px;padding:16px;background:#f7f8fa;font-size:12px;color:rgba(0,0,0,.5)}
 </style>
 <style>
 /* lay1113: 内容区间距规范
@@ -703,16 +712,25 @@
       </nav>
     <div class="kc-foldbar"><label for="kcf-SecLicense" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecLicense" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecLicense" class="kc-main sh sl st">
-      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">授权管理</h1><p class="kc-desc">每个账号免费 3 台，超出按台购买。授权只数台数，不绑定 IP 和设备。购买、续费在用户中心完成，按对公转账付款。</p></div></div></div>
-      <section class="kc-card"><div class="kc-ch"><h2>授权概况</h2><span class="sl-n">更新于 11-04 09:00</span></div><div class="kc-cb kc-tiles g4 st-pn">
+      <div class="kc-hd"><div class="kc-hdl"><div><h1 class="kc-h1">授权管理</h1><p class="kc-desc">每个账号免费 3 台，添加主机时自动绑定；超出按台购买，购买的授权要在这里选主机手动绑定，绑定后才开始检测。没有可用授权时不能添加主机。购买、续费在用户中心完成，按对公转账付款。</p></div></div></div>
+      <section class="kc-card"><div class="kc-ch"><h2>授权概况</h2><span class="sl-dm">演示<sc-for list="{{st.dms}}" as="m" hint-placeholder-count="2"><button type="button" class="{{m.c}}" onClick="{{m.go}}">{{m.n}}</button></sc-for></span><span class="sl-n">更新于 11-04 09:00</span></div><div class="kc-cb kc-tiles g4 st-pn">
         <sc-for list="{{st.tiles}}" as="k" hint-placeholder-count="4"><a class="kc-tile" href="#" onClick="{{k.go}}"><span>{{k.n}}</span><b class="{{k.c}}">{{k.v}}<em>{{k.u}}</em></b><small>{{k.s}}</small></a></sc-for></div>
-        <div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>已购的 54 台授权 11-01 到期，现在处于宽限期（到 11-08）：检测和告警照常，自动处置暂停，宽限期内不再接入新主机。11-08 后按最后接入时间，超出免费 3 台的 54 台主机停止检测，数据保留 30 天；续费核验到账后自动恢复。已提交汇款的，宽限顺延到核验结束（最多 5 个工作日）；超过宽限期再来，需要重新购买。卫士管理可以提前<a href="#" onClick="{{st.swOpen}}">更换保留的 3 台</a>。</span></div>
+        <sc-if value="{{st.dGr}}" hint-placeholder-val="{{true}}"><div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>已购的 54 台授权 11-01 到期，现在处于宽限期（到 11-08）：检测和告警照常，自动处置暂停，宽限期内不再接入新主机。11-08 后按最后接入时间，超出免费 3 台的 54 台主机停止检测，数据保留 30 天；续费核验到账后自动恢复。已提交汇款的，宽限顺延到核验结束（最多 5 个工作日）；超过宽限期再来，需要重新购买。卫士管理可以提前<a href="#" onClick="{{st.swOpen}}">更换保留的 3 台</a>。</span></div>
         <div class="ac-al i" style="margin:0 20px 16px"><i>i</i><span>授权已用满，新主机无法加入（app-07 已被拒绝）。换机器时在资产列表删除旧主机，会立刻空出名额；名额空出后先恢复被停的主机，再按尝试接入的先后让等待的主机加入。卸载客户端的主机仍占名额，离线 15 天自动移出后释放，重新上线会重新排队。德迅云服务器随服务器赠送，不占授权。</span></div>
-        <div class="st-sws"><sc-for list="{{st.sws}}" as="w" hint-placeholder-count="2"><div class="kc-sw-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.c}}" role="switch" aria-checked="{{w.a}}" aria-label="{{w.n}}" onClick="{{w.tog}}"></button></div></sc-for></div></section>
+        </sc-if><sc-if value="{{st.dOk}}" hint-placeholder-val="{{false}}"><div class="ac-al i" style="margin:0 20px 16px"><i>i</i><span>{{st.bdTip}}<sc-if value="{{st.bdCan}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{st.bdOpen}}">去绑定</a></sc-if></span></div></sc-if><div class="st-sws"><sc-for list="{{st.sws}}" as="w" hint-placeholder-count="2"><div class="kc-sw-row"><div>{{w.n}}<div class="kc-sub">{{w.d}}</div></div><button type="button" class="{{w.c}}" role="switch" aria-checked="{{w.a}}" aria-label="{{w.n}}" onClick="{{w.tog}}"></button></div></sc-for></div></section>
       <section class="kc-card"><div class="kc-ch"><h2>授权明细</h2><a class="kc-btn pri" href="AcctPurchase.dc.html">购买授权</a></div><div class="kc-tw"><table class="kc-t op-fix"><thead><tr><th>授权</th><th>来源</th><th>台数</th><th>有效期</th><th>状态</th><th>操作</th></tr></thead><tbody>
         <sc-for list="{{st.lics}}" as="r" hint-placeholder-count="3"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.id}}</div></td><td>{{r.ed}}</td><td>{{r.use}}</td><td>{{r.t}}</td><td><span class="{{r.sc}}">{{r.st}}</span><div class="sl-sub">{{r.why}}</div></td>
           <td><sc-for list="{{r.ops}}" as="o" hint-placeholder-count="2"><a class="sl-op" href="{{o.href}}" onClick="{{o.go}}">{{o.n}}</a></sc-for></td></tr></sc-for></tbody></table></div></section>
       <sc-if value="{{st.swOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{st.swX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="更换保留主机"><header><h3>更换保留主机</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{st.swX}}">×</button></header><div class="sh-dwb"><div class="ac-al i" style="margin:0 0 16px"><i>i</i><span>11-08 宽限期结束后只剩免费 3 台。默认保留最早接入的 3 台，其余 54 台停止检测，数据保留 30 天；续费核验到账后全部恢复。只有卫士管理可以更换</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px"><input class="kc-in" type="search" placeholder="搜索主机名称或 IP" aria-label="搜索主机" style="width:280px"><span class="sl-sub">已选 {{st.swN}} / 3 台</span></div><div class="kc-tw"><table class="kc-t"><thead><tr><th style="width:40px"><span class="sl-sub">保留</span></th><th>主机</th><th>接入时间</th><th>11-08 后</th></tr></thead><tbody><sc-for list="{{st.swRows}}" as="r" hint-placeholder-count="8"><tr><td><button type="button" class="{{r.c}}" role="checkbox" aria-checked="{{r.a}}" aria-label="保留 {{r.n}}" onClick="{{r.pick}}"></button></td><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.j}}</td><td><span class="{{r.sc}}">{{r.st}}</span></td></tr></sc-for></tbody></table></div><p class="sl-sub" style="margin-top:8px">共 57 台，显示最早接入的 10 台</p></div><footer><button type="button" class="kc-btn" onClick="{{st.swX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{st.swOk}}">保存</button></footer></aside></sc-if>
+<sc-if value="{{st.bdOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{st.bdX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="绑定主机"><header><h3>绑定主机</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{st.bdX}}">×</button></header><div class="sh-dwb">
+<div class="ac-al i" style="margin:0 0 16px"><i>i</i><span>免费 3 台在添加主机时已自动绑定，不用在这里操作。下面是装好客户端、还没绑定授权的主机，勾选后占用已购授权并开始检测。</span></div>
+<div class="sl-bdh"><b>等待绑定</b><span class="sl-sub">可用授权 {{st.bdLeft}} 台 · 已选 {{st.bdN}} 台</span></div>
+<sc-if value="{{st.bdNone}}" hint-placeholder-val="{{false}}"><p class="sl-bde">没有等待绑定的主机。在主机上安装客户端后，会出现在这里。</p></sc-if>
+<div class="kc-tw"><table class="kc-t"><thead><tr><th style="width:40px"></th><th>主机</th><th>接入时间</th><th>状态</th></tr></thead><tbody><sc-for list="{{st.bdRows}}" as="r" hint-placeholder-count="3"><tr><td><button type="button" class="{{r.c}}" role="checkbox" aria-checked="{{r.a}}" aria-label="绑定 {{r.n}}" onClick="{{r.pick}}"></button></td><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.j}}</td><td><span class="kc-tag warn">未受保护 · 待绑定</span></td></tr></sc-for></tbody></table></div>
+<div class="sl-bdh" style="margin-top:20px"><b>已手动绑定</b><span class="sl-sub">共 {{st.bdB}} 台，显示最近绑定的 4 台</span></div>
+<div class="kc-tw"><table class="kc-t"><thead><tr><th>主机</th><th>绑定时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{st.bdOld}}" as="r" hint-placeholder-count="4"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.j}}</td><td><a class="sl-op" href="#" onClick="{{r.un}}">解绑</a></td></tr></sc-for></tbody></table></div>
+<p class="sl-sub" style="margin-top:8px">解绑后这台主机停止检测，空出的授权可以绑定其他主机；换机器时先解绑旧主机，再绑定新主机。</p></div>
+<footer><button type="button" class="kc-btn" onClick="{{st.bdX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{st.bdOk}}">绑定</button></footer></aside></sc-if>
       <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{st.toast.c}}"></i>{{st.toast.t}}</div></sc-if>
     </main>
   </div>
@@ -1520,14 +1538,40 @@ class Component extends DCLogic {
     const o = { tsOn: !!st.stT, toast: st.stT || { t: '', c: '' } };
     const UC = 'BillConfirm.dc.html';
     if (PG === 'SecLicense') {
+      /* sl-bind 2026-11-27 购买的授权手动绑定 */
+      const dm = st.slDm || '宽限期'; o.dGr = dm === '宽限期'; o.dOk = !o.dGr;
+      o.dms = ['宽限期', '正常使用'].map((m) => ({ n: m, c: m === dm ? 'on' : '', go: ev(() => S({ slDm: m, slBd: 0 })) }));
+      const WT = [['web-new-05', '10.0.1.15', '11-26 16:40'], ['app-07', '10.0.2.27', '11-27 09:12'], ['test-09', '10.0.9.19', '11-27 10:05']];
+      const OLD = [['api-02', '10.0.5.52', '11-20 14:02'], ['cache-03', '10.0.3.33', '11-18 10:30'], ['app-06', '10.0.2.26', '11-12 09:15'], ['web-prod-04', '10.0.1.14', '11-05 17:48']];
+      const bnd = st.slBnd || {}; const unb = st.slUnb || {}; const pk = st.slPk || {};
+      const nB = 49 + Object.keys(bnd).length - Object.keys(unb).length; const left = 54 - nB; const wait = WT.filter(([n]) => !bnd[n]);
+      o.bdOn = !!st.slBd; o.bdOpen = ev(() => S({ slBd: 1, slPk: {} })); o.bdX = ev(() => S({ slBd: 0 })); o.bdLeft = left; o.bdN = Object.keys(pk).length; o.bdB = nB; o.bdNone = !wait.length; o.bdCan = left > 0 && wait.length > 0;
+      o.bdTip = left > 0 ? '已购 54 台里还有 ' + left + ' 台没绑定主机' + (wait.length ? '，' + wait.length + ' 台主机装好客户端在等待绑定（' + wait.map((x) => x[0]).join('、') + '），绑定后开始检测。' : '。安装客户端后，到这里选主机绑定。')
+        : '已购授权已全部绑定' + (wait.length ? '，' + wait.map((x) => x[0]).join('、') + ' 在等待：没有可用授权，不能再添加主机。解绑不用的主机或购买授权后再绑定。' : '。没有可用授权时不能再添加主机。');
+      o.bdRows = wait.map(([n, ip, j]) => { const on = !!pk[n]; return { n, ip, j, c: on ? 'sh-ck on' : 'sh-ck', a: on ? 'true' : 'false',
+        pick: ev(() => { const k = Object.assign({}, pk); if (k[n]) delete k[n]; else { if (Object.keys(k).length >= left) { toast(left ? '可用授权只剩 ' + left + ' 台' : '没有可用授权，先解绑不用的主机或购买授权', 'info'); return; } k[n] = 1; } S({ slPk: k }); }) }; });
+      o.bdOld = WT.filter(([n]) => bnd[n]).map(([n, ip]) => [n, ip, '刚刚']).concat(OLD).filter(([n]) => !unb[n]).slice(0, 4).map(([n, ip, j]) => ({ n, ip, j,
+        un: ev(() => { if (bnd[n]) { const b2 = Object.assign({}, bnd); delete b2[n]; S({ slBnd: b2 }); } else S({ slUnb: Object.assign({}, unb, { [n]: 1 }) }); toast('已解绑 ' + n + '，这台主机停止检测，空出 1 台授权'); }) }));
+      o.bdOk = ev(() => { const ks = Object.keys(pk); if (!ks.length) { toast('先勾选要绑定的主机', 'info'); return; } const b2 = Object.assign({}, bnd); ks.forEach((k) => { b2[k] = 1; }); S({ slBnd: b2, slPk: {}, slBd: 0 }); toast('已绑定 ' + ks.join('、') + '，约 1 分钟后开始检测'); });
+      if (o.dOk) {
+        o.tiles = [['授权台数', '57', ' 台', '免费 3 + 已购 54', '', 'b'], ['已绑定', String(3 + nB), ' / 57', '免费 3 台自动绑定 · 已购 ' + nB + ' 台手动绑定', '', 'b'], ['待绑定主机', String(wait.length), ' 台', wait.length ? '客户端已装好，绑定后开始检测' : '没有等待绑定的主机', wait.length ? 'o' : '', 'k'], ['可用授权', String(left), ' 台', left ? '可以绑定新主机' : '新主机无法添加', left ? '' : 'o', 'b']]
+          .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'k' ? o.bdOpen : ev(() => {}) }));
+        o.sws = [];
+        const lk = (n) => ({ n, href: UC, go: undefined });
+        o.lics = [['FREE-100014655316', '免费额度', '注册赠送', '3 台 · 自动绑定', '长期有效', '生效中', 'sl-st', 'web-prod-01、web-prod-02、db-01', []],
+          ['LIC-20261102-0031', '购买授权', '在线购买', '54 台 · 已绑定 ' + nB, '2026-11-02 至 2027-11-01', '生效中', 'sl-st', left ? left + ' 台未绑定' : '已全部绑定', [{ n: '绑定主机', href: '#', go: o.bdOpen }, lk('续费')]],
+          ['7 台德迅云服务器', '随服务器赠送', '德迅云服务器', '7 台 · 不占授权', '跟随服务器到期', '生效中', 'sl-st', '', [{ n: '查看服务器', href: 'https://claude.ai/artifact/N8Yuj4E7xMtsnFAbT8om5A#play-e1a7a42a37df', go: undefined }]]]
+          .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops }));
+      } else {
       o.tiles = [['授权台数', '57', ' 台', '免费 3 + 已购 54', '', 'b'], ['已用', '57', ' / 57', '剩余 0 台，新主机无法加入', 'o', 'b'], ['没能加入', '1', ' 台', 'app-07 · 删除不用的主机或购买授权', 'o', 'h'], ['宽限期剩余', '4', ' 天', '11-08 后 54 台停止检测', 'r', 'b']]
         .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'h' ? ev(() => toast('跳转到「资产列表」，筛选「授权已用满」的主机', 'info')) : ev(() => {}) }));
       o.sws = [];
       const lk = (n) => ({ n, href: UC, go: undefined });
-      o.lics = [['FREE-100014655316', '免费额度', '注册赠送', '3 台', '长期有效', '生效中', 'sl-st', '', []],
-        ['LIC-20251026-0031', '购买授权', '在线购买', '54 台', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '宽限至 11-08', [lk('续费'), { n: '更换保留主机', href: '#', go: ev(() => S({ slSw: 1 })) }]],
+      o.lics = [['FREE-100014655316', '免费额度', '注册赠送', '3 台 · 自动绑定', '长期有效', '生效中', 'sl-st', '', []],
+        ['LIC-20251026-0031', '购买授权', '在线购买', '54 台 · 已绑定 54', '2025-11-02 至 2026-11-01', '宽限期', 'sl-st r', '宽限至 11-08', [lk('续费'), { n: '更换保留主机', href: '#', go: ev(() => S({ slSw: 1 })) }]],
         ['7 台德迅云服务器', '随服务器赠送', '德迅云服务器', '7 台 · 不占授权', '跟随服务器到期', '生效中', 'sl-st', '', [{ n: '查看服务器', href: 'IdcServers.dc.html', go: undefined }]]]
         .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops }));
+      }
       /* sl-swap 2026-11-23 更换保留主机 */
       const KP0 = { 'web-prod-01': 1, 'web-prod-02': 1, 'db-01': 1 }; const keep = st.slKeep || KP0;
       const HL = [['web-prod-01', '10.0.1.11', '2025-11-02'], ['web-prod-02', '10.0.1.12', '2025-11-02'], ['db-01', '10.0.4.41', '2025-11-03'], ['web-prod-03', '10.0.1.13', '2025-11-05'], ['app-01', '10.0.2.21', '2025-11-08'], ['app-02', '10.0.2.22', '2025-11-08'], ['app-03', '10.0.2.23', '2025-11-12'], ['cache-01', '10.0.3.31', '2025-12-01'], ['cache-02', '10.0.3.32', '2025-12-01'], ['api-01', '10.0.5.51', '2026-01-15']];

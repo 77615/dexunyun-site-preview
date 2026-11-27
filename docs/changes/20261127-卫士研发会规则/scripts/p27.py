@@ -212,3 +212,65 @@ s=rep(s,"""    const saveS = (id, v) => { try { const c = JSON.parse(localStorag
 s=rep(s,"    const R = D.EV.map((x) => Object.assign({}, x, { st: ss[x.id] || x.st, ","    const R = D.EV.map((x) => Object.assign({}, x, { st: ss[x.id] || x.st, ign: (ss[x.id] || x.st) === '已忽略' ? (IGN[x.id] || x.ign) : x.ign, ",name='j3')
 wr(n,s)
 print('ok4')
+
+# ---------- K. (77 decision 11-27) 购买的授权手动绑定主机；免费 3 台自动绑定
+n='SecLicense.dc.html'; s=rd(n)
+s=rep(s,'每个账号免费 3 台，超出按台购买。授权只数台数，不绑定 IP 和设备。购买、续费在用户中心完成，按对公转账付款。',
+ '每个账号免费 3 台，添加主机时自动绑定；超出按台购买，购买的授权要在这里选主机手动绑定，绑定后才开始检测。没有可用授权时不能添加主机。购买、续费在用户中心完成，按对公转账付款。',name='k1')
+s=rep(s,'<h2>授权概况</h2><span class="sl-n">更新于 11-04 09:00</span>',
+ '<h2>授权概况</h2><span class="sl-dm">演示<sc-for list="{{st.dms}}" as="m" hint-placeholder-count="2"><button type="button" class="{{m.c}}" onClick="{{m.go}}">{{m.n}}</button></sc-for></span><span class="sl-n">更新于 11-04 09:00</span>',name='k2')
+a=s.index('<div class="ac-al e" style="margin:0 20px 16px"><i>!</i><span>已购的 54 台授权 11-01 到期')
+b=s.index('<div class="st-sws">',a)
+s=s[:a]+'<sc-if value="{{st.dGr}}" hint-placeholder-val="{{true}}">'+s[a:b]+'</sc-if><sc-if value="{{st.dOk}}" hint-placeholder-val="{{false}}"><div class="ac-al i" style="margin:0 20px 16px"><i>i</i><span>{{st.bdTip}}<sc-if value="{{st.bdCan}}" hint-placeholder-val="{{true}}"><a href="#" onClick="{{st.bdOpen}}">去绑定</a></sc-if></span></div></sc-if>'+s[b:]
+DW='''<sc-if value="{{st.bdOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{st.bdX}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="绑定主机"><header><h3>绑定主机</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{st.bdX}}">×</button></header><div class="sh-dwb">
+<div class="ac-al i" style="margin:0 0 16px"><i>i</i><span>免费 3 台在添加主机时已自动绑定，不用在这里操作。下面是装好客户端、还没绑定授权的主机，勾选后占用已购授权并开始检测。</span></div>
+<div class="sl-bdh"><b>等待绑定</b><span class="sl-sub">可用授权 {{st.bdLeft}} 台 · 已选 {{st.bdN}} 台</span></div>
+<sc-if value="{{st.bdNone}}" hint-placeholder-val="{{false}}"><p class="sl-bde">没有等待绑定的主机。在主机上安装客户端后，会出现在这里。</p></sc-if>
+<div class="kc-tw"><table class="kc-t"><thead><tr><th style="width:40px"></th><th>主机</th><th>接入时间</th><th>状态</th></tr></thead><tbody><sc-for list="{{st.bdRows}}" as="r" hint-placeholder-count="3"><tr><td><button type="button" class="{{r.c}}" role="checkbox" aria-checked="{{r.a}}" aria-label="绑定 {{r.n}}" onClick="{{r.pick}}"></button></td><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.j}}</td><td><span class="kc-tag warn">未受保护 · 待绑定</span></td></tr></sc-for></tbody></table></div>
+<div class="sl-bdh" style="margin-top:20px"><b>已手动绑定</b><span class="sl-sub">共 {{st.bdB}} 台，显示最近绑定的 4 台</span></div>
+<div class="kc-tw"><table class="kc-t"><thead><tr><th>主机</th><th>绑定时间</th><th>操作</th></tr></thead><tbody><sc-for list="{{st.bdOld}}" as="r" hint-placeholder-count="4"><tr><td><div class="sl-a">{{r.n}}</div><div class="sl-sub">{{r.ip}}</div></td><td>{{r.j}}</td><td><a class="sl-op" href="#" onClick="{{r.un}}">解绑</a></td></tr></sc-for></tbody></table></div>
+<p class="sl-sub" style="margin-top:8px">解绑后这台主机停止检测，空出的授权可以绑定其他主机；换机器时先解绑旧主机，再绑定新主机。</p></div>
+<footer><button type="button" class="kc-btn" onClick="{{st.bdX}}">取消</button><button type="button" class="kc-btn pri" onClick="{{st.bdOk}}">绑定</button></footer></aside></sc-if>
+'''
+s=rep(s,'      <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast',DW+'      <sc-if value="{{st.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast',name='k3')
+# logic
+a=s.index("      o.tiles = [['授权台数', '57'")
+b=s.index("      /* sl-swap 2026-11-23",a)
+old=s[a:b]
+assert "o.lics = [" in old
+new_ok='''      /* sl-bind 2026-11-27 购买的授权手动绑定 */
+      const dm = st.slDm || '宽限期'; o.dGr = dm === '宽限期'; o.dOk = !o.dGr;
+      o.dms = ['宽限期', '正常使用'].map((m) => ({ n: m, c: m === dm ? 'on' : '', go: ev(() => S({ slDm: m, slBd: 0 })) }));
+      const WT = [['web-new-05', '10.0.1.15', '11-26 16:40'], ['app-07', '10.0.2.27', '11-27 09:12'], ['test-09', '10.0.9.19', '11-27 10:05']];
+      const OLD = [['api-02', '10.0.5.52', '11-20 14:02'], ['cache-03', '10.0.3.33', '11-18 10:30'], ['app-06', '10.0.2.26', '11-12 09:15'], ['web-prod-04', '10.0.1.14', '11-05 17:48']];
+      const bnd = st.slBnd || {}; const unb = st.slUnb || {}; const pk = st.slPk || {};
+      const nB = 49 + Object.keys(bnd).length - Object.keys(unb).length; const left = 54 - nB; const wait = WT.filter(([n]) => !bnd[n]);
+      o.bdOn = !!st.slBd; o.bdOpen = ev(() => S({ slBd: 1, slPk: {} })); o.bdX = ev(() => S({ slBd: 0 })); o.bdLeft = left; o.bdN = Object.keys(pk).length; o.bdB = nB; o.bdNone = !wait.length; o.bdCan = left > 0 && wait.length > 0;
+      o.bdTip = left > 0 ? '已购 54 台里还有 ' + left + ' 台没绑定主机' + (wait.length ? '，' + wait.length + ' 台主机装好客户端在等待绑定（' + wait.map((x) => x[0]).join('、') + '），绑定后开始检测。' : '。安装客户端后，到这里选主机绑定。')
+        : '已购授权已全部绑定' + (wait.length ? '，' + wait.map((x) => x[0]).join('、') + ' 在等待：没有可用授权，不能再添加主机。解绑不用的主机或购买授权后再绑定。' : '。没有可用授权时不能再添加主机。');
+      o.bdRows = wait.map(([n, ip, j]) => { const on = !!pk[n]; return { n, ip, j, c: on ? 'sh-ck on' : 'sh-ck', a: on ? 'true' : 'false',
+        pick: ev(() => { const k = Object.assign({}, pk); if (k[n]) delete k[n]; else { if (Object.keys(k).length >= left) { toast(left ? '可用授权只剩 ' + left + ' 台' : '没有可用授权，先解绑不用的主机或购买授权', 'info'); return; } k[n] = 1; } S({ slPk: k }); }) }; });
+      o.bdOld = WT.filter(([n]) => bnd[n]).map(([n, ip]) => [n, ip, '刚刚']).concat(OLD).filter(([n]) => !unb[n]).slice(0, 4).map(([n, ip, j]) => ({ n, ip, j,
+        un: ev(() => { if (bnd[n]) { const b2 = Object.assign({}, bnd); delete b2[n]; S({ slBnd: b2 }); } else S({ slUnb: Object.assign({}, unb, { [n]: 1 }) }); toast('已解绑 ' + n + '，这台主机停止检测，空出 1 台授权'); }) }));
+      o.bdOk = ev(() => { const ks = Object.keys(pk); if (!ks.length) { toast('先勾选要绑定的主机', 'info'); return; } const b2 = Object.assign({}, bnd); ks.forEach((k) => { b2[k] = 1; }); S({ slBnd: b2, slPk: {}, slBd: 0 }); toast('已绑定 ' + ks.join('、') + '，约 1 分钟后开始检测'); });
+      if (o.dOk) {
+        o.tiles = [['授权台数', '57', ' 台', '免费 3 + 已购 54', '', 'b'], ['已绑定', String(3 + nB), ' / 57', '免费 3 台自动绑定 · 已购 ' + nB + ' 台手动绑定', '', 'b'], ['待绑定主机', String(wait.length), ' 台', wait.length ? '客户端已装好，绑定后开始检测' : '没有等待绑定的主机', wait.length ? 'o' : '', 'k'], ['可用授权', String(left), ' 台', left ? '可以绑定新主机' : '新主机无法添加', left ? '' : 'o', 'b']]
+          .map(([n, v, u, s2, c, g]) => ({ n, v, u, s: s2, c, go: g === 'k' ? o.bdOpen : ev(() => {}) }));
+        o.sws = [];
+        const lk = (n) => ({ n, href: UC, go: undefined });
+        o.lics = [['FREE-100014655316', '免费额度', '注册赠送', '3 台 · 自动绑定', '长期有效', '生效中', 'sl-st', 'web-prod-01、web-prod-02、db-01', []],
+          ['LIC-20261102-0031', '购买授权', '在线购买', '54 台 · 已绑定 ' + nB, '2026-11-02 至 2027-11-01', '生效中', 'sl-st', left ? left + ' 台未绑定' : '已全部绑定', [{ n: '绑定主机', href: '#', go: o.bdOpen }, lk('续费')]],
+          ['7 台德迅云服务器', '随服务器赠送', '德迅云服务器', '7 台 · 不占授权', '跟随服务器到期', '生效中', 'sl-st', '', [{ n: '查看服务器', href: 'https://claude.ai/artifact/N8Yuj4E7xMtsnFAbT8om5A#play-e1a7a42a37df', go: undefined }]]]
+          .map(([id, n, ed, use, t, s2, sc, why, ops]) => ({ id, n, ed, use, t, st: s2, sc, why, ops }));
+      } else {
+'''
+s=s[:a]+new_ok+old.replace("'54 台', '2025-11-02 至 2026-11-01'","'54 台 · 已绑定 54', '2025-11-02 至 2026-11-01'").replace("'3 台', '长期有效', '生效中', 'sl-st', ''","'3 台 · 自动绑定', '长期有效', '生效中', 'sl-st', ''")+'      }\n'+s[b:]
+s=addcss(s,'''.sl-dm{display:inline-flex;align-items:center;gap:0;margin-left:auto;margin-right:12px;font-size:12px;color:rgba(0,0,0,.5)}
+.sl-dm button{height:24px;padding:0 10px;margin-left:-1px;border:1px solid #e5e6eb;background:#fff;font:inherit;font-size:12px;color:rgba(0,0,0,.7);cursor:pointer}
+.sl-dm button:first-of-type{margin-left:8px}
+.sl-dm button.on{position:relative;z-index:1;border-color:#1664ff;color:#1664ff;background:#f0f5ff}
+.sl-bdh{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sl-bdh b{font-weight:500;font-size:14px;color:rgba(0,0,0,.9)}
+.sl-bde{margin:0 0 8px;padding:16px;background:#f7f8fa;font-size:12px;color:rgba(0,0,0,.5)}''','bind27css')
+wr(n,s)
+print('ok5')
