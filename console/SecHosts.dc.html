@@ -684,6 +684,25 @@
 /* gap-v1 产品与服务弹窗贴住顶栏 */
 .kc-top .tp-pp{top:100%!important}
 .kc-top .tp-dim{top:50px!important}
+
+/* soon27 */
+.kc-side .kc-ki[href*="SecRunCmd"] em{flex:none;margin-left:auto;padding:0 6px;line-height:18px;border-radius:2px;background:#f2f3f5;color:rgba(0,0,0,.45);font-size:11px}
+
+/* xf27css */
+.xf-dw .xf-v{margin:0;font-size:13px;color:rgba(0,0,0,.55)}
+.xf-dw .xf-v b{margin-right:8px;font-weight:500;color:rgba(0,0,0,.9)}
+.xf-dw .xf-l{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:12px;line-height:20px;color:rgba(0,0,0,.7)}
+.xf-dw .xf-l li{position:relative;padding-left:22px}
+.xf-dw .xf-l li::before{position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;font-size:11px;line-height:16px;text-align:center}
+.xf-dw .xf-l li.y::before{content:"✓";background:#e8ffea;color:#00b42a}
+.xf-dw .xf-l li.n::before{content:"×";background:#f2f3f5;color:rgba(0,0,0,.45)}
+.xf-dw .xf-ts{display:grid;gap:8px}
+.xf-dw .xf-t{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid #e5e6eb}
+.xf-dw .xf-t span{display:grid;gap:2px}
+.xf-dw .xf-t b{font-weight:500;font-size:12px;color:rgba(0,0,0,.9)}
+.xf-dw .xf-t em{font-style:normal;font-size:12px;color:rgba(0,0,0,.5)}
+.xf-dw .xf-w{font-size:12px;color:#d25f00;white-space:nowrap}
+.xf-dw .kc-btn.dis{opacity:.45;cursor:not-allowed}
 </style>
 <style data-s3="1">
 .s3-rs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 14px 12px 20px;font-size:12px}
@@ -864,6 +883,15 @@
       </section></div></sc-if>
       <sc-if value="{{ls.hxOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.hx.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{ls.hx.t}}"><header><h3>{{ls.hx.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.hx.x}}">×</button></header><div class="sh-dwb"><div class="hx-form"><sc-for list="{{ls.hx.f}}" as="f" hint-placeholder-count="4"><div class="{{f.c}}"><sc-if value="{{f.hasK}}" hint-placeholder-val="{{true}}"><div class="hx-fl"><span>{{f.k}}</span><sc-if value="{{f.req}}" hint-placeholder-val="{{false}}"><em>*</em></sc-if></div></sc-if><sc-if value="{{f.isSw}}" hint-placeholder-val="{{false}}"><p class="hx-sd">{{f.d}}</p><button type="button" class="{{f.swc}}" role="switch" aria-checked="{{f.swa}}" aria-label="{{f.k}}" onClick="{{f.swt}}"></button></sc-if><sc-if value="{{f.isT}}" hint-placeholder-val="{{false}}"><input class="{{f.ic}}" type="text" value="{{f.v}}" placeholder="{{f.ph}}" aria-label="{{f.k}}" onChange="{{f.on}}"></sc-if><sc-if value="{{f.isSg}}" hint-placeholder-val="{{false}}"><div class="kc-sg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCk}}" hint-placeholder-val="{{false}}"><div class="kc-ckg"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="checkbox" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}"><i></i><div><b>{{o.n}}</b><span>{{o.d}}</span></div></button></sc-for></div></sc-if><sc-if value="{{f.isCh}}" hint-placeholder-val="{{false}}"><div class="hx-chs"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCode}}" hint-placeholder-val="{{false}}"><div class="hx-code"><code>{{f.code}}</code><button type="button" onClick="{{f.cp}}">复制</button></div></sc-if><sc-if value="{{f.hasH}}" hint-placeholder-val="{{false}}"><p class="hx-h">{{f.h}}</p></sc-if><sc-if value="{{f.err}}" hint-placeholder-val="{{false}}"><p class="hx-err">{{f.em}}</p></sc-if></div></sc-for></div></div><footer><button type="button" class="kc-btn" onClick="{{ls.hx.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{ls.hx.ok}}">{{ls.hx.okN}}</button></footer></aside></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
+      <sc-if value="{{xf.on}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{xf.x}}"></div><aside class="sh-dw sh-fx xf-dw" role="dialog" aria-modal="true" aria-label="过户到其他账号"><header><h3>过户到其他账号</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{xf.x}}">×</button></header><div class="sh-dwb"><div class="hx-form">
+        <div class="hx-f"><div class="hx-fl"><span>主机</span></div><p class="xf-v"><b>{{xf.h}}</b>{{xf.ip}}</p></div>
+        <div class="hx-f"><div class="hx-fl"><span>接收账号</span><em>*</em></div><input class="kc-in" type="text" value="{{xf.acc}}" onInput="{{xf.onAcc}}" placeholder="对方的德迅云账号 ID 或手机号" aria-label="接收账号"><p class="hx-sd">适用于代运维交还主机、管理员离职交接等场景。对方 24 小时内确认接收后才完成过户，确认前主机仍在你的账号下，防护照常。</p></div>
+        <div class="hx-f"><div class="hx-fl"><span>哪些数据跟着主机走</span></div><ul class="xf-l"><li class="y">防护配置：防护模式、单独调整、规则和白名单</li><li class="y">告警记录和处置结果</li><li class="n">操作记录不转：留在你的账号，在操作审计里仍可查看</li></ul></div>
+        <div class="hx-f"><div class="hx-fl"><span>正在运行的任务</span></div><sc-if value="{{xf.noTask}}" hint-placeholder-val="{{true}}"><p class="hx-h">没有正在运行的任务，可以直接过户。</p></sc-if><sc-if value="{{xf.hasTask}}" hint-placeholder-val="{{false}}"><div class="xf-ts"><sc-for list="{{xf.tasks}}" as="t" hint-placeholder-count="1"><div class="xf-t"><span><b>{{t.n}}</b><em>{{t.s}}</em></span><sc-if value="{{t.canP}}" hint-placeholder-val="{{true}}"><button type="button" class="{{t.pC}}" onClick="{{t.p}}">{{t.pT}}</button></sc-if><sc-if value="{{t.wait}}" hint-placeholder-val="{{false}}"><span class="xf-w">{{t.w}}</span></sc-if></div></sc-for></div><p class="hx-sd">过户前要先暂停正在运行的任务；漏洞扫描暂停不了，要等它扫完。</p></sc-if></div>
+        <div class="hx-f"><div class="hx-fl"><span>授权</span></div><p class="hx-h">过户后这台主机占用对方账号的卫士授权，你的账号空出 1 个名额。对方没有空余授权时无法确认接收。</p></div>
+        <sc-if value="{{xf.hasErr}}" hint-placeholder-val="{{false}}"><p class="hx-err">{{xf.err}}</p></sc-if>
+      </div></div><footer><button type="button" class="kc-btn" onClick="{{xf.x}}">取消</button><button type="button" class="{{xf.okC}}" onClick="{{xf.ok}}">提交过户</button></footer></aside></sc-if>
+      <sc-if value="{{xf.tOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="ok"></i>{{xf.t}}</div></sc-if>
     </main>
   </div>
 </div>
@@ -1443,7 +1471,7 @@ class Component extends DCLogic {
     if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') return;
     e.preventDefault(); act(el, e);
   }, false);
-})(); const o = this._rv(); o.hd = Object.assign(this._hdr(), this._top()); Object.assign(o, this._sl()); return o; }
+})(); const o = this._rv(); o.xf = this._xf(); o.hd = Object.assign(this._hdr(), this._top()); Object.assign(o, this._sl()); return o; }
   _shx(sx) {
     const st = this.state || {}; const S = (o) => this.setState(o);
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(); };
@@ -1907,6 +1935,7 @@ class Component extends DCLogic {
               mOn: mo, mAsk: ask, mList: !ask, mT: ev(() => S({ hmo: mo ? '' : h.n, hmq: '' })), mX: ev(() => S({ hmo: '', hmq: '' })),
               more: ops.slice(1).map((o) => [o.n, '', null, o.go]).concat([['更新客户端', '', () => { S({ hmo: '' }); toast(nov ? '该主机未安装客户端，请先安装' : old ? '已下发升级任务，升级到 V4.3.2' : '已是最新版 V4.3.2', 'info'); }],
                 ['维护 Key', '', () => { S({ hmo: '' }); toast('已复制 ' + h.n + ' 的维护 Key，30 分钟内有效，用于卸载或修改客户端'); }],
+                ['过户到其他账号', '', () => { S({ hmo: '', xfH: h.n, xfIp: h.ip, xfAcc: '', xfP: {}, xfE: '' }); }],
                 ['删除', 'hs-dm', () => S({ hmq: h.n })]]).map(([n, c, f, g]) => ({ n, c, go: g ? ev(() => { S({ hmo: '' }); g(); }) : ev(f) })),
               delOk: ev(() => { S({ hdel: Object.assign({}, delH, { [h.n]: 1 }), hmo: '', hmq: '' }); toast(h.n + ' 已从资产列表删除'); }) }; })() }; });
       const pageNames = ls.rows.map((r) => r.n); const allOn = pageNames.length && pageNames.every((n) => sel[n]);
@@ -1957,6 +1986,27 @@ class Component extends DCLogic {
       msgs, mtabs, unread, hasUnread: unread > 0, readAll: () => this.setState({ allRead: true }) };
   }
   /* /hdr62 */
+  /* xf27 主机过户 */
+  _xf() {
+    const st = this.state || {}; const S = (o) => this.setState(o);
+    const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
+    const h = st.xfH || ''; const x = { on: !!h, h, ip: st.xfIp || '', t: st.xfT || '', tOn: !!st.xfT };
+    const TK = ({ 'web-prod-01': [['病毒查杀 · 全盘扫描', '已进行 18 分钟，完成约 40%', 1]], 'db-01': [['漏洞扫描', '已进行 6 分钟，预计还要 12 分钟', 0], ['基线检查', '排队中', 1]] })[h] || [];
+    const ps = st.xfP || {};
+    x.tasks = TK.map(([n, s0, can]) => { const p = !!ps[n]; return { n, s: p ? '已暂停，过户后由对方决定是否重新执行' : s0, canP: !!can, pT: p ? '已暂停' : '暂停', pC: p ? 'kc-btn dis' : 'kc-btn', p: ev(() => { if (!p) S({ xfP: Object.assign({}, ps, { [n]: 1 }), xfE: '' }); }), wait: !can, w: '暂停不了，扫完才能过户' }; });
+    x.noTask = !x.tasks.length; x.hasTask = !x.noTask;
+    const waitScan = TK.some((t) => !t[2]); const needPause = TK.some((t) => t[2] && !ps[t[0]]);
+    x.acc = st.xfAcc || ''; x.onAcc = (e) => S({ xfAcc: e.target.value, xfE: '' });
+    x.err = st.xfE || ''; x.hasErr = !!x.err;
+    x.okC = waitScan || needPause || !x.acc.trim() ? 'kc-btn pri dis' : 'kc-btn pri';
+    x.x = ev(() => S({ xfH: '', xfAcc: '', xfP: {}, xfE: '' }));
+    x.ok = ev(() => {
+      if (!x.acc.trim()) { S({ xfE: '请填写接收账号' }); return; }
+      if (waitScan) { S({ xfE: '漏洞扫描还没结束，扫完后才能过户' }); return; }
+      if (needPause) { S({ xfE: '请先暂停正在运行的任务' }); return; }
+      S({ xfH: '', xfAcc: '', xfP: {}, xfE: '', xfT: h + ' 的过户申请已提交，等对方 24 小时内确认接收' }); clearTimeout(this._xfTm); this._xfTm = setTimeout(() => this.setState({ xfT: '' }), 3200); });
+    return x;
+  }
   _rv() {
     const cur = '资产列表';
     const pages = { '威胁调查': 'SecHunt.dc.html', '登录安全防护': 'SecLoginAuth.dc.html', '防护设置': 'SecRunSet.dc.html', '病毒与威胁防护': 'SecVirus.dc.html', '软件与进程管控': 'SecRunApp.dc.html', '登录认证安全': 'SecLoginAuth.dc.html', '客户端接入': 'SecAgent.dc.html', '主机运维': 'SecOps.dc.html', '防护策略': 'SecPolicy.dc.html', '网络防火墙': 'SecNetGuard.dc.html', '资产指纹': 'SecFinger.dc.html', '检测规则': 'SecRunCmd.dc.html', '异常登录': 'SecLoginAuth.dc.html', '反弹 Shell': 'SecRunShell.dc.html', '本地提权': 'SecRunPriv.dc.html', '高危命令': 'SecRunCmd.dc.html', '应用运行防护': 'SecRunSet.dc.html', '病毒查杀': 'SecVirus.dc.html', '防勒索与备份': 'SecRansom.dc.html', '网页防篡改': 'SecTamper.dc.html', '登录防护': 'SecLoginAuth.dc.html', '在线用户': 'SecLoginAuth.dc.html?tab=on', '网络访问防护': 'SecNetGuard.dc.html', '外联管控': 'SecNetGuard.dc.html?tab=out', '安全组': 'SecNetGuard.dc.html?tab=sg', '安全总览': 'SecHome.dc.html', '服务器': 'IdcServers.dc.html', '告警中心': 'SecEvents.dc.html', '资产列表': 'SecHosts.dc.html', '威胁狩猎': 'SecHunt.dc.html', '漏洞管理': 'SecVuln.dc.html', '基线检查': 'SecBaseline.dc.html', '主机加固': 'SecHarden.dc.html', '组织架构': 'SecOrg.dc.html', '策略与模板': 'SecPolicy.dc.html', '生效资产': 'SecPolicy.dc.html?tab=host', '全局黑白名单': 'SecPolicy.dc.html?tab=list', '批量任务': 'SecOps.dc.html', '任务记录': 'SecOps.dc.html?tab=log', '授权管理': 'SecLicense.dc.html', '客户端管理': 'SecAgent.dc.html', '通知设置': 'SecNotify.dc.html', '拦截日志': 'SecLogSearch.dc.html', '操作审计': 'SecAudit.dc.html', '日志检索': 'SecLogSearch.dc.html', '登录日志': 'SecLogSearch.dc.html', '安全报告': 'SecReport.dc.html' };
@@ -1967,8 +2017,8 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '6'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '7'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', ['高危命令', '敬请期待'], '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };

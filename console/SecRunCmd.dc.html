@@ -871,6 +871,21 @@ a.bl-nm:hover{color:#1664ff}
 /* gap-v1 产品与服务弹窗贴住顶栏 */
 .kc-top .tp-pp{top:100%!important}
 .kc-top .tp-dim{top:50px!important}
+
+/* soon27 */
+.kc-side .kc-ki[href*="SecRunCmd"] em{flex:none;margin-left:auto;padding:0 6px;line-height:18px;border-radius:2px;background:#f2f3f5;color:rgba(0,0,0,.45);font-size:11px}
+
+/* soon27p */
+.rc-soon{padding:56px 40px 40px;text-align:center}
+.rc-soon .rc-soon-ic{width:56px;height:56px;margin:0 auto 16px;border-radius:12px;background:#e8f3ff;color:#1664ff;display:flex;align-items:center;justify-content:center}
+.rc-soon h2{margin:0 0 8px;font-size:18px;font-weight:600;color:rgba(0,0,0,.9)}
+.rc-soon .rc-soon-d{margin:0 0 20px;font-size:13px;color:rgba(0,0,0,.55)}
+.rc-soon .rc-soon-l{display:inline-block;margin:0 0 16px;padding:16px 24px 16px 40px;text-align:left;background:#f7f8fa;border-radius:4px;font-size:13px;line-height:24px;color:rgba(0,0,0,.7)}
+.rc-soon .rc-soon-n{margin:0 0 16px;font-size:12px;color:rgba(0,0,0,.5)}
+.rc-soon .rc-soon-b{display:flex;justify-content:center;gap:8px;margin-bottom:32px}
+.rc-soon .rc-soon-x{margin:0;padding-top:16px;border-top:1px dashed #e5e6eb;font-size:12px;color:rgba(0,0,0,.4)}
+.rc-soon .rc-soon-x a,.rc-later a{margin-left:8px;color:#1664ff;text-decoration:none}
+.rc-later{margin-bottom:16px}
 </style>
 <style data-s2="1">
 .ig7-mask{position:fixed;left:0;right:0;top:56px;bottom:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(29,33,41,.28)}
@@ -1046,6 +1061,8 @@ a.bl-nm:hover{color:#1664ff}
     <div class="kc-foldbar"><label for="kcf-SecBaseline" class="kc-fold" title="收起菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label></div></aside><label for="kcf-SecBaseline" class="kc-unfold" title="展开菜单"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M9.5 4.5v15"></path></svg></label>
     <main data-pg="SecRisks" class="kc-main sh sl">
       <div class="kc-hd"><div class="kc-hdl"><span class="cp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM4 5V19H20V5H4ZM12 15H18V17H12V15ZM8.66685 12L5.83842 9.17157L7.25264 7.75736L11.4953 12L7.25264 16.2426L5.83842 14.8284L8.66685 12Z"></path></svg></span><div><h1 class="kc-h1">{{cp.t}}</h1><p class="bl-sub">{{cp.desc}}</p></div></div><div class="kc-btns"><button type="button" class="kc-btn" onClick="{{cp.hGo}}">功能说明</button><sc-if value="{{cp.setBt}}" hint-placeholder-val="{{false}}"><button type="button" class="kc-btn pri" onClick="{{cp.cfgGo}}">防护设置</button></sc-if><sc-if value="{{cp.setLk}}" hint-placeholder-val="{{false}}"><a class="kc-btn pri" href="{{cp.setH}}">防护设置</a></sc-if></div></div>
+      <sc-if value="{{cp.soon}}" hint-placeholder-val="{{true}}"><section class="kc-card rc-soon"><div class="rc-soon-ic" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM4 5V19H20V5H4ZM12 15H18V17H12V15ZM8.66685 12L5.83842 9.17157L7.25264 7.75736L11.4953 12L7.25264 16.2426L5.83842 14.8284L8.66685 12Z"></path></svg></div><h2>高危命令防护 · 敬请期待</h2><p class="rc-soon-d">这项能力正在开发中，下一阶段上线。上线后会在消息中心通知你，不需要重新安装客户端。</p><ul class="rc-soon-l"><li>识别下载并执行远程脚本、清除系统日志、篡改关键文件权限、添加 SSH 公钥等高危操作</li><li>命中后按防护档位处理：只告警、确认后处置或自动拦截</li><li>支持自定义规则和按主机加白</li></ul><p class="rc-soon-n">现在遇到可疑命令，可以在「威胁调查」里按主机查看进程和命令行。</p><div class="rc-soon-b"><a class="kc-btn" href="SecHunt.dc.html">去威胁调查</a></div><p class="rc-soon-x">原型说明：上线时这一页只显示上面的内容，菜单项带「敬请期待」，不隐藏。<a href="#" onClick="{{cp.soonGo}}">查看后续版本的设计</a></p></section></sc-if>
+      <sc-if value="{{cp.full}}" hint-placeholder-val="{{false}}"><div class="ac-al w rc-later"><i>!</i><span>下面是后续版本的设计，本期上线不显示。</span><a href="#" onClick="{{cp.soonBack}}">返回上线状态</a></div>
       <div class="ac-al i al-demo"><i>i</i><span>{{cp.demo}}</span><span class="cp-dst"><b>示例状态</b><sc-for list="{{cp.dsts}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.cls}}" onClick="{{d.go}}">{{d.n}}</button></sc-for></span></div>
       <sc-if value="{{cp.hOn}}" hint-placeholder-val="{{false}}"><section class="kc-card cp-help"><h3>功能说明</h3><ul><sc-for list="{{cp.help}}" as="h" hint-placeholder-count="3"><li>{{h.t}}</li></sc-for></ul></section></sc-if>
       <sc-if value="{{cp.evOn}}" hint-placeholder-val="{{false}}"><a class="cpx-ev" href="{{cp.evH}}"><b>{{cp.evB}}</b><span>{{cp.evT}}</span><em>在告警中心查看 ›</em></a></sc-if>
@@ -1111,6 +1128,7 @@ a.bl-nm:hover{color:#1664ff}
       <sc-if value="{{cp.tOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx cp-toast" role="status"><i class="ok"></i>{{cp.tT}}<sc-if value="{{cp.unOn}}" hint-placeholder-val="{{false}}"><button type="button" class="cp-un" onClick="{{cp.unGo}}">撤销</button></sc-if></div></sc-if>
       <sc-if value="{{ls.hxOn}}" hint-placeholder-val="{{false}}"><div class="sh-mask sh-fx" onClick="{{ls.hx.x}}"></div><aside class="sh-dw sh-fx" role="dialog" aria-modal="true" aria-label="{{ls.hx.t}}"><header><h3>{{ls.hx.t}}</h3><button type="button" class="sh-x" aria-label="关闭" onClick="{{ls.hx.x}}">×</button></header><div class="sh-dwb"><div class="hx-form"><sc-for list="{{ls.hx.f}}" as="f" hint-placeholder-count="4"><div class="{{f.c}}"><sc-if value="{{f.hasK}}" hint-placeholder-val="{{true}}"><div class="hx-fl"><span>{{f.k}}</span><sc-if value="{{f.req}}" hint-placeholder-val="{{false}}"><em>*</em></sc-if></div></sc-if><sc-if value="{{f.isSw}}" hint-placeholder-val="{{false}}"><p class="hx-sd">{{f.d}}</p><button type="button" class="{{f.swc}}" role="switch" aria-checked="{{f.swa}}" aria-label="{{f.k}}" onClick="{{f.swt}}"></button></sc-if><sc-if value="{{f.isT}}" hint-placeholder-val="{{false}}"><input class="{{f.ic}}" type="text" value="{{f.v}}" placeholder="{{f.ph}}" aria-label="{{f.k}}" onChange="{{f.on}}"></sc-if><sc-if value="{{f.isSg}}" hint-placeholder-val="{{false}}"><div class="kc-sg" role="radiogroup" aria-label="{{f.k}}"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCk}}" hint-placeholder-val="{{false}}"><div class="kc-ckg"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="3"><button type="button" role="checkbox" aria-checked="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}"><i></i><div><b>{{o.n}}</b><span>{{o.d}}</span></div></button></sc-for></div></sc-if><sc-if value="{{f.isCh}}" hint-placeholder-val="{{false}}"><div class="hx-chs"><sc-for list="{{f.o}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.a}}" class="{{o.c}}" onClick="{{o.go}}">{{o.n}}</button></sc-for></div></sc-if><sc-if value="{{f.isCode}}" hint-placeholder-val="{{false}}"><div class="hx-code"><code>{{f.code}}</code><button type="button" onClick="{{f.cp}}">复制</button></div></sc-if><sc-if value="{{f.hasH}}" hint-placeholder-val="{{false}}"><p class="hx-h">{{f.h}}</p></sc-if><sc-if value="{{f.err}}" hint-placeholder-val="{{false}}"><p class="hx-err">{{f.em}}</p></sc-if></div></sc-for></div></div><footer><button type="button" class="kc-btn" onClick="{{ls.hx.x}}">取消</button><button type="button" class="kc-btn pri" onClick="{{ls.hx.ok}}">{{ls.hx.okN}}</button></footer></aside></sc-if>
       <sc-if value="{{ls.tsOn}}" hint-placeholder-val="{{false}}"><div class="sh-toast sh-fx" role="status"><i class="{{ls.toast.c}}"></i>{{ls.toast.t}}</div></sc-if>
+      </sc-if>
     </main>
   </div>
 </div>
@@ -1127,6 +1145,7 @@ class Component extends DCLogic {
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
     const toast = (t, ms) => { if (this._roHold) return; const keep = this._unKeep; this._unKeep = 0; set(keep ? { cpT: t } : { cpT: t, cpUn: null }); clearTimeout(this._cpT); this._cpT = setTimeout(() => this.setState({ cpT: '', cpUn: null }), ms || 2600); };
     const o = {};
+    /* soon27 */ o.soon = st.cpSoon === undefined ? true : !!st.cpSoon; o.full = !o.soon; o.soonGo = ev(() => set({ cpSoon: false })); o.soonBack = ev(() => set({ cpSoon: true }));
     const qs0 = (() => { try { return /\.dc\.html$/.test(location.pathname) ? new URLSearchParams(location.search) : null; } catch (x) { return null; } })();
     const tabK = st.cpTab || (qs0 && qs0.get('tab')) || D.tabs[0].k;
     const cfg = st.cpC || (() => { try { const v = D.lsk && localStorage.getItem(D.lsk); return v ? JSON.parse(v) : null; } catch (x) { return null; } })() || { on: true, mode: D.mode0, base: D.mode0, ov: {}, sc: 'all', hs: [], offH: (D.offH0 || []).slice() };
@@ -2455,8 +2474,8 @@ class Component extends DCLogic {
     const P = (t, ic, ks) => { const kids = ks.map(K); const has = kids.some((k) => k.t === cur); const key = 'nv_' + t; const open = st[key] === undefined ? has : st[key];
       return { t, ic: 'kc-ic i-' + ic, ext: '', href: '#', cls: has ? 'kc-it cur' : 'kc-it', chev: open ? 'kc-chev up' : 'kc-chev', open, ex: open ? 'true' : 'false', kids, tog: () => this.setState({ [key]: !open }) }; };
     const nav = [
-      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '6'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
-      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', '高危命令', '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
+      { label: '工作区', items: [L("安全总览", 'grid'), L("告警中心", 'bell', '7'), L("威胁调查", 'hunt'), L("主机运维", 'robot'), L("防护策略", 'policy')] },
+      { label: '功能区', items: [P("资产管理", 'layers', ['资产列表', '资产指纹', '客户端接入']), P("风险治理", 'pulse', ['漏洞管理', '基线检查', '主机加固']), P("应用运行防护", 'box', ['防护设置', ['高危命令', '敬请期待'], '反弹 Shell', '本地提权', '软件与进程管控']), L("病毒与威胁防护", 'shield'), P("文件安全防护", 'doc', ['网页防篡改', '防勒索与备份']), L("登录安全防护", 'lock'), L("网络访问防护", 'link'), P("日志与报表", 'chart', ['日志检索', '安全报告', '操作审计'])] },
       { label: '设置', items: [L("组织架构", 'users'), L("授权管理", 'doc'), L("通知设置", 'gear')] }
     ];
     const ev = (e) => { if (e && e.preventDefault) e.preventDefault(); };
