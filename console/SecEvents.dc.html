@@ -1134,12 +1134,13 @@ class Component extends DCLogic {
     const ev = (f) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (e && e.stopPropagation) e.stopPropagation(); f(e); };
     const ISO = (() => { try { return JSON.parse(localStorage.getItem('dxIso') || '{}'); } catch (x) { return {}; } })();
     const ss = st.evS || (() => { try { return JSON.parse(localStorage.getItem('dxEvS') || '{}'); } catch (x) { return {}; } })();
-    const saveS = (id, v) => { try { const c = JSON.parse(localStorage.getItem('dxEvS') || '{}'); c[id] = v; localStorage.setItem('dxEvS', JSON.stringify(c)); } catch (x) {} };
+    const saveS = (id, v) => { try { const c = JSON.parse(localStorage.getItem('dxEvS') || '{}'); c[id] = v; localStorage.setItem('dxEvS', JSON.stringify(c)); const g = JSON.parse(localStorage.getItem('dxEvIgn') || '{}'); if (v === '已忽略') { const t = new Date(), p = (k) => String(k).padStart(2, '0'); g[id] = '误报，当前账号 ' + p(t.getMonth() + 1) + '-' + p(t.getDate()) + ' ' + p(t.getHours()) + ':' + p(t.getMinutes()) + ' 忽略（已写入操作日志）'; } else delete g[id]; localStorage.setItem('dxEvIgn', JSON.stringify(g)); } catch (x) {} };
+    const IGN = (() => { try { return JSON.parse(localStorage.getItem('dxEvIgn') || '{}'); } catch (x) { return {}; } })();
     const toast = (t) => { set({ evT: t }); clearTimeout(this._evT); this._evT = setTimeout(() => this.setState({ evT: '' }), 2600); };
     if (!this._evQ) { this._evQ = 1; try { if (/\.dc\.html$/.test(location.pathname)) { const u = new URLSearchParams(location.search); const al = u.get('al'); const id = u.get('ev'); const cap = u.get('cap');
       const hit = al ? D.EV.find((x) => x.recs.some((r) => r[5] === al)) : id ? D.EV.find((x) => x.id === id) : null; const o = {};
       if (hit) { o.evD = hit.id; o.evSt = '全部'; } if (cap && D.CAP[cap]) { o.evCap = cap; o.evSt = '全部'; } if (Object.keys(o).length) setTimeout(() => this.setState(o), 0); } } catch (x) {} }
-    const R = D.EV.map((x) => Object.assign({}, x, { st: ss[x.id] || x.st, ip: D.H[x.h], caps: Array.from(new Set(x.recs.map((r) => r[1]))) }));
+    const R = D.EV.map((x) => Object.assign({}, x, { st: ss[x.id] || x.st, ign: (ss[x.id] || x.st) === '已忽略' ? (IGN[x.id] || x.ign) : x.ign, ip: D.H[x.h], caps: Array.from(new Set(x.recs.map((r) => r[1]))) }));
     const src = st.evSrc || '全部'; const sf = st.evSt || '待研判'; const q = (st.evQ || '').trim().toLowerCase(); const cap = st.evCap || '';
     const srcCaps = (n) => (D.SRC.find((g) => g[0] === n) || [n, []])[1];
     const byS = R.filter((r) => sf === '全部' || r.st === sf);

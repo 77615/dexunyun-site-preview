@@ -1199,6 +1199,7 @@ class Component extends DCLogic {
     const T = D.tabs.find((t) => t.k === tabK) || D.tabs[0];
     const bmX = cfg.mode === '自定义' ? cfg.base : cfg.mode; const vX = (f) => (Object.prototype.hasOwnProperty.call(cfg.ov || {}, f) ? cfg.ov[f] : D.P[bmX][f]);
     const dyn = (t) => EMP && t.k !== 'items' ? (t.rules ? t.rows.filter((x) => x.src === '系统') : []) : t.k === 'log' ? LOG.map((x) => ({ id: 'd' + x.id, t: x.t, ch: x.ch, who: '当前账号', st: '已生效', snap: x.snap, und: x.und })).concat(t.rows)
+      : t.k === 'out' ? (() => { const bm = cfg.mode === '自定义' ? cfg.base : cfg.mode; return t.rows.map((r) => r.id === 'o2' ? Object.assign({}, r, { act: bm === '轻量模式' ? '告警' : '阻断', sc: '跟随防护模式（' + bm + '）' }) : r.id === 'o7' ? Object.assign({}, r, { sc: bm === '重保模式' ? '全部主机（重保生效中）' : '仅重保模式（未生效）' }) : r); })()
       : t.k === 'items' ? t.rows.map((r) => Object.assign({}, r, { det: !cfg.on ? '已关闭（总开关）' : vX(r.fd) ? '开启' : '关闭', auto: r.fa ? (typeof vX(r.fa) === 'string' ? vX(r.fa) : (vX(r.fa) ? r.an : '只告警')) : '只告警（只监测）' })) : t.rows;
     const rowsOf = (t) => { let r = dyn(t).map((x) => RU[t.k + x.id] ? Object.assign({}, x, RU[t.k + x.id]) : x); if (t.rules) r = r.concat(NEW.filter((x) => x.tab === t.k).map((x) => RU[t.k + x.id] ? Object.assign({}, x, RU[t.k + x.id]) : x));
       return r.map((x) => RS[t.k + x.id] ? Object.assign({}, x, RS[t.k + x.id]) : x).filter((x) => !x.hide); };

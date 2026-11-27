@@ -200,3 +200,15 @@ s=rd(n)
 s=rep(s,"t.rows.map((r) => Object.assign({}, r, { det: !cfg.on","t.rows.map((r) => r.soon ? Object.assign({}, r, { det: '敬请期待', auto: '—' }) : Object.assign({}, r, { det: !cfg.on",name='rs')
 wr(n,s)
 print('ok3')
+
+# ---------- J. (PR #38 review) NetGuard out rows follow mode; Events ignore keeps who/when
+n='SecNetGuard.dc.html'; s=rd(n)
+s=rep(s,"      : t.k === 'items' ? t.rows.map(","      : t.k === 'out' ? (() => { const bm = cfg.mode === '自定义' ? cfg.base : cfg.mode; return t.rows.map((r) => r.id === 'o2' ? Object.assign({}, r, { act: bm === '轻量模式' ? '告警' : '阻断', sc: '跟随防护模式（' + bm + '）' }) : r.id === 'o7' ? Object.assign({}, r, { sc: bm === '重保模式' ? '全部主机（重保生效中）' : '仅重保模式（未生效）' }) : r); })()\n      : t.k === 'items' ? t.rows.map(",name='j1')
+wr(n,s)
+n='SecEvents.dc.html'; s=rd(n)
+s=rep(s,"""    const saveS = (id, v) => { try { const c = JSON.parse(localStorage.getItem('dxEvS') || '{}'); c[id] = v; localStorage.setItem('dxEvS', JSON.stringify(c)); } catch (x) {} };""",
+"""    const saveS = (id, v) => { try { const c = JSON.parse(localStorage.getItem('dxEvS') || '{}'); c[id] = v; localStorage.setItem('dxEvS', JSON.stringify(c)); const g = JSON.parse(localStorage.getItem('dxEvIgn') || '{}'); if (v === '已忽略') { const t = new Date(), p = (k) => String(k).padStart(2, '0'); g[id] = '误报，当前账号 ' + p(t.getMonth() + 1) + '-' + p(t.getDate()) + ' ' + p(t.getHours()) + ':' + p(t.getMinutes()) + ' 忽略（已写入操作日志）'; } else delete g[id]; localStorage.setItem('dxEvIgn', JSON.stringify(g)); } catch (x) {} };
+    const IGN = (() => { try { return JSON.parse(localStorage.getItem('dxEvIgn') || '{}'); } catch (x) { return {}; } })();""",name='j2')
+s=rep(s,"    const R = D.EV.map((x) => Object.assign({}, x, { st: ss[x.id] || x.st, ","    const R = D.EV.map((x) => Object.assign({}, x, { st: ss[x.id] || x.st, ign: (ss[x.id] || x.st) === '已忽略' ? (IGN[x.id] || x.ign) : x.ign, ",name='j3')
+wr(n,s)
+print('ok4')
