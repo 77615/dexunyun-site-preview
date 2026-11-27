@@ -1270,9 +1270,10 @@
 /* align176 */
 .kc .kc-main.kc-main .kc-card.cp-card > .kc-tw,.kc .kc-main.kc-main .kc-card.bl-card > .kc-tw{margin-left:0!important;margin-right:0!important}
 /* hg 画布：攻击链 / 进程树（参考 Agent Orchestration：点阵画布、固定尺寸卡片、细蓝连线 + 空心起点、攻击路径流动、拖拽缩放适配、底部面板） */
-.hg{--hg-dh:200px;--hg-line:#7aa3ff;--hg-mu:#d4d8e0;position:relative;display:flex;flex-direction:column;margin:12px 20px 16px;height:calc(480px + var(--hg-dh));border:1px solid #e5e6eb;border-radius:8px;overflow:hidden;background:#fff}
-.hg.fold{height:calc(480px + 41px)}
+.hg{--hg-dh:200px;--hg-line:#7aa3ff;--hg-mu:#d4d8e0;position:relative;display:flex;flex-direction:column;margin:12px 20px 16px;height:780px;border:1px solid #e5e6eb;border-radius:8px;overflow:hidden;background:#fff}
+.hg.fold{height:780px}
 .hg-mid{position:relative;display:flex;flex:1;min-height:0}
+.hg[data-rs]{user-select:none}
 .hg-vp{position:relative;flex:1;min-width:0;overflow:hidden;cursor:grab;touch-action:none;user-select:none;background-color:#f7f8fa;background-image:radial-gradient(circle at 1px 1px,#d5d9e0 .8px,transparent 1.1px);background-size:20px 20px}
 .hg-vp[data-pan],.hg-vp[data-pan] .hg-card{cursor:grabbing}
 .hg-world{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0}
@@ -3423,7 +3424,7 @@ class Component extends DCLogic {
       ls.tlS = inc.al.length + ' 条 · ' + inc.first + ' — ' + inc.last;
       const aSt = s0 === '待研判' ? '待研判' : s0 === '已关闭 · 误报' ? '已忽略' : '已确认';
       const nm = (id) => { const d = ND(id); return d[0] === 'proc' ? d[1] + ' · ' + d[2].replace('PID ', '') : d[1]; };
-      ls.alerts = inc.al.map(([aid, tm, n, stg, ak, d, nid]) => ({ tm, n, stg, ak, d, pr: nm(nid), st: aSt, sc: aSt === '待研判' ? 'hu-ast r' : 'hu-ast', dc: aSt === '待研判' ? 'hu-ld r' : 'hu-ld b', c: 'hu-tr1' + (nid === selN ? ' on' : '') + fc(aid), he: HV('a:' + aid), t: ev(() => S({ huN: nid })) }));
+      ls.alerts = inc.al.map(([aid, tm, n, stg, ak, d, nid]) => ({ tm, n, stg, ak, d, pr: nm(nid), st: aSt, sc: aSt === '待研判' ? 'hu-ast r' : 'hu-ast', dc: aSt === '待研判' ? 'hu-ld r' : 'hu-ld b', c: 'hu-tr1' + (nid === selN ? ' on' : ''), he: HV('a:' + aid), t: ev(() => S({ huN: nid })) }));
       const AIX = {
         'INC-3206': ['攻击者暴力破解 root 后登录，并执行了预先放在 /tmp 下的程序，意图植入后门。', '以 root 权限执行，若 /tmp/.x 已运行，主机上的所有数据都可能被读取。', ['g1', 'g2'],
           ['确认 /tmp/.x 是否已建立外联', '检查 root 的 crontab 和 authorized_keys', '重置 root 密码并关闭 root 远程登录']],
@@ -3467,7 +3468,7 @@ class Component extends DCLogic {
       ls.copy = ev(() => toast('已复制'));
       ls.keys = kSel.map((y) => ({ n: y[2], tm: y[1], d: y[5] })); ls.keyN = kSel.length || ''; ls.keyNone = !kSel.length;
       const all = !!st.huAll; const relL = inc.al;
-      ls.rel = (all ? relL : relL.slice(0, 3)).map((y) => ({ n: y[2], stg: y[3], st: aSt, c: 'hu-rl' + (y[6] === selN ? ' on' : '') + (aSt === '待研判' ? ' r' : '') + fc(y[0]), he: HV('a:' + y[0]), t: ev(() => S({ huN: y[6] })) }));
+      ls.rel = (all ? relL : relL.slice(0, 3)).map((y) => ({ n: y[2], stg: y[3], st: aSt, c: 'hu-rl' + (y[6] === selN ? ' on' : '') + (aSt === '待研判' ? ' r' : ''), he: HV('a:' + y[0]), t: ev(() => S({ huN: y[6] })) }));
       ls.relN = relL.length; ls.relMoreOn = relL.length > 3; ls.relAllN = all ? '收起' : '查看全部 ' + relL.length; ls.relAll = ev(() => S({ huAll: !all }));
       // plan
       const addK = (st.huAdd || {})[incId] || [];
